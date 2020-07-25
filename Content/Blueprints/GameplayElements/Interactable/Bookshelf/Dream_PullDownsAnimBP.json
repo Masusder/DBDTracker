@@ -1,0 +1,470 @@
+[
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "AnimBlueprintGeneratedClass",
+    "ExportValue": {
+      "BakedStateMachines": [
+        {
+          "MachineName": "Main",
+          "InitialState": 0,
+          "States": [
+            {
+              "StateName": "Dream_Drop",
+              "Transitions": [
+                {
+                  "CanTakeDelegateIndex": 7,
+                  "CustomResultNodeIndex": -1,
+                  "TransitionIndex": 2,
+                  "bDesiredTransitionReturnValue": true,
+                  "bAutomaticRemainingTimeRule": false,
+                  "PoseEvaluatorLinks": []
+                }
+              ],
+              "StateRootNodeIndex": 5,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "FullyBlendedNotify": -1,
+              "bIsAConduit": false,
+              "EntryRuleNodeIndex": -1,
+              "PlayerNodeIndices": [
+                6
+              ],
+              "bAlwaysResetOnEntry": false
+            },
+            {
+              "StateName": "FallOnGround",
+              "Transitions": [
+                {
+                  "CanTakeDelegateIndex": 8,
+                  "CustomResultNodeIndex": -1,
+                  "TransitionIndex": 1,
+                  "bDesiredTransitionReturnValue": true,
+                  "bAutomaticRemainingTimeRule": false,
+                  "PoseEvaluatorLinks": []
+                }
+              ],
+              "StateRootNodeIndex": 1,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "FullyBlendedNotify": -1,
+              "bIsAConduit": false,
+              "EntryRuleNodeIndex": -1,
+              "PlayerNodeIndices": [
+                2
+              ],
+              "bAlwaysResetOnEntry": false
+            },
+            {
+              "StateName": "StandIdle",
+              "Transitions": [
+                {
+                  "CanTakeDelegateIndex": 9,
+                  "CustomResultNodeIndex": -1,
+                  "TransitionIndex": 0,
+                  "bDesiredTransitionReturnValue": true,
+                  "bAutomaticRemainingTimeRule": false,
+                  "PoseEvaluatorLinks": []
+                }
+              ],
+              "StateRootNodeIndex": 3,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "FullyBlendedNotify": -1,
+              "bIsAConduit": false,
+              "EntryRuleNodeIndex": -1,
+              "PlayerNodeIndices": [
+                4
+              ],
+              "bAlwaysResetOnEntry": false
+            }
+          ],
+          "Transitions": [
+            {
+              "PreviousState": 2,
+              "NextState": 1,
+              "CrossfadeDuration": 0.0,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "InterruptNotify": -1,
+              "BlendMode": "EAlphaBlendOption::Linear",
+              "CustomCurve": 0,
+              "BlendProfile": 0,
+              "LogicType": 95,
+              "StateName": "None"
+            },
+            {
+              "PreviousState": 1,
+              "NextState": 2,
+              "CrossfadeDuration": 0.2,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "InterruptNotify": -1,
+              "BlendMode": "EAlphaBlendOption::HermiteCubic",
+              "CustomCurve": 0,
+              "BlendProfile": 0,
+              "LogicType": 95,
+              "StateName": "None"
+            },
+            {
+              "PreviousState": 0,
+              "NextState": 2,
+              "CrossfadeDuration": 0.0,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "InterruptNotify": -1,
+              "BlendMode": "EAlphaBlendOption::HermiteCubic",
+              "CustomCurve": 0,
+              "BlendProfile": 0,
+              "LogicType": 95,
+              "StateName": "None"
+            }
+          ]
+        }
+      ],
+      "TargetSkeleton": {
+        "ObjectName": "SK_Plank_01_REF_Skeleton",
+        "OuterIndex": {
+          "ObjectName": "/Game/Meshes/InteractableObjects/PullDown/Models/SK_Plank_01_REF_Skeleton",
+          "OuterIndex": 0
+        }
+      },
+      "EvaluateGraphExposedInputs": [
+        {
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "DreamPalletCalled",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::None",
+              "DestProperty": {
+                "ObjectName": "bCanEnterTransition",
+                "OuterIndex": {
+                  "ObjectName": "AnimNode_TransitionResult",
+                  "OuterIndex": {
+                    "ObjectName": "/Script/Engine",
+                    "OuterIndex": 0
+                  }
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": 4,
+              "CachedSourceStructSubProperty": 0
+            }
+          ],
+          "Function": 0,
+          "ValueHandlerNodeProperty": 21
+        },
+        {
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "IsPulledDown",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::LogicalNegateBool",
+              "DestProperty": {
+                "ObjectName": "bCanEnterTransition",
+                "OuterIndex": {
+                  "ObjectName": "AnimNode_TransitionResult",
+                  "OuterIndex": {
+                    "ObjectName": "/Script/Engine",
+                    "OuterIndex": 0
+                  }
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": {
+                "ObjectName": "IsPulledDown",
+                "OuterIndex": {
+                  "ObjectName": "PalletAnimInstance",
+                  "OuterIndex": {
+                    "ObjectName": "/Script/DeadByDaylight",
+                    "OuterIndex": 0
+                  }
+                }
+              },
+              "CachedSourceStructSubProperty": 0
+            }
+          ],
+          "Function": 0,
+          "ValueHandlerNodeProperty": 22
+        },
+        {
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "IsPulledDown",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::None",
+              "DestProperty": {
+                "ObjectName": "bCanEnterTransition",
+                "OuterIndex": {
+                  "ObjectName": "AnimNode_TransitionResult",
+                  "OuterIndex": {
+                    "ObjectName": "/Script/Engine",
+                    "OuterIndex": 0
+                  }
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": {
+                "ObjectName": "IsPulledDown",
+                "OuterIndex": {
+                  "ObjectName": "PalletAnimInstance",
+                  "OuterIndex": {
+                    "ObjectName": "/Script/DeadByDaylight",
+                    "OuterIndex": 0
+                  }
+                }
+              },
+              "CachedSourceStructSubProperty": 0
+            }
+          ],
+          "Function": 0,
+          "ValueHandlerNodeProperty": 20
+        }
+      ],
+      "UberGraphFramePointerProperty": 1,
+      "UberGraphFunction": 8
+    }
+  },
+  {
+    "ExportType": "PalletAnimInstance",
+    "ExportValue": {
+      "UberGraphFrame": {},
+      "AnimGraphNode_Root_9158AF27427C3B09F3B7278D0EC09B22": {
+        "Result": {
+          "LinkID": 10
+        }
+      },
+      "AnimGraphNode_TransitionResult_2B1A4C59453C434BBF470A8649DC6773": {
+        "bCanEnterTransition": false
+      },
+      "AnimGraphNode_TransitionResult_D09EA89440C83DB52B5B8496D0F76F78": {
+        "bCanEnterTransition": false
+      },
+      "AnimGraphNode_TransitionResult_BEBA64C143EEEBAB67D74A80C448E620": {
+        "bCanEnterTransition": false
+      },
+      "AnimGraphNode_SequencePlayer_F9D7B179447BCC12B448B8BA3722AD27": {
+        "Sequence": {
+          "ObjectName": "DreamPallet_Drop",
+          "OuterIndex": {
+            "ObjectName": "/Game/Meshes/InteractableObjects/PullDown/Animations/DreamPallet_Drop",
+            "OuterIndex": 0
+          }
+        },
+        "PlayRateBasis": 1.0,
+        "PlayRate": 1.0,
+        "PlayRateScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "StartPosition": 0.0,
+        "bLoopAnimation": true,
+        "GroupIndex": -1,
+        "GroupRole": 85,
+        "bIgnoreForRelevancyTest": false,
+        "BlendWeight": 0.0,
+        "InternalTimeAccumulator": 0.0
+      },
+      "AnimGraphNode_StateResult_F3F6CD324CB661B1471E63A4EDF1243F": {
+        "Result": {
+          "LinkID": 4
+        }
+      },
+      "AnimGraphNode_SequencePlayer_DCE6F095467DF714FE0CE59BD81AF63E": {
+        "Sequence": {
+          "ObjectName": "Plank01_StandIdle",
+          "OuterIndex": {
+            "ObjectName": "/Game/Meshes/InteractableObjects/PullDown/Animations/Plank01_StandIdle",
+            "OuterIndex": 0
+          }
+        },
+        "PlayRateBasis": 1.0,
+        "PlayRate": 1.0,
+        "PlayRateScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "StartPosition": 0.0,
+        "bLoopAnimation": false,
+        "GroupIndex": -1,
+        "GroupRole": 85,
+        "bIgnoreForRelevancyTest": false,
+        "BlendWeight": 0.0,
+        "InternalTimeAccumulator": 0.0
+      },
+      "AnimGraphNode_StateResult_C7405A8A4AF38E7A875F2EB9824D742D": {
+        "Result": {
+          "LinkID": 6
+        }
+      },
+      "AnimGraphNode_SequencePlayer_27DD298444729EA19E877094B7C16FAD": {
+        "Sequence": {
+          "ObjectName": "Plank01_FallOnGround",
+          "OuterIndex": {
+            "ObjectName": "/Game/Meshes/InteractableObjects/PullDown/Animations/Plank01_FallOnGround",
+            "OuterIndex": 0
+          }
+        },
+        "PlayRateBasis": 1.0,
+        "PlayRate": 1.0,
+        "PlayRateScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "StartPosition": 0.0,
+        "bLoopAnimation": false,
+        "GroupIndex": -1,
+        "GroupRole": 85,
+        "bIgnoreForRelevancyTest": false,
+        "BlendWeight": 0.0,
+        "InternalTimeAccumulator": 0.0
+      },
+      "AnimGraphNode_StateResult_358B5D494BC951ED2F227DA997BDACF0": {
+        "Result": {
+          "LinkID": 8
+        }
+      },
+      "AnimGraphNode_StateMachine_5FDA239E428D2E078ACD87A16C0E9A30": {
+        "StateMachineIndexInClass": 0,
+        "MaxTransitionsPerFrame": 3,
+        "bSkipFirstUpdateTransition": true,
+        "bReinitializeOnBecomingRelevant": true
+      }
+    }
+  },
+  {
+    "ExportType": "BoolProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "IntProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "MulticastDelegateProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  }
+]
