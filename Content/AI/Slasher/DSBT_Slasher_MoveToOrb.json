@@ -1,0 +1,99 @@
+[
+  {
+    "ExportType": "BehaviorTree",
+    "ExportValue": {
+      "RootNode": 2,
+      "BlackboardAsset": {
+        "ObjectName": "BB_Slasher",
+        "OuterIndex": {
+          "ObjectName": "/Game/AI/Slasher/BB_Slasher",
+          "OuterIndex": 0
+        }
+      }
+    }
+  },
+  {
+    "ExportType": "BTComposite_Sequence",
+    "ExportValue": {
+      "Children": [
+        {
+          "ChildComposite": 0,
+          "ChildTask": 5,
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": 0,
+          "ChildTask": 6,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        3,
+        4
+      ],
+      "NodeName": "Move To Orb",
+      "TreeAsset": 1
+    }
+  },
+  {
+    "ExportType": "BTService_GetPinLocation",
+    "ExportValue": {
+      "BBToSetKey": {
+        "SelectedKeyName": "WishedObjLocation"
+      },
+      "PinTag": {
+        "TagName": "AI.PinLocation.WishedObj"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Get Wished Object Pin Location",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTService_GetPinObject",
+    "ExportValue": {
+      "BBToSetKey": {
+        "SelectedKeyName": "WishedObj"
+      },
+      "PinTag": {
+        "TagName": "AI.PinObject.WishedObj"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Get Wished Pin Object",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTTask_ExtMoveTo",
+    "ExportValue": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "WishedObjLocation"
+      },
+      "StrafeFocus": "EExtMoveToStrafeFocusOptions::NearFocus",
+      "AcceptableRadius": 100.0,
+      "bReachTestIncludesAgentRadius": false,
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "WishedObjLocation"
+      },
+      "NodeName": "Move To Wished Object Location",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTTask_SetFocusCooldown",
+    "ExportValue": {
+      "BBOnObject": {
+        "SelectedKeyName": "WishedObj"
+      },
+      "Duration": 30.0,
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  }
+]

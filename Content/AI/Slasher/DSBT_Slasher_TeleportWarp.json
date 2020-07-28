@@ -1,0 +1,112 @@
+[
+  {
+    "ExportType": "BehaviorTree",
+    "ExportValue": {
+      "RootNode": 2,
+      "BlackboardAsset": {
+        "ObjectName": "BB_Slasher",
+        "OuterIndex": {
+          "ObjectName": "/Game/AI/Slasher/BB_Slasher",
+          "OuterIndex": 0
+        }
+      }
+    }
+  },
+  {
+    "ExportType": "BTComposite_Sequence",
+    "ExportValue": {
+      "Children": [
+        {
+          "ChildComposite": 0,
+          "ChildTask": 5,
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": 0,
+          "ChildTask": 6,
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": 0,
+          "ChildTask": 7,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        3,
+        4
+      ],
+      "TreeAsset": 1
+    }
+  },
+  {
+    "ExportType": "BTService_GetPinLocation",
+    "ExportValue": {
+      "BBToSetKey": {
+        "SelectedKeyName": "StartWarpLocation"
+      },
+      "PinTag": {
+        "TagName": "AI.PinLocation.WarpStart"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Get Start Warp Pin Location",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTService_GetPinLocation",
+    "ExportValue": {
+      "BBToSetKey": {
+        "SelectedKeyName": "EndWarpLocation"
+      },
+      "PinTag": {
+        "TagName": "AI.PinLocation.WarpEnd"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Get End Warp Pin Location",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTTask_ExtMoveTo",
+    "ExportValue": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "EndWarpLocation"
+      },
+      "StrafeFocus": "EExtMoveToStrafeFocusOptions::NearGoal",
+      "AcceptableRadius": 10.0,
+      "bReachTestIncludesAgentRadius": false,
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "StartWarpLocation"
+      },
+      "NodeName": "Move To Start Warp Location",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTTask_RotateToFaceBBEntry",
+    "ExportValue": {
+      "Precision": 1.0,
+      "BlackboardKey": {
+        "SelectedKeyName": "EndWarpLocation"
+      },
+      "NodeName": "Face End Warp Location",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTTask_Wait",
+    "ExportValue": {
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  }
+]
