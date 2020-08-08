@@ -1,0 +1,427 @@
+[
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "AnimBlueprintGeneratedClass",
+    "ExportValue": {
+      "BakedStateMachines": [
+        {
+          "MachineName": "Base_State",
+          "InitialState": 0,
+          "States": [
+            {
+              "StateName": "Idle",
+              "Transitions": [
+                {
+                  "CanTakeDelegateIndex": 7,
+                  "CustomResultNodeIndex": -1,
+                  "TransitionIndex": 0,
+                  "bDesiredTransitionReturnValue": true,
+                  "bAutomaticRemainingTimeRule": false,
+                  "PoseEvaluatorLinks": []
+                }
+              ],
+              "StateRootNodeIndex": 1,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "FullyBlendedNotify": -1,
+              "bIsAConduit": false,
+              "EntryRuleNodeIndex": -1,
+              "PlayerNodeIndices": [
+                2
+              ],
+              "bAlwaysResetOnEntry": false
+            },
+            {
+              "StateName": "Active",
+              "Transitions": [],
+              "StateRootNodeIndex": 3,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "FullyBlendedNotify": -1,
+              "bIsAConduit": false,
+              "EntryRuleNodeIndex": -1,
+              "PlayerNodeIndices": [
+                4,
+                6
+              ],
+              "bAlwaysResetOnEntry": false
+            }
+          ],
+          "Transitions": [
+            {
+              "PreviousState": 0,
+              "NextState": 1,
+              "CrossfadeDuration": 0.2,
+              "StartNotify": -1,
+              "EndNotify": -1,
+              "InterruptNotify": -1,
+              "BlendMode": "EAlphaBlendOption::HermiteCubic",
+              "CustomCurve": 0,
+              "BlendProfile": 0,
+              "LogicType": 141,
+              "StateName": "None"
+            }
+          ]
+        }
+      ],
+      "TargetSkeleton": {
+        "ObjectName": "SK_SlushMachine01_REF_Skeleton",
+        "OuterIndex": {
+          "ObjectName": "/Game/Textures/Props/SpecialEvents/SkeletonMesh/SK_SlushMachine01_REF_Skeleton",
+          "OuterIndex": 0
+        }
+      },
+      "EvaluateGraphExposedInputs": [
+        {
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "IsNozzle",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::None",
+              "DestProperty": {
+                "ObjectName": "bActiveValue",
+                "OuterIndex": {
+                  "ObjectName": "AnimNode_BlendListByBool",
+                  "OuterIndex": {
+                    "ObjectName": "/Script/AnimGraphRuntime",
+                    "OuterIndex": 0
+                  }
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": 21,
+              "CachedSourceStructSubProperty": 0
+            }
+          ],
+          "Function": 0,
+          "ValueHandlerNodeProperty": 28
+        },
+        {
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "IsActivated",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::None",
+              "DestProperty": {
+                "ObjectName": "bCanEnterTransition",
+                "OuterIndex": {
+                  "ObjectName": "AnimNode_TransitionResult",
+                  "OuterIndex": {
+                    "ObjectName": "/Script/Engine",
+                    "OuterIndex": 0
+                  }
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": 20,
+              "CachedSourceStructSubProperty": 0
+            }
+          ],
+          "Function": 0,
+          "ValueHandlerNodeProperty": 35
+        }
+      ],
+      "UberGraphFramePointerProperty": 1,
+      "UberGraphFunction": 6
+    }
+  },
+  {
+    "ExportType": "AnimInstance",
+    "ExportValue": {
+      "UberGraphFrame": {},
+      "AnimGraphNode_Root_721B4C7D4B36837146C92490722FB8B7": {
+        "Result": {
+          "LinkID": 8
+        }
+      },
+      "AnimGraphNode_TransitionResult_D8BEB8E744C6E08F4D84C5BAFAA9056C": {
+        "bCanEnterTransition": false
+      },
+      "AnimGraphNode_SequencePlayer_87825BEB4DEE6A3CDAEF05A22E7A4C34": {
+        "Sequence": {
+          "ObjectName": "SK_SlushMachine01_Spin",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/Props/SpecialEvents/Animation/SK_SlushMachine01_Spin",
+            "OuterIndex": 0
+          }
+        },
+        "PlayRateBasis": 1.0,
+        "PlayRate": 1.0,
+        "PlayRateScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "StartPosition": 0.0,
+        "bLoopAnimation": true,
+        "GroupIndex": -1,
+        "GroupRole": 130,
+        "bIgnoreForRelevancyTest": false,
+        "BlendWeight": 0.0,
+        "InternalTimeAccumulator": 0.0
+      },
+      "AnimGraphNode_BlendListByBool_DBA137F5449BCDD43A71B792ACE7D927": {
+        "bActiveValue": false,
+        "BlendPose": [
+          {
+            "LinkID": 2
+          },
+          {
+            "LinkID": 4
+          }
+        ],
+        "BlendTime": [
+          0.0,
+          0.0
+        ],
+        "BlendType": "EAlphaBlendOption::Linear",
+        "bResetChildOnActivation": false,
+        "CustomBlendCurve": 0,
+        "BlendProfile": 0
+      },
+      "AnimGraphNode_SequencePlayer_8975D62241ACC7653001409D81F21902": {
+        "Sequence": {
+          "ObjectName": "SK_SlushMachine01_Nozzle",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/Props/SpecialEvents/Animation/SK_SlushMachine01_Nozzle",
+            "OuterIndex": 0
+          }
+        },
+        "PlayRateBasis": 1.0,
+        "PlayRate": 1.0,
+        "PlayRateScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "StartPosition": 0.0,
+        "bLoopAnimation": true,
+        "GroupIndex": -1,
+        "GroupRole": 130,
+        "bIgnoreForRelevancyTest": false,
+        "BlendWeight": 0.0,
+        "InternalTimeAccumulator": 0.0
+      },
+      "AnimGraphNode_StateResult_FC7A695D4796DB8282B8F78ED8233711": {
+        "Result": {
+          "LinkID": 3
+        }
+      },
+      "AnimGraphNode_SequencePlayer_D2D3B57044EABA35DEDDD69D186A9EF0": {
+        "Sequence": {
+          "ObjectName": "SK_SlushMachine01_Idle",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/Props/SpecialEvents/Animation/SK_SlushMachine01_Idle",
+            "OuterIndex": 0
+          }
+        },
+        "PlayRateBasis": 1.0,
+        "PlayRate": 1.0,
+        "PlayRateScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "StartPosition": 0.0,
+        "bLoopAnimation": true,
+        "GroupIndex": -1,
+        "GroupRole": 130,
+        "bIgnoreForRelevancyTest": false,
+        "BlendWeight": 0.0,
+        "InternalTimeAccumulator": 0.0
+      },
+      "AnimGraphNode_StateResult_279D76AC4C5C5F419509BA9F5D40CAC5": {
+        "Result": {
+          "LinkID": 6
+        }
+      },
+      "AnimGraphNode_StateMachine_F9902CD5457DE9A11047BDB84D382A24": {
+        "StateMachineIndexInClass": 0,
+        "MaxTransitionsPerFrame": 3,
+        "bSkipFirstUpdateTransition": true,
+        "bReinitializeOnBecomingRelevant": true
+      }
+    }
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "IntProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "ArrayProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "FloatProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "ObjectProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "BoolProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "ObjectProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "BoolProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "BoolProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "BoolProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "BoolProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "BoolProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "DelegateProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "FloatProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "IntProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "ObjectProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "ObjectProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "ObjectProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "StructProperty",
+    "ExportValue": {}
+  }
+]
