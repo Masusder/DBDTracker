@@ -1,0 +1,140 @@
+[
+  {
+    "ExportType": "BehaviorTree",
+    "ExportValue": {
+      "RootNode": 2,
+      "BlackboardAsset": {
+        "ObjectName": "BB_Camper",
+        "OuterIndex": {
+          "ObjectName": "/Game/AI/Camper/BB_Camper",
+          "OuterIndex": 0
+        }
+      }
+    }
+  },
+  {
+    "ExportType": "BTComposite_Selector",
+    "ExportValue": {
+      "Children": [
+        {
+          "ChildComposite": 0,
+          "ChildTask": 8,
+          "Decorators": [
+            4
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": 3,
+          "ChildTask": 0,
+          "Decorators": [
+            5
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        6
+      ],
+      "NodeName": "Search And Move To Hide Location",
+      "TreeAsset": 1
+    }
+  },
+  {
+    "ExportType": "BTComposite_Sequence",
+    "ExportValue": {
+      "Children": [
+        {
+          "ChildComposite": 0,
+          "ChildTask": 7,
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": 0,
+          "ChildTask": 9,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "NodeName": "Wait Crouched",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTDecorator_Blackboard",
+    "ExportValue": {
+      "CachedDescription": "ToLocation is Is Set",
+      "BlackboardKey": {
+        "SelectedKeyName": "ToLocation"
+      },
+      "FlowAbortMode": 49,
+      "NodeName": "If Has Hide Location",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTDecorator_Loop",
+    "ExportValue": {
+      "bInfiniteLoop": true,
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTService_AroundEQS",
+    "ExportValue": {
+      "BBAroundObj": {},
+      "BBAroundLocation": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "EQSRequest": {
+        "QueryTemplate": {
+          "ObjectName": "EQS_StealthFromTerror",
+          "OuterIndex": {
+            "ObjectName": "/Game/AI/Camper/EQS_StealthFromTerror",
+            "OuterIndex": 0
+          }
+        }
+      },
+      "BlackboardKey": {
+        "SelectedKeyName": "ToLocation"
+      },
+      "NodeName": "Find Stealth Location Around Goal By EQS",
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTTask_SetMovementMode",
+    "ExportValue": {
+      "MovementMode": "ECharacterMovementTypes::Crouch",
+      "TreeAsset": 1,
+      "ParentNode": 3
+    }
+  },
+  {
+    "ExportType": "BTTask_StealthMoveTo",
+    "ExportValue": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "HostileStimulusOriginLocation"
+      },
+      "BBIgnoreGroupAvoidance": {},
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "ToLocation"
+      },
+      "TreeAsset": 1,
+      "ParentNode": 2
+    }
+  },
+  {
+    "ExportType": "BTTask_Wait",
+    "ExportValue": {
+      "TreeAsset": 1,
+      "ParentNode": 3
+    }
+  }
+]
