@@ -10,9 +10,9 @@
         }
       },
       "Parent": {
-        "ObjectName": "M_StructuresBurned",
+        "ObjectName": "M_Structures",
         "OuterIndex": {
-          "ObjectName": "/Game/Materials/Masters/M_StructuresBurned",
+          "ObjectName": "/Game/Materials/Masters/M_Structures",
           "OuterIndex": 0
         }
       },
@@ -20,17 +20,8 @@
       "ScalarParameterValues": [
         {
           "ParameterInfo": {
-            "Name": "contrast",
-            "Association": 41,
-            "Index": -1
-          },
-          "ParameterValue": 0.5,
-          "ExpressionGUID": "188EDEE54BABA2C82687D48027620EDB"
-        },
-        {
-          "ParameterInfo": {
-            "Name": "pixelfade",
-            "Association": 41,
+            "Name": "CAOBlendDistance",
+            "Association": 46,
             "Index": -1
           },
           "ParameterValue": 106306.65,
@@ -38,17 +29,17 @@
         },
         {
           "ParameterInfo": {
-            "Name": "Tile amount",
-            "Association": 41,
+            "Name": "CAOBlendContrast",
+            "Association": 46,
             "Index": -1
           },
-          "ParameterValue": 0.84301,
-          "ExpressionGUID": "B717837E48173D4084041E97B0076E2D"
+          "ParameterValue": 0.5,
+          "ExpressionGUID": "188EDEE54BABA2C82687D48027620EDB"
         },
         {
           "ParameterInfo": {
             "Name": "RefractionDepthBias",
-            "Association": 41,
+            "Association": 46,
             "Index": -1
           },
           "ParameterValue": 0.0,
@@ -58,23 +49,8 @@
       "TextureParameterValues": [
         {
           "ParameterInfo": {
-            "Name": "Base AO Texture",
-            "Association": 41,
-            "Index": -1
-          },
-          "ParameterValue": {
-            "ObjectName": "T_Asylum_interior01_CAO",
-            "OuterIndex": {
-              "ObjectName": "/Game/Textures/Environment/Asylum/T_Asylum_interior01_CAO",
-              "OuterIndex": 0
-            }
-          },
-          "ExpressionGUID": "111DEA8640E41E75334C82A04952BE53"
-        },
-        {
-          "ParameterInfo": {
-            "Name": "Base Color Texture",
-            "Association": 41,
+            "Name": "BaseColorTexture",
+            "Association": 46,
             "Index": -1
           },
           "ParameterValue": {
@@ -88,8 +64,8 @@
         },
         {
           "ParameterInfo": {
-            "Name": "NormalMap Texture",
-            "Association": 41,
+            "Name": "NormalTexture",
+            "Association": 46,
             "Index": -1
           },
           "ParameterValue": {
@@ -100,6 +76,21 @@
             }
           },
           "ExpressionGUID": "FA312E0C4A8AFAA107647E87C7966128"
+        },
+        {
+          "ParameterInfo": {
+            "Name": "CAOBlendTexture",
+            "Association": 46,
+            "Index": -1
+          },
+          "ParameterValue": {
+            "ObjectName": "T_Asylum_interior01_CAO",
+            "OuterIndex": {
+              "ObjectName": "/Game/Textures/Environment/Asylum/T_Asylum_interior01_CAO",
+              "OuterIndex": 0
+            }
+          },
+          "ExpressionGUID": "111DEA8640E41E75334C82A04952BE53"
         }
       ],
       "BasePropertyOverrides": {
@@ -108,50 +99,10 @@
       "StaticParameters": {
         "StaticSwitchParameters": [
           {
-            "Value": false,
-            "ParameterInfo": {
-              "Name": "DoClipOutlines",
-              "Association": 41,
-              "Index": -1
-            },
-            "bOverride": true,
-            "ExpressionGUID": "5A40FCBF47F95EE19537E1AF2A33B060"
-          },
-          {
-            "Value": false,
-            "ParameterInfo": {
-              "Name": "Blend AO Into Diffuse",
-              "Association": 41,
-              "Index": -1
-            },
-            "bOverride": true,
-            "ExpressionGUID": "10E5678B47B256CD377C7D89077BB115"
-          },
-          {
-            "Value": true,
-            "ParameterInfo": {
-              "Name": "texture tile",
-              "Association": 41,
-              "Index": -1
-            },
-            "bOverride": true,
-            "ExpressionGUID": "912403CA462B1A88F6474C8578A3AA57"
-          },
-          {
-            "Value": true,
-            "ParameterInfo": {
-              "Name": "UseAO",
-              "Association": 41,
-              "Index": -1
-            },
-            "bOverride": true,
-            "ExpressionGUID": "85B5D80948FDE36698BAFFA4F3CEA7AC"
-          },
-          {
             "Value": true,
             "ParameterInfo": {
               "Name": "UseBaseColor",
-              "Association": 41,
+              "Association": 46,
               "Index": -1
             },
             "bOverride": true,
@@ -160,8 +111,18 @@
           {
             "Value": true,
             "ParameterInfo": {
+              "Name": "UseNormal",
+              "Association": 46,
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "15EF761B4A0550A6776A9BB996B9C6FC"
+          },
+          {
+            "Value": true,
+            "ParameterInfo": {
               "Name": "UseCustomEmissiveMask",
-              "Association": 41,
+              "Association": 46,
               "Index": -1
             },
             "bOverride": true,
@@ -170,20 +131,76 @@
           {
             "Value": true,
             "ParameterInfo": {
-              "Name": "UseNormal",
-              "Association": 41,
+              "Name": "UseCAOBlend",
+              "Association": 46,
               "Index": -1
             },
             "bOverride": true,
-            "ExpressionGUID": "15EF761B4A0550A6776A9BB996B9C6FC"
+            "ExpressionGUID": "85B5D80948FDE36698BAFFA4F3CEA7AC"
+          },
+          {
+            "Value": false,
+            "ParameterInfo": {
+              "Name": "Blend AO Into Diffuse",
+              "Association": 46,
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "10E5678B47B256CD377C7D89077BB115"
+          },
+          {
+            "Value": false,
+            "ParameterInfo": {
+              "Name": "DoClipOutlines",
+              "Association": 46,
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "5A40FCBF47F95EE19537E1AF2A33B060"
           }
         ]
       },
       "CachedReferencedTextures": [
         {
-          "ObjectName": "Black_Linear",
+          "ObjectName": "T_FlatNormal_01",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Tiles/Black_Linear",
+            "ObjectName": "/Game/Effects/Textures/T_FlatNormal_01",
+            "OuterIndex": 0
+          }
+        },
+        0,
+        {
+          "ObjectName": "DefaultDiffuse",
+          "OuterIndex": {
+            "ObjectName": "/Engine/EngineMaterials/DefaultDiffuse",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "Moss_diffuse",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/Environment/Vegetations/Moss_diffuse",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "T_CrawlingMoss_Mask_01",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/Environment/Vegetations/T_CrawlingMoss_Mask_01",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "FlatNormal",
+          "OuterIndex": {
+            "ObjectName": "/Engine/EngineMaterials/FlatNormal",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "Yellow_Linear",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/Environment/Tiles/Yellow_Linear",
             "OuterIndex": 0
           }
         },
@@ -195,58 +212,30 @@
           }
         },
         {
-          "ObjectName": "T_BurnLUT",
+          "ObjectName": "T_GS_FrontSign_Flickerama",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/T_BurnLUT",
+            "ObjectName": "/Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_Noise01",
+          "ObjectName": "HeatmapGradient",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Asylum/T_Noise01",
+            "ObjectName": "/Engine/EngineDebugMaterials/HeatmapGradient",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_BurnedEmbers",
+          "ObjectName": "environment_mud_diffuse",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/T_BurnedEmbers",
+            "ObjectName": "/Game/Meshes/Environment/Tiles/Textures/environment_mud_diffuse",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_BurnedAsh",
+          "ObjectName": "environment_mud_N",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/T_BurnedAsh",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "SphereNormal",
-          "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/SphereNormal",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "T_AsylumPlasterMask",
-          "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Asylum/T_AsylumPlasterMask",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "T_Asylum_Concrete02_BC_normal",
-          "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Asylum/T_Asylum_Concrete02_BC_normal",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "Moss_diffuse",
-          "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Vegetations/Moss_diffuse",
+            "ObjectName": "/Game/Meshes/Environment/Tiles/Textures/environment_mud_N",
             "OuterIndex": 0
           }
         },
@@ -265,13 +254,6 @@
           }
         },
         {
-          "ObjectName": "T_Asylum_interior01_CAO",
-          "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Asylum/T_Asylum_interior01_CAO",
-            "OuterIndex": 0
-          }
-        },
-        {
           "ObjectName": "T_BurntFloor01",
           "OuterIndex": {
             "ObjectName": "/Game/Textures/Environment/Asylum/T_BurntFloor01",
@@ -284,13 +266,13 @@
             "ObjectName": "/Game/Textures/Environment/Asylum/T_WallGrunge01_normal",
             "OuterIndex": 0
           }
-        }
-      ],
-      "TextureStreamingData": [
+        },
         {
-          "SamplingScale": 1.0,
-          "UVChannelIndex": 0,
-          "TextureName": "T_WallGrunge01_normal"
+          "ObjectName": "T_Asylum_interior01_CAO",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/Environment/Asylum/T_Asylum_interior01_CAO",
+            "OuterIndex": 0
+          }
         }
       ]
     }
