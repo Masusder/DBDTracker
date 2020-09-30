@@ -24,7 +24,7 @@
     "ExportValue": {
       "UberGraphFrame": {},
       "Colors determined by sun position": false,
-      "Sun height": -1.0,
+      "Sun height": 0.219048,
       "Zenith Color": {
         "R": 0.005615,
         "G": 0.011927,
@@ -33,29 +33,29 @@
         "Hex": "010304"
       },
       "Horizon color": {
-        "R": 0.030594,
-        "G": 0.030845,
+        "R": 0.006302,
+        "G": 0.007442,
+        "B": 0.01,
+        "A": 1.0,
+        "Hex": "020203"
+      },
+      "Cloud color": {
+        "R": 0.042645,
+        "G": 0.060487,
+        "B": 0.083333,
+        "A": 1.0,
+        "Hex": "0B0F15"
+      },
+      "Overall Color": {
+        "R": 0.03125,
+        "G": 0.03125,
         "B": 0.03125,
         "A": 1.0,
         "Hex": "080808"
       },
-      "Cloud color": {
-        "R": 0.36,
-        "G": 0.311057,
-        "B": 0.25956,
-        "A": 1.0,
-        "Hex": "5C4F42"
-      },
-      "Overall Color": {
-        "R": 0.015505,
-        "G": 0.019019,
-        "B": 0.026042,
-        "A": 1.0,
-        "Hex": "040507"
-      },
-      "Cloud speed": 15.0,
-      "Cloud opacity": 0.7,
-      "Stars brightness": 0.180952,
+      "Cloud speed": 6.0,
+      "Cloud opacity": 1.0,
+      "Stars brightness": 0.107303,
       "Horizon color curve": {
         "ObjectName": "C_Sky_Cloud_Color",
         "OuterIndex": {
@@ -63,6 +63,7 @@
           "OuterIndex": 0
         }
       },
+      "DistanceSkyFog": 2000.0,
       "SunRadius": 0.001,
       "FadeToMistColour": {
         "R": 0.406738,
@@ -96,22 +97,25 @@
   {
     "ExportType": "DirectionalLightComponent",
     "ExportValue": {
-      "DynamicShadowDistanceMovableLight": 6000.0,
-      "DynamicShadowCascades": 4,
+      "DynamicShadowDistanceMovableLight": 10000.0,
+      "DynamicShadowCascades": 3,
+      "CascadeDistributionExponent": 2.0,
       "FarShadowCascadeCount": 1,
-      "ShadowBias": 0.265487,
-      "ShadowSharpen": 0.150442,
-      "Intensity": 15.0,
+      "LightSourceAngle": 0.0,
+      "ShadowResolutionScale": 0.65,
+      "ShadowBias": 0.18,
+      "ShadowSharpen": 0.2,
+      "Intensity": 0.2,
       "LightColor": {
-        "R": 67,
-        "G": 51,
-        "B": 44,
+        "R": 219,
+        "G": 190,
+        "B": 158,
         "A": 255,
-        "Hex": "43332C"
+        "Hex": "DBBE9E"
       },
       "bAffectTranslucentLighting": false,
-      "IndirectLightingIntensity": 2.0,
       "VolumetricScatteringIntensity": 1.0,
+      "AmbientOcclusionContribution": 0.5,
       "RelativeRotation": {
         "Pitch": -39.80806,
         "Yaw": 19.491402,
@@ -122,15 +126,27 @@
   {
     "ExportType": "ExponentialHeightFogComponent",
     "ExportValue": {
-      "FogDensity": 1.0,
-      "FogHeightFalloff": 1.0,
-      "FogInscatteringColor": {
-        "R": 0.2225,
-        "G": 0.285595,
-        "B": 0.416667,
-        "A": 1.0,
-        "Hex": "39496A"
+      "FogDensity": 0.25,
+      "FogHeightFalloff": 0.15,
+      "SecondFogData": {
+        "FogHeightFalloff": 0.001
       },
+      "FogInscatteringColor": {
+        "R": 0.005,
+        "G": 0.002311,
+        "B": 0.003279,
+        "A": 1.0,
+        "Hex": "010101"
+      },
+      "InscatteringColorCubemap": {
+        "ObjectName": "Night_HOS_AmbientCubemap",
+        "OuterIndex": {
+          "ObjectName": "/Game/Textures/Environment/Sky/Night_HOS_AmbientCubemap",
+          "OuterIndex": 0
+        }
+      },
+      "InscatteringColorCubemapAngle": 10.0,
+      "FullyDirectionalInscatteringColorDistance": 70000.0,
       "DirectionalInscatteringExponent": 42.053097,
       "DirectionalInscatteringStartDistance": 158.0127,
       "DirectionalInscatteringColor": {
@@ -140,26 +156,10 @@
         "A": 1.0,
         "Hex": "344261"
       },
-      "FogMaxOpacity": 0.530973,
-      "FogCutoffDistance": 315454.47,
+      "StartDistance": 300.0,
       "bEnableVolumetricFog": true,
-      "VolumetricFogAlbedo": {
-        "R": 120,
-        "G": 120,
-        "B": 120,
-        "A": 255,
-        "Hex": "787878"
-      },
-      "VolumetricFogEmissive": {
-        "R": 0.011068,
-        "G": 0.012089,
-        "B": 0.015625,
-        "A": 0.0,
-        "Hex": "030304"
-      },
-      "VolumetricFogExtinctionScale": 0.194286,
-      "VolumetricFogDistance": 10000.0,
-      "bOverrideLightColorsWithFogInscatteringColors": true,
+      "VolumetricFogScatteringDistribution": 0.3,
+      "VolumetricFogExtinctionScale": 0.5,
       "FogGradient": [
         {
           "Colour": {
@@ -212,7 +212,7 @@
           "GradientHeight": 200.0
         }
       ],
-      "DistanceUntilFlatFog": 88391.69
+      "DistanceUntilFlatFog": 4000.0
     }
   },
   {
@@ -428,28 +428,37 @@
       "Settings": {
         "bOverride_ColorContrast": true,
         "bOverride_ColorGainShadows": true,
-        "bOverride_ColorContrastMidtones": true,
         "bOverride_ColorCorrectionShadowsMax": true,
+        "bOverride_SceneColorTint": false,
+        "bOverride_SceneFringeIntensity": false,
+        "bOverride_BloomThreshold": true,
         "bOverride_AutoExposureMethod": true,
+        "bOverride_AutoExposureSpeedUp": true,
+        "bOverride_AutoExposureSpeedDown": true,
+        "bOverride_LPVDiffuseOcclusionExponent": true,
+        "bOverride_LPVSpecularOcclusionExponent": true,
+        "bOverride_LPVSecondaryOcclusionIntensity": false,
         "bOverride_LPVFadeRange": true,
+        "bOverride_IndirectLightingColor": false,
+        "bOverride_IndirectLightingIntensity": false,
         "bOverride_ColorGradingIntensity": true,
         "bOverride_ColorGradingLUT": true,
         "ColorContrast": {
-          "X": 1.2,
-          "Y": 1.2,
-          "Z": 1.2,
+          "X": 1.05,
+          "Y": 1.05,
+          "Z": 1.05,
           "W": 1.0
         },
         "ColorGainShadows": {
-          "X": 1.2,
-          "Y": 1.2,
-          "Z": 1.2,
+          "X": 1.1,
+          "Y": 1.1,
+          "Z": 1.1,
           "W": 1.0
         },
         "ColorContrastMidtones": {
-          "X": 1.2,
-          "Y": 1.2,
-          "Z": 1.2,
+          "X": 1.1,
+          "Y": 1.1,
+          "Z": 1.1,
           "W": 1.0
         },
         "ColorCorrectionShadowsMax": 0.2,
@@ -461,17 +470,31 @@
           "Hex": "2B3038"
         },
         "SceneColorTint": {
-          "R": 0.61,
-          "G": 0.736733,
+          "R": 1.0,
+          "G": 1.0,
           "B": 1.0,
           "A": 0.0,
-          "Hex": "9CBCFF"
+          "Hex": "FFFFFF"
         },
-        "BloomIntensity": 0.424779,
-        "AutoExposureBias": 1.8,
+        "BloomIntensity": 0.1,
+        "BloomThreshold": 1.0,
+        "AmbientCubemapIntensity": 2.0,
+        "AmbientCubemap": {
+          "ObjectName": "T_Skylight2",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/T_Skylight2",
+            "OuterIndex": 0
+          }
+        },
         "AutoExposureBiasBackup": 1.8,
-        "AmbientOcclusionIntensity": 0.2,
+        "AutoExposureSpeedUp": 2.0,
+        "AutoExposureSpeedDown": 0.5,
+        "VignetteIntensity": 0.2,
+        "GrainJitter": 0.1,
+        "GrainIntensity": 0.07,
+        "AmbientOcclusionIntensity": 0.5,
         "AmbientOcclusionStaticFraction": 0.0,
+        "AmbientOcclusionRadius": 150.0,
         "IndirectLightingColor": {
           "R": 0.11748,
           "G": 0.150794,
@@ -479,10 +502,23 @@
           "A": 1.0,
           "Hex": "1E2638"
         },
-        "IndirectLightingIntensity": 2.0,
-        "LPVSize": 3500.0,
+        "IndirectLightingIntensity": 4.0,
+        "ColorGradingIntensity": 1.0,
+        "ColorGradingLUT": {
+          "ObjectName": "T_LUT_Industrial01",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Textures/T_LUT_Industrial01",
+            "OuterIndex": 0
+          }
+        },
+        "LPVIntensity": 3.0,
+        "LPVSize": 15000.0,
+        "LPVSecondaryOcclusionIntensity": 0.704762,
+        "LPVGeometryVolumeBias": 0.171429,
+        "LPVDirectionalOcclusionIntensity": 0.904762,
         "LPVDirectionalOcclusionRadius": 1.0,
-        "LPVFadeRange": 9.0
+        "LPVDiffuseOcclusionExponent": 2.8,
+        "LPVFadeRange": 5.0
       }
     }
   },
@@ -556,7 +592,7 @@
   {
     "ExportType": "SkyLightComponent",
     "ExportValue": {
-      "SourceType": 171,
+      "SourceType": 205,
       "Cubemap": {
         "ObjectName": "Night_HOS_AmbientCubemap",
         "OuterIndex": {
@@ -564,15 +600,14 @@
           "OuterIndex": 0
         }
       },
-      "SkyDistanceThreshold": 235738.44,
-      "Intensity": 5.0,
       "LightColor": {
-        "R": 58,
-        "G": 40,
-        "B": 31,
+        "R": 72,
+        "G": 69,
+        "B": 64,
         "A": 255,
-        "Hex": "3A281F"
-      }
+        "Hex": "484540"
+      },
+      "VolumetricScatteringIntensity": 0.4
     }
   },
   {
@@ -587,9 +622,9 @@
       },
       "OverrideMaterials": [
         {
-          "ObjectName": "MI_Moon_Industrial",
+          "ObjectName": "MI_Moon_Industrial02",
           "OuterIndex": {
-            "ObjectName": "/Game/Materials/MI_Moon_Industrial",
+            "ObjectName": "/Game/Materials/MI_Moon_Industrial02",
             "OuterIndex": 0
           }
         }
@@ -597,19 +632,19 @@
       "bAffectDynamicIndirectLighting": true,
       "bAffectDistanceFieldLighting": true,
       "RelativeLocation": {
-        "X": -9589.534,
-        "Y": 2194.3281,
-        "Z": 5111.355
+        "X": -17942.492,
+        "Y": -5865.0938,
+        "Z": 22634.795
       },
       "RelativeRotation": {
-        "Pitch": 26.118696,
-        "Yaw": -175.3048,
-        "Roll": -148.27354
+        "Pitch": 56.46026,
+        "Yaw": -163.6895,
+        "Roll": -143.00397
       },
       "RelativeScale3D": {
-        "X": 8.0,
-        "Y": 8.0,
-        "Z": 8.0
+        "X": 10.0,
+        "Y": 10.0,
+        "Z": 10.0
       },
       "bCanEverAffectNavigation": false
     }
