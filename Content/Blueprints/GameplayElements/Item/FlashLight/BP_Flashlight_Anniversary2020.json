@@ -22,13 +22,16 @@
   {
     "ExportType": "BlueprintGeneratedClass",
     "ExportValue": {
-      "SimpleConstructionScript": 21,
-      "InheritableComponentHandler": 10,
+      "DynamicBindingObjects": [
+        10
+      ],
+      "SimpleConstructionScript": 23,
+      "InheritableComponentHandler": 12,
       "UberGraphFunction": 1
     }
   },
   {
-    "ExportType": "FlashLight_C",
+    "ExportType": "BP_Flashlight_C",
     "ExportValue": {
       "UberGraphFrame": {},
       "Lightcolor": {
@@ -37,18 +40,39 @@
         "Z": 0.0
       },
       "ItemID": "Item_Camper_Flashlight_Anniversary2020",
-      "BaseItemModifier": 11,
-      "ItemModifier1": 12,
-      "ItemModifier2": 13,
-      "_mesh": 22,
-      "_placementOrigin": 18,
-      "_objectState": 9,
-      "RootComponent": 22
+      "BaseItemModifier": 13,
+      "ItemModifier1": 14,
+      "ItemModifier2": 15,
+      "_mesh": 24,
+      "_placementOrigin": 20,
+      "_objectState": 11,
+      "RootComponent": 24
     }
   },
   {
     "ExportType": "ActivatorComponent",
     "ExportValue": {}
+  },
+  {
+    "ExportType": "AimableComponent",
+    "ExportValue": {
+      "_aimDirectionProvider": 28,
+      "_preOcclusionAimPointProcessors": [
+        0
+      ]
+    }
+  },
+  {
+    "ExportType": "ComponentDelegateBinding",
+    "ExportValue": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "FlashlightFXComponent",
+          "DelegatePropertyName": "OnFlashEvent",
+          "FunctionNameToBind": "BndEvt__FlashlightFXComponent_K2Node_ComponentBoundEvent_1_OnFlashEvent__DelegateSignature"
+        }
+      ]
+    }
   },
   {
     "ExportType": "GameplayTagContainerComponent",
@@ -60,23 +84,48 @@
       "Records": [
         {
           "ComponentClass": {
-            "ObjectName": "SpotLightComponent",
+            "ObjectName": "NiagaraComponent",
+            "OuterIndex": {
+              "ObjectName": "/Script/Niagara",
+              "OuterIndex": 0
+            }
+          },
+          "ComponentTemplate": 16,
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BP_Flashlight_C",
+              "OuterIndex": {
+                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight",
+                "OuterIndex": 0
+              }
+            },
+            "SCSVariableName": "NS_FlashligthBeam",
+            "AssociatedGuid": "E77148064B9637C30D2FB489E9BFD3FE"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "SplineMeshComponent",
             "OuterIndex": {
               "ObjectName": "/Script/Engine",
               "OuterIndex": 0
             }
           },
-          "ComponentTemplate": 23,
+          "ComponentTemplate": 25,
           "ComponentKey": {
             "OwnerClass": {
-              "ObjectName": "FlashLight_C",
+              "ObjectName": "BP_Flashlight_C",
               "OuterIndex": {
-                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/FlashLight",
+                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight",
                 "OuterIndex": 0
               }
             },
-            "SCSVariableName": "SpotLight",
-            "AssociatedGuid": "061D643847ADCF3C7105BDA50FD7B1A8"
+            "SCSVariableName": "BeamSplineMesh",
+            "AssociatedGuid": "AE541D1F45F8C08E0BCC94BC55C2E56D"
           },
           "CookedComponentInstancingData": {
             "ChangedPropertyList": [],
@@ -91,12 +140,12 @@
               "OuterIndex": 0
             }
           },
-          "ComponentTemplate": 15,
+          "ComponentTemplate": 17,
           "ComponentKey": {
             "OwnerClass": {
-              "ObjectName": "FlashLight_C",
+              "ObjectName": "BP_Flashlight_C",
               "OuterIndex": {
-                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/FlashLight",
+                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight",
                 "OuterIndex": 0
               }
             },
@@ -110,18 +159,43 @@
         },
         {
           "ComponentClass": {
+            "ObjectName": "SpotLightComponent",
+            "OuterIndex": {
+              "ObjectName": "/Script/Engine",
+              "OuterIndex": 0
+            }
+          },
+          "ComponentTemplate": 26,
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BP_Flashlight_C",
+              "OuterIndex": {
+                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight",
+                "OuterIndex": 0
+              }
+            },
+            "SCSVariableName": "SpotLight",
+            "AssociatedGuid": "061D643847ADCF3C7105BDA50FD7B1A8"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
             "ObjectName": "StaticMeshComponent",
             "OuterIndex": {
               "ObjectName": "/Script/Engine",
               "OuterIndex": 0
             }
           },
-          "ComponentTemplate": 25,
+          "ComponentTemplate": 27,
           "ComponentKey": {
             "OwnerClass": {
-              "ObjectName": "FlashLight_C",
+              "ObjectName": "BP_Flashlight_C",
               "OuterIndex": {
-                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/FlashLight",
+                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight",
                 "OuterIndex": 0
               }
             },
@@ -135,48 +209,23 @@
         },
         {
           "ComponentClass": {
-            "ObjectName": "StaticMeshComponent",
+            "ObjectName": "AimableComponent",
             "OuterIndex": {
-              "ObjectName": "/Script/Engine",
+              "ObjectName": "/Script/DBDGameplay",
               "OuterIndex": 0
             }
           },
-          "ComponentTemplate": 24,
+          "ComponentTemplate": 9,
           "ComponentKey": {
             "OwnerClass": {
-              "ObjectName": "FlashLight_C",
+              "ObjectName": "BP_Flashlight_C",
               "OuterIndex": {
-                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/FlashLight",
+                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight",
                 "OuterIndex": 0
               }
             },
-            "SCSVariableName": "SM_Flashlight_Cone",
-            "AssociatedGuid": "F2BB214A4F106EAC99FAADACBC4538C2"
-          },
-          "CookedComponentInstancingData": {
-            "ChangedPropertyList": [],
-            "bHasValidCookedData": false
-          }
-        },
-        {
-          "ComponentClass": {
-            "ObjectName": "MaterialHelper",
-            "OuterIndex": {
-              "ObjectName": "/Script/GFXUtilities",
-              "OuterIndex": 0
-            }
-          },
-          "ComponentTemplate": 14,
-          "ComponentKey": {
-            "OwnerClass": {
-              "ObjectName": "FlashLight_C",
-              "OuterIndex": {
-                "ObjectName": "/Game/Blueprints/GameplayElements/Item/Common/FlashLight",
-                "OuterIndex": 0
-              }
-            },
-            "SCSVariableName": "MaterialHelper_Flashlight",
-            "AssociatedGuid": "63FA35544C228C94BFC4F4BC35AC41E5"
+            "SCSVariableName": "Aimable",
+            "AssociatedGuid": "DB26C5B347F8514FA7DFE39308C20CCB"
           },
           "CookedComponentInstancingData": {
             "ChangedPropertyList": [],
@@ -216,27 +265,25 @@
     "ExportValue": {}
   },
   {
-    "ExportType": "MaterialHelper",
+    "ExportType": "NiagaraComponent",
     "ExportValue": {
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 0.0
+      "Asset": {
+        "ObjectName": "NS_Flashlight_Beam_SmokeDust_2020Anniversary",
+        "OuterIndex": {
+          "ObjectName": "/Game/Effects/Niagara/NiagaraParticleSystem/Items/Flashlight/NS_Flashlight_Beam_SmokeDust_2020Anniversary",
+          "OuterIndex": 0
+        }
       },
-      "RelativeRotation": {
-        "Pitch": 0.0,
-        "Yaw": 0.0,
-        "Roll": 0.0
-      }
+      "OverrideParameters": {}
     }
   },
   {
     "ExportType": "ParticleSystemComponent",
     "ExportValue": {
       "Template": {
-        "ObjectName": "Fx_Anniversary2020_FlashlightMuzzle",
+        "ObjectName": "Fx_FlashlightMuzzle_2020Anniversary",
         "OuterIndex": {
-          "ObjectName": "/Game/Effects/ParticleSystems/Fx_Anniversary2020_FlashlightMuzzle",
+          "ObjectName": "/Game/Effects/ParticleSystems/Fx_FlashlightMuzzle_2020Anniversary",
           "OuterIndex": 0
         }
       }
@@ -252,7 +299,7 @@
           "OuterIndex": 0
         }
       },
-      "DetailLevelBeforeCastShadows": 88,
+      "DetailLevelBeforeCastShadows": 112,
       "RelativeLocation": {
         "X": 0.0,
         "Y": 30.0,
@@ -265,7 +312,8 @@
       },
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
-      }
+      },
+      "bAutoActivate": false
     }
   },
   {
@@ -275,7 +323,7 @@
   {
     "ExportType": "SceneComponent",
     "ExportValue": {
-      "AttachParent": 22
+      "AttachParent": 24
     }
   },
   {
@@ -288,7 +336,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 17,
+      "ComponentTemplate": 19,
       "VariableGuid": "2D21592440C7EBFA7B7693BDBB391C2E",
       "InternalVariableName": "DefaultSceneRoot"
     }
@@ -303,7 +351,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 16,
+      "ComponentTemplate": 18,
       "ParentComponentOrVariableName": "ItemMesh",
       "bIsParentComponentNative": true,
       "VariableGuid": "8D6CA80C4D3DDAB22AA84EB987A400A6",
@@ -314,12 +362,12 @@
     "ExportType": "SimpleConstructionScript",
     "ExportValue": {
       "RootNodes": [
-        20
+        22
       ],
       "AllNodes": [
-        20
+        22
       ],
-      "DefaultSceneRootNode": 19
+      "DefaultSceneRootNode": 21
     }
   },
   {
@@ -344,6 +392,20 @@
     }
   },
   {
+    "ExportType": "SplineMeshComponent",
+    "ExportValue": {
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MI_FlashLightBeam_2020Anniversary_Beam",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Materials/MI_FlashLightBeam_2020Anniversary_Beam",
+            "OuterIndex": 0
+          }
+        }
+      ]
+    }
+  },
+  {
     "ExportType": "SpotLightComponent",
     "ExportValue": {
       "LightFunctionMaterial": {
@@ -357,7 +419,7 @@
         "R": 0,
         "G": 151,
         "B": 236,
-        "A": 255,
+        "A": 0,
         "Hex": "0097EC"
       }
     }
@@ -367,9 +429,9 @@
     "ExportValue": {
       "OverrideMaterials": [
         {
-          "ObjectName": "MI_Anniversary2020_FlashLight_Beam",
+          "ObjectName": "MI_FlashLightBeam_2020Anniversary_Center",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Materials/MI_Anniversary2020_FlashLight_Beam",
+            "ObjectName": "/Game/Effects/Materials/MI_FlashLightBeam_2020Anniversary_Center",
             "OuterIndex": 0
           }
         }
@@ -377,17 +439,7 @@
     }
   },
   {
-    "ExportType": "StaticMeshComponent",
-    "ExportValue": {
-      "OverrideMaterials": [
-        {
-          "ObjectName": "MI_Anniversary2020_FlashlightCenter",
-          "OuterIndex": {
-            "ObjectName": "/Game/Effects/Materials/MI_Anniversary2020_FlashlightCenter",
-            "OuterIndex": 0
-          }
-        }
-      ]
-    }
+    "ExportType": "SurvivorAimStanceCameraDirectionProvider",
+    "ExportValue": {}
   }
 ]
