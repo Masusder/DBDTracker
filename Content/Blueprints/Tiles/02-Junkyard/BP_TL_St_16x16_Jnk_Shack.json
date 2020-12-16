@@ -354,6 +354,7 @@
           "Weight": 1.0
         }
       ],
+      "Weight": -1.0,
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
@@ -558,7 +559,7 @@
       "DetailLevelBeforeCastShadows": 95,
       "BodyInstance": {
         "ObjectType": 99,
-        "CollisionProfileName": "Custom",
+        "CollisionProfileName": "PawnDetector",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -575,11 +576,11 @@
             },
             {
               "Channel": "Visibility",
-              "Response": 112
+              "Response": 111
             },
             {
               "Channel": "Camera",
-              "Response": 112
+              "Response": 111
             },
             {
               "Channel": "PhysicsBody",
@@ -594,15 +595,23 @@
               "Response": 111
             },
             {
-              "Channel": "InteractionDetector",
+              "Channel": "EngineTraceChannel2",
               "Response": 111
             },
             {
-              "Channel": "BlinkBlocker",
+              "Channel": "EngineTraceChannel3",
               "Response": 111
             },
             {
-              "Channel": "Ground",
+              "Channel": "EngineTraceChannel4",
+              "Response": 111
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": 111
+            },
+            {
+              "Channel": "EngineTraceChannel6",
               "Response": 111
             },
             {
@@ -618,8 +627,28 @@
               "Response": 111
             },
             {
+              "Channel": "Spider",
+              "Response": 111
+            },
+            {
+              "Channel": "Traps",
+              "Response": 111
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": 111
+            },
+            {
               "Channel": "PawnDetector",
               "Response": 112
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": 111
+            },
+            {
+              "Channel": "Ground",
+              "Response": 111
             }
           ]
         }
@@ -2207,6 +2236,7 @@
     "ExportType": "PostProcessComponent",
     "ExportValue": {
       "Settings": {
+        "bOverride_ColorGammaShadows": true,
         "bOverride_FilmWhitePoint": true,
         "bOverride_SceneColorTint": true,
         "bOverride_SceneFringeIntensity": true,
@@ -2214,7 +2244,6 @@
         "bOverride_BloomSizeScale": true,
         "bOverride_AutoExposureMinBrightness": true,
         "bOverride_AutoExposureMaxBrightness": true,
-        "bOverride_AutoExposureBias": true,
         "bOverride_LensFlareIntensity": true,
         "bOverride_LensFlareTint": true,
         "bOverride_LensFlareBokehSize": true,
@@ -2251,6 +2280,12 @@
         "bOverride_DepthOfFieldFarBlurSize": true,
         "bOverride_MotionBlurAmount": true,
         "bOverride_MotionBlurMax": true,
+        "ColorGammaShadows": {
+          "X": 1.15,
+          "Y": 1.15,
+          "Z": 1.15,
+          "W": 1.0
+        },
         "FilmWhitePoint": {
           "R": 0.535161,
           "G": 0.54,
@@ -2266,7 +2301,7 @@
           "Hex": "989898"
         },
         "SceneFringeIntensity": 0.85,
-        "BloomIntensity": 0.2,
+        "BloomIntensity": 0.1,
         "BloomThreshold": 0.0,
         "BloomSizeScale": 64.0,
         "Bloom1Size": 0.0,
@@ -2277,7 +2312,6 @@
           "A": 1.0,
           "Hex": "2C3833"
         },
-        "AutoExposureBias": 4.0,
         "AutoExposureBiasBackup": 1.5,
         "bOverride_AutoExposureBiasBackup": true,
         "AutoExposureMinBrightness": 0.1,
@@ -2314,6 +2348,7 @@
         "LPVSecondaryBounceIntensity": 1.0,
         "LPVGeometryVolumeBias": 0.725664
       },
+      "Priority": 2.0,
       "bUnbound": false,
       "RelativeLocation": {
         "X": -122.075,
