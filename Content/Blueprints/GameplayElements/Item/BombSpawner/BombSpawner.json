@@ -72,13 +72,21 @@
     "ExportValue": {}
   },
   {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
     "ExportType": "BlueprintGeneratedClass",
     "ExportValue": {
       "Timelines": [
-        55
+        68
       ],
-      "SimpleConstructionScript": 53,
-      "InheritableComponentHandler": 35,
+      "SimpleConstructionScript": 64,
+      "InheritableComponentHandler": 40,
       "UberGraphFunction": 1
     }
   },
@@ -96,13 +104,13 @@
       "VisibleWhenEquipped": false,
       "HandPosition": "EItemHandPosition::HandleItem",
       "ItemID": "Item_Slasher_GasBomb",
-      "BaseItemModifier": 36,
-      "ItemModifier1": 37,
-      "ItemModifier2": 38,
-      "_mesh": 54,
-      "_placementOrigin": 41,
-      "_objectState": 34,
-      "RootComponent": 54
+      "BaseItemModifier": 41,
+      "ItemModifier1": 42,
+      "ItemModifier2": 43,
+      "_mesh": 65,
+      "_placementOrigin": 47,
+      "_objectState": 38,
+      "RootComponent": 65
     }
   },
   {
@@ -118,6 +126,19 @@
         "Y": 0.0,
         "Z": 50.0
       }
+    }
+  },
+  {
+    "ExportType": "AuthoritativeActorPoolComponent",
+    "ExportValue": {
+      "_actorClass": {
+        "ObjectName": "AntidoteCloudProjectile_BP_C",
+        "OuterIndex": {
+          "ObjectName": "/Game/Blueprints/GameplayElements/Item/BombSpawner/AntidoteCloudProjectile_BP",
+          "OuterIndex": 0
+        }
+      },
+      "_size": 66
     }
   },
   {
@@ -151,9 +172,13 @@
     "ExportValue": {}
   },
   {
-    "ExportType": "BombLauncher_C",
+    "ExportType": "BaseProjectileReplicationComponent",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "BombLauncher_BP_C",
     "ExportValue": {
-      "_projectileReplicationComponent": 25
+      "_projectileReplicationComponent": 29
     }
   },
   {
@@ -435,6 +460,22 @@
     "ExportValue": {}
   },
   {
+    "ExportType": "GasCloudProjectileLauncher_C",
+    "ExportValue": {
+      "GasCloudInitialVelocity": {
+        "_dataTableRowHandle": {
+          "RowName": "AntidoteCloudInitialVelocity"
+        }
+      },
+      "GasCloudProjectilesToLaunch": {
+        "_dataTableRowHandle": {
+          "RowName": "AntidoteCloudProjectilesToLaunch"
+        }
+      },
+      "_projectileReplicationComponent": 28
+    }
+  },
+  {
     "ExportType": "InheritableComponentHandler",
     "ExportValue": {}
   },
@@ -451,6 +492,27 @@
     "ExportValue": {}
   },
   {
+    "ExportType": "ParticleSystemComponent",
+    "ExportValue": {
+      "Template": {
+        "ObjectName": "P_K12_Holding_Toxin_Smoke",
+        "OuterIndex": {
+          "ObjectName": "/Game/Effects/ParticleSystems/Killer12/P_K12_Holding_Toxin_Smoke",
+          "OuterIndex": 0
+        }
+      },
+      "DetailLevelBeforeCastShadows": 196,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 25.0
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      }
+    }
+  },
+  {
     "ExportType": "ReloadBombs_C",
     "ExportValue": {}
   },
@@ -461,7 +523,7 @@
   {
     "ExportType": "SceneComponent",
     "ExportValue": {
-      "AttachParent": 54
+      "AttachParent": 65
     }
   },
   {
@@ -474,7 +536,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 40,
+      "ComponentTemplate": 46,
       "VariableGuid": "0D9524104F4B75DB738F0BAE0AFF4609",
       "InternalVariableName": "DefaultSceneRoot"
     }
@@ -504,17 +566,99 @@
     "ExportType": "SCS_Node",
     "ExportValue": {
       "ComponentClass": {
+        "ObjectName": "SwapBombType_C",
+        "OuterIndex": {
+          "ObjectName": "/Game/Blueprints/GameplayElements/Item/BombSpawner/SwapBombType",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": 67,
+      "ParentComponentOrVariableName": "Item Interactor",
+      "ParentComponentOwnerClassName": "BaseSlasherItem_C",
+      "VariableGuid": "A29EADBD44E38334501372B7E9E9799D",
+      "InternalVariableName": "SwapBombType"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "AuthoritativeActorPoolComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/GameplayUtilities",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": 25,
+      "VariableGuid": "563C38A8481118F5FA914BACE5FDF21C",
+      "InternalVariableName": "AntidoteCloudPool"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
         "ObjectName": "AkComponent",
         "OuterIndex": {
           "ObjectName": "/Script/AkAudio",
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 22,
+      "ComponentTemplate": 24,
       "ParentComponentOrVariableName": "ItemMesh",
       "bIsParentComponentNative": true,
       "VariableGuid": "EA13EFE64FBAA2294BB9CFB60B04A62C",
       "InternalVariableName": "Ak_Audio_Bomb_Spawner"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "GasCloudProjectileLauncher_C",
+        "OuterIndex": {
+          "ObjectName": "/Game/Blueprints/GameplayElements/Item/BombSpawner/GasCloudProjectileLauncher",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": 39,
+      "VariableGuid": "44976EC14B5E77BEF1981580FCEB8836",
+      "InternalVariableName": "AntidoteCloudProjectileLauncher"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "ParticleSystemComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/Engine",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": 44,
+      "ParentComponentOrVariableName": "ItemMesh",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        55
+      ],
+      "VariableGuid": "6CB25BE345D4BB4A1846EAAB489BB952",
+      "InternalVariableName": "P_K12_Holding_Toxin_Smoke"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "StaticMeshComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/Engine",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": 66,
+      "VariableGuid": "61EDB8A74B02C36D40AFBCAB78654881",
+      "InternalVariableName": "FX_Liquid"
     }
   },
   {
@@ -527,7 +671,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 29,
+      "ComponentTemplate": 33,
       "VariableGuid": "EF1E8FAC4DCD309274FA6094E80C5FCF",
       "InternalVariableName": "ReloadChargeable"
     }
@@ -536,13 +680,13 @@
     "ExportType": "SCS_Node",
     "ExportValue": {
       "ComponentClass": {
-        "ObjectName": "BombLauncher_C",
+        "ObjectName": "BombLauncher_BP_C",
         "OuterIndex": {
-          "ObjectName": "/Game/Blueprints/GameplayElements/Item/BombSpawner/BombLauncher",
+          "ObjectName": "/Game/Blueprints/GameplayElements/Item/BombSpawner/BombLauncher_BP",
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 26,
+      "ComponentTemplate": 30,
       "VariableGuid": "C08782BC43195751453FC9AC62B8F9A5",
       "InternalVariableName": "BombLauncher"
     }
@@ -557,7 +701,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 39,
+      "ComponentTemplate": 45,
       "ParentComponentOrVariableName": "Item Interactor",
       "ParentComponentOwnerClassName": "BaseSlasherItem_C",
       "VariableGuid": "337ED41C433EDB6C7264D2A1B37E339D",
@@ -574,7 +718,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 30,
+      "ComponentTemplate": 34,
       "VariableGuid": "6CDD88624554EBDB0407C5BDD4036D37",
       "InternalVariableName": "ThrowChargeable"
     }
@@ -589,7 +733,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 23,
+      "ComponentTemplate": 26,
       "VariableGuid": "7D46A61243E7C6EC654E4DB9CA3C99CE",
       "InternalVariableName": "BombPool"
     }
@@ -604,7 +748,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 27,
+      "ComponentTemplate": 31,
       "ParentComponentOrVariableName": "Item Interactor",
       "ParentComponentOwnerClassName": "BaseSlasherItem_C",
       "VariableGuid": "72AE2C4545DFC2A87003249C16D892AD",
@@ -621,7 +765,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 28,
+      "ComponentTemplate": 32,
       "ParentComponentOrVariableName": "Item Interactor",
       "ParentComponentOwnerClassName": "BaseSlasherItem_C",
       "VariableGuid": "4A3DAA9F4BA5D59CC81A51BCE9DD0E6D",
@@ -638,7 +782,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 24,
+      "ComponentTemplate": 27,
       "VariableGuid": "6518F44F472A499B4846D899CB88129C",
       "InternalVariableName": "GasCloudPool"
     }
@@ -647,30 +791,39 @@
     "ExportType": "SimpleConstructionScript",
     "ExportValue": {
       "RootNodes": [
-        48,
-        44,
-        46,
+        59,
+        52,
+        57,
+        61,
+        62,
+        56,
+        58,
+        49,
+        60,
+        63,
         50,
         51,
-        45,
-        47,
-        43,
-        49,
-        52
+        53,
+        54
       ],
       "AllNodes": [
-        48,
-        44,
-        46,
+        59,
+        52,
+        57,
+        61,
+        62,
+        56,
+        58,
+        49,
+        60,
+        63,
         50,
         51,
-        45,
-        47,
-        43,
-        49,
-        52
+        53,
+        54,
+        55
       ],
-      "DefaultSceneRootNode": 42
+      "DefaultSceneRootNode": 48
     }
   },
   {
@@ -691,11 +844,141 @@
         }
       },
       "BodyInstance": {
-        "ObjectType": 163,
+        "ObjectType": 200,
         "CollisionProfileName": "NoCollision"
       },
       "bVisible": false
     }
+  },
+  {
+    "ExportType": "StaticMeshComponent",
+    "ExportValue": {
+      "StaticMesh": {
+        "ObjectName": "SM_GKWS01_CLOSED",
+        "OuterIndex": {
+          "ObjectName": "/Game/Characters/Slashers/Guam/Models/Weapons/SM_GKWS01_CLOSED",
+          "OuterIndex": 0
+        }
+      },
+      "bUseDefaultCollision": false,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MI_ClownLiquid_Bottle",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Materials/Liquid/ClownBottle/MI_ClownLiquid_Bottle",
+            "OuterIndex": 0
+          }
+        }
+      ],
+      "DetailLevelBeforeCastShadows": 196,
+      "BodyInstance": {
+        "ObjectType": 200,
+        "CollisionEnabled": 203,
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": 205
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": 205
+            },
+            {
+              "Channel": "Pawn",
+              "Response": 205
+            },
+            {
+              "Channel": "Visibility",
+              "Response": 205
+            },
+            {
+              "Channel": "Camera",
+              "Response": 205
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": 205
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": 205
+            },
+            {
+              "Channel": "Destructible",
+              "Response": 205
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": 205
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": 205
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": 205
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": 205
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": 205
+            },
+            {
+              "Channel": "Interactable",
+              "Response": 205
+            },
+            {
+              "Channel": "Audio",
+              "Response": 205
+            },
+            {
+              "Channel": "Slasher",
+              "Response": 205
+            },
+            {
+              "Channel": "Spider",
+              "Response": 205
+            },
+            {
+              "Channel": "Traps",
+              "Response": 205
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": 205
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": 205
+            },
+            {
+              "Channel": "Ground",
+              "Response": 205
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -21.626163
+      },
+      "RelativeScale3D": {
+        "X": 0.74562,
+        "Y": 0.74562,
+        "Z": 0.74562
+      }
+    }
+  },
+  {
+    "ExportType": "SwapBombType_C",
+    "ExportValue": {}
   },
   {
     "ExportType": "TimelineTemplate",
@@ -703,13 +986,13 @@
       "TimelineLength": 0.5,
       "FloatTracks": [
         {
-          "CurveFloat": 31,
+          "CurveFloat": 35,
           "PropertyName": "Shine_Animation_UOffSet_7F10FD09459FD8F2AD35FA856EC2220C",
           "TrackName": "UOffSet",
           "bIsExternalCurve": false
         },
         {
-          "CurveFloat": 32,
+          "CurveFloat": 36,
           "PropertyName": "Shine_Animation_UTiling_7F10FD09459FD8F2AD35FA856EC2220C",
           "TrackName": "UTiling",
           "bIsExternalCurve": false
@@ -717,7 +1000,7 @@
       ],
       "LinearColorTracks": [
         {
-          "CurveLinearColor": 33,
+          "CurveLinearColor": 37,
           "PropertyName": "Shine_Animation_Shine_color_7F10FD09459FD8F2AD35FA856EC2220C",
           "TrackName": "Shine color",
           "bIsExternalCurve": false

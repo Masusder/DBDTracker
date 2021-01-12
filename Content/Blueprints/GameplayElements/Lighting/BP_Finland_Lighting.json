@@ -71,7 +71,8 @@
         "A": 1.0,
         "Hex": "1A1C1C"
       },
-      "MoonStartOffset": 1000.0
+      "MoonStartOffset": 1000.0,
+      "EnableIBL": true
     }
   },
   {
@@ -115,7 +116,7 @@
     "ExportValue": {
       "DynamicShadowDistanceMovableLight": 6000.0,
       "DynamicShadowCascades": 4,
-      "Intensity": 2.0,
+      "Intensity": 0.0,
       "LightColor": {
         "R": 70,
         "G": 67,
@@ -144,7 +145,8 @@
   {
     "ExportType": "ExponentialHeightFogComponent",
     "ExportValue": {
-      "FogDensity": 1.0,
+      "FogDensity": 0.2,
+      "FogHeightFalloff": 0.0,
       "FogInscatteringColor": {
         "R": 0.00125,
         "G": 0.005,
@@ -164,6 +166,10 @@
       "FogMaxOpacity": 0.2,
       "StartDistance": 400.0,
       "FogCutoffDistance": 49335.535,
+      "bEnableVolumetricFog": true,
+      "VolumetricFogScatteringDistribution": 0.0,
+      "VolumetricFogExtinctionScale": 0.5,
+      "VolumetricFogDistance": 2000.0,
       "FogGradient": [
         {
           "Colour": {
@@ -430,16 +436,60 @@
     "ExportType": "PostProcessComponent",
     "ExportValue": {
       "Settings": {
-        "bOverride_ColorContrast": true,
+        "bOverride_ColorGainShadows": true,
+        "bOverride_ColorContrastMidtones": true,
+        "bOverride_ColorGainMidtones": true,
+        "bOverride_SceneColorTint": false,
         "bOverride_AutoExposureSpeedUp": true,
         "bOverride_AutoExposureSpeedDown": true,
         "bOverride_IndirectLightingColor": false,
+        "bOverride_ColorGradingIntensity": true,
+        "bOverride_ColorGradingLUT": true,
         "ColorContrast": {
           "X": 1.2,
           "Y": 1.2,
           "Z": 1.2,
           "W": 1.0
         },
+        "ColorGainShadows": {
+          "X": 0.75,
+          "Y": 0.75,
+          "Z": 0.75,
+          "W": 1.0
+        },
+        "ColorContrastMidtones": {
+          "X": 1.25,
+          "Y": 1.25,
+          "Z": 1.25,
+          "W": 1.0
+        },
+        "ColorGainMidtones": {
+          "X": 1.08,
+          "Y": 1.08,
+          "Z": 1.08,
+          "W": 1.0
+        },
+        "ColorContrastHighlights": {
+          "X": 2.0,
+          "Y": 2.0,
+          "Z": 2.0,
+          "W": 1.0
+        },
+        "ColorGammaHighlights": {
+          "X": 1.38,
+          "Y": 1.38,
+          "Z": 1.38,
+          "W": 1.0
+        },
+        "ColorGainHighlights": {
+          "X": 0.94,
+          "Y": 0.94,
+          "Z": 0.94,
+          "W": 1.0
+        },
+        "BlueCorrection": 0.666667,
+        "FilmSlope": 0.9,
+        "FilmToe": 0.6,
         "FilmWhitePoint": {
           "R": 0.490875,
           "G": 0.501964,
@@ -448,16 +498,31 @@
           "Hex": "7D8086"
         },
         "SceneColorTint": {
-          "R": 0.748225,
-          "G": 0.786172,
-          "B": 0.865,
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
           "A": 1.0,
-          "Hex": "BFC8DD"
+          "Hex": "FFFFFF"
         },
-        "BloomIntensity": 0.5,
-        "AutoExposureBias": 2.0,
+        "SceneFringeIntensity": 0.3,
+        "BloomIntensity": 0.2,
+        "AmbientCubemapIntensity": 0.0,
+        "AmbientCubemap": {
+          "ObjectName": "T_Skylight2",
+          "OuterIndex": {
+            "ObjectName": "/Game/Textures/T_Skylight2",
+            "OuterIndex": 0
+          }
+        },
+        "AutoExposureBias": 1.0,
         "AutoExposureBiasBackup": 2.0,
-        "VignetteIntensity": 0.348624,
+        "LensFlareIntensity": 0.0,
+        "LensFlareBokehSize": 2.75095,
+        "LensFlareThreshold": 8.0,
+        "VignetteIntensity": 0.2,
+        "GrainJitter": 0.1,
+        "GrainIntensity": 0.077,
+        "AmbientOcclusionIntensity": 0.4,
         "AmbientOcclusionStaticFraction": 0.0,
         "IndirectLightingColor": {
           "R": 0.11748,
@@ -466,7 +531,15 @@
           "A": 1.0,
           "Hex": "1E2638"
         },
-        "IndirectLightingIntensity": 2.407079
+        "IndirectLightingIntensity": 2.407079,
+        "ColorGradingIntensity": 0.15,
+        "ColorGradingLUT": {
+          "ObjectName": "Saw2_LUT",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Textures/Saw2_LUT",
+            "OuterIndex": 0
+          }
+        }
       }
     }
   },
@@ -540,7 +613,7 @@
   {
     "ExportType": "SkyLightComponent",
     "ExportValue": {
-      "SourceType": 161,
+      "SourceType": 195,
       "Cubemap": {
         "ObjectName": "Night_HOS_AmbientCubemap",
         "OuterIndex": {
@@ -548,16 +621,17 @@
           "OuterIndex": 0
         }
       },
-      "SkyDistanceThreshold": 235738.44,
-      "Intensity": 10.0,
+      "SkyDistanceThreshold": 180000.0,
+      "Intensity": 4.5,
       "LightColor": {
-        "R": 20,
-        "G": 19,
-        "B": 19,
+        "R": 23,
+        "G": 24,
+        "B": 25,
         "A": 255,
-        "Hex": "141313"
+        "Hex": "171819"
       },
-      "IndirectLightingIntensity": 2.0
+      "IndirectLightingIntensity": 2.0,
+      "VolumetricScatteringIntensity": 1.0
     }
   },
   {
@@ -571,13 +645,7 @@
         }
       },
       "OverrideMaterials": [
-        {
-          "ObjectName": "MI_Moon_Industrial",
-          "OuterIndex": {
-            "ObjectName": "/Game/Materials/MI_Moon_Industrial",
-            "OuterIndex": 0
-          }
-        }
+        0
       ],
       "bAffectDynamicIndirectLighting": true,
       "bAffectDistanceFieldLighting": true,
@@ -597,6 +665,7 @@
         "Z": 8.0
       },
       "bVisible": false,
+      "bHiddenInGame": true,
       "bCanEverAffectNavigation": false
     }
   },

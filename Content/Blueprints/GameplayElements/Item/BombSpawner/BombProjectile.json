@@ -108,12 +108,16 @@
     "ExportValue": {}
   },
   {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
     "ExportType": "BlueprintGeneratedClass",
     "ExportValue": {
       "DynamicBindingObjects": [
-        31
+        32
       ],
-      "SimpleConstructionScript": 51,
+      "SimpleConstructionScript": 53,
       "UberGraphFunction": 1
     }
   },
@@ -121,10 +125,17 @@
     "ExportType": "KillerProjectile",
     "ExportValue": {
       "UberGraphFrame": {},
-      "ExplosionHitClass": {
+      "ToxinExplosionHitClass": {
         "ObjectName": "BP_Effect_Killer12_BombImpact_01_C",
         "OuterIndex": {
           "ObjectName": "/Game/Effects/Blueprints/Killer12/Gameplay/BP_Effect_Killer12_BombImpact_01",
+          "OuterIndex": 0
+        }
+      },
+      "AntidoteExplosionHitClass": {
+        "ObjectName": "BP_Effect_Killer12_BombImpact_Antidote_C",
+        "OuterIndex": {
+          "ObjectName": "/Game/Effects/Blueprints/Killer12/Gameplay/BP_Effect_Killer12_BombImpact_Antidote",
           "OuterIndex": 0
         }
       },
@@ -135,9 +146,23 @@
           "OuterIndex": 0
         }
       },
-      "_hitValidatorConfigurator": 34,
-      "_hitValidator": 33,
-      "Movement": 35,
+      "ToxinGasTrail": {
+        "ObjectName": "P_Killer12_SmokeTrailBomb_Charged",
+        "OuterIndex": {
+          "ObjectName": "/Game/Effects/ParticleSystems/Killer12/P_Killer12_SmokeTrailBomb_Charged",
+          "OuterIndex": 0
+        }
+      },
+      "AntidoteGasTrail": {
+        "ObjectName": "P_Killer12_SmokeTrailBomb_Charged_Antidote_Placeholder",
+        "OuterIndex": {
+          "ObjectName": "/Game/Effects/ParticleSystems/Killer12/P_Killer12_SmokeTrailBomb_Charged_Antidote_Placeholder",
+          "OuterIndex": 0
+        }
+      },
+      "_hitValidatorConfigurator": 35,
+      "_hitValidator": 34,
+      "Movement": 36,
       "_multicastLaunch": true,
       "bCanBeDamaged": false
     }
@@ -236,7 +261,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 38,
+      "ComponentTemplate": 39,
       "VariableGuid": "3B3A5A4844EA71BAC82A82B5289E69E7",
       "InternalVariableName": "DefaultSceneRoot"
     }
@@ -251,13 +276,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 52,
+      "ComponentTemplate": 54,
       "ChildNodes": [
-        47,
         48,
         49,
-        46,
-        50
+        51,
+        47,
+        52
       ],
       "VariableGuid": "39DEA64E492E80773D65B2B585AE62EF",
       "InternalVariableName": "Collision"
@@ -273,7 +298,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 36,
+      "ComponentTemplate": 37,
       "VariableGuid": "DD39516A479DE4F464AB36A89FA0F969",
       "InternalVariableName": "PoolableProjectile"
     }
@@ -288,7 +313,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 37,
+      "ComponentTemplate": 38,
       "VariableGuid": "12E0ADEA42E7582D7422609587A1A77E",
       "InternalVariableName": "RotatingMovement"
     }
@@ -303,7 +328,10 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 55,
+      "ComponentTemplate": 58,
+      "ChildNodes": [
+        50
+      ],
       "VariableGuid": "CCEE9DE844F630417CA8DCB21D23F904",
       "InternalVariableName": "SM_GKWS01_CLOSED"
     }
@@ -318,7 +346,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 53,
+      "ComponentTemplate": 55,
       "VariableGuid": "BFDDE2CC4147CDF518A3D9B5206B5FCF",
       "InternalVariableName": "ExplosionDamageZone"
     }
@@ -333,7 +361,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 30,
+      "ComponentTemplate": 31,
       "VariableGuid": "BF21A2D847EF6B974BD88EB0300E2C8A",
       "InternalVariableName": "Ak_Audio_GasBomb"
     }
@@ -348,9 +376,24 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 40,
+      "ComponentTemplate": 41,
       "VariableGuid": "9E3F617E44D9F9A34563679288F11DCE",
       "InternalVariableName": "Root"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "StaticMeshComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/Engine",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": 57,
+      "VariableGuid": "345E64304C52C3603BB70B90B3610024",
+      "InternalVariableName": "FX_Liquid"
     }
   },
   {
@@ -363,9 +406,9 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 39,
+      "ComponentTemplate": 40,
       "ChildNodes": [
-        45
+        46
       ],
       "VariableGuid": "225502FF4B5D67889DFBBA9B20813E73",
       "InternalVariableName": "MeshCenterOfMass"
@@ -381,7 +424,7 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 54,
+      "ComponentTemplate": 56,
       "VariableGuid": "D58847C642B1F760409497A15620820A",
       "InternalVariableName": "TargetDetector"
     }
@@ -390,22 +433,23 @@
     "ExportType": "SimpleConstructionScript",
     "ExportValue": {
       "RootNodes": [
-        42,
-        44,
-        43
+        43,
+        45,
+        44
       ],
       "AllNodes": [
-        47,
         48,
         49,
+        51,
+        47,
         46,
+        43,
+        52,
         45,
-        42,
-        50,
         44,
-        43
+        50
       ],
-      "DefaultSceneRootNode": 41
+      "DefaultSceneRootNode": 42
     }
   },
   {
@@ -421,10 +465,10 @@
       },
       "bTraceComplexOnMove": true,
       "bReturnMaterialOnMove": true,
-      "DetailLevelBeforeCastShadows": 11,
-      "CanCharacterStepUpOn": 17,
+      "DetailLevelBeforeCastShadows": 39,
+      "CanCharacterStepUpOn": 46,
       "BodyInstance": {
-        "CollisionEnabled": 24,
+        "CollisionEnabled": 53,
         "bUseCCD": true,
         "bNotifyRigidBodyCollision": true,
         "bEnableGravity": false,
@@ -433,75 +477,75 @@
           "ResponseArray": [
             {
               "Channel": "Pawn",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Visibility",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Camera",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Vehicle",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Destructible",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel2",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel3",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel4",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel5",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel6",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Interactable",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Audio",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Slasher",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Spider",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Traps",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 26
+              "Response": 55
             }
           ]
         }
@@ -513,96 +557,96 @@
     "ExportType": "SpherePlayerOverlapComponent",
     "ExportValue": {
       "SphereRadius": 0.0,
-      "DetailLevelBeforeCastShadows": 11,
+      "DetailLevelBeforeCastShadows": 39,
       "BodyInstance": {
-        "ObjectType": 19,
+        "ObjectType": 48,
         "bUseCCD": true,
         "CollisionProfileName": "AttackDetector",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Pawn",
-              "Response": 27
+              "Response": 56
             },
             {
               "Channel": "Visibility",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Camera",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Vehicle",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Destructible",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel2",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel3",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel4",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel5",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel6",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Interactable",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Audio",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Slasher",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Spider",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Traps",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Ground",
-              "Response": 26
+              "Response": 55
             }
           ]
         }
@@ -614,96 +658,96 @@
     "ExportType": "SpherePlayerOverlapComponent",
     "ExportValue": {
       "SphereRadius": 0.0,
-      "DetailLevelBeforeCastShadows": 11,
+      "DetailLevelBeforeCastShadows": 39,
       "BodyInstance": {
-        "ObjectType": 19,
+        "ObjectType": 48,
         "bUseCCD": true,
         "CollisionProfileName": "AttackDetector",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Pawn",
-              "Response": 27
+              "Response": 56
             },
             {
               "Channel": "Visibility",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Camera",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Vehicle",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Destructible",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel2",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel3",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel4",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel5",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel6",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Interactable",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Audio",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Slasher",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Spider",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Traps",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Ground",
-              "Response": 26
+              "Response": 55
             }
           ]
         }
@@ -722,98 +766,224 @@
         }
       },
       "bUseDefaultCollision": false,
-      "bGenerateOverlapEvents": false,
-      "DetailLevelBeforeCastShadows": 11,
-      "CanCharacterStepUpOn": 18,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MI_ClownLiquid_Bottle",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Materials/Liquid/ClownBottle/MI_ClownLiquid_Bottle",
+            "OuterIndex": 0
+          }
+        }
+      ],
+      "DetailLevelBeforeCastShadows": 39,
       "BodyInstance": {
-        "ObjectType": 20,
-        "CollisionEnabled": 23,
+        "ObjectType": 49,
+        "CollisionEnabled": 52,
         "CollisionProfileName": "NoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Pawn",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Visibility",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Camera",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Vehicle",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Destructible",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel2",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel3",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel4",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel5",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "EngineTraceChannel6",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Interactable",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Audio",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Slasher",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Spider",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Traps",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 26
+              "Response": 55
             },
             {
               "Channel": "Ground",
-              "Response": 26
+              "Response": 55
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.92856455
+      },
+      "RelativeScale3D": {
+        "X": 0.9,
+        "Y": 0.9,
+        "Z": 0.9
+      }
+    }
+  },
+  {
+    "ExportType": "StaticMeshComponent",
+    "ExportValue": {
+      "StaticMesh": {
+        "ObjectName": "GKWS01_Idle",
+        "OuterIndex": {
+          "ObjectName": "/Game/Characters/Slashers/Guam/Models/Weapons/GKWS01_Idle",
+          "OuterIndex": 0
+        }
+      },
+      "bUseDefaultCollision": false,
+      "bGenerateOverlapEvents": false,
+      "DetailLevelBeforeCastShadows": 39,
+      "CanCharacterStepUpOn": 47,
+      "BodyInstance": {
+        "ObjectType": 49,
+        "CollisionEnabled": 52,
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": 55
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": 55
+            },
+            {
+              "Channel": "Pawn",
+              "Response": 55
+            },
+            {
+              "Channel": "Visibility",
+              "Response": 55
+            },
+            {
+              "Channel": "Camera",
+              "Response": 55
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": 55
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": 55
+            },
+            {
+              "Channel": "Destructible",
+              "Response": 55
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": 55
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": 55
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": 55
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": 55
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": 55
+            },
+            {
+              "Channel": "Interactable",
+              "Response": 55
+            },
+            {
+              "Channel": "Audio",
+              "Response": 55
+            },
+            {
+              "Channel": "Slasher",
+              "Response": 55
+            },
+            {
+              "Channel": "Spider",
+              "Response": 55
+            },
+            {
+              "Channel": "Traps",
+              "Response": 55
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": 55
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": 55
+            },
+            {
+              "Channel": "Ground",
+              "Response": 55
             }
           ]
         }
