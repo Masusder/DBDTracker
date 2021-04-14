@@ -2,10 +2,17 @@
   {
     "ExportType": "MaterialInstanceConstant",
     "ExportValue": {
-      "Parent": {
-        "ObjectName": "MI_Structures_v2_Masked",
+      "PhysMaterial": {
+        "ObjectName": "PM_Plastic",
         "OuterIndex": {
-          "ObjectName": "/Game/Materials/Masters/MI_Structures_v2_Masked",
+          "ObjectName": "/Game/Materials/PhysicalMaterials/PM_Plastic",
+          "OuterIndex": 0
+        }
+      },
+      "Parent": {
+        "ObjectName": "MIM_Simple_01",
+        "OuterIndex": {
+          "ObjectName": "/Game/Materials/Master_Instances/Environment/MIM_Simple_01",
           "OuterIndex": 0
         }
       },
@@ -13,36 +20,28 @@
       "ScalarParameterValues": [
         {
           "ParameterInfo": {
+            "Name": "UV Channel",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": 0.0,
+          "ExpressionGUID": "C27F81054AC6DC8949D00AB49D1D85AD"
+        },
+        {
+          "ParameterInfo": {
             "Name": "RefractionDepthBias",
-            "Association": 51,
+            "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": 0.0,
           "ExpressionGUID": "00000000000000000000000000000000"
         }
       ],
-      "VectorParameterValues": [
-        {
-          "ParameterInfo": {
-            "Name": "Main_EmissiveValue",
-            "Association": 51,
-            "Index": -1
-          },
-          "ParameterValue": {
-            "R": 362.2382,
-            "G": 90.882324,
-            "B": 57.934578,
-            "A": 0.0,
-            "Hex": "D387B5"
-          },
-          "ExpressionGUID": "8F361EDF480858BE4E9E65AEA50A1168"
-        }
-      ],
       "TextureParameterValues": [
         {
           "ParameterInfo": {
-            "Name": "Main_BaseColor",
-            "Association": 51,
+            "Name": "BaseColor Map",
+            "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": {
@@ -52,12 +51,12 @@
               "OuterIndex": 0
             }
           },
-          "ExpressionGUID": "19F0818F451317BF6ECB6EAC7DF0A364"
+          "ExpressionGUID": "9217CC0343B500A41C95A69BCF0B8993"
         },
         {
           "ParameterInfo": {
-            "Name": "Main_Normal",
-            "Association": 51,
+            "Name": "Normal Map",
+            "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": {
@@ -67,12 +66,12 @@
               "OuterIndex": 0
             }
           },
-          "ExpressionGUID": "6048E55E41423122BFC3259EFB0D9E25"
+          "ExpressionGUID": "8E4D9DB24FE26D11FD4E79AD2C0B2630"
         },
         {
           "ParameterInfo": {
-            "Name": "Main_ORM",
-            "Association": 51,
+            "Name": "HRM\\ORM Map",
+            "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": {
@@ -82,43 +81,12 @@
               "OuterIndex": 0
             }
           },
-          "ExpressionGUID": "B4E7009F4336DBC2EEC64680D9FA9EA5"
-        },
-        {
-          "ParameterInfo": {
-            "Name": "Main_EmissiveMask",
-            "Association": 51,
-            "Index": -1
-          },
-          "ParameterValue": {
-            "ObjectName": "MineLamp_A_E",
-            "OuterIndex": {
-              "ObjectName": "/Game/Textures/Environment/Common/MineLamp_A_E",
-              "OuterIndex": 0
-            }
-          },
-          "ExpressionGUID": "3325FF764671E445DBFC9396E9A56D39"
-        },
-        {
-          "ParameterInfo": {
-            "Name": "012_RhythmictasticallyOnOff",
-            "Association": 51,
-            "Index": -1
-          },
-          "ParameterValue": {
-            "ObjectName": "T_Hti_StoneLantern_Flicker",
-            "OuterIndex": {
-              "ObjectName": "/Game/Textures/Environment/Haiti/Props/T_Hti_StoneLantern_Flicker",
-              "OuterIndex": 0
-            }
-          },
-          "ExpressionGUID": "4F4B2E3A49B9B1C0C67939BB49F53385"
+          "ExpressionGUID": "C9CF50814FC975CC284BC5B84D4E5029"
         }
       ],
       "BasePropertyOverrides": {
         "bOverride_TwoSided": true,
         "TwoSided": true,
-        "BlendMode": 32,
         "OpacityMaskClipValue": 0.3333
       },
       "StaticParameters": {
@@ -126,70 +94,64 @@
           {
             "Value": true,
             "ParameterInfo": {
-              "Name": "Use_Main_EmissiveMask",
-              "Association": 51,
+              "Name": "Use BaseColor Map",
+              "Association": "GlobalParameter",
               "Index": -1
             },
             "bOverride": true,
-            "ExpressionGUID": "847469EA4C5124595E6C14BC0F9B7731"
+            "ExpressionGUID": "19871919444BF1235500569A20088F5C"
+          },
+          {
+            "Value": true,
+            "ParameterInfo": {
+              "Name": "Use Normal Map",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "ED6BEAA74740A675103AB8AF807A0705"
+          },
+          {
+            "Value": true,
+            "ParameterInfo": {
+              "Name": "Use HRM\\ORM Map",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "2322B79E4A9DF93A3C6A0894E92024B7"
+          },
+          {
+            "Value": true,
+            "ParameterInfo": {
+              "Name": "Is 100% Dialectric",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "27B3D6F4421EA849394FF9A9DCDC0968"
           }
         ]
       },
       "CachedReferencedTextures": [
-        0,
         {
-          "ObjectName": "DefaultDiffuse",
+          "ObjectName": "T_Diffuse_Default",
           "OuterIndex": {
-            "ObjectName": "/Engine/EngineMaterials/DefaultDiffuse",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_Diffuse_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "Moss_diffuse",
+          "ObjectName": "T_NormalMap_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Vegetations/Moss_diffuse",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_NormalMap_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_CrawlingMoss_Mask_01",
+          "ObjectName": "T_MRH_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Vegetations/T_CrawlingMoss_Mask_01",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "FlatNormal",
-          "OuterIndex": {
-            "ObjectName": "/Engine/EngineMaterials/FlatNormal",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "Yellow_Linear",
-          "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Tiles/Yellow_Linear",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "HeatmapGradient",
-          "OuterIndex": {
-            "ObjectName": "/Engine/EngineDebugMaterials/HeatmapGradient",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "environment_mud_diffuse",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/Environment/Tiles/Textures/environment_mud_diffuse",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "environment_mud_N",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/Environment/Tiles/Textures/environment_mud_N",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_MRH_Default",
             "OuterIndex": 0
           }
         },
@@ -208,66 +170,85 @@
           }
         },
         {
-          "ObjectName": "T_checker_grid",
+          "ObjectName": "T_DiffuseWithAlpha_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Props/Misc/T_checker_grid",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "Black_Linear",
+          "ObjectName": "T_Specular_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Tiles/Black_Linear",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_Specular_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "White_Linear",
+          "ObjectName": "T_RgbMask_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Tiles/White_Linear",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_RgbMask_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_GS_FrontSign_Flickerama",
+          "ObjectName": "T_RgbMaskWithAlpha_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default",
+            "OuterIndex": 0
+          }
+        },
+        0,
+        {
+          "ObjectName": "DefaultDiffuse",
+          "OuterIndex": {
+            "ObjectName": "/Engine/EngineMaterials/DefaultDiffuse",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_Skylight2",
+          "ObjectName": "T_NoiseNormal_01",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/T_Skylight2",
+            "ObjectName": "/Game/Effects/Textures/T_NoiseNormal_01",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_DissolveTextures",
+          "ObjectName": "T_Noise02",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/T_DissolveTextures",
+            "ObjectName": "/Game/Effects/Textures/T_Noise02",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_FX_DissolveRamp",
+          "ObjectName": "Black",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/T_FX_DissolveRamp",
+            "ObjectName": "/Game/Textures/Environment/Tiles/Black",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "T_FlatNormal_01",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Textures/T_FlatNormal_01",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "T_SmokeTile",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Textures/T_SmokeTile",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "Good64x64TilingNoiseHighFreq",
+          "OuterIndex": {
+            "ObjectName": "/Engine/EngineMaterials/Good64x64TilingNoiseHighFreq",
             "OuterIndex": 0
           }
         }
       ],
       "TextureStreamingData": [
-        {
-          "SamplingScale": 1.0,
-          "UVChannelIndex": 0,
-          "TextureName": "T_COM_GasStation_Containers01_BC"
-        },
-        {
-          "SamplingScale": 1.0,
-          "UVChannelIndex": 0,
-          "TextureName": "T_COM_GasStation_Containers01_N"
-        },
         {
           "SamplingScale": 1.0,
           "UVChannelIndex": 0,

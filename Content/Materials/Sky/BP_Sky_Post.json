@@ -48,10 +48,30 @@
     "ExportValue": {}
   },
   {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
+    "ExportType": "Function",
+    "ExportValue": {}
+  },
+  {
     "ExportType": "BlueprintGeneratedClass",
     "ExportValue": {
-      "SimpleConstructionScript": 31,
-      "UberGraphFunction": 1
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
+      "UberGraphFunction": {
+        "ObjectName": "ExecuteUbergraph_BP_Sky_Post",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      }
     }
   },
   {
@@ -139,8 +159,60 @@
           "Default": 0.0
         }
       },
+      "Direction distance": 0.5,
+      "Directional speed": 0.02,
+      "Horizon move falloff": 2.0,
+      "Sky contrast": 1.0,
+      "HDR tint": 1.0,
+      "HDR intensity": 1.0,
+      "HDR power": 1.0,
+      "Sun/Moon radius": 0.1,
+      "Moon contrast": 0.5,
+      "Sky texture": {
+        "ObjectName": "Sunset_Clouds_TX",
+        "OuterIndex": {
+          "ObjectName": "/Game/Effects/Textures/Sunset_Clouds_TX",
+          "OuterIndex": 0
+        }
+      },
+      "Direction ": {
+        "R": 1,
+        "G": 0,
+        "B": 0,
+        "A": 0,
+        "Hex": "010000"
+      },
+      "Tint": {
+        "R": 255,
+        "G": 255,
+        "B": 255,
+        "A": 0,
+        "Hex": "FFFFFF"
+      },
       "PrimaryActorTick": {
         "bStartWithTickEnabled": false
+      }
+    }
+  },
+  {
+    "ExportType": "ChildActorComponent",
+    "ExportValue": {
+      "ChildActorClass": {
+        "ObjectName": "GMAdaptiveShadowMapSourceComponentSpawner",
+        "OuterIndex": {
+          "ObjectName": "/Script/GraphicsExtensions",
+          "OuterIndex": 0
+        }
+      },
+      "ChildActorTemplate": {
+        "ObjectName": "GMAdaptiveShadowMapSourceComponentSpawner_GEN_VARIABLE_GMAdaptiveShadowMapSourceComponentSpawner_CAT",
+        "OuterIndex": {
+          "ObjectName": "GMAdaptiveShadowMapSourceComponentSpawner_GEN_VARIABLE",
+          "OuterIndex": {
+            "ObjectName": "BP_Sky_Post_C",
+            "OuterIndex": 0
+          }
+        }
       }
     }
   },
@@ -156,7 +228,7 @@
       "CastShadows": false,
       "CastStaticShadows": false,
       "CastDynamicShadows": false,
-      "DetailLevelBeforeCastShadows": 209,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "DetailLevelBeforeCastDynamicShadows": "ELightingDetailMode::Low",
       "bAffectTranslucentLighting": false
     }
@@ -171,7 +243,7 @@
       "MaxDrawDistance": 0.0,
       "MaxDistanceFadeRange": 0.0,
       "bAffectDynamicIndirectLighting": true,
-      "DetailLevelBeforeCastShadows": 209,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "DetailLevelBeforeCastDynamicShadows": "ELightingDetailMode::Low"
     }
   },
@@ -181,6 +253,24 @@
       "FogCutoffDistance": 18000.0,
       "DistanceUntilNoFog": 0.0
     }
+  },
+  {
+    "ExportType": "GMAdaptiveShadowMapSourceComponent",
+    "ExportValue": {
+      "bUseAutoRadius": true,
+      "Levels": 6,
+      "LightFunctionMaterial": {
+        "ObjectName": "MI_AdaptiveShadowMap",
+        "OuterIndex": {
+          "ObjectName": "/Game/Materials/MI_AdaptiveShadowMap",
+          "OuterIndex": 0
+        }
+      }
+    }
+  },
+  {
+    "ExportType": "GMAdaptiveShadowMapSourceComponentSpawner",
+    "ExportValue": {}
   },
   {
     "ExportType": "PostProcessComponent",
@@ -306,7 +396,7 @@
   {
     "ExportType": "SceneComponent",
     "ExportValue": {
-      "Mobility": 219
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -319,7 +409,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 19,
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "56BC9799C494E6E6321D42957D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
     }
@@ -334,9 +430,57 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 34,
+      "ComponentTemplate": {
+        "ObjectName": "SkyFollower_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "70D714144B3415C67F969E99009CD9DF",
       "InternalVariableName": "SkyFollower"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "GMAdaptiveShadowMapSourceComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/GraphicsExtensions",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AdaptiveShadowMapSource_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
+      "VariableGuid": "E12E3EC64A3AB4D87C55A985365B88A6",
+      "InternalVariableName": "AdaptiveShadowMapSource"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "ChildActorComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/Engine",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": {
+        "ObjectName": "GMAdaptiveShadowMapSourceComponentSpawner_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
+      "VariableGuid": "F6D0751C41FAE9C26C631188B1AB4DA8",
+      "InternalVariableName": "GMAdaptiveShadowMapSourceComponentSpawner"
     }
   },
   {
@@ -349,16 +493,104 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 20,
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "ChildNodes": [
-        22,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        }
       ],
       "VariableGuid": "755AA28E19157B2AAFFC57EAA0F45D33",
       "InternalVariableName": "Base"
@@ -374,7 +606,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 35,
+      "ComponentTemplate": {
+        "ObjectName": "SkyMax_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "C9933BDF45430E76BD7346842C8D3380",
       "InternalVariableName": "SkyMax"
     }
@@ -389,7 +627,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 33,
+      "ComponentTemplate": {
+        "ObjectName": "MoonMesh_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "5C8F8E5E449223C9681DA3ADC773F710",
       "InternalVariableName": "MoonMesh"
     }
@@ -404,7 +648,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 18,
+      "ComponentTemplate": {
+        "ObjectName": "LevelPostProcess_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "6C3021774D9362D3BC849A8644E524B1",
       "InternalVariableName": "LevelPostProcess"
     }
@@ -419,7 +669,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 32,
+      "ComponentTemplate": {
+        "ObjectName": "LevelSkyLight_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "C8C462904B7C2E69DDA6D1B68954E67A",
       "InternalVariableName": "LevelSkyLight"
     }
@@ -434,7 +690,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 17,
+      "ComponentTemplate": {
+        "ObjectName": "HeightFog_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "74916A294FA36772FC6A6E864B4CD07D",
       "InternalVariableName": "HeightFog"
     }
@@ -449,7 +711,25 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 16,
+      "ComponentTemplate": {
+        "ObjectName": "ShadowLight_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        }
+      ],
       "VariableGuid": "8E1CCF0D4139D3CC363AE68F481B22E4",
       "InternalVariableName": "ShadowLight"
     }
@@ -464,7 +744,13 @@
           "OuterIndex": 0
         }
       },
-      "ComponentTemplate": 15,
+      "ComponentTemplate": {
+        "ObjectName": "GodRayLight_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_Sky_Post_C",
+          "OuterIndex": 0
+        }
+      },
       "VariableGuid": "14D16A014CBAEEBEF05FB882615E2A06",
       "InternalVariableName": "GodRayLight"
     }
@@ -473,28 +759,147 @@
     "ExportType": "SimpleConstructionScript",
     "ExportValue": {
       "RootNodes": [
-        23
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        }
       ],
       "AllNodes": [
-        23,
-        22,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_Sky_Post_C",
+              "OuterIndex": 0
+            }
+          }
+        }
       ],
-      "DefaultSceneRootNode": 21
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node",
+        "OuterIndex": {
+          "ObjectName": "SimpleConstructionScript",
+          "OuterIndex": {
+            "ObjectName": "BP_Sky_Post_C",
+            "OuterIndex": 0
+          }
+        }
+      }
     }
   },
   {
     "ExportType": "SkyLightComponent",
     "ExportValue": {
       "CastShadows": false,
-      "DetailLevelBeforeCastShadows": 209,
-      "Mobility": 218
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "Mobility": "EComponentMobility::Movable"
     }
   },
   {
@@ -524,98 +929,98 @@
       "bAffectDistanceFieldLighting": false,
       "bCastDynamicShadow": false,
       "bCastStaticShadow": false,
-      "DetailLevelBeforeCastShadows": 209,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "TranslucencySortPriority": -999,
       "BoundsScale": 10000000.0,
       "BodyInstance": {
-        "ObjectType": 212,
-        "CollisionEnabled": 215,
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
         "CollisionProfileName": "NoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Pawn",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Visibility",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Camera",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Vehicle",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Destructible",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel2",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel3",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel4",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel5",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel6",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Interactable",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Audio",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Spider",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Traps",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Ground",
-              "Response": 220
+              "Response": "ECR_Ignore"
             }
           ]
         },
@@ -669,98 +1074,98 @@
       "bAffectDistanceFieldLighting": false,
       "bCastDynamicShadow": false,
       "bCastStaticShadow": false,
-      "DetailLevelBeforeCastShadows": 209,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "TranslucencySortPriority": -10000,
       "BoundsScale": 100000.0,
       "BodyInstance": {
-        "ObjectType": 212,
-        "CollisionEnabled": 215,
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
         "CollisionProfileName": "NoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Pawn",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Visibility",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Camera",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Vehicle",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Destructible",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel2",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel3",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel4",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel5",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel6",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Interactable",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Audio",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Spider",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Traps",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Ground",
-              "Response": 220
+              "Response": "ECR_Ignore"
             }
           ]
         }
@@ -794,97 +1199,97 @@
       "bAffectDistanceFieldLighting": false,
       "bCastDynamicShadow": false,
       "bCastStaticShadow": false,
-      "DetailLevelBeforeCastShadows": 209,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "BoundsScale": 1000000.0,
       "BodyInstance": {
-        "ObjectType": 212,
-        "CollisionEnabled": 215,
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
         "CollisionProfileName": "NoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Pawn",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Visibility",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Camera",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Vehicle",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Destructible",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel2",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel3",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel4",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel5",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "EngineTraceChannel6",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Interactable",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Audio",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Spider",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Traps",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 220
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Ground",
-              "Response": 220
+              "Response": "ECR_Ignore"
             }
           ]
         }

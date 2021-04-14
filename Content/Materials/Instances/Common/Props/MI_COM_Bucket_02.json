@@ -2,10 +2,17 @@
   {
     "ExportType": "MaterialInstanceConstant",
     "ExportValue": {
-      "Parent": {
-        "ObjectName": "MI_Structures_v2",
+      "PhysMaterial": {
+        "ObjectName": "PM_Plastic",
         "OuterIndex": {
-          "ObjectName": "/Game/Materials/Masters/MI_Structures_v2",
+          "ObjectName": "/Game/Materials/PhysicalMaterials/PM_Plastic",
+          "OuterIndex": 0
+        }
+      },
+      "Parent": {
+        "ObjectName": "MI_COM_Bucket_01",
+        "OuterIndex": {
+          "ObjectName": "/Game/Materials/Instances/Common/Props/MI_COM_Bucket_01",
           "OuterIndex": 0
         }
       },
@@ -13,35 +20,18 @@
         {
           "ParameterInfo": {
             "Name": "RefractionDepthBias",
-            "Association": 41,
+            "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": 0.0,
           "ExpressionGUID": "00000000000000000000000000000000"
         }
       ],
-      "VectorParameterValues": [
-        {
-          "ParameterInfo": {
-            "Name": "Main_BaseColorTint",
-            "Association": 41,
-            "Index": -1
-          },
-          "ParameterValue": {
-            "R": 1.0,
-            "G": 1.0,
-            "B": 1.0,
-            "A": 0.0,
-            "Hex": "FFFFFF"
-          },
-          "ExpressionGUID": "BA25F801435799DFDA8D018606F60E6A"
-        }
-      ],
       "TextureParameterValues": [
         {
           "ParameterInfo": {
-            "Name": "Main_BaseColor",
-            "Association": 41,
+            "Name": "BaseColor Map",
+            "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": {
@@ -51,97 +41,31 @@
               "OuterIndex": 0
             }
           },
-          "ExpressionGUID": "19F0818F451317BF6ECB6EAC7DF0A364"
-        },
-        {
-          "ParameterInfo": {
-            "Name": "Main_Normal",
-            "Association": 41,
-            "Index": -1
-          },
-          "ParameterValue": {
-            "ObjectName": "T_COM_Bucket_02_N",
-            "OuterIndex": {
-              "ObjectName": "/Game/Textures/Environment/Common/T_COM_Bucket_02_N",
-              "OuterIndex": 0
-            }
-          },
-          "ExpressionGUID": "6048E55E41423122BFC3259EFB0D9E25"
-        },
-        {
-          "ParameterInfo": {
-            "Name": "Main_ORM",
-            "Association": 41,
-            "Index": -1
-          },
-          "ParameterValue": {
-            "ObjectName": "T_COM_Bucket_02_ORM",
-            "OuterIndex": {
-              "ObjectName": "/Game/Textures/Environment/Common/T_COM_Bucket_02_ORM",
-              "OuterIndex": 0
-            }
-          },
-          "ExpressionGUID": "B4E7009F4336DBC2EEC64680D9FA9EA5"
+          "ExpressionGUID": "9217CC0343B500A41C95A69BCF0B8993"
         }
       ],
       "BasePropertyOverrides": {
         "OpacityMaskClipValue": 0.3333
       },
       "CachedReferencedTextures": [
-        0,
         {
-          "ObjectName": "DefaultDiffuse",
+          "ObjectName": "T_Diffuse_Default",
           "OuterIndex": {
-            "ObjectName": "/Engine/EngineMaterials/DefaultDiffuse",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_Diffuse_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "Moss_diffuse",
+          "ObjectName": "T_NormalMap_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Vegetations/Moss_diffuse",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_NormalMap_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_CrawlingMoss_Mask_01",
+          "ObjectName": "T_MRH_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Vegetations/T_CrawlingMoss_Mask_01",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "FlatNormal",
-          "OuterIndex": {
-            "ObjectName": "/Engine/EngineMaterials/FlatNormal",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "Yellow_Linear",
-          "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Tiles/Yellow_Linear",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "HeatmapGradient",
-          "OuterIndex": {
-            "ObjectName": "/Engine/EngineDebugMaterials/HeatmapGradient",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "environment_mud_diffuse",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/Environment/Tiles/Textures/environment_mud_diffuse",
-            "OuterIndex": 0
-          }
-        },
-        {
-          "ObjectName": "environment_mud_N",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/Environment/Tiles/Textures/environment_mud_N",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_MRH_Default",
             "OuterIndex": 0
           }
         },
@@ -160,70 +84,82 @@
           }
         },
         {
-          "ObjectName": "T_checker_grid",
+          "ObjectName": "T_DiffuseWithAlpha_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Props/Misc/T_checker_grid",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "Black_Linear",
+          "ObjectName": "T_Specular_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Tiles/Black_Linear",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_Specular_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "White_Linear",
+          "ObjectName": "T_RgbMask_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Tiles/White_Linear",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_RgbMask_Default",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_GS_FrontSign_Flickerama",
+          "ObjectName": "T_RgbMaskWithAlpha_Default",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama",
+            "ObjectName": "/Game/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default",
+            "OuterIndex": 0
+          }
+        },
+        0,
+        {
+          "ObjectName": "DefaultDiffuse",
+          "OuterIndex": {
+            "ObjectName": "/Engine/EngineMaterials/DefaultDiffuse",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_Skylight2",
+          "ObjectName": "T_NoiseNormal_01",
           "OuterIndex": {
-            "ObjectName": "/Game/Textures/T_Skylight2",
+            "ObjectName": "/Game/Effects/Textures/T_NoiseNormal_01",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_DissolveTextures",
+          "ObjectName": "T_Noise02",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/T_DissolveTextures",
+            "ObjectName": "/Game/Effects/Textures/T_Noise02",
             "OuterIndex": 0
           }
         },
         {
-          "ObjectName": "T_FX_DissolveRamp",
+          "ObjectName": "Black",
           "OuterIndex": {
-            "ObjectName": "/Game/Effects/Textures/T_FX_DissolveRamp",
+            "ObjectName": "/Game/Textures/Environment/Tiles/Black",
             "OuterIndex": 0
           }
-        }
-      ],
-      "TextureStreamingData": [
-        {
-          "SamplingScale": 1.0,
-          "UVChannelIndex": 0,
-          "TextureName": "T_COM_Bucket_02_BC"
         },
         {
-          "SamplingScale": 1.0,
-          "UVChannelIndex": 0,
-          "TextureName": "T_COM_Bucket_02_N"
+          "ObjectName": "T_FlatNormal_01",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Textures/T_FlatNormal_01",
+            "OuterIndex": 0
+          }
         },
         {
-          "SamplingScale": 1.0,
-          "UVChannelIndex": 0,
-          "TextureName": "T_COM_Bucket_02_ORM"
+          "ObjectName": "T_SmokeTile",
+          "OuterIndex": {
+            "ObjectName": "/Game/Effects/Textures/T_SmokeTile",
+            "OuterIndex": 0
+          }
+        },
+        {
+          "ObjectName": "Good64x64TilingNoiseHighFreq",
+          "OuterIndex": {
+            "ObjectName": "/Engine/EngineMaterials/Good64x64TilingNoiseHighFreq",
+            "OuterIndex": 0
+          }
         }
       ]
     }
