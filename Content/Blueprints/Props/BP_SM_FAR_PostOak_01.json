@@ -10,15 +10,6 @@
   {
     "ExportType": "BlueprintGeneratedClass",
     "ExportValue": {
-      "DynamicBindingObjects": [
-        {
-          "ObjectName": "ComponentDelegateBinding",
-          "OuterIndex": {
-            "ObjectName": "BP_SM_FAR_PostOak_01_C",
-            "OuterIndex": 0
-          }
-        }
-      ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript",
         "OuterIndex": {
@@ -61,18 +52,6 @@
         "Y": 0.0,
         "Z": 430.0
       }
-    }
-  },
-  {
-    "ExportType": "ComponentDelegateBinding",
-    "ExportValue": {
-      "ComponentDelegateBindings": [
-        {
-          "ComponentPropertyName": "Audio_Sphere",
-          "DelegatePropertyName": "OnComponentBeginOverlap",
-          "FunctionNameToBind": "BndEvt__Audio_Sphere_K2Node_ComponentBoundEvent_1_ComponentBeginOverlapSignature__DelegateSignature"
-        }
-      ]
     }
   },
   {
@@ -131,6 +110,28 @@
     }
   },
   {
+    "ExportType": "ParticleSystemComponent",
+    "ExportValue": {
+      "Template": {
+        "ObjectName": "P_Frm_LeafFalling_Oak",
+        "OuterIndex": {
+          "ObjectName": "/Game/Effects/ParticleSystems/P_Frm_LeafFalling_Oak",
+          "OuterIndex": 0
+        }
+      },
+      "SecondsBeforeInactive": 0.0,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -0.00012207031,
+        "Z": 927.26624
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      }
+    }
+  },
+  {
     "ExportType": "SceneComponent",
     "ExportValue": {}
   },
@@ -138,6 +139,27 @@
     "ExportType": "SceneComponent",
     "ExportValue": {
       "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "ParticleSystemComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/Engine",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": {
+        "ObjectName": "P_Frm_LeafFalling_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_SM_FAR_PostOak_01_C",
+          "OuterIndex": 0
+        }
+      },
+      "VariableGuid": "24E75AA2476FC05DEF684ABB44AAD6FD",
+      "InternalVariableName": "P_Frm_LeafFalling"
     }
   },
   {
@@ -198,16 +220,6 @@
               "OuterIndex": 0
             }
           }
-        },
-        {
-          "ObjectName": "SCS_Node",
-          "OuterIndex": {
-            "ObjectName": "SimpleConstructionScript",
-            "OuterIndex": {
-              "ObjectName": "BP_SM_FAR_PostOak_01_C",
-              "OuterIndex": 0
-            }
-          }
         }
       ],
       "VariableGuid": "4EB57E9F4DC2DE8DDCCE17B2A10871B1",
@@ -231,29 +243,20 @@
           "OuterIndex": 0
         }
       },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_SM_FAR_PostOak_01_C",
+              "OuterIndex": 0
+            }
+          }
+        }
+      ],
       "VariableGuid": "C2DD59BB402497E54D7600906676DB25",
       "InternalVariableName": "Tree"
-    }
-  },
-  {
-    "ExportType": "SCS_Node",
-    "ExportValue": {
-      "ComponentClass": {
-        "ObjectName": "SphereComponent",
-        "OuterIndex": {
-          "ObjectName": "/Script/Engine",
-          "OuterIndex": 0
-        }
-      },
-      "ComponentTemplate": {
-        "ObjectName": "Audio_Sphere_GEN_VARIABLE",
-        "OuterIndex": {
-          "ObjectName": "BP_SM_FAR_PostOak_01_C",
-          "OuterIndex": 0
-        }
-      },
-      "VariableGuid": "FF4DD59E413F78AA39A44D82752E1450",
-      "InternalVariableName": "Audio_Sphere"
     }
   },
   {
@@ -344,93 +347,6 @@
           }
         }
       }
-    }
-  },
-  {
-    "ExportType": "SphereComponent",
-    "ExportValue": {
-      "SphereRadius": 1400.0,
-      "AreaClass": {
-        "ObjectName": "NavArea_Obstacle",
-        "OuterIndex": {
-          "ObjectName": "/Script/NavigationSystem",
-          "OuterIndex": 0
-        }
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX",
-      "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel2",
-        "CollisionProfileName": "AudioAmbienceBox",
-        "CollisionResponses": {
-          "ResponseArray": [
-            {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Interactable",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Slasher",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "InteractionDetector",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "BlinkBlocker",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Ground",
-              "Response": "ECR_Ignore"
-            }
-          ]
-        }
-      },
-      "Mobility": "EComponentMobility::Static"
     }
   }
 ]

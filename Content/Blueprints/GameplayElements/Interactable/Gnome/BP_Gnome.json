@@ -452,6 +452,7 @@
   {
     "ExportType": "GnomeInteraction",
     "ExportValue": {
+      "StopInteractionOnInputRelease": false,
       "StopUpdateMontageOnExit": true,
       "SlasherCanInteract": false,
       "SnapRotation": true,
@@ -478,6 +479,7 @@
   {
     "ExportType": "GnomeInteraction",
     "ExportValue": {
+      "StopInteractionOnInputRelease": false,
       "StopUpdateMontageOnExit": true,
       "CamperCanInteract": false,
       "SnapRotation": true,
@@ -698,9 +700,53 @@
       "AnimationMode": "EAnimationMode::AnimationCustomMode",
       "bNoSkeletonUpdate": true,
       "bPauseAnims": true,
+      "SkeletalMesh": {
+        "ObjectName": "DR_016_REF",
+        "OuterIndex": {
+          "ObjectName": "/Game/Meshes/Charms/Models/Charms/Draco/Universal_Charms/DR_016_REF",
+          "OuterIndex": 0
+        }
+      },
       "VisibilityBasedAnimTickOption": "EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered",
       "bRenderStatic": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldDynamic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAllDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
       "AttachParent": {
         "ObjectName": "Root",
         "OuterIndex": {

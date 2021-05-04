@@ -184,9 +184,9 @@
         }
       ],
       "RelativeLocation": {
-        "X": -63.33518,
-        "Y": 306.7881,
-        "Z": 206.87926
+        "X": 79.92802,
+        "Y": 462.88327,
+        "Z": 186.79524
       },
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -421,16 +421,16 @@
       "ShouldTransmitRelativeAngle": true,
       "OcclusionAffect": 0.0,
       "AkAudioEvent": {
-        "ObjectName": "AudioEvent_Emitter_SlaughterTree",
+        "ObjectName": "AudioEvent_T03_Emitter_SlaughterTree_Scream",
         "OuterIndex": {
-          "ObjectName": "/Game/Audio/AudioEvents/Ambience/Emitters/AudioEvent_Emitter_SlaughterTree",
+          "ObjectName": "/Game/Audio/AudioEvents/Ambience/03-Farm/Emitters/AudioEvent_T03_Emitter_SlaughterTree_Scream",
           "OuterIndex": 0
         }
       },
       "RelativeLocation": {
         "X": -20.0,
-        "Y": 10.0,
-        "Z": 260.0
+        "Y": 30.0,
+        "Z": 310.0
       }
     }
   },
@@ -442,6 +442,74 @@
         "Y": 0.0,
         "Z": 150.0
       }
+    }
+  },
+  {
+    "ExportType": "BoxComponent",
+    "ExportValue": {
+      "AreaClass": {
+        "ObjectName": "NavArea_Obstacle",
+        "OuterIndex": {
+          "ObjectName": "/Script/NavigationSystem",
+          "OuterIndex": 0
+        }
+      },
+      "bGenerateOverlapEvents": false,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "CanCharacterStepUpOn": "ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -52.001263,
+        "Y": 88.488686,
+        "Z": 86.08679
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -34.937622,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 3.6,
+        "Y": 4.2,
+        "Z": 3.0
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -2441,54 +2509,6 @@
         {
           "Name": "SpawnSphereSize",
           "ParamType": "PSPT_Scalar",
-          "Scalar": 3.0,
-          "Scalar_Low": 0.0,
-          "Vector": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "Vector_Low": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "Color": {
-            "R": 0,
-            "G": 0,
-            "B": 0,
-            "A": 0,
-            "Hex": "000000"
-          },
-          "Actor": 0,
-          "Material": 0
-        }
-      ],
-      "DetailLevelBeforeCastShadows": "DM_MAX",
-      "RelativeLocation": {
-        "X": -38.802986,
-        "Y": -27.090368,
-        "Z": -363.1352
-      },
-      "PrimaryComponentTick": {
-        "bStartWithTickEnabled": false
-      }
-    }
-  },
-  {
-    "ExportType": "ParticleSystemComponent",
-    "ExportValue": {
-      "Template": {
-        "ObjectName": "P_Farm_Skeleton_Blood_01",
-        "OuterIndex": {
-          "ObjectName": "/Game/Effects/ParticleSystems/Environment/Farm/P_Farm_Skeleton_Blood_01",
-          "OuterIndex": 0
-        }
-      },
-      "InstanceParameters": [
-        {
-          "Name": "SpawnSphereSize",
-          "ParamType": "PSPT_Scalar",
           "Scalar": 5.0,
           "Scalar_Low": 0.0,
           "Vector": {
@@ -2958,6 +2978,12 @@
     }
   },
   {
+    "ExportType": "SceneComponent",
+    "ExportValue": {
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
     "ExportType": "SCS_Node",
     "ExportValue": {
       "ComponentClass": {
@@ -3161,16 +3187,6 @@
         }
       },
       "ChildNodes": [
-        {
-          "ObjectName": "SCS_Node",
-          "OuterIndex": {
-            "ObjectName": "SimpleConstructionScript",
-            "OuterIndex": {
-              "ObjectName": "BP_TL_Lm_16x16_SlaughterTree01_C",
-              "OuterIndex": 0
-            }
-          }
-        },
         {
           "ObjectName": "SCS_Node",
           "OuterIndex": {
@@ -4311,21 +4327,35 @@
     "ExportType": "SCS_Node",
     "ExportValue": {
       "ComponentClass": {
-        "ObjectName": "ParticleSystemComponent",
+        "ObjectName": "SceneComponent",
         "OuterIndex": {
           "ObjectName": "/Script/Engine",
           "OuterIndex": 0
         }
       },
       "ComponentTemplate": {
-        "ObjectName": "P_Farm_Skeleton_Blood_02_GEN_VARIABLE",
+        "ObjectName": "VictorBlockerTemp_GEN_VARIABLE",
         "OuterIndex": {
           "ObjectName": "BP_TL_Lm_16x16_SlaughterTree01_C",
           "OuterIndex": 0
         }
       },
-      "VariableGuid": "F715C21A4ECE5C224E1E79BA578BAF1F",
-      "InternalVariableName": "P_Farm_Skeleton_Blood_02"
+      "ParentComponentOrVariableName": "Gameplay",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_TL_Lm_16x16_SlaughterTree01_C",
+              "OuterIndex": 0
+            }
+          }
+        }
+      ],
+      "VariableGuid": "178C18E54CF7C9DC7F0793A325D3C162",
+      "InternalVariableName": "VictorBlockerTemp"
     }
   },
   {
@@ -4410,6 +4440,27 @@
       },
       "VariableGuid": "9F6AF9574A941863D8A2848828472BF3",
       "InternalVariableName": "P_Farm_BloodSplash_01"
+    }
+  },
+  {
+    "ExportType": "SCS_Node",
+    "ExportValue": {
+      "ComponentClass": {
+        "ObjectName": "BoxComponent",
+        "OuterIndex": {
+          "ObjectName": "/Script/Engine",
+          "OuterIndex": 0
+        }
+      },
+      "ComponentTemplate": {
+        "ObjectName": "VictorBlocker01_GEN_VARIABLE",
+        "OuterIndex": {
+          "ObjectName": "BP_TL_Lm_16x16_SlaughterTree01_C",
+          "OuterIndex": 0
+        }
+      },
+      "VariableGuid": "24B538344FBD2BCEBBFBB6B83731AFD4",
+      "InternalVariableName": "VictorBlocker01"
     }
   },
   {
@@ -5076,9 +5127,29 @@
               "OuterIndex": 0
             }
           }
+        },
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_TL_Lm_16x16_SlaughterTree01_C",
+              "OuterIndex": 0
+            }
+          }
         }
       ],
       "AllNodes": [
+        {
+          "ObjectName": "SCS_Node",
+          "OuterIndex": {
+            "ObjectName": "SimpleConstructionScript",
+            "OuterIndex": {
+              "ObjectName": "BP_TL_Lm_16x16_SlaughterTree01_C",
+              "OuterIndex": 0
+            }
+          }
+        },
         {
           "ObjectName": "SCS_Node",
           "OuterIndex": {
