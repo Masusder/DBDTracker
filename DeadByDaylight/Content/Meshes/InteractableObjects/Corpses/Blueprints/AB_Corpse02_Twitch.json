@@ -1,23 +1,28 @@
 [
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_AB_Corpse02_Twitch",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "AnimNotify_Anim_End",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "AnimNotify_Random_Trigger",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "AnimGraph",
+    "Properties": {}
   },
   {
-    "ExportType": "AnimBlueprintGeneratedClass",
-    "ExportValue": {
+    "Type": "AnimBlueprintGeneratedClass",
+    "Name": "AB_Corpse02_Twitch_C",
+    "Properties": {
       "BakedStateMachines": [
         {
           "MachineName": "Twitch_SM",
@@ -81,9 +86,9 @@
               "EndNotify": -1,
               "InterruptNotify": -1,
               "BlendMode": "EAlphaBlendOption::HermiteCubic",
-              "CustomCurve": 0,
-              "BlendProfile": 0,
-              "LogicType": 89,
+              "CustomCurve": null,
+              "BlendProfile": null,
+              "LogicType": "ETransitionLogicType::TLT_StandardBlend",
               "StateName": "None"
             },
             {
@@ -94,20 +99,17 @@
               "EndNotify": -1,
               "InterruptNotify": -1,
               "BlendMode": "EAlphaBlendOption::HermiteCubic",
-              "CustomCurve": 0,
-              "BlendProfile": 0,
-              "LogicType": 89,
+              "CustomCurve": null,
+              "BlendProfile": null,
+              "LogicType": "ETransitionLogicType::TLT_StandardBlend",
               "StateName": "None"
             }
           ]
         }
       ],
       "TargetSkeleton": {
-        "ObjectName": "Corpse02_REF_Skeleton",
-        "OuterIndex": {
-          "ObjectName": "/Game/Meshes/InteractableObjects/Corpses/Mesh/Corpse02_REF_Skeleton",
-          "OuterIndex": 0
-        }
+        "ObjectName": "Corpse02_REF_Skeleton:Skeleton",
+        "ObjectPath": "/Game/Meshes/InteractableObjects/Corpses/Mesh/Corpse02_REF_Skeleton.25"
       },
       "OrderedSavedPoseIndicesMap": {
         "AnimGraph": {
@@ -124,22 +126,100 @@
               "SourceArrayIndex": 0,
               "bInstanceIsTarget": false,
               "PostCopyOperation": "EPostCopyOperation::None",
-              "DestProperty": null
+              "DestProperty": {
+                "Path": [
+                  "bCanEnterTransition"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AnimNode_TransitionResult:ScriptStruct",
+                  "ObjectPath": "/Script/Engine.22"
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": {
+                "Path": [
+                  "_randomSwitch"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AB_Corpse02_Twitch_C:",
+                  "ObjectPath": 4
+                }
+              },
+              "CachedSourceStructSubProperty": {
+                "Path": [],
+                "ResolvedOwner": null
+              }
             }
           ],
-          "Function": 0,
-          "ValueHandlerNodeProperty": null
+          "Function": null,
+          "ValueHandlerNodeProperty": {
+            "Path": [
+              "AnimGraphNode_TransitionResult"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "AB_Corpse02_Twitch_C:",
+              "ObjectPath": 4
+            }
+          }
         },
         {
-          "/Game/Meshes/InteractableObjects/Corpses/Animation/Corpse02_Idle_Twitch": null
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "_randomSwitch",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::LogicalNegateBool",
+              "DestProperty": {
+                "Path": [
+                  "bCanEnterTransition"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AnimNode_TransitionResult:ScriptStruct",
+                  "ObjectPath": "/Script/Engine.22"
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": {
+                "Path": [
+                  "_randomSwitch"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AB_Corpse02_Twitch_C:",
+                  "ObjectPath": 4
+                }
+              },
+              "CachedSourceStructSubProperty": {
+                "Path": [],
+                "ResolvedOwner": null
+              }
+            }
+          ],
+          "Function": null,
+          "ValueHandlerNodeProperty": {
+            "Path": [
+              "AnimGraphNode_TransitionResult_1"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "AB_Corpse02_Twitch_C:",
+              "ObjectPath": 4
+            }
+          }
         }
       ],
-      "UberGraphFunction": 1
+      "UberGraphFunction": {
+        "ObjectName": "ExecuteUbergraph_AB_Corpse02_Twitch:",
+        "ObjectPath": "AB_Corpse02_Twitch_C.0"
+      }
     }
   },
   {
-    "ExportType": "AnimInstance",
-    "ExportValue": {
+    "Type": "AnimInstance",
+    "Name": "Default__AB_Corpse02_Twitch_C",
+    "Properties": {
       "UberGraphFrame": {},
       "AnimGraphNode_Root": {
         "Result": {
@@ -148,19 +228,16 @@
         "Name": "AnimGraph",
         "Group": "None"
       },
+      "AnimGraphNode_TransitionResult_1": {
+        "bCanEnterTransition": false
+      },
       "AnimGraphNode_TransitionResult": {
         "bCanEnterTransition": false
       },
-      "AnimGraphNode_TransitionResult_NK01": {
-        "bCanEnterTransition": false
-      },
-      "AnimGraphNode_SequencePlayer": {
+      "AnimGraphNode_SequencePlayer_1": {
         "Sequence": {
-          "ObjectName": "Corpse02_Idle_Twitch",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/InteractableObjects/Corpses/Animation/Corpse02_Idle_Twitch",
-            "OuterIndex": 0
-          }
+          "ObjectName": "Corpse02_Idle_Twitch:AnimSequence",
+          "ObjectPath": "/Game/Meshes/InteractableObjects/Corpses/Animation/Corpse02_Idle_Twitch.3"
         },
         "PlayRateBasis": 1.0,
         "PlayRate": 1.0,
@@ -186,25 +263,22 @@
         "StartPosition": 0.0,
         "bLoopAnimation": true,
         "GroupIndex": -1,
-        "GroupRole": 78,
+        "GroupRole": "EAnimGroupRole::CanBeLeader",
         "bIgnoreForRelevancyTest": false,
         "BlendWeight": 0.0,
         "InternalTimeAccumulator": 0.0
       },
-      "AnimGraphNode_StateResult": {
+      "AnimGraphNode_StateResult_1": {
         "Result": {
           "LinkID": 3
         },
         "Name": "Twitch",
         "Group": "None"
       },
-      "AnimGraphNode_SequencePlayer_NK02": {
+      "AnimGraphNode_SequencePlayer": {
         "Sequence": {
-          "ObjectName": "Corpse02_Idle_NoTwitch",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/InteractableObjects/Corpses/Animation/Corpse02_Idle_NoTwitch",
-            "OuterIndex": 0
-          }
+          "ObjectName": "Corpse02_Idle_NoTwitch:AnimSequence",
+          "ObjectPath": "/Game/Meshes/InteractableObjects/Corpses/Animation/Corpse02_Idle_NoTwitch.2"
         },
         "PlayRateBasis": 1.0,
         "PlayRate": 1.0,
@@ -230,12 +304,12 @@
         "StartPosition": 0.0,
         "bLoopAnimation": true,
         "GroupIndex": -1,
-        "GroupRole": 78,
+        "GroupRole": "EAnimGroupRole::CanBeLeader",
         "bIgnoreForRelevancyTest": false,
         "BlendWeight": 0.0,
         "InternalTimeAccumulator": 0.0
       },
-      "AnimGraphNode_StateResult_NK03": {
+      "AnimGraphNode_StateResult": {
         "Result": {
           "LinkID": 5
         },

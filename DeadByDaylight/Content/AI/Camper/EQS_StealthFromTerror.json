@@ -1,16 +1,21 @@
 [
   {
-    "ExportType": "EnvQuery",
-    "ExportValue": {
+    "Type": "EnvQuery",
+    "Name": "EQS_StealthFromTerror",
+    "Properties": {
       "QueryName": "EQS_WaitInTerror",
       "Options": [
-        3
+        {
+          "ObjectName": "EnvQueryOption_0:",
+          "ObjectPath": "EQS_StealthFromTerror.2"
+        }
       ]
     }
   },
   {
-    "ExportType": "EnvQueryGenerator_SimpleGrid",
-    "ExportValue": {
+    "Type": "EnvQueryGenerator_SimpleGrid",
+    "Name": "EnvQueryGenerator_SimpleGrid_0",
+    "Properties": {
       "GridSize": {
         "DefaultValue": 2500.0
       },
@@ -18,92 +23,92 @@
         "DefaultValue": 200.0
       },
       "GenerateAround": {
-        "ObjectName": "EnvQueryContext_PinLocation",
-        "OuterIndex": {
-          "ObjectName": "/Script/DBDBots",
-          "OuterIndex": 0
-        }
+        "ObjectName": "EnvQueryContext_PinLocation:Class",
+        "ObjectPath": "/Script/DBDBots.8"
       },
       "ProjectionData": {
         "VersionNum": 1,
         "NavigationFilter": {
-          "ObjectName": "NavigationQueryFilter_CamperStealth",
-          "OuterIndex": {
-            "ObjectName": "/Script/DBDBots",
-            "OuterIndex": 0
-          }
+          "ObjectName": "NavigationQueryFilter_CamperStealth:Class",
+          "ObjectPath": "/Script/DBDBots.11"
         },
-        "SerializedChannel": 21
+        "SerializedChannel": "ECC_Visibility"
       },
       "VerNum": 1
     }
   },
   {
-    "ExportType": "EnvQueryOption",
-    "ExportValue": {
-      "Generator": 2,
+    "Type": "EnvQueryOption",
+    "Name": "EnvQueryOption_0",
+    "Properties": {
+      "Generator": {
+        "ObjectName": "EnvQueryGenerator_SimpleGrid_0:",
+        "ObjectPath": "EQS_StealthFromTerror.1"
+      },
       "Tests": [
-        4,
-        5,
-        7,
-        6
+        {
+          "ObjectName": "EnvQueryTest_Distance_0:",
+          "ObjectPath": "EQS_StealthFromTerror.3"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Dot_1:",
+          "ObjectPath": "EQS_StealthFromTerror.4"
+        },
+        {
+          "ObjectName": "EnvQueryTest_PathfindingBatch_1:",
+          "ObjectPath": "EQS_StealthFromTerror.6"
+        },
+        {
+          "ObjectName": "EnvQueryTest_LineOfSight_0:",
+          "ObjectPath": "EQS_StealthFromTerror.5"
+        }
       ]
     }
   },
   {
-    "ExportType": "EnvQueryTest_Distance",
-    "ExportValue": {
-      "TestMode": 28,
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_0",
+    "Properties": {
+      "TestMode": "EEnvTestDistance::Distance2D",
       "DistanceTo": {
-        "ObjectName": "EnvQueryContext_TerrorRadius",
-        "OuterIndex": {
-          "ObjectName": "/Script/DBDBots",
-          "OuterIndex": 0
-        }
+        "ObjectName": "EnvQueryContext_TerrorRadius:Class",
+        "ObjectPath": "/Script/DBDBots.9"
       },
-      "FilterType": 32,
+      "FilterType": "EEnvTestFilterType::Minimum",
       "FloatValueMin": {
         "DefaultValue": 1700.0
       },
-      "ScoringEquation": 38,
+      "ScoringEquation": "EEnvTestScoreEquation::InverseLinear",
       "VerNum": 1
     }
   },
   {
-    "ExportType": "EnvQueryTest_Dot",
-    "ExportValue": {
+    "Type": "EnvQueryTest_Dot",
+    "Name": "EnvQueryTest_Dot_1",
+    "Properties": {
       "LineA": {
         "LineFrom": {
-          "ObjectName": "EnvQueryContext_TerrorRadius",
-          "OuterIndex": {
-            "ObjectName": "/Script/DBDBots",
-            "OuterIndex": 0
-          }
+          "ObjectName": "EnvQueryContext_TerrorRadius:Class",
+          "ObjectPath": "/Script/DBDBots.9"
         },
         "LineTo": {
-          "ObjectName": "EnvQueryContext_Item",
-          "OuterIndex": {
-            "ObjectName": "/Script/AIModule",
-            "OuterIndex": 0
-          }
+          "ObjectName": "EnvQueryContext_Item:Class",
+          "ObjectPath": "/Script/AIModule.1"
         },
-        "DirMode": 24
+        "DirMode": "EEnvDirection::TwoPoints"
       },
       "LineB": {
         "Rotation": {
-          "ObjectName": "EnvQueryContext_PinActor",
-          "OuterIndex": {
-            "ObjectName": "/Script/DBDBots",
-            "OuterIndex": 0
-          }
+          "ObjectName": "EnvQueryContext_PinActor:Class",
+          "ObjectPath": "/Script/DBDBots.7"
         }
       },
       "TestMode": "EEnvTestDot::Dot2D",
       "TestOrder": 1,
-      "TestPurpose": 34,
-      "FilterType": 32,
-      "ScoringEquation": 37,
-      "ClampMinType": 26,
+      "TestPurpose": "EEnvTestPurpose::Filter",
+      "FilterType": "EEnvTestFilterType::Minimum",
+      "ScoringEquation": "EEnvTestScoreEquation::Constant",
+      "ClampMinType": "EEnvQueryTestClamping::SpecifiedValue",
       "ScoreClampMin": {
         "DefaultValue": 0.707
       },
@@ -111,14 +116,12 @@
     }
   },
   {
-    "ExportType": "EnvQueryTest_LineOfSight",
-    "ExportValue": {
+    "Type": "EnvQueryTest_LineOfSight",
+    "Name": "EnvQueryTest_LineOfSight_0",
+    "Properties": {
       "ToContext": {
-        "ObjectName": "EnvQueryContext_TerrorRadius",
-        "OuterIndex": {
-          "ObjectName": "/Script/DBDBots",
-          "OuterIndex": 0
-        }
+        "ObjectName": "EnvQueryContext_TerrorRadius:Class",
+        "ObjectPath": "/Script/DBDBots.9"
       },
       "ItemHeightOffset": {
         "DefaultValue": 100.0
@@ -127,22 +130,20 @@
         "DefaultValue": true
       },
       "TestOrder": 3,
-      "TestPurpose": 35,
+      "TestPurpose": "EEnvTestPurpose::Score",
       "VerNum": 1
     }
   },
   {
-    "ExportType": "EnvQueryTest_PathfindingBatch",
-    "ExportValue": {
+    "Type": "EnvQueryTest_PathfindingBatch",
+    "Name": "EnvQueryTest_PathfindingBatch_1",
+    "Properties": {
       "FilterClass": {
-        "ObjectName": "NavigationQueryFilter_CamperStealth",
-        "OuterIndex": {
-          "ObjectName": "/Script/DBDBots",
-          "OuterIndex": 0
-        }
+        "ObjectName": "NavigationQueryFilter_CamperStealth:Class",
+        "ObjectPath": "/Script/DBDBots.11"
       },
       "TestOrder": 2,
-      "TestPurpose": 34,
+      "TestPurpose": "EEnvTestPurpose::Filter",
       "VerNum": 1
     }
   }

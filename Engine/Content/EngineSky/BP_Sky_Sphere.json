@@ -1,0 +1,300 @@
+[
+  {
+    "Type": "Function",
+    "Name": "UserConstructionScript",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateSunDirection",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "RefreshMaterial",
+    "Properties": {}
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Sky_Sphere_C",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript_0:",
+        "ObjectPath": "BP_Sky_Sphere_C.10"
+      }
+    }
+  },
+  {
+    "Type": "Actor",
+    "Name": "Default__BP_Sky_Sphere_C",
+    "Properties": {
+      "Colors determined by sun position": true,
+      "Sun brightness": 50.0,
+      "Horizon Falloff": 3.0,
+      "Zenith Color": {
+        "R": 0.034046,
+        "G": 0.109247,
+        "B": 0.295,
+        "A": 1.0,
+        "Hex": "091C4B"
+      },
+      "Horizon color": {
+        "R": 1.979559,
+        "G": 2.586644,
+        "B": 3.0,
+        "A": 1.0,
+        "Hex": "F994FD"
+      },
+      "Cloud color": {
+        "R": 0.855778,
+        "G": 0.91902,
+        "B": 1.0,
+        "A": 1.0,
+        "Hex": "DAEAFF"
+      },
+      "Overall Color": {
+        "R": 1.0,
+        "G": 1.0,
+        "B": 1.0,
+        "A": 1.0,
+        "Hex": "FFFFFF"
+      },
+      "Cloud speed": 1.0,
+      "Cloud opacity": 0.7,
+      "Stars brightness": 0.1,
+      "Horizon color curve": {
+        "ObjectName": "C_Sky_Horizon_Color:CurveLinearColor",
+        "ObjectPath": "/Engine/EngineSky/C_Sky_Horizon_Color.18"
+      },
+      "Zenith color curve": {
+        "ObjectName": "C_Sky_Zenith_Color:CurveLinearColor",
+        "ObjectPath": "/Engine/EngineSky/C_Sky_Zenith_Color.19"
+      },
+      "Cloud color curve": {
+        "ObjectName": "C_Sky_Cloud_Color:CurveLinearColor",
+        "ObjectPath": "/Engine/EngineSky/C_Sky_Cloud_Color.17"
+      },
+      "bEnableAutoLODGeneration": false
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComponent_0",
+    "Properties": {}
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComponent_1",
+    "Properties": {
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SceneComponent:Class",
+        "ObjectPath": "/Script/Engine.13"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent_0:",
+        "ObjectPath": "BP_Sky_Sphere_C.5"
+      },
+      "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "StaticMeshComponent:Class",
+        "ObjectPath": "/Script/Engine.16"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkySphereMesh_GEN_VARIABLE:",
+        "ObjectPath": "BP_Sky_Sphere_C.11"
+      },
+      "VariableGuid": "B81D9B63-67FD0B2F-EDAD04AF-5D48252E",
+      "InternalVariableName": "SkySphereMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SceneComponent:Class",
+        "ObjectPath": "/Script/Engine.13"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent_1:",
+        "ObjectPath": "BP_Sky_Sphere_C.6"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_Sky_Sphere_C.8"
+        }
+      ],
+      "VariableGuid": "755AA28E-19157B2A-AFFC57EA-A0F45D33",
+      "InternalVariableName": "Base"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BP_Sky_Sphere_C.9"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BP_Sky_Sphere_C.9"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_Sky_Sphere_C.8"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
+        "ObjectPath": "BP_Sky_Sphere_C.7"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SkySphereMesh_GEN_VARIABLE",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "SM_SkySphere:StaticMesh",
+        "ObjectPath": "/Engine/EngineSky/SM_SkySphere.53"
+      },
+      "bUseDefaultCollision": false,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "M_Sky_Panning_Clouds2:Material",
+          "ObjectPath": "/Engine/EngineSky/M_Sky_Panning_Clouds2.39"
+        }
+      ],
+      "bGenerateOverlapEvents": false,
+      "bVisibleInRayTracing": false,
+      "bReceivesDecals": false,
+      "CastShadow": false,
+      "bAffectDynamicIndirectLighting": false,
+      "bCastDynamicShadow": false,
+      "bCastStaticShadow": false,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "bAutoWeld": false,
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        },
+        "MassInKgOverride": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 400.0,
+        "Y": 400.0,
+        "Z": 400.0
+      },
+      "bAbsoluteRotation": true,
+      "Mobility": "EComponentMobility::Static",
+      "bCanEverAffectNavigation": false
+    }
+  }
+]

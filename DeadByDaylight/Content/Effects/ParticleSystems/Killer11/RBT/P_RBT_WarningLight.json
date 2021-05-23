@@ -1,33 +1,38 @@
 [
   {
-    "ExportType": "DistributionFloatConstant",
-    "ExportValue": {}
+    "Type": "DistributionFloatConstant",
+    "Name": "RequiredDistributionSpawnRate",
+    "Properties": {}
   },
   {
-    "ExportType": "DistributionFloatConstant",
-    "ExportValue": {}
+    "Type": "DistributionFloatConstant",
+    "Name": "DistributionFloatConstant_0",
+    "Properties": {}
   },
   {
-    "ExportType": "DistributionFloatParticleParameter",
-    "ExportValue": {
+    "Type": "DistributionFloatParticleParameter",
+    "Name": "DistributionFloatParticleParameter_0",
+    "Properties": {
       "ParameterName": "Lifetime",
-      "ParamMode": 44,
+      "ParamMode": "DPM_Direct",
       "Constant": 1.0
     }
   },
   {
-    "ExportType": "DistributionFloatParticleParameter",
-    "ExportValue": {
+    "Type": "DistributionFloatParticleParameter",
+    "Name": "DistributionFloatParticleParameter_1",
+    "Properties": {
       "ParameterName": "SpawnRate",
       "MaxInput": 5.0,
       "MaxOutput": 5.0,
-      "ParamMode": 44,
+      "ParamMode": "DPM_Direct",
       "Constant": 0.5
     }
   },
   {
-    "ExportType": "DistributionVectorParticleParameter",
-    "ExportValue": {
+    "Type": "DistributionVectorParticleParameter",
+    "Name": "DistributionVectorParticleParameter_0",
+    "Properties": {
       "ParameterName": "LightColor",
       "MaxInput": {
         "X": 500.0,
@@ -39,9 +44,9 @@
         "Y": 500.0,
         "Z": 500.0
       },
-      "ParamModes": 44,
-      "ParamModes_NK01": 44,
-      "ParamModes_NK02": 44,
+      "ParamModes": "DPM_Direct",
+      "ParamModes": "DPM_Direct",
+      "ParamModes": "DPM_Direct",
       "Constant": {
         "X": 5.0,
         "Y": 5.0,
@@ -51,24 +56,50 @@
     }
   },
   {
-    "ExportType": "ParticleLODLevel",
-    "ExportValue": {
-      "RequiredModule": 11,
+    "Type": "ParticleLODLevel",
+    "Name": "ParticleLODLevel_0",
+    "Properties": {
+      "RequiredModule": {
+        "ObjectName": "ParticleModuleRequired_1:",
+        "ObjectPath": "P_RBT_WarningLight.10"
+      },
       "Modules": [
-        8,
-        9,
-        12,
-        7,
-        10
+        {
+          "ObjectName": "ParticleModuleEventGenerator_0:",
+          "ObjectPath": "P_RBT_WarningLight.7"
+        },
+        {
+          "ObjectName": "ParticleModuleLifetime_1:",
+          "ObjectPath": "P_RBT_WarningLight.8"
+        },
+        {
+          "ObjectName": "ParticleModuleSize_1:",
+          "ObjectPath": "P_RBT_WarningLight.11"
+        },
+        {
+          "ObjectName": "ParticleModuleColorOverLife_1:",
+          "ObjectPath": "P_RBT_WarningLight.6"
+        },
+        {
+          "ObjectName": "ParticleModuleLight_0:",
+          "ObjectPath": "P_RBT_WarningLight.9"
+        }
       ],
-      "SpawnModule": 13,
-      "EventGenerator": 8,
+      "SpawnModule": {
+        "ObjectName": "ParticleModuleSpawn_1:",
+        "ObjectPath": "P_RBT_WarningLight.12"
+      },
+      "EventGenerator": {
+        "ObjectName": "ParticleModuleEventGenerator_0:",
+        "ObjectPath": "P_RBT_WarningLight.7"
+      },
       "PeakActiveParticles": 3
     }
   },
   {
-    "ExportType": "ParticleModuleColorOverLife",
-    "ExportValue": {
+    "Type": "ParticleModuleColorOverLife",
+    "Name": "ParticleModuleColorOverLife_1",
+    "Properties": {
       "ColorOverLife": {
         "MinValue": 5.0,
         "MaxValue": 50.0,
@@ -82,7 +113,10 @@
           "Y": 10.0,
           "Z": 5.0
         },
-        "Distribution": 5,
+        "Distribution": {
+          "ObjectName": "ParticleModuleColorOverLife_1:DistributionVectorParticleParameter_0:",
+          "ObjectPath": "P_RBT_WarningLight.4"
+        },
         "Table": {
           "Values": [
             50.0,
@@ -93,11 +127,8 @@
       },
       "AlphaOverLife": {
         "MaxValue": 1.0,
-        "Distribution": 0,
+        "Distribution": null,
         "Table": {
-          "Op": 0,
-          "EntryCount": 0,
-          "EntryStride": 0,
           "TimeScale": 31.0,
           "Values": [
             0.0,
@@ -132,18 +163,22 @@
             0.12903246,
             0.06451617,
             0.0
-          ]
+          ],
+          "Op": null,
+          "EntryCount": null,
+          "EntryStride": null
         }
       },
-      "LODValidity": 0
+      "LODValidity": null
     }
   },
   {
-    "ExportType": "ParticleModuleEventGenerator",
-    "ExportValue": {
+    "Type": "ParticleModuleEventGenerator",
+    "Name": "ParticleModuleEventGenerator_0",
+    "Properties": {
       "Events": [
         {
-          "Type": 51,
+          "Type": "EPET_Spawn",
           "Frequency": 0,
           "ParticleFrequency": 0,
           "FirstTimeOnly": false,
@@ -154,28 +189,33 @@
           "ParticleModuleEventsToSendToGame": []
         }
       ],
-      "LODValidity": 0
+      "LODValidity": null
     }
   },
   {
-    "ExportType": "ParticleModuleLifetime",
-    "ExportValue": {
+    "Type": "ParticleModuleLifetime",
+    "Name": "ParticleModuleLifetime_1",
+    "Properties": {
       "Lifetime": {
         "MinValue": 0.2,
         "MaxValue": 0.2,
-        "Distribution": 3,
+        "Distribution": {
+          "ObjectName": "ParticleModuleLifetime_1:DistributionFloatParticleParameter_0:",
+          "ObjectPath": "P_RBT_WarningLight.2"
+        },
         "Table": {
           "Values": [
             0.2
           ]
         }
       },
-      "LODValidity": 0
+      "LODValidity": null
     }
   },
   {
-    "ExportType": "ParticleModuleLight",
-    "ExportValue": {
+    "Type": "ParticleModuleLight",
+    "Name": "ParticleModuleLight_0",
+    "Properties": {
       "ColorScaleOverLife": {
         "MinValue": 1.0,
         "MaxValue": 1.0,
@@ -189,83 +229,85 @@
           "Y": 1.0,
           "Z": 1.0
         },
-        "Distribution": 0,
+        "Distribution": null,
         "Table": {
-          "Op": 0,
-          "EntryCount": 0,
-          "EntryStride": 0,
           "Values": [
             1.0,
             1.0,
             1.0
-          ]
+          ],
+          "Op": null,
+          "EntryCount": null,
+          "EntryStride": null
         }
       },
       "BrightnessOverLife": {
         "MinValue": 200.0,
         "MaxValue": 200.0,
-        "Distribution": 0,
+        "Distribution": null,
         "Table": {
-          "Op": 0,
-          "EntryCount": 0,
-          "EntryStride": 0,
           "Values": [
             200.0
-          ]
+          ],
+          "Op": null,
+          "EntryCount": null,
+          "EntryStride": null
         }
       },
       "RadiusScale": {
         "MinValue": 12.0,
         "MaxValue": 12.0,
-        "Distribution": 0,
+        "Distribution": null,
         "Table": {
-          "Op": 0,
-          "EntryCount": 0,
-          "EntryStride": 0,
           "Values": [
             12.0
-          ]
+          ],
+          "Op": null,
+          "EntryCount": null,
+          "EntryStride": null
         }
       },
       "LightExponent": {
         "MinValue": 20.0,
         "MaxValue": 20.0,
-        "Distribution": 0,
+        "Distribution": null,
         "Table": {
-          "Op": 0,
-          "EntryCount": 0,
-          "EntryStride": 0,
           "Values": [
             20.0
-          ]
+          ],
+          "Op": null,
+          "EntryCount": null,
+          "EntryStride": null
         }
       },
-      "LODValidity": 0
+      "LODValidity": null
     }
   },
   {
-    "ExportType": "ParticleModuleRequired",
-    "ExportValue": {
+    "Type": "ParticleModuleRequired",
+    "Name": "ParticleModuleRequired_1",
+    "Properties": {
       "Material": {
-        "ObjectName": "MI_Glow",
-        "OuterIndex": {
-          "ObjectName": "/Game/Effects/Materials/MI_Glow",
-          "OuterIndex": 0
-        }
+        "ObjectName": "MI_Glow:MaterialInstanceConstant",
+        "ObjectPath": "/Game/Effects/Materials/MI_Glow.16"
       },
       "bUseLocalSpace": true,
       "bUseLegacyEmitterTime": false,
       "EmitterDuration": 5.0,
       "SpawnRate": {
-        "Distribution": 1
+        "Distribution": {
+          "ObjectName": "ParticleModuleRequired_1:RequiredDistributionSpawnRate:",
+          "ObjectPath": "P_RBT_WarningLight.0"
+        }
       },
       "RandomImageTime": 1.0,
-      "LODValidity": 0
+      "LODValidity": null
     }
   },
   {
-    "ExportType": "ParticleModuleSize",
-    "ExportValue": {
+    "Type": "ParticleModuleSize",
+    "Name": "ParticleModuleSize_1",
+    "Properties": {
       "StartSize": {
         "MinValue": 2.0,
         "MaxValue": 2.0,
@@ -279,41 +321,45 @@
           "Y": 2.0,
           "Z": 2.0
         },
-        "Distribution": 0,
+        "Distribution": null,
         "Table": {
-          "Op": 0,
-          "EntryCount": 0,
-          "EntryStride": 0,
           "Values": [
             2.0,
             2.0,
             2.0
-          ]
+          ],
+          "Op": null,
+          "EntryCount": null,
+          "EntryStride": null
         }
       },
-      "LODValidity": 0
+      "LODValidity": null
     }
   },
   {
-    "ExportType": "ParticleModuleSpawn",
-    "ExportValue": {
+    "Type": "ParticleModuleSpawn",
+    "Name": "ParticleModuleSpawn_1",
+    "Properties": {
       "Rate": {
         "MinValue": 1.0,
         "MaxValue": 1.0,
-        "Distribution": 0,
+        "Distribution": null,
         "Table": {
-          "Op": 0,
-          "EntryCount": 0,
-          "EntryStride": 0,
           "Values": [
             1.0
-          ]
+          ],
+          "Op": null,
+          "EntryCount": null,
+          "EntryStride": null
         }
       },
       "RateScale": {
         "MinValue": 1.0,
         "MaxValue": 1.0,
-        "Distribution": 4,
+        "Distribution": {
+          "ObjectName": "ParticleModuleSpawn_1:DistributionFloatParticleParameter_1:",
+          "ObjectPath": "P_RBT_WarningLight.3"
+        },
         "Table": {
           "Values": [
             1.0
@@ -323,34 +369,45 @@
       "BurstScale": {
         "MinValue": 1.0,
         "MaxValue": 1.0,
-        "Distribution": 2,
+        "Distribution": {
+          "ObjectName": "ParticleModuleSpawn_1:DistributionFloatConstant_0:",
+          "ObjectPath": "P_RBT_WarningLight.1"
+        },
         "Table": {
           "Values": [
             1.0
           ]
         }
       },
-      "LODValidity": 0
+      "LODValidity": null
     }
   },
   {
-    "ExportType": "ParticleSpriteEmitter",
-    "ExportValue": {
+    "Type": "ParticleSpriteEmitter",
+    "Name": "ParticleSpriteEmitter_1",
+    "Properties": {
       "EmitterName": "Glow",
       "bUseLegacySpawningBehavior": true,
       "LODLevels": [
-        6
+        {
+          "ObjectName": "ParticleSpriteEmitter_1:ParticleLODLevel_0:",
+          "ObjectPath": "P_RBT_WarningLight.5"
+        }
       ],
       "DetailModeBitmask": 63
     }
   },
   {
-    "ExportType": "ParticleSystem",
-    "ExportValue": {
+    "Type": "ParticleSystem",
+    "Name": "P_RBT_WarningLight",
+    "Properties": {
       "Emitters": [
-        14
+        {
+          "ObjectName": "ParticleSpriteEmitter_1:",
+          "ObjectPath": "P_RBT_WarningLight.13"
+        }
       ],
-      "CurveEdSetup": 0,
+      "CurveEdSetup": null,
       "LODDistances": [
         0.0
       ],
@@ -369,7 +426,7 @@
           "Y": 0.0,
           "Z": 0.0
         },
-        "bIsValid": true
+        "IsValid": 1
       }
     }
   }

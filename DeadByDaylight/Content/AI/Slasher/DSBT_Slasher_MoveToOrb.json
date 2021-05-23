@@ -1,45 +1,63 @@
 [
   {
-    "ExportType": "BehaviorTree",
-    "ExportValue": {
-      "RootNode": 2,
+    "Type": "BehaviorTree",
+    "Name": "DSBT_Slasher_MoveToOrb",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Sequence_2:",
+        "ObjectPath": "DSBT_Slasher_MoveToOrb.1"
+      },
       "BlackboardAsset": {
-        "ObjectName": "BB_Slasher",
-        "OuterIndex": {
-          "ObjectName": "/Game/AI/Slasher/BB_Slasher",
-          "OuterIndex": 0
-        }
+        "ObjectName": "BB_Slasher:BlackboardData",
+        "ObjectPath": "/Game/AI/Slasher/BB_Slasher.1"
       }
     }
   },
   {
-    "ExportType": "BTComposite_Sequence",
-    "ExportValue": {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_2",
+    "Properties": {
       "Children": [
         {
-          "ChildComposite": 0,
-          "ChildTask": 5,
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_ExtMoveTo_0:",
+            "ObjectPath": "DSBT_Slasher_MoveToOrb.4"
+          },
           "Decorators": [],
           "DecoratorOps": []
         },
         {
-          "ChildComposite": 0,
-          "ChildTask": 6,
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_SetFocusCooldown_3:",
+            "ObjectPath": "DSBT_Slasher_MoveToOrb.5"
+          },
           "Decorators": [],
           "DecoratorOps": []
         }
       ],
       "Services": [
-        3,
-        4
+        {
+          "ObjectName": "BTService_GetPinLocation_2:",
+          "ObjectPath": "DSBT_Slasher_MoveToOrb.2"
+        },
+        {
+          "ObjectName": "BTService_GetPinObject_2:",
+          "ObjectPath": "DSBT_Slasher_MoveToOrb.3"
+        }
       ],
       "NodeName": "Move To Orb",
-      "TreeAsset": 1
+      "TreeAsset": {
+        "ObjectName": "DSBT_Slasher_MoveToOrb:",
+        "ObjectPath": 0
+      }
     }
   },
   {
-    "ExportType": "BTService_GetPinLocation",
-    "ExportValue": {
+    "Type": "BTService_GetPinLocation",
+    "Name": "BTService_GetPinLocation_2",
+    "Properties": {
       "BBToSetKey": {
         "SelectedKeyName": "WishedObjLocation"
       },
@@ -48,13 +66,20 @@
       },
       "When": "EAINodeRelevancyOptions::OnTick",
       "NodeName": "Get Wished Object Pin Location",
-      "TreeAsset": 1,
-      "ParentNode": 2
+      "TreeAsset": {
+        "ObjectName": "DSBT_Slasher_MoveToOrb:",
+        "ObjectPath": 0
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence_2:",
+        "ObjectPath": "DSBT_Slasher_MoveToOrb.1"
+      }
     }
   },
   {
-    "ExportType": "BTService_GetPinObject",
-    "ExportValue": {
+    "Type": "BTService_GetPinObject",
+    "Name": "BTService_GetPinObject_2",
+    "Properties": {
       "BBToSetKey": {
         "SelectedKeyName": "WishedObj"
       },
@@ -63,13 +88,20 @@
       },
       "When": "EAINodeRelevancyOptions::OnTick",
       "NodeName": "Get Wished Pin Object",
-      "TreeAsset": 1,
-      "ParentNode": 2
+      "TreeAsset": {
+        "ObjectName": "DSBT_Slasher_MoveToOrb:",
+        "ObjectPath": 0
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence_2:",
+        "ObjectPath": "DSBT_Slasher_MoveToOrb.1"
+      }
     }
   },
   {
-    "ExportType": "BTTask_ExtMoveTo",
-    "ExportValue": {
+    "Type": "BTTask_ExtMoveTo",
+    "Name": "BTTask_ExtMoveTo_0",
+    "Properties": {
       "BBStrafeFocus": {
         "SelectedKeyName": "WishedObjLocation"
       },
@@ -82,19 +114,32 @@
         "SelectedKeyName": "WishedObjLocation"
       },
       "NodeName": "Move To Wished Object Location",
-      "TreeAsset": 1,
-      "ParentNode": 2
+      "TreeAsset": {
+        "ObjectName": "DSBT_Slasher_MoveToOrb:",
+        "ObjectPath": 0
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence_2:",
+        "ObjectPath": "DSBT_Slasher_MoveToOrb.1"
+      }
     }
   },
   {
-    "ExportType": "BTTask_SetFocusCooldown",
-    "ExportValue": {
+    "Type": "BTTask_SetFocusCooldown",
+    "Name": "BTTask_SetFocusCooldown_3",
+    "Properties": {
       "BBOnObject": {
         "SelectedKeyName": "WishedObj"
       },
       "Duration": 30.0,
-      "TreeAsset": 1,
-      "ParentNode": 2
+      "TreeAsset": {
+        "ObjectName": "DSBT_Slasher_MoveToOrb:",
+        "ObjectPath": 0
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence_2:",
+        "ObjectPath": "DSBT_Slasher_MoveToOrb.1"
+      }
     }
   }
 ]

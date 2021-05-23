@@ -1,73 +1,106 @@
 [
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Audio",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Properties": {}
   },
   {
-    "ExportType": "BlueprintGeneratedClass",
-    "ExportValue": {
-      "UberGraphFunction": 1
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Audio_C",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "ExecuteUbergraph_Audio:",
+        "ObjectPath": "Audio_C.0"
+      }
     }
   },
   {
-    "ExportType": "LevelScriptActor",
-    "ExportValue": {
+    "Type": "LevelScriptActor",
+    "Name": "Default__Audio_C",
+    "Properties": {
       "UberGraphFrame": {}
     }
   },
   {
-    "ExportType": "Actor",
-    "ExportValue": {}
-  },
-  {
-    "ExportType": "AkLateReverbComponent",
-    "ExportValue": {
+    "Type": "AkLateReverbComponent",
+    "Name": "LateReverb",
+    "Properties": {
       "AuxBusName": "Reverb_Indoor",
       "FadeRate": 1.0,
       "Priority": 10.0
     }
   },
   {
-    "ExportType": "AkLateReverbComponent",
-    "ExportValue": {
+    "Type": "AkLateReverbComponent",
+    "Name": "LateReverb",
+    "Properties": {
       "AuxBusName": "Reverb_Outdoor",
       "FadeRate": 1.0,
       "Priority": 10.0
     }
   },
   {
-    "ExportType": "AkReverbVolume",
-    "ExportValue": {
-      "LateReverbComponent": 6,
-      "BrushType": 31,
-      "Brush": 17,
-      "BrushComponent": 13,
+    "Type": "AkReverbVolume",
+    "Name": "AkReverbVolume_Indoor",
+    "Properties": {
+      "LateReverbComponent": {
+        "ObjectName": "AkReverbVolume_Indoor:LateReverb:",
+        "ObjectPath": "Audio.4"
+      },
+      "BrushType": "Brush_Add",
+      "Brush": {
+        "ObjectName": "AkReverbVolume_Indoor:Model_11:",
+        "ObjectPath": "Audio.15"
+      },
+      "BrushComponent": {
+        "ObjectName": "AkReverbVolume_Indoor:BrushComponent0:",
+        "ObjectPath": "Audio.11"
+      },
       "bHidden": false,
-      "RootComponent": 13
+      "RootComponent": {
+        "ObjectName": "AkReverbVolume_Indoor:BrushComponent0:",
+        "ObjectPath": "Audio.11"
+      }
     }
   },
   {
-    "ExportType": "AkReverbVolume",
-    "ExportValue": {
-      "LateReverbComponent": 7,
-      "BrushType": 31,
-      "Brush": 18,
-      "BrushComponent": 14,
+    "Type": "AkReverbVolume",
+    "Name": "AkReverbVolume_Outdoor",
+    "Properties": {
+      "LateReverbComponent": {
+        "ObjectName": "AkReverbVolume_Outdoor:LateReverb:",
+        "ObjectPath": "Audio.5"
+      },
+      "BrushType": "Brush_Add",
+      "Brush": {
+        "ObjectName": "AkReverbVolume_Outdoor:Model_11:",
+        "ObjectPath": "Audio.16"
+      },
+      "BrushComponent": {
+        "ObjectName": "AkReverbVolume_Outdoor:BrushComponent0:",
+        "ObjectPath": "Audio.12"
+      },
       "bHidden": false,
-      "RootComponent": 14
+      "RootComponent": {
+        "ObjectName": "AkReverbVolume_Outdoor:BrushComponent0:",
+        "ObjectPath": "Audio.12"
+      }
     }
   },
   {
-    "ExportType": "LevelScriptActor",
-    "ExportValue": {}
+    "Type": "LevelScriptActor",
+    "Name": "Audio_C_1",
+    "Properties": {}
   },
   {
-    "ExportType": "BodySetup",
-    "ExportValue": {
+    "Type": "BodySetup",
+    "Name": "BodySetup_751",
+    "Properties": {
       "AggGeom": {
         "ConvexElems": [
           {
@@ -125,7 +158,7 @@
                 "Y": 40000.0,
                 "Z": 40000.0
               },
-              "bIsValid": true
+              "IsValid": 1
             },
             "Transform": {
               "Rotation": {
@@ -152,12 +185,13 @@
         ]
       },
       "bGenerateMirroredCollision": false,
-      "CollisionTraceFlag": 46
+      "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
     }
   },
   {
-    "ExportType": "BodySetup",
-    "ExportValue": {
+    "Type": "BodySetup",
+    "Name": "BodySetup_751",
+    "Properties": {
       "AggGeom": {
         "ConvexElems": [
           {
@@ -215,7 +249,7 @@
                 "Y": 40000.0,
                 "Z": 40000.0
               },
-              "bIsValid": true
+              "IsValid": 1
             },
             "Transform": {
               "Rotation": {
@@ -242,71 +276,78 @@
         ]
       },
       "bGenerateMirroredCollision": false,
-      "CollisionTraceFlag": 46
+      "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
     }
   },
   {
-    "ExportType": "BrushComponent",
-    "ExportValue": {
-      "Brush": 17,
-      "BrushBodySetup": 11,
-      "DetailLevelBeforeCastShadows": 62,
+    "Type": "BrushComponent",
+    "Name": "BrushComponent0",
+    "Properties": {
+      "Brush": {
+        "ObjectName": "AkReverbVolume_Indoor:Model_11:",
+        "ObjectPath": "Audio.15"
+      },
+      "BrushBodySetup": {
+        "ObjectName": "BrushComponent0:BodySetup_751:",
+        "ObjectPath": "Audio.9"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "ObjectType": 64,
+        "ObjectType": "ECC_GameTraceChannel2",
         "CollisionProfileName": "AkReverbVolume",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Pawn",
-              "Response": 69
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Visibility",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Camera",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Vehicle",
-              "Response": 69
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Destructible",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Spider",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Traps",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Ground",
-              "Response": 68
+              "Response": "ECR_Ignore"
             }
           ]
         }
@@ -319,67 +360,74 @@
     }
   },
   {
-    "ExportType": "BrushComponent",
-    "ExportValue": {
-      "Brush": 18,
-      "BrushBodySetup": 12,
-      "DetailLevelBeforeCastShadows": 62,
+    "Type": "BrushComponent",
+    "Name": "BrushComponent0",
+    "Properties": {
+      "Brush": {
+        "ObjectName": "AkReverbVolume_Outdoor:Model_11:",
+        "ObjectPath": "Audio.16"
+      },
+      "BrushBodySetup": {
+        "ObjectName": "BrushComponent0:BodySetup_751:",
+        "ObjectPath": "Audio.10"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "ObjectType": 64,
+        "ObjectType": "ECC_GameTraceChannel2",
         "CollisionProfileName": "AkReverbVolume",
         "CollisionResponses": {
           "ResponseArray": [
             {
               "Channel": "WorldStatic",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "WorldDynamic",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Pawn",
-              "Response": 69
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Visibility",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Camera",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "PhysicsBody",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Vehicle",
-              "Response": 69
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Destructible",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Spider",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Traps",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "BlinkBlocker",
-              "Response": 68
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Ground",
-              "Response": 68
+              "Response": "ECR_Ignore"
             }
           ]
         }
@@ -387,68 +435,91 @@
     }
   },
   {
-    "ExportType": "InstancedFoliageActor",
-    "ExportValue": {
-      "RootComponent": 21
+    "Type": "InstancedFoliageActor",
+    "Name": "InstancedFoliageActor_0",
+    "Properties": {
+      "RootComponent": {
+        "ObjectName": "InstancedFoliageActor_0:RootComponent0:",
+        "ObjectPath": "Audio.19"
+      }
     }
   },
   {
-    "ExportType": "Level",
-    "ExportValue": {
-      "Model": 19,
-      "LevelScriptActor": 10,
-      "LevelBuildDataId": "CE29BFBC4E767F19FE05C2A644FBBE6D",
-      "WorldSettings": 23
+    "Type": "Level",
+    "Name": "PersistentLevel",
+    "Properties": {
+      "Model": {
+        "ObjectName": "PersistentLevel:Model_5:",
+        "ObjectPath": "Audio.17"
+      },
+      "LevelScriptActor": {
+        "ObjectName": "PersistentLevel:Audio_C_1:",
+        "ObjectPath": "Audio.8"
+      },
+      "LevelBuildDataId": "CE29BFBC-4E767F19-FE05C2A6-44FBBE6D",
+      "WorldSettings": {
+        "ObjectName": "PersistentLevel:WorldSettings:",
+        "ObjectPath": "Audio.21"
+      }
     }
   },
   {
-    "ExportType": "Model",
-    "ExportValue": {}
+    "Type": "Model",
+    "Name": "Model_11",
+    "Properties": {}
   },
   {
-    "ExportType": "Model",
-    "ExportValue": {}
+    "Type": "Model",
+    "Name": "Model_11",
+    "Properties": {}
   },
   {
-    "ExportType": "Model",
-    "ExportValue": {}
+    "Type": "Model",
+    "Name": "Model_5",
+    "Properties": {}
   },
   {
-    "ExportType": "NavigationSystemModuleConfig",
-    "ExportValue": {
+    "Type": "NavigationSystemModuleConfig",
+    "Name": "NavigationSystemModuleConfig_0",
+    "Properties": {
       "bCreateOnClient": true,
       "bAutoSpawnMissingNavData": true,
       "bSpawnNavDataInNavBoundsLevel": true,
       "NavigationSystemClass": {
         "AssetPathName": "/Script/NavigationSystem.NavigationSystemV1",
-        "SubPathString": null
+        "SubPathString": ""
       }
     }
   },
   {
-    "ExportType": "SceneComponent",
-    "ExportValue": {}
+    "Type": "SceneComponent",
+    "Name": "RootComponent0",
+    "Properties": {}
   },
   {
-    "ExportType": "World",
-    "ExportValue": {}
+    "Type": "World",
+    "Name": "Audio",
+    "Properties": {}
   },
   {
-    "ExportType": "WorldSettings",
-    "ExportValue": {
+    "Type": "WorldSettings",
+    "Properties": {
       "bEnableNavigationSystem": false,
-      "NavigationSystemConfig": 20,
+      "NavigationSystemConfig": {
+        "ObjectName": "WorldSettings:NavigationSystemModuleConfig_0:",
+        "ObjectPath": "Audio.18"
+      },
       "BookmarkArray": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     }
   }

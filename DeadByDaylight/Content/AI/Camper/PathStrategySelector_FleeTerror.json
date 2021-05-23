@@ -1,83 +1,111 @@
 [
   {
-    "ExportType": "BlueprintGeneratedClass",
-    "ExportValue": {}
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PathStrategySelector_FleeTerror_C",
+    "Properties": {}
   },
   {
-    "ExportType": "PathStrategySelector_Flee",
-    "ExportValue": {
+    "Type": "PathStrategySelector_Flee",
+    "Name": "Default__PathStrategySelector_FleeTerror_C",
+    "Properties": {
       "FleePathStrategies": {
-        "EAIFleePathStrategy::KeepGoal": 8,
-        "EAIFleePathStrategy::Away": 9,
-        "EAIFleePathStrategy::Loop": 10
+        "EAIFleePathStrategy::KeepGoal": {
+          "ObjectName": "PathStrategy_Flee_0:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.7"
+        },
+        "EAIFleePathStrategy::Away": {
+          "ObjectName": "PathStrategy_Flee_1:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.8"
+        },
+        "EAIFleePathStrategy::Loop": {
+          "ObjectName": "PathStrategy_FleeLoop_1:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.9"
+        }
       }
     }
   },
   {
-    "ExportType": "PathBuilder_EQS",
-    "ExportValue": {
+    "Type": "PathBuilder_EQS",
+    "Name": "PathBuilder_EQS_0",
+    "Properties": {
       "EQSRequest": {
         "QueryTemplate": {
-          "ObjectName": "EQS_Flee_Forward",
-          "OuterIndex": {
-            "ObjectName": "/Game/AI/Camper/EQS_Flee_Forward",
-            "OuterIndex": 0
-          }
+          "ObjectName": "EQS_Flee_Forward:EnvQuery",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Forward.10"
         },
-        "RunMode": 26
+        "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
       }
     }
   },
   {
-    "ExportType": "PathBuilder_EQS",
-    "ExportValue": {
+    "Type": "PathBuilder_EQS",
+    "Name": "PathBuilder_EQS_1",
+    "Properties": {
       "EQSRequest": {
         "QueryTemplate": {
-          "ObjectName": "EQS_Flee_Backward",
-          "OuterIndex": {
-            "ObjectName": "/Game/AI/Camper/EQS_Flee_Backward",
-            "OuterIndex": 0
-          }
+          "ObjectName": "EQS_Flee_Backward:EnvQuery",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Backward.9"
         },
-        "RunMode": 26
+        "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
       }
     }
   },
   {
-    "ExportType": "PathBuilder_EvadeLoop",
-    "ExportValue": {}
+    "Type": "PathBuilder_EvadeLoop",
+    "Name": "PathBuilder_EvadeLoop_0",
+    "Properties": {}
   },
   {
-    "ExportType": "PathBuilder_EvadeLoop",
-    "ExportValue": {}
+    "Type": "PathBuilder_EvadeLoop",
+    "Name": "PathBuilder_EvadeLoop_1",
+    "Properties": {}
   },
   {
-    "ExportType": "PathBuilder_LastGoal",
-    "ExportValue": {}
+    "Type": "PathBuilder_LastGoal",
+    "Name": "PathBuilder_LastGoal_0",
+    "Properties": {}
   },
   {
-    "ExportType": "PathStrategy_Flee",
-    "ExportValue": {
+    "Type": "PathStrategy_Flee",
+    "Name": "PathStrategy_Flee_0",
+    "Properties": {
       "DefaultPathBuilders": [
-        7
+        {
+          "ObjectName": "PathStrategy_Flee_0:PathBuilder_LastGoal_0:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.6"
+        }
       ]
     }
   },
   {
-    "ExportType": "PathStrategy_Flee",
-    "ExportValue": {
+    "Type": "PathStrategy_Flee",
+    "Name": "PathStrategy_Flee_1",
+    "Properties": {
       "DefaultPathBuilders": [
-        3,
-        4
+        {
+          "ObjectName": "PathStrategy_Flee_1:PathBuilder_EQS_0:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.2"
+        },
+        {
+          "ObjectName": "PathStrategy_Flee_1:PathBuilder_EQS_1:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.3"
+        }
       ]
     }
   },
   {
-    "ExportType": "PathStrategy_FleeLoop",
-    "ExportValue": {
+    "Type": "PathStrategy_FleeLoop",
+    "Name": "PathStrategy_FleeLoop_1",
+    "Properties": {
       "FleeLoopStrategyPathBuilders": {
-        "EAIFleeLoopStrategy::LoseKiller": 6,
-        "EAIFleeLoopStrategy::WasteTime": 5
+        "EAIFleeLoopStrategy::LoseKiller": {
+          "ObjectName": "PathStrategy_FleeLoop_1:PathBuilder_EvadeLoop_1:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.5"
+        },
+        "EAIFleeLoopStrategy::WasteTime": {
+          "ObjectName": "PathStrategy_FleeLoop_1:PathBuilder_EvadeLoop_0:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.4"
+        }
       }
     }
   }

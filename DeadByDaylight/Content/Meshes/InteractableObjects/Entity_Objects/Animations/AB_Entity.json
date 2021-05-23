@@ -1,31 +1,38 @@
 [
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_AB_Entity",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "AnimNotify_OnSurvivorSacrificed",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "Get Killer",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "SetStrugglePercent",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "SetIsStruggling",
+    "Properties": {}
   },
   {
-    "ExportType": "Function",
-    "ExportValue": {}
+    "Type": "Function",
+    "Name": "AnimGraph",
+    "Properties": {}
   },
   {
-    "ExportType": "AnimBlueprintGeneratedClass",
-    "ExportValue": {
+    "Type": "AnimBlueprintGeneratedClass",
+    "Name": "AB_Entity_C",
+    "Properties": {
       "BakedStateMachines": [
         {
           "MachineName": "MAIN",
@@ -90,9 +97,9 @@
               "EndNotify": -1,
               "InterruptNotify": -1,
               "BlendMode": "EAlphaBlendOption::Linear",
-              "CustomCurve": 0,
-              "BlendProfile": 0,
-              "LogicType": 220,
+              "CustomCurve": null,
+              "BlendProfile": null,
+              "LogicType": "ETransitionLogicType::TLT_StandardBlend",
               "StateName": "None"
             },
             {
@@ -103,20 +110,17 @@
               "EndNotify": -1,
               "InterruptNotify": -1,
               "BlendMode": "EAlphaBlendOption::Linear",
-              "CustomCurve": 0,
-              "BlendProfile": 0,
-              "LogicType": 220,
+              "CustomCurve": null,
+              "BlendProfile": null,
+              "LogicType": "ETransitionLogicType::TLT_StandardBlend",
               "StateName": "None"
             }
           ]
         }
       ],
       "TargetSkeleton": {
-        "ObjectName": "SK_MeatHook_Spider_REF_Skeleton",
-        "OuterIndex": {
-          "ObjectName": "/Game/Meshes/InteractableObjects/Entity_Objects/Models/SK_MeatHook_Spider_REF_Skeleton",
-          "OuterIndex": 0
-        }
+        "ObjectName": "SK_MeatHook_Spider_REF_Skeleton:Skeleton",
+        "ObjectPath": "/Game/Meshes/InteractableObjects/Entity_Objects/Models/SK_MeatHook_Spider_REF_Skeleton.147"
       },
       "OrderedSavedPoseIndicesMap": {
         "AnimGraph": {
@@ -135,25 +139,146 @@
               "SourceArrayIndex": 0,
               "bInstanceIsTarget": false,
               "PostCopyOperation": "EPostCopyOperation::None",
-              "DestProperty": null
+              "DestProperty": {
+                "Path": [
+                  "X"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AnimNode_BlendSpacePlayer:ScriptStruct",
+                  "ObjectPath": "/Script/AnimGraphRuntime.132"
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 4,
+              "CachedSourceProperty": {
+                "Path": [
+                  "StrugglePercent"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AB_Entity_C:",
+                  "ObjectPath": 6
+                }
+              },
+              "CachedSourceStructSubProperty": {
+                "Path": [],
+                "ResolvedOwner": null
+              }
             }
           ],
-          "Function": 0,
-          "ValueHandlerNodeProperty": null
+          "Function": null,
+          "ValueHandlerNodeProperty": {
+            "Path": [
+              "AnimGraphNode_BlendSpacePlayer"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "AB_Entity_C:",
+              "ObjectPath": 6
+            }
+          }
         },
         {
-          "/Game/Blueprints/GameplayElements/EndGame/EndGameEffectsComponent": null
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "IsStruggling",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::None",
+              "DestProperty": {
+                "Path": [
+                  "bCanEnterTransition"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AnimNode_TransitionResult:ScriptStruct",
+                  "ObjectPath": "/Script/Engine.141"
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": {
+                "Path": [
+                  "IsStruggling"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AB_Entity_C:",
+                  "ObjectPath": 6
+                }
+              },
+              "CachedSourceStructSubProperty": {
+                "Path": [],
+                "ResolvedOwner": null
+              }
+            }
+          ],
+          "Function": null,
+          "ValueHandlerNodeProperty": {
+            "Path": [
+              "AnimGraphNode_TransitionResult"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "AB_Entity_C:",
+              "ObjectPath": 6
+            }
+          }
         },
         {
-          "/Game/Audio/AudioBlueprints/Killer/BP_Audio_KLR_00": null
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "IsStruggling",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::LogicalNegateBool",
+              "DestProperty": {
+                "Path": [
+                  "bCanEnterTransition"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AnimNode_TransitionResult:ScriptStruct",
+                  "ObjectPath": "/Script/Engine.141"
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 1,
+              "CachedSourceProperty": {
+                "Path": [
+                  "IsStruggling"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AB_Entity_C:",
+                  "ObjectPath": 6
+                }
+              },
+              "CachedSourceStructSubProperty": {
+                "Path": [],
+                "ResolvedOwner": null
+              }
+            }
+          ],
+          "Function": null,
+          "ValueHandlerNodeProperty": {
+            "Path": [
+              "AnimGraphNode_TransitionResult_1"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "AB_Entity_C:",
+              "ObjectPath": 6
+            }
+          }
         }
       ],
-      "UberGraphFunction": 1
+      "UberGraphFunction": {
+        "ObjectName": "ExecuteUbergraph_AB_Entity:",
+        "ObjectPath": "AB_Entity_C.0"
+      }
     }
   },
   {
-    "ExportType": "AnimInstance",
-    "ExportValue": {
+    "Type": "AnimInstance",
+    "Name": "Default__AB_Entity_C",
+    "Properties": {
       "UberGraphFrame": {},
       "AnimGraphNode_Root": {
         "Result": {
@@ -169,19 +294,16 @@
         "SlotName": "DefaultSlot",
         "bAlwaysUpdateSourcePose": false
       },
+      "AnimGraphNode_TransitionResult_1": {
+        "bCanEnterTransition": false
+      },
       "AnimGraphNode_TransitionResult": {
         "bCanEnterTransition": false
       },
-      "AnimGraphNode_TransitionResult_NK01": {
-        "bCanEnterTransition": false
-      },
-      "AnimGraphNode_SequencePlayer": {
+      "AnimGraphNode_SequencePlayer_1": {
         "Sequence": {
-          "ObjectName": "SK_Spider_Invisible",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/InteractableObjects/Entity_Objects/Animations/AnimSequences/SK_Spider_Invisible",
-            "OuterIndex": 0
-          }
+          "ObjectName": "SK_Spider_Invisible:AnimSequence",
+          "ObjectPath": "/Game/Meshes/InteractableObjects/Entity_Objects/Animations/AnimSequences/SK_Spider_Invisible.5"
         },
         "PlayRateBasis": 1.0,
         "PlayRate": 1.0,
@@ -207,12 +329,12 @@
         "StartPosition": 0.0,
         "bLoopAnimation": true,
         "GroupIndex": -1,
-        "GroupRole": 206,
+        "GroupRole": "EAnimGroupRole::CanBeLeader",
         "bIgnoreForRelevancyTest": false,
         "BlendWeight": 0.0,
         "InternalTimeAccumulator": 0.0
       },
-      "AnimGraphNode_StateResult": {
+      "AnimGraphNode_StateResult_1": {
         "Result": {
           "LinkID": 4
         },
@@ -243,7 +365,7 @@
         ],
         "bMeshSpaceRotationBlend": false,
         "bMeshSpaceScaleBlend": false,
-        "CurveBlendOption": 208,
+        "CurveBlendOption": "ECurveBlendOption::Override",
         "bBlendRootMotionBasedOnRootBone": true,
         "LODThreshold": -1,
         "PerBoneBlendWeights": [
@@ -424,16 +546,13 @@
             "BlendWeight": 0.0
           }
         ],
-        "SkeletonGuid": "F697992541DE4E323269669924838E9A",
-        "VirtualBoneGuid": "00000000000000000000000000000000"
+        "SkeletonGuid": "F6979925-41DE4E32-32696699-24838E9A",
+        "VirtualBoneGuid": "00000000-00000000-00000000-00000000"
       },
-      "AnimGraphNode_SequencePlayer_NK02": {
+      "AnimGraphNode_SequencePlayer": {
         "Sequence": {
-          "ObjectName": "SK_Spider_Struggle",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/InteractableObjects/Entity_Objects/Animations/AnimSequences/SK_Spider_Struggle",
-            "OuterIndex": 0
-          }
+          "ObjectName": "SK_Spider_Struggle:AnimSequence",
+          "ObjectPath": "/Game/Meshes/InteractableObjects/Entity_Objects/Animations/AnimSequences/SK_Spider_Struggle.6"
         },
         "PlayRateBasis": 1.0,
         "PlayRate": 1.0,
@@ -459,7 +578,7 @@
         "StartPosition": 0.0,
         "bLoopAnimation": true,
         "GroupIndex": -1,
-        "GroupRole": 206,
+        "GroupRole": "EAnimGroupRole::CanBeLeader",
         "bIgnoreForRelevancyTest": false,
         "BlendWeight": 0.0,
         "InternalTimeAccumulator": 0.0
@@ -473,20 +592,17 @@
         "bResetPlayTimeWhenBlendSpaceChanges": true,
         "StartPosition": 0.0,
         "BlendSpace": {
-          "ObjectName": "BS_Spider_Struggle",
-          "OuterIndex": {
-            "ObjectName": "/Game/Meshes/InteractableObjects/Entity_Objects/Animations/BlendSpace/BS_Spider_Struggle",
-            "OuterIndex": 0
-          }
+          "ObjectName": "BS_Spider_Struggle:BlendSpace1D",
+          "ObjectPath": "/Game/Meshes/InteractableObjects/Entity_Objects/Animations/BlendSpace/BS_Spider_Struggle.10"
         },
-        "PreviousBlendSpace": 0,
+        "PreviousBlendSpace": null,
         "GroupIndex": -1,
-        "GroupRole": 206,
+        "GroupRole": "EAnimGroupRole::CanBeLeader",
         "bIgnoreForRelevancyTest": false,
         "BlendWeight": 0.0,
         "InternalTimeAccumulator": 0.0
       },
-      "AnimGraphNode_StateResult_NK03": {
+      "AnimGraphNode_StateResult": {
         "Result": {
           "LinkID": 6
         },
@@ -519,9 +635,9 @@
           "BlendOutTime": 0.0,
           "BlendOption": "EAlphaBlendOption::Linear",
           "bInitialized": false,
-          "CustomCurve": 0,
+          "CustomCurve": null,
           "AlphaBlend": {
-            "CustomCurve": 0,
+            "CustomCurve": null,
             "BlendTime": 0.2,
             "BlendOption": "EAlphaBlendOption::Linear"
           }
@@ -553,13 +669,13 @@
         },
         "CachePoseName": "MainCache"
       },
-      "AnimGraphNode_UseCachedPose": {
+      "AnimGraphNode_UseCachedPose_1": {
         "LinkToCachingNode": {
           "LinkID": 12
         },
         "CachePoseName": "MainCache"
       },
-      "AnimGraphNode_UseCachedPose_NK04": {
+      "AnimGraphNode_UseCachedPose": {
         "LinkToCachingNode": {
           "LinkID": 12
         },
