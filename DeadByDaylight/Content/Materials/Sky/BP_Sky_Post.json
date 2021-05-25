@@ -41,6 +41,11 @@
   },
   {
     "Type": "Function",
+    "Name": "SetPostOverride",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
     "Name": "UserConstructionScript",
     "Properties": {}
   },
@@ -70,12 +75,17 @@
     "Properties": {}
   },
   {
+    "Type": "Function",
+    "Name": "GetLightingPost",
+    "Properties": {}
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_Sky_Post_C",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_0:",
-        "ObjectPath": "BP_Sky_Post_C.37"
+        "ObjectPath": "BP_Sky_Post_C.39"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_BP_Sky_Post:",
@@ -121,15 +131,15 @@
       "Cloud speed": 3.0,
       "Horizon color curve": {
         "ObjectName": "C_Sky_Horizon_Color:CurveLinearColor",
-        "ObjectPath": "/Engine/EngineSky/C_Sky_Horizon_Color.38"
+        "ObjectPath": "/Engine/EngineSky/C_Sky_Horizon_Color.39"
       },
       "Zenith color curve": {
         "ObjectName": "C_Sky_Zenith_Color:CurveLinearColor",
-        "ObjectPath": "/Engine/EngineSky/C_Sky_Zenith_Color.39"
+        "ObjectPath": "/Engine/EngineSky/C_Sky_Zenith_Color.40"
       },
       "Cloud color curve": {
         "ObjectName": "C_Sky_Cloud_Color:CurveLinearColor",
-        "ObjectPath": "/Engine/EngineSky/C_Sky_Cloud_Color.37"
+        "ObjectPath": "/Engine/EngineSky/C_Sky_Cloud_Color.38"
       },
       "StartSkyFog": 4500.0,
       "DistanceSkyFog": 2500.0,
@@ -164,25 +174,25 @@
       },
       "Direction distance": 0.5,
       "Directional speed": 0.02,
-      "Horizon move falloff": 2.0,
+      "Horizon move falloff curve": 2.0,
+      "Sky saturation": 1.0,
       "Sky contrast": 1.0,
       "HDR tint": 1.0,
       "HDR intensity": 1.0,
-      "HDR power": 1.0,
       "Sun/Moon radius": 0.1,
       "Moon contrast": 0.5,
       "Sky texture": {
         "ObjectName": "Sunset_Clouds_TX:Texture2D",
-        "ObjectPath": "/Game/Effects/Textures/Sunset_Clouds_TX.152"
+        "ObjectPath": "/Game/Effects/Textures/Sunset_Clouds_TX.157"
       },
-      "Direction ": {
-        "R": 1,
-        "G": 0,
-        "B": 0,
+      "Horizon Tint": {
+        "R": 255,
+        "G": 255,
+        "B": 255,
         "A": 0,
-        "Hex": "010000"
+        "Hex": "FFFFFF"
       },
-      "Tint": {
+      "Sky Tint": {
         "R": 255,
         "G": 255,
         "B": 255,
@@ -200,11 +210,11 @@
     "Properties": {
       "ChildActorClass": {
         "ObjectName": "GMAdaptiveShadowMapSourceComponentSpawner:Class",
-        "ObjectPath": "/Script/GraphicsExtensions.36"
+        "ObjectPath": "/Script/GraphicsExtensions.37"
       },
       "ChildActorTemplate": {
         "ObjectName": "GMAdaptiveShadowMapSourceComponentSpawner_GEN_VARIABLE:GMAdaptiveShadowMapSourceComponentSpawner_GEN_VARIABLE_GMAdaptiveShadowMapSourceComponentSpawner_CAT:",
-        "ObjectPath": "BP_Sky_Post_C.21"
+        "ObjectPath": "BP_Sky_Post_C.23"
       }
     }
   },
@@ -220,7 +230,6 @@
       "Intensity": 0.0,
       "CastShadows": false,
       "CastStaticShadows": false,
-      "CastDynamicShadows": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "DetailLevelBeforeCastDynamicShadows": "ELightingDetailMode::Low",
       "bAffectTranslucentLighting": false
@@ -237,6 +246,7 @@
       "MaxDrawDistance": 0.0,
       "MaxDistanceFadeRange": 0.0,
       "bAffectDynamicIndirectLighting": true,
+      "CastDynamicShadowsWithNewDefaultValue": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "DetailLevelBeforeCastDynamicShadows": "ELightingDetailMode::Low"
     }
@@ -254,11 +264,7 @@
     "Name": "AdaptiveShadowMapSource_GEN_VARIABLE",
     "Properties": {
       "bUseAutoRadius": true,
-      "Levels": 6,
-      "LightFunctionMaterial": {
-        "ObjectName": "MI_AdaptiveShadowMap:MaterialInstanceConstant",
-        "ObjectPath": "/Game/Materials/MI_AdaptiveShadowMap.104"
-      }
+      "Levels": 6
     }
   },
   {
@@ -364,7 +370,7 @@
         "ColorGradingIntensity": 0.2,
         "ColorGradingLUT": {
           "ObjectName": "color_swatch:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/color_swatch.151"
+          "ObjectPath": "/Game/Effects/Textures/color_swatch.156"
         },
         "DepthOfFieldNearTransitionRegion": 0.0,
         "DepthOfFieldFarTransitionRegion": 10000.0,
@@ -399,11 +405,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.29"
+        "ObjectPath": "/Script/Engine.30"
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent_0:",
-        "ObjectPath": "BP_Sky_Post_C.23"
+        "ObjectPath": "BP_Sky_Post_C.25"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -415,11 +421,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.33"
+        "ObjectPath": "/Script/Engine.34"
       },
       "ComponentTemplate": {
         "ObjectName": "SkyFollower_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.40"
+        "ObjectPath": "BP_Sky_Post_C.42"
       },
       "VariableGuid": "70D71414-4B3415C6-7F969E99-009CD9DF",
       "InternalVariableName": "SkyFollower"
@@ -431,11 +437,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "GMAdaptiveShadowMapSourceComponent:Class",
-        "ObjectPath": "/Script/GraphicsExtensions.35"
+        "ObjectPath": "/Script/GraphicsExtensions.36"
       },
       "ComponentTemplate": {
         "ObjectName": "AdaptiveShadowMapSource_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.20"
+        "ObjectPath": "BP_Sky_Post_C.22"
       },
       "VariableGuid": "E12E3EC6-4A3AB4D8-7C55A985-365B88A6",
       "InternalVariableName": "AdaptiveShadowMapSource"
@@ -447,11 +453,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "ChildActorComponent:Class",
-        "ObjectPath": "/Script/Engine.15"
+        "ObjectPath": "/Script/Engine.16"
       },
       "ComponentTemplate": {
         "ObjectName": "GMAdaptiveShadowMapSourceComponentSpawner_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.16"
+        "ObjectPath": "BP_Sky_Post_C.18"
       },
       "VariableGuid": "F6D0751C-41FAE9C2-6C631188-B1AB4DA8",
       "InternalVariableName": "GMAdaptiveShadowMapSourceComponentSpawner"
@@ -463,48 +469,48 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.29"
+        "ObjectPath": "/Script/Engine.30"
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent_1:",
-        "ObjectPath": "BP_Sky_Post_C.24"
+        "ObjectPath": "BP_Sky_Post_C.26"
       },
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BP_Sky_Post_C.26"
+          "ObjectPath": "BP_Sky_Post_C.28"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "BP_Sky_Post_C.30"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
-          "ObjectPath": "BP_Sky_Post_C.31"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
           "ObjectPath": "BP_Sky_Post_C.32"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
           "ObjectPath": "BP_Sky_Post_C.33"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
           "ObjectPath": "BP_Sky_Post_C.34"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
           "ObjectPath": "BP_Sky_Post_C.35"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
           "ObjectPath": "BP_Sky_Post_C.36"
         },
         {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectPath": "BP_Sky_Post_C.37"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectPath": "BP_Sky_Post_C.38"
+        },
+        {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_13:",
-          "ObjectPath": "BP_Sky_Post_C.28"
+          "ObjectPath": "BP_Sky_Post_C.30"
         }
       ],
       "VariableGuid": "755AA28E-19157B2A-AFFC57EA-A0F45D33",
@@ -517,11 +523,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.33"
+        "ObjectPath": "/Script/Engine.34"
       },
       "ComponentTemplate": {
         "ObjectName": "SkyMax_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.41"
+        "ObjectPath": "BP_Sky_Post_C.43"
       },
       "VariableGuid": "C9933BDF-45430E76-BD734684-2C8D3380",
       "InternalVariableName": "SkyMax"
@@ -533,11 +539,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.33"
+        "ObjectPath": "/Script/Engine.34"
       },
       "ComponentTemplate": {
         "ObjectName": "MoonMesh_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.39"
+        "ObjectPath": "BP_Sky_Post_C.41"
       },
       "VariableGuid": "5C8F8E5E-449223C9-681DA3AD-C773F710",
       "InternalVariableName": "MoonMesh"
@@ -549,11 +555,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "PostProcessComponent:Class",
-        "ObjectPath": "/Script/Engine.27"
+        "ObjectPath": "/Script/Engine.28"
       },
       "ComponentTemplate": {
         "ObjectName": "LevelPostProcess_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.22"
+        "ObjectPath": "BP_Sky_Post_C.24"
       },
       "VariableGuid": "6C302177-4D9362D3-BC849A86-44E524B1",
       "InternalVariableName": "LevelPostProcess"
@@ -565,11 +571,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SkyLightComponent:Class",
-        "ObjectPath": "/Script/Engine.32"
+        "ObjectPath": "/Script/Engine.33"
       },
       "ComponentTemplate": {
         "ObjectName": "LevelSkyLight_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.38"
+        "ObjectPath": "BP_Sky_Post_C.40"
       },
       "VariableGuid": "C8C46290-4B7C2E69-DDA6D1B6-8954E67A",
       "InternalVariableName": "LevelSkyLight"
@@ -581,11 +587,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "ExponentialHeightFogComponent:Class",
-        "ObjectPath": "/Script/Engine.19"
+        "ObjectPath": "/Script/Engine.20"
       },
       "ComponentTemplate": {
         "ObjectName": "HeightFog_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.19"
+        "ObjectPath": "BP_Sky_Post_C.21"
       },
       "VariableGuid": "74916A29-4FA36772-FC6A6E86-4B4CD07D",
       "InternalVariableName": "HeightFog"
@@ -597,16 +603,16 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "DirectionalLightComponent:Class",
-        "ObjectPath": "/Script/Engine.18"
+        "ObjectPath": "/Script/Engine.19"
       },
       "ComponentTemplate": {
         "ObjectName": "ShadowLight_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.18"
+        "ObjectPath": "BP_Sky_Post_C.20"
       },
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
-          "ObjectPath": "BP_Sky_Post_C.27"
+          "ObjectPath": "BP_Sky_Post_C.29"
         }
       ],
       "VariableGuid": "8E1CCF0D-4139D3CC-363AE68F-481B22E4",
@@ -619,11 +625,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "DirectionalLightComponent:Class",
-        "ObjectPath": "/Script/Engine.18"
+        "ObjectPath": "/Script/Engine.19"
       },
       "ComponentTemplate": {
         "ObjectName": "GodRayLight_GEN_VARIABLE:",
-        "ObjectPath": "BP_Sky_Post_C.17"
+        "ObjectPath": "BP_Sky_Post_C.19"
       },
       "VariableGuid": "14D16A01-4CBAEEBE-F05FB882-615E2A06",
       "InternalVariableName": "GodRayLight"
@@ -636,58 +642,58 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BP_Sky_Post_C.29"
+          "ObjectPath": "BP_Sky_Post_C.31"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BP_Sky_Post_C.29"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BP_Sky_Post_C.26"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "BP_Sky_Post_C.30"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
           "ObjectPath": "BP_Sky_Post_C.31"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_Sky_Post_C.28"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
           "ObjectPath": "BP_Sky_Post_C.32"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
           "ObjectPath": "BP_Sky_Post_C.33"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
           "ObjectPath": "BP_Sky_Post_C.34"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
           "ObjectPath": "BP_Sky_Post_C.35"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
           "ObjectPath": "BP_Sky_Post_C.36"
         },
         {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectPath": "BP_Sky_Post_C.37"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectPath": "BP_Sky_Post_C.38"
+        },
+        {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
-          "ObjectPath": "BP_Sky_Post_C.27"
+          "ObjectPath": "BP_Sky_Post_C.29"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_13:",
-          "ObjectPath": "BP_Sky_Post_C.28"
+          "ObjectPath": "BP_Sky_Post_C.30"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-        "ObjectPath": "BP_Sky_Post_C.25"
+        "ObjectPath": "BP_Sky_Post_C.27"
       }
     }
   },
@@ -696,6 +702,7 @@
     "Name": "LevelSkyLight_GEN_VARIABLE",
     "Properties": {
       "CastShadows": false,
+      "CastDynamicShadowsWithNewDefaultValue": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "Mobility": "EComponentMobility::Movable"
     }
@@ -706,13 +713,13 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_ParticlePlane:StaticMesh",
-        "ObjectPath": "/Game/Effects/Mesh/SM_ParticlePlane.146"
+        "ObjectPath": "/Game/Effects/Mesh/SM_ParticlePlane.151"
       },
       "bUseDefaultCollision": false,
       "OverrideMaterials": [
         {
           "ObjectName": "MI_Moon_Asylum:MaterialInstanceConstant",
-          "ObjectPath": "/Game/Materials/MI_Moon_Asylum.105"
+          "ObjectPath": "/Game/Materials/MI_Moon_Asylum.109"
         }
       ],
       "bGenerateOverlapEvents": false,
@@ -843,14 +850,14 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_SkySphere:StaticMesh",
-        "ObjectPath": "/Engine/EngineSky/SM_SkySphere.145"
+        "ObjectPath": "/Engine/EngineSky/SM_SkySphere.150"
       },
       "bDisallowMeshPaintPerInstance": true,
       "bUseDefaultCollision": false,
       "OverrideMaterials": [
         {
           "ObjectName": "M_Sky_PanningCloudsPost:Material",
-          "ObjectPath": "/Game/Materials/Sky/M_Sky_PanningCloudsPost.102"
+          "ObjectPath": "/Game/Materials/Sky/M_Sky_PanningCloudsPost.107"
         }
       ],
       "bGenerateOverlapEvents": false,
@@ -966,13 +973,13 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_SkySphere:StaticMesh",
-        "ObjectPath": "/Engine/EngineSky/SM_SkySphere.145"
+        "ObjectPath": "/Engine/EngineSky/SM_SkySphere.150"
       },
       "bUseDefaultCollision": false,
       "OverrideMaterials": [
         {
           "ObjectName": "M_SkyClip:Material",
-          "ObjectPath": "/Game/Materials/Sky/M_SkyClip.103"
+          "ObjectPath": "/Game/Materials/Sky/M_SkyClip.108"
         }
       ],
       "bGenerateOverlapEvents": false,

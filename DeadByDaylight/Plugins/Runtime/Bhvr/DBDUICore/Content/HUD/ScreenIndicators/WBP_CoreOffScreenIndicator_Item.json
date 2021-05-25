@@ -6,12 +6,12 @@
   },
   {
     "Type": "Function",
-    "Name": "SetData",
+    "Name": "ClearData",
     "Properties": {}
   },
   {
     "Type": "Function",
-    "Name": "UpdateWidget",
+    "Name": "SetData",
     "Properties": {}
   },
   {
@@ -45,12 +45,37 @@
     "Properties": {}
   },
   {
+    "Type": "Function",
+    "Name": "UpdateNoiseIndicator",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "Update Stealth Indicator",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateObjectiveIndicator",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateInFrontPosition",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "playIdleObjectiveAnimation",
+    "Properties": {}
+  },
+  {
     "Type": "WidgetBlueprintGeneratedClass",
     "Name": "WBP_CoreOffScreenIndicator_Item_C",
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.84"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.119"
       },
       "bAllowTemplate": true,
       "bValidTemplate": true,
@@ -58,7 +83,11 @@
       "Animations": [
         {
           "ObjectName": "StealthLossAnim_INST:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.77"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.110"
+        },
+        {
+          "ObjectName": "ObjectiveStrokeAnim_INST:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.109"
         }
       ],
       "TemplateAsset": {
@@ -72,17 +101,17 @@
     }
   },
   {
-    "Type": "CoreOffScreenIndicatorItem",
+    "Type": "CoreScreenIndicatorWidget",
     "Name": "Default__WBP_CoreOffScreenIndicator_Item_C",
     "Properties": {
       "UberGraphFrame": {},
       "IndicatorPadding": {
-        "X": 50.0,
-        "Y": 50.0
+        "X": 120.0,
+        "Y": 120.0
       },
       "DistanceClamping": {
         "X": 1000.0,
-        "Y": 10000.0
+        "Y": 1000.0
       },
       "MinDistanceRatio": 0.9,
       "MinDistanceAlpha": 0.5,
@@ -97,7 +126,7 @@
       "Slots": [
         {
           "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.13"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.18"
         }
       ]
     }
@@ -109,7 +138,7 @@
       "Slots": [
         {
           "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-          "ObjectPath": "WidgetArchetype.14"
+          "ObjectPath": "WidgetArchetype.19"
         }
       ]
     }
@@ -141,11 +170,11 @@
       "bAutoSize": true,
       "Parent": {
         "ObjectName": "WidgetTree:CanvasPanel_0:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.11"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.16"
       },
       "Content": {
         "ObjectName": "WidgetTree:TypeSwitcher:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.78"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.111"
       }
     }
   },
@@ -176,11 +205,11 @@
       "bAutoSize": true,
       "Parent": {
         "ObjectName": "WidgetTree_0:CanvasPanel_0:",
-        "ObjectPath": "WidgetArchetype.12"
+        "ObjectPath": "WidgetArchetype.17"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:TypeSwitcher:",
-        "ObjectPath": "WidgetArchetype.79"
+        "ObjectPath": "WidgetArchetype.112"
       }
     }
   },
@@ -195,18 +224,78 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenIndicator_arrow:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_arrow.89"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_arrow.97"
         }
       },
       "Slot": {
         "ObjectName": "LoudNoise:OverlaySlot_0:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.64"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.88"
       },
       "RenderTransform": {
         "Translation": {
           "X": 0.0,
           "Y": 45.0
         }
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ArrowBig",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 264.0,
+          "Y": 264.0
+        },
+        "ResourceObject": {
+          "ObjectName": "coreTutorial_ArrowBig:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreTutorial_ArrowBig.101"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_2:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.90"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ArrowSmall",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "coreTutorial_ArrowSmall:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreTutorial_ArrowSmall.102"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_3:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.91"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ArrowStroke",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "coreTutorial_ArrowSmallStroke:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreTutorial_ArrowSmallStroke.103"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_4:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.92"
       }
     }
   },
@@ -221,12 +310,36 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenIndicator_curve:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_curve.90"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_curve.98"
         }
       },
       "Slot": {
         "ObjectName": "LoudNoise:OverlaySlot_1:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.65"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.89"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ObjectiveIcon",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "iconHelp_loadingMissing:Texture2D",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.104"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "iconHelp_topicMissing:Texture2D",
+          "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_topicMissing.105"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_6:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.93"
       }
     }
   },
@@ -241,18 +354,78 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenIndicator_arrow:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_arrow.89"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_arrow.97"
         }
       },
       "Slot": {
         "ObjectName": "LoudNoise:OverlaySlot_0:",
-        "ObjectPath": "WidgetArchetype.70"
+        "ObjectPath": "WidgetArchetype.98"
       },
       "RenderTransform": {
         "Translation": {
           "X": 0.0,
           "Y": 45.0
         }
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ArrowBig",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 264.0,
+          "Y": 264.0
+        },
+        "ResourceObject": {
+          "ObjectName": "coreTutorial_ArrowBig:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreTutorial_ArrowBig.101"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_2:",
+        "ObjectPath": "WidgetArchetype.100"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ArrowSmall",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "coreTutorial_ArrowSmall:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreTutorial_ArrowSmall.102"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_3:",
+        "ObjectPath": "WidgetArchetype.101"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ArrowStroke",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "coreTutorial_ArrowSmallStroke:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreTutorial_ArrowSmallStroke.103"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_4:",
+        "ObjectPath": "WidgetArchetype.102"
       }
     }
   },
@@ -267,12 +440,36 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenIndicator_curve:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_curve.90"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenIndicator_curve.98"
         }
       },
       "Slot": {
         "ObjectName": "LoudNoise:OverlaySlot_1:",
-        "ObjectPath": "WidgetArchetype.71"
+        "ObjectPath": "WidgetArchetype.99"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "ObjectiveIcon",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "iconHelp_loadingMissing:Texture2D",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.104"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "iconHelp_topicMissing:Texture2D",
+          "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_topicMissing.105"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Objective:OverlaySlot_6:",
+        "ObjectPath": "WidgetArchetype.103"
       }
     }
   },
@@ -287,12 +484,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken02:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.91"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.99"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_8:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.69"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.97"
       },
       "RenderTransform": {
         "Translation": {
@@ -313,12 +510,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken02:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.91"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.99"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_7:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.68"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.96"
       },
       "RenderTransform": {
         "Translation": {
@@ -340,12 +537,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken03:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.92"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.100"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_1:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.66"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.94"
       },
       "RenderTransform": {
         "Angle": -10.0
@@ -363,12 +560,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken03:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.92"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.100"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_6:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.67"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.95"
       },
       "RenderTransform": {
         "Translation": {
@@ -390,12 +587,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken02:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.91"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.99"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_8:",
-        "ObjectPath": "WidgetArchetype.75"
+        "ObjectPath": "WidgetArchetype.107"
       },
       "RenderTransform": {
         "Translation": {
@@ -416,12 +613,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken02:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.91"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken02.99"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_7:",
-        "ObjectPath": "WidgetArchetype.74"
+        "ObjectPath": "WidgetArchetype.106"
       },
       "RenderTransform": {
         "Translation": {
@@ -443,12 +640,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken03:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.92"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.100"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_1:",
-        "ObjectPath": "WidgetArchetype.72"
+        "ObjectPath": "WidgetArchetype.104"
       },
       "RenderTransform": {
         "Angle": -10.0
@@ -466,12 +663,12 @@
         },
         "ResourceObject": {
           "ObjectName": "coreOffScreenLine_stealthBroken03:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.92"
+          "ObjectPath": "/DBDUICore/Assets/HUD/ScreenIndicators/coreOffScreenLine_stealthBroken03.100"
         }
       },
       "Slot": {
         "ObjectName": "StealthLoss:OverlaySlot_6:",
-        "ObjectPath": "WidgetArchetype.73"
+        "ObjectPath": "WidgetArchetype.105"
       },
       "RenderTransform": {
         "Translation": {
@@ -480,6 +677,61 @@
         },
         "Angle": 15.0
       }
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "ObjectiveStrokeAnim",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "3F6B3CD3-4DBF4F62-0767DD94-C51506E1",
+          "Name": "ArrowStroke",
+          "PossessedObjectClass": {
+            "ObjectName": "DBDImage:Class",
+            "ObjectPath": "/Script/DBDUIViewsCore.5"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "3F6B3CD3-4DBF4F62-0767DD94-C51506E1",
+          "BindingName": "ArrowStroke",
+          "Tracks": [
+            {
+              "ObjectName": "ObjectiveStrokeAnim:MovieSceneColorTrack_0:",
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.77"
+            },
+            {
+              "ObjectName": "ObjectiveStrokeAnim:MovieScene2DTransformTrack_0:",
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.47"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "FrameRangeValue": {
+          "LowerBound": {
+            "BoundType": 1,
+            "BoundValue": {
+              "FrameNumberValue": -362741760
+            }
+          },
+          "UpperBound": {
+            "BoundType": 0,
+            "BoundValue": {
+              "FrameNumberValue": 0
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 245,
+        "Denominator": 0
+      },
+      "Signature": "5C1C05B0-4CA378F1-666DAD95-C2A62221"
     }
   },
   {
@@ -535,11 +787,11 @@
           "Tracks": [
             {
               "ObjectName": "StealthLossAnim:MovieScene2DTransformTrack_0:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.32"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.48"
             },
             {
               "ObjectName": "StealthLossAnim:MovieSceneColorTrack_0:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.56"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.78"
             }
           ]
         },
@@ -549,11 +801,11 @@
           "Tracks": [
             {
               "ObjectName": "StealthLossAnim:MovieScene2DTransformTrack_1:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.33"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.49"
             },
             {
               "ObjectName": "StealthLossAnim:MovieSceneColorTrack_2:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.58"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.80"
             }
           ]
         },
@@ -563,11 +815,11 @@
           "Tracks": [
             {
               "ObjectName": "StealthLossAnim:MovieSceneColorTrack_1:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.57"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.79"
             },
             {
               "ObjectName": "StealthLossAnim:MovieScene2DTransformTrack_2:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.34"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.50"
             }
           ]
         },
@@ -577,11 +829,11 @@
           "Tracks": [
             {
               "ObjectName": "StealthLossAnim:MovieSceneColorTrack_3:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.59"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.81"
             },
             {
               "ObjectName": "StealthLossAnim:MovieScene2DTransformTrack_3:",
-              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.35"
+              "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.51"
             }
           ]
         }
@@ -603,7 +855,7 @@
         }
       },
       "DisplayRate": {
-        "Numerator": 225,
+        "Numerator": 245,
         "Denominator": 0
       },
       "Signature": "84A4DD3A-432DA818-DC4C5F95-DC586BFE"
@@ -613,10 +865,59 @@
     "Type": "MovieScene2DTransformSection",
     "Name": "MovieScene2DTransformSection_0",
     "Properties": {
+      "Translation": {
+        "PreInfinityExtrap": 4,
+        "PostInfinityExtrap": 4,
+        "DefaultValue": 6E-45,
+        "bHasDefaultValue": true,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 28
+        }
+      },
+      "Translation": {
+        "PreInfinityExtrap": 4,
+        "PostInfinityExtrap": 4,
+        "DefaultValue": 6E-45,
+        "bHasDefaultValue": true,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 28
+        }
+      },
+      "Scale": null,
+      "Scale": null,
+      "Easing": {
+        "EaseIn": 53,
+        "EaseOut": 54
+      },
+      "SectionRange": {
+        "FrameRangeValue": {
+          "LowerBound": {
+            "BoundType": 1,
+            "BoundValue": {
+              "FrameNumberValue": -362807040
+            }
+          },
+          "UpperBound": {
+            "BoundType": 0,
+            "BoundValue": {
+              "FrameNumberValue": 0
+            }
+          }
+        }
+      },
+      "Signature": "3D9C3CCB-41785B79-28AD9CB6-B4E96B64"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Properties": {
       "Translation": null,
       "Easing": {
-        "EaseIn": 37,
-        "EaseOut": 38
+        "EaseIn": 57,
+        "EaseOut": 58
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -644,8 +945,8 @@
       "Translation": null,
       "Translation": null,
       "Easing": {
-        "EaseIn": 39,
-        "EaseOut": 40
+        "EaseIn": 59,
+        "EaseOut": 60
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -672,8 +973,8 @@
     "Properties": {
       "Translation": null,
       "Easing": {
-        "EaseIn": 41,
-        "EaseOut": 42
+        "EaseIn": 61,
+        "EaseOut": 62
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -701,8 +1002,8 @@
       "Translation": null,
       "Translation": null,
       "Easing": {
-        "EaseIn": 43,
-        "EaseOut": 44
+        "EaseIn": 63,
+        "EaseOut": 64
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -732,7 +1033,22 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformTrack_0:MovieScene2DTransformSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.28"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.42"
+        }
+      ],
+      "Signature": "B184D456-44EB76C4-A12216A3-19DFE10A"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_0",
+    "Properties": {
+      "PropertyName": "RenderTransform",
+      "PropertyPath": "RenderTransform",
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformTrack_0:MovieScene2DTransformSection_0:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.43"
         }
       ],
       "Signature": "7CB96C8D-4E10A3DC-16F82A9C-C41EA415"
@@ -747,7 +1063,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformTrack_1:MovieScene2DTransformSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.29"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.44"
         }
       ],
       "Signature": "9D442693-48E8B6A1-743165AD-4AC42462"
@@ -762,7 +1078,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformTrack_2:MovieScene2DTransformSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.30"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.45"
         }
       ],
       "Signature": "83C46B4F-45DD8450-8887A29A-786F2AA4"
@@ -777,7 +1093,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformTrack_3:MovieScene2DTransformSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.31"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.46"
         }
       ],
       "Signature": "CB168B40-402543DB-AD9134AA-77131BBB"
@@ -864,13 +1180,61 @@
     "Properties": {}
   },
   {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Properties": {}
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Properties": {}
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Properties": {}
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Properties": {}
+  },
+  {
     "Type": "MovieSceneColorSection",
     "Name": "MovieSceneColorSection_0",
     "Properties": {
       "AlphaCurve": null,
       "Easing": {
-        "EaseIn": 45,
-        "EaseOut": 46
+        "EaseIn": 55,
+        "EaseOut": 56
+      },
+      "SectionRange": {
+        "FrameRangeValue": {
+          "LowerBound": {
+            "BoundType": 1,
+            "BoundValue": {
+              "FrameNumberValue": -362807040
+            }
+          },
+          "UpperBound": {
+            "BoundType": 0,
+            "BoundValue": {
+              "FrameNumberValue": 0
+            }
+          }
+        }
+      },
+      "Signature": "4BC1C7B9-41C76C21-649FE184-70E3921F"
+    }
+  },
+  {
+    "Type": "MovieSceneColorSection",
+    "Name": "MovieSceneColorSection_0",
+    "Properties": {
+      "AlphaCurve": null,
+      "Easing": {
+        "EaseIn": 65,
+        "EaseOut": 66
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -897,8 +1261,8 @@
     "Properties": {
       "AlphaCurve": null,
       "Easing": {
-        "EaseIn": 47,
-        "EaseOut": 48
+        "EaseIn": 67,
+        "EaseOut": 68
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -925,8 +1289,8 @@
     "Properties": {
       "AlphaCurve": null,
       "Easing": {
-        "EaseIn": 49,
-        "EaseOut": 50
+        "EaseIn": 69,
+        "EaseOut": 70
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -953,8 +1317,8 @@
     "Properties": {
       "AlphaCurve": null,
       "Easing": {
-        "EaseIn": 51,
-        "EaseOut": 52
+        "EaseIn": 71,
+        "EaseOut": 72
       },
       "SectionRange": {
         "FrameRangeValue": {
@@ -984,7 +1348,22 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorTrack_0:MovieSceneColorSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.52"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.72"
+        }
+      ],
+      "Signature": "4E14C5DA-496F27E3-9CE929A1-1CE1C73F"
+    }
+  },
+  {
+    "Type": "MovieSceneColorTrack",
+    "Name": "MovieSceneColorTrack_0",
+    "Properties": {
+      "PropertyName": "ColorAndOpacity",
+      "PropertyPath": "ColorAndOpacity",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneColorTrack_0:MovieSceneColorSection_0:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.73"
         }
       ],
       "Signature": "471DF309-4E02BBBD-A72C9D8D-C39A85E0"
@@ -999,7 +1378,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorTrack_1:MovieSceneColorSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.53"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.74"
         }
       ],
       "Signature": "0AE0D54C-4B67699F-9F9EDCAC-B755C295"
@@ -1014,7 +1393,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorTrack_2:MovieSceneColorSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.54"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.75"
         }
       ],
       "Signature": "98308B7E-4B48E83B-BE9E729A-AB445C43"
@@ -1029,7 +1408,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorTrack_3:MovieSceneColorSection_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.55"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.76"
         }
       ],
       "Signature": "CC6B0A84-48930282-AA5D02B8-DD2BEDEC"
@@ -1042,16 +1421,45 @@
       "Slots": [
         {
           "ObjectName": "LoudNoise:OverlaySlot_1:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.65"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.89"
         },
         {
           "ObjectName": "LoudNoise:OverlaySlot_0:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.64"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.88"
         }
       ],
       "Slot": {
         "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_8:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.81"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.115"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Objective",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "Objective:OverlaySlot_2:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.90"
+        },
+        {
+          "ObjectName": "Objective:OverlaySlot_6:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.93"
+        },
+        {
+          "ObjectName": "Objective:OverlaySlot_3:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.91"
+        },
+        {
+          "ObjectName": "Objective:OverlaySlot_4:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.92"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_0:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.113"
       },
       "bIsVariable": true
     }
@@ -1063,24 +1471,24 @@
       "Slots": [
         {
           "ObjectName": "StealthLoss:OverlaySlot_6:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.67"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.95"
         },
         {
           "ObjectName": "StealthLoss:OverlaySlot_1:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.66"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.94"
         },
         {
           "ObjectName": "StealthLoss:OverlaySlot_7:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.68"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.96"
         },
         {
           "ObjectName": "StealthLoss:OverlaySlot_8:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.69"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.97"
         }
       ],
       "Slot": {
         "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_2:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.80"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.114"
       },
       "bIsVariable": true
     }
@@ -1092,16 +1500,45 @@
       "Slots": [
         {
           "ObjectName": "LoudNoise:OverlaySlot_1:",
-          "ObjectPath": "WidgetArchetype.71"
+          "ObjectPath": "WidgetArchetype.99"
         },
         {
           "ObjectName": "LoudNoise:OverlaySlot_0:",
-          "ObjectPath": "WidgetArchetype.70"
+          "ObjectPath": "WidgetArchetype.98"
         }
       ],
       "Slot": {
         "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_8:",
-        "ObjectPath": "WidgetArchetype.83"
+        "ObjectPath": "WidgetArchetype.118"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Objective",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "Objective:OverlaySlot_2:",
+          "ObjectPath": "WidgetArchetype.100"
+        },
+        {
+          "ObjectName": "Objective:OverlaySlot_6:",
+          "ObjectPath": "WidgetArchetype.103"
+        },
+        {
+          "ObjectName": "Objective:OverlaySlot_3:",
+          "ObjectPath": "WidgetArchetype.101"
+        },
+        {
+          "ObjectName": "Objective:OverlaySlot_4:",
+          "ObjectPath": "WidgetArchetype.102"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_0:",
+        "ObjectPath": "WidgetArchetype.116"
       },
       "bIsVariable": true
     }
@@ -1113,24 +1550,24 @@
       "Slots": [
         {
           "ObjectName": "StealthLoss:OverlaySlot_6:",
-          "ObjectPath": "WidgetArchetype.73"
+          "ObjectPath": "WidgetArchetype.105"
         },
         {
           "ObjectName": "StealthLoss:OverlaySlot_1:",
-          "ObjectPath": "WidgetArchetype.72"
+          "ObjectPath": "WidgetArchetype.104"
         },
         {
           "ObjectName": "StealthLoss:OverlaySlot_7:",
-          "ObjectPath": "WidgetArchetype.74"
+          "ObjectPath": "WidgetArchetype.106"
         },
         {
           "ObjectName": "StealthLoss:OverlaySlot_8:",
-          "ObjectPath": "WidgetArchetype.75"
+          "ObjectPath": "WidgetArchetype.107"
         }
       ],
       "Slot": {
         "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_2:",
-        "ObjectPath": "WidgetArchetype.82"
+        "ObjectPath": "WidgetArchetype.117"
       },
       "bIsVariable": true
     }
@@ -1143,11 +1580,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree:LoudNoise:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.60"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.82"
       },
       "Content": {
         "ObjectName": "WidgetTree:Arrow:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.15"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.20"
       }
     }
   },
@@ -1159,11 +1596,75 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree:LoudNoise:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.60"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.82"
       },
       "Content": {
         "ObjectName": "WidgetTree:Line:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.16"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.24"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:Objective:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.83"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:ArrowBig:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.21"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_3",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:Objective:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.83"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:ArrowSmall:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.22"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:Objective:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.83"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:ArrowStroke:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.23"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_6",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:Objective:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.83"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:ObjectiveIcon:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.25"
       }
     }
   },
@@ -1173,11 +1674,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree:StealthLoss:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.61"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.84"
       },
       "Content": {
         "ObjectName": "WidgetTree:StealthLine03:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.21"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.34"
       }
     }
   },
@@ -1187,11 +1688,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree:StealthLoss:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.61"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.84"
       },
       "Content": {
         "ObjectName": "WidgetTree:StealthLine04:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.22"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.35"
       }
     }
   },
@@ -1201,11 +1702,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree:StealthLoss:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.61"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.84"
       },
       "Content": {
         "ObjectName": "WidgetTree:StealthLine02:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.20"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.33"
       }
     }
   },
@@ -1215,11 +1716,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree:StealthLoss:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.61"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.84"
       },
       "Content": {
         "ObjectName": "WidgetTree:StealthLine01:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.19"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.32"
       }
     }
   },
@@ -1231,11 +1732,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree_0:LoudNoise:",
-        "ObjectPath": "WidgetArchetype.62"
+        "ObjectPath": "WidgetArchetype.85"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:Arrow:",
-        "ObjectPath": "WidgetArchetype.17"
+        "ObjectPath": "WidgetArchetype.26"
       }
     }
   },
@@ -1247,11 +1748,75 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree_0:LoudNoise:",
-        "ObjectPath": "WidgetArchetype.62"
+        "ObjectPath": "WidgetArchetype.85"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:Line:",
-        "ObjectPath": "WidgetArchetype.18"
+        "ObjectPath": "WidgetArchetype.30"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Objective:",
+        "ObjectPath": "WidgetArchetype.86"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:ArrowBig:",
+        "ObjectPath": "WidgetArchetype.27"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_3",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Objective:",
+        "ObjectPath": "WidgetArchetype.86"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:ArrowSmall:",
+        "ObjectPath": "WidgetArchetype.28"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Objective:",
+        "ObjectPath": "WidgetArchetype.86"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:ArrowStroke:",
+        "ObjectPath": "WidgetArchetype.29"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_6",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Objective:",
+        "ObjectPath": "WidgetArchetype.86"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:ObjectiveIcon:",
+        "ObjectPath": "WidgetArchetype.31"
       }
     }
   },
@@ -1261,11 +1826,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree_0:StealthLoss:",
-        "ObjectPath": "WidgetArchetype.63"
+        "ObjectPath": "WidgetArchetype.87"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:StealthLine03:",
-        "ObjectPath": "WidgetArchetype.25"
+        "ObjectPath": "WidgetArchetype.38"
       }
     }
   },
@@ -1275,11 +1840,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree_0:StealthLoss:",
-        "ObjectPath": "WidgetArchetype.63"
+        "ObjectPath": "WidgetArchetype.87"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:StealthLine04:",
-        "ObjectPath": "WidgetArchetype.26"
+        "ObjectPath": "WidgetArchetype.39"
       }
     }
   },
@@ -1289,11 +1854,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree_0:StealthLoss:",
-        "ObjectPath": "WidgetArchetype.63"
+        "ObjectPath": "WidgetArchetype.87"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:StealthLine02:",
-        "ObjectPath": "WidgetArchetype.24"
+        "ObjectPath": "WidgetArchetype.37"
       }
     }
   },
@@ -1303,59 +1868,364 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree_0:StealthLoss:",
-        "ObjectPath": "WidgetArchetype.63"
+        "ObjectPath": "WidgetArchetype.87"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:StealthLine01:",
-        "ObjectPath": "WidgetArchetype.23"
+        "ObjectPath": "WidgetArchetype.36"
       }
     }
   },
   {
-    "Type": "CoreOffScreenIndicatorItem",
+    "Type": "CoreScreenIndicatorWidget",
     "Name": "WidgetArchetype",
     "Properties": {
       "Arrow": {
         "ObjectName": "WidgetTree_0:Arrow:",
-        "ObjectPath": "WidgetArchetype.17"
+        "ObjectPath": "WidgetArchetype.26"
+      },
+      "ArrowBig": {
+        "ObjectName": "WidgetTree_0:ArrowBig:",
+        "ObjectPath": "WidgetArchetype.27"
+      },
+      "ArrowSmall": {
+        "ObjectName": "WidgetTree_0:ArrowSmall:",
+        "ObjectPath": "WidgetArchetype.28"
+      },
+      "ArrowStroke": {
+        "ObjectName": "WidgetTree_0:ArrowStroke:",
+        "ObjectPath": "WidgetArchetype.29"
       },
       "Line": {
         "ObjectName": "WidgetTree_0:Line:",
-        "ObjectPath": "WidgetArchetype.18"
+        "ObjectPath": "WidgetArchetype.30"
       },
       "LoudNoise": {
         "ObjectName": "WidgetTree_0:LoudNoise:",
-        "ObjectPath": "WidgetArchetype.62"
+        "ObjectPath": "WidgetArchetype.85"
+      },
+      "Objective": {
+        "ObjectName": "WidgetTree_0:Objective:",
+        "ObjectPath": "WidgetArchetype.86"
+      },
+      "ObjectiveIcon": {
+        "ObjectName": "WidgetTree_0:ObjectiveIcon:",
+        "ObjectPath": "WidgetArchetype.31"
       },
       "StealthLine01": {
         "ObjectName": "WidgetTree_0:StealthLine01:",
-        "ObjectPath": "WidgetArchetype.23"
+        "ObjectPath": "WidgetArchetype.36"
       },
       "StealthLine02": {
         "ObjectName": "WidgetTree_0:StealthLine02:",
-        "ObjectPath": "WidgetArchetype.24"
+        "ObjectPath": "WidgetArchetype.37"
       },
       "StealthLine03": {
         "ObjectName": "WidgetTree_0:StealthLine03:",
-        "ObjectPath": "WidgetArchetype.25"
+        "ObjectPath": "WidgetArchetype.38"
       },
       "StealthLine04": {
         "ObjectName": "WidgetTree_0:StealthLine04:",
-        "ObjectPath": "WidgetArchetype.26"
+        "ObjectPath": "WidgetArchetype.39"
       },
       "StealthLoss": {
         "ObjectName": "WidgetTree_0:StealthLoss:",
-        "ObjectPath": "WidgetArchetype.63"
+        "ObjectPath": "WidgetArchetype.87"
       },
       "TypeSwitcher": {
         "ObjectName": "WidgetTree_0:TypeSwitcher:",
-        "ObjectPath": "WidgetArchetype.79"
+        "ObjectPath": "WidgetArchetype.112"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.85"
+        "ObjectPath": "WidgetArchetype.120"
       },
       "bCookedWidgetTree": true
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "ObjectiveStrokeAnim_INST",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "ObjectiveStrokeAnim_INST:ObjectiveStrokeAnim:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.40"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "ArrowStroke",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "3F6B3CD3-4DBF4F62-0767DD94-C51506E1",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "ObjectiveStrokeAnim",
+      "PrecompiledEvaluationTemplate": {
+        "Tracks": null,
+        "EvaluationField": {
+          "Ranges": [
+            {
+              "FrameRangeValue": {
+                "LowerBound": {
+                  "BoundType": 2,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                },
+                "UpperBound": {
+                  "BoundType": 0,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                }
+              }
+            },
+            {
+              "FrameRangeValue": {
+                "LowerBound": {
+                  "BoundType": -72,
+                  "BoundValue": {
+                    "FrameNumberValue": 768001
+                  }
+                },
+                "UpperBound": {
+                  "BoundType": 0,
+                  "BoundValue": {
+                    "FrameNumberValue": 1627455488
+                  }
+                }
+              }
+            },
+            {
+              "FrameRangeValue": {
+                "LowerBound": {
+                  "BoundType": -22,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                },
+                "UpperBound": {
+                  "BoundType": -88,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                }
+              }
+            },
+            {
+              "FrameRangeValue": {
+                "LowerBound": {
+                  "BoundType": 30,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                },
+                "UpperBound": {
+                  "BoundType": -72,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                }
+              }
+            }
+          ],
+          "Groups": [
+            {
+              "LUTIndices": [],
+              "SegmentPtrLUT": []
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 1
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "SequenceIDValue": 0
+                  },
+                  "TrackIdentifier": {
+                    "TrackIdentifierValue": 0
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 2
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "SequenceIDValue": 0
+                  },
+                  "TrackIdentifier": {
+                    "TrackIdentifierValue": 1
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "SequenceIDValue": 0
+                  },
+                  "TrackIdentifier": {
+                    "TrackIdentifierValue": 0
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [],
+              "SegmentPtrLUT": []
+            }
+          ],
+          "MetaData": [
+            {
+              "ActiveSequences": [
+                {
+                  "SequenceIDValue": 0
+                }
+              ],
+              "ActiveEntities": [],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "SequenceIDValue": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "SequenceIDValue": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 3,
+                  "TearDownIndex": 65532
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 2,
+                  "TearDownIndex": 65533
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 1
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 1
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "SequenceIDValue": 0
+                }
+              ],
+              "ActiveEntities": [],
+              "SubTemplateSerialNumbers": {}
+            }
+          ]
+        },
+        "SequenceSignature": "35CC16D1-4206F512-0217DB8C-3EB7E63C",
+        "TemplateSerialNumber": {
+          "Value": 1
+        },
+        "TemplateLedger": {
+          "LastTrackIdentifier": {
+            "TrackIdentifierValue": 1
+          },
+          "TrackSignatureToTrackIdentifier": null
+        },
+        "TrackFieldData": null
+      },
+      "Signature": "35CC16D1-4206F512-0217DB8C-3EB7E63C"
     }
   },
   {
@@ -1364,7 +2234,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "StealthLossAnim_INST:StealthLossAnim:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.27"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.41"
       },
       "AnimationBindings": [
         {
@@ -1466,13 +2336,13 @@
                 "LowerBound": {
                   "BoundType": 0,
                   "BoundValue": {
-                    "FrameNumberValue": 9961472
+                    "FrameNumberValue": 11010048
                   }
                 },
                 "UpperBound": {
                   "BoundType": 0,
                   "BoundValue": {
-                    "FrameNumberValue": 1638400
+                    "FrameNumberValue": 1966080
                   }
                 }
               }
@@ -1488,7 +2358,7 @@
                 "UpperBound": {
                   "BoundType": 0,
                   "BoundValue": {
-                    "FrameNumberValue": 19726336
+                    "FrameNumberValue": 21561344
                   }
                 }
               }
@@ -2667,16 +3537,20 @@
       "Slots": [
         {
           "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_8:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.81"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.115"
         },
         {
           "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_2:",
-          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.80"
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.114"
+        },
+        {
+          "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_0:",
+          "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.113"
         }
       ],
       "Slot": {
         "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.13"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.18"
       }
     }
   },
@@ -2687,16 +3561,36 @@
       "Slots": [
         {
           "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_8:",
-          "ObjectPath": "WidgetArchetype.83"
+          "ObjectPath": "WidgetArchetype.118"
         },
         {
           "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_2:",
-          "ObjectPath": "WidgetArchetype.82"
+          "ObjectPath": "WidgetArchetype.117"
+        },
+        {
+          "ObjectName": "TypeSwitcher:WidgetSwitcherSlot_0:",
+          "ObjectPath": "WidgetArchetype.116"
         }
       ],
       "Slot": {
         "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-        "ObjectPath": "WidgetArchetype.14"
+        "ObjectPath": "WidgetArchetype.19"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_0",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:TypeSwitcher:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.111"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:Objective:",
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.83"
       }
     }
   },
@@ -2708,11 +3602,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree:TypeSwitcher:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.78"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.111"
       },
       "Content": {
         "ObjectName": "WidgetTree:StealthLoss:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.61"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.84"
       }
     }
   },
@@ -2724,11 +3618,27 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree:TypeSwitcher:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.78"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.111"
       },
       "Content": {
         "ObjectName": "WidgetTree:LoudNoise:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.60"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.82"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_0",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:TypeSwitcher:",
+        "ObjectPath": "WidgetArchetype.112"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:Objective:",
+        "ObjectPath": "WidgetArchetype.86"
       }
     }
   },
@@ -2740,11 +3650,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree_0:TypeSwitcher:",
-        "ObjectPath": "WidgetArchetype.79"
+        "ObjectPath": "WidgetArchetype.112"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:StealthLoss:",
-        "ObjectPath": "WidgetArchetype.63"
+        "ObjectPath": "WidgetArchetype.87"
       }
     }
   },
@@ -2756,11 +3666,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree_0:TypeSwitcher:",
-        "ObjectPath": "WidgetArchetype.79"
+        "ObjectPath": "WidgetArchetype.112"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:LoudNoise:",
-        "ObjectPath": "WidgetArchetype.62"
+        "ObjectPath": "WidgetArchetype.85"
       }
     }
   },
@@ -2769,7 +3679,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "WidgetTree:CanvasPanel_0:",
-        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.11"
+        "ObjectPath": "WBP_CoreOffScreenIndicator_Item_C.16"
       }
     }
   },
@@ -2779,7 +3689,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "WidgetTree_0:CanvasPanel_0:",
-        "ObjectPath": "WidgetArchetype.12"
+        "ObjectPath": "WidgetArchetype.17"
       }
     }
   }

@@ -66,28 +66,28 @@
       "DynamicBindingObjects": [
         {
           "ObjectName": "ComponentDelegateBinding_0:",
-          "ObjectPath": "ToolBox_C.17"
+          "ObjectPath": "ToolBox_C.18"
         }
       ],
       "ComponentTemplates": [
         {
           "ObjectName": "NODE_AddParticleSystemComponent-0:",
-          "ObjectPath": "ToolBox_C.26"
+          "ObjectPath": "ToolBox_C.32"
         }
       ],
       "Timelines": [
         {
           "ObjectName": "TML_dissolve_Template:",
-          "ObjectPath": "ToolBox_C.35"
+          "ObjectPath": "ToolBox_C.45"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_1:",
-        "ObjectPath": "ToolBox_C.33"
+        "ObjectPath": "ToolBox_C.39"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler:",
-        "ObjectPath": "ToolBox_C.21"
+        "ObjectPath": "ToolBox_C.24"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_ToolBox:",
@@ -96,45 +96,85 @@
     }
   },
   {
-    "Type": "BaseCamperItem_C",
+    "Type": "BaseCamperCollectable",
     "Name": "Default__ToolBox_C",
     "Properties": {
       "UberGraphFrame": {},
+      "_interactable": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__ToolBox_C.43"
+      },
+      "_collectableInteractor": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__ToolBox_C.26"
+      },
+      "_dropInteraction": {
+        "ObjectName": "DropItemInteraction:",
+        "ObjectPath": "Default__ToolBox_C.22"
+      },
+      "_collectInteraction": {
+        "ObjectName": "CollectItemInteraction:",
+        "ObjectPath": "Default__ToolBox_C.17"
+      },
+      "_infectablePrimitive": {
+        "ObjectName": "InfectableSphere:",
+        "ObjectPath": "Default__ToolBox_C.42"
+      },
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__ToolBox_C.21"
+      },
+      "_materialHelper": {
+        "ObjectName": "MaterialHelperComponent:",
+        "ObjectPath": "Default__ToolBox_C.31"
+      },
+      "_survivorCollectableOutlineUpdateStrategy": {
+        "ObjectName": "SurvivorCollectableOutlineUpdateStrategy:",
+        "ObjectPath": "Default__ToolBox_C.44"
+      },
       "HandPosition": "EItemHandPosition::HandleItem",
       "HasUseInteraction": true,
       "ItemID": "Item_Camper_Toolbox",
       "BaseItemModifier": {
         "ObjectName": "ItemModifier:",
-        "ObjectPath": "Default__ToolBox_C.22"
+        "ObjectPath": "Default__ToolBox_C.28"
       },
       "ItemModifier1": {
         "ObjectName": "ItemModifier1:",
-        "ObjectPath": "Default__ToolBox_C.23"
+        "ObjectPath": "Default__ToolBox_C.29"
       },
       "ItemModifier2": {
         "ObjectName": "ItemModifier2:",
-        "ObjectPath": "Default__ToolBox_C.24"
+        "ObjectPath": "Default__ToolBox_C.30"
+      },
+      "_itemInteractor": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__ToolBox_C.27"
       },
       "_mesh": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__ToolBox_C.34"
+        "ObjectPath": "Default__ToolBox_C.40"
       },
       "_placementOrigin": {
         "ObjectName": "PlacementOrigin:",
-        "ObjectPath": "Default__ToolBox_C.27"
+        "ObjectPath": "Default__ToolBox_C.33"
       },
       "_objectState": {
         "ObjectName": "ObjectState:",
-        "ObjectPath": "Default__ToolBox_C.20"
+        "ObjectPath": "Default__ToolBox_C.23"
       },
       "_stateTagForCollector": {
         "TagName": "State.HasToolbox"
       },
       "_itemType": "ELoadoutItemType::Toolbox",
       "_discardWhenConsumed": false,
+      "_transformOptimizer": {
+        "ObjectName": "InteractableOptimizer:",
+        "ObjectPath": "Default__ToolBox_C.25"
+      },
       "RootComponent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__ToolBox_C.34"
+        "ObjectPath": "Default__ToolBox_C.40"
       }
     }
   },
@@ -160,6 +200,15 @@
     "Name": "Charger024DB1E44051E13415314F8CF93A5C47",
     "Properties": {
       "ChargerComponentID": "ToolboxCharger"
+    }
+  },
+  {
+    "Type": "CollectItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__ToolBox_C.26"
+      }
     }
   },
   {
@@ -201,7 +250,7 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 2.1581342E-38
+            "LeaveTangentWeight": 2.2316026E-38
           }
         ]
       }
@@ -222,11 +271,29 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": -1.5474251E+26
+            "LeaveTangentWeight": -1.0141205E+31
           }
         ]
       },
       "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "DBDOutlineComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__ToolBox_C.40"
+      }
+    }
+  },
+  {
+    "Type": "DropItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__ToolBox_C.27"
+      }
     }
   },
   {
@@ -237,6 +304,31 @@
   {
     "Type": "InheritableComponentHandler",
     "Properties": {}
+  },
+  {
+    "Type": "InteractableTransformOptimizer",
+    "Name": "InteractableOptimizer",
+    "Properties": {}
+  },
+  {
+    "Type": "Interactor",
+    "Name": "CollectableInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__ToolBox_C.43"
+      }
+    }
+  },
+  {
+    "Type": "Interactor",
+    "Name": "ItemInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__ToolBox_C.40"
+      }
+    }
   },
   {
     "Type": "ItemModifier",
@@ -272,7 +364,7 @@
         "Conditions": [
           {
             "ObjectName": "PlayerIsSabotagingWithToolbox_C:BlueprintGeneratedClass",
-            "ObjectPath": "/Game/Blueprints/Perks/PerkConditions/PlayerIsSabotagingWithToolbox.9"
+            "ObjectPath": "/Game/Blueprints/Perks/PerkConditions/PlayerIsSabotagingWithToolbox.6"
           }
         ],
         "Modifiers": [
@@ -288,7 +380,7 @@
   },
   {
     "Type": "MaterialHelper",
-    "Name": "MaterialHelper_GEN_VARIABLE",
+    "Name": "MaterialHelperComponent",
     "Properties": {
       "Groups": [
         {
@@ -297,51 +389,51 @@
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper.70"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper.77"
               },
               "DstMaterial": {
                 "ObjectName": "MI_CamperDissolve:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.74"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.81"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "M_Hair:Material",
-                "ObjectPath": "/Game/Characters/Campers/Materials/M_Hair.68"
+                "ObjectPath": "/Game/Characters/Campers/Materials/M_Hair.75"
               },
               "DstMaterial": {
                 "ObjectName": "MI_Hair_Dissolve:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.77"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.84"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper_Dither:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Dither.72"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Dither.79"
               },
               "DstMaterial": {
                 "ObjectName": "MV_Camper_Dither:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.79"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.86"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper_Cust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Cust.71"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Cust.78"
               },
               "DstMaterial": {
                 "ObjectName": "MI_CamperDissolve_Cust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.75"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.82"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper_TransCust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_TransCust.73"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_TransCust.80"
               },
               "DstMaterial": {
                 "ObjectName": "MI_CamperDissolve_TransCust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.76"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.83"
               }
             }
           ]
@@ -352,25 +444,19 @@
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Structures_v2:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Materials/Masters/MI_Structures_v2.80"
+                "ObjectPath": "/Game/Materials/Masters/MI_Structures_v2.87"
               },
               "DstMaterial": {
                 "ObjectName": "MI_Structures_v2_Dissolve:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Structures_v2_Dissolve.78"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Structures_v2_Dissolve.85"
               }
             }
           ]
         }
       ],
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 99.999954
-      },
-      "RelativeRotation": {
-        "Pitch": 0.0,
-        "Yaw": 89.99999,
-        "Roll": -0.0
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__ToolBox_C.40"
       }
     }
   },
@@ -380,7 +466,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_DustRing:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/P_DustRing.111"
+        "ObjectPath": "/Game/Effects/ParticleSystems/P_DustRing.118"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
@@ -399,7 +485,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__ToolBox_C.34"
+        "ObjectPath": "Default__ToolBox_C.40"
       },
       "RelativeLocation": {
         "X": 0.0,
@@ -418,17 +504,15 @@
     "Name": "SCS_Node_0",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "MaterialHelper:Class",
-        "ObjectPath": "/Script/GFXUtilities.39"
+        "ObjectName": "SleepingSkinnedMeshRegisterer:Class",
+        "ObjectPath": "/Script/AnimationUtilities.11"
       },
       "ComponentTemplate": {
-        "ObjectName": "MaterialHelper_GEN_VARIABLE:",
-        "ObjectPath": "ToolBox_C.25"
+        "ObjectName": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE:",
+        "ObjectPath": "ToolBox_C.41"
       },
-      "ParentComponentOrVariableName": "ItemMesh",
-      "bIsParentComponentNative": true,
-      "VariableGuid": "2D7C4867-4EECC337-1D08ABB8-8A46D101",
-      "InternalVariableName": "MaterialHelper"
+      "VariableGuid": "BC663DCD-42183690-BCADB4BD-D8AE29E8",
+      "InternalVariableName": "SleepingSkinnedMeshRegisterer"
     }
   },
   {
@@ -437,11 +521,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.31"
+        "ObjectPath": "/Script/Engine.36"
       },
       "ComponentTemplate": {
         "ObjectName": "DefaultSceneRootA7BF0E2E4AAD4DBE301B978C20B5396A:",
-        "ObjectPath": "ToolBox_C.28"
+        "ObjectPath": "ToolBox_C.34"
       },
       "VariableGuid": "BEF68FAB-4C0AA4ED-3AD94D85-EEEE3B2A",
       "InternalVariableName": "DefaultSceneRoot"
@@ -453,7 +537,7 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "AkComponent:Class",
-        "ObjectPath": "/Script/AkAudio.14"
+        "ObjectPath": "/Script/AkAudio.10"
       },
       "ComponentTemplate": {
         "ObjectName": "AkD98E48CA4578D8EC54D08AAA0BE9D060:",
@@ -488,34 +572,34 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_2:",
-          "ObjectPath": "ToolBox_C.31"
+          "ObjectPath": "ToolBox_C.37"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_3:",
-          "ObjectPath": "ToolBox_C.32"
+          "ObjectPath": "ToolBox_C.38"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_0:",
-          "ObjectPath": "ToolBox_C.29"
+          "ObjectPath": "ToolBox_C.35"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_2:",
-          "ObjectPath": "ToolBox_C.31"
+          "ObjectPath": "ToolBox_C.37"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_3:",
-          "ObjectPath": "ToolBox_C.32"
+          "ObjectPath": "ToolBox_C.38"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_0:",
-          "ObjectPath": "ToolBox_C.29"
+          "ObjectPath": "ToolBox_C.35"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_1:SCS_Node_1:",
-        "ObjectPath": "ToolBox_C.30"
+        "ObjectPath": "ToolBox_C.36"
       }
     }
   },
@@ -527,9 +611,11 @@
       "bDisableRigidBodyAnimNode": true,
       "SkeletalMesh": {
         "ObjectName": "SK_Toolbox01_REF:SkeletalMesh",
-        "ObjectPath": "/Game/Meshes/InteractableObjects/ToolBox/Models/SK_Toolbox01_REF.126"
+        "ObjectPath": "/Game/Meshes/InteractableObjects/ToolBox/Models/SK_Toolbox01_REF.132"
       },
+      "bRenderStatic": true,
       "CastShadow": true,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
       "bCastCinematicShadow": true,
       "BodyInstance": {
         "CollisionResponses": {
@@ -617,6 +703,42 @@
     }
   },
   {
+    "Type": "SleepingSkinnedMeshRegisterer",
+    "Name": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "InfectableSphere",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__ToolBox_C.40"
+      }
+    }
+  },
+  {
+    "Type": "SpherePlayerOverlapComponent",
+    "Name": "InteractableZone",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__ToolBox_C.40"
+      }
+    }
+  },
+  {
+    "Type": "SurvivorCollectableOutlineUpdateStrategy",
+    "Properties": {
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__ToolBox_C.21"
+      }
+    }
+  },
+  {
     "Type": "TimelineTemplate",
     "Name": "TML_dissolve_Template",
     "Properties": {
@@ -626,7 +748,7 @@
           "FunctionName": "TML_dissolve__Event_dissolve__EventFunc",
           "CurveKeys": {
             "ObjectName": "CurveFloat_2:",
-            "ObjectPath": "ToolBox_C.19"
+            "ObjectPath": "ToolBox_C.20"
           },
           "TrackName": "Event_dissolve",
           "bIsExternalCurve": false
@@ -636,7 +758,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_1_2:",
-            "ObjectPath": "ToolBox_C.18"
+            "ObjectPath": "ToolBox_C.19"
           },
           "PropertyName": "TML_dissolve_Opacity_Dissolve_A30AE93E4BB34A12D1BAC1B4E61D5D12",
           "TrackName": "Opacity_Dissolve",

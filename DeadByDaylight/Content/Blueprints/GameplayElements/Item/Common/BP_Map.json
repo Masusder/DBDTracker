@@ -151,28 +151,28 @@
       "DynamicBindingObjects": [
         {
           "ObjectName": "ComponentDelegateBinding_0:",
-          "ObjectPath": "BP_Map_C.36"
+          "ObjectPath": "BP_Map_C.37"
         }
       ],
       "ComponentTemplates": [
         {
           "ObjectName": "NODE_AddParticleSystemComponent-0:",
-          "ObjectPath": "BP_Map_C.46"
+          "ObjectPath": "BP_Map_C.52"
         }
       ],
       "Timelines": [
         {
           "ObjectName": "TML_dissolve_Template:",
-          "ObjectPath": "BP_Map_C.62"
+          "ObjectPath": "BP_Map_C.72"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_1:",
-        "ObjectPath": "BP_Map_C.59"
+        "ObjectPath": "BP_Map_C.65"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler:",
-        "ObjectPath": "BP_Map_C.40"
+        "ObjectPath": "BP_Map_C.43"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_BP_Map:",
@@ -181,45 +181,85 @@
     }
   },
   {
-    "Type": "BaseCamperItem_C",
+    "Type": "BaseCamperCollectable",
     "Name": "Default__BP_Map_C",
     "Properties": {
       "UberGraphFrame": {},
       "MapActorCategoriesNotInitiallyTrackable": [
         "EMapActorCategory::BlackLock"
       ],
+      "_interactable": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_Map_C.70"
+      },
+      "_collectableInteractor": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_Map_C.45"
+      },
+      "_dropInteraction": {
+        "ObjectName": "DropItemInteraction:",
+        "ObjectPath": "Default__BP_Map_C.41"
+      },
+      "_collectInteraction": {
+        "ObjectName": "CollectItemInteraction:",
+        "ObjectPath": "Default__BP_Map_C.36"
+      },
+      "_infectablePrimitive": {
+        "ObjectName": "InfectableSphere:",
+        "ObjectPath": "Default__BP_Map_C.69"
+      },
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_Map_C.40"
+      },
+      "_materialHelper": {
+        "ObjectName": "MaterialHelperComponent:",
+        "ObjectPath": "Default__BP_Map_C.51"
+      },
+      "_survivorCollectableOutlineUpdateStrategy": {
+        "ObjectName": "SurvivorCollectableOutlineUpdateStrategy:",
+        "ObjectPath": "Default__BP_Map_C.71"
+      },
       "HandPosition": "EItemHandPosition::HandleItem",
       "HasUseInteraction": true,
       "ItemID": "BeigeMap",
       "BaseItemModifier": {
         "ObjectName": "ItemModifier:",
-        "ObjectPath": "Default__BP_Map_C.41"
+        "ObjectPath": "Default__BP_Map_C.47"
       },
       "ItemModifier1": {
         "ObjectName": "ItemModifier1:",
-        "ObjectPath": "Default__BP_Map_C.42"
+        "ObjectPath": "Default__BP_Map_C.48"
       },
       "ItemModifier2": {
         "ObjectName": "ItemModifier2:",
-        "ObjectPath": "Default__BP_Map_C.43"
+        "ObjectPath": "Default__BP_Map_C.49"
+      },
+      "_itemInteractor": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_Map_C.46"
       },
       "_mesh": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_Map_C.60"
+        "ObjectPath": "Default__BP_Map_C.66"
       },
       "_placementOrigin": {
         "ObjectName": "PlacementOrigin:",
-        "ObjectPath": "Default__BP_Map_C.49"
+        "ObjectPath": "Default__BP_Map_C.55"
       },
       "_objectState": {
         "ObjectName": "ObjectState:",
-        "ObjectPath": "Default__BP_Map_C.39"
+        "ObjectPath": "Default__BP_Map_C.42"
       },
       "_itemType": "ELoadoutItemType::Map",
       "_discardWhenConsumed": false,
+      "_transformOptimizer": {
+        "ObjectName": "InteractableOptimizer:",
+        "ObjectPath": "Default__BP_Map_C.44"
+      },
       "RootComponent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_Map_C.60"
+        "ObjectPath": "Default__BP_Map_C.66"
       }
     }
   },
@@ -257,6 +297,15 @@
     "Name": "ChargerA52148EB4ED2A90992E9FC9E9B0BD3C2",
     "Properties": {
       "ChargerComponentID": "MapCharger"
+    }
+  },
+  {
+    "Type": "CollectItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_Map_C.45"
+      }
     }
   },
   {
@@ -298,7 +347,7 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 4.3346354E-38
+            "LeaveTangentWeight": 4.463205E-38
           }
         ]
       }
@@ -319,11 +368,29 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 6.1897002E+26
+            "LeaveTangentWeight": 1.0141205E+31
           }
         ]
       },
       "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "DBDOutlineComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Map_C.66"
+      }
+    }
+  },
+  {
+    "Type": "DropItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_Map_C.46"
+      }
     }
   },
   {
@@ -334,6 +401,31 @@
   {
     "Type": "InheritableComponentHandler",
     "Properties": {}
+  },
+  {
+    "Type": "InteractableTransformOptimizer",
+    "Name": "InteractableOptimizer",
+    "Properties": {}
+  },
+  {
+    "Type": "Interactor",
+    "Name": "CollectableInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_Map_C.70"
+      }
+    }
+  },
+  {
+    "Type": "Interactor",
+    "Name": "ItemInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Map_C.66"
+      }
+    }
   },
   {
     "Type": "ItemModifier",
@@ -373,7 +465,7 @@
   },
   {
     "Type": "MaterialHelper",
-    "Name": "MaterialHelper_GEN_VARIABLE",
+    "Name": "MaterialHelperComponent",
     "Properties": {
       "Groups": [
         {
@@ -382,51 +474,51 @@
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper.129"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper.135"
               },
               "DstMaterial": {
                 "ObjectName": "MI_CamperDissolve:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.133"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.139"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "M_Hair:Material",
-                "ObjectPath": "/Game/Characters/Campers/Materials/M_Hair.126"
+                "ObjectPath": "/Game/Characters/Campers/Materials/M_Hair.132"
               },
               "DstMaterial": {
                 "ObjectName": "MI_Hair_Dissolve:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.136"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.142"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper_Dither:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Dither.131"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Dither.137"
               },
               "DstMaterial": {
                 "ObjectName": "MV_Camper_Dither:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.138"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.144"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper_Cust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Cust.130"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Cust.136"
               },
               "DstMaterial": {
                 "ObjectName": "MI_CamperDissolve_Cust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.134"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.140"
               }
             },
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper_TransCust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_TransCust.132"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_TransCust.138"
               },
               "DstMaterial": {
                 "ObjectName": "MI_CamperDissolve_TransCust:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.135"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.141"
               }
             }
           ]
@@ -437,25 +529,19 @@
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Structures_v2_Masked:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Materials/Masters/MI_Structures_v2_Masked.139"
+                "ObjectPath": "/Game/Materials/Masters/MI_Structures_v2_Masked.145"
               },
               "DstMaterial": {
                 "ObjectName": "MI_Structures_v2_Dissolve:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Structures_v2_Dissolve.137"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Structures_v2_Dissolve.143"
               }
             }
           ]
         }
       ],
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 99.999954
-      },
-      "RelativeRotation": {
-        "Pitch": 0.0,
-        "Yaw": 89.99999,
-        "Roll": -0.0
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Map_C.66"
       }
     }
   },
@@ -465,7 +551,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_DustRing:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/P_DustRing.170"
+        "ObjectPath": "/Game/Effects/ParticleSystems/P_DustRing.176"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "PrimaryComponentTick": {
@@ -485,7 +571,7 @@
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
-        "Z": -4.999996
+        "Z": 1.9073486E-06
       }
     }
   },
@@ -500,7 +586,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_Map_C.60"
+        "ObjectPath": "Default__BP_Map_C.66"
       }
     }
   },
@@ -510,7 +596,7 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "AkComponent:Class",
-        "ObjectPath": "/Script/AkAudio.18"
+        "ObjectPath": "/Script/AkAudio.14"
       },
       "ComponentTemplate": {
         "ObjectName": "Ak_Audio_Key_GEN_VARIABLE:",
@@ -528,11 +614,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.48"
+        "ObjectPath": "/Script/Engine.53"
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent_2:",
-        "ObjectPath": "BP_Map_C.48"
+        "ObjectPath": "BP_Map_C.54"
       },
       "VariableGuid": "803E0D4E-4C2641FE-96B0818A-25E1F0A8",
       "InternalVariableName": "DefaultSceneRoot"
@@ -544,14 +630,14 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "ReadMap_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Interactions/ReadMap.10"
+        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Interactions/ReadMap.7"
       },
       "ComponentTemplate": {
         "ObjectName": "ReadMap6C83ED3742C7A13D07906DB599024A1E:",
-        "ObjectPath": "BP_Map_C.47"
+        "ObjectPath": "BP_Map_C.53"
       },
-      "ParentComponentOrVariableName": "ItemInteractor",
-      "ParentComponentOwnerClassName": "BaseCamperItem_C",
+      "ParentComponentOrVariableName": "ItemInteractorComponent",
+      "bIsParentComponentNative": true,
       "VariableGuid": "3D6DC544-49805A76-BAF44FA8-11F3F785",
       "InternalVariableName": "ReadMap"
     }
@@ -593,17 +679,15 @@
     "Name": "SCS_Node_5",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "MaterialHelper:Class",
-        "ObjectPath": "/Script/GFXUtilities.57"
+        "ObjectName": "SleepingSkinnedMeshRegisterer:Class",
+        "ObjectPath": "/Script/AnimationUtilities.15"
       },
       "ComponentTemplate": {
-        "ObjectName": "MaterialHelper_GEN_VARIABLE:",
-        "ObjectPath": "BP_Map_C.45"
+        "ObjectName": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE:",
+        "ObjectPath": "BP_Map_C.67"
       },
-      "ParentComponentOrVariableName": "ItemMesh",
-      "bIsParentComponentNative": true,
-      "VariableGuid": "9BB4BCCC-4C409D47-540AA18B-2C9F2FFC",
-      "InternalVariableName": "MaterialHelper"
+      "VariableGuid": "0B8C86D3-4C452689-F43AF1BE-18D6276E",
+      "InternalVariableName": "SleepingSkinnedMeshRegisterer"
     }
   },
   {
@@ -628,11 +712,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "MapActorDetectorComponent:Class",
-        "ObjectPath": "/Script/DeadByDaylight.35"
+        "ObjectPath": "/Script/DeadByDaylight.38"
       },
       "ComponentTemplate": {
         "ObjectName": "MapActorDetectorA96FA27246F504274D2EC59F4FF52B13:",
-        "ObjectPath": "BP_Map_C.44"
+        "ObjectPath": "BP_Map_C.50"
       },
       "VariableGuid": "95147F38-45AFFE5C-F8FAB3BB-01152BD4",
       "InternalVariableName": "MapActorDetector"
@@ -644,11 +728,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SphereComponent:Class",
-        "ObjectPath": "/Script/Engine.52"
+        "ObjectPath": "/Script/Engine.57"
       },
       "ComponentTemplate": {
         "ObjectName": "SphereC7E7072640828F22693134AD3A8E242C:",
-        "ObjectPath": "BP_Map_C.61"
+        "ObjectPath": "BP_Map_C.68"
       },
       "ParentComponentOrVariableName": "ItemMesh",
       "bIsParentComponentNative": true,
@@ -663,74 +747,74 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_4:",
-          "ObjectPath": "BP_Map_C.54"
+          "ObjectPath": "BP_Map_C.60"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_3:",
-          "ObjectPath": "BP_Map_C.53"
+          "ObjectPath": "BP_Map_C.59"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_8:",
-          "ObjectPath": "BP_Map_C.58"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_1:SCS_Node_2:",
-          "ObjectPath": "BP_Map_C.52"
+          "ObjectPath": "BP_Map_C.64"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_6:",
-          "ObjectPath": "BP_Map_C.56"
+          "ObjectPath": "BP_Map_C.62"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_7:",
-          "ObjectPath": "BP_Map_C.57"
+          "ObjectPath": "BP_Map_C.63"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_0:",
-          "ObjectPath": "BP_Map_C.50"
+          "ObjectPath": "BP_Map_C.56"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_1:SCS_Node_2:",
+          "ObjectPath": "BP_Map_C.58"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_5:",
-          "ObjectPath": "BP_Map_C.55"
+          "ObjectPath": "BP_Map_C.61"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_4:",
-          "ObjectPath": "BP_Map_C.54"
+          "ObjectPath": "BP_Map_C.60"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_3:",
-          "ObjectPath": "BP_Map_C.53"
+          "ObjectPath": "BP_Map_C.59"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_8:",
-          "ObjectPath": "BP_Map_C.58"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_1:SCS_Node_2:",
-          "ObjectPath": "BP_Map_C.52"
+          "ObjectPath": "BP_Map_C.64"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_6:",
-          "ObjectPath": "BP_Map_C.56"
+          "ObjectPath": "BP_Map_C.62"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_7:",
-          "ObjectPath": "BP_Map_C.57"
+          "ObjectPath": "BP_Map_C.63"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_0:",
-          "ObjectPath": "BP_Map_C.50"
+          "ObjectPath": "BP_Map_C.56"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_1:SCS_Node_2:",
+          "ObjectPath": "BP_Map_C.58"
         },
         {
           "ObjectName": "SimpleConstructionScript_1:SCS_Node_5:",
-          "ObjectPath": "BP_Map_C.55"
+          "ObjectPath": "BP_Map_C.61"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_1:SCS_Node_1:",
-        "ObjectPath": "BP_Map_C.51"
+        "ObjectPath": "BP_Map_C.57"
       }
     }
   },
@@ -738,9 +822,19 @@
     "Type": "SkeletalMeshComponent",
     "Name": "ItemMesh",
     "Properties": {
+      "bRenderStatic": true,
       "CastShadow": true,
-      "bCastCinematicShadow": true
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "bCastCinematicShadow": true,
+      "BodyInstance": {
+        "MassInKgOverride": 0.0
+      }
     }
+  },
+  {
+    "Type": "SleepingSkinnedMeshRegisterer",
+    "Name": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE",
+    "Properties": {}
   },
   {
     "Type": "SphereComponent",
@@ -749,7 +843,7 @@
       "SphereRadius": 1000.0,
       "AreaClass": {
         "ObjectName": "NavArea_Obstacle:Class",
-        "ObjectPath": "/Script/NavigationSystem.58"
+        "ObjectPath": "/Script/NavigationSystem.63"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
@@ -852,6 +946,37 @@
     }
   },
   {
+    "Type": "SphereComponent",
+    "Name": "InfectableSphere",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Map_C.66"
+      }
+    }
+  },
+  {
+    "Type": "SpherePlayerOverlapComponent",
+    "Name": "InteractableZone",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Map_C.66"
+      }
+    }
+  },
+  {
+    "Type": "SurvivorCollectableOutlineUpdateStrategy",
+    "Properties": {
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_Map_C.40"
+      }
+    }
+  },
+  {
     "Type": "TimelineTemplate",
     "Name": "TML_dissolve_Template",
     "Properties": {
@@ -861,7 +986,7 @@
           "FunctionName": "TML_dissolve__Event_dissolve__EventFunc",
           "CurveKeys": {
             "ObjectName": "CurveFloat_2:",
-            "ObjectPath": "BP_Map_C.38"
+            "ObjectPath": "BP_Map_C.39"
           },
           "TrackName": "Event_dissolve",
           "bIsExternalCurve": false
@@ -871,7 +996,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_1_2:",
-            "ObjectPath": "BP_Map_C.37"
+            "ObjectPath": "BP_Map_C.38"
           },
           "PropertyName": "TML_dissolve_Opacity_Dissolve_9376C68F46A8972539F9AEAEA0E5BC9B",
           "TrackName": "Opacity_Dissolve",

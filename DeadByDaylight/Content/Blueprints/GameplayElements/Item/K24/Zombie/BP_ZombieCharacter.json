@@ -1,0 +1,1398 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_ZombieCharacter",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "SetCharacterActive_Cosmetic",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "OnZombieStateChanged_Cosmetic",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "OnFemaleGenderSet_Cosmetic",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "ZombieKilledByKiller_Cosmetic",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_DissolveZombie_Spawn__Add_shadow__EventFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_DissolveZombie_Spawn__Visibility Zombie__EventFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_DissolveZombie_Spawn__UpdateFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_DissolveZombie_Spawn__FinishedFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_DissolveZombie_Death__Remove_shadow__EventFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_DissolveZombie_Death__UpdateFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_DissolveZombie_Death__FinishedFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "UserConstructionScript",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "Finish Timeline",
+    "Properties": {}
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_ZombieCharacter_C",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TML_DissolveZombie_Spawn_Template:",
+          "ObjectPath": "BP_ZombieCharacter_C.59"
+        },
+        {
+          "ObjectName": "TML_DissolveZombie_Death_Template:",
+          "ObjectPath": "BP_ZombieCharacter_C.58"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript_0:",
+        "ObjectPath": "BP_ZombieCharacter_C.54"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "ExecuteUbergraph_BP_ZombieCharacter:",
+        "ObjectPath": "BP_ZombieCharacter_C.0"
+      }
+    }
+  },
+  {
+    "Type": "ZombieCharacter",
+    "Name": "Default__BP_ZombieCharacter_C",
+    "Properties": {
+      "UberGraphFrame": {},
+      "_zombieWalkSpeed": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "K24_TunableDB:DataTable",
+              "ObjectPath": "/Game/Data/Dlc/Eclipse/K24_TunableDB.80"
+            },
+            "RowName": "ZombieWalkSpeed"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyZombieWalkSpeedAdditive"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
+      "_poolableComponent": {
+        "ObjectName": "PollableComponent:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.19"
+      },
+      "_zombieAttackDetector": {
+        "ObjectName": "ZombieAttackDetector:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.56"
+      },
+      "_attackDamageZone": {
+        "ObjectName": "ZombieAttackDamageZone:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.57"
+      },
+      "_zombieRespawnTimeKilledBySlasher": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "K24_TunableDB:DataTable",
+              "ObjectPath": "/Game/Data/Dlc/Eclipse/K24_TunableDB.80"
+            },
+            "RowName": "ZombieRespawnTimeKilledBySlasher"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyZombieSpawnTimeAdditive"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
+      "_zombieRespawnTimeKilledBySurvivor": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "K24_TunableDB:DataTable",
+              "ObjectPath": "/Game/Data/Dlc/Eclipse/K24_TunableDB.80"
+            },
+            "RowName": "ZombieRespawnTimeKilledBySurvivor"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyZombieSpawnTimeAdditive"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
+      "_femaleSkeletalMesh": {
+        "ObjectName": "F_K24_01_REF:SkeletalMesh",
+        "ObjectPath": "/Game/Characters/Slashers/K24/MF_Eclipse/Model/F_K24_01_REF.177"
+      },
+      "_blindableComponent": {
+        "ObjectName": "ZombieBlindableComponent:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.60"
+      },
+      "_blindingChargeableComponent": {
+        "ObjectName": "BlindnessChargeableComponent:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.27"
+      },
+      "_firecrackerEffectHandlerComponent": {
+        "ObjectName": "FirecrackerEffectHandlerComponent:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.34"
+      },
+      "_flashLightableComponent": {
+        "ObjectName": "EyesFlashlightableComponent:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.35"
+      },
+      "_zombieStunBaseTime": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "K24_TunableDB:DataTable",
+            "ObjectPath": "/Game/Data/Dlc/Eclipse/K24_TunableDB.80"
+          },
+          "RowName": "ZombieStunBaseTime"
+        }
+      },
+      "_objectState": {
+        "ObjectName": "ObjectState:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.36"
+      },
+      "_positionRecorder": {
+        "ObjectName": "Position Recorder:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.26"
+      },
+      "_authoritativeMovementComponent": {
+        "ObjectName": "AuthoritativeMovement:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.18"
+      },
+      "_otherCharactersVerticalCollisionsHandler": {
+        "ObjectName": "OtherCharactersVerticalCollisionsHandler:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.39"
+      },
+      "Mesh": {
+        "ObjectName": "CharacterMesh0:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.55"
+      },
+      "CharacterMovement": {
+        "ObjectName": "CharMoveComp:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.24"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CollisionCylinder:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.22"
+      },
+      "bUseControllerRotationYaw": false,
+      "AutoPossessAI": "EAutoPossessAI::Spawned",
+      "AIControllerClass": {
+        "ObjectName": "ZombieAIController_BP_C:BlueprintGeneratedClass",
+        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/K24/Zombie/AI/ZombieAIController_BP.21"
+      },
+      "bAlwaysRelevant": false,
+      "RootComponent": {
+        "ObjectName": "CollisionCylinder:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.22"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_Audio_K24_Zombie_GEN_VARIABLE",
+    "Properties": {
+      "DetailModeBitMask": -17
+    }
+  },
+  {
+    "Type": "AuthoritativeMovementComponent",
+    "Name": "AuthoritativeMovement",
+    "Properties": {}
+  },
+  {
+    "Type": "AuthoritativePoolableActorComponent",
+    "Name": "PollableComponent",
+    "Properties": {}
+  },
+  {
+    "Type": "BlindFlashlightTargetFXComponent",
+    "Name": "BlindFlashlightTargetFX_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "BlindZombieFlashlightableLightingStrategy",
+    "Name": "BlindZombieFlashlightableLightingStrategy_0",
+    "Properties": {
+      "_pointsProvider": {
+        "ObjectName": "BlindZombieFlashlightableLightingStrategy_0:Mesh Point Provider:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.38"
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "bLockXRotation": true,
+        "bLockYRotation": true,
+        "CollisionProfileName": "Custom"
+      },
+      "ComponentTags": [
+        "Slashable"
+      ]
+    }
+  },
+  {
+    "Type": "CapsulePlayerOverlapComponent",
+    "Name": "PawnDetector_GEN_VARIABLE",
+    "Properties": {
+      "CapsuleHalfHeight": 88.0,
+      "CapsuleRadius": 34.0,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "CanCharacterStepUpOn": "ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel10",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PawnDetector",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CharacterMovementComponent",
+    "Name": "CharMoveComp",
+    "Properties": {
+      "MaxWalkSpeed": 130.0,
+      "MaxAcceleration": 100.0,
+      "BrakingDecelerationFalling": 1000.0,
+      "FallingLateralFriction": 1.0,
+      "RotationRate": {
+        "Pitch": 0.0,
+        "Yaw": 250.0,
+        "Roll": 0.0
+      },
+      "bOrientRotationToMovement": true,
+      "bNetworkAlwaysReplicateTransformUpdateTimestamp": true,
+      "MaxSimulationTimeStep": 0.1,
+      "AvoidanceGroup": {
+        "bGroup0": false,
+        "bGroup2": true
+      },
+      "GroupsToAvoid": {
+        "bGroup0": false,
+        "bGroup1": false
+      },
+      "NavAgentProps": {
+        "bCanJump": false,
+        "bCanSwim": false
+      },
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "CharacterOptimizer",
+    "Name": "CharacterOptimizer_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "CharacterPositionRecorderComponent",
+    "Name": "Position Recorder",
+    "Properties": {}
+  },
+  {
+    "Type": "ChargeableComponent",
+    "Name": "BlindnessChargeableComponent",
+    "Properties": {
+      "ChargeableCompletionPercentChangeCosmeticDelegate": null
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 5.785636E-39,
+            "KeyValue": 5.831554E-39,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 2.1474836E+09
+          }
+        ]
+      },
+      "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 5.831554E-39,
+            "KeyValue": 5.831554E-39,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 2.1474836E+09
+          }
+        ]
+      },
+      "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2_3",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 5.831554E-39,
+            "KeyValue": 5.831554E-39,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 2.1474836E+09
+          }
+        ]
+      },
+      "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2_3_4_5_6",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 0.0,
+            "KeyValue": 5.877472E-39,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 2.3093E-41,
+            "KeyValue": 2.3598E-41,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 3.8019895E-38
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2_3_4_5_6_7",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 0.0,
+            "KeyValue": 5.946348E-39,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 2.3093E-41,
+            "KeyValue": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 3.8019895E-38
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "DBDOutlineComponent",
+    "Name": "DBDOutline_GEN_VARIABLE",
+    "Properties": {
+      "OutlineName": "Zombie",
+      "DetailModeBitMask": -17
+    }
+  },
+  {
+    "Type": "FirecrackerEffectHandlerComponent",
+    "Properties": {}
+  },
+  {
+    "Type": "FlashlightableComponent",
+    "Name": "EyesFlashlightableComponent",
+    "Properties": {
+      "_lightingStrategy": {
+        "ObjectName": "EyesFlashlightableComponent:BlindZombieFlashlightableLightingStrategy_0:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.21"
+      }
+    }
+  },
+  {
+    "Type": "GameplayTagContainerComponent",
+    "Name": "ObjectState",
+    "Properties": {}
+  },
+  {
+    "Type": "MaterialHelper",
+    "Name": "MaterialHelper_GEN_VARIABLE",
+    "Properties": {
+      "Groups": [
+        {
+          "GroupName": "DissolveZombie",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MI_Slasher_Cust:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Slashers/Materials/MI_Slasher_Cust.124"
+              },
+              "DstMaterial": {
+                "ObjectName": "MV_K24_DissolveWithBlood_Zombies:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Slashers/Materials/Variants/MV_K24_DissolveWithBlood_Zombies.125"
+              }
+            }
+          ]
+        },
+        {
+          "GroupName": "ZombieDefaultMaterial",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MV_K24_DissolveWithBlood_Zombies:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Slashers/Materials/Variants/MV_K24_DissolveWithBlood_Zombies.125"
+              },
+              "DstMaterial": {
+                "ObjectName": "MI_Slasher_Cust:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Slashers/Materials/MI_Slasher_Cust.124"
+              }
+            }
+          ]
+        }
+      ],
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 90.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 89.99999,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "MeshSocketPointsProvider",
+    "Name": "Mesh Point Provider",
+    "Properties": {
+      "_meshReference": {
+        "ComponentProperty": "Mesh"
+      },
+      "_sockets": [
+        "EyesSocket"
+      ]
+    }
+  },
+  {
+    "Type": "OtherCharactersVerticalCollisionsHandler",
+    "Properties": {}
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "SceneComponentPointProvider",
+    "Name": "Actor Location Point Provider",
+    "Properties": {}
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SceneComponent:Class",
+        "ObjectPath": "/Script/Engine.57"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DefaultSceneRoot_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.40"
+      },
+      "VariableGuid": "1436D1BF-402994B1-C123BC9C-B7ED4507",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "ZombieOutlineUpdateStrategy:Class",
+        "ObjectPath": "/Script/TheK24.77"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ZombieOutlineUpdateStrategy_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.64"
+      },
+      "VariableGuid": "E7D749AC-4EB683FD-BCDCC997-F6676033",
+      "InternalVariableName": "ZombieOutlineUpdateStrategy"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "ZombieFallDetector_BP_C:BlueprintGeneratedClass",
+        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/K24/Zombie/ZombieFallDetector_BP.22"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ZombieFallDetector_BP_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.63"
+      },
+      "VariableGuid": "C823791A-449522BF-EE1AF990-9FBE04D5",
+      "InternalVariableName": "ZombieFallDetector_BP"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "MaterialHelper:Class",
+        "ObjectPath": "/Script/GFXUtilities.70"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "MaterialHelper_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.37"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "12A8D88E-4237F5FC-5548769F-6DEEC577",
+      "InternalVariableName": "MaterialHelper"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "DBDOutlineComponent:Class",
+        "ObjectPath": "/Script/DeadByDaylight.41"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DBDOutline_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.33"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "D92104DA-44E64242-414F66B6-FBBFB57B",
+      "InternalVariableName": "DBDOutline"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "ZombieStunnableComponent:Class",
+        "ObjectPath": "/Script/TheK24.78"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ZombieStunnable_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.65"
+      },
+      "VariableGuid": "C2CA6147-4F4C241D-4B51CD89-8C279113",
+      "InternalVariableName": "ZombieStunnable"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "ZombieCustomizationComponent:Class",
+        "ObjectPath": "/Script/TheK24.76"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ZombieCustomization_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.62"
+      },
+      "VariableGuid": "0B9FF06D-46E99EA5-EBEE46A7-4D23E21A",
+      "InternalVariableName": "ZombieCustomization"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "AkComponent:Class",
+        "ObjectPath": "/Script/AkAudio.30"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Ak_Audio_K24_Zombie_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.17"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "F41C9A30-47B0F06C-F8AFA4BE-5239A9FC",
+      "InternalVariableName": "Ak_Audio_K24_Zombie"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlindFlashlightTargetFXComponent:Class",
+        "ObjectPath": "/Script/DBDGameplay.33"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BlindFlashlightTargetFX_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.20"
+      },
+      "VariableGuid": "CC1264A0-456F71D7-9BB01FBD-28B9FB1F",
+      "InternalVariableName": "BlindFlashlightTargetFX"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "CharacterOptimizer:Class",
+        "ObjectPath": "/Script/SignificanceUtilities.71"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CharacterOptimizer_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.25"
+      },
+      "VariableGuid": "D228EC0E-405C14C0-A9D8D994-91A844C3",
+      "InternalVariableName": "CharacterOptimizer"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "ZombieBlindingFXComponent:Class",
+        "ObjectPath": "/Script/TheK24.74"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ZombieBlindingFX_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.61"
+      },
+      "VariableGuid": "3C5B6CC9-40F4FF27-408AE6B0-05E009EC",
+      "InternalVariableName": "ZombieBlindingFX"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "CapsulePlayerOverlapComponent:Class",
+        "ObjectPath": "/Script/DeadByDaylight.39"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PawnDetector_GEN_VARIABLE:",
+        "ObjectPath": "BP_ZombieCharacter_C.23"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "CB5CC7A2-47B115F1-1B8C44A9-0746DA61",
+      "InternalVariableName": "PawnDetector"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BP_ZombieCharacter_C.46"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_ZombieCharacter_C.43"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
+          "ObjectPath": "BP_ZombieCharacter_C.47"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
+          "ObjectPath": "BP_ZombieCharacter_C.48"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
+          "ObjectPath": "BP_ZombieCharacter_C.49"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
+          "ObjectPath": "BP_ZombieCharacter_C.50"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectPath": "BP_ZombieCharacter_C.52"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
+          "ObjectPath": "BP_ZombieCharacter_C.51"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
+          "ObjectPath": "BP_ZombieCharacter_C.44"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectPath": "BP_ZombieCharacter_C.53"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
+          "ObjectPath": "BP_ZombieCharacter_C.45"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BP_ZombieCharacter_C.46"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_ZombieCharacter_C.43"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
+          "ObjectPath": "BP_ZombieCharacter_C.47"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
+          "ObjectPath": "BP_ZombieCharacter_C.48"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
+          "ObjectPath": "BP_ZombieCharacter_C.49"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
+          "ObjectPath": "BP_ZombieCharacter_C.50"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectPath": "BP_ZombieCharacter_C.52"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
+          "ObjectPath": "BP_ZombieCharacter_C.51"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
+          "ObjectPath": "BP_ZombieCharacter_C.44"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectPath": "BP_ZombieCharacter_C.53"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
+          "ObjectPath": "BP_ZombieCharacter_C.45"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
+        "ObjectPath": "BP_ZombieCharacter_C.42"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AB_MF_K24_C:AnimBlueprintGeneratedClass",
+        "ObjectPath": "/Game/Characters/Slashers/K24/MF_Eclipse/Blueprints/AB_MF_K24.16"
+      },
+      "bUpdateOverlapsOnAnimationFinalize": false,
+      "SkeletalMesh": {
+        "ObjectName": "M_K24_01_REF:SkeletalMesh",
+        "ObjectPath": "/Game/Characters/Slashers/K24/MF_Eclipse/Model/M_K24_01_REF.178"
+      },
+      "VisibilityBasedAnimTickOption": "EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered",
+      "bComponentUseFixedSkelBounds": true,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CollisionCylinder:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.22"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -90.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "ZombieAttackDetector",
+    "Properties": {
+      "SphereRadius": 100.0,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "CanCharacterStepUpOn": "ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CollisionCylinder:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.22"
+      },
+      "RelativeLocation": {
+        "X": 20.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "ZombieAttackDamageZone",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "AttackZone_001:StaticMesh",
+        "ObjectPath": "/Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_001.181"
+      },
+      "bUseDefaultCollision": false,
+      "OverrideMaterials": [
+        null
+      ],
+      "bVisibleInReflectionCaptures": false,
+      "bVisibleInRayTracing": false,
+      "bRenderInMainPass": false,
+      "bRenderInDepthPass": false,
+      "bReceivesDecals": false,
+      "bUseAsOccluder": false,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CollisionCylinder:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.22"
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.35,
+        "Y": 0.2,
+        "Z": 0.35
+      },
+      "bVisible": false,
+      "bHiddenInGame": true,
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "TML_DissolveZombie_Death_Template",
+    "Properties": {
+      "TimelineLength": 3.5,
+      "EventTracks": [
+        {
+          "FunctionName": "TML_DissolveZombie_Death__Remove_shadow__EventFunc",
+          "CurveKeys": {
+            "ObjectName": "CurveFloat_1_2:",
+            "ObjectPath": "BP_ZombieCharacter_C.29"
+          },
+          "TrackName": "Remove_shadow",
+          "bIsExternalCurve": false
+        }
+      ],
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat_1_2_3_4_5_6:",
+            "ObjectPath": "BP_ZombieCharacter_C.31"
+          },
+          "PropertyName": "TML_DissolveZombie_Death_Opacity_Zombie_8F19F7E84ACDEA05B5877AA05C45E9E7",
+          "TrackName": "Opacity_Zombie",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "8F19F7E8-4ACDEA05-B5877AA0-5C45E9E7",
+      "VariableName": "TML_DissolveZombie_Death",
+      "DirectionPropertyName": "TML_DissolveZombie_Death__Direction_8F19F7E84ACDEA05B5877AA05C45E9E7",
+      "UpdateFunctionName": "TML_DissolveZombie_Death__UpdateFunc",
+      "FinishedFunctionName": "TML_DissolveZombie_Death__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "TML_DissolveZombie_Spawn_Template",
+    "Properties": {
+      "TimelineLength": 3.5,
+      "EventTracks": [
+        {
+          "FunctionName": "TML_DissolveZombie_Spawn__Add_shadow__EventFunc",
+          "CurveKeys": {
+            "ObjectName": "CurveFloat_1_2_3:",
+            "ObjectPath": "BP_ZombieCharacter_C.30"
+          },
+          "TrackName": "Add_shadow",
+          "bIsExternalCurve": false
+        },
+        {
+          "FunctionName": "TML_DissolveZombie_Spawn__Visibility Zombie__EventFunc",
+          "CurveKeys": {
+            "ObjectName": "CurveFloat_0:",
+            "ObjectPath": "BP_ZombieCharacter_C.28"
+          },
+          "TrackName": "Visibility Zombie",
+          "bIsExternalCurve": false
+        }
+      ],
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat_1_2_3_4_5_6_7:",
+            "ObjectPath": "BP_ZombieCharacter_C.32"
+          },
+          "PropertyName": "TML_DissolveZombie_Spawn_Opacity_Zombie_0E5046F94F5F5B4DB92B15A96BCF8A60",
+          "TrackName": "Opacity_Zombie",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "0E5046F9-4F5F5B4D-B92B15A9-6BCF8A60",
+      "VariableName": "TML_DissolveZombie_Spawn",
+      "DirectionPropertyName": "TML_DissolveZombie_Spawn__Direction_0E5046F94F5F5B4DB92B15A96BCF8A60",
+      "UpdateFunctionName": "TML_DissolveZombie_Spawn__UpdateFunc",
+      "FinishedFunctionName": "TML_DissolveZombie_Spawn__FinishedFunc"
+    }
+  },
+  {
+    "Type": "ZombieBlindableComponent",
+    "Properties": {
+      "_chargeableComponent": {
+        "ObjectName": "BlindnessChargeableComponent:",
+        "ObjectPath": "Default__BP_ZombieCharacter_C.27"
+      }
+    }
+  },
+  {
+    "Type": "ZombieBlindingFXComponent",
+    "Name": "ZombieBlindingFX_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "ZombieCustomizationComponent",
+    "Name": "ZombieCustomization_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "ZombieFallDetector_BP_C",
+    "Name": "ZombieFallDetector_BP_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "ZombieOutlineUpdateStrategy",
+    "Name": "ZombieOutlineUpdateStrategy_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "ZombieStunnableComponent",
+    "Name": "ZombieStunnable_GEN_VARIABLE",
+    "Properties": {}
+  }
+]

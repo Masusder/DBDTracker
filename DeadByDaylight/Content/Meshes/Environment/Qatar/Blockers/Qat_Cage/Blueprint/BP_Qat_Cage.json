@@ -30,7 +30,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_0:",
-        "ObjectPath": "BP_Qat_Cage_C.12"
+        "ObjectPath": "BP_Qat_Cage_C.15"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_BP_Qat_Cage:",
@@ -42,7 +42,10 @@
     "Type": "Actor",
     "Name": "Default__BP_Qat_Cage_C",
     "Properties": {
-      "UberGraphFrame": {}
+      "UberGraphFrame": {},
+      "PrimaryActorTick": {
+        "bStartWithTickEnabled": false
+      }
     }
   },
   {
@@ -64,127 +67,24 @@
     }
   },
   {
-    "Type": "SceneComponent",
-    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Type": "BoxComponent",
+    "Name": "Box_GEN_VARIABLE",
     "Properties": {
-      "bShouldUpdatePhysicsVolume": true,
-      "bCanEverAffectNavigation": true
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_0",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.13"
+      "BoxExtent": {
+        "X": 60.0,
+        "Y": 40.0,
+        "Z": 35.0
       },
-      "ComponentTemplate": {
-        "ObjectName": "DefaultSceneRoot_GEN_VARIABLE:",
-        "ObjectPath": "BP_Qat_Cage_C.8"
+      "AreaClass": {
+        "ObjectName": "NavArea_Obstacle:Class",
+        "ObjectPath": "/Script/NavigationSystem.20"
       },
-      "ChildNodes": [
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BP_Qat_Cage_C.10"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "BP_Qat_Cage_C.11"
-        }
-      ],
-      "VariableGuid": "9CC65069-4708D514-E20398B5-C4C41451",
-      "InternalVariableName": "DefaultSceneRoot"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_1",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "SkeletalMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.16"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "SkeletalMesh_GEN_VARIABLE:",
-        "ObjectPath": "BP_Qat_Cage_C.13"
-      },
-      "VariableGuid": "DDA19E41-46F61677-91136E85-A6585A5B",
-      "InternalVariableName": "SkeletalMesh"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_3",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "AkComponent:Class",
-        "ObjectPath": "/Script/AkAudio.6"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "Ak_Audio_Cage_GEN_VARIABLE:",
-        "ObjectPath": "BP_Qat_Cage_C.7"
-      },
-      "VariableGuid": "DD85984B-47D6F680-67034794-6E61ACB2",
-      "InternalVariableName": "Ak_Audio_Cage"
-    }
-  },
-  {
-    "Type": "SimpleConstructionScript",
-    "Name": "SimpleConstructionScript_0",
-    "Properties": {
-      "RootNodes": [
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-          "ObjectPath": "BP_Qat_Cage_C.9"
-        }
-      ],
-      "AllNodes": [
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-          "ObjectPath": "BP_Qat_Cage_C.9"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BP_Qat_Cage_C.10"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "BP_Qat_Cage_C.11"
-        }
-      ],
-      "DefaultSceneRootNode": {
-        "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-        "ObjectPath": "BP_Qat_Cage_C.9"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "SkeletalMesh_GEN_VARIABLE",
-    "Properties": {
-      "AnimClass": {
-        "ObjectName": "AB_Qat_Cage_C:AnimBlueprintGeneratedClass",
-        "ObjectPath": "/Game/Meshes/Environment/Qatar/Blockers/Qat_Cage/Blueprint/AB_Qat_Cage.4"
-      },
-      "bCollideWithEnvironment": true,
-      "bLocalSpaceSimulation": true,
-      "bResetAfterTeleport": false,
-      "ClothingSimulationFactory": {
-        "ObjectName": "ClothingSimulationFactoryNv:Class",
-        "ObjectPath": "/Script/ClothingSystemRuntimeNv.8"
-      },
-      "SkeletalMesh": {
-        "ObjectName": "SM_Qat_Cage01_REF:SkeletalMesh",
-        "ObjectPath": "/Game/Meshes/Environment/Qatar/Blockers/Qat_Cage/Model/SM_Qat_Cage01_REF.36"
-      },
-      "bEnableUpdateRateOptimizations": true,
-      "bGenerateOverlapEvents": true,
+      "bGenerateOverlapEvents": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
+      "CanCharacterStepUpOn": "ECB_No",
       "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
         "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "bNotifyRigidBodyCollision": true,
-        "bSimulatePhysics": true,
         "CollisionProfileName": "BlockAll",
         "CollisionResponses": {
           "ResponseArray": [
@@ -218,7 +118,262 @@
             }
           ]
         }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 40.0
       }
     }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Properties": {
+      "bShouldUpdatePhysicsVolume": true,
+      "bCanEverAffectNavigation": true
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SceneComponent:Class",
+        "ObjectPath": "/Script/Engine.16"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DefaultSceneRoot_GEN_VARIABLE:",
+        "ObjectPath": "BP_Qat_Cage_C.9"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_Qat_Cage_C.11"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
+          "ObjectPath": "BP_Qat_Cage_C.13"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BP_Qat_Cage_C.12"
+        }
+      ],
+      "VariableGuid": "9CC65069-4708D514-E20398B5-C4C41451",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SkeletalMeshComponent:Class",
+        "ObjectPath": "/Script/Engine.19"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMesh_GEN_VARIABLE:",
+        "ObjectPath": "BP_Qat_Cage_C.16"
+      },
+      "VariableGuid": "DDA19E41-46F61677-91136E85-A6585A5B",
+      "InternalVariableName": "SkeletalMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BoxComponent:Class",
+        "ObjectPath": "/Script/Engine.15"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Box_GEN_VARIABLE:",
+        "ObjectPath": "BP_Qat_Cage_C.8"
+      },
+      "VariableGuid": "77294F66-439D41E5-C513178B-B889FEA5",
+      "InternalVariableName": "Box"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "AkComponent:Class",
+        "ObjectPath": "/Script/AkAudio.7"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Ak_Audio_Cage_GEN_VARIABLE:",
+        "ObjectPath": "BP_Qat_Cage_C.7"
+      },
+      "VariableGuid": "DD85984B-47D6F680-67034794-6E61ACB2",
+      "InternalVariableName": "Ak_Audio_Cage"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SleepingSkinnedMeshRegisterer:Class",
+        "ObjectPath": "/Script/AnimationUtilities.9"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE:",
+        "ObjectPath": "BP_Qat_Cage_C.17"
+      },
+      "VariableGuid": "724AE751-49C79FB5-49B64BAB-BC8499C6",
+      "InternalVariableName": "SleepingSkinnedMeshRegisterer"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
+          "ObjectPath": "BP_Qat_Cage_C.10"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
+          "ObjectPath": "BP_Qat_Cage_C.14"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
+          "ObjectPath": "BP_Qat_Cage_C.10"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_Qat_Cage_C.11"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
+          "ObjectPath": "BP_Qat_Cage_C.13"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BP_Qat_Cage_C.12"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
+          "ObjectPath": "BP_Qat_Cage_C.14"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
+        "ObjectPath": "BP_Qat_Cage_C.10"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "SkeletalMesh_GEN_VARIABLE",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AB_Qat_Cage_C:AnimBlueprintGeneratedClass",
+        "ObjectPath": "/Game/Meshes/Environment/Qatar/Blockers/Qat_Cage/Blueprint/AB_Qat_Cage.4"
+      },
+      "bDisablePostProcessBlueprint": true,
+      "bUpdateOverlapsOnAnimationFinalize": false,
+      "bEnablePhysicsOnDedicatedServer": false,
+      "bAllowAnimCurveEvaluation": false,
+      "bCollideWithEnvironment": true,
+      "bLocalSpaceSimulation": true,
+      "bResetAfterTeleport": false,
+      "ClothingSimulationFactory": {
+        "ObjectName": "ClothingSimulationFactoryNv:Class",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv.10"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SM_Qat_Cage01_REF:SkeletalMesh",
+        "ObjectPath": "/Game/Meshes/Environment/Qatar/Blockers/Qat_Cage/Model/SM_Qat_Cage01_REF.42"
+      },
+      "VisibilityBasedAnimTickOption": "EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered",
+      "bComponentUseFixedSkelBounds": true,
+      "bEnableUpdateRateOptimizations": true,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "CanCharacterStepUpOn": "ECB_No",
+      "BodyInstance": {
+        "bSimulatePhysics": true,
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "SleepingSkinnedMeshRegisterer",
+    "Name": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE",
+    "Properties": {}
   }
 ]

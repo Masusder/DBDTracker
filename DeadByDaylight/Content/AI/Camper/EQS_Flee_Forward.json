@@ -24,7 +24,7 @@
       },
       "GenerateAround": {
         "ObjectName": "EnvQueryContext_PinLocation:Class",
-        "ObjectPath": "/Script/DBDBots.9"
+        "ObjectPath": "/Script/DBDBots.10"
       },
       "ProjectionData": {
         "VersionNum": 1,
@@ -47,20 +47,24 @@
       },
       "Tests": [
         {
-          "ObjectName": "EnvQueryTest_Distance_1:",
-          "ObjectPath": "EQS_Flee_Forward.4"
+          "ObjectName": "EnvQueryTest_Distance_0:",
+          "ObjectPath": "EQS_Flee_Forward.3"
         },
         {
           "ObjectName": "EnvQueryTest_Dot_0:",
           "ObjectPath": "EQS_Flee_Forward.5"
         },
         {
-          "ObjectName": "EnvQueryTest_PathfindingBatch_0:",
+          "ObjectName": "EnvQueryTest_Distance_1:",
+          "ObjectPath": "EQS_Flee_Forward.4"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Dot_1:",
           "ObjectPath": "EQS_Flee_Forward.6"
         },
         {
-          "ObjectName": "EnvQueryTest_Distance_0:",
-          "ObjectPath": "EQS_Flee_Forward.3"
+          "ObjectName": "EnvQueryTest_PathfindingBatch_0:",
+          "ObjectPath": "EQS_Flee_Forward.7"
         }
       ]
     }
@@ -68,23 +72,6 @@
   {
     "Type": "EnvQueryTest_Distance",
     "Name": "EnvQueryTest_Distance_0",
-    "Properties": {
-      "TestMode": "EEnvTestDistance::Distance2D",
-      "DistanceTo": {
-        "ObjectName": "EnvQueryContext_TerrorRadius:Class",
-        "ObjectPath": "/Script/DBDBots.10"
-      },
-      "TestOrder": 3,
-      "TestPurpose": "EEnvTestPurpose::Score",
-      "ScoringFactor": {
-        "DefaultValue": 2.0
-      },
-      "VerNum": 1
-    }
-  },
-  {
-    "Type": "EnvQueryTest_Distance",
-    "Name": "EnvQueryTest_Distance_1",
     "Properties": {
       "TestMode": "EEnvTestDistance::Distance2D",
       "TestPurpose": "EEnvTestPurpose::Filter",
@@ -96,13 +83,30 @@
     }
   },
   {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_1",
+    "Properties": {
+      "TestMode": "EEnvTestDistance::Distance2D",
+      "DistanceTo": {
+        "ObjectName": "EnvQueryContext_TerrorRadius:Class",
+        "ObjectPath": "/Script/DBDBots.11"
+      },
+      "TestOrder": 2,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "ScoringFactor": {
+        "DefaultValue": 2.0
+      },
+      "VerNum": 1
+    }
+  },
+  {
     "Type": "EnvQueryTest_Dot",
     "Name": "EnvQueryTest_Dot_0",
     "Properties": {
       "LineA": {
         "LineFrom": {
           "ObjectName": "EnvQueryContext_TerrorRadius:Class",
-          "ObjectPath": "/Script/DBDBots.10"
+          "ObjectPath": "/Script/DBDBots.11"
         },
         "LineTo": {
           "ObjectName": "EnvQueryContext_Item:Class",
@@ -113,7 +117,7 @@
       "LineB": {
         "LineFrom": {
           "ObjectName": "EnvQueryContext_TerrorRadius:Class",
-          "ObjectPath": "/Script/DBDBots.10"
+          "ObjectPath": "/Script/DBDBots.11"
         },
         "LineTo": {
           "ObjectName": "EnvQueryContext_Querier:Class",
@@ -128,14 +132,51 @@
     }
   },
   {
+    "Type": "EnvQueryTest_Dot",
+    "Name": "EnvQueryTest_Dot_1",
+    "Properties": {
+      "LineA": {
+        "LineFrom": {
+          "ObjectName": "EnvQueryContext_Querier:Class",
+          "ObjectPath": "/Script/AIModule.3"
+        },
+        "LineTo": {
+          "ObjectName": "EnvQueryContext_Item:Class",
+          "ObjectPath": "/Script/AIModule.2"
+        },
+        "DirMode": "EEnvDirection::TwoPoints"
+      },
+      "LineB": {
+        "LineTo": {
+          "ObjectName": "EnvQueryContext_CenterOfMap:Class",
+          "ObjectPath": "/Script/DBDBots.9"
+        }
+      },
+      "TestMode": "EEnvTestDot::Dot2D",
+      "TestOrder": 3,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "TestComment": "Prefer path direction toward center of map",
+      "ScoreClampMin": {
+        "DefaultValue": 1.0
+      },
+      "ScoreClampMax": {
+        "DefaultValue": -1.0
+      },
+      "ScoringFactor": {
+        "DefaultValue": 0.2
+      },
+      "VerNum": 1
+    }
+  },
+  {
     "Type": "EnvQueryTest_PathfindingBatch",
     "Name": "EnvQueryTest_PathfindingBatch_0",
     "Properties": {
       "FilterClass": {
-        "ObjectName": "NavQuery_Camper_Terrified_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/AI/Camper/NavQuery_Camper_Terrified.0"
+        "ObjectName": "NavigationQueryFilter_Camper_Cheap:Class",
+        "ObjectPath": "/Script/DBDBots.12"
       },
-      "TestOrder": 2,
+      "TestOrder": 4,
       "TestPurpose": "EEnvTestPurpose::Filter",
       "VerNum": 1
     }

@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_2:",
-        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.7"
+        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.11"
       }
     }
   },
@@ -15,6 +15,124 @@
     "Properties": {
       "NetUpdateFrequency": 0.1,
       "NetPriority": 0.01
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box1_GEN_VARIABLE",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "NavArea_Obstacle:Class",
+        "ObjectPath": "/Script/NavigationSystem.11"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -60.0,
+        "Y": 0.0,
+        "Z": 225.0
+      },
+      "RelativeScale3D": {
+        "X": 1.2,
+        "Y": 0.8,
+        "Z": 7.0
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box_GEN_VARIABLE",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "NavArea_Obstacle:Class",
+        "ObjectPath": "/Script/NavigationSystem.11"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 40.0,
+        "Z": 225.0
+      },
+      "RelativeScale3D": {
+        "X": 0.8,
+        "Y": 2.0,
+        "Z": 7.0
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -35,16 +153,24 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.5"
+        "ObjectPath": "/Script/Engine.7"
       },
       "ComponentTemplate": {
         "ObjectName": "Scene_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.2"
+        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.4"
       },
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_7:",
-          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.6"
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.10"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_2:SCS_Node_1:",
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.7"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_2:SCS_Node_2:",
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.8"
         }
       ],
       "VariableGuid": "89E86F5D-4646AC05-5F6CF8BF-169057AD",
@@ -53,15 +179,47 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BoxComponent:Class",
+        "ObjectPath": "/Script/Engine.6"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Box_GEN_VARIABLE:",
+        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.3"
+      },
+      "VariableGuid": "6836BA7C-4E81C5D1-CEB8B7A5-28960360",
+      "InternalVariableName": "Box"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BoxComponent:Class",
+        "ObjectPath": "/Script/Engine.6"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Box1_GEN_VARIABLE:",
+        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.2"
+      },
+      "VariableGuid": "6B00B879-479D6BFD-BF61F199-EECEAA29",
+      "InternalVariableName": "Box1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_23",
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.5"
+        "ObjectPath": "/Script/Engine.7"
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent_290:",
-        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.3"
+        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.5"
       },
       "VariableGuid": "5323B8CD-4E37D943-7C9876AF-D0E489B4",
       "InternalVariableName": "DefaultSceneRoot"
@@ -73,11 +231,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.8"
+        "ObjectPath": "/Script/Engine.10"
       },
       "ComponentTemplate": {
         "ObjectName": "SM_WL_Br_Corner01_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.8"
+        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.12"
       },
       "VariableGuid": "5C6EB9F2-41D03242-D8162E99-C71AA533",
       "InternalVariableName": "SM_WL_Br_Corner01"
@@ -90,22 +248,30 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_0:",
-          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.4"
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.6"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_0:",
-          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.4"
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.6"
         },
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_7:",
-          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.6"
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.10"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_2:SCS_Node_1:",
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.7"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_2:SCS_Node_2:",
+          "ObjectPath": "BP_Ind_WL_Br_Corner01_C.8"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_2:SCS_Node_23:",
-        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.5"
+        "ObjectPath": "BP_Ind_WL_Br_Corner01_C.9"
       }
     }
   },
@@ -115,7 +281,7 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_Ind_WL_Br_Corner01:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_Corner01.15"
+        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_Corner01.19"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "Mobility": "EComponentMobility::Static"

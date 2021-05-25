@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_6:",
-        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.10"
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.12"
       }
     }
   },
@@ -15,6 +15,65 @@
     "Properties": {
       "NetUpdateFrequency": 0.1,
       "NetPriority": 0.01
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box_GEN_VARIABLE",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "NavArea_Obstacle:Class",
+        "ObjectPath": "/Script/NavigationSystem.12"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 100.0,
+        "Z": 200.0
+      },
+      "RelativeScale3D": {
+        "X": 0.8,
+        "Y": 3.3,
+        "Z": 6.2
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -55,7 +114,7 @@
       "InstancingRandomSeed": 15294,
       "StaticMesh": {
         "ObjectName": "SM_Ind_WL_Br_2mStraight01:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_2mStraight01.20"
+        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_2mStraight01.24"
       },
       "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
@@ -105,7 +164,7 @@
       "InstancingRandomSeed": 28664,
       "StaticMesh": {
         "ObjectName": "SM_Ind_WL_Br_CapDamage01:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_CapDamage01.21"
+        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_CapDamage01.25"
       },
       "bUseDefaultCollision": false,
       "LDMaxDrawDistance": 4800.0,
@@ -128,15 +187,31 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BoxComponent:Class",
+        "ObjectPath": "/Script/Engine.6"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Box_GEN_VARIABLE:",
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.2"
+      },
+      "VariableGuid": "62B50CEF-4EFA3CA4-046AA6AE-8A9440F0",
+      "InternalVariableName": "Box"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_2",
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.9"
+        "ObjectPath": "/Script/Engine.11"
       },
       "ComponentTemplate": {
         "ObjectName": "SM_WallPipeMetal01_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.12"
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.14"
       },
       "VariableGuid": "9B3DEBB6-4AAE4FAC-E8561DB4-0C5033D0",
       "InternalVariableName": "SM_WallPipeMetal01"
@@ -148,11 +223,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.5"
+        "ObjectPath": "/Script/Engine.7"
       },
       "ComponentTemplate": {
         "ObjectName": "HISM_SM_WL_Br_CapDamage01_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.3"
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.4"
       },
       "VariableGuid": "AC2ED5FE-4F300B6F-F0E4FEB0-99684DD5",
       "InternalVariableName": "HISM_SM_WL_Br_CapDamage01"
@@ -164,27 +239,31 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.6"
+        "ObjectPath": "/Script/Engine.8"
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent_294:",
-        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.4"
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.5"
       },
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_6:SCS_Node_9:",
-          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.9"
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.11"
         },
         {
           "ObjectName": "SimpleConstructionScript_6:SCS_Node_4:",
-          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.8"
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.10"
         },
         {
           "ObjectName": "SimpleConstructionScript_6:SCS_Node_2:",
-          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.5"
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.7"
         },
         {
           "ObjectName": "SimpleConstructionScript_6:SCS_Node_3:",
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.8"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_6:SCS_Node_0:",
           "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.6"
         }
       ],
@@ -198,11 +277,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.9"
+        "ObjectPath": "/Script/Engine.11"
       },
       "ComponentTemplate": {
         "ObjectName": "SM_WallFrameWood01_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.11"
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.13"
       },
       "VariableGuid": "390D866F-4A0631F5-328230A1-6511C201",
       "InternalVariableName": "SM_WallFrameWood01"
@@ -214,11 +293,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.5"
+        "ObjectPath": "/Script/Engine.7"
       },
       "ComponentTemplate": {
         "ObjectName": "HISM_SM_WL_Br_2mStraight01_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.2"
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.3"
       },
       "VariableGuid": "FA7D8373-47306131-285FC6A3-2D1EC554",
       "InternalVariableName": "HISM_SM_WL_Br_2mStraight01"
@@ -231,34 +310,38 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_6:SCS_Node_31:",
-          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.7"
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.9"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_6:SCS_Node_31:",
-          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.7"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_6:SCS_Node_2:",
-          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.5"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_6:SCS_Node_4:",
-          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.8"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_6:SCS_Node_9:",
           "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.9"
         },
         {
+          "ObjectName": "SimpleConstructionScript_6:SCS_Node_2:",
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.7"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_6:SCS_Node_4:",
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.10"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_6:SCS_Node_9:",
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.11"
+        },
+        {
           "ObjectName": "SimpleConstructionScript_6:SCS_Node_3:",
+          "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.8"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_6:SCS_Node_0:",
           "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.6"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_6:SCS_Node_31:",
-        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.7"
+        "ObjectPath": "BP_Ind_WL_Br_2mStraight01_C.9"
       }
     }
   },
@@ -268,7 +351,7 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_WallFrameWood01:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WallFrameWood01.22"
+        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WallFrameWood01.26"
       },
       "bUseDefaultCollision": false,
       "LDMaxDrawDistance": 2400.0,
@@ -298,7 +381,7 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_WallPipeMetal01:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WallPipeMetal01.23"
+        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WallPipeMetal01.27"
       },
       "bUseDefaultCollision": false,
       "LDMaxDrawDistance": 2400.0,

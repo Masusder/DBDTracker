@@ -11,17 +11,7 @@
   },
   {
     "Type": "Function",
-    "Name": "HidetutorialPopup",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
     "Name": "CustomEvent_0",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "ShowTallyTutorialPopup",
     "Properties": {}
   },
   {
@@ -31,12 +21,12 @@
   },
   {
     "Type": "Function",
-    "Name": "OnRightButtonTriggered",
+    "Name": "HidetutorialPopup",
     "Properties": {}
   },
   {
     "Type": "Function",
-    "Name": "OnLeftButtonTriggered",
+    "Name": "OnProgressionButtonTriggered",
     "Properties": {}
   },
   {
@@ -46,27 +36,42 @@
   },
   {
     "Type": "Function",
-    "Name": "SetTallyPopup",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
     "Name": "SetNotifPopup",
     "Properties": {}
   },
   {
     "Type": "Function",
-    "Name": "LeftButtonTriggered",
+    "Name": "ProgressionButtonTriggered",
     "Properties": {}
   },
   {
     "Type": "Function",
-    "Name": "RightButtonTriggered",
+    "Name": "UnbindProgressionButton",
     "Properties": {}
   },
   {
     "Type": "Function",
-    "Name": "UnbindButtons",
+    "Name": "SetNotifIcon",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "SetNotifTitle",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "SetNotifMessage",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "SetNotifImage",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "ShowAnimation",
     "Properties": {}
   },
   {
@@ -75,7 +80,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree:",
-        "ObjectPath": "WBP_CorePopup_C.230"
+        "ObjectPath": "WBP_CorePopup_C.143"
       },
       "bAllowTemplate": true,
       "bValidTemplate": true,
@@ -83,7 +88,11 @@
       "Animations": [
         {
           "ObjectName": "TestPadding_INST:",
-          "ObjectPath": "WBP_CorePopup_C.223"
+          "ObjectPath": "WBP_CorePopup_C.139"
+        },
+        {
+          "ObjectName": "MaskAnimation_INST:",
+          "ObjectPath": "WBP_CorePopup_C.138"
         }
       ],
       "TemplateAsset": {
@@ -101,45 +110,19 @@
     "Name": "Default__WBP_CorePopup_C",
     "Properties": {
       "UberGraphFrame": {},
-      "Tallydata": {
-        "IsKiller": false,
-        "FirstTimeCompleted": false,
-        "BloodpointsScore": 0
-      },
       "NotifData": {
         "Title": "",
         "Description": "",
-        "IconTexture": null
+        "Icon": null,
+        "Image": null
       },
-      "TallyLeaveText": {
-        "Namespace": "Messages",
-        "Key": "LeaveTutorial_Title",
-        "SourceString": "LEAVE TUTORIAL"
-      },
-      "TallyKillerTutoText": {
-        "Namespace": "Messages",
-        "Key": "TutorialTallyKillerTitle",
-        "SourceString": "KILLER TUTORIAL"
-      },
-      "NotifConfirmText": {
+      "ConfirmPromptText": {
         "Namespace": "ButtonLabels",
         "Key": "Ok",
         "SourceString": "OK"
       },
-      "TallySurvivorTutoText": {
-        "Namespace": "Messages",
-        "Key": "TutorialTallySurvivorTitle",
-        "SourceString": "SURVIVOR TUTORIAL"
-      },
-      "TutoCompleteText": {
-        "Namespace": "Messages",
-        "Key": "TutorialTallyFirstTimeDescription",
-        "SourceString": "Congratulations! You have completed the tutorial level."
-      },
-      "TutoAlreadyCompleteText": {
-        "Namespace": "Messages",
-        "Key": "TutorialTallyDescription",
-        "SourceString": "This tutorial section has already been completed. The Bloodpoint reward is only granted for the first time the tutorial is completed."
+      "UpdateMask": {
+        "Handle": 0
       },
       "ClosePopupSfx": {
         "ObjectName": "AudioEvent_UI_Popup_Small_Close:AkAudioEvent",
@@ -163,7 +146,7 @@
           },
           "ResourceObject": {
             "ObjectName": "M_CoreButtonInteractive_Instance:MaterialInstanceConstant",
-            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Instance.65"
+            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Instance.75"
           },
           "DrawAs": "ESlateBrushDrawType::Image"
         },
@@ -176,7 +159,7 @@
           },
           "ResourceObject": {
             "ObjectName": "M_CoreButtonInteractive_Instance:MaterialInstanceConstant",
-            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Instance.65"
+            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Instance.75"
           },
           "DrawAs": "ESlateBrushDrawType::Image"
         },
@@ -187,15 +170,22 @@
             "Right": 0.0,
             "Bottom": 0.0
           },
-          "TintColor": {
-            "SpecifiedColor": {
-              "R": 1.0,
-              "G": 1.0,
-              "B": 1.0,
-              "A": 0.0,
-              "Hex": "FFFFFF"
-            }
-          }
+          "ResourceObject": {
+            "ObjectName": "M_CoreButtonInteractive_Instance:MaterialInstanceConstant",
+            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Instance.75"
+          },
+          "DrawAs": "ESlateBrushDrawType::Image"
+        },
+        "Disabled": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 32.0
+          },
+          "ResourceObject": {
+            "ObjectName": "M_CoreButtonInteractive_Disabled:MaterialInstanceConstant",
+            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Disabled.74"
+          },
+          "DrawAs": "ESlateBrushDrawType::Image"
         },
         "NormalPadding": {
           "Left": 0.0,
@@ -219,101 +209,7 @@
       ],
       "Slot": {
         "ObjectName": "MouseButtonContainer:OverlaySlot_0:",
-        "ObjectPath": "WidgetArchetype.104"
-      }
-    }
-  },
-  {
-    "Type": "Button",
-    "Name": "MouseButton",
-    "Properties": {
-      "WidgetStyle": {
-        "Normal": {
-          "Margin": {
-            "Left": 0.397,
-            "Top": 0.39,
-            "Right": 0.39,
-            "Bottom": 0.39
-          },
-          "ResourceObject": {
-            "ObjectName": "M_CoreButtonInteractive_Instance:MaterialInstanceConstant",
-            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Instance.65"
-          },
-          "DrawAs": "ESlateBrushDrawType::Image"
-        },
-        "Hovered": {
-          "Margin": {
-            "Left": 0.0,
-            "Top": 0.0,
-            "Right": 0.0,
-            "Bottom": 0.0
-          },
-          "ResourceObject": {
-            "ObjectName": "M_CoreButtonInteractive_Instance:MaterialInstanceConstant",
-            "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButtonInteractive_Instance.65"
-          },
-          "DrawAs": "ESlateBrushDrawType::Image"
-        },
-        "Pressed": {
-          "Margin": {
-            "Left": 0.0,
-            "Top": 0.0,
-            "Right": 0.0,
-            "Bottom": 0.0
-          },
-          "TintColor": {
-            "SpecifiedColor": {
-              "R": 1.0,
-              "G": 1.0,
-              "B": 1.0,
-              "A": 0.0,
-              "Hex": "FFFFFF"
-            }
-          }
-        },
-        "NormalPadding": {
-          "Left": 0.0,
-          "Top": 0.0,
-          "Right": 0.0,
-          "Bottom": 0.0
-        },
-        "PressedPadding": {
-          "Left": 0.0,
-          "Top": 0.0,
-          "Right": 0.0,
-          "Bottom": 0.0
-        }
-      },
-      "IsFocusable": false,
-      "Slots": [
-        {
-          "ObjectName": "MouseButton:ButtonSlot_0:",
-          "ObjectPath": "WidgetArchetype.19"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "MouseButtonContainer:OverlaySlot_0:",
-        "ObjectPath": "WidgetArchetype.112"
-      }
-    }
-  },
-  {
-    "Type": "ButtonSlot",
-    "Name": "ButtonSlot_0",
-    "Properties": {
-      "Padding": {
-        "Left": 34.0,
-        "Right": 34.0,
-        "Bottom": 0.0
-      },
-      "HorizontalAlignment": "HAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:MouseButton:",
-        "ObjectPath": "WidgetArchetype.16"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:_buttonTextField:",
-        "ObjectPath": "WidgetArchetype.41"
+        "ObjectPath": "WidgetArchetype.92"
       }
     }
   },
@@ -333,7 +229,7 @@
       },
       "Content": {
         "ObjectName": "WidgetTree_0:_buttonTextField:",
-        "ObjectPath": "WidgetArchetype.44"
+        "ObjectPath": "WidgetArchetype.42"
       }
     }
   },
@@ -344,6 +240,10 @@
       "Slots": [
         {
           "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
+          "ObjectPath": "WBP_CorePopup_C.21"
+        },
+        {
+          "ObjectName": "CanvasPanel_0:CanvasPanelSlot_7:",
           "ObjectPath": "WBP_CorePopup_C.22"
         }
       ]
@@ -357,6 +257,10 @@
         {
           "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
           "ObjectPath": "WidgetArchetype.23"
+        },
+        {
+          "ObjectName": "CanvasPanel_0:CanvasPanelSlot_7:",
+          "ObjectPath": "WidgetArchetype.24"
         }
       ]
     }
@@ -388,11 +292,44 @@
       "bAutoSize": true,
       "Parent": {
         "ObjectName": "WidgetTree:CanvasPanel_0:",
-        "ObjectPath": "WBP_CorePopup_C.20"
+        "ObjectPath": "WBP_CorePopup_C.19"
       },
       "Content": {
-        "ObjectName": "WidgetTree:Overlay_99:",
-        "ObjectPath": "WBP_CorePopup_C.89"
+        "ObjectName": "WidgetTree:Mask:",
+        "ObjectPath": "WBP_CorePopup_C.98"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_7",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": -279.55713,
+          "Top": -44.315308,
+          "Right": 409.71014,
+          "Bottom": 73.47826
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.67551136,
+            "Y": 0.67919147
+          },
+          "Maximum": {
+            "X": 0.67551136,
+            "Y": 0.67919147
+          }
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "WidgetTree:CanvasPanel_0:",
+        "ObjectPath": "WBP_CorePopup_C.19"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:ProgressionButton:",
+        "ObjectPath": "WBP_CorePopup_C.133"
       }
     }
   },
@@ -423,330 +360,358 @@
       "bAutoSize": true,
       "Parent": {
         "ObjectName": "WidgetTree_0:CanvasPanel_0:",
-        "ObjectPath": "WidgetArchetype.21"
+        "ObjectPath": "WidgetArchetype.20"
       },
       "Content": {
-        "ObjectName": "WidgetTree_0:Overlay_99:",
-        "ObjectPath": "WidgetArchetype.94"
+        "ObjectName": "WidgetTree_0:Mask:",
+        "ObjectPath": "WidgetArchetype.99"
       }
     }
   },
   {
-    "Type": "DBDImage",
-    "Name": "divider",
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_7",
     "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 2000.0,
-          "Y": 4.0
+      "LayoutData": {
+        "Offsets": {
+          "Left": -279.55713,
+          "Top": -44.315308,
+          "Right": 409.71014,
+          "Bottom": 73.47826
         },
-        "Margin": {
-          "Left": 0.5,
-          "Right": 0.5
-        },
-        "ResourceObject": {
-          "ObjectName": "hud_umg_startSequence_bar_9slice:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/StartSequence/hud_umg_startSequence_bar_9slice.104"
-        },
-        "DrawAs": "ESlateBrushDrawType::Box"
-      },
-      "ColorAndOpacity": {
-        "R": 0.234551,
-        "G": 0.234551,
-        "B": 0.234551,
-        "A": 1.0,
-        "Hex": "3C3C3C"
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_21:",
-        "ObjectPath": "WBP_CorePopup_C.171"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "TutoIcon",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 256.0,
-          "Y": 256.0
-        },
-        "ResourceObject": {
-          "ObjectName": "iconHelpLoading_skillCheck:Texture2D",
-          "ObjectPath": "/Game/UI/UMGAssets/Icons/HelpLoading/iconHelpLoading_skillCheck.108"
+        "Anchors": {
+          "Minimum": {
+            "X": 0.67551136,
+            "Y": 0.67919147
+          },
+          "Maximum": {
+            "X": 0.67551136,
+            "Y": 0.67919147
+          }
         }
       },
-      "Slot": {
-        "ObjectName": "layoutScale:ScaleBoxSlot_0:",
-        "ObjectPath": "WBP_CorePopup_C.122"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "divider",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 2000.0,
-          "Y": 4.0
-        },
-        "Margin": {
-          "Left": 0.5,
-          "Right": 0.5
-        },
-        "ResourceObject": {
-          "ObjectName": "hud_umg_startSequence_bar_9slice:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/StartSequence/hud_umg_startSequence_bar_9slice.104"
-        },
-        "DrawAs": "ESlateBrushDrawType::Box"
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "WidgetTree_0:CanvasPanel_0:",
+        "ObjectPath": "WidgetArchetype.20"
       },
-      "ColorAndOpacity": {
-        "R": 0.234551,
-        "G": 0.234551,
-        "B": 0.234551,
-        "A": 1.0,
-        "Hex": "3C3C3C"
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_21:",
-        "ObjectPath": "WidgetArchetype.186"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "PromptIcon",
-    "Properties": {
-      "DefaultImage": {
-        "ObjectName": "inputPrompt_missing:Texture2D",
-        "ObjectPath": "/DBDUICore/Assets/Common/ButtonPrompts/inputPrompt_missing.103"
-      },
-      "Brush": {
-        "ImageSize": {
-          "X": 128.0,
-          "Y": 128.0
-        },
-        "ResourceObject": {
-          "ObjectName": "inputPrompt_missing:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/Common/ButtonPrompts/inputPrompt_missing.103"
-        }
-      },
-      "Slot": {
-        "ObjectName": "ScaleBox_1:ScaleBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.124"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "SmokeBG",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 1024.0,
-          "Y": 256.0
-        },
-        "ResourceObject": {
-          "ObjectName": "M_CoreButton_Smoke_Settings:MaterialInstanceConstant",
-          "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButton_Smoke_Settings.64"
-        }
-      },
-      "Slot": {
-        "ObjectName": "MouseButtonContainer:OverlaySlot_2:",
-        "ObjectPath": "WidgetArchetype.105"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "PromptIcon",
-    "Properties": {
-      "DefaultImage": {
-        "ObjectName": "inputPrompt_missing:Texture2D",
-        "ObjectPath": "/DBDUICore/Assets/Common/ButtonPrompts/inputPrompt_missing.103"
-      },
-      "Brush": {
-        "ImageSize": {
-          "X": 128.0,
-          "Y": 128.0
-        },
-        "ResourceObject": {
-          "ObjectName": "inputPrompt_missing:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/Common/ButtonPrompts/inputPrompt_missing.103"
-        }
-      },
-      "Slot": {
-        "ObjectName": "ScaleBox_1:ScaleBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.125"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "SmokeBG",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 1024.0,
-          "Y": 256.0
-        },
-        "ResourceObject": {
-          "ObjectName": "M_CoreButton_Smoke_Settings:MaterialInstanceConstant",
-          "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButton_Smoke_Settings.64"
-        }
-      },
-      "Slot": {
-        "ObjectName": "MouseButtonContainer:OverlaySlot_2:",
-        "ObjectPath": "WidgetArchetype.113"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "TutoIcon",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 256.0,
-          "Y": 256.0
-        },
-        "ResourceObject": {
-          "ObjectName": "iconHelpLoading_skillCheck:Texture2D",
-          "ObjectPath": "/Game/UI/UMGAssets/Icons/HelpLoading/iconHelpLoading_skillCheck.108"
-        }
-      },
-      "Slot": {
-        "ObjectName": "layoutScale:ScaleBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.123"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "DBDImage_90",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 128.0,
-          "Y": 128.0
-        },
-        "Margin": {
-          "Left": 0.25,
-          "Top": 0.25,
-          "Right": 0.25,
-          "Bottom": 0.25
-        },
-        "ResourceObject": {
-          "ObjectName": "container_9SliceBG:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/container_9SliceBG.105"
-        },
-        "DrawAs": "ESlateBrushDrawType::Box"
-      },
-      "Slot": {
-        "ObjectName": "SizeBox_132:SizeBoxSlot_0:",
+      "Content": {
+        "ObjectName": "WidgetTree_0:ProgressionButton:",
         "ObjectPath": "WidgetArchetype.134"
       }
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "divider2",
+    "Name": "BG",
     "Properties": {
       "Brush": {
         "ImageSize": {
-          "X": 3.0,
-          "Y": 32.0
+          "X": 32.0,
+          "Y": 1300.0
+        },
+        "Margin": {
+          "Left": 0.1,
+          "Right": 0.1
         },
         "ResourceObject": {
-          "ObjectName": "M_headerBar_brown:MaterialInstanceConstant",
-          "ObjectPath": "/DBDUICore/HUD/Common/Popups/M_headerBar_brown.66"
+          "ObjectName": "M_HUD_TutorialBG_Instance:MaterialInstanceConstant",
+          "ObjectPath": "/DBDUICore/HUD/Tutorial/M_HUD_TutorialBG_Instance.76"
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "Slot": {
+        "ObjectName": "Overlay_99:OverlaySlot_12:",
+        "ObjectPath": "WBP_CorePopup_C.80"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "divider",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 4096.0,
+          "Y": 128.0
+        },
+        "Margin": {
+          "Left": 0.5,
+          "Right": 0.5
+        },
+        "ResourceObject": {
+          "ObjectName": "tutorialHeader_survivor:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/tutorialHeader_survivor.132"
         }
       },
       "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_5:",
+        "ObjectName": "Overlay_99:OverlaySlot_4:",
+        "ObjectPath": "WBP_CorePopup_C.82"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "Image",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "iconHelp_missing:Texture2D",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_missing.135"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 2048.0,
+          "Y": 1024.0
+        },
+        "ResourceObject": {
+          "ObjectName": "tutorialBkgImages_survivorIntro:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/tutorialBkgImages_survivorIntro.131"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Overlay_99:OverlaySlot_0:",
+        "ObjectPath": "WBP_CorePopup_C.79"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "Smoke",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 1200.0,
+          "Y": 1300.0
+        },
+        "ResourceObject": {
+          "ObjectName": "M_HUD_TutorialSmoke_Blue:MaterialInstanceConstant",
+          "ObjectPath": "/DBDUICore/HUD/Tutorial/M_HUD_TutorialSmoke_Blue.78"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Overlay_99:OverlaySlot_8:",
+        "ObjectPath": "WBP_CorePopup_C.83"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "TutoIcon",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "iconHelp_loadingMissing:Texture2D",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.134"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 200.0,
+          "Y": 200.0
+        },
+        "ResourceObject": {
+          "ObjectName": "iconHelp_skillChecks:Texture2D",
+          "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_skillChecks.136"
+        }
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_3:",
+        "ObjectPath": "WBP_CorePopup_C.51"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": 0.8,
+          "Y": 0.8
+        }
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "BG",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 32.0,
+          "Y": 1300.0
+        },
+        "Margin": {
+          "Left": 0.1,
+          "Right": 0.1
+        },
+        "ResourceObject": {
+          "ObjectName": "M_HUD_TutorialBG_Instance:MaterialInstanceConstant",
+          "ObjectPath": "/DBDUICore/HUD/Tutorial/M_HUD_TutorialBG_Instance.76"
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "Slot": {
+        "ObjectName": "Overlay_99:OverlaySlot_12:",
         "ObjectPath": "WidgetArchetype.85"
-      }
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "divider_1",
+    "Name": "divider",
     "Properties": {
       "Brush": {
         "ImageSize": {
-          "X": 3.0,
-          "Y": 32.0
+          "X": 4096.0,
+          "Y": 128.0
+        },
+        "Margin": {
+          "Left": 0.5,
+          "Right": 0.5
         },
         "ResourceObject": {
-          "ObjectName": "M_headerBar_brown:MaterialInstanceConstant",
-          "ObjectPath": "/DBDUICore/HUD/Common/Popups/M_headerBar_brown.66"
+          "ObjectName": "tutorialHeader_survivor:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/tutorialHeader_survivor.132"
         }
       },
       "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.81"
+        "ObjectName": "Overlay_99:OverlaySlot_4:",
+        "ObjectPath": "WidgetArchetype.87"
       }
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "slot_Icon",
+    "Name": "Image",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "iconHelp_missing:Texture2D",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_missing.135"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 2048.0,
+          "Y": 1024.0
+        },
+        "ResourceObject": {
+          "ObjectName": "tutorialBkgImages_survivorIntro:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/tutorialBkgImages_survivorIntro.131"
+        }
+      },
+      "Slot": {
+        "ObjectName": "Overlay_99:OverlaySlot_0:",
+        "ObjectPath": "WidgetArchetype.84"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "PromptIcon",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "inputPrompt_missing:Texture2D",
+        "ObjectPath": "/DBDUICore/Assets/Common/ButtonPrompts/inputPrompt_missing.129"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "inputPrompt_missing:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/Common/ButtonPrompts/inputPrompt_missing.129"
+        }
+      },
+      "Slot": {
+        "ObjectName": "ScaleBox_1:ScaleBoxSlot_0:",
+        "ObjectPath": "WidgetArchetype.101"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "Bg",
     "Properties": {
       "Brush": {
         "ImageSize": {
           "X": 512.0,
-          "Y": 512.0
+          "Y": 128.0
         },
         "ResourceObject": {
-          "ObjectName": "currencyIcon_bloodPoints:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/currencyIcon_bloodPoints.106"
+          "ObjectName": "Btn_largeBg:Texture2D",
+          "ObjectPath": "/DBDUICore/Assets/Common/Buttons/Btn_largeBg.130"
         }
       },
       "Slot": {
-        "ObjectName": "layoutSize:ScaleBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.126"
+        "ObjectName": "MouseButtonContainer:OverlaySlot_6:",
+        "ObjectPath": "WidgetArchetype.94"
       }
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "slot_Icon",
+    "Name": "SmokeBG",
     "Properties": {
       "Brush": {
         "ImageSize": {
-          "X": 512.0,
-          "Y": 512.0
+          "X": 1024.0,
+          "Y": 256.0
         },
         "ResourceObject": {
-          "ObjectName": "currencyIcon_bloodPoints:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/currencyIcon_bloodPoints.106"
+          "ObjectName": "M_CoreButton_Smoke_Settings:MaterialInstanceConstant",
+          "ObjectPath": "/DBDUICore/Common/ButtonInteractable/M_CoreButton_Smoke_Settings.73"
         }
       },
       "Slot": {
-        "ObjectName": "layoutSize:ScaleBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.127"
+        "ObjectName": "MouseButtonContainer:OverlaySlot_2:",
+        "ObjectPath": "WidgetArchetype.93"
       }
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "slot_Icon",
+    "Name": "Smoke",
     "Properties": {
       "Brush": {
         "ImageSize": {
-          "X": 512.0,
-          "Y": 512.0
+          "X": 1200.0,
+          "Y": 1300.0
         },
         "ResourceObject": {
-          "ObjectName": "currencyIcon_bloodPoints:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/Tutorial/currencyIcon_bloodPoints.106"
+          "ObjectName": "M_HUD_TutorialSmoke_Blue:MaterialInstanceConstant",
+          "ObjectPath": "/DBDUICore/HUD/Tutorial/M_HUD_TutorialSmoke_Blue.78"
         }
       },
       "Slot": {
-        "ObjectName": "layoutSize:ScaleBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.128"
+        "ObjectName": "Overlay_99:OverlaySlot_8:",
+        "ObjectPath": "WidgetArchetype.88"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "TutoIcon",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "iconHelp_loadingMissing:Texture2D",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.134"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 200.0,
+          "Y": 200.0
+        },
+        "ResourceObject": {
+          "ObjectName": "iconHelp_skillChecks:Texture2D",
+          "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_skillChecks.136"
+        }
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_3:",
+        "ObjectPath": "WidgetArchetype.56"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": 0.8,
+          "Y": 0.8
+        }
       }
     }
   },
@@ -762,7 +727,7 @@
       "Text": {
         "Namespace": "",
         "Key": "15401C1848D4EA307E2063A8F5AEE2B0",
-        "SourceString": "Certain actions may occasionally produce a \"Skill Check\". Escaping a trial alive will require a combination of teamwork and competence. Failing to time Skill Checks consistently may make survival more challenging."
+        "SourceString": "Certain actions may occasionally produce a \"Skill Check\". Escaping a trial alive will require a combination off teamwork and competence. Failing to time Skill Checks consistently may make survival more challenging."
       },
       "ColorAndOpacity": {
         "SpecifiedColor": {
@@ -776,15 +741,16 @@
       "Font": {
         "FontObject": {
           "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
         },
         "TypefaceFontName": "Condensed",
-        "Size": 32
+        "Size": 36
       },
       "AutoWrapText": true,
+      "LineHeightPercentage": 1.5,
       "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_4:",
-        "ObjectPath": "WBP_CorePopup_C.179"
+        "ObjectName": "CenterContent:VerticalBoxSlot_2:",
+        "ObjectPath": "WBP_CorePopup_C.120"
       },
       "bIsVariable": true
     }
@@ -807,15 +773,14 @@
       "Font": {
         "FontObject": {
           "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
         },
         "TypefaceFontName": "Light",
         "Size": 78
       },
-      "Justification": "ETextJustify::Center",
       "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_3:",
-        "ObjectPath": "WBP_CorePopup_C.174"
+        "ObjectName": "VerticalBox_195:VerticalBoxSlot_1:",
+        "ObjectPath": "WBP_CorePopup_C.122"
       },
       "bIsVariable": true
     }
@@ -832,19 +797,58 @@
       "Text": {
         "Namespace": "",
         "Key": "7BC60AA848DCD22146920581E3AC09EE",
-        "SourceString": "Skill Checks"
+        "SourceString": "SKILL CHECKS"
       },
       "Font": {
         "FontObject": {
           "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
         },
-        "Size": 48
+        "Size": 60
       },
-      "Justification": "ETextJustify::Center",
       "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_14:",
-        "ObjectPath": "WBP_CorePopup_C.169"
+        "ObjectName": "VerticalBox_195:VerticalBoxSlot_0:",
+        "ObjectPath": "WBP_CorePopup_C.121"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
+    "Name": "Message",
+    "Properties": {
+      "_hasUndocking": true,
+      "_undockedProperties": {
+        "UseSize": true,
+        "Size": 36
+      },
+      "Text": {
+        "Namespace": "",
+        "Key": "15401C1848D4EA307E2063A8F5AEE2B0",
+        "SourceString": "Certain actions may occasionally produce a \"Skill Check\". Escaping a trial alive will require a combination off teamwork and competence. Failing to time Skill Checks consistently may make survival more challenging."
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.456411,
+          "G": 0.571125,
+          "B": 0.623961,
+          "A": 1.0,
+          "Hex": "74929F"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "DBDCoreFont:Font",
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
+        },
+        "TypefaceFontName": "Condensed",
+        "Size": 36
+      },
+      "AutoWrapText": true,
+      "LineHeightPercentage": 1.5,
+      "Slot": {
+        "ObjectName": "CenterContent:VerticalBoxSlot_2:",
+        "ObjectPath": "WidgetArchetype.127"
       },
       "bIsVariable": true
     }
@@ -867,17 +871,17 @@
       },
       "ColorAndOpacity": {
         "SpecifiedColor": {
-          "R": 1.0,
-          "G": 1.0,
-          "B": 1.0,
-          "A": 0.5,
-          "Hex": "80FFFFFF"
+          "R": 0.052861,
+          "G": 0.052861,
+          "B": 0.052861,
+          "A": 1.0,
+          "Hex": "0D0D0D"
         }
       },
       "Font": {
         "FontObject": {
           "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
         },
         "OutlineSettings": {
           "OutlineSize": 3,
@@ -925,7 +929,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
         },
         "OutlineSettings": {
           "OutlineSize": 3,
@@ -941,142 +945,7 @@
       },
       "Slot": {
         "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.75"
-      }
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "Message",
-    "Properties": {
-      "_hasUndocking": true,
-      "_undockedProperties": {
-        "UseSize": true,
-        "Size": 36
-      },
-      "Text": {
-        "Namespace": "",
-        "Key": "15401C1848D4EA307E2063A8F5AEE2B0",
-        "SourceString": "Certain actions may occasionally produce a \"Skill Check\". Escaping a trial alive will require a combination of teamwork and competence. Failing to time Skill Checks consistently may make survival more challenging."
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 0.456411,
-          "G": 0.571125,
-          "B": 0.623961,
-          "A": 1.0,
-          "Hex": "74929F"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "TypefaceFontName": "Condensed",
-        "Size": 32
-      },
-      "AutoWrapText": true,
-      "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_4:",
-        "ObjectPath": "WidgetArchetype.194"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "_buttonTextField",
-    "Properties": {
-      "_isUpperCase": true,
-      "_hasUndocking": true,
-      "_undockedProperties": {
-        "UseOpacity": true,
-        "UseSize": true,
-        "Size": 40
-      },
-      "Text": {
-        "Namespace": "",
-        "Key": "DDE8888945E7AB522428E3990843F474",
-        "SourceString": "CANCEL"
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 1.0,
-          "G": 1.0,
-          "B": 1.0,
-          "A": 0.5,
-          "Hex": "80FFFFFF"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "OutlineSettings": {
-          "OutlineSize": 3,
-          "OutlineColor": {
-            "R": 0.0,
-            "G": 0.0,
-            "B": 0.0,
-            "A": 0.3,
-            "Hex": "4C000000"
-          }
-        },
-        "Size": 36
-      },
-      "Slot": {
-        "ObjectName": "MouseButton:ButtonSlot_0:",
-        "ObjectPath": "WidgetArchetype.19"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "TextField",
-    "Properties": {
-      "_isUpperCase": true,
-      "_hasUndocking": true,
-      "_undockedProperties": {
-        "UseSize": true,
-        "Size": 40
-      },
-      "Text": {
-        "Namespace": "UMG",
-        "Key": "TextBlockDefaultValue",
-        "SourceString": "Text Block"
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 0.65625,
-          "G": 0.65625,
-          "B": 0.65625,
-          "A": 1.0,
-          "Hex": "A7A7A7"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "OutlineSettings": {
-          "OutlineSize": 3,
-          "OutlineColor": {
-            "R": 0.0,
-            "G": 0.0,
-            "B": 0.0,
-            "A": 0.3,
-            "Hex": "4C000000"
-          }
-        },
-        "Size": 36
-      },
-      "Slot": {
-        "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.77"
+        "ObjectPath": "WidgetArchetype.62"
       }
     }
   },
@@ -1098,15 +967,14 @@
       "Font": {
         "FontObject": {
           "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
         },
         "TypefaceFontName": "Light",
         "Size": 78
       },
-      "Justification": "ETextJustify::Center",
       "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_3:",
-        "ObjectPath": "WidgetArchetype.189"
+        "ObjectName": "VerticalBox_195:VerticalBoxSlot_1:",
+        "ObjectPath": "WidgetArchetype.129"
       },
       "bIsVariable": true
     }
@@ -1123,242 +991,39 @@
       "Text": {
         "Namespace": "",
         "Key": "7BC60AA848DCD22146920581E3AC09EE",
-        "SourceString": "Skill Checks"
+        "SourceString": "SKILL CHECKS"
       },
       "Font": {
         "FontObject": {
           "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.55"
         },
-        "Size": 48
+        "Size": 60
       },
-      "Justification": "ETextJustify::Center",
       "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_14:",
-        "ObjectPath": "WidgetArchetype.184"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "BloodPoints",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "13609C214EF06D3BAC3D798CBDFD3D70",
-        "SourceString": "99 999 999 "
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "TypefaceFontName": "Light",
-        "Size": 72
-      },
-      "Justification": "ETextJustify::Center",
-      "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_2:",
-        "ObjectPath": "WidgetArchetype.200"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "slot_header",
-    "Properties": {
-      "_isUpperCase": true,
-      "_hasUndocking": true,
-      "_undockedProperties": {
-        "UseColor": false,
-        "UseSize": true,
-        "Size": 36
-      },
-      "Text": {
-        "Namespace": "",
-        "Key": "BB0987C94233F2FC4A90E0ABBBFD846B",
-        "SourceString": "BLOOD POINTS EARNED"
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 1.0,
-          "G": 0.0,
-          "B": 0.0,
-          "A": 1.0,
-          "Hex": "FF0000"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "TypefaceFontName": "CondensedBold",
-        "Size": 30
-      },
-      "Justification": "ETextJustify::Center",
-      "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.199"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "BloodPoints",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "13609C214EF06D3BAC3D798CBDFD3D70",
-        "SourceString": "99 999 999 "
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "TypefaceFontName": "Light",
-        "Size": 72
-      },
-      "Justification": "ETextJustify::Center",
-      "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_2:",
-        "ObjectPath": "WidgetArchetype.203"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "slot_header",
-    "Properties": {
-      "_isUpperCase": true,
-      "_hasUndocking": true,
-      "_undockedProperties": {
-        "UseColor": false,
-        "UseSize": true,
-        "Size": 36
-      },
-      "Text": {
-        "Namespace": "",
-        "Key": "BB0987C94233F2FC4A90E0ABBBFD846B",
-        "SourceString": "BLOOD POINTS EARNED"
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 1.0,
-          "G": 0.0,
-          "B": 0.0,
-          "A": 1.0,
-          "Hex": "FF0000"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "TypefaceFontName": "CondensedBold",
-        "Size": 30
-      },
-      "Justification": "ETextJustify::Center",
-      "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.202"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "BloodPoints",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "13609C214EF06D3BAC3D798CBDFD3D70",
-        "SourceString": "99 999 999 "
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "TypefaceFontName": "Light",
-        "Size": 72
-      },
-      "Justification": "ETextJustify::Center",
-      "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_2:",
-        "ObjectPath": "WidgetArchetype.206"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "slot_header",
-    "Properties": {
-      "_isUpperCase": true,
-      "_hasUndocking": true,
-      "_undockedProperties": {
-        "UseColor": false,
-        "UseSize": true,
-        "Size": 36
-      },
-      "Text": {
-        "Namespace": "",
-        "Key": "BB0987C94233F2FC4A90E0ABBBFD846B",
-        "SourceString": "BLOOD POINTS EARNED"
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 1.0,
-          "G": 0.0,
-          "B": 0.0,
-          "A": 1.0,
-          "Hex": "FF0000"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "DBDCoreFont:Font",
-          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.48"
-        },
-        "TypefaceFontName": "CondensedBold",
-        "Size": 30
-      },
-      "Justification": "ETextJustify::Center",
-      "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.205"
+        "ObjectName": "VerticalBox_195:VerticalBoxSlot_0:",
+        "ObjectPath": "WidgetArchetype.128"
       },
       "bIsVariable": true
     }
   },
   {
     "Type": "HorizontalBox",
-    "Name": "HorizontalBox_0",
+    "Name": "HorizontalBox_199",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_3:",
-          "ObjectPath": "WBP_CorePopup_C.63"
+          "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_3:",
+          "ObjectPath": "WBP_CorePopup_C.51"
         },
         {
-          "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_2:",
-          "ObjectPath": "WBP_CorePopup_C.62"
-        },
-        {
-          "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_5:",
-          "ObjectPath": "WBP_CorePopup_C.64"
+          "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_4:",
+          "ObjectPath": "WBP_CorePopup_C.52"
         }
       ],
       "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_6:",
-        "ObjectPath": "WBP_CorePopup_C.181"
+        "ObjectName": "CenterContent:VerticalBoxSlot_0:",
+        "ObjectPath": "WBP_CorePopup_C.119"
       }
     }
   },
@@ -1369,44 +1034,40 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_3:",
-          "ObjectPath": "WBP_CorePopup_C.66"
+          "ObjectPath": "WBP_CorePopup_C.54"
         },
         {
           "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_13:",
-          "ObjectPath": "WBP_CorePopup_C.65"
+          "ObjectPath": "WBP_CorePopup_C.53"
         },
         {
           "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_4:",
-          "ObjectPath": "WBP_CorePopup_C.67"
+          "ObjectPath": "WBP_CorePopup_C.55"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBox_244:VerticalBoxSlot_0:",
-        "ObjectPath": "WBP_CorePopup_C.168"
+        "ObjectPath": "WBP_CorePopup_C.123"
       }
     }
   },
   {
     "Type": "HorizontalBox",
-    "Name": "HorizontalBox_0",
+    "Name": "HorizontalBox_199",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_3:",
-          "ObjectPath": "WidgetArchetype.69"
+          "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_3:",
+          "ObjectPath": "WidgetArchetype.56"
         },
         {
-          "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_2:",
-          "ObjectPath": "WidgetArchetype.68"
-        },
-        {
-          "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_5:",
-          "ObjectPath": "WidgetArchetype.70"
+          "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_4:",
+          "ObjectPath": "WidgetArchetype.57"
         }
       ],
       "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_6:",
-        "ObjectPath": "WidgetArchetype.196"
+        "ObjectName": "CenterContent:VerticalBoxSlot_0:",
+        "ObjectPath": "WidgetArchetype.126"
       }
     }
   },
@@ -1417,20 +1078,20 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_3:",
-          "ObjectPath": "WidgetArchetype.72"
+          "ObjectPath": "WidgetArchetype.59"
         },
         {
           "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_13:",
-          "ObjectPath": "WidgetArchetype.71"
+          "ObjectPath": "WidgetArchetype.58"
         },
         {
           "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_4:",
-          "ObjectPath": "WidgetArchetype.73"
+          "ObjectPath": "WidgetArchetype.60"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBox_244:VerticalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.183"
+        "ObjectPath": "WidgetArchetype.130"
       }
     }
   },
@@ -1441,114 +1102,16 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.74"
+          "ObjectPath": "WidgetArchetype.61"
         },
         {
           "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_1:",
-          "ObjectPath": "WidgetArchetype.75"
+          "ObjectPath": "WidgetArchetype.62"
         }
       ],
       "Slot": {
         "ObjectName": "Overlay_44:OverlaySlot_2:",
-        "ObjectPath": "WidgetArchetype.103"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBox",
-    "Name": "HorizontalBox_93",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.76"
-        },
-        {
-          "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_1:",
-          "ObjectPath": "WidgetArchetype.77"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "Overlay_44:OverlaySlot_2:",
-        "ObjectPath": "WidgetArchetype.111"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBox",
-    "Name": "HorizontalBox_56",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "HorizontalBox_56:HorizontalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.78"
-        },
-        {
-          "ObjectName": "HorizontalBox_56:HorizontalBoxSlot_3:",
-          "ObjectPath": "WidgetArchetype.79"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "HorizontalBox",
-    "Name": "moreThan1",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.80"
-        },
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_1:",
-          "ObjectPath": "WidgetArchetype.81"
-        },
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_2:",
-          "ObjectPath": "WidgetArchetype.82"
-        },
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_3:",
-          "ObjectPath": "WidgetArchetype.83"
-        },
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_4:",
-          "ObjectPath": "WidgetArchetype.84"
-        },
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_5:",
-          "ObjectPath": "WidgetArchetype.85"
-        },
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_6:",
-          "ObjectPath": "WidgetArchetype.86"
-        },
-        {
-          "ObjectName": "moreThan1:HorizontalBoxSlot_7:",
-          "ObjectPath": "WidgetArchetype.87"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "HorizontalBox_56:HorizontalBoxSlot_3:",
-        "ObjectPath": "WidgetArchetype.79"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_2",
-    "Properties": {
-      "Size": {
-        "SizeRule": "ESlateSizeRule::Fill"
-      },
-      "Parent": {
-        "ObjectName": "WidgetTree:HorizontalBox_0:",
-        "ObjectPath": "WBP_CorePopup_C.54"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:Spacer_195:",
-        "ObjectPath": "WBP_CorePopup_C.138"
+        "ObjectPath": "WidgetArchetype.91"
       }
     }
   },
@@ -1556,27 +1119,34 @@
     "Type": "HorizontalBoxSlot",
     "Name": "HorizontalBoxSlot_3",
     "Properties": {
+      "Padding": {
+        "Left": 55.0,
+        "Top": -70.0
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "WidgetTree:HorizontalBox_0:",
-        "ObjectPath": "WBP_CorePopup_C.54"
+        "ObjectName": "WidgetTree:HorizontalBox_199:",
+        "ObjectPath": "WBP_CorePopup_C.46"
       },
       "Content": {
-        "ObjectName": "WidgetTree:LeftButton:",
-        "ObjectPath": "WBP_CorePopup_C.207"
+        "ObjectName": "WidgetTree:TutoIcon:",
+        "ObjectPath": "WBP_CorePopup_C.29"
       }
     }
   },
   {
     "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_5",
+    "Name": "HorizontalBoxSlot_4",
     "Properties": {
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "WidgetTree:HorizontalBox_0:",
-        "ObjectPath": "WBP_CorePopup_C.54"
+        "ObjectName": "WidgetTree:HorizontalBox_199:",
+        "ObjectPath": "WBP_CorePopup_C.46"
       },
       "Content": {
-        "ObjectName": "WidgetTree:RightButton:",
-        "ObjectPath": "WBP_CorePopup_C.208"
+        "ObjectName": "WidgetTree:VerticalBox_195:",
+        "ObjectPath": "WBP_CorePopup_C.114"
       }
     }
   },
@@ -1590,11 +1160,11 @@
       },
       "Parent": {
         "ObjectName": "WidgetTree:HorizontalBox_215:",
-        "ObjectPath": "WBP_CorePopup_C.55"
+        "ObjectPath": "WBP_CorePopup_C.47"
       },
       "Content": {
-        "ObjectName": "WidgetTree:VerticalBox_323:",
-        "ObjectPath": "WBP_CorePopup_C.162"
+        "ObjectName": "WidgetTree:CenterContent:",
+        "ObjectPath": "WBP_CorePopup_C.113"
       }
     }
   },
@@ -1607,11 +1177,11 @@
       },
       "Parent": {
         "ObjectName": "WidgetTree:HorizontalBox_215:",
-        "ObjectPath": "WBP_CorePopup_C.55"
+        "ObjectPath": "WBP_CorePopup_C.47"
       },
       "Content": {
-        "ObjectName": "WidgetTree:Spacer_190:",
-        "ObjectPath": "WBP_CorePopup_C.137"
+        "ObjectName": "WidgetTree:Spacer_leftThird:",
+        "ObjectPath": "WBP_CorePopup_C.105"
       }
     }
   },
@@ -1624,28 +1194,11 @@
       },
       "Parent": {
         "ObjectName": "WidgetTree:HorizontalBox_215:",
-        "ObjectPath": "WBP_CorePopup_C.55"
+        "ObjectPath": "WBP_CorePopup_C.47"
       },
       "Content": {
-        "ObjectName": "WidgetTree:Spacer_4:",
-        "ObjectPath": "WBP_CorePopup_C.141"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_2",
-    "Properties": {
-      "Size": {
-        "SizeRule": "ESlateSizeRule::Fill"
-      },
-      "Parent": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_0:",
-        "ObjectPath": "WidgetArchetype.56"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_195:",
-        "ObjectPath": "WidgetArchetype.148"
+        "ObjectName": "WidgetTree:Spacer_rightThird:",
+        "ObjectPath": "WBP_CorePopup_C.106"
       }
     }
   },
@@ -1653,27 +1206,34 @@
     "Type": "HorizontalBoxSlot",
     "Name": "HorizontalBoxSlot_3",
     "Properties": {
+      "Padding": {
+        "Left": 55.0,
+        "Top": -70.0
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_0:",
-        "ObjectPath": "WidgetArchetype.56"
+        "ObjectName": "WidgetTree_0:HorizontalBox_199:",
+        "ObjectPath": "WidgetArchetype.48"
       },
       "Content": {
-        "ObjectName": "WidgetTree_0:LeftButton:",
-        "ObjectPath": "WidgetArchetype.209"
+        "ObjectName": "WidgetTree_0:TutoIcon:",
+        "ObjectPath": "WidgetArchetype.37"
       }
     }
   },
   {
     "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_5",
+    "Name": "HorizontalBoxSlot_4",
     "Properties": {
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_0:",
-        "ObjectPath": "WidgetArchetype.56"
+        "ObjectName": "WidgetTree_0:HorizontalBox_199:",
+        "ObjectPath": "WidgetArchetype.48"
       },
       "Content": {
-        "ObjectName": "WidgetTree_0:RightButton:",
-        "ObjectPath": "WidgetArchetype.210"
+        "ObjectName": "WidgetTree_0:VerticalBox_195:",
+        "ObjectPath": "WidgetArchetype.117"
       }
     }
   },
@@ -1687,11 +1247,11 @@
       },
       "Parent": {
         "ObjectName": "WidgetTree_0:HorizontalBox_215:",
-        "ObjectPath": "WidgetArchetype.57"
+        "ObjectPath": "WidgetArchetype.49"
       },
       "Content": {
-        "ObjectName": "WidgetTree_0:VerticalBox_323:",
-        "ObjectPath": "WidgetArchetype.164"
+        "ObjectName": "WidgetTree_0:CenterContent:",
+        "ObjectPath": "WidgetArchetype.116"
       }
     }
   },
@@ -1704,11 +1264,11 @@
       },
       "Parent": {
         "ObjectName": "WidgetTree_0:HorizontalBox_215:",
-        "ObjectPath": "WidgetArchetype.57"
+        "ObjectPath": "WidgetArchetype.49"
       },
       "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_190:",
-        "ObjectPath": "WidgetArchetype.147"
+        "ObjectName": "WidgetTree_0:Spacer_leftThird:",
+        "ObjectPath": "WidgetArchetype.109"
       }
     }
   },
@@ -1721,11 +1281,11 @@
       },
       "Parent": {
         "ObjectName": "WidgetTree_0:HorizontalBox_215:",
-        "ObjectPath": "WidgetArchetype.57"
+        "ObjectPath": "WidgetArchetype.49"
       },
       "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_4:",
-        "ObjectPath": "WidgetArchetype.151"
+        "ObjectName": "WidgetTree_0:Spacer_rightThird:",
+        "ObjectPath": "WidgetArchetype.110"
       }
     }
   },
@@ -1737,11 +1297,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree_0:HorizontalBox_93:",
-        "ObjectPath": "WidgetArchetype.58"
+        "ObjectPath": "WidgetArchetype.50"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:InputPrompt:",
-        "ObjectPath": "WidgetArchetype.211"
+        "ObjectPath": "WidgetArchetype.135"
       }
     }
   },
@@ -1756,199 +1316,69 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "WidgetTree_0:HorizontalBox_93:",
-        "ObjectPath": "WidgetArchetype.58"
+        "ObjectPath": "WidgetArchetype.50"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:TextField:",
-        "ObjectPath": "WidgetArchetype.42"
+        "ObjectPath": "WidgetArchetype.43"
       }
     }
   },
   {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_0",
+    "Type": "MovieScene",
+    "Name": "MaskAnimation",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_93:",
-        "ObjectPath": "WidgetArchetype.59"
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "A6763C57-48D126FE-5B8CF199-9FACC5CA",
+          "Name": "BG",
+          "PossessedObjectClass": {
+            "ObjectName": "DBDImage:Class",
+            "ObjectPath": "/Script/DBDUIViewsCore.11"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "A6763C57-48D126FE-5B8CF199-9FACC5CA",
+          "BindingName": "BG",
+          "Tracks": [
+            {
+              "ObjectName": "MaskAnimation:MovieSceneWidgetMaterialTrack_1:",
+              "ObjectPath": "WBP_CorePopup_C.72"
+            }
+          ]
+        }
+      ],
+      "MasterTracks": [
+        {
+          "ObjectName": "MaskAnimation:MovieSceneMaterialParameterCollectionTrack_0:",
+          "ObjectPath": "WBP_CorePopup_C.69"
+        }
+      ],
+      "PlaybackRange": {
+        "FrameRangeValue": {
+          "LowerBound": {
+            "BoundType": 1,
+            "BoundValue": {
+              "FrameNumberValue": -362807296
+            }
+          },
+          "UpperBound": {
+            "BoundType": 0,
+            "BoundValue": {
+              "FrameNumberValue": 0
+            }
+          }
+        }
       },
-      "Content": {
-        "ObjectName": "WidgetTree_0:InputPrompt:",
-        "ObjectPath": "WidgetArchetype.212"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_1",
-    "Properties": {
-      "Padding": {
-        "Top": 2.0
+      "DisplayRate": {
+        "Numerator": 315,
+        "Denominator": 0
       },
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_93:",
-        "ObjectPath": "WidgetArchetype.59"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:TextField:",
-        "ObjectPath": "WidgetArchetype.45"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_56:",
-        "ObjectPath": "WidgetArchetype.60"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Slot1:",
-        "ObjectPath": "WidgetArchetype.218"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_3",
-    "Properties": {
-      "Size": {
-        "Value": 2.0
-      },
-      "Parent": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_56:",
-        "ObjectPath": "WidgetArchetype.60"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:spacerD1:",
-        "ObjectPath": "WidgetArchetype.155"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_1",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:divider_1:",
-        "ObjectPath": "WidgetArchetype.34"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_2",
-    "Properties": {
-      "Size": {
-        "Value": 2.0
-      },
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:spacerD1_1:",
-        "ObjectPath": "WidgetArchetype.156"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_3",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Slot2:",
-        "ObjectPath": "WidgetArchetype.219"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_4",
-    "Properties": {
-      "Size": {
-        "Value": 2.0
-      },
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:SpacerD2:",
-        "ObjectPath": "WidgetArchetype.157"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_5",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:divider2:",
-        "ObjectPath": "WidgetArchetype.33"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_6",
-    "Properties": {
-      "Size": {
-        "Value": 2.0
-      },
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:SpacerD2_2:",
-        "ObjectPath": "WidgetArchetype.158"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_7",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Slot3:",
-        "ObjectPath": "WidgetArchetype.220"
-      }
+      "Signature": "24243578-4FAAFE42-7505A2A1-0BEC1CE1"
     }
   },
   {
@@ -1956,10 +1386,151 @@
     "Name": "TestPadding",
     "Properties": {
       "DisplayRate": {
-        "Numerator": 240,
+        "Numerator": 315,
         "Denominator": 0
       },
       "Signature": "55E8DB20-4493DF72-A2006FAB-D0993875"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Properties": {}
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Properties": {}
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Properties": {}
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Properties": {}
+  },
+  {
+    "Type": "MovieSceneMaterialParameterCollectionTrack",
+    "Name": "MovieSceneMaterialParameterCollectionTrack_0",
+    "Properties": {
+      "MPC": {
+        "ObjectName": "Tutorial_Mask_Parameter:MaterialParameterCollection",
+        "ObjectPath": "/DBDUICore/HUD/Tutorial/Tutorial_Mask_Parameter.79"
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneMaterialParameterCollectionTrack_0:MovieSceneParameterSection_0:",
+          "ObjectPath": "WBP_CorePopup_C.70"
+        }
+      ],
+      "Signature": "D72768F3-4E5B8356-609A4A83-6F6191D0"
+    }
+  },
+  {
+    "Type": "MovieSceneParameterSection",
+    "Name": "MovieSceneParameterSection_0",
+    "Properties": {
+      "ScalarParameterNamesAndCurves": [
+        {
+          "ParameterName": "MaskAmount",
+          "ParameterCurve": null
+        }
+      ],
+      "Easing": {
+        "EaseIn": 66,
+        "EaseOut": 67
+      },
+      "SectionRange": {
+        "FrameRangeValue": {
+          "LowerBound": {
+            "BoundType": 2,
+            "BoundValue": {
+              "FrameNumberValue": 512
+            }
+          },
+          "UpperBound": {
+            "BoundType": 0,
+            "BoundValue": {
+              "FrameNumberValue": 0
+            }
+          }
+        }
+      },
+      "Signature": "0317B0DB-4B08F94E-94580B9A-645AC6DF"
+    }
+  },
+  {
+    "Type": "MovieSceneParameterSection",
+    "Name": "MovieSceneParameterSection_0",
+    "Properties": {
+      "ScalarParameterNamesAndCurves": [
+        {
+          "ParameterName": "Mask",
+          "ParameterCurve": null
+        },
+        {
+          "ParameterName": "Box Scale",
+          "ParameterCurve": null
+        },
+        {
+          "ParameterName": "LineMask",
+          "ParameterCurve": null
+        },
+        {
+          "ParameterName": "LineMaskFeather",
+          "ParameterCurve": {
+            "PreInfinityExtrap": 4,
+            "PostInfinityExtrap": 4,
+            "DefaultValue": 6E-45,
+            "bHasDefaultValue": true,
+            "TickResolution": {
+              "Numerator": 30000,
+              "Denominator": 28
+            }
+          }
+        }
+      ],
+      "Easing": {
+        "EaseIn": 68,
+        "EaseOut": 69
+      },
+      "SectionRange": {
+        "FrameRangeValue": {
+          "LowerBound": {
+            "BoundType": 1,
+            "BoundValue": {
+              "FrameNumberValue": -362807296
+            }
+          },
+          "UpperBound": {
+            "BoundType": 0,
+            "BoundValue": {
+              "FrameNumberValue": 0
+            }
+          }
+        }
+      },
+      "Signature": "2A83BCC5-4A24B995-95A63490-72FA2E6D"
+    }
+  },
+  {
+    "Type": "MovieSceneWidgetMaterialTrack",
+    "Name": "MovieSceneWidgetMaterialTrack_1",
+    "Properties": {
+      "BrushPropertyNamePath": [
+        "Brush"
+      ],
+      "TrackName": "Brush",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneWidgetMaterialTrack_1:MovieSceneParameterSection_0:",
+          "ObjectPath": "WBP_CorePopup_C.71"
+        }
+      ],
+      "Signature": "9F074077-4B19AEA0-BD1E50A2-51212BDB"
     }
   },
   {
@@ -1968,17 +1539,61 @@
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "Overlay_99:OverlaySlot_1:",
-          "ObjectPath": "WBP_CorePopup_C.99"
+          "ObjectName": "Overlay_99:OverlaySlot_12:",
+          "ObjectPath": "WBP_CorePopup_C.80"
+        },
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_8:",
+          "ObjectPath": "WBP_CorePopup_C.83"
+        },
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_4:",
+          "ObjectPath": "WBP_CorePopup_C.82"
+        },
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_0:",
+          "ObjectPath": "WBP_CorePopup_C.79"
         },
         {
           "ObjectName": "Overlay_99:OverlaySlot_2:",
-          "ObjectPath": "WBP_CorePopup_C.100"
+          "ObjectPath": "WBP_CorePopup_C.81"
         }
       ],
       "Slot": {
-        "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-        "ObjectPath": "WBP_CorePopup_C.22"
+        "ObjectName": "Mask:PanelSlot_0:",
+        "ObjectPath": "WBP_CorePopup_C.96"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_99",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_12:",
+          "ObjectPath": "WidgetArchetype.85"
+        },
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_8:",
+          "ObjectPath": "WidgetArchetype.88"
+        },
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_4:",
+          "ObjectPath": "WidgetArchetype.87"
+        },
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_0:",
+          "ObjectPath": "WidgetArchetype.84"
+        },
+        {
+          "ObjectName": "Overlay_99:OverlaySlot_2:",
+          "ObjectPath": "WidgetArchetype.86"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "Mask:PanelSlot_0:",
+        "ObjectPath": "WidgetArchetype.97"
       }
     }
   },
@@ -1989,11 +1604,11 @@
       "Slots": [
         {
           "ObjectName": "Overlay_0:OverlaySlot_0:",
-          "ObjectPath": "WidgetArchetype.101"
+          "ObjectPath": "WidgetArchetype.89"
         },
         {
           "ObjectName": "Overlay_0:OverlaySlot_4:",
-          "ObjectPath": "WidgetArchetype.102"
+          "ObjectPath": "WidgetArchetype.90"
         }
       ]
     }
@@ -2005,7 +1620,7 @@
       "Slots": [
         {
           "ObjectName": "Overlay_44:OverlaySlot_2:",
-          "ObjectPath": "WidgetArchetype.103"
+          "ObjectPath": "WidgetArchetype.91"
         }
       ]
     }
@@ -2016,17 +1631,21 @@
     "Properties": {
       "Slots": [
         {
+          "ObjectName": "MouseButtonContainer:OverlaySlot_6:",
+          "ObjectPath": "WidgetArchetype.94"
+        },
+        {
           "ObjectName": "MouseButtonContainer:OverlaySlot_2:",
-          "ObjectPath": "WidgetArchetype.105"
+          "ObjectPath": "WidgetArchetype.93"
         },
         {
           "ObjectName": "MouseButtonContainer:OverlaySlot_0:",
-          "ObjectPath": "WidgetArchetype.104"
+          "ObjectPath": "WidgetArchetype.92"
         }
       ],
       "Slot": {
         "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_0:",
-        "ObjectPath": "WidgetArchetype.226"
+        "ObjectPath": "WidgetArchetype.141"
       },
       "bIsVariable": true
     }
@@ -2038,23 +1657,363 @@
       "Slots": [
         {
           "ObjectName": "Overlay_0:OverlaySlot_1:",
-          "ObjectPath": "WidgetArchetype.106"
+          "ObjectPath": "WidgetArchetype.95"
         }
       ]
     }
   },
   {
-    "Type": "Overlay",
-    "Name": "Overlay_99",
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
     "Properties": {
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:Overlay_99:",
+        "ObjectPath": "WBP_CorePopup_C.73"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:Image:",
+        "ObjectPath": "WBP_CorePopup_C.27"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_12",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:Overlay_99:",
+        "ObjectPath": "WBP_CorePopup_C.73"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:BG:",
+        "ObjectPath": "WBP_CorePopup_C.25"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree:Overlay_99:",
+        "ObjectPath": "WBP_CorePopup_C.73"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:VerticalBox_244:",
+        "ObjectPath": "WBP_CorePopup_C.115"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Properties": {
+      "Padding": {
+        "Left": 150.0,
+        "Top": 162.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree:Overlay_99:",
+        "ObjectPath": "WBP_CorePopup_C.73"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:divider:",
+        "ObjectPath": "WBP_CorePopup_C.26"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_8",
+    "Properties": {
+      "Padding": {
+        "Right": 600.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree:Overlay_99:",
+        "ObjectPath": "WBP_CorePopup_C.73"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:Smoke:",
+        "ObjectPath": "WBP_CorePopup_C.28"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_99:",
+        "ObjectPath": "WidgetArchetype.74"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:Image:",
+        "ObjectPath": "WidgetArchetype.32"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_12",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_99:",
+        "ObjectPath": "WidgetArchetype.74"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:BG:",
+        "ObjectPath": "WidgetArchetype.30"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_99:",
+        "ObjectPath": "WidgetArchetype.74"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:VerticalBox_244:",
+        "ObjectPath": "WidgetArchetype.118"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Properties": {
+      "Padding": {
+        "Left": 150.0,
+        "Top": 162.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_99:",
+        "ObjectPath": "WidgetArchetype.74"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:divider:",
+        "ObjectPath": "WidgetArchetype.31"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_8",
+    "Properties": {
+      "Padding": {
+        "Right": 600.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_99:",
+        "ObjectPath": "WidgetArchetype.74"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:Smoke:",
+        "ObjectPath": "WidgetArchetype.36"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_0:",
+        "ObjectPath": "WidgetArchetype.75"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:ScaleBox_1:",
+        "ObjectPath": "WidgetArchetype.100"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_0:",
+        "ObjectPath": "WidgetArchetype.75"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:TextLabel:",
+        "ObjectPath": "WidgetArchetype.112"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_44:",
+        "ObjectPath": "WidgetArchetype.76"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:HorizontalBox_93:",
+        "ObjectPath": "WidgetArchetype.50"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
+        "ObjectPath": "WidgetArchetype.77"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:MouseButton:",
+        "ObjectPath": "WidgetArchetype.17"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Properties": {
+      "Padding": {
+        "Left": -40.0,
+        "Top": -25.0,
+        "Bottom": -25.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
+        "ObjectPath": "WidgetArchetype.77"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:SmokeBG:",
+        "ObjectPath": "WidgetArchetype.35"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_6",
+    "Properties": {
+      "Padding": {
+        "Left": -22.0,
+        "Top": -25.0,
+        "Bottom": -25.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
+        "ObjectPath": "WidgetArchetype.77"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:Bg:",
+        "ObjectPath": "WidgetArchetype.34"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Overlay_0:",
+        "ObjectPath": "WidgetArchetype.78"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:SizeBox_3:",
+        "ObjectPath": "WidgetArchetype.102"
+      }
+    }
+  },
+  {
+    "Type": "PanelSlot",
+    "Name": "PanelSlot_0",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetTree:Mask:",
+        "ObjectPath": "WBP_CorePopup_C.98"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:Overlay_99:",
+        "ObjectPath": "WBP_CorePopup_C.73"
+      }
+    }
+  },
+  {
+    "Type": "PanelSlot",
+    "Name": "PanelSlot_0",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetTree_0:Mask:",
+        "ObjectPath": "WidgetArchetype.99"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:Overlay_99:",
+        "ObjectPath": "WidgetArchetype.74"
+      }
+    }
+  },
+  {
+    "Type": "RetainerBox",
+    "Name": "Mask",
+    "Properties": {
+      "EffectMaterial": {
+        "ObjectName": "M_HUD_TutorialMask_Popup:MaterialInstanceConstant",
+        "ObjectPath": "/DBDUICore/HUD/Tutorial/M_HUD_TutorialMask_Popup.77"
+      },
       "Slots": [
         {
-          "ObjectName": "Overlay_99:OverlaySlot_1:",
-          "ObjectPath": "WidgetArchetype.107"
-        },
+          "ObjectName": "Mask:PanelSlot_0:",
+          "ObjectPath": "WBP_CorePopup_C.96"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
+        "ObjectPath": "WBP_CorePopup_C.21"
+      }
+    }
+  },
+  {
+    "Type": "RetainerBox",
+    "Name": "Mask",
+    "Properties": {
+      "EffectMaterial": {
+        "ObjectName": "M_HUD_TutorialMask_Popup:MaterialInstanceConstant",
+        "ObjectPath": "/DBDUICore/HUD/Tutorial/M_HUD_TutorialMask_Popup.77"
+      },
+      "Slots": [
         {
-          "ObjectName": "Overlay_99:OverlaySlot_2:",
-          "ObjectPath": "WidgetArchetype.108"
+          "ObjectName": "Mask:PanelSlot_0:",
+          "ObjectPath": "WidgetArchetype.97"
         }
       ],
       "Slot": {
@@ -2064,1396 +2023,342 @@
     }
   },
   {
-    "Type": "Overlay",
-    "Name": "Overlay_0",
+    "Type": "ScaleBox",
+    "Name": "ScaleBox_1",
     "Properties": {
+      "Stretch": "EStretch::UserSpecified",
+      "UserSpecifiedScale": 0.8,
       "Slots": [
         {
-          "ObjectName": "Overlay_0:OverlaySlot_0:",
-          "ObjectPath": "WidgetArchetype.109"
-        },
-        {
-          "ObjectName": "Overlay_0:OverlaySlot_4:",
-          "ObjectPath": "WidgetArchetype.110"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_44",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "Overlay_44:OverlaySlot_2:",
-          "ObjectPath": "WidgetArchetype.111"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "MouseButtonContainer",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "MouseButtonContainer:OverlaySlot_2:",
-          "ObjectPath": "WidgetArchetype.113"
-        },
-        {
-          "ObjectName": "MouseButtonContainer:OverlaySlot_0:",
-          "ObjectPath": "WidgetArchetype.112"
+          "ObjectName": "ScaleBox_1:ScaleBoxSlot_0:",
+          "ObjectPath": "WidgetArchetype.101"
         }
       ],
       "Slot": {
-        "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_0:",
-        "ObjectPath": "WidgetArchetype.228"
+        "ObjectName": "Overlay_0:OverlaySlot_0:",
+        "ObjectPath": "WidgetArchetype.89"
+      }
+    }
+  },
+  {
+    "Type": "ScaleBoxSlot",
+    "Name": "ScaleBoxSlot_0",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetTree_0:ScaleBox_1:",
+        "ObjectPath": "WidgetArchetype.100"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:PromptIcon:",
+        "ObjectPath": "WidgetArchetype.33"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_3",
+    "Properties": {
+      "WidthOverride": 560.0,
+      "HeightOverride": 90.0,
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBox_3:SizeBoxSlot_1:",
+          "ObjectPath": "WidgetArchetype.103"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "Overlay_0:OverlaySlot_1:",
+        "ObjectPath": "WidgetArchetype.95"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_1",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetTree_0:SizeBox_3:",
+        "ObjectPath": "WidgetArchetype.102"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
+        "ObjectPath": "WidgetArchetype.140"
+      }
+    }
+  },
+  {
+    "Type": "Spacer",
+    "Name": "Spacer_bottom",
+    "Properties": {
+      "Size": {
+        "X": 1.0,
+        "Y": 200.0
+      },
+      "Slot": {
+        "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
+        "ObjectPath": "WBP_CorePopup_C.124"
       },
       "bIsVariable": true
     }
   },
   {
-    "Type": "Overlay",
-    "Name": "Overlay_0",
+    "Type": "Spacer",
+    "Name": "Spacer_leftThird",
     "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "Overlay_0:OverlaySlot_1:",
-          "ObjectPath": "WidgetArchetype.114"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree:Overlay_99:",
-        "ObjectPath": "WBP_CorePopup_C.89"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:WBP_CorePopupBG:",
-        "ObjectPath": "WBP_CorePopup_C.216"
+      "Slot": {
+        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_3:",
+        "ObjectPath": "WBP_CorePopup_C.54"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
+    "Type": "Spacer",
+    "Name": "Spacer_rightThird",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree:Overlay_99:",
-        "ObjectPath": "WBP_CorePopup_C.89"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
+      "Slot": {
+        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_4:",
+        "ObjectPath": "WBP_CorePopup_C.55"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
+    "Type": "Spacer",
+    "Name": "Spacer_Top",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.90"
+      "Size": {
+        "X": 1.0,
+        "Y": 200.0
       },
-      "Content": {
-        "ObjectName": "WidgetTree_0:ScaleBox_1:",
-        "ObjectPath": "WidgetArchetype.117"
+      "Slot": {
+        "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
+        "ObjectPath": "WBP_CorePopup_C.125"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_4",
+    "Type": "Spacer",
+    "Name": "Spacer_bottom",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.90"
+      "Size": {
+        "X": 1.0,
+        "Y": 200.0
       },
-      "Content": {
-        "ObjectName": "WidgetTree_0:TextLabel:",
-        "ObjectPath": "WidgetArchetype.159"
-      }
+      "Slot": {
+        "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
+        "ObjectPath": "WidgetArchetype.131"
+      },
+      "bIsVariable": true
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
+    "Type": "Spacer",
+    "Name": "Spacer_leftThird",
     "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_44:",
-        "ObjectPath": "WidgetArchetype.91"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_93:",
-        "ObjectPath": "WidgetArchetype.58"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.92"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:MouseButton:",
-        "ObjectPath": "WidgetArchetype.16"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Properties": {
-      "Padding": {
-        "Left": -40.0,
-        "Top": -25.0,
-        "Bottom": -25.0
-      },
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.92"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:SmokeBG:",
-        "ObjectPath": "WidgetArchetype.28"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.93"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:SizeBox_3:",
-        "ObjectPath": "WidgetArchetype.129"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_99:",
-        "ObjectPath": "WidgetArchetype.94"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:WBP_CorePopupBG:",
-        "ObjectPath": "WidgetArchetype.217"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_99:",
-        "ObjectPath": "WidgetArchetype.94"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.95"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:ScaleBox_1:",
-        "ObjectPath": "WidgetArchetype.118"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_4",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.95"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:TextLabel:",
-        "ObjectPath": "WidgetArchetype.160"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_44:",
-        "ObjectPath": "WidgetArchetype.96"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_93:",
+      "Slot": {
+        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_3:",
         "ObjectPath": "WidgetArchetype.59"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
+    "Type": "Spacer",
+    "Name": "Spacer_rightThird",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.97"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:MouseButton:",
-        "ObjectPath": "WidgetArchetype.17"
+      "Slot": {
+        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_4:",
+        "ObjectPath": "WidgetArchetype.60"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
+    "Type": "Spacer",
+    "Name": "Spacer_Top",
     "Properties": {
-      "Padding": {
-        "Left": -40.0,
-        "Top": -25.0,
-        "Bottom": -25.0
+      "Size": {
+        "X": 1.0,
+        "Y": 200.0
       },
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.97"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:SmokeBG:",
-        "ObjectPath": "WidgetArchetype.30"
+      "Slot": {
+        "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
+        "ObjectPath": "WidgetArchetype.132"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
+    "Type": "TextBlock",
+    "Name": "TextLabel",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.98"
+      "Font": {
+        "Size": 22
       },
-      "Content": {
-        "ObjectName": "WidgetTree_0:SizeBox_3:",
-        "ObjectPath": "WidgetArchetype.130"
-      }
+      "Justification": "ETextJustify::Center",
+      "Margin": {
+        "Top": 1.0
+      },
+      "Slot": {
+        "ObjectName": "Overlay_0:OverlaySlot_4:",
+        "ObjectPath": "WidgetArchetype.90"
+      },
+      "bIsVariable": true
     }
   },
   {
-    "Type": "ScaleBox",
-    "Name": "layoutScale",
+    "Type": "VerticalBox",
+    "Name": "CenterContent",
     "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.75,
       "Slots": [
         {
-          "ObjectName": "layoutScale:ScaleBoxSlot_0:",
+          "ObjectName": "CenterContent:VerticalBoxSlot_0:",
+          "ObjectPath": "WBP_CorePopup_C.119"
+        },
+        {
+          "ObjectName": "CenterContent:VerticalBoxSlot_2:",
+          "ObjectPath": "WBP_CorePopup_C.120"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_13:",
+        "ObjectPath": "WBP_CorePopup_C.53"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_195",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "VerticalBox_195:VerticalBoxSlot_0:",
+          "ObjectPath": "WBP_CorePopup_C.121"
+        },
+        {
+          "ObjectName": "VerticalBox_195:VerticalBoxSlot_1:",
           "ObjectPath": "WBP_CorePopup_C.122"
         }
       ],
       "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_6:",
-        "ObjectPath": "WBP_CorePopup_C.177"
+        "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_4:",
+        "ObjectPath": "WBP_CorePopup_C.52"
       }
     }
   },
   {
-    "Type": "ScaleBox",
-    "Name": "layoutScale",
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_244",
     "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.75,
       "Slots": [
         {
-          "ObjectName": "layoutScale:ScaleBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.123"
+          "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
+          "ObjectPath": "WBP_CorePopup_C.125"
+        },
+        {
+          "ObjectName": "VerticalBox_244:VerticalBoxSlot_0:",
+          "ObjectPath": "WBP_CorePopup_C.123"
+        },
+        {
+          "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
+          "ObjectPath": "WBP_CorePopup_C.124"
         }
       ],
       "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_6:",
-        "ObjectPath": "WidgetArchetype.192"
+        "ObjectName": "Overlay_99:OverlaySlot_2:",
+        "ObjectPath": "WBP_CorePopup_C.81"
       }
     }
   },
   {
-    "Type": "ScaleBox",
-    "Name": "ScaleBox_1",
+    "Type": "VerticalBox",
+    "Name": "CenterContent",
     "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.8,
       "Slots": [
         {
-          "ObjectName": "ScaleBox_1:ScaleBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.124"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "Overlay_0:OverlaySlot_0:",
-        "ObjectPath": "WidgetArchetype.101"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBox",
-    "Name": "ScaleBox_1",
-    "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.8,
-      "Slots": [
-        {
-          "ObjectName": "ScaleBox_1:ScaleBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.125"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "Overlay_0:OverlaySlot_0:",
-        "ObjectPath": "WidgetArchetype.109"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBox",
-    "Name": "layoutSize",
-    "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.5,
-      "Slots": [
-        {
-          "ObjectName": "layoutSize:ScaleBoxSlot_0:",
+          "ObjectName": "CenterContent:VerticalBoxSlot_0:",
           "ObjectPath": "WidgetArchetype.126"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.198"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBox",
-    "Name": "layoutSize",
-    "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.5,
-      "Slots": [
+        },
         {
-          "ObjectName": "layoutSize:ScaleBoxSlot_0:",
+          "ObjectName": "CenterContent:VerticalBoxSlot_2:",
           "ObjectPath": "WidgetArchetype.127"
         }
       ],
       "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.201"
+        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_13:",
+        "ObjectPath": "WidgetArchetype.58"
       }
     }
   },
   {
-    "Type": "ScaleBox",
-    "Name": "layoutSize",
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_195",
     "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.5,
       "Slots": [
         {
-          "ObjectName": "layoutSize:ScaleBoxSlot_0:",
+          "ObjectName": "VerticalBox_195:VerticalBoxSlot_0:",
           "ObjectPath": "WidgetArchetype.128"
+        },
+        {
+          "ObjectName": "VerticalBox_195:VerticalBoxSlot_1:",
+          "ObjectPath": "WidgetArchetype.129"
         }
       ],
       "Slot": {
-        "ObjectName": "RewardTally:VerticalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.204"
+        "ObjectName": "HorizontalBox_199:HorizontalBoxSlot_4:",
+        "ObjectPath": "WidgetArchetype.57"
       }
     }
   },
   {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_244",
     "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree:layoutScale:",
-        "ObjectPath": "WBP_CorePopup_C.115"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:TutoIcon:",
-        "ObjectPath": "WBP_CorePopup_C.25"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:layoutScale:",
-        "ObjectPath": "WidgetArchetype.116"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:TutoIcon:",
-        "ObjectPath": "WidgetArchetype.31"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:ScaleBox_1:",
-        "ObjectPath": "WidgetArchetype.117"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:PromptIcon:",
-        "ObjectPath": "WidgetArchetype.27"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:ScaleBox_1:",
-        "ObjectPath": "WidgetArchetype.118"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:PromptIcon:",
-        "ObjectPath": "WidgetArchetype.29"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:layoutSize:",
-        "ObjectPath": "WidgetArchetype.119"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:slot_Icon:",
-        "ObjectPath": "WidgetArchetype.35"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:layoutSize:",
-        "ObjectPath": "WidgetArchetype.120"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:slot_Icon:",
-        "ObjectPath": "WidgetArchetype.36"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:layoutSize:",
-        "ObjectPath": "WidgetArchetype.121"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:slot_Icon:",
-        "ObjectPath": "WidgetArchetype.37"
-      }
-    }
-  },
-  {
-    "Type": "SizeBox",
-    "Name": "SizeBox_3",
-    "Properties": {
-      "WidthOverride": 560.0,
-      "HeightOverride": 90.0,
-      "bOverride_WidthOverride": true,
-      "bOverride_HeightOverride": true,
       "Slots": [
         {
-          "ObjectName": "SizeBox_3:SizeBoxSlot_1:",
+          "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
           "ObjectPath": "WidgetArchetype.132"
+        },
+        {
+          "ObjectName": "VerticalBox_244:VerticalBoxSlot_0:",
+          "ObjectPath": "WidgetArchetype.130"
+        },
+        {
+          "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
+          "ObjectPath": "WidgetArchetype.131"
         }
       ],
       "Slot": {
-        "ObjectName": "Overlay_0:OverlaySlot_1:",
-        "ObjectPath": "WidgetArchetype.106"
-      }
-    }
-  },
-  {
-    "Type": "SizeBox",
-    "Name": "SizeBox_3",
-    "Properties": {
-      "WidthOverride": 560.0,
-      "HeightOverride": 90.0,
-      "bOverride_WidthOverride": true,
-      "bOverride_HeightOverride": true,
-      "Slots": [
-        {
-          "ObjectName": "SizeBox_3:SizeBoxSlot_1:",
-          "ObjectPath": "WidgetArchetype.133"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "Overlay_0:OverlaySlot_1:",
-        "ObjectPath": "WidgetArchetype.114"
-      }
-    }
-  },
-  {
-    "Type": "SizeBox",
-    "Name": "SizeBox_132",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "SizeBox_132:SizeBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.134"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "SizeBoxSlot",
-    "Name": "SizeBoxSlot_1",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:SizeBox_3:",
-        "ObjectPath": "WidgetArchetype.129"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.224"
-      }
-    }
-  },
-  {
-    "Type": "SizeBoxSlot",
-    "Name": "SizeBoxSlot_1",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:SizeBox_3:",
-        "ObjectPath": "WidgetArchetype.130"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.225"
-      }
-    }
-  },
-  {
-    "Type": "SizeBoxSlot",
-    "Name": "SizeBoxSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:SizeBox_132:",
-        "ObjectPath": "WidgetArchetype.131"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:DBDImage_90:",
-        "ObjectPath": "WidgetArchetype.32"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 25.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
-        "ObjectPath": "WBP_CorePopup_C.172"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_1",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 12.5
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_5:",
-        "ObjectPath": "WBP_CorePopup_C.176"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_190",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_3:",
-        "ObjectPath": "WBP_CorePopup_C.66"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_195",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_2:",
-        "ObjectPath": "WBP_CorePopup_C.62"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_2",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 25.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_27:",
-        "ObjectPath": "WBP_CorePopup_C.173"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_3",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 25.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_5:",
-        "ObjectPath": "WBP_CorePopup_C.180"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_4",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_4:",
-        "ObjectPath": "WBP_CorePopup_C.67"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_5",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 50.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_7:",
-        "ObjectPath": "WBP_CorePopup_C.182"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_bottom",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
-        "ObjectPath": "WBP_CorePopup_C.170"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_top",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": -128.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_4:",
-        "ObjectPath": "WBP_CorePopup_C.175"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 25.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
-        "ObjectPath": "WidgetArchetype.187"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_1",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 12.5
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_5:",
-        "ObjectPath": "WidgetArchetype.191"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_190",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_3:",
-        "ObjectPath": "WidgetArchetype.72"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_195",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_2:",
-        "ObjectPath": "WidgetArchetype.68"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_2",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 25.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_27:",
-        "ObjectPath": "WidgetArchetype.188"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_3",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 25.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_5:",
-        "ObjectPath": "WidgetArchetype.195"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_4",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_4:",
-        "ObjectPath": "WidgetArchetype.73"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_5",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": 50.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_7:",
-        "ObjectPath": "WidgetArchetype.197"
-      }
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_bottom",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
-        "ObjectPath": "WidgetArchetype.185"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "Spacer_top",
-    "Properties": {
-      "Size": {
-        "X": 1.0,
-        "Y": -128.0
-      },
-      "Slot": {
-        "ObjectName": "VerticalBox_244:VerticalBoxSlot_4:",
-        "ObjectPath": "WidgetArchetype.190"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "spacerD1",
-    "Properties": {
-      "Size": {
-        "X": 25.0,
-        "Y": 1.0
-      },
-      "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.80"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "spacerD1_1",
-    "Properties": {
-      "Size": {
-        "X": 25.0,
-        "Y": 1.0
-      },
-      "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_2:",
-        "ObjectPath": "WidgetArchetype.82"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "SpacerD2",
-    "Properties": {
-      "Size": {
-        "X": 25.0,
-        "Y": 1.0
-      },
-      "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_4:",
-        "ObjectPath": "WidgetArchetype.84"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Spacer",
-    "Name": "SpacerD2_2",
-    "Properties": {
-      "Size": {
-        "X": 25.0,
-        "Y": 1.0
-      },
-      "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_6:",
+        "ObjectName": "Overlay_99:OverlaySlot_2:",
         "ObjectPath": "WidgetArchetype.86"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "TextBlock",
-    "Name": "TextLabel",
-    "Properties": {
-      "Font": {
-        "Size": 22
-      },
-      "Justification": "ETextJustify::Center",
-      "Margin": {
-        "Top": 1.0
-      },
-      "Slot": {
-        "ObjectName": "Overlay_0:OverlaySlot_4:",
-        "ObjectPath": "WidgetArchetype.102"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "TextBlock",
-    "Name": "TextLabel",
-    "Properties": {
-      "Font": {
-        "Size": 22
-      },
-      "Justification": "ETextJustify::Center",
-      "Margin": {
-        "Top": 1.0
-      },
-      "Slot": {
-        "ObjectName": "Overlay_0:OverlaySlot_4:",
-        "ObjectPath": "WidgetArchetype.110"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "VerticalBox",
-    "Name": "VerticalBox_244",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_4:",
-          "ObjectPath": "WBP_CorePopup_C.175"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_6:",
-          "ObjectPath": "WBP_CorePopup_C.177"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
-          "ObjectPath": "WBP_CorePopup_C.172"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_14:",
-          "ObjectPath": "WBP_CorePopup_C.169"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_3:",
-          "ObjectPath": "WBP_CorePopup_C.174"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_5:",
-          "ObjectPath": "WBP_CorePopup_C.176"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_21:",
-          "ObjectPath": "WBP_CorePopup_C.171"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_27:",
-          "ObjectPath": "WBP_CorePopup_C.173"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_0:",
-          "ObjectPath": "WBP_CorePopup_C.168"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
-          "ObjectPath": "WBP_CorePopup_C.170"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "Overlay_99:OverlaySlot_2:",
-        "ObjectPath": "WBP_CorePopup_C.100"
       }
-    }
-  },
-  {
-    "Type": "VerticalBox",
-    "Name": "VerticalBox_323",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_4:",
-          "ObjectPath": "WBP_CorePopup_C.179"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_3:",
-          "ObjectPath": "WBP_CorePopup_C.178"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_5:",
-          "ObjectPath": "WBP_CorePopup_C.180"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_6:",
-          "ObjectPath": "WBP_CorePopup_C.181"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_7:",
-          "ObjectPath": "WBP_CorePopup_C.182"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_13:",
-        "ObjectPath": "WBP_CorePopup_C.65"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBox",
-    "Name": "VerticalBox_244",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_4:",
-          "ObjectPath": "WidgetArchetype.190"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_6:",
-          "ObjectPath": "WidgetArchetype.192"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_23:",
-          "ObjectPath": "WidgetArchetype.187"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_14:",
-          "ObjectPath": "WidgetArchetype.184"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_3:",
-          "ObjectPath": "WidgetArchetype.189"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_5:",
-          "ObjectPath": "WidgetArchetype.191"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_21:",
-          "ObjectPath": "WidgetArchetype.186"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_27:",
-          "ObjectPath": "WidgetArchetype.188"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.183"
-        },
-        {
-          "ObjectName": "VerticalBox_244:VerticalBoxSlot_15:",
-          "ObjectPath": "WidgetArchetype.185"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "Overlay_99:OverlaySlot_2:",
-        "ObjectPath": "WidgetArchetype.108"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBox",
-    "Name": "VerticalBox_323",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_4:",
-          "ObjectPath": "WidgetArchetype.194"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_3:",
-          "ObjectPath": "WidgetArchetype.193"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_5:",
-          "ObjectPath": "WidgetArchetype.195"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_6:",
-          "ObjectPath": "WidgetArchetype.196"
-        },
-        {
-          "ObjectName": "VerticalBox_323:VerticalBoxSlot_7:",
-          "ObjectPath": "WidgetArchetype.197"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "HorizontalBox_215:HorizontalBoxSlot_13:",
-        "ObjectPath": "WidgetArchetype.71"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBox",
-    "Name": "RewardTally",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.198"
-        },
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_1:",
-          "ObjectPath": "WidgetArchetype.199"
-        },
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_2:",
-          "ObjectPath": "WidgetArchetype.200"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "VerticalBox",
-    "Name": "RewardTally",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.201"
-        },
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_1:",
-          "ObjectPath": "WidgetArchetype.202"
-        },
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_2:",
-          "ObjectPath": "WidgetArchetype.203"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "VerticalBox",
-    "Name": "RewardTally",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_0:",
-          "ObjectPath": "WidgetArchetype.204"
-        },
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_1:",
-          "ObjectPath": "WidgetArchetype.205"
-        },
-        {
-          "ObjectName": "RewardTally:VerticalBoxSlot_2:",
-          "ObjectPath": "WidgetArchetype.206"
-        }
-      ]
     }
   },
   {
     "Type": "VerticalBoxSlot",
     "Name": "VerticalBoxSlot_0",
     "Properties": {
-      "Size": {
-        "SizeRule": "ESlateSizeRule::Fill"
+      "Padding": {
+        "Left": -260.0
       },
       "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
+        "ObjectName": "WidgetTree:CenterContent:",
+        "ObjectPath": "WBP_CorePopup_C.113"
       },
       "Content": {
-        "ObjectName": "WidgetTree:HorizontalBox_215:",
-        "ObjectPath": "WBP_CorePopup_C.55"
+        "ObjectName": "WidgetTree:HorizontalBox_199:",
+        "ObjectPath": "WBP_CorePopup_C.46"
       }
     }
   },
   {
     "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_14",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:Title:",
-        "ObjectPath": "WBP_CorePopup_C.40"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_15",
-    "Properties": {
-      "Size": {
-        "Value": 0.1,
-        "SizeRule": "ESlateSizeRule::Fill"
-      },
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:Spacer_bottom:",
-        "ObjectPath": "WBP_CorePopup_C.143"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_21",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:divider:",
-        "ObjectPath": "WBP_CorePopup_C.24"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_23",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:Spacer:",
-        "ObjectPath": "WBP_CorePopup_C.135"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_27",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:Spacer_2:",
-        "ObjectPath": "WBP_CorePopup_C.139"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_3",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:SubTitle:",
-        "ObjectPath": "WBP_CorePopup_C.39"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_4",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:Spacer_top:",
-        "ObjectPath": "WBP_CorePopup_C.144"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_5",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:Spacer_1:",
-        "ObjectPath": "WBP_CorePopup_C.136"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_6",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_244:",
-        "ObjectPath": "WBP_CorePopup_C.161"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:layoutScale:",
-        "ObjectPath": "WBP_CorePopup_C.115"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_3",
+    "Name": "VerticalBoxSlot_2",
     "Properties": {
       "Padding": {
-        "Top": 40.0
+        "Top": 10.0
       },
-      "HorizontalAlignment": "HAlign_Center",
       "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_323:",
-        "ObjectPath": "WBP_CorePopup_C.162"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree:WBP_TutorialRewardTally:",
-        "ObjectPath": "WBP_CorePopup_C.221"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_4",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_323:",
-        "ObjectPath": "WBP_CorePopup_C.162"
+        "ObjectName": "WidgetTree:CenterContent:",
+        "ObjectPath": "WBP_CorePopup_C.113"
       },
       "Content": {
         "ObjectName": "WidgetTree:Message:",
@@ -3463,43 +2368,159 @@
   },
   {
     "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_5",
+    "Name": "VerticalBoxSlot_0",
     "Properties": {
+      "Padding": {
+        "Top": -20.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_323:",
-        "ObjectPath": "WBP_CorePopup_C.162"
+        "ObjectName": "WidgetTree:VerticalBox_195:",
+        "ObjectPath": "WBP_CorePopup_C.114"
       },
       "Content": {
-        "ObjectName": "WidgetTree:Spacer_3:",
-        "ObjectPath": "WBP_CorePopup_C.140"
+        "ObjectName": "WidgetTree:Title:",
+        "ObjectPath": "WBP_CorePopup_C.40"
       }
     }
   },
   {
     "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_6",
+    "Name": "VerticalBoxSlot_1",
     "Properties": {
+      "Padding": {
+        "Top": 60.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_323:",
-        "ObjectPath": "WBP_CorePopup_C.162"
+        "ObjectName": "WidgetTree:VerticalBox_195:",
+        "ObjectPath": "WBP_CorePopup_C.114"
       },
       "Content": {
-        "ObjectName": "WidgetTree:HorizontalBox_0:",
-        "ObjectPath": "WBP_CorePopup_C.54"
+        "ObjectName": "WidgetTree:SubTitle:",
+        "ObjectPath": "WBP_CorePopup_C.39"
       }
     }
   },
   {
     "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_7",
+    "Name": "VerticalBoxSlot_0",
     "Properties": {
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
       "Parent": {
-        "ObjectName": "WidgetTree:VerticalBox_323:",
-        "ObjectPath": "WBP_CorePopup_C.162"
+        "ObjectName": "WidgetTree:VerticalBox_244:",
+        "ObjectPath": "WBP_CorePopup_C.115"
       },
       "Content": {
-        "ObjectName": "WidgetTree:Spacer_5:",
-        "ObjectPath": "WBP_CorePopup_C.142"
+        "ObjectName": "WidgetTree:HorizontalBox_215:",
+        "ObjectPath": "WBP_CorePopup_C.47"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_15",
+    "Properties": {
+      "Size": {
+        "Value": 0.1
+      },
+      "Parent": {
+        "ObjectName": "WidgetTree:VerticalBox_244:",
+        "ObjectPath": "WBP_CorePopup_C.115"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:Spacer_bottom:",
+        "ObjectPath": "WBP_CorePopup_C.104"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_23",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetTree:VerticalBox_244:",
+        "ObjectPath": "WBP_CorePopup_C.115"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree:Spacer_Top:",
+        "ObjectPath": "WBP_CorePopup_C.107"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Properties": {
+      "Padding": {
+        "Left": -260.0
+      },
+      "Parent": {
+        "ObjectName": "WidgetTree_0:CenterContent:",
+        "ObjectPath": "WidgetArchetype.116"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:HorizontalBox_199:",
+        "ObjectPath": "WidgetArchetype.48"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Properties": {
+      "Padding": {
+        "Top": 10.0
+      },
+      "Parent": {
+        "ObjectName": "WidgetTree_0:CenterContent:",
+        "ObjectPath": "WidgetArchetype.116"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:Message:",
+        "ObjectPath": "WidgetArchetype.41"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Properties": {
+      "Padding": {
+        "Top": -20.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:VerticalBox_195:",
+        "ObjectPath": "WidgetArchetype.117"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:Title:",
+        "ObjectPath": "WidgetArchetype.45"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_1",
+    "Properties": {
+      "Padding": {
+        "Top": 60.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "WidgetTree_0:VerticalBox_195:",
+        "ObjectPath": "WidgetArchetype.117"
+      },
+      "Content": {
+        "ObjectName": "WidgetTree_0:SubTitle:",
+        "ObjectPath": "WidgetArchetype.44"
       }
     }
   },
@@ -3512,25 +2533,11 @@
       },
       "Parent": {
         "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
+        "ObjectPath": "WidgetArchetype.118"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:HorizontalBox_215:",
-        "ObjectPath": "WidgetArchetype.57"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_14",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Title:",
-        "ObjectPath": "WidgetArchetype.47"
+        "ObjectPath": "WidgetArchetype.49"
       }
     }
   },
@@ -3539,31 +2546,15 @@
     "Name": "VerticalBoxSlot_15",
     "Properties": {
       "Size": {
-        "Value": 0.1,
-        "SizeRule": "ESlateSizeRule::Fill"
+        "Value": 0.1
       },
       "Parent": {
         "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
+        "ObjectPath": "WidgetArchetype.118"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:Spacer_bottom:",
-        "ObjectPath": "WidgetArchetype.153"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_21",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:divider:",
-        "ObjectPath": "WidgetArchetype.26"
+        "ObjectPath": "WidgetArchetype.108"
       }
     }
   },
@@ -3573,399 +2564,67 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
+        "ObjectPath": "WidgetArchetype.118"
       },
       "Content": {
-        "ObjectName": "WidgetTree_0:Spacer:",
-        "ObjectPath": "WidgetArchetype.145"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_27",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_2:",
-        "ObjectPath": "WidgetArchetype.149"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_3",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:SubTitle:",
-        "ObjectPath": "WidgetArchetype.46"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_4",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_top:",
-        "ObjectPath": "WidgetArchetype.154"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_5",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_1:",
-        "ObjectPath": "WidgetArchetype.146"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_6",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_244:",
-        "ObjectPath": "WidgetArchetype.163"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:layoutScale:",
-        "ObjectPath": "WidgetArchetype.116"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_3",
-    "Properties": {
-      "Padding": {
-        "Top": 40.0
-      },
-      "HorizontalAlignment": "HAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_323:",
-        "ObjectPath": "WidgetArchetype.164"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:WBP_TutorialRewardTally:",
-        "ObjectPath": "WidgetArchetype.222"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_4",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_323:",
-        "ObjectPath": "WidgetArchetype.164"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Message:",
-        "ObjectPath": "WidgetArchetype.43"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_5",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_323:",
-        "ObjectPath": "WidgetArchetype.164"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_3:",
-        "ObjectPath": "WidgetArchetype.150"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_6",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_323:",
-        "ObjectPath": "WidgetArchetype.164"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_0:",
-        "ObjectPath": "WidgetArchetype.56"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_7",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:VerticalBox_323:",
-        "ObjectPath": "WidgetArchetype.164"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:Spacer_5:",
-        "ObjectPath": "WidgetArchetype.152"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_0",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.165"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:layoutSize:",
-        "ObjectPath": "WidgetArchetype.119"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_1",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.165"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:slot_header:",
-        "ObjectPath": "WidgetArchetype.49"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_2",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.165"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:BloodPoints:",
-        "ObjectPath": "WidgetArchetype.48"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_0",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.166"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:layoutSize:",
-        "ObjectPath": "WidgetArchetype.120"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_1",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.166"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:slot_header:",
-        "ObjectPath": "WidgetArchetype.51"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_2",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.166"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:BloodPoints:",
-        "ObjectPath": "WidgetArchetype.50"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_0",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.167"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:layoutSize:",
-        "ObjectPath": "WidgetArchetype.121"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_1",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.167"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:slot_header:",
-        "ObjectPath": "WidgetArchetype.53"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_2",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.167"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:BloodPoints:",
-        "ObjectPath": "WidgetArchetype.52"
+        "ObjectName": "WidgetTree_0:Spacer_Top:",
+        "ObjectPath": "WidgetArchetype.111"
       }
     }
   },
   {
     "Type": "WBP_CoreButtonInteractable_C",
-    "Name": "LeftButton",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_3:",
-        "ObjectPath": "WBP_CorePopup_C.63"
-      },
-      "Visibility": "ESlateVisibility::Visible"
-    }
-  },
-  {
-    "Type": "WBP_CoreButtonInteractable_C",
-    "Name": "RightButton",
+    "Name": "ProgressionButton",
     "Properties": {
       "Alignement": "ETextJustify::Right",
       "Slot": {
-        "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_5:",
-        "ObjectPath": "WBP_CorePopup_C.64"
+        "ObjectName": "CanvasPanel_0:CanvasPanelSlot_7:",
+        "ObjectPath": "WBP_CorePopup_C.22"
       },
       "Visibility": "ESlateVisibility::Visible"
     }
   },
   {
     "Type": "WBP_CoreButtonInteractable_C",
-    "Name": "LeftButton",
+    "Name": "ProgressionButton",
     "Properties": {
-      "MouseButton": {
-        "ObjectName": "WidgetTree_0:MouseButton:",
-        "ObjectPath": "WidgetArchetype.16"
+      "Bg": {
+        "ObjectName": "WidgetTree_0:Bg:",
+        "ObjectPath": "WidgetArchetype.34"
       },
-      "MouseButtonContainer": {
-        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.92"
-      },
-      "SmokeBG": {
-        "ObjectName": "WidgetTree_0:SmokeBG:",
-        "ObjectPath": "WidgetArchetype.28"
-      },
-      "WidgetSwitcher_165": {
-        "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.224"
-      },
-      "_inputPromptText": {
-        "ObjectName": "WidgetTree_0:_inputPromptText:",
-        "ObjectPath": "WidgetArchetype.213"
-      },
-      "_buttonTextField": {
-        "ObjectName": "WidgetTree_0:_buttonTextField:",
-        "ObjectPath": "WidgetArchetype.41"
-      },
-      "WidgetTree": {
-        "ObjectName": "LeftButton:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.232"
-      },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_3:",
-        "ObjectPath": "WidgetArchetype.69"
-      },
-      "Visibility": "ESlateVisibility::Visible"
-    }
-  },
-  {
-    "Type": "WBP_CoreButtonInteractable_C",
-    "Name": "RightButton",
-    "Properties": {
       "MouseButton": {
         "ObjectName": "WidgetTree_0:MouseButton:",
         "ObjectPath": "WidgetArchetype.17"
       },
       "MouseButtonContainer": {
         "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.97"
+        "ObjectPath": "WidgetArchetype.77"
       },
       "SmokeBG": {
         "ObjectName": "WidgetTree_0:SmokeBG:",
-        "ObjectPath": "WidgetArchetype.30"
+        "ObjectPath": "WidgetArchetype.35"
       },
       "WidgetSwitcher_165": {
         "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.225"
+        "ObjectPath": "WidgetArchetype.140"
       },
       "Alignement": "ETextJustify::Right",
       "_inputPromptText": {
         "ObjectName": "WidgetTree_0:_inputPromptText:",
-        "ObjectPath": "WidgetArchetype.214"
+        "ObjectPath": "WidgetArchetype.136"
       },
       "_buttonTextField": {
         "ObjectName": "WidgetTree_0:_buttonTextField:",
-        "ObjectPath": "WidgetArchetype.44"
+        "ObjectPath": "WidgetArchetype.42"
       },
       "WidgetTree": {
-        "ObjectName": "RightButton:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.235"
+        "ObjectName": "ProgressionButton:WidgetTree_0:",
+        "ObjectPath": "WidgetArchetype.145"
       },
       "bCookedWidgetTree": true,
       "Slot": {
-        "ObjectName": "HorizontalBox_0:HorizontalBoxSlot_5:",
-        "ObjectPath": "WidgetArchetype.70"
+        "ObjectName": "CanvasPanel_0:CanvasPanelSlot_7:",
+        "ObjectPath": "WidgetArchetype.24"
       },
       "Visibility": "ESlateVisibility::Visible"
     }
@@ -3976,43 +2635,20 @@
     "Properties": {
       "PromptIcon": {
         "ObjectName": "WidgetTree_0:PromptIcon:",
-        "ObjectPath": "WidgetArchetype.27"
+        "ObjectPath": "WidgetArchetype.33"
       },
       "TextLabel": {
         "ObjectName": "WidgetTree_0:TextLabel:",
-        "ObjectPath": "WidgetArchetype.159"
+        "ObjectPath": "WidgetArchetype.112"
       },
       "WidgetTree": {
         "ObjectName": "InputPrompt:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.234"
+        "ObjectPath": "WidgetArchetype.147"
       },
       "bCookedWidgetTree": true,
       "Slot": {
         "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.74"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreInputPrompt_C",
-    "Name": "InputPrompt",
-    "Properties": {
-      "PromptIcon": {
-        "ObjectName": "WidgetTree_0:PromptIcon:",
-        "ObjectPath": "WidgetArchetype.29"
-      },
-      "TextLabel": {
-        "ObjectName": "WidgetTree_0:TextLabel:",
-        "ObjectPath": "WidgetArchetype.160"
-      },
-      "WidgetTree": {
-        "ObjectName": "InputPrompt:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.237"
-      },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "HorizontalBox_93:HorizontalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.76"
+        "ObjectPath": "WidgetArchetype.61"
       }
     }
   },
@@ -4022,43 +2658,20 @@
     "Properties": {
       "InputPrompt": {
         "ObjectName": "WidgetTree_0:InputPrompt:",
-        "ObjectPath": "WidgetArchetype.211"
+        "ObjectPath": "WidgetArchetype.135"
       },
       "TextField": {
         "ObjectName": "WidgetTree_0:TextField:",
-        "ObjectPath": "WidgetArchetype.42"
+        "ObjectPath": "WidgetArchetype.43"
       },
       "WidgetTree": {
         "ObjectName": "_inputPromptText:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.233"
+        "ObjectPath": "WidgetArchetype.146"
       },
       "bCookedWidgetTree": true,
       "Slot": {
         "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_3:",
-        "ObjectPath": "WidgetArchetype.227"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreInputTextPrompt_C",
-    "Name": "_inputPromptText",
-    "Properties": {
-      "InputPrompt": {
-        "ObjectName": "WidgetTree_0:InputPrompt:",
-        "ObjectPath": "WidgetArchetype.212"
-      },
-      "TextField": {
-        "ObjectName": "WidgetTree_0:TextField:",
-        "ObjectPath": "WidgetArchetype.45"
-      },
-      "WidgetTree": {
-        "ObjectName": "_inputPromptText:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.236"
-      },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_3:",
-        "ObjectPath": "WidgetArchetype.229"
+        "ObjectPath": "WidgetArchetype.142"
       }
     }
   },
@@ -4066,230 +2679,356 @@
     "Type": "CoreTutorialPopupWidget",
     "Name": "WidgetArchetype",
     "Properties": {
+      "BG": {
+        "ObjectName": "WidgetTree_0:BG:",
+        "ObjectPath": "WidgetArchetype.30"
+      },
       "divider": {
         "ObjectName": "WidgetTree_0:divider:",
-        "ObjectPath": "WidgetArchetype.26"
+        "ObjectPath": "WidgetArchetype.31"
       },
-      "LeftButton": {
-        "ObjectName": "WidgetTree_0:LeftButton:",
-        "ObjectPath": "WidgetArchetype.209"
+      "Image": {
+        "ObjectName": "WidgetTree_0:Image:",
+        "ObjectPath": "WidgetArchetype.32"
+      },
+      "Mask": {
+        "ObjectName": "WidgetTree_0:Mask:",
+        "ObjectPath": "WidgetArchetype.99"
       },
       "Message": {
         "ObjectName": "WidgetTree_0:Message:",
-        "ObjectPath": "WidgetArchetype.43"
+        "ObjectPath": "WidgetArchetype.41"
       },
-      "RightButton": {
-        "ObjectName": "WidgetTree_0:RightButton:",
-        "ObjectPath": "WidgetArchetype.210"
+      "ProgressionButton": {
+        "ObjectName": "WidgetTree_0:ProgressionButton:",
+        "ObjectPath": "WidgetArchetype.134"
+      },
+      "Smoke": {
+        "ObjectName": "WidgetTree_0:Smoke:",
+        "ObjectPath": "WidgetArchetype.36"
       },
       "Spacer_bottom": {
         "ObjectName": "WidgetTree_0:Spacer_bottom:",
-        "ObjectPath": "WidgetArchetype.153"
-      },
-      "Spacer_top": {
-        "ObjectName": "WidgetTree_0:Spacer_top:",
-        "ObjectPath": "WidgetArchetype.154"
+        "ObjectPath": "WidgetArchetype.108"
       },
       "SubTitle": {
         "ObjectName": "WidgetTree_0:SubTitle:",
-        "ObjectPath": "WidgetArchetype.46"
+        "ObjectPath": "WidgetArchetype.44"
       },
       "Title": {
         "ObjectName": "WidgetTree_0:Title:",
-        "ObjectPath": "WidgetArchetype.47"
+        "ObjectPath": "WidgetArchetype.45"
       },
       "TutoIcon": {
         "ObjectName": "WidgetTree_0:TutoIcon:",
-        "ObjectPath": "WidgetArchetype.31"
-      },
-      "WBP_CorePopupBG": {
-        "ObjectName": "WidgetTree_0:WBP_CorePopupBG:",
-        "ObjectPath": "WidgetArchetype.217"
-      },
-      "WBP_TutorialRewardTally": {
-        "ObjectName": "WidgetTree_0:WBP_TutorialRewardTally:",
-        "ObjectPath": "WidgetArchetype.222"
+        "ObjectPath": "WidgetArchetype.37"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.231"
+        "ObjectPath": "WidgetArchetype.144"
       },
       "bCookedWidgetTree": true
     }
   },
   {
-    "Type": "WBP_CorePopupBG_C",
-    "Name": "WBP_CorePopupBG",
+    "Type": "WidgetAnimation",
+    "Name": "MaskAnimation_INST",
     "Properties": {
-      "Slot": {
-        "ObjectName": "Overlay_99:OverlaySlot_1:",
-        "ObjectPath": "WBP_CorePopup_C.99"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CorePopupBG_C",
-    "Name": "WBP_CorePopupBG",
-    "Properties": {
-      "DBDImage_90": {
-        "ObjectName": "WidgetTree_0:DBDImage_90:",
-        "ObjectPath": "WidgetArchetype.32"
+      "MovieScene": {
+        "ObjectName": "MaskAnimation_INST:MaskAnimation:",
+        "ObjectPath": "WBP_CorePopup_C.63"
       },
-      "WidgetTree": {
-        "ObjectName": "WBP_CorePopupBG:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.238"
+      "AnimationBindings": [
+        {
+          "WidgetName": "BG",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "A6763C57-48D126FE-5B8CF199-9FACC5CA",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "MaskAnimation",
+      "PrecompiledEvaluationTemplate": {
+        "Tracks": null,
+        "EvaluationField": {
+          "Ranges": [
+            {
+              "FrameRangeValue": {
+                "LowerBound": {
+                  "BoundType": 2,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                },
+                "UpperBound": {
+                  "BoundType": 0,
+                  "BoundValue": {
+                    "FrameNumberValue": 0
+                  }
+                }
+              }
+            },
+            {
+              "FrameRangeValue": {
+                "LowerBound": {
+                  "BoundType": 96,
+                  "BoundValue": {
+                    "FrameNumberValue": 15360001
+                  }
+                },
+                "UpperBound": {
+                  "BoundType": 0,
+                  "BoundValue": {
+                    "FrameNumberValue": 13631488
+                  }
+                }
+              }
+            },
+            {
+              "FrameRangeValue": {
+                "LowerBound": {
+                  "BoundType": 0,
+                  "BoundValue": {
+                    "FrameNumberValue": 3276800
+                  }
+                },
+                "UpperBound": {
+                  "BoundType": 0,
+                  "BoundValue": {
+                    "FrameNumberValue": 101318656
+                  }
+                }
+              }
+            }
+          ],
+          "Groups": [
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 1
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "SequenceIDValue": 0
+                  },
+                  "TrackIdentifier": {
+                    "TrackIdentifierValue": 0
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 2
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "SequenceIDValue": 0
+                  },
+                  "TrackIdentifier": {
+                    "TrackIdentifierValue": 1
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "SequenceIDValue": 0
+                  },
+                  "TrackIdentifier": {
+                    "TrackIdentifierValue": 0
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 1
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "SequenceIDValue": 0
+                  },
+                  "TrackIdentifier": {
+                    "TrackIdentifierValue": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "MetaData": [
+            {
+              "ActiveSequences": [
+                {
+                  "SequenceIDValue": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "SequenceIDValue": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 3,
+                  "TearDownIndex": 65532
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 2,
+                  "TearDownIndex": 65533
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 1
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 1
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "SequenceIDValue": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "SequenceIDValue": 0
+                    },
+                    "TrackIdentifier": {
+                      "TrackIdentifierValue": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            }
+          ]
+        },
+        "SequenceSignature": "A6D1E496-42781933-CC2DEA8A-F153111E",
+        "TemplateSerialNumber": {
+          "Value": 1
+        },
+        "TemplateLedger": {
+          "LastTrackIdentifier": {
+            "TrackIdentifierValue": 1
+          },
+          "TrackSignatureToTrackIdentifier": null
+        },
+        "TrackFieldData": null
       },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "Overlay_99:OverlaySlot_1:",
-        "ObjectPath": "WidgetArchetype.107"
-      }
-    }
-  },
-  {
-    "Type": "WBP_RewardTally_C",
-    "Name": "Slot1",
-    "Properties": {
-      "BloodPoints": {
-        "ObjectName": "WidgetTree_0:BloodPoints:",
-        "ObjectPath": "WidgetArchetype.48"
-      },
-      "slot_header": {
-        "ObjectName": "WidgetTree_0:slot_header:",
-        "ObjectPath": "WidgetArchetype.49"
-      },
-      "slot_Icon": {
-        "ObjectName": "WidgetTree_0:slot_Icon:",
-        "ObjectPath": "WidgetArchetype.35"
-      },
-      "WidgetTree": {
-        "ObjectName": "Slot1:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.240"
-      },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "HorizontalBox_56:HorizontalBoxSlot_0:",
-        "ObjectPath": "WidgetArchetype.78"
-      }
-    }
-  },
-  {
-    "Type": "WBP_RewardTally_C",
-    "Name": "Slot2",
-    "Properties": {
-      "BloodPoints": {
-        "ObjectName": "WidgetTree_0:BloodPoints:",
-        "ObjectPath": "WidgetArchetype.50"
-      },
-      "slot_header": {
-        "ObjectName": "WidgetTree_0:slot_header:",
-        "ObjectPath": "WidgetArchetype.51"
-      },
-      "slot_Icon": {
-        "ObjectName": "WidgetTree_0:slot_Icon:",
-        "ObjectPath": "WidgetArchetype.36"
-      },
-      "WidgetTree": {
-        "ObjectName": "Slot2:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.241"
-      },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_3:",
-        "ObjectPath": "WidgetArchetype.83"
-      }
-    }
-  },
-  {
-    "Type": "WBP_RewardTally_C",
-    "Name": "Slot3",
-    "Properties": {
-      "BloodPoints": {
-        "ObjectName": "WidgetTree_0:BloodPoints:",
-        "ObjectPath": "WidgetArchetype.52"
-      },
-      "slot_header": {
-        "ObjectName": "WidgetTree_0:slot_header:",
-        "ObjectPath": "WidgetArchetype.53"
-      },
-      "slot_Icon": {
-        "ObjectName": "WidgetTree_0:slot_Icon:",
-        "ObjectPath": "WidgetArchetype.37"
-      },
-      "WidgetTree": {
-        "ObjectName": "Slot3:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.242"
-      },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "moreThan1:HorizontalBoxSlot_7:",
-        "ObjectPath": "WidgetArchetype.87"
-      }
-    }
-  },
-  {
-    "Type": "WBP_TutorialRewardTally_C",
-    "Name": "WBP_TutorialRewardTally",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_3:",
-        "ObjectPath": "WBP_CorePopup_C.178"
-      }
-    }
-  },
-  {
-    "Type": "WBP_TutorialRewardTally_C",
-    "Name": "WBP_TutorialRewardTally",
-    "Properties": {
-      "divider_1": {
-        "ObjectName": "WidgetTree_0:divider_1:",
-        "ObjectPath": "WidgetArchetype.34"
-      },
-      "divider2": {
-        "ObjectName": "WidgetTree_0:divider2:",
-        "ObjectPath": "WidgetArchetype.33"
-      },
-      "moreThan1": {
-        "ObjectName": "WidgetTree_0:moreThan1:",
-        "ObjectPath": "WidgetArchetype.61"
-      },
-      "Slot1": {
-        "ObjectName": "WidgetTree_0:Slot1:",
-        "ObjectPath": "WidgetArchetype.218"
-      },
-      "Slot2": {
-        "ObjectName": "WidgetTree_0:Slot2:",
-        "ObjectPath": "WidgetArchetype.219"
-      },
-      "Slot3": {
-        "ObjectName": "WidgetTree_0:Slot3:",
-        "ObjectPath": "WidgetArchetype.220"
-      },
-      "spacerD1": {
-        "ObjectName": "WidgetTree_0:spacerD1:",
-        "ObjectPath": "WidgetArchetype.155"
-      },
-      "spacerD1_1": {
-        "ObjectName": "WidgetTree_0:spacerD1_1:",
-        "ObjectPath": "WidgetArchetype.156"
-      },
-      "SpacerD2": {
-        "ObjectName": "WidgetTree_0:SpacerD2:",
-        "ObjectPath": "WidgetArchetype.157"
-      },
-      "SpacerD2_2": {
-        "ObjectName": "WidgetTree_0:SpacerD2_2:",
-        "ObjectPath": "WidgetArchetype.158"
-      },
-      "WidgetTree": {
-        "ObjectName": "WBP_TutorialRewardTally:WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.239"
-      },
-      "bCookedWidgetTree": true,
-      "Slot": {
-        "ObjectName": "VerticalBox_323:VerticalBoxSlot_3:",
-        "ObjectPath": "WidgetArchetype.193"
-      }
+      "Signature": "A6D1E496-42781933-CC2DEA8A-F153111E"
     }
   },
   {
@@ -4298,7 +3037,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "TestPadding_INST:TestPadding:",
-        "ObjectPath": "WBP_CorePopup_C.88"
+        "ObjectPath": "WBP_CorePopup_C.64"
       },
       "DisplayLabel": "TestPadding",
       "PrecompiledEvaluationTemplate": {
@@ -4354,36 +3093,16 @@
       "Slots": [
         {
           "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_0:",
-          "ObjectPath": "WidgetArchetype.226"
+          "ObjectPath": "WidgetArchetype.141"
         },
         {
           "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_3:",
-          "ObjectPath": "WidgetArchetype.227"
+          "ObjectPath": "WidgetArchetype.142"
         }
       ],
       "Slot": {
         "ObjectName": "SizeBox_3:SizeBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.132"
-      }
-    }
-  },
-  {
-    "Type": "WidgetSwitcher",
-    "Name": "WidgetSwitcher_165",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_0:",
-          "ObjectPath": "WidgetArchetype.228"
-        },
-        {
-          "ObjectName": "WidgetSwitcher_165:WidgetSwitcherSlot_3:",
-          "ObjectPath": "WidgetArchetype.229"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "SizeBox_3:SizeBoxSlot_1:",
-        "ObjectPath": "WidgetArchetype.133"
+        "ObjectPath": "WidgetArchetype.103"
       }
     }
   },
@@ -4393,11 +3112,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.224"
+        "ObjectPath": "WidgetArchetype.140"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.92"
+        "ObjectPath": "WidgetArchetype.77"
       }
     }
   },
@@ -4409,41 +3128,11 @@
       "VerticalAlignment": "VAlign_Top",
       "Parent": {
         "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.224"
+        "ObjectPath": "WidgetArchetype.140"
       },
       "Content": {
         "ObjectName": "WidgetTree_0:_inputPromptText:",
-        "ObjectPath": "WidgetArchetype.213"
-      }
-    }
-  },
-  {
-    "Type": "WidgetSwitcherSlot",
-    "Name": "WidgetSwitcherSlot_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.225"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:MouseButtonContainer:",
-        "ObjectPath": "WidgetArchetype.97"
-      }
-    }
-  },
-  {
-    "Type": "WidgetSwitcherSlot",
-    "Name": "WidgetSwitcherSlot_3",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Left",
-      "VerticalAlignment": "VAlign_Top",
-      "Parent": {
-        "ObjectName": "WidgetTree_0:WidgetSwitcher_165:",
-        "ObjectPath": "WidgetArchetype.225"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:_inputPromptText:",
-        "ObjectPath": "WidgetArchetype.214"
+        "ObjectPath": "WidgetArchetype.136"
       }
     }
   },
@@ -4452,7 +3141,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "WidgetTree:CanvasPanel_0:",
-        "ObjectPath": "WBP_CorePopup_C.20"
+        "ObjectPath": "WBP_CorePopup_C.19"
       }
     }
   },
@@ -4462,7 +3151,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "WidgetTree_0:CanvasPanel_0:",
-        "ObjectPath": "WidgetArchetype.21"
+        "ObjectPath": "WidgetArchetype.20"
       }
     }
   },
@@ -4472,7 +3161,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.93"
+        "ObjectPath": "WidgetArchetype.78"
       }
     }
   },
@@ -4482,7 +3171,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "WidgetTree_0:Overlay_44:",
-        "ObjectPath": "WidgetArchetype.91"
+        "ObjectPath": "WidgetArchetype.76"
       }
     }
   },
@@ -4492,87 +3181,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.90"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.98"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:Overlay_44:",
-        "ObjectPath": "WidgetArchetype.96"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:Overlay_0:",
-        "ObjectPath": "WidgetArchetype.95"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:SizeBox_132:",
-        "ObjectPath": "WidgetArchetype.131"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:HorizontalBox_56:",
-        "ObjectPath": "WidgetArchetype.60"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.165"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.166"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:RewardTally:",
-        "ObjectPath": "WidgetArchetype.167"
+        "ObjectPath": "WidgetArchetype.75"
       }
     }
   }

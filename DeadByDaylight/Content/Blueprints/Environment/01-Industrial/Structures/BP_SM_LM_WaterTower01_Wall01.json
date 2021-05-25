@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_0:",
-        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.8"
+        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.10"
       }
     }
   },
@@ -13,6 +13,65 @@
     "Type": "Actor",
     "Name": "Default__BP_SM_LM_WaterTower01_Wall01_C",
     "Properties": {}
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box_GEN_VARIABLE",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "NavArea_Obstacle:Class",
+        "ObjectPath": "/Script/NavigationSystem.12"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 40.0,
+        "Y": -535.0,
+        "Z": 60.0
+      },
+      "RelativeScale3D": {
+        "X": 14.8,
+        "Y": 1.0,
+        "Z": 2.0
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
   },
   {
     "Type": "HierarchicalInstancedStaticMeshComponent",
@@ -52,7 +111,7 @@
       "InstancingRandomSeed": 6305,
       "StaticMesh": {
         "ObjectName": "SM_LM_WaterTower01_Wall01:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Environment/Structures/SM_LM_WaterTower01_Wall01.19"
+        "ObjectPath": "/Game/Meshes/Environment/Structures/SM_LM_WaterTower01_Wall01.23"
       },
       "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
@@ -69,7 +128,7 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_WallPipeMetal04:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WallPipeMetal04.20"
+        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WallPipeMetal04.24"
       },
       "bUseDefaultCollision": false,
       "LDMaxDrawDistance": 4300.0,
@@ -97,20 +156,24 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.7"
+        "ObjectPath": "/Script/Engine.9"
       },
       "ComponentTemplate": {
         "ObjectName": "DefaultSceneRoot_GEN_VARIABLE:",
-        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.4"
+        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.5"
       },
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.7"
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.9"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
-          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.6"
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.8"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.7"
         }
       ],
       "VariableGuid": "66F9A691-488BA115-1652A5AA-52595B86",
@@ -119,15 +182,31 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BoxComponent:Class",
+        "ObjectPath": "/Script/Engine.6"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Box_GEN_VARIABLE:",
+        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.2"
+      },
+      "VariableGuid": "F5EF004D-4107002B-442935B8-ECC6A696",
+      "InternalVariableName": "Box"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_10",
     "Properties": {
       "ComponentClass": {
         "ObjectName": "InstancedStaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.6"
+        "ObjectPath": "/Script/Engine.8"
       },
       "ComponentTemplate": {
         "ObjectName": "ISM_SM_WallPipeMetal04_GEN_VARIABLE:",
-        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.3"
+        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.4"
       },
       "VariableGuid": "7D9F285E-409D4DAD-086ED98B-39FF23BE",
       "InternalVariableName": "ISM_SM_WallPipeMetal04"
@@ -139,11 +218,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.5"
+        "ObjectPath": "/Script/Engine.7"
       },
       "ComponentTemplate": {
         "ObjectName": "HISM_SM_LM_WaterTower01_Wall01_GEN_VARIABLE:",
-        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.2"
+        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.3"
       },
       "VariableGuid": "6D4CD197-4764045F-C8E284BE-01CB6AF0",
       "InternalVariableName": "HISM_SM_LM_WaterTower01_Wall01"
@@ -156,26 +235,30 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.5"
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.6"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.5"
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.6"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.7"
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.9"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
-          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.6"
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.8"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
+          "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.7"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.5"
+        "ObjectPath": "BP_SM_LM_WaterTower01_Wall01_C.6"
       }
     }
   }

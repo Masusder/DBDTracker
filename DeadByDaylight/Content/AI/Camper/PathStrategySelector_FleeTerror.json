@@ -11,15 +11,19 @@
       "FleePathStrategies": {
         "EAIFleePathStrategy::KeepGoal": {
           "ObjectName": "PathStrategy_Flee_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.7"
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.8"
         },
         "EAIFleePathStrategy::Away": {
           "ObjectName": "PathStrategy_Flee_1:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.8"
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.9"
         },
         "EAIFleePathStrategy::Loop": {
           "ObjectName": "PathStrategy_FleeLoop_1:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.9"
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.10"
+        },
+        "EAIFleePathStrategy::AwayLOS": {
+          "ObjectName": "PathStrategy_FleeLOS_0:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.11"
         }
       }
     }
@@ -31,7 +35,7 @@
       "EQSRequest": {
         "QueryTemplate": {
           "ObjectName": "EQS_Flee_Forward:EnvQuery",
-          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Forward.10"
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Forward.11"
         },
         "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
       }
@@ -44,10 +48,24 @@
       "EQSRequest": {
         "QueryTemplate": {
           "ObjectName": "EQS_Flee_Backward:EnvQuery",
-          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Backward.9"
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Backward.10"
         },
         "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
       }
+    }
+  },
+  {
+    "Type": "PathBuilder_EQS",
+    "Name": "PathBuilder_EQS_0",
+    "Properties": {
+      "EQSRequest": {
+        "QueryTemplate": {
+          "ObjectName": "EQS_Flee_Sideway:EnvQuery",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Sideway.12"
+        },
+        "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
+      },
+      "OverridePreviousPathStrategy": true
     }
   },
   {
@@ -72,7 +90,7 @@
       "DefaultPathBuilders": [
         {
           "ObjectName": "PathStrategy_Flee_0:PathBuilder_LastGoal_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.6"
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.7"
         }
       ]
     }
@@ -100,13 +118,25 @@
       "FleeLoopStrategyPathBuilders": {
         "EAIFleeLoopStrategy::LoseKiller": {
           "ObjectName": "PathStrategy_FleeLoop_1:PathBuilder_EvadeLoop_1:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.5"
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.6"
         },
         "EAIFleeLoopStrategy::WasteTime": {
           "ObjectName": "PathStrategy_FleeLoop_1:PathBuilder_EvadeLoop_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.4"
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.5"
         }
       }
+    }
+  },
+  {
+    "Type": "PathStrategy_FleeLOS",
+    "Name": "PathStrategy_FleeLOS_0",
+    "Properties": {
+      "DefaultPathBuilders": [
+        {
+          "ObjectName": "PathStrategy_FleeLOS_0:PathBuilder_EQS_0:",
+          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.4"
+        }
+      ]
     }
   }
 ]

@@ -6,6 +6,41 @@
   },
   {
     "Type": "Function",
+    "Name": "Event Pillar Dissolve",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "CustomEvent_0",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_OnInteractionCancelled",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_OnInteractionCompleted",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_OnStartedInteracting",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "OnUnhidden",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "OnHidden",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
     "Name": "Reverse Crown Pickup Animation",
     "Properties": {}
   },
@@ -21,27 +56,12 @@
   },
   {
     "Type": "Function",
-    "Name": "OnCrownPillarInteractionEndedCosmetic",
+    "Name": "TML_PillarAppear__UpdateFunc",
     "Properties": {}
   },
   {
     "Type": "Function",
-    "Name": "OnCrownPillarInteractionStartedCosmetic",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "CustomEvent_0",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "OnCrownPillarEnabled",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "OnCrownPillarDisabled",
+    "Name": "TML_PillarAppear__FinishedFunc",
     "Properties": {}
   },
   {
@@ -70,32 +90,26 @@
     "Properties": {}
   },
   {
-    "Type": "Function",
-    "Name": "GetSurvivorCrownPickupInteraction",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "GetSlasherCrownPickupInteraction",
-    "Properties": {}
-  },
-  {
     "Type": "BlueprintGeneratedClass",
     "Name": "CrownPillar_C",
     "Properties": {
       "Timelines": [
         {
           "ObjectName": "Main_Timeline_Template:",
-          "ObjectPath": "CrownPillar_C.50"
+          "ObjectPath": "CrownPillar_C.49"
         },
         {
           "ObjectName": "PillarDissolveTimeline_Template:",
+          "ObjectPath": "CrownPillar_C.50"
+        },
+        {
+          "ObjectName": "TML_PillarAppear_Template:",
           "ObjectPath": "CrownPillar_C.51"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_0:",
-        "ObjectPath": "CrownPillar_C.46"
+        "ObjectPath": "CrownPillar_C.45"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_CrownPillar:",
@@ -109,32 +123,95 @@
     "Properties": {
       "UberGraphFrame": {},
       "Play Rate": 1.5,
-      "_survivorChargeDuration": 0.8,
-      "_slasherChargeDuration": 1.0,
-      "_debugIndicatorBlueprintClass": {
-        "ObjectName": "BP_DebugIndicator_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/Blueprints/Util/BP_DebugIndicator.15"
+      "OfferingAppearAuraDistance": {
+        "_dataTableRowHandle": {
+          "DataTable": null,
+          "RowName": "OfferingAppearAuraDistance"
+        },
+        "_defaultValue": 800.0
       },
-      "bCanBeDamaged": false
+      "_crownPillarInteractionSecondsToCharge": {
+        "_dataTableRowHandle": {
+          "RowName": "SurvivorInteractionTime"
+        }
+      },
+      "_crownPillarInteractionSecondsToChargeKiller": {
+        "_dataTableRowHandle": {
+          "RowName": "KillerInteractionTime"
+        }
+      },
+      "_offeringEnabledAuraVisibilityDistance": {
+        "_dataTableRowHandle": {
+          "RowName": "OfferingAppearAuraDistance"
+        }
+      },
+      "_crownPillarInteraction": {
+        "ObjectName": "CrownPillarInteraction:",
+        "ObjectPath": "Default__CrownPillar_C.24"
+      },
+      "_crownPillarInteractionKiller": {
+        "ObjectName": "CrownPillarInteractionKiller:",
+        "ObjectPath": "Default__CrownPillar_C.25"
+      },
+      "_crownPillarInteractionChargeable": {
+        "ObjectName": "CrownPillarInteractionChargeable:",
+        "ObjectPath": "Default__CrownPillar_C.22"
+      },
+      "_crownPillarInteractionChargeableKiller": {
+        "ObjectName": "CrownPillarInteractionChargeableKiller:",
+        "ObjectPath": "Default__CrownPillar_C.23"
+      },
+      "_crownPillarInteractor": {
+        "ObjectName": "CrownPillarInteractor:",
+        "ObjectPath": "Default__CrownPillar_C.37"
+      },
+      "_crownPillarInteractionZone": {
+        "ObjectName": "CrownPillarInteractionZone:",
+        "ObjectPath": "Default__CrownPillar_C.21"
+      },
+      "_crownPillarStaticMesh": {
+        "ObjectName": "CrownPillarStaticMesh:",
+        "ObjectPath": "Default__CrownPillar_C.48"
+      },
+      "_outlineComponent": {
+        "ObjectName": "OutlineComponent:",
+        "ObjectPath": "Default__CrownPillar_C.35"
+      },
+      "_nearTrackedActorComponent": {
+        "ObjectName": "NearPlayerTracker:",
+        "ObjectPath": "Default__CrownPillar_C.38"
+      },
+      "_crownPillarOutlineUpdateStrategy": {
+        "ObjectName": "CrownPillarOutlineUpdateStrategy:",
+        "ObjectPath": "Default__CrownPillar_C.26"
+      },
+      "_transformOptimizer": {
+        "ObjectName": "InteractableOptimizer:",
+        "ObjectPath": "Default__CrownPillar_C.36"
+      },
+      "bHidden": true,
+      "bCanBeDamaged": false,
+      "RootComponent": {
+        "ObjectName": "Root:",
+        "ObjectPath": "Default__CrownPillar_C.40"
+      }
     }
   },
   {
     "Type": "AkComponent",
     "Name": "Ak_Audio_CrownPillar_GEN_VARIABLE",
-    "Properties": {}
+    "Properties": {
+      "DetailModeBitMask": -17
+    }
   },
   {
     "Type": "BoxComponent",
-    "Name": "InteractorZone_GEN_VARIABLE",
+    "Name": "CrownPillarInteractionZone",
     "Properties": {
       "BoxExtent": {
         "X": 64.0,
         "Y": 64.0,
         "Z": 48.0
-      },
-      "AreaClass": {
-        "ObjectName": "NavArea_Obstacle:Class",
-        "ObjectPath": "/Script/NavigationSystem.53"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "CanCharacterStepUpOn": "ECB_No",
@@ -224,79 +301,96 @@
               "Response": "ECR_Ignore"
             }
           ]
-        },
-        "MassInKgOverride": 249.75742
+        }
       },
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 48.0
+      "AttachParent": {
+        "ObjectName": "Root:",
+        "ObjectPath": "Default__CrownPillar_C.40"
       }
     }
   },
   {
     "Type": "ChargeableComponent",
-    "Name": "PickUpChargeable_Slasher_GEN_VARIABLE",
+    "Name": "CrownPillarInteractionChargeable",
     "Properties": {
       "ChargeableComponentID": "CrownPickUpChargeable"
     }
   },
   {
     "Type": "ChargeableComponent",
-    "Name": "PickUpChargeable_Survivor_GEN_VARIABLE",
+    "Name": "CrownPillarInteractionChargeableKiller",
     "Properties": {
       "ChargeableComponentID": "CrownPickUpChargeable"
     }
   },
   {
-    "Type": "CrownPickUp_C",
-    "Name": "CrownPickUp_Slasher_GEN_VARIABLE",
+    "Type": "CrownPickupInteraction",
+    "Name": "CrownPillarInteraction",
+    "Properties": {
+      "_attachToSocketName": "LanternCollectableSocket",
+      "StopInteractionOnChargeComplete": true,
+      "InteractionID": "CrownPickup_Survivor",
+      "StopInteractionOnInputRelease": true,
+      "StopInteractionOnHeightDelta": true,
+      "InteractionAnimation": "EInteractionAnimation::VE_PickUpAnniversaryCrown",
+      "CamperCanInteract": true,
+      "CancelOnHit": true,
+      "InteractionDescriptionText": {
+        "Namespace": "",
+        "Key": "4644F25D4DDBEA5C64C40092E6A57480",
+        "SourceString": "Pick Up"
+      },
+      "_interactor": {
+        "ObjectName": "CrownPillarInteractor:",
+        "ObjectPath": "Default__CrownPillar_C.37"
+      },
+      "AttachParent": {
+        "ObjectName": "CrownPillarInteractor:",
+        "ObjectPath": "Default__CrownPillar_C.37"
+      }
+    }
+  },
+  {
+    "Type": "CrownPickupInteraction",
+    "Name": "CrownPillarInteractionKiller",
     "Properties": {
       "_attachToSocketName": "BE_Socket_Toy",
-      "_collectableClass": {
-        "ObjectName": "CrownCollectable_Slasher_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Crown/CrownCollectable_Slasher.13"
-      },
+      "StopInteractionOnChargeComplete": true,
       "InteractionID": "CrownPickup_Slasher",
+      "StopInteractionOnInputRelease": true,
+      "StopInteractionOnHeightDelta": true,
       "SlasherCanInteract": true,
       "ScaleMainAnimationToTime": true,
       "CanInteractWhileCarrying": false,
+      "CancelOnHit": true,
+      "CancelOnAttack": true,
       "InteractionDescriptionText": {
         "Namespace": "",
-        "Key": "7264DE7841B8AAA65760618A1913CC61",
+        "Key": "AAC430F041003709FA55679550EC03A4",
         "SourceString": "Pick Up"
       },
       "UpdateMontage": {
         "MontageID": "Generic_Interaction"
       },
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": -48.0
+      "_interactor": {
+        "ObjectName": "CrownPillarInteractor:",
+        "ObjectPath": "Default__CrownPillar_C.37"
+      },
+      "AttachParent": {
+        "ObjectName": "CrownPillarInteractor:",
+        "ObjectPath": "Default__CrownPillar_C.37"
       }
     }
   },
   {
-    "Type": "CrownPickUp_C",
-    "Name": "CrownPickUp_Survivor_GEN_VARIABLE",
+    "Type": "CrownPillarOutlineUpdateStrategy",
     "Properties": {
-      "_attachToSocketName": "LanternCollectableSocket",
-      "_collectableClass": {
-        "ObjectName": "CrownCollectable_Survivor_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Crown/CrownCollectable_Survivor.14"
-      },
-      "InteractionID": "CrownPickup_Survivor",
-      "InteractionAnimation": "EInteractionAnimation::VE_PickUpAnniversaryCrown",
-      "CamperCanInteract": true,
-      "InteractionDescriptionText": {
-        "Namespace": "",
-        "Key": "9FB780E34C2D59BEC7A4A7AFCFCEFF14",
-        "SourceString": "Pick Up"
-      },
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": -48.0
+      "_offeringEnabledAuraColor": {
+        "R": 0.561,
+        "G": 0.0,
+        "B": 1.0,
+        "A": 0.6,
+        "Hex": "998F00FF"
       }
     }
   },
@@ -308,25 +402,25 @@
         "Keys": [
           {
             "InterpMode": 2,
-            "TangentMode": 0,
+            "TangentMode": 1,
             "TangentWeightMode": 0,
-            "KeyTime": -9.390408E-30,
-            "KeyValue": 5.690127E-39,
-            "ArriveTangent": 0.0,
-            "ArriveTangentWeight": 0.0,
-            "LeaveTangent": 0.0,
+            "KeyTime": 5.693801E-39,
+            "KeyValue": -200802300.0,
+            "ArriveTangent": 1.7501053E-38,
+            "ArriveTangentWeight": -0.5,
+            "LeaveTangent": 1.7501053E-38,
             "LeaveTangentWeight": 0.0
           },
           {
             "InterpMode": 0,
             "TangentMode": 0,
             "TangentWeightMode": 0,
-            "KeyTime": 2.2959E-41,
-            "KeyValue": 2.278E-41,
+            "KeyTime": 4.173495E-08,
+            "KeyValue": 2.2627E-41,
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 2.571394E-38
+            "LeaveTangentWeight": 2.957103E-38
           }
         ]
       }
@@ -352,8 +446,8 @@
           {
             "InterpMode": 1,
             "TangentMode": 0,
-            "TangentWeightMode": 136,
-            "KeyTime": -9.677895E-22,
+            "TangentWeightMode": 51,
+            "KeyTime": -9.677806E-22,
             "KeyValue": 6.542975E-39,
             "ArriveTangent": 2.2928E-41,
             "ArriveTangentWeight": 5.326459E-39,
@@ -365,22 +459,22 @@
             "TangentMode": 0,
             "TangentWeightMode": 0,
             "KeyTime": -8.8E-44,
-            "KeyValue": 1.8685705E-05,
-            "ArriveTangent": 2.68E-43,
-            "ArriveTangentWeight": 1.868559E-05,
-            "LeaveTangent": 2.68E-43,
+            "KeyValue": 8.8E-44,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
             "LeaveTangentWeight": 0.0
           },
           {
-            "InterpMode": 0,
-            "TangentMode": 0,
-            "TangentWeightMode": 0,
+            "InterpMode": 51,
+            "TangentMode": 51,
+            "TangentWeightMode": 179,
             "KeyTime": 0.0,
             "KeyValue": 0.0,
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 3.76E-43
+            "LeaveTangentWeight": 4.05E-43
           }
         ]
       }
@@ -406,8 +500,8 @@
           {
             "InterpMode": 1,
             "TangentMode": 0,
-            "TangentWeightMode": 251,
-            "KeyTime": 9.891679E+10,
+            "TangentWeightMode": 0,
+            "KeyTime": 9.891637E+10,
             "KeyValue": 2.1118802E+30,
             "ArriveTangent": 2.2924E-41,
             "ArriveTangentWeight": 2.1292569E+30,
@@ -416,25 +510,25 @@
           },
           {
             "InterpMode": 0,
-            "TangentMode": 0,
-            "TangentWeightMode": 0,
+            "TangentMode": 205,
+            "TangentWeightMode": 204,
             "KeyTime": -8.8E-44,
-            "KeyValue": -3.9684813E-18,
-            "ArriveTangent": 2.66E-43,
-            "ArriveTangentWeight": -3.9684552E-18,
-            "LeaveTangent": 2.66E-43,
+            "KeyValue": 8.8E-44,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
             "LeaveTangentWeight": 0.0
           },
           {
-            "InterpMode": 0,
-            "TangentMode": 0,
-            "TangentWeightMode": 0,
+            "InterpMode": 51,
+            "TangentMode": 51,
+            "TangentWeightMode": 179,
             "KeyTime": 0.0,
             "KeyValue": 0.0,
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 3.76E-43
+            "LeaveTangentWeight": 4.05E-43
           }
         ]
       }
@@ -477,7 +571,7 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 9.614E-41
+            "LeaveTangentWeight": 1.03674E-40
           }
         ]
       }
@@ -509,7 +603,7 @@
             "ArriveTangent": 2.2966E-41,
             "ArriveTangentWeight": 55.5,
             "LeaveTangent": 2.2966E-41,
-            "LeaveTangentWeight": 2.571394E-38
+            "LeaveTangentWeight": 2.957103E-38
           }
         ]
       }
@@ -563,7 +657,7 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 3.76E-43
+            "LeaveTangentWeight": 4.05E-43
           }
         ]
       }
@@ -595,7 +689,39 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 2.571394E-38
+            "LeaveTangentWeight": 2.957103E-38
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_6_8",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 5.738753E-39,
+            "KeyValue": 5.831554E-39,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 2.2869E-41,
+            "KeyValue": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 2.957103E-38
           }
         ]
       }
@@ -603,16 +729,48 @@
   },
   {
     "Type": "DBDOutlineComponent",
-    "Name": "DBDOutline_GEN_VARIABLE",
+    "Name": "OutlineComponent",
     "Properties": {
-      "LimitToCustomDepthObjects": true,
-      "OutlineName": "crownpillar"
+      "InterpolationSpeed": 5.0,
+      "MinimumOutlineDistance": 2000.0,
+      "OutlineName": "crownpillar",
+      "AttachParent": {
+        "ObjectName": "CrownPillarStaticMesh:",
+        "ObjectPath": "Default__CrownPillar_C.48"
+      }
     }
   },
   {
-    "Type": "Interactor",
-    "Name": "MainInteractor_GEN_VARIABLE",
+    "Type": "InteractableTransformOptimizer",
+    "Name": "InteractableOptimizer",
     "Properties": {}
+  },
+  {
+    "Type": "Interactor",
+    "Name": "CrownPillarInteractor",
+    "Properties": {
+      "_interactionDefinitions": [
+        {
+          "ObjectName": "CrownPillarInteraction:",
+          "ObjectPath": "Default__CrownPillar_C.24"
+        },
+        {
+          "ObjectName": "CrownPillarInteractionKiller:",
+          "ObjectPath": "Default__CrownPillar_C.25"
+        }
+      ],
+      "AttachParent": {
+        "ObjectName": "CrownPillarInteractionZone:",
+        "ObjectPath": "Default__CrownPillar_C.21"
+      }
+    }
+  },
+  {
+    "Type": "NearTrackedActorComponent",
+    "Name": "NearPlayerTracker",
+    "Properties": {
+      "_distanceThreshold": 800.0
+    }
   },
   {
     "Type": "SceneComponent",
@@ -620,51 +778,26 @@
     "Properties": {}
   },
   {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Properties": {
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.46"
+        "ObjectPath": "/Script/Engine.42"
       },
       "ComponentTemplate": {
         "ObjectName": "DefaultSceneRoot_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.33"
+        "ObjectPath": "CrownPillar_C.39"
       },
       "VariableGuid": "FE26E70A-45E7CFFA-3C29D297-589A4BF3",
       "InternalVariableName": "DefaultSceneRoot"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_1",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "ChargeableComponent:Class",
-        "ObjectPath": "/Script/DeadByDaylight.27"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "PickUpChargeable_Slasher_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.20"
-      },
-      "VariableGuid": "EF31F9C3-45B0F02F-96105489-D4D2C113",
-      "InternalVariableName": "PickUpChargeable_Slasher"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_10",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "ChargeableComponent:Class",
-        "ObjectPath": "/Script/DeadByDaylight.27"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "PickUpChargeable_Survivor_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.21"
-      },
-      "VariableGuid": "F7375DDA-4C266ED4-206787A4-9A9C5032",
-      "InternalVariableName": "PickUpChargeable_Survivor"
     }
   },
   {
@@ -673,11 +806,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.50"
+        "ObjectPath": "/Script/Engine.46"
       },
       "ComponentTemplate": {
         "ObjectName": "Crown_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.48"
+        "ObjectPath": "CrownPillar_C.47"
       },
       "VariableGuid": "D9DA1837-4A92ED1D-277662A3-096E0407",
       "InternalVariableName": "Crown"
@@ -689,16 +822,16 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SkeletalMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.49"
+        "ObjectPath": "/Script/Engine.45"
       },
       "ComponentTemplate": {
         "ObjectName": "Skeleton_Pillar_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.47"
+        "ObjectPath": "CrownPillar_C.46"
       },
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
-          "ObjectPath": "CrownPillar_C.37"
+          "ObjectPath": "CrownPillar_C.42"
         }
       ],
       "VariableGuid": "6B392065-4D0DBADD-BFDBC08A-F0D91CF3",
@@ -707,150 +840,26 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_2",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.50"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "Pillar_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.49"
-      },
-      "ChildNodes": [
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
-          "ObjectPath": "CrownPillar_C.45"
-        }
-      ],
-      "VariableGuid": "B60FCA51-4BCF0558-786AB2A7-BEAB530B",
-      "InternalVariableName": "Pillar"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_3",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Interactor:Class",
-        "ObjectPath": "/Script/DeadByDaylight.32"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "MainInteractor_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.32"
-      },
-      "ChildNodes": [
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
-          "ObjectPath": "CrownPillar_C.41"
-        }
-      ],
-      "VariableGuid": "0CCA2F30-4CA1C9A8-CBB5F28C-97AF4DD7",
-      "InternalVariableName": "MainInteractor"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_4",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "BoxComponent:Class",
-        "ObjectPath": "/Script/Engine.35"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "InteractorZone_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.19"
-      },
-      "ChildNodes": [
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
-          "ObjectPath": "CrownPillar_C.42"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
-          "ObjectPath": "CrownPillar_C.43"
-        }
-      ],
-      "VariableGuid": "F2EBFEBE-48BF1C3E-0CE5A690-02C2112D",
-      "InternalVariableName": "InteractorZone"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_5",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "CrownPickUp_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/Blueprints/GameplayElements/Interactable/Crown/Interactions/CrownPickUp.12"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CrownPickUp_Survivor_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.23"
-      },
-      "VariableGuid": "6CCCC7A9-422F789D-7498CB9D-C57780A4",
-      "InternalVariableName": "CrownPickUp_Survivor"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_6",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "CrownPickUp_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/Blueprints/GameplayElements/Interactable/Crown/Interactions/CrownPickUp.12"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CrownPickUp_Slasher_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.22"
-      },
-      "VariableGuid": "2632A250-4A147AD8-4FEA97A0-B3B408A8",
-      "InternalVariableName": "CrownPickUp_Slasher"
-    }
-  },
-  {
-    "Type": "SCS_Node",
     "Name": "SCS_Node_7",
     "Properties": {
       "ComponentClass": {
         "ObjectName": "AkComponent:Class",
-        "ObjectPath": "/Script/AkAudio.20"
+        "ObjectPath": "/Script/AkAudio.14"
       },
       "ComponentTemplate": {
         "ObjectName": "Ak_Audio_CrownPillar_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.18"
+        "ObjectPath": "CrownPillar_C.20"
       },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
       "ChildNodes": [
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "CrownPillar_C.39"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "CrownPillar_C.40"
-        },
-        {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_13:",
-          "ObjectPath": "CrownPillar_C.38"
+          "ObjectPath": "CrownPillar_C.43"
         }
       ],
       "VariableGuid": "203C7045-42226B49-F31A56A9-A149A1D0",
       "InternalVariableName": "Ak_Audio_CrownPillar"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_8",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "DBDOutlineComponent:Class",
-        "ObjectPath": "/Script/DeadByDaylight.29"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "DBDOutline_GEN_VARIABLE:",
-        "ObjectPath": "CrownPillar_C.31"
-      },
-      "VariableGuid": "EA51CF80-48C97553-1E48C7B3-4B7E5280",
-      "InternalVariableName": "DBDOutline"
     }
   },
   {
@@ -861,65 +870,25 @@
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
           "ObjectPath": "CrownPillar_C.44"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
-          "ObjectPath": "CrownPillar_C.36"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "CrownPillar_C.35"
         }
       ],
       "AllNodes": [
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "CrownPillar_C.39"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "CrownPillar_C.40"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
-          "ObjectPath": "CrownPillar_C.41"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
-          "ObjectPath": "CrownPillar_C.42"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
-          "ObjectPath": "CrownPillar_C.43"
-        },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
           "ObjectPath": "CrownPillar_C.44"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
-          "ObjectPath": "CrownPillar_C.45"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
-          "ObjectPath": "CrownPillar_C.36"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "CrownPillar_C.35"
-        },
-        {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_13:",
-          "ObjectPath": "CrownPillar_C.38"
+          "ObjectPath": "CrownPillar_C.43"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
-          "ObjectPath": "CrownPillar_C.37"
+          "ObjectPath": "CrownPillar_C.42"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-        "ObjectPath": "CrownPillar_C.34"
+        "ObjectPath": "CrownPillar_C.41"
       }
     }
   },
@@ -929,17 +898,23 @@
     "Properties": {
       "AnimClass": {
         "ObjectName": "AB_CrownPillar_C:AnimBlueprintGeneratedClass",
-        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Blueprint/AB_CrownPillar.11"
+        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Blueprint/AB_CrownPillar.9"
       },
+      "bUpdateOverlapsOnAnimationFinalize": false,
+      "bEnablePhysicsOnDedicatedServer": false,
+      "bSkipBoundsUpdateWhenInterpolating": true,
       "ClothingSimulationFactory": {
         "ObjectName": "ClothingSimulationFactoryNv:Class",
-        "ObjectPath": "/Script/ClothingSystemRuntimeNv.24"
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv.20"
       },
       "SkeletalMesh": {
         "ObjectName": "WA_Crown_REF:SkeletalMesh",
-        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Skeleton/WA_Crown_REF.150"
+        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Skeleton/WA_Crown_REF.138"
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
+      "bComponentUseFixedSkelBounds": true,
+      "bEnableUpdateRateOptimizations": true,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "DetailModeBitMask": -17
     }
   },
   {
@@ -947,56 +922,50 @@
     "Name": "Crown_GEN_VARIABLE",
     "Properties": {
       "StaticMesh": {
-        "ObjectName": "SM_WA_Crown:StaticMesh",
-        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Static/SM_WA_Crown.156"
+        "ObjectName": "SM_WA_CrownL4:StaticMesh",
+        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Static/SM_WA_CrownL4.141"
       },
       "bUseDefaultCollision": false,
       "OverrideMaterials": [
-        {
-          "ObjectName": "MI_DissolveWP_Crown:MaterialInstanceConstant",
-          "ObjectPath": "/Game/Effects/Materials/Research/MI_DissolveWP_Crown.103"
-        }
+        null
       ],
-      "DetailLevelBeforeCastShadows": "DM_MAX"
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "CanCharacterStepUpOn": "ECB_No",
+      "DetailModeBitMask": -17
     }
   },
   {
     "Type": "StaticMeshComponent",
-    "Name": "Pillar_GEN_VARIABLE",
+    "Name": "CrownPillarStaticMesh",
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_WA_CrownBase:StaticMesh",
-        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Static/SM_WA_CrownBase.157"
+        "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Static/SM_WA_CrownBase.140"
       },
       "bUseDefaultCollision": false,
-      "OverrideMaterials": [
-        {
-          "ObjectName": "MI_WA_CrownBase:MaterialInstanceConstant",
-          "ObjectPath": "/Game/Meshes/InteractableObjects/Crown/Materials/MI_WA_CrownBase.104"
-        }
-      ],
       "DetailLevelBeforeCastShadows": "DM_MAX",
-      "bRenderCustomDepth": true,
       "CanCharacterStepUpOn": "ECB_No",
       "BodyInstance": {
-        "bOverrideWalkableSlopeOnInstance": true,
-        "MassInKgOverride": 56.12061,
-        "WalkableSlopeOverride": {
-          "WalkableSlopeBehavior": "WalkableSlope_Unwalkable"
-        }
-      }
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionProfileName": "BlockAll"
+      },
+      "AttachParent": {
+        "ObjectName": "Root:",
+        "ObjectPath": "Default__CrownPillar_C.40"
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
     "Type": "TimelineTemplate",
     "Name": "Main_Timeline_Template",
     "Properties": {
-      "TimelineLength": 2.0,
+      "TimelineLength": 2.25,
       "FloatTracks": [
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_0:",
-            "ObjectPath": "CrownPillar_C.24"
+            "ObjectPath": "CrownPillar_C.27"
           },
           "PropertyName": "Main_Timeline_Dissolve_0EB3B88A4CB090947C4334AC7BE3D69A",
           "TrackName": "Dissolve",
@@ -1005,7 +974,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_1:",
-            "ObjectPath": "CrownPillar_C.25"
+            "ObjectPath": "CrownPillar_C.28"
           },
           "PropertyName": "Main_Timeline_AttractedParticleSpawnRate_0EB3B88A4CB090947C4334AC7BE3D69A",
           "TrackName": "AttractedParticleSpawnRate",
@@ -1014,7 +983,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_2:",
-            "ObjectPath": "CrownPillar_C.26"
+            "ObjectPath": "CrownPillar_C.29"
           },
           "PropertyName": "Main_Timeline_RingParticleSpawnRate_0EB3B88A4CB090947C4334AC7BE3D69A",
           "TrackName": "RingParticleSpawnRate",
@@ -1023,7 +992,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_3:",
-            "ObjectPath": "CrownPillar_C.27"
+            "ObjectPath": "CrownPillar_C.30"
           },
           "PropertyName": "Main_Timeline_EmissiveTouchAmount_0EB3B88A4CB090947C4334AC7BE3D69A",
           "TrackName": "EmissiveTouchAmount",
@@ -1032,7 +1001,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_4:",
-            "ObjectPath": "CrownPillar_C.28"
+            "ObjectPath": "CrownPillar_C.31"
           },
           "PropertyName": "Main_Timeline_ParticlesOnBody_0EB3B88A4CB090947C4334AC7BE3D69A",
           "TrackName": "ParticlesOnBody",
@@ -1041,7 +1010,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_5:",
-            "ObjectPath": "CrownPillar_C.29"
+            "ObjectPath": "CrownPillar_C.32"
           },
           "PropertyName": "Main_Timeline_PillarGlowAmount_0EB3B88A4CB090947C4334AC7BE3D69A",
           "TrackName": "PillarGlowAmount",
@@ -1064,7 +1033,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_6:",
-            "ObjectPath": "CrownPillar_C.30"
+            "ObjectPath": "CrownPillar_C.33"
           },
           "PropertyName": "PillarDissolveTimeline_PillarDissolveTrack_ED638993459DCAF7F849A5BDBCB3940D",
           "TrackName": "PillarDissolveTrack",
@@ -1076,6 +1045,29 @@
       "DirectionPropertyName": "PillarDissolveTimeline__Direction_ED638993459DCAF7F849A5BDBCB3940D",
       "UpdateFunctionName": "PillarDissolveTimeline__UpdateFunc",
       "FinishedFunctionName": "PillarDissolveTimeline__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "TML_PillarAppear_Template",
+    "Properties": {
+      "TimelineLength": 1.5,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat_6_8:",
+            "ObjectPath": "CrownPillar_C.34"
+          },
+          "PropertyName": "TML_PillarAppear_PillarDissolveTrack_66069BD14E187C4BB69D789B1D7BBABA",
+          "TrackName": "PillarDissolveTrack",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "66069BD1-4E187C4B-B69D789B-1D7BBABA",
+      "VariableName": "TML_PillarAppear",
+      "DirectionPropertyName": "TML_PillarAppear__Direction_66069BD14E187C4BB69D789B1D7BBABA",
+      "UpdateFunctionName": "TML_PillarAppear__UpdateFunc",
+      "FinishedFunctionName": "TML_PillarAppear__FinishedFunc"
     }
   }
 ]

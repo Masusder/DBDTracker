@@ -5,11 +5,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_2:",
-        "ObjectPath": "BP_Flashlight_001_C.11"
+        "ObjectPath": "BP_Flashlight_001_C.21"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler:",
-        "ObjectPath": "BP_Flashlight_001_C.4"
+        "ObjectPath": "BP_Flashlight_001_C.9"
       }
     }
   },
@@ -17,33 +17,73 @@
     "Type": "BP_Flashlight_C",
     "Name": "Default__BP_Flashlight_001_C",
     "Properties": {
+      "_interactable": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.24"
+      },
+      "_collectableInteractor": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.11"
+      },
+      "_dropInteraction": {
+        "ObjectName": "DropItemInteraction:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.7"
+      },
+      "_collectInteraction": {
+        "ObjectName": "CollectItemInteraction:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.5"
+      },
+      "_infectablePrimitive": {
+        "ObjectName": "InfectableSphere:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.23"
+      },
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.6"
+      },
+      "_materialHelper": {
+        "ObjectName": "MaterialHelperComponent:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.16"
+      },
+      "_survivorCollectableOutlineUpdateStrategy": {
+        "ObjectName": "SurvivorCollectableOutlineUpdateStrategy:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.26"
+      },
       "BaseItemModifier": {
         "ObjectName": "ItemModifier:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.5"
+        "ObjectPath": "Default__BP_Flashlight_001_C.13"
       },
       "ItemModifier1": {
         "ObjectName": "ItemModifier1:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.6"
+        "ObjectPath": "Default__BP_Flashlight_001_C.14"
       },
       "ItemModifier2": {
         "ObjectName": "ItemModifier2:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.7"
+        "ObjectPath": "Default__BP_Flashlight_001_C.15"
+      },
+      "_itemInteractor": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.12"
       },
       "_mesh": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.12"
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
       },
       "_placementOrigin": {
         "ObjectName": "PlacementOrigin:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.9"
+        "ObjectPath": "Default__BP_Flashlight_001_C.19"
       },
       "_objectState": {
         "ObjectName": "ObjectState:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.3"
+        "ObjectPath": "Default__BP_Flashlight_001_C.8"
+      },
+      "_transformOptimizer": {
+        "ObjectName": "InteractableOptimizer:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.10"
       },
       "RootComponent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.12"
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
       }
     }
   },
@@ -53,13 +93,133 @@
     "Properties": {}
   },
   {
+    "Type": "AimableComponent",
+    "Name": "Aimable_GEN_VARIABLE",
+    "Properties": {
+      "_aimDirectionProvider": {
+        "ObjectName": "Aimable_GEN_VARIABLE:SurvivorAimStanceCameraDirectionProvider_0:",
+        "ObjectPath": "BP_Flashlight_001_C.25"
+      },
+      "_preOcclusionAimPointProcessors": [
+        {
+          "ObjectName": "Aimable_GEN_VARIABLE:AimPointPerlinNoise_0:",
+          "ObjectPath": "BP_Flashlight_001_C.4"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AimPointPerlinNoise",
+    "Name": "AimPointPerlinNoise_0",
+    "Properties": {}
+  },
+  {
+    "Type": "CollectItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.11"
+      }
+    }
+  },
+  {
+    "Type": "DBDOutlineComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
+      }
+    }
+  },
+  {
+    "Type": "DropItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.12"
+      }
+    }
+  },
+  {
     "Type": "GameplayTagContainerComponent",
     "Name": "ObjectState",
     "Properties": {}
   },
   {
     "Type": "InheritableComponentHandler",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "NiagaraComponent:Class",
+            "ObjectPath": "/Script/Niagara.33"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "NS_FlashligthBeam_GEN_VARIABLE:",
+            "ObjectPath": "BP_Flashlight_001_C.17"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BP_Flashlight_C:BlueprintGeneratedClass",
+              "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight.5"
+            },
+            "SCSVariableName": "NS_FlashligthBeam",
+            "AssociatedGuid": "E7714806-4B9637C3-0D2FB489-E9BFD3FE"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "AimableComponent:Class",
+            "ObjectPath": "/Script/DBDGameplay.13"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "Aimable_GEN_VARIABLE:",
+            "ObjectPath": "BP_Flashlight_001_C.3"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BP_Flashlight_C:BlueprintGeneratedClass",
+              "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Common/BP_FlashLight.5"
+            },
+            "SCSVariableName": "Aimable",
+            "AssociatedGuid": "DB26C5B3-47F8514F-A7DFE393-08C20CCB"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InteractableTransformOptimizer",
+    "Name": "InteractableOptimizer",
     "Properties": {}
+  },
+  {
+    "Type": "Interactor",
+    "Name": "CollectableInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.24"
+      }
+    }
+  },
+  {
+    "Type": "Interactor",
+    "Name": "ItemInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
+      }
+    }
   },
   {
     "Type": "ItemModifier",
@@ -93,6 +253,23 @@
     "Properties": {}
   },
   {
+    "Type": "MaterialHelper",
+    "Name": "MaterialHelperComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_FlashligthBeam_GEN_VARIABLE",
+    "Properties": {
+      "OverrideParameters": {}
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot3264398F49BB68FA727824A4B05D62AB",
     "Properties": {}
@@ -103,7 +280,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_Flashlight_001_C.12"
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
       }
     }
   },
@@ -113,11 +290,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.20"
+        "ObjectPath": "/Script/Engine.26"
       },
       "ComponentTemplate": {
         "ObjectName": "DefaultSceneRoot3264398F49BB68FA727824A4B05D62AB:",
-        "ObjectPath": "BP_Flashlight_001_C.8"
+        "ObjectPath": "BP_Flashlight_001_C.18"
       },
       "VariableGuid": "90EF9F1F-4A4F9049-8DBDB5BD-C10BFB67",
       "InternalVariableName": "DefaultSceneRoot"
@@ -129,7 +306,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_2:SCS_Node_2:",
-        "ObjectPath": "BP_Flashlight_001_C.10"
+        "ObjectPath": "BP_Flashlight_001_C.20"
       }
     }
   },
@@ -137,5 +314,39 @@
     "Type": "SkeletalMeshComponent",
     "Name": "ItemMesh",
     "Properties": {}
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "InfectableSphere",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
+      }
+    }
+  },
+  {
+    "Type": "SpherePlayerOverlapComponent",
+    "Name": "InteractableZone",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.22"
+      }
+    }
+  },
+  {
+    "Type": "SurvivorAimStanceCameraDirectionProvider",
+    "Name": "SurvivorAimStanceCameraDirectionProvider_0",
+    "Properties": {}
+  },
+  {
+    "Type": "SurvivorCollectableOutlineUpdateStrategy",
+    "Properties": {
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_Flashlight_001_C.6"
+      }
+    }
   }
 ]

@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_2:",
-        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.10"
+        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.12"
       }
     }
   },
@@ -15,6 +15,65 @@
     "Properties": {
       "NetUpdateFrequency": 0.1,
       "NetPriority": 0.01
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box_GEN_VARIABLE",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "NavArea_Obstacle:Class",
+        "ObjectPath": "/Script/NavigationSystem.12"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -70.0,
+        "Z": 200.0
+      },
+      "RelativeScale3D": {
+        "X": 0.8,
+        "Y": 2.4,
+        "Z": 6.2
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -55,7 +114,7 @@
       "InstancingRandomSeed": 30987,
       "StaticMesh": {
         "ObjectName": "SM_Ind_WL_Br_1mCap01:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_1mCap01.19"
+        "ObjectPath": "/Game/Meshes/Environment/Industrial/Structures/SM_Ind_WL_Br_1mCap01.23"
       },
       "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
@@ -72,7 +131,7 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_WoodPlank03:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WoodPlank03.20"
+        "ObjectPath": "/Game/Meshes/Props/SetDressing/01-Industrial/SM_WoodPlank03.24"
       },
       "bUseDefaultCollision": false,
       "LDMaxDrawDistance": 3200.0,
@@ -105,19 +164,23 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.7"
+        "ObjectPath": "/Script/Engine.9"
       },
       "ComponentTemplate": {
         "ObjectName": "Scene_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.4"
+        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.5"
       },
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_1:",
-          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.7"
+          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.8"
         },
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_4:",
+          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.11"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_2:SCS_Node_2:",
           "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.9"
         }
       ],
@@ -131,14 +194,30 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.5"
+        "ObjectPath": "/Script/Engine.7"
       },
       "ComponentTemplate": {
         "ObjectName": "HISM_SM_WL_Br_1mCap01_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.2"
+        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.3"
       },
       "VariableGuid": "C4426138-418B8A5F-09BB6ABD-ACAFFFCC",
       "InternalVariableName": "HISM_SM_WL_Br_1mCap01"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BoxComponent:Class",
+        "ObjectPath": "/Script/Engine.6"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Box_GEN_VARIABLE:",
+        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.2"
+      },
+      "VariableGuid": "CD910637-46AEA6B1-D31539AA-4AA2329B",
+      "InternalVariableName": "Box"
     }
   },
   {
@@ -147,11 +226,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.7"
+        "ObjectPath": "/Script/Engine.9"
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent_290:",
-        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.5"
+        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.6"
       },
       "VariableGuid": "5323B8CD-4E37D943-7C9876AF-D0E489B4",
       "InternalVariableName": "DefaultSceneRoot"
@@ -163,11 +242,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "InstancedStaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.6"
+        "ObjectPath": "/Script/Engine.8"
       },
       "ComponentTemplate": {
         "ObjectName": "ISM_SM_WoodPlank03_GEN_VARIABLE:",
-        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.3"
+        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.4"
       },
       "VariableGuid": "CDC3EB70-4EB62B61-EF0EA78D-5FC1291C",
       "InternalVariableName": "ISM_SM_WoodPlank03"
@@ -180,26 +259,30 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_0:",
-          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.6"
+          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.7"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_0:",
-          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.6"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_2:SCS_Node_1:",
           "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.7"
         },
         {
+          "ObjectName": "SimpleConstructionScript_2:SCS_Node_1:",
+          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.8"
+        },
+        {
           "ObjectName": "SimpleConstructionScript_2:SCS_Node_4:",
+          "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.11"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_2:SCS_Node_2:",
           "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.9"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_2:SCS_Node_23:",
-        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.8"
+        "ObjectPath": "BP_Ind_WL_Br_1mCap01_C.10"
       }
     }
   }

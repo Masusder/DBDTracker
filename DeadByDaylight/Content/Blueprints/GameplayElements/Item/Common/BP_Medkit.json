@@ -1,0 +1,533 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Medkit",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "OnActivateDissolveItem",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_Dissolve__Event_dissolve__EventFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_Dissolve__UpdateFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "TML_Dissolve__FinishedFunc",
+    "Properties": {}
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Medkit_C",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TML_Dissolve_Template:",
+          "ObjectPath": "BP_Medkit_C.34"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript_1:",
+        "ObjectPath": "BP_Medkit_C.28"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler:",
+        "ObjectPath": "BP_Medkit_C.16"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "ExecuteUbergraph_BP_Medkit:",
+        "ObjectPath": "BP_Medkit_C.0"
+      }
+    }
+  },
+  {
+    "Type": "Medkit",
+    "Name": "Default__BP_Medkit_C",
+    "Properties": {
+      "UberGraphFrame": {},
+      "_akComponent": {
+        "ObjectName": "Ak_Audio_Medkit:",
+        "ObjectPath": "Default__BP_Medkit_C.8"
+      },
+      "_charger": {
+        "ObjectName": "Charger:",
+        "ObjectPath": "Default__BP_Medkit_C.9"
+      },
+      "_dustRingTemplate": {
+        "ObjectName": "P_DustRing:ParticleSystem",
+        "ObjectPath": "/Game/Effects/ParticleSystems/P_DustRing.99"
+      },
+      "_medkitGetAkEvent": {
+        "ObjectName": "AudioEvent_Medkit_Get:AkAudioEvent",
+        "ObjectPath": "/Game/Audio/AudioEvents/Objects/AudioEvent_Medkit_Get.3"
+      },
+      "_medkitDropAkEvent": {
+        "ObjectName": "AudioEvent_Medkit_Drop:AkAudioEvent",
+        "ObjectPath": "/Game/Audio/AudioEvents/Objects/AudioEvent_Medkit_Drop.2"
+      },
+      "_medkitBank": {
+        "ObjectName": "Medkit:AkAudioBank",
+        "ObjectPath": "/Game/Audio/SoundBanks/Medkit.1"
+      },
+      "_interactable": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_Medkit_C.32"
+      },
+      "_collectableInteractor": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_Medkit_C.18"
+      },
+      "_dropInteraction": {
+        "ObjectName": "DropItemInteraction:",
+        "ObjectPath": "Default__BP_Medkit_C.14"
+      },
+      "_collectInteraction": {
+        "ObjectName": "CollectItemInteraction:",
+        "ObjectPath": "Default__BP_Medkit_C.10"
+      },
+      "_infectablePrimitive": {
+        "ObjectName": "InfectableSphere:",
+        "ObjectPath": "Default__BP_Medkit_C.31"
+      },
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_Medkit_C.13"
+      },
+      "_materialHelper": {
+        "ObjectName": "MaterialHelperComponent:",
+        "ObjectPath": "Default__BP_Medkit_C.23"
+      },
+      "_survivorCollectableOutlineUpdateStrategy": {
+        "ObjectName": "SurvivorCollectableOutlineUpdateStrategy:",
+        "ObjectPath": "Default__BP_Medkit_C.33"
+      },
+      "HandPosition": "EItemHandPosition::HandleItem",
+      "HasUseInteraction": true,
+      "ItemID": "Item_Camper_MedKit",
+      "BaseItemModifier": {
+        "ObjectName": "ItemModifier:",
+        "ObjectPath": "Default__BP_Medkit_C.20"
+      },
+      "ItemModifier1": {
+        "ObjectName": "ItemModifier1:",
+        "ObjectPath": "Default__BP_Medkit_C.21"
+      },
+      "ItemModifier2": {
+        "ObjectName": "ItemModifier2:",
+        "ObjectPath": "Default__BP_Medkit_C.22"
+      },
+      "_itemInteractor": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_Medkit_C.19"
+      },
+      "_mesh": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      },
+      "_placementOrigin": {
+        "ObjectName": "PlacementOrigin:",
+        "ObjectPath": "Default__BP_Medkit_C.25"
+      },
+      "_objectState": {
+        "ObjectName": "ObjectState:",
+        "ObjectPath": "Default__BP_Medkit_C.15"
+      },
+      "_itemType": "ELoadoutItemType::Medkit",
+      "_discardWhenConsumed": false,
+      "_transformOptimizer": {
+        "ObjectName": "InteractableOptimizer:",
+        "ObjectPath": "Default__BP_Medkit_C.17"
+      },
+      "RootComponent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      }
+    }
+  },
+  {
+    "Type": "ActivatorComponent",
+    "Name": "Activator",
+    "Properties": {}
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_Audio_Medkit",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 20.0
+      }
+    }
+  },
+  {
+    "Type": "ChargerComponent",
+    "Name": "Charger",
+    "Properties": {}
+  },
+  {
+    "Type": "CollectItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_Medkit_C.18"
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1_2",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "TangentWeightMode": 0,
+            "KeyTime": 0.0,
+            "KeyValue": 1.6609977E-16,
+            "ArriveTangent": 1.747174E-38,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 9.403955E-38
+          },
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 2.2959E-41,
+            "KeyValue": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 1.5612034E-38
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_2",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "TangentWeightMode": 0,
+            "KeyTime": 5.788391E-39,
+            "KeyValue": 5.831554E-39,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": -1.1368684E-13
+          }
+        ]
+      },
+      "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "DBDOutlineComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      }
+    }
+  },
+  {
+    "Type": "DropItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_Medkit_C.19"
+      }
+    }
+  },
+  {
+    "Type": "GameplayTagContainerComponent",
+    "Name": "ObjectState",
+    "Properties": {}
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Properties": {}
+  },
+  {
+    "Type": "InteractableTransformOptimizer",
+    "Name": "InteractableOptimizer",
+    "Properties": {}
+  },
+  {
+    "Type": "Interactor",
+    "Name": "CollectableInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_Medkit_C.32"
+      }
+    }
+  },
+  {
+    "Type": "Interactor",
+    "Name": "ItemInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      }
+    }
+  },
+  {
+    "Type": "ItemModifier",
+    "Properties": {}
+  },
+  {
+    "Type": "ItemModifier",
+    "Name": "ItemModifier1",
+    "Properties": {}
+  },
+  {
+    "Type": "ItemModifier",
+    "Name": "ItemModifier2",
+    "Properties": {}
+  },
+  {
+    "Type": "MaterialHelper",
+    "Name": "MaterialHelperComponent",
+    "Properties": {
+      "Groups": [
+        {
+          "GroupName": "Camper1",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MI_Camper:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper.63"
+              },
+              "DstMaterial": {
+                "ObjectName": "MI_CamperDissolve:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.67"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "M_Hair:Material",
+                "ObjectPath": "/Game/Characters/Campers/Materials/M_Hair.61"
+              },
+              "DstMaterial": {
+                "ObjectName": "MI_Hair_Dissolve:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.70"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MI_Camper_Dither:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Dither.65"
+              },
+              "DstMaterial": {
+                "ObjectName": "MV_Camper_Dither:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.71"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MI_Camper_Cust:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_Cust.64"
+              },
+              "DstMaterial": {
+                "ObjectName": "MI_CamperDissolve_Cust:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.68"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MI_Camper_TransCust:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper_TransCust.66"
+              },
+              "DstMaterial": {
+                "ObjectName": "MI_CamperDissolve_TransCust:MaterialInstanceConstant",
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.69"
+              }
+            }
+          ]
+        }
+      ],
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot202A2B9341E2542B7E6A3897131D82CD",
+    "Properties": {}
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "PlacementOrigin",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -26.0
+      }
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SleepingSkinnedMeshRegisterer:Class",
+        "ObjectPath": "/Script/AnimationUtilities.9"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE:",
+        "ObjectPath": "BP_Medkit_C.30"
+      },
+      "VariableGuid": "6C8AE61B-406E256B-B8CE1D8C-3E3CFBA1",
+      "InternalVariableName": "SleepingSkinnedMeshRegisterer"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SceneComponent:Class",
+        "ObjectPath": "/Script/Engine.30"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DefaultSceneRoot202A2B9341E2542B7E6A3897131D82CD:",
+        "ObjectPath": "BP_Medkit_C.24"
+      },
+      "VariableGuid": "F8CA3EAF-4E4D432A-E262A891-BF50EBC2",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_1",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_1:SCS_Node_0:",
+          "ObjectPath": "BP_Medkit_C.26"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SimpleConstructionScript_1:SCS_Node_0:",
+          "ObjectPath": "BP_Medkit_C.26"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SimpleConstructionScript_1:SCS_Node_1:",
+        "ObjectPath": "BP_Medkit_C.27"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "ItemMesh",
+    "Properties": {
+      "SkeletalMesh": {
+        "ObjectName": "SK_MedKit01:SkeletalMesh",
+        "ObjectPath": "/Game/Meshes/InteractableObjects/MedKit/SK_MedKit01.108"
+      },
+      "CastShadow": true,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "bCastCinematicShadow": true
+    }
+  },
+  {
+    "Type": "SleepingSkinnedMeshRegisterer",
+    "Name": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "InfectableSphere",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      }
+    }
+  },
+  {
+    "Type": "SpherePlayerOverlapComponent",
+    "Name": "InteractableZone",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_Medkit_C.29"
+      }
+    }
+  },
+  {
+    "Type": "SurvivorCollectableOutlineUpdateStrategy",
+    "Properties": {
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_Medkit_C.13"
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "TML_Dissolve_Template",
+    "Properties": {
+      "TimelineLength": 2.0,
+      "EventTracks": [
+        {
+          "FunctionName": "TML_Dissolve__Event_dissolve__EventFunc",
+          "CurveKeys": {
+            "ObjectName": "CurveFloat_2:",
+            "ObjectPath": "BP_Medkit_C.12"
+          },
+          "TrackName": "Event_dissolve",
+          "bIsExternalCurve": false
+        }
+      ],
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat_1_2:",
+            "ObjectPath": "BP_Medkit_C.11"
+          },
+          "PropertyName": "TML_Dissolve_Opacity_Dissolve_81DFF7C145C967D0D4BFDDA833513710",
+          "TrackName": "Opacity_Dissolve",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "81DFF7C1-45C967D0-D4BFDDA8-33513710",
+      "VariableName": "TML_Dissolve",
+      "DirectionPropertyName": "TML_Dissolve__Direction_81DFF7C145C967D0D4BFDDA833513710",
+      "UpdateFunctionName": "TML_Dissolve__UpdateFunc",
+      "FinishedFunctionName": "TML_Dissolve__FinishedFunc"
+    }
+  }
+]

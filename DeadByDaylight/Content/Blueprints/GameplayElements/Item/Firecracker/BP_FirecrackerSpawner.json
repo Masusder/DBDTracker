@@ -66,16 +66,16 @@
       "Timelines": [
         {
           "ObjectName": "TML_dissolve_Template:",
-          "ObjectPath": "BP_FirecrackerSpawner_C.31"
+          "ObjectPath": "BP_FirecrackerSpawner_C.41"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_0:",
-        "ObjectPath": "BP_FirecrackerSpawner_C.29"
+        "ObjectPath": "BP_FirecrackerSpawner_C.35"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler:",
-        "ObjectPath": "BP_FirecrackerSpawner_C.19"
+        "ObjectPath": "BP_FirecrackerSpawner_C.22"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_BP_FirecrackerSpawner:",
@@ -84,43 +84,83 @@
     }
   },
   {
-    "Type": "BaseCamperItem_C",
+    "Type": "BaseCamperCollectable",
     "Name": "Default__BP_FirecrackerSpawner_C",
     "Properties": {
       "UberGraphFrame": {},
+      "_interactable": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.39"
+      },
+      "_collectableInteractor": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.24"
+      },
+      "_dropInteraction": {
+        "ObjectName": "DropItemInteraction:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.19"
+      },
+      "_collectInteraction": {
+        "ObjectName": "CollectItemInteraction:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.15"
+      },
+      "_infectablePrimitive": {
+        "ObjectName": "InfectableSphere:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.38"
+      },
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.18"
+      },
+      "_materialHelper": {
+        "ObjectName": "MaterialHelperComponent:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.29"
+      },
+      "_survivorCollectableOutlineUpdateStrategy": {
+        "ObjectName": "SurvivorCollectableOutlineUpdateStrategy:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.40"
+      },
       "HandPosition": "EItemHandPosition::FirecrackerItem",
       "ItemID": "Item_Camper_Firecracker",
       "BaseItemModifier": {
         "ObjectName": "ItemModifier:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.20"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.26"
       },
       "ItemModifier1": {
         "ObjectName": "ItemModifier1:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.21"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.27"
       },
       "ItemModifier2": {
         "ObjectName": "ItemModifier2:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.22"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.28"
+      },
+      "_itemInteractor": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.25"
       },
       "_mesh": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.30"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
       },
       "_placementOrigin": {
         "ObjectName": "PlacementOrigin:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.25"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.31"
       },
       "_objectState": {
         "ObjectName": "ObjectState:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.18"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.21"
       },
       "_stateTagForCollector": {
         "TagName": "State.HasFirecracker"
       },
       "_itemType": "ELoadoutItemType::Firecracker",
+      "_transformOptimizer": {
+        "ObjectName": "InteractableOptimizer:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.23"
+      },
       "RootComponent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.30"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
       }
     }
   },
@@ -128,6 +168,15 @@
     "Type": "ActivatorComponent",
     "Name": "Activator",
     "Properties": {}
+  },
+  {
+    "Type": "CollectItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CollectableInteractorComponent:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.24"
+      }
+    }
   },
   {
     "Type": "CurveFloat",
@@ -155,7 +204,7 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": 2.1489506E-38
+            "LeaveTangentWeight": 2.2683368E-38
           }
         ]
       }
@@ -176,7 +225,7 @@
             "ArriveTangent": 0.0,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": 0.0,
-            "LeaveTangentWeight": -3.8685626E+25
+            "LeaveTangentWeight": -2.5961484E+33
           }
         ]
       },
@@ -184,15 +233,27 @@
     }
   },
   {
-    "Type": "FastThrowFirecracker_C",
-    "Name": "FastThrowFirecracker_GEN_VARIABLE",
+    "Type": "DBDOutlineComponent",
     "Properties": {
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": -4.999998
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
       }
     }
+  },
+  {
+    "Type": "DropItemInteraction",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemInteractorComponent:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.25"
+      }
+    }
+  },
+  {
+    "Type": "FastThrowFirecracker_C",
+    "Name": "FastThrowFirecracker_GEN_VARIABLE",
+    "Properties": {}
   },
   {
     "Type": "GameplayTagContainerComponent",
@@ -202,6 +263,31 @@
   {
     "Type": "InheritableComponentHandler",
     "Properties": {}
+  },
+  {
+    "Type": "InteractableTransformOptimizer",
+    "Name": "InteractableOptimizer",
+    "Properties": {}
+  },
+  {
+    "Type": "Interactor",
+    "Name": "CollectableInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "InteractableZone:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.39"
+      }
+    }
+  },
+  {
+    "Type": "Interactor",
+    "Name": "ItemInteractorComponent",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
+      }
+    }
   },
   {
     "Type": "ItemModifier",
@@ -266,7 +352,7 @@
   },
   {
     "Type": "MaterialHelper",
-    "Name": "MaterialHelper_GEN_VARIABLE",
+    "Name": "MaterialHelperComponent",
     "Properties": {
       "Groups": [
         {
@@ -275,25 +361,19 @@
             {
               "SrcMaterial": {
                 "ObjectName": "MI_Camper:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper.87"
+                "ObjectPath": "/Game/Characters/Campers/Materials/MI_Camper.95"
               },
               "DstMaterial": {
                 "ObjectName": "MI_CamperItemDissolve:MaterialInstanceConstant",
-                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperItemDissolve.88"
+                "ObjectPath": "/Game/Characters/Campers/Materials/Variants/MI_CamperItemDissolve.96"
               }
             }
           ]
         }
       ],
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 99.999954
-      },
-      "RelativeRotation": {
-        "Pitch": 0.0,
-        "Yaw": 89.99999,
-        "Roll": -0.0
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
       }
     }
   },
@@ -308,7 +388,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "ItemMesh:",
-        "ObjectPath": "Default__BP_FirecrackerSpawner_C.30"
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
       },
       "RelativeLocation": {
         "X": 0.0,
@@ -323,11 +403,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "SceneComponent:Class",
-        "ObjectPath": "/Script/Engine.29"
+        "ObjectPath": "/Script/Engine.34"
       },
       "ComponentTemplate": {
         "ObjectName": "DefaultSceneRoot_GEN_VARIABLE:",
-        "ObjectPath": "BP_FirecrackerSpawner_C.24"
+        "ObjectPath": "BP_FirecrackerSpawner_C.30"
       },
       "VariableGuid": "3B14FB87-41C1EAFA-28450C9A-776308C6",
       "InternalVariableName": "DefaultSceneRoot"
@@ -338,17 +418,15 @@
     "Name": "SCS_Node_1",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "MaterialHelper:Class",
-        "ObjectPath": "/Script/GFXUtilities.37"
+        "ObjectName": "SleepingSkinnedMeshRegisterer:Class",
+        "ObjectPath": "/Script/AnimationUtilities.8"
       },
       "ComponentTemplate": {
-        "ObjectName": "MaterialHelper_GEN_VARIABLE:",
-        "ObjectPath": "BP_FirecrackerSpawner_C.23"
+        "ObjectName": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE:",
+        "ObjectPath": "BP_FirecrackerSpawner_C.37"
       },
-      "ParentComponentOrVariableName": "ItemMesh",
-      "bIsParentComponentNative": true,
-      "VariableGuid": "11E2407F-415DFEBA-541B7BBF-CB981ECD",
-      "InternalVariableName": "MaterialHelper"
+      "VariableGuid": "0532F6B2-41B1D312-8FF40D8F-030A5F86",
+      "InternalVariableName": "SleepingSkinnedMeshRegisterer"
     }
   },
   {
@@ -357,14 +435,14 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "FastThrowFirecracker_C:BlueprintGeneratedClass",
-        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Firecracker/Interactions/FastThrowFirecracker.5"
+        "ObjectPath": "/Game/Blueprints/GameplayElements/Item/Firecracker/Interactions/FastThrowFirecracker.4"
       },
       "ComponentTemplate": {
         "ObjectName": "FastThrowFirecracker_GEN_VARIABLE:",
-        "ObjectPath": "BP_FirecrackerSpawner_C.17"
+        "ObjectPath": "BP_FirecrackerSpawner_C.20"
       },
-      "ParentComponentOrVariableName": "ItemInteractor",
-      "ParentComponentOwnerClassName": "BaseCamperItem_C",
+      "ParentComponentOrVariableName": "ItemInteractorComponent",
+      "bIsParentComponentNative": true,
       "VariableGuid": "6B410162-4E82E6A1-AF3559A3-E6A4F370",
       "InternalVariableName": "FastThrowFirecracker"
     }
@@ -376,26 +454,26 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BP_FirecrackerSpawner_C.28"
+          "ObjectPath": "BP_FirecrackerSpawner_C.34"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BP_FirecrackerSpawner_C.27"
+          "ObjectPath": "BP_FirecrackerSpawner_C.33"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BP_FirecrackerSpawner_C.28"
+          "ObjectPath": "BP_FirecrackerSpawner_C.34"
         },
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BP_FirecrackerSpawner_C.27"
+          "ObjectPath": "BP_FirecrackerSpawner_C.33"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-        "ObjectPath": "BP_FirecrackerSpawner_C.26"
+        "ObjectPath": "BP_FirecrackerSpawner_C.32"
       }
     }
   },
@@ -405,7 +483,48 @@
     "Properties": {
       "SkeletalMesh": {
         "ObjectName": "FireCraker_REF:SkeletalMesh",
-        "ObjectPath": "/Game/Meshes/InteractableObjects/FireCracker/FireCraker_REF.121"
+        "ObjectPath": "/Game/Meshes/InteractableObjects/FireCracker/FireCraker_REF.128"
+      },
+      "bRenderStatic": true,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "MassInKgOverride": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SleepingSkinnedMeshRegisterer",
+    "Name": "SleepingSkinnedMeshRegisterer_GEN_VARIABLE",
+    "Properties": {}
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "InfectableSphere",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
+      }
+    }
+  },
+  {
+    "Type": "SpherePlayerOverlapComponent",
+    "Name": "InteractableZone",
+    "Properties": {
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "AttachParent": {
+        "ObjectName": "ItemMesh:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.36"
+      }
+    }
+  },
+  {
+    "Type": "SurvivorCollectableOutlineUpdateStrategy",
+    "Properties": {
+      "_outlineComponent": {
+        "ObjectName": "DBDOutlineComponent:",
+        "ObjectPath": "Default__BP_FirecrackerSpawner_C.18"
       }
     }
   },
@@ -419,7 +538,7 @@
           "FunctionName": "TML_dissolve__Event_dissolve__EventFunc",
           "CurveKeys": {
             "ObjectName": "CurveFloat_2:",
-            "ObjectPath": "BP_FirecrackerSpawner_C.16"
+            "ObjectPath": "BP_FirecrackerSpawner_C.17"
           },
           "TrackName": "Event_dissolve",
           "bIsExternalCurve": false
@@ -429,7 +548,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat_1_2:",
-            "ObjectPath": "BP_FirecrackerSpawner_C.15"
+            "ObjectPath": "BP_FirecrackerSpawner_C.16"
           },
           "PropertyName": "TML_dissolve_Opacity_Dissolve_B3C81B804654F2180C44F6B5C3485FC6",
           "TrackName": "Opacity_Dissolve",
