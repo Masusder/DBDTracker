@@ -5,7 +5,7 @@
     "Properties": {
       "PhysMaterial": {
         "ObjectName": "PM_Wood:PhysicalMaterial",
-        "ObjectPath": "/Game/Materials/PhysicalMaterials/PM_Wood.26"
+        "ObjectPath": "/Game/Materials/PhysicalMaterials/PM_Wood.27"
       },
       "Parent": {
         "ObjectName": "MIM_Simple_01:MaterialInstanceConstant",
@@ -87,6 +87,24 @@
         },
         {
           "ParameterInfo": {
+            "Name": "Wetness Intensity",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": 0.75,
+          "ExpressionGUID": "DC3C3982-4B5BAA18-362C96B4-4C1E79DA"
+        },
+        {
+          "ParameterInfo": {
+            "Name": "Porous Intensity",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": 0.75,
+          "ExpressionGUID": "C268A052-46239D36-F49F6DA7-A82D6207"
+        },
+        {
+          "ParameterInfo": {
             "Name": "RefractionDepthBias",
             "Association": "GlobalParameter",
             "Index": -1
@@ -118,11 +136,11 @@
             "Index": -1
           },
           "ParameterValue": {
-            "R": 0.490452,
-            "G": 0.588542,
-            "B": 0.557188,
+            "R": 0.481364,
+            "G": 0.546875,
+            "B": 0.525935,
             "A": 1.0,
-            "Hex": "7D968E"
+            "Hex": "7B8B86"
           },
           "ExpressionGUID": "844A9249-49ECD570-BEAC00B5-AF5938DC"
         }
@@ -136,7 +154,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_TrimSheet_Wood_B_BC:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_BC.43"
+            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_BC.45"
           },
           "ExpressionGUID": "9217CC03-43B500A4-1C95A69B-CF0B8993"
         },
@@ -148,7 +166,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_TrimSheet_Wood_B_N:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_N.44"
+            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_N.46"
           },
           "ExpressionGUID": "8E4D9DB2-4FE26D11-FD4E79AD-2C0B2630"
         },
@@ -160,7 +178,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_Com_SteelRough_A_N:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/_Common/Tilable/Metal/T_Com_SteelRough_A_N.42"
+            "ObjectPath": "/Game/Textures/Environment/_Common/Tilable/Metal/T_Com_SteelRough_A_N.44"
           },
           "ExpressionGUID": "383233D6-49F12777-C3CAFD83-8033996D"
         },
@@ -172,7 +190,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_TrimSheet_Wood_B_ORM:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_ORM.45"
+            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_ORM.47"
           },
           "ExpressionGUID": "C9CF5081-4FC975CC-284BC5B8-4D4E5029"
         },
@@ -184,7 +202,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_TrimSheet_Wood_B_ORM:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_ORM.45"
+            "ObjectPath": "/Game/Textures/Environment/_Common/Trims/T_TrimSheet_Wood_B_ORM.47"
           },
           "ExpressionGUID": "A0B03B23-4156A45B-1AE5EA93-6BAFF3DC"
         }
@@ -194,6 +212,16 @@
       },
       "StaticParameters": {
         "StaticSwitchParameters": [
+          {
+            "Value": true,
+            "ParameterInfo": {
+              "Name": "Use Rain System",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "F7F2BE86-4FADF96A-32B13D86-BDA18905"
+          },
           {
             "Value": false,
             "ParameterInfo": {
@@ -225,7 +253,7 @@
             "ExpressionGUID": "19871919-444BF123-5500569A-20088F5C"
           },
           {
-            "Value": true,
+            "Value": false,
             "ParameterInfo": {
               "Name": "Use BaseColor Adjustments",
               "Association": "GlobalParameter",
@@ -267,6 +295,16 @@
           {
             "Value": true,
             "ParameterInfo": {
+              "Name": "Is 100% Dialectric",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "27B3D6F4-421EA849-394FF9A9-DCDC0968"
+          },
+          {
+            "Value": true,
+            "ParameterInfo": {
               "Name": "Use Tint Opacity Map",
               "Association": "GlobalParameter",
               "Index": -1
@@ -294,68 +332,72 @@
       "CachedReferencedTextures": [
         {
           "ObjectName": "T_Diffuse_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Diffuse_Default.35"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Diffuse_Default.36"
         },
         {
           "ObjectName": "T_NormalMap_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_NormalMap_Default.38"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_NormalMap_Default.39"
         },
         {
           "ObjectName": "T_MRH_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_MRH_Default.37"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_MRH_Default.38"
         },
         {
           "ObjectName": "BlendFunc_DefBlend:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBlend.28"
+          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBlend.29"
         },
         {
           "ObjectName": "BlendFunc_DefBase:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBase.27"
+          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBase.28"
         },
         {
           "ObjectName": "T_DiffuseWithAlpha_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default.36"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default.37"
         },
         {
           "ObjectName": "T_Specular_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Specular_Default.41"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Specular_Default.42"
         },
         {
           "ObjectName": "T_RgbMask_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMask_Default.39"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMask_Default.40"
         },
         {
           "ObjectName": "T_RgbMaskWithAlpha_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default.40"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default.41"
         },
         null,
         {
           "ObjectName": "DefaultDiffuse:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/DefaultDiffuse.29"
+          "ObjectPath": "/Engine/EngineMaterials/DefaultDiffuse.30"
         },
         {
           "ObjectName": "T_NoiseNormal_01:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_NoiseNormal_01.33"
+          "ObjectPath": "/Game/Effects/Textures/T_NoiseNormal_01.34"
         },
         {
           "ObjectName": "T_Noise02:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_Noise02.32"
+          "ObjectPath": "/Game/Effects/Textures/T_Noise02.33"
         },
         {
           "ObjectName": "Black:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/Tiles/Black.46"
+          "ObjectPath": "/Game/Textures/Environment/Tiles/Black.48"
         },
         {
           "ObjectName": "T_FlatNormal_01:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_FlatNormal_01.31"
+          "ObjectPath": "/Game/Effects/Textures/T_FlatNormal_01.32"
         },
         {
           "ObjectName": "T_SmokeTile:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_SmokeTile.34"
+          "ObjectPath": "/Game/Effects/Textures/T_SmokeTile.35"
         },
         {
           "ObjectName": "Good64x64TilingNoiseHighFreq:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.30"
+          "ObjectPath": "/Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.31"
+        },
+        {
+          "ObjectName": "T_Rain_Drops_A:Texture2D",
+          "ObjectPath": "/Game/Textures/Environment/_Common/Tilable/Liquid/T_Rain_Drops_A.43"
         }
       ],
       "TextureStreamingData": [

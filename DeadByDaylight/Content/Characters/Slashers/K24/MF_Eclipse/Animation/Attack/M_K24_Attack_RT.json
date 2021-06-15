@@ -1,5 +1,31 @@
 [
   {
+    "Type": "AnimNotify_PlayNiagaraEffect",
+    "Name": "AnimNotify_PlayNiagaraEffect_1",
+    "Properties": {
+      "Template": {
+        "ObjectName": "NS_K24_Zombie_AttackTrail_TPV:NiagaraSystem",
+        "ObjectPath": "/Game/Effects/Niagara/NiagaraParticleSystem/Slasher/K24/NS_K24_Zombie_AttackTrail_TPV.6"
+      },
+      "LocationOffset": {
+        "X": -20.0,
+        "Y": -80.0,
+        "Z": 70.0
+      },
+      "RotationOffset": {
+        "Pitch": 125.0,
+        "Yaw": 0.0,
+        "Roll": 225.0
+      },
+      "Scale": {
+        "X": 0.5,
+        "Y": 0.5,
+        "Z": 0.5
+      },
+      "SocketName": "joint_Char"
+    }
+  },
+  {
     "Type": "AnimSequence",
     "Name": "M_K24_Attack_RT",
     "Properties": {
@@ -193,10 +219,55 @@
         "ObjectName": "DefaultAnimBoneCompressionSettings:AnimBoneCompressionSettings",
         "ObjectPath": "/Engine/Animation/DefaultAnimBoneCompressionSettings.0"
       },
+      "Notifies": [
+        {
+          "TriggerTimeOffset": 0.0,
+          "EndTriggerTimeOffset": 0.0,
+          "TriggerWeightThreshold": 1E-05,
+          "NotifyName": "PlayNiagaraEffect",
+          "Notify": {
+            "ObjectName": "AnimNotify_PlayNiagaraEffect_1:",
+            "ObjectPath": "M_K24_Attack_RT.0"
+          },
+          "NotifyStateClass": null,
+          "Duration": 0.0,
+          "EndLink": {
+            "LinkedMontage": null,
+            "SlotIndex": 0,
+            "SegmentIndex": -1,
+            "LinkMethod": "EAnimLinkMethod::Absolute",
+            "CachedLinkMethod": "EAnimLinkMethod::Absolute",
+            "SegmentBeginTime": 0.0,
+            "SegmentLength": 0.0,
+            "LinkValue": 0.112219,
+            "LinkedSequence": null
+          },
+          "bConvertedFromBranchingPoint": false,
+          "MontageTickType": "EMontageNotifyTickType::Queued",
+          "NotifyTriggerChance": 1.0,
+          "NotifyFilterType": "ENotifyFilterType::NoFiltering",
+          "NotifyFilterLOD": 0,
+          "bTriggerOnDedicatedServer": true,
+          "bTriggerOnFollower": false,
+          "TrackIndex": 0,
+          "LinkedMontage": null,
+          "SlotIndex": 0,
+          "SegmentIndex": 0,
+          "LinkMethod": "EAnimLinkMethod::Absolute",
+          "CachedLinkMethod": "EAnimLinkMethod::Absolute",
+          "SegmentBeginTime": 0.0,
+          "SegmentLength": 1.7,
+          "LinkValue": 0.112219,
+          "LinkedSequence": {
+            "ObjectName": "M_K24_Attack_RT:",
+            "ObjectPath": 1
+          }
+        }
+      ],
       "SequenceLength": 1.7,
       "Skeleton": {
         "ObjectName": "CamperMale_REF_Skeleton:Skeleton",
-        "ObjectPath": "/Game/Characters/Campers/Models/CamperMale_REF_Skeleton.8"
+        "ObjectPath": "/Game/Characters/Campers/Models/CamperMale_REF_Skeleton.13"
       }
     }
   }

@@ -5,7 +5,7 @@
     "Properties": {
       "PhysMaterial": {
         "ObjectName": "PM_Concrete:PhysicalMaterial",
-        "ObjectPath": "/Game/Materials/PhysicalMaterials/PM_Concrete.26"
+        "ObjectPath": "/Game/Materials/PhysicalMaterials/PM_Concrete.28"
       },
       "Parent": {
         "ObjectName": "MIM_Simple_Ground:MaterialInstanceConstant",
@@ -132,6 +132,33 @@
         },
         {
           "ParameterInfo": {
+            "Name": "Rain Drops Tiling",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": 5.0,
+          "ExpressionGUID": "2CBA76CA-4880225F-77DC71B8-F27FD968"
+        },
+        {
+          "ParameterInfo": {
+            "Name": "Wetness Intensity",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": 0.65,
+          "ExpressionGUID": "DC3C3982-4B5BAA18-362C96B4-4C1E79DA"
+        },
+        {
+          "ParameterInfo": {
+            "Name": "Porous Intensity",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": 0.65,
+          "ExpressionGUID": "C268A052-46239D36-F49F6DA7-A82D6207"
+        },
+        {
+          "ParameterInfo": {
             "Name": "RefractionDepthBias",
             "Association": "GlobalParameter",
             "Index": -1
@@ -160,13 +187,49 @@
       "TextureParameterValues": [
         {
           "ParameterInfo": {
+            "Name": "EM Noise Texture",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": {
+            "ObjectName": "T_Noise02:Texture2D",
+            "ObjectPath": "/Game/Effects/Textures/T_Noise02.34"
+          },
+          "ExpressionGUID": "69710E48-4E332277-B46CC0A2-BA794E3C"
+        },
+        {
+          "ParameterInfo": {
+            "Name": "ECM- CrackMask",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": {
+            "ObjectName": "T_SmokeTile:Texture2D",
+            "ObjectPath": "/Game/Effects/Textures/T_SmokeTile.36"
+          },
+          "ExpressionGUID": "7E597169-49377770-52E5319F-794EDB41"
+        },
+        {
+          "ParameterInfo": {
+            "Name": "NormalMap_Exp01",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": {
+            "ObjectName": "T_DirtTerrain_Cracks_N:Texture2D",
+            "ObjectPath": "/Game/Materials/Substance/Textures/T_DirtTerrain_Cracks_N.37"
+          },
+          "ExpressionGUID": "C53060A6-42D901A4-5767EE9D-DAB39A9D"
+        },
+        {
+          "ParameterInfo": {
             "Name": "BaseColor Map",
             "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": {
             "ObjectName": "T_Ecl_PavementRock_A_BC:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_PavementRock_A_BC.43"
+            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_PavementRock_A_BC.47"
           },
           "ExpressionGUID": "9217CC03-43B500A4-1C95A69B-CF0B8993"
         },
@@ -178,7 +241,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_Ecl_PavementRock_A_N:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_PavementRock_A_N.45"
+            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_PavementRock_A_N.49"
           },
           "ExpressionGUID": "8E4D9DB2-4FE26D11-FD4E79AD-2C0B2630"
         },
@@ -190,7 +253,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_Ecl_PavementRock_A_HRM:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_PavementRock_A_HRM.44"
+            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_PavementRock_A_HRM.48"
           },
           "ExpressionGUID": "C9CF5081-4FC975CC-284BC5B8-4D4E5029"
         },
@@ -202,7 +265,7 @@
           },
           "ParameterValue": {
             "ObjectName": "T_Ecl_FloorTilesDiamond_A_HRM:Texture2D",
-            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_FloorTilesDiamond_A_HRM.42"
+            "ObjectPath": "/Game/Textures/Environment/Eclipse/Structures/T_Ecl_FloorTilesDiamond_A_HRM.46"
           },
           "ExpressionGUID": "A0B03B23-4156A45B-1AE5EA93-6BAFF3DC"
         }
@@ -212,6 +275,16 @@
       },
       "StaticParameters": {
         "StaticSwitchParameters": [
+          {
+            "Value": true,
+            "ParameterInfo": {
+              "Name": "Use Rain System",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "F7F2BE86-4FADF96A-32B13D86-BDA18905"
+          },
           {
             "Value": true,
             "ParameterInfo": {
@@ -271,6 +344,16 @@
             },
             "bOverride": true,
             "ExpressionGUID": "85113E21-479EEC77-9B2FC281-92083E29"
+          },
+          {
+            "Value": true,
+            "ParameterInfo": {
+              "Name": "Use Rain Drop",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "bOverride": true,
+            "ExpressionGUID": "D920F2F3-446CC6E7-E3F2909C-67674893"
           }
         ],
         "StaticComponentMaskParameters": [
@@ -318,68 +401,72 @@
       "CachedReferencedTextures": [
         {
           "ObjectName": "T_Diffuse_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Diffuse_Default.35"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Diffuse_Default.38"
         },
         {
           "ObjectName": "T_NormalMap_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_NormalMap_Default.38"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_NormalMap_Default.41"
         },
         {
           "ObjectName": "T_MRH_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_MRH_Default.37"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_MRH_Default.40"
         },
         {
           "ObjectName": "BlendFunc_DefBlend:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBlend.28"
+          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBlend.30"
         },
         {
           "ObjectName": "BlendFunc_DefBase:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBase.27"
+          "ObjectPath": "/Engine/EngineMaterials/BlendFunc_DefBase.29"
         },
         {
           "ObjectName": "T_DiffuseWithAlpha_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default.36"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default.39"
         },
         {
           "ObjectName": "T_Specular_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Specular_Default.41"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_Specular_Default.44"
         },
         {
           "ObjectName": "T_RgbMask_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMask_Default.39"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMask_Default.42"
         },
         {
           "ObjectName": "T_RgbMaskWithAlpha_Default:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default.40"
+          "ObjectPath": "/Game/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default.43"
         },
         null,
         {
           "ObjectName": "DefaultDiffuse:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/DefaultDiffuse.29"
+          "ObjectPath": "/Engine/EngineMaterials/DefaultDiffuse.31"
         },
         {
           "ObjectName": "T_NoiseNormal_01:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_NoiseNormal_01.33"
+          "ObjectPath": "/Game/Effects/Textures/T_NoiseNormal_01.35"
         },
         {
           "ObjectName": "T_Noise02:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_Noise02.32"
+          "ObjectPath": "/Game/Effects/Textures/T_Noise02.34"
         },
         {
           "ObjectName": "Black:Texture2D",
-          "ObjectPath": "/Game/Textures/Environment/Tiles/Black.46"
+          "ObjectPath": "/Game/Textures/Environment/Tiles/Black.50"
         },
         {
           "ObjectName": "T_FlatNormal_01:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_FlatNormal_01.31"
+          "ObjectPath": "/Game/Effects/Textures/T_FlatNormal_01.33"
         },
         {
           "ObjectName": "T_SmokeTile:Texture2D",
-          "ObjectPath": "/Game/Effects/Textures/T_SmokeTile.34"
+          "ObjectPath": "/Game/Effects/Textures/T_SmokeTile.36"
         },
         {
           "ObjectName": "Good64x64TilingNoiseHighFreq:Texture2D",
-          "ObjectPath": "/Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.30"
+          "ObjectPath": "/Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.32"
+        },
+        {
+          "ObjectName": "T_Rain_Drops_A:Texture2D",
+          "ObjectPath": "/Game/Textures/Environment/_Common/Tilable/Liquid/T_Rain_Drops_A.45"
         }
       ],
       "TextureStreamingData": [
