@@ -6,17 +6,7 @@
   },
   {
     "Type": "Function",
-    "Name": "Cosmetic_OnStoppedInteracting",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
     "Name": "ReceiveTick",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "Cosmetic_OnInteractionCompleted",
     "Properties": {}
   },
   {
@@ -32,6 +22,16 @@
   {
     "Type": "Function",
     "Name": "Cosmetic_OnStartedInteracting",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_OnStoppedInteracting",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_OnInteractionCompleted",
     "Properties": {}
   },
   {
@@ -65,7 +65,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_0:",
-        "ObjectPath": "BasicGlyph_C.46"
+        "ObjectPath": "BasicGlyph_C.50"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_BasicGlyph:",
@@ -85,6 +85,7 @@
         "A": 1.0,
         "Hex": "510504"
       },
+      "Play Common Stop Audio Event  On Stopped Interacting": true,
       "_glyphInteraction": {
         "ObjectName": "GlyphInteraction:",
         "ObjectPath": "Default__BasicGlyph_C.19"
@@ -115,7 +116,7 @@
       },
       "_glyphMesh": {
         "ObjectName": "GlyphMesh:",
-        "ObjectPath": "Default__BasicGlyph_C.49"
+        "ObjectPath": "Default__BasicGlyph_C.53"
       },
       "_nearTrackedActorComponent": {
         "ObjectName": "NearPlayerTracker:",
@@ -130,7 +131,7 @@
       },
       "RootComponent": {
         "ObjectName": "Root:",
-        "ObjectPath": "Default__BasicGlyph_C.32"
+        "ObjectPath": "Default__BasicGlyph_C.34"
       }
     }
   },
@@ -255,7 +256,7 @@
       },
       "AttachParent": {
         "ObjectName": "Root:",
-        "ObjectPath": "Default__BasicGlyph_C.32"
+        "ObjectPath": "Default__BasicGlyph_C.34"
       },
       "RelativeLocation": {
         "X": 0.0,
@@ -280,7 +281,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "GlyphMesh:",
-        "ObjectPath": "Default__BasicGlyph_C.49"
+        "ObjectPath": "Default__BasicGlyph_C.53"
       }
     }
   },
@@ -358,7 +359,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_CQ_Glyph_Activation_Killer:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_Activation_Killer.114"
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_Activation_Killer.116"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
@@ -383,7 +384,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_CQ_Glyph_activation:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_activation.113"
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_activation.115"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "TranslucencySortPriority": 1,
@@ -409,7 +410,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_CQ_Glyph_appear:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_appear.115"
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_appear.117"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
@@ -434,7 +435,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_CQ_Glyph_completed:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_completed.116"
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_completed.118"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "TranslucencySortPriority": 1,
@@ -460,9 +461,61 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_CQ_Glyph_disappear:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_disappear.117"
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_disappear.119"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 110.0
+      },
+      "RelativeScale3D": {
+        "X": 2.0,
+        "Y": 2.0,
+        "Z": 2.0
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "Glyph_GlitchAppear_GEN_VARIABLE",
+    "Properties": {
+      "Template": {
+        "ObjectName": "P_CQ_Glyph_GlitchAppear:ParticleSystem",
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_GlitchAppear.120"
+      },
+      "WarmupTime": 0.3,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 110.0
+      },
+      "RelativeScale3D": {
+        "X": 2.0,
+        "Y": 2.0,
+        "Z": 2.0
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "Glyph_GlitchDisappear_GEN_VARIABLE",
+    "Properties": {
+      "Template": {
+        "ObjectName": "P_CQ_Glyph_GlitchDisappear:ParticleSystem",
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_GlitchDisappear.121"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "TranslucencySortPriority": 1,
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
@@ -485,7 +538,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_CQ_Glyph_Killer_stopped:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_Killer_stopped.118"
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_Killer_stopped.122"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
@@ -510,7 +563,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "P_CQ_Glyph_stopped:ParticleSystem",
-        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_stopped.119"
+        "ObjectPath": "/Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_stopped.123"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
@@ -549,7 +602,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DefaultSceneRoot_GEN_VARIABLE:",
-        "ObjectPath": "BasicGlyph_C.31"
+        "ObjectPath": "BasicGlyph_C.33"
       },
       "VariableGuid": "B12E39C7-41B73C2D-207A2693-F04FB706",
       "InternalVariableName": "DefaultSceneRoot"
@@ -565,7 +618,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "Can Use placeholder text_GEN_VARIABLE:",
-        "ObjectPath": "BasicGlyph_C.50"
+        "ObjectPath": "BasicGlyph_C.54"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -607,12 +660,48 @@
       },
       "ComponentTemplate": {
         "ObjectName": "Glyph_Killer_stopped_GEN_VARIABLE:",
-        "ObjectPath": "BasicGlyph_C.29"
+        "ObjectPath": "BasicGlyph_C.31"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
       "VariableGuid": "2A6B5089-4C195B71-3F91D98F-DF3203CE",
       "InternalVariableName": "Glyph_Killer_stopped"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "ParticleSystemComponent:Class",
+        "ObjectPath": "/Script/Engine.37"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Glyph_GlitchDisappear_GEN_VARIABLE:",
+        "ObjectPath": "BasicGlyph_C.30"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "B20397F4-427B3C42-537448A5-A9905547",
+      "InternalVariableName": "Glyph_GlitchDisappear"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "ParticleSystemComponent:Class",
+        "ObjectPath": "/Script/Engine.37"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "Glyph_GlitchAppear_GEN_VARIABLE:",
+        "ObjectPath": "BasicGlyph_C.29"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "696CB09A-4CF8B56F-C2A0FE85-6C79A196",
+      "InternalVariableName": "Glyph_GlitchAppear"
     }
   },
   {
@@ -625,7 +714,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "GlyphOutline_GEN_VARIABLE:",
-        "ObjectPath": "BasicGlyph_C.48"
+        "ObjectPath": "BasicGlyph_C.52"
       },
       "ParentComponentOrVariableName": "GlyphMesh",
       "bIsParentComponentNative": true,
@@ -661,7 +750,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "Cannot Use placeholder text_GEN_VARIABLE:",
-        "ObjectPath": "BasicGlyph_C.51"
+        "ObjectPath": "BasicGlyph_C.55"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -733,7 +822,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "Dwight_REF_GEN_VARIABLE:",
-        "ObjectPath": "BasicGlyph_C.47"
+        "ObjectPath": "BasicGlyph_C.51"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -751,7 +840,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "Glyph_stopped_GEN_VARIABLE:",
-        "ObjectPath": "BasicGlyph_C.30"
+        "ObjectPath": "BasicGlyph_C.32"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -784,106 +873,122 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BasicGlyph_C.34"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "BasicGlyph_C.39"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
-          "ObjectPath": "BasicGlyph_C.40"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
-          "ObjectPath": "BasicGlyph_C.41"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
-          "ObjectPath": "BasicGlyph_C.42"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
-          "ObjectPath": "BasicGlyph_C.43"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
-          "ObjectPath": "BasicGlyph_C.44"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
-          "ObjectPath": "BasicGlyph_C.45"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
-          "ObjectPath": "BasicGlyph_C.35"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BasicGlyph_C.38"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
           "ObjectPath": "BasicGlyph_C.36"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_14:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
+          "ObjectPath": "BasicGlyph_C.43"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
+          "ObjectPath": "BasicGlyph_C.44"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
+          "ObjectPath": "BasicGlyph_C.45"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
+          "ObjectPath": "BasicGlyph_C.46"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
+          "ObjectPath": "BasicGlyph_C.47"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectPath": "BasicGlyph_C.48"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectPath": "BasicGlyph_C.49"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
           "ObjectPath": "BasicGlyph_C.37"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BasicGlyph_C.42"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
+          "ObjectPath": "BasicGlyph_C.38"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_14:",
+          "ObjectPath": "BasicGlyph_C.41"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_12:",
+          "ObjectPath": "BasicGlyph_C.39"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_13:",
+          "ObjectPath": "BasicGlyph_C.40"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_0:SCS_Node_1:",
-          "ObjectPath": "BasicGlyph_C.34"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
-          "ObjectPath": "BasicGlyph_C.39"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
-          "ObjectPath": "BasicGlyph_C.40"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
-          "ObjectPath": "BasicGlyph_C.41"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
-          "ObjectPath": "BasicGlyph_C.42"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
-          "ObjectPath": "BasicGlyph_C.43"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
-          "ObjectPath": "BasicGlyph_C.44"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
-          "ObjectPath": "BasicGlyph_C.45"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
-          "ObjectPath": "BasicGlyph_C.35"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
-          "ObjectPath": "BasicGlyph_C.38"
-        },
-        {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
           "ObjectPath": "BasicGlyph_C.36"
         },
         {
-          "ObjectName": "SimpleConstructionScript_0:SCS_Node_14:",
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_3:",
+          "ObjectPath": "BasicGlyph_C.43"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_4:",
+          "ObjectPath": "BasicGlyph_C.44"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_5:",
+          "ObjectPath": "BasicGlyph_C.45"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_6:",
+          "ObjectPath": "BasicGlyph_C.46"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_7:",
+          "ObjectPath": "BasicGlyph_C.47"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_8:",
+          "ObjectPath": "BasicGlyph_C.48"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_9:",
+          "ObjectPath": "BasicGlyph_C.49"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_10:",
           "ObjectPath": "BasicGlyph_C.37"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_2:",
+          "ObjectPath": "BasicGlyph_C.42"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_11:",
+          "ObjectPath": "BasicGlyph_C.38"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_14:",
+          "ObjectPath": "BasicGlyph_C.41"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_12:",
+          "ObjectPath": "BasicGlyph_C.39"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_0:SCS_Node_13:",
+          "ObjectPath": "BasicGlyph_C.40"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_0:SCS_Node_0:",
-        "ObjectPath": "BasicGlyph_C.33"
+        "ObjectPath": "BasicGlyph_C.35"
       }
     }
   },
@@ -908,7 +1013,7 @@
       },
       "SkeletalMesh": {
         "ObjectName": "Dwight_REF:SkeletalMesh",
-        "ObjectPath": "/Game/Characters/Campers/Dwight/Models/Dwight_REF.131"
+        "ObjectPath": "/Game/Characters/Campers/Dwight/Models/Dwight_REF.135"
       },
       "bComponentUseFixedSkelBounds": true,
       "bEnableUpdateRateOptimizations": true,
@@ -927,7 +1032,7 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "Shape_Cylinder:StaticMesh",
-        "ObjectPath": "/Game/StarterContent/Shapes/Shape_Cylinder.133"
+        "ObjectPath": "/Game/StarterContent/Shapes/Shape_Cylinder.137"
       },
       "bUseDefaultCollision": false,
       "bGenerateOverlapEvents": false,
@@ -1141,7 +1246,7 @@
       },
       "AttachParent": {
         "ObjectName": "Root:",
-        "ObjectPath": "Default__BasicGlyph_C.32"
+        "ObjectPath": "Default__BasicGlyph_C.34"
       },
       "RelativeLocation": {
         "X": 0.0,

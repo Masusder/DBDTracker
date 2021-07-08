@@ -20,7 +20,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript_4:",
-        "ObjectPath": "BP_Hos_TV_02_C.14"
+        "ObjectPath": "BP_Hos_TV_02_C.15"
       },
       "UberGraphFunction": {
         "ObjectName": "ExecuteUbergraph_BP_Hos_TV_02:",
@@ -64,8 +64,14 @@
     "Type": "PointLightComponent",
     "Name": "PointLight_GEN_VARIABLE",
     "Properties": {
-      "AttenuationRadius": 200.0,
-      "Intensity": 50.0,
+      "LightFalloffExponent": 2.0,
+      "IntensityUnits": "ELightUnits::Lumens",
+      "AttenuationRadius": 150.0,
+      "LightFunctionMaterial": {
+        "ObjectName": "M_Flicker_InstTV:MaterialInstanceConstant",
+        "ObjectPath": "/Game/Materials/Instances/M_Flicker_InstTV.23"
+      },
+      "Intensity": 1.0,
       "LightColor": {
         "R": 255,
         "G": 231,
@@ -73,15 +79,15 @@
         "A": 255,
         "Hex": "FFFFE7D7"
       },
+      "bAffectsWorld": false,
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 3.0517578E-05,
-        "Y": 94.00039,
-        "Z": 42.174973
+        "X": 1.5364914,
+        "Y": 14.914814,
+        "Z": 31.718334
       },
-      "Mobility": "EComponentMobility::Static",
       "DetailModeBitMask": -5
     }
   },
@@ -115,6 +121,22 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "SpotLightComponent:Class",
+        "ObjectPath": "/Script/Engine.15"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SpotLight_GEN_VARIABLE:",
+        "ObjectPath": "BP_Hos_TV_02_C.16"
+      },
+      "VariableGuid": "03308913-4F6E6B52-3E0FBF8B-44DF9346",
+      "InternalVariableName": "SpotLight"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_2",
     "Properties": {
       "ComponentClass": {
@@ -135,11 +157,11 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "StaticMeshComponent:Class",
-        "ObjectPath": "/Script/Engine.15"
+        "ObjectPath": "/Script/Engine.16"
       },
       "ComponentTemplate": {
         "ObjectName": "SM_HOS_TV02_GEN_VARIABLE:",
-        "ObjectPath": "BP_Hos_TV_02_C.15"
+        "ObjectPath": "BP_Hos_TV_02_C.17"
       },
       "VariableGuid": "A1BEB16A-4CD7ADED-D83B7594-7D013A78",
       "InternalVariableName": "SM_HOS_TV02"
@@ -160,7 +182,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_2:",
-          "ObjectPath": "BP_Hos_TV_02_C.10"
+          "ObjectPath": "BP_Hos_TV_02_C.11"
         },
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_0:",
@@ -168,7 +190,11 @@
         },
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_3:",
-          "ObjectPath": "BP_Hos_TV_02_C.11"
+          "ObjectPath": "BP_Hos_TV_02_C.12"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_4:SCS_Node_1:",
+          "ObjectPath": "BP_Hos_TV_02_C.10"
         }
       ],
       "VariableGuid": "3B9D9BBB-4FD1C56E-656487B5-DDECE528",
@@ -198,17 +224,17 @@
       "RootNodes": [
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_4:",
-          "ObjectPath": "BP_Hos_TV_02_C.12"
+          "ObjectPath": "BP_Hos_TV_02_C.13"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_4:",
-          "ObjectPath": "BP_Hos_TV_02_C.12"
+          "ObjectPath": "BP_Hos_TV_02_C.13"
         },
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_2:",
-          "ObjectPath": "BP_Hos_TV_02_C.10"
+          "ObjectPath": "BP_Hos_TV_02_C.11"
         },
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_0:",
@@ -216,12 +242,44 @@
         },
         {
           "ObjectName": "SimpleConstructionScript_4:SCS_Node_3:",
-          "ObjectPath": "BP_Hos_TV_02_C.11"
+          "ObjectPath": "BP_Hos_TV_02_C.12"
+        },
+        {
+          "ObjectName": "SimpleConstructionScript_4:SCS_Node_1:",
+          "ObjectPath": "BP_Hos_TV_02_C.10"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SimpleConstructionScript_4:SCS_Node_47:",
-        "ObjectPath": "BP_Hos_TV_02_C.13"
+        "ObjectPath": "BP_Hos_TV_02_C.14"
+      }
+    }
+  },
+  {
+    "Type": "SpotLightComponent",
+    "Name": "SpotLight_GEN_VARIABLE",
+    "Properties": {
+      "OuterConeAngle": 80.0,
+      "IntensityUnits": "ELightUnits::Lumens",
+      "AttenuationRadius": 150.0,
+      "Temperature": 9500.0,
+      "bUseTemperature": true,
+      "LightFunctionMaterial": {
+        "ObjectName": "M_Flicker_InstTV:MaterialInstanceConstant",
+        "ObjectPath": "/Game/Materials/Instances/M_Flicker_InstTV.23"
+      },
+      "Intensity": 0.5,
+      "CastShadows": false,
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "RelativeLocation": {
+        "X": -1.4667859,
+        "Y": 12.443037,
+        "Z": 34.090836
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
       }
     }
   },
@@ -231,7 +289,7 @@
     "Properties": {
       "StaticMesh": {
         "ObjectName": "SM_HOS_TV02:StaticMesh",
-        "ObjectPath": "/Game/Meshes/Environment/Hospital/Props/SM_HOS_TV02.34"
+        "ObjectPath": "/Game/Meshes/Environment/Hospital/Props/SM_HOS_TV02.38"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "Mobility": "EComponentMobility::Static"

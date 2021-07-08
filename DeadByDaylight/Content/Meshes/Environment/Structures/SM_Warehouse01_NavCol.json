@@ -1,7 +1,7 @@
 [
   {
     "Type": "BodySetup",
-    "Name": "BodySetup_1",
+    "Name": "BodySetup_3",
     "Properties": {
       "AggGeom": {
         "ConvexElems": [
@@ -250,7 +250,10 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "Z": 0.0,
-                "W": 1.0
+                "W": 1.0,
+                "SizeSquared": 1.0,
+                "Size": 1.0,
+                "IsNormalized": true
               },
               "Translation": {
                 "X": 0.0,
@@ -271,21 +274,62 @@
       },
       "CollisionTraceFlag": "CTF_UseComplexAsSimple",
       "DefaultInstance": {
-        "ObjectType": "ECC_GameTraceChannel15",
-        "CollisionProfileName": "Ground",
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "GroundNonBlocking",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Interactable",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
             },
             {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
@@ -296,8 +340,16 @@
               "Response": "ECR_Overlap"
             },
             {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
+              "Channel": "Blink",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
             }
           ]
         }
@@ -306,7 +358,7 @@
   },
   {
     "Type": "NavCollision",
-    "Name": "NavCollision_2",
+    "Name": "NavCollision_6",
     "Properties": {}
   },
   {
@@ -322,21 +374,21 @@
         {
           "MaterialInterface": {
             "ObjectName": "WorldGridMaterial:Material",
-            "ObjectPath": "/Engine/EngineMaterials/WorldGridMaterial.4"
+            "ObjectPath": "/Game/Materials/WorldGridMaterial.4"
           },
-          "MaterialSlotName": "lambert1",
-          "ImportedMaterialSlotName": "lambert1",
+          "MaterialSlotName": "WorldGridMaterial",
+          "ImportedMaterialSlotName": "WorldGridMaterial",
           "UVChannelData": {
             "bInitialized": true,
             "bOverrideDensities": false,
-            "LocalUVDensities": 1304.8628,
-            "LocalUVDensities": 1964.6361,
+            "LocalUVDensities": 1238.7881,
+            "LocalUVDensities": 1971.6879,
             "LocalUVDensities": 0.0,
             "LocalUVDensities": 0.0
           }
         }
       ],
-      "LightmapUVDensity": 1964.6361,
+      "LightmapUVDensity": 1971.6879,
       "LightMapResolution": 64,
       "LightMapCoordinateIndex": 1,
       "ExtendedBounds": {

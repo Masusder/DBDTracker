@@ -6,11 +6,6 @@
   },
   {
     "Type": "Function",
-    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_TransitionResult_B0412A5547198D3A63BAE99781FB0C9A",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
     "Name": "BlueprintBeginPlay",
     "Properties": {}
   },
@@ -26,12 +21,12 @@
   },
   {
     "Type": "Function",
-    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_TransitionResult_4434B1494E1DF54C416E5D975BB7182C",
+    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_TransitionResult_B0412A5547198D3A63BAE99781FB0C9A",
     "Properties": {}
   },
   {
     "Type": "Function",
-    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_SequencePlayer_CB6806D84C1B3D02473862BEA966BA58",
+    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_TransitionResult_4434B1494E1DF54C416E5D975BB7182C",
     "Properties": {}
   },
   {
@@ -42,6 +37,11 @@
   {
     "Type": "Function",
     "Name": "GetTeleportDuration",
+    "Properties": {}
+  },
+  {
+    "Type": "Function",
+    "Name": "CalculateTeleportExitPlayrate",
     "Properties": {}
   },
   {
@@ -212,7 +212,7 @@
       ],
       "TargetSkeleton": {
         "ObjectName": "SlasherMale_REF_Skeleton:Skeleton",
-        "ObjectPath": "/Game/Characters/Slashers/Models/SlasherMale_REF_Skeleton.63"
+        "ObjectPath": "/Game/Characters/Slashers/Models/SlasherMale_REF_Skeleton.67"
       },
       "OrderedSavedPoseIndicesMap": {
         "AnimGraph": {
@@ -224,7 +224,7 @@
           "BoundFunction": "None",
           "CopyRecords": [
             {
-              "SourcePropertyName": "TeleportDurationPlayrate",
+              "SourcePropertyName": "TeleportExitPlayrate",
               "SourceSubPropertyName": "None",
               "SourceArrayIndex": 0,
               "bInstanceIsTarget": false,
@@ -235,14 +235,14 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimNode_SequencePlayer:ScriptStruct",
-                  "ObjectPath": "/Script/Engine.56"
+                  "ObjectPath": "/Script/Engine.60"
                 }
               },
               "DestArrayIndex": 0,
               "Size": 4,
               "CachedSourceProperty": {
                 "Path": [
-                  "TeleportDurationPlayrate"
+                  "TeleportExitPlayrate"
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AB_Qatar_Husk_C:",
@@ -267,12 +267,41 @@
           }
         },
         {
-          "BoundFunction": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_SequencePlayer_CB6806D84C1B3D02473862BEA966BA58",
-          "CopyRecords": [],
-          "Function": {
-            "ObjectName": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_SequencePlayer_CB6806D84C1B3D02473862BEA966BA58:",
-            "ObjectPath": "AB_Qatar_Husk_C.6"
-          },
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "TeleportExitPlayrate",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::None",
+              "DestProperty": {
+                "Path": [
+                  "PlayRate"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AnimNode_SequencePlayer:ScriptStruct",
+                  "ObjectPath": "/Script/Engine.60"
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 4,
+              "CachedSourceProperty": {
+                "Path": [
+                  "TeleportExitPlayrate"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AB_Qatar_Husk_C:",
+                  "ObjectPath": 10
+                }
+              },
+              "CachedSourceStructSubProperty": {
+                "Path": [],
+                "ResolvedOwner": null
+              }
+            }
+          ],
+          "Function": null,
           "ValueHandlerNodeProperty": {
             "Path": [
               "AnimGraphNode_SequencePlayer_3"
@@ -288,7 +317,7 @@
           "CopyRecords": [],
           "Function": {
             "ObjectName": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Qatar_Husk_AnimGraphNode_TransitionResult_B0412A5547198D3A63BAE99781FB0C9A:",
-            "ObjectPath": "AB_Qatar_Husk_C.1"
+            "ObjectPath": "AB_Qatar_Husk_C.4"
           },
           "ValueHandlerNodeProperty": {
             "Path": [
@@ -332,7 +361,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimNode_TransitionResult:ScriptStruct",
-                  "ObjectPath": "/Script/Engine.58"
+                  "ObjectPath": "/Script/Engine.62"
                 }
               },
               "DestArrayIndex": 0,
@@ -378,7 +407,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimNode_TransitionResult:ScriptStruct",
-                  "ObjectPath": "/Script/Engine.58"
+                  "ObjectPath": "/Script/Engine.62"
                 }
               },
               "DestArrayIndex": 0,
@@ -610,8 +639,7 @@
         "MaxTransitionsPerFrame": 3,
         "bSkipFirstUpdateTransition": true,
         "bReinitializeOnBecomingRelevant": true
-      },
-      "SlowTeleportDurationPlayrateSync": 0.05
+      }
     }
   }
 ]
