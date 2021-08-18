@@ -1,42 +1,74 @@
 [
   {
-    "Type": "Function",
-    "Name": "ExecuteUbergraph_BP_InjectSerum_Other",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "OnInteractionEnterStart",
-    "Properties": {}
-  },
-  {
-    "Type": "Function",
-    "Name": "IsInteractionPossibleBP",
-    "Properties": {}
-  },
-  {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_InjectSerum_Other_C",
-    "Properties": {
-      "UberGraphFunction": {
-        "ObjectName": "ExecuteUbergraph_BP_InjectSerum_Other:",
-        "ObjectPath": "BP_InjectSerum_Other_C.0"
-      }
+    "SuperStruct": {
+      "ObjectName": "Class InjectSerumOther",
+      "ObjectPath": "/Script/TheK24"
+    },
+    "FuncMap": {},
+    "ClassFlags": 10754068,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "ClassGeneratedBy": null,
+    "Interfaces": [],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_InjectSerum_Other_C Default__BP_InjectSerum_Other_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K24/Serum/BP_InjectSerum_Other.1"
     }
   },
   {
-    "Type": "BP_InjectSerum_Self_C",
+    "Type": "BP_InjectSerum_Other_C",
     "Name": "Default__BP_InjectSerum_Other_C",
     "Properties": {
-      "UberGraphFrame": {},
+      "_injectSerumKillerInstinctTime": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable K24_TunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/Eclipse/K24_TunableDB.0"
+            },
+            "RowName": "InjectSerumKillerInstinctTime"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyInjectSerumKillerInstinctTime"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
       "_scoreEvent": {
         "TagName": "GameEvent.ScoreEvent.Camper.Injected.Serum.Other"
       },
+      "_serumApplyHeal": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable K24_TunableDB",
+            "ObjectPath": "DeadByDaylight/Content/Data/Dlc/Eclipse/K24_TunableDB.0"
+          },
+          "RowName": "SerumApplyHeal"
+        }
+      },
+      "StopInteractionOnChargeComplete": true,
+      "_interactionSpecificActionSpeedAdditiveTags": [
+        "GameplayModifierType.ModifyInjectSerumTimeAdditive"
+      ],
       "InteractionID": "InjectSerumOther",
+      "CamperCanInteract": true,
       "SnapPosition": true,
       "SnapRotation": true,
       "SnapStopDistance": 100.0,
-      "UseCameraMontageMode": true,
+      "CancelOnHit": true,
+      "InteractionInputType": "EInputInteractionType::VE_ItemUse",
+      "StopInteractionOnInputRelease": true,
       "InteractionDescriptionText": {
         "Namespace": "",
         "Key": "424ECEA24E5AB849BA3977A36B831A24",
@@ -46,7 +78,19 @@
       "_tags": [
         "Semantics.Interaction.Id.Survivor.InjectingSerumOther"
       ],
-      "_allowInteractionInNarrowSpaces": true
+      "_allowInteractionInNarrowSpaces": true,
+      "_activationDefinition": {
+        "_activationStrategy": "EActivationStrategy::ActivateIfAnyTagMatches",
+        "_activationTags": [
+          "State.Presence.TheK24"
+        ]
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 80.0
+      },
+      "bComponentToWorldUpdated": true
     }
   }
 ]

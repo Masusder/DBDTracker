@@ -2,16 +2,48 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Addon_K24Power_19_C",
-    "Properties": {}
+    "SuperStruct": {
+      "ObjectName": "Class OnEventSetTimerAddon",
+      "ObjectPath": "/Script/DBDCompetence"
+    },
+    "FuncMap": {},
+    "ClassFlags": 10749972,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "ClassGeneratedBy": null,
+    "Interfaces": [],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Addon_K24Power_19_C Default__Addon_K24Power_19_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/K24PowerAddons/Addon_K24Power_19.1"
+    }
   },
   {
-    "Type": "ImposeStatusEffectOnEventAddon",
+    "Type": "Addon_K24Power_19_C",
     "Name": "Default__Addon_K24Power_19_C",
     "Properties": {
-      "_statusEffectTime": 60.0,
-      "_statusEffectName": "IncreaseZombiesSpeedEffect",
+      "_addonEffectTime": 60.0,
       "_eventToListenTo": {
         "TagName": "GameEvent.Generator.Fixed"
+      },
+      "ModifierData": {
+        "Conditions": [
+          {
+            "ObjectName": "Class IsActivationTimerActive",
+            "ObjectPath": "/Script/DBDCompetence"
+          }
+        ],
+        "Modifiers": [
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.ModifyZombieWalkSpeedAdditive"
+            },
+            "ModifierValue": 100.0
+          }
+        ]
       }
     }
   }

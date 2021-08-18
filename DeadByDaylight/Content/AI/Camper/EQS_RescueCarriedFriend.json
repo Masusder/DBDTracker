@@ -6,8 +6,8 @@
       "QueryName": "EQS_RescueCarriedFriend",
       "Options": [
         {
-          "ObjectName": "EnvQueryOption_0:",
-          "ObjectPath": "EQS_RescueCarriedFriend.2"
+          "ObjectName": "EnvQueryOption EQS_RescueCarriedFriend:EnvQueryOption_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_RescueCarriedFriend.2"
         }
       ]
     }
@@ -15,6 +15,7 @@
   {
     "Type": "EnvQueryGenerator_SimpleGrid",
     "Name": "EnvQueryGenerator_SimpleGrid_0",
+    "Outer": "EQS_RescueCarriedFriend",
     "Properties": {
       "GridSize": {
         "DefaultValue": 900.0
@@ -23,14 +24,14 @@
         "DefaultValue": 50.0
       },
       "GenerateAround": {
-        "ObjectName": "EnvQueryContext_PinActor:Class",
-        "ObjectPath": "/Script/DBDBots.9"
+        "ObjectName": "Class EnvQueryContext_PinActor",
+        "ObjectPath": "/Script/DBDBots"
       },
       "ProjectionData": {
         "VersionNum": 1,
         "NavigationFilter": {
-          "ObjectName": "NavQuery_Camper_RescueCarriedFriend_C:BlueprintGeneratedClass",
-          "ObjectPath": "/Game/AI/Camper/NavQuery_Camper_RescueCarriedFriend.0"
+          "ObjectName": "BlueprintGeneratedClass NavQuery_Camper_RescueCarriedFriend_C",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/NavQuery_Camper_RescueCarriedFriend.0"
         },
         "SerializedChannel": "ECC_Visibility"
       },
@@ -40,27 +41,32 @@
   {
     "Type": "EnvQueryOption",
     "Name": "EnvQueryOption_0",
+    "Outer": "EQS_RescueCarriedFriend",
     "Properties": {
       "Generator": {
-        "ObjectName": "EnvQueryGenerator_SimpleGrid_0:",
-        "ObjectPath": "EQS_RescueCarriedFriend.1"
+        "ObjectName": "EnvQueryGenerator_SimpleGrid EQS_RescueCarriedFriend:EnvQueryGenerator_SimpleGrid_0",
+        "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_RescueCarriedFriend.1"
       },
       "Tests": [
         {
-          "ObjectName": "EnvQueryTest_Distance_1:",
-          "ObjectPath": "EQS_RescueCarriedFriend.3"
+          "ObjectName": "EnvQueryTest_IsValidDestination EQS_RescueCarriedFriend:EnvQueryTest_IsValidDestination_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_RescueCarriedFriend.5"
         },
         {
-          "ObjectName": "EnvQueryTest_Dot_0:",
-          "ObjectPath": "EQS_RescueCarriedFriend.4"
+          "ObjectName": "EnvQueryTest_Distance EQS_RescueCarriedFriend:EnvQueryTest_Distance_1",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_RescueCarriedFriend.3"
         },
         {
-          "ObjectName": "EnvQueryTest_LineOfSight_0:",
-          "ObjectPath": "EQS_RescueCarriedFriend.5"
+          "ObjectName": "EnvQueryTest_Dot EQS_RescueCarriedFriend:EnvQueryTest_Dot_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_RescueCarriedFriend.4"
         },
         {
-          "ObjectName": "EnvQueryTest_PathfindingBatch_0:",
-          "ObjectPath": "EQS_RescueCarriedFriend.6"
+          "ObjectName": "EnvQueryTest_LineOfSight EQS_RescueCarriedFriend:EnvQueryTest_LineOfSight_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_RescueCarriedFriend.6"
+        },
+        {
+          "ObjectName": "EnvQueryTest_PathfindingBatch EQS_RescueCarriedFriend:EnvQueryTest_PathfindingBatch_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_RescueCarriedFriend.7"
         }
       ]
     }
@@ -68,12 +74,14 @@
   {
     "Type": "EnvQueryTest_Distance",
     "Name": "EnvQueryTest_Distance_1",
+    "Outer": "EQS_RescueCarriedFriend",
     "Properties": {
       "TestMode": "EEnvTestDistance::Distance2D",
       "DistanceTo": {
-        "ObjectName": "EnvQueryContext_PinActor:Class",
-        "ObjectPath": "/Script/DBDBots.9"
+        "ObjectName": "Class EnvQueryContext_PinActor",
+        "ObjectPath": "/Script/DBDBots"
       },
+      "TestOrder": 1,
       "TestPurpose": "EEnvTestPurpose::Filter",
       "FilterType": "EEnvTestFilterType::Minimum",
       "FloatValueMin": {
@@ -86,35 +94,36 @@
   {
     "Type": "EnvQueryTest_Dot",
     "Name": "EnvQueryTest_Dot_0",
+    "Outer": "EQS_RescueCarriedFriend",
     "Properties": {
       "LineA": {
         "LineFrom": {
-          "ObjectName": "EnvQueryContext_Item:Class",
-          "ObjectPath": "/Script/AIModule.2"
+          "ObjectName": "Class EnvQueryContext_Item",
+          "ObjectPath": "/Script/AIModule"
         },
         "LineTo": {
-          "ObjectName": "EnvQueryContext_PinActor:Class",
-          "ObjectPath": "/Script/DBDBots.9"
+          "ObjectName": "Class EnvQueryContext_PinActor",
+          "ObjectPath": "/Script/DBDBots"
         },
         "DirMode": "EEnvDirection::TwoPoints"
       },
       "LineB": {
         "LineFrom": {
-          "ObjectName": "EnvQueryContext_TerrorRadius:Class",
-          "ObjectPath": "/Script/DBDBots.10"
+          "ObjectName": "Class EnvQueryContext_TerrorRadius",
+          "ObjectPath": "/Script/DBDBots"
         },
         "LineTo": {
-          "ObjectName": "EnvQueryContext_Querier:Class",
-          "ObjectPath": "/Script/AIModule.3"
+          "ObjectName": "Class EnvQueryContext_Querier",
+          "ObjectPath": "/Script/AIModule"
         },
         "Rotation": {
-          "ObjectName": "EnvQueryContext_PinActor:Class",
-          "ObjectPath": "/Script/DBDBots.9"
+          "ObjectName": "Class EnvQueryContext_PinActor",
+          "ObjectPath": "/Script/DBDBots"
         },
         "DirMode": "EEnvDirection::Rotation"
       },
       "TestMode": "EEnvTestDot::Dot2D",
-      "TestOrder": 1,
+      "TestOrder": 2,
       "TestPurpose": "EEnvTestPurpose::Score",
       "FilterType": "EEnvTestFilterType::Minimum",
       "ScoringEquation": "EEnvTestScoreEquation::Constant",
@@ -126,22 +135,32 @@
     }
   },
   {
+    "Type": "EnvQueryTest_IsValidDestination",
+    "Name": "EnvQueryTest_IsValidDestination_0",
+    "Outer": "EQS_RescueCarriedFriend",
+    "Properties": {
+      "VerNum": 1
+    }
+  },
+  {
     "Type": "EnvQueryTest_LineOfSight",
     "Name": "EnvQueryTest_LineOfSight_0",
+    "Outer": "EQS_RescueCarriedFriend",
     "Properties": {
-      "TestOrder": 2,
+      "TestOrder": 3,
       "VerNum": 1
     }
   },
   {
     "Type": "EnvQueryTest_PathfindingBatch",
     "Name": "EnvQueryTest_PathfindingBatch_0",
+    "Outer": "EQS_RescueCarriedFriend",
     "Properties": {
       "FilterClass": {
-        "ObjectName": "NavigationQueryFilter_Camper_Cheap:Class",
-        "ObjectPath": "/Script/DBDBots.12"
+        "ObjectName": "Class NavigationQueryFilter_Camper_Cheap",
+        "ObjectPath": "/Script/DBDBots"
       },
-      "TestOrder": 3,
+      "TestOrder": 4,
       "TestPurpose": "EEnvTestPurpose::Filter",
       "VerNum": 1
     }
