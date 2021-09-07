@@ -29,22 +29,29 @@
       "TwoSided": true,
       "bUsedWithNiagaraSprites": true,
       "bUsedWithNiagaraMeshParticles": true,
-      "StateId": "C3341D2F-4E277665-87BB07A0-F3E9B9FC",
+      "StateId": "B9E52D50-4CD2365B-E44A15AB-5B20935E",
       "CachedExpressionData": {
         "Parameters": {
           "Entries": {
             "NameHashes": [
               1033497708998508726,
+              1534580092854434212,
               3346891283968469449,
               4788805227935442984,
               6135206927011143195,
               10365776952601423206,
+              16363614473374996727,
               17513884114174678492,
               18082812891930742364
             ],
             "ParameterInfos": [
               {
                 "Name": "Erode",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "Normal_Intensity",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -69,6 +76,11 @@
                 "Index": -1
               },
               {
+                "Name": "Vertical Gradient Fade",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "NearFade Radius",
                 "Association": "GlobalParameter",
                 "Index": -1
@@ -81,14 +93,18 @@
             ],
             "ExpressionGuids": [
               "AB24B98D-442C4188-FBA811AB-AC7C3980",
+              "854E659C-44F8AEDC-2F9CC6BF-986316F1",
               "E6F6EBA8-45119BB5-1BCEF09E-092DF136",
               "080AE44E-42C21A97-6D5A0FB5-7C78D8D7",
               "B4731DD7-49A6C806-94923A9A-30E5954F",
               "A62F0C66-48F29A68-B080848B-2FA02908",
+              "FCBC1BE4-462B577E-DE7CB2AC-5A623ADC",
               "7A38AA02-493416C0-5F411EB9-22B3E35B",
               "AC5C196D-4B779AB8-2A81F2A2-28600119"
             ],
             "Overrides": [
+              false,
+              false,
               false,
               false,
               false,
@@ -101,11 +117,17 @@
           "Entries": {
             "NameHashes": [
               3657213062748265152,
+              6089508490449826066,
               12139651694498886092
             ],
             "ParameterInfos": [
               {
                 "Name": "Smoke_Tiling_Panner",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "Normal_Tiling_Panner",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -117,9 +139,11 @@
             ],
             "ExpressionGuids": [
               "4FCBB97C-4632490E-EA5A7EA5-6B3DCAEB",
+              "C184F53F-441B53F2-E884FAA0-EF17FD15",
               "42FC1966-45C4CC19-85AF17AC-A89EE2E0"
             ],
             "Overrides": [
+              false,
               false,
               false
             ]
@@ -127,12 +151,18 @@
           "Entries": {
             "NameHashes": [
               2763040884792729292,
+              4708953410708818575,
               7016839118995567717,
               8329085330890307711
             ],
             "ParameterInfos": [
               {
                 "Name": "Smoke",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "Normal",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -149,10 +179,12 @@
             ],
             "ExpressionGuids": [
               "54738818-43EC0C18-1827E79F-8A14E4F3",
+              "C2C512BC-4B397976-BCBF2C8D-7FE6F19A",
               "D8665D83-4FE9A052-9FCFCF86-20DC49B1",
               "C8BE9EE6-4D848DFE-A07F93B6-5ACDBE8B"
             ],
             "Overrides": [
+              false,
               false,
               false,
               false
@@ -160,14 +192,23 @@
           },
           "ScalarValues": [
             0.0,
+            0.0,
             0.55,
             0.1,
             0.5,
             0.0,
+            -1.0,
             256.0,
             1.0
           ],
           "VectorValues": [
+            {
+              "R": 0.05,
+              "G": 0.05,
+              "B": 0.0,
+              "A": 0.05,
+              "Hex": "0D0D0D00"
+            },
             {
               "R": 0.05,
               "G": 0.05,
@@ -184,6 +225,10 @@
             }
           ],
           "TextureValues": [
+            {
+              "ObjectName": "Texture2D T_SmokeTile",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_SmokeTile.0"
+            },
             {
               "ObjectName": "Texture2D T_SmokeTile",
               "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_SmokeTile.0"
@@ -212,6 +257,43 @@
             "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Volumelight.0"
           }
         ],
+        "FunctionInfos": [
+          {
+            "StateId": "B7C71B91-4E2BB667-772D6CBE-2AB55665",
+            "Function": {
+              "ObjectName": "MaterialFunction LinearGradient",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.0"
+            }
+          },
+          {
+            "StateId": "7560E2DA-4356343C-18E6818A-A015BAC5",
+            "Function": {
+              "ObjectName": "MaterialFunction MakeFloat2",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.0"
+            }
+          },
+          {
+            "StateId": "7560E2DA-4356343C-18E6818A-A015BAC5",
+            "Function": {
+              "ObjectName": "MaterialFunction MakeFloat2",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.0"
+            }
+          },
+          {
+            "StateId": "7560E2DA-4356343C-18E6818A-A015BAC5",
+            "Function": {
+              "ObjectName": "MaterialFunction MakeFloat2",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.0"
+            }
+          },
+          {
+            "StateId": "7560E2DA-4356343C-18E6818A-A015BAC5",
+            "Function": {
+              "ObjectName": "MaterialFunction MakeFloat2",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.0"
+            }
+          }
+        ],
         "QualityLevelsUsed": [
           false,
           true,
@@ -219,11 +301,6 @@
         ]
       },
       "TextureStreamingData": [
-        {
-          "SamplingScale": 0.5,
-          "UVChannelIndex": 0,
-          "TextureName": "T_Noise01"
-        },
         {
           "SamplingScale": 0.046875,
           "UVChannelIndex": 0,

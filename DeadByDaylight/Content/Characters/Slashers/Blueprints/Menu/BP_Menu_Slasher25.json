@@ -12,6 +12,29 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetSkeletalMesh_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class SkeletalMeshComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_K2_AttachToComponent_ReturnValue",
         "Flags": 1,
@@ -28,13 +51,13 @@
   },
   {
     "Type": "Function",
-    "Name": "MakeLamentBoxDisappear",
+    "Name": "MakeLamentBoxAppear",
     "Outer": "BP_Menu_Slasher25_C",
     "FunctionFlags": 201326592
   },
   {
     "Type": "Function",
-    "Name": "MakeLamentBoxAppear",
+    "Name": "MakeLamentBoxDisappear",
     "Outer": "BP_Menu_Slasher25_C",
     "FunctionFlags": 201326592
   },
@@ -103,11 +126,11 @@
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.3"
       },
       {
-        "ObjectName": "Function BP_Menu_Slasher25_C:MakeLamentBoxAppear",
+        "ObjectName": "Function BP_Menu_Slasher25_C:MakeLamentBoxDisappear",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.2"
       },
       {
-        "ObjectName": "Function BP_Menu_Slasher25_C:MakeLamentBoxDisappear",
+        "ObjectName": "Function BP_Menu_Slasher25_C:MakeLamentBoxAppear",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.1"
       },
       {
@@ -193,12 +216,12 @@
         "ObjectName": "Function BP_Menu_Slasher25_C:ExecuteUbergraph_BP_Menu_Slasher25",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.0"
       },
-      "MakeLamentBoxDisappear": {
-        "ObjectName": "Function BP_Menu_Slasher25_C:MakeLamentBoxDisappear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.1"
-      },
       "MakeLamentBoxAppear": {
         "ObjectName": "Function BP_Menu_Slasher25_C:MakeLamentBoxAppear",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.1"
+      },
+      "MakeLamentBoxDisappear": {
+        "ObjectName": "Function BP_Menu_Slasher25_C:MakeLamentBoxDisappear",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.2"
       },
       "ReceiveBeginPlay": {
@@ -291,8 +314,8 @@
             "InterpMode": 2,
             "TangentMode": 1,
             "TangentWeightMode": 0,
-            "Time": 0.0015137941,
-            "Value": 0.0,
+            "Time": 0.0,
+            "Value": 0.375,
             "ArriveTangent": -0.03654931,
             "ArriveTangentWeight": 0.0,
             "LeaveTangent": -0.03654915,
@@ -302,11 +325,11 @@
             "InterpMode": 2,
             "TangentMode": 1,
             "TangentWeightMode": 0,
-            "Time": 1.0,
-            "Value": 1.0,
-            "ArriveTangent": 0.0,
+            "Time": 1.25,
+            "Value": 1.25,
+            "ArriveTangent": 1.93934,
             "ArriveTangentWeight": 0.0,
-            "LeaveTangent": 0.0,
+            "LeaveTangent": 1.9393365,
             "LeaveTangentWeight": 0.0
           }
         ]
@@ -368,6 +391,158 @@
     "Outer": "Default__BP_Menu_Slasher25_C",
     "Template": "MaterialHelper",
     "Properties": {
+      "Groups": [
+        {
+          "GroupName": "MakeDissolve",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Hair",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/M_Hair.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Hair_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Variants/MI_Hair_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Alpha_Body",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Alpha_Body.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Alpha_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Alpha_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Cust",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Cust.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Dither",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Dither.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Alpha_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Alpha_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Burn",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Burn.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Burn_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_DissolveWPO",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_DissolveWPO.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Weapon_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Weapon_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_GlassIce",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_GlassIce.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_GlassIce_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_GlassIce_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Blend",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Blend.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Blend_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_HairTAA_Anim",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_HairTAA_Anim.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_HairTAA_Anim_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_HairTAA_Anim_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust_Dither",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust_Dither.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve_Dither_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve_Dither_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve_Menu.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_FabricMask",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_FabricMask.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_FabricMask_Dissolve_Menu",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_FabricMask_Dissolve_Menu.0"
+              }
+            }
+          ]
+        },
+        {
+          "GroupName": "ItemDissolve",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Gem_Cenobite01",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Gem_Cenobite01.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_K25_Teleport_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_K25_Teleport_Dissolve.0"
+              }
+            }
+          ]
+        }
+      ],
       "AttachParent": {
         "ObjectName": "SkeletalMeshComponent Default__BP_Menu_Slasher25_C:CharacterMesh0",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/BP_Menu_Slasher25.24"
@@ -497,7 +672,7 @@
     "Properties": {
       "AnimClass": {
         "ObjectName": "AnimBlueprintGeneratedClass AB_K25_SW00_REF_C",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_SW00_REF.3"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_SW00_REF.2"
       },
       "ClothingSimulationFactory": {
         "ObjectName": "Class ClothingSimulationFactoryNv",
@@ -544,8 +719,8 @@
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Menu/AB_Menu_Slasher25.31"
       },
       "SkeletalMesh": {
-        "ObjectName": "SkeletalMesh TR_DSkeleton_REF",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Trapper/Models/TR_DSkeleton_REF.0"
+        "ObjectName": "SkeletalMesh K25_DSkeleton_REF",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Models/K25_DSkeleton_REF.0"
       },
       "AttachParent": {
         "ObjectName": "CapsuleComponent Default__BP_Menu_Slasher25_C:CollisionCylinder",
@@ -570,7 +745,9 @@
     "Name": "TM_LamentBoxVisibility_Template",
     "Outer": "BP_Menu_Slasher25_C",
     "Properties": {
-      "TimelineLength": 1.0,
+      "TimelineLength": 1.25,
+      "LengthMode": "TL_LastKeyFrame",
+      "UpdateInterval": 0.01,
       "FloatTracks": [
         {
           "CurveFloat": {
