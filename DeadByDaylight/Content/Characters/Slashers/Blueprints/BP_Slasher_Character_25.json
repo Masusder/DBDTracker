@@ -471,6 +471,18 @@
         }
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable_4",
         "Flags": 1,
@@ -486,18 +498,6 @@
             "ObjectPath": "/Script/AkAudio"
           }
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsValid_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "DelegateProperty",
@@ -539,23 +539,6 @@
         }
       },
       {
-        "Type": "ArrayProperty",
-        "Name": "Temp_struct_Variable_6",
-        "Flags": 1,
-        "ElementSize": 16,
-        "PropertyFlags": 134217730,
-        "Inner": {
-          "Type": "StructProperty",
-          "Name": "Temp_struct_Variable_6",
-          "Flags": 1,
-          "ElementSize": 56,
-          "Struct": {
-            "ObjectName": "ScriptStruct AkExternalSourceInfo",
-            "ObjectPath": "/Script/AkAudio"
-          }
-        }
-      },
-      {
         "Type": "BoolProperty",
         "Name": "CallFunc_IsLocallyObservingASurvivor_ReturnValue",
         "Flags": 1,
@@ -578,6 +561,23 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_struct_Variable_6",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217730,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "Temp_struct_Variable_6",
+          "Flags": 1,
+          "ElementSize": 56,
+          "Struct": {
+            "ObjectName": "ScriptStruct AkExternalSourceInfo",
+            "ObjectPath": "/Script/AkAudio"
+          }
+        }
       },
       {
         "Type": "BoolProperty",
@@ -702,14 +702,14 @@
         "ElementSize": 4
       },
       {
-        "Type": "FloatProperty",
-        "Name": "K2Node_Event_PossessionTime",
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAkEvent_ReturnValue_3",
         "Flags": 1,
         "ElementSize": 4
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAkEvent_ReturnValue_3",
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_PossessionTime",
         "Flags": 1,
         "ElementSize": 4
       },
@@ -1066,6 +1066,28 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsCarryingSurvivor",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_SurvivorDowned",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class CamperPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetSkeletalMesh_ReturnValue_11",
         "Flags": 1,
@@ -1140,6 +1162,38 @@
   },
   {
     "Type": "Function",
+    "Name": "K25_OnKillerDownsSurvivorHoldingLamentConfiguration",
+    "Outer": "BP_Slasher_Character_25_C",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsCarryingSurvivor",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SurvivorDowned",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class CamperPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
     "Name": "K25_SwingAttackPortal_Miss_BOW",
     "Outer": "BP_Slasher_Character_25_C",
     "FunctionFlags": 201457664
@@ -1196,12 +1250,6 @@
   },
   {
     "Type": "Function",
-    "Name": "K25_OnRepossessKillerFadeIn",
-    "Outer": "BP_Slasher_Character_25_C",
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "Function",
     "Name": "K25_DissolveChainWipe",
     "Outer": "BP_Slasher_Character_25_C",
     "FunctionFlags": 201457664
@@ -1214,7 +1262,7 @@
   },
   {
     "Type": "Function",
-    "Name": "K25_OnRepossessKillerFadeOut",
+    "Name": "K25_OnRepossessKillerFadeIn",
     "Outer": "BP_Slasher_Character_25_C",
     "FunctionFlags": 201457664
   },
@@ -1243,6 +1291,12 @@
   },
   {
     "Type": "Function",
+    "Name": "K25_OnRepossessKillerFadeOut",
+    "Outer": "BP_Slasher_Character_25_C",
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
     "Name": "K25_SpawnChainSparks",
     "Outer": "BP_Slasher_Character_25_C",
     "FunctionFlags": 201457664
@@ -1262,6 +1316,12 @@
   {
     "Type": "Function",
     "Name": "K25_SpawnSwingAttackPortal_IN",
+    "Outer": "BP_Slasher_Character_25_C",
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "K25_ResetVignettes",
     "Outer": "BP_Slasher_Character_25_C",
     "FunctionFlags": 201457664
   },
@@ -1630,44 +1690,44 @@
       "Timelines": [
         {
           "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_DissolveChainWipe_Template",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.208"
-        },
-        {
-          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_DissolveChainMiss_Template",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.207"
-        },
-        {
-          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_VaultDissolve_Template",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.213"
-        },
-        {
-          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_Template",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.212"
-        },
-        {
-          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_Dissolve_Template",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.206"
-        },
-        {
-          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_PossessGateway_Template",
           "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.210"
         },
         {
+          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_DissolveChainMiss_Template",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.209"
+        },
+        {
+          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_VaultDissolve_Template",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.215"
+        },
+        {
+          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_Template",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.214"
+        },
+        {
+          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_Dissolve_Template",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.208"
+        },
+        {
+          "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_PossessGateway_Template",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.212"
+        },
+        {
           "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_ReturnToKiller_Template",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.211"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.213"
         },
         {
           "ObjectName": "TimelineTemplate BP_Slasher_Character_25_C:TML_DissolveItemFPV_Template",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.209"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.211"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Slasher_Character_25_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.183"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.185"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_Slasher_Character_25_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.138"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.140"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_Slasher_Character_25_C:ExecuteUbergraph_BP_Slasher_Character_25",
@@ -1681,162 +1741,170 @@
     "Children": [
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:UserConstructionScript",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.57"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.59"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.56"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.58"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.55"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.57"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_Dissolve__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.54"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.56"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_Dissolve__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.53"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.55"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_Dissolve__Event__EventFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.52"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.54"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_PossessGateway__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.51"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.53"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_PossessGateway__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.50"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.52"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveItemfpv__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.49"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.51"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveItemfpv__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.48"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.50"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainMiss__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.47"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.49"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainMiss__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.46"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.48"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainWipe__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.45"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.47"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainWipe__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.44"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.46"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_VaultDissolve__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.43"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.45"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_VaultDissolve__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.42"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.44"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_ReturnToKiller__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.41"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.43"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_ReturnToKiller__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.40"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.42"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyEnd_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.39"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.41"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyBegin_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.38"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.40"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnInterrupted_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.37"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.39"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnBlendOut_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.36"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.38"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnCompleted_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.35"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.37"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyEnd_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.34"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.36"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyBegin_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.33"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.35"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnInterrupted_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.32"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.34"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnBlendOut_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.31"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.33"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnCompleted_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.30"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.32"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnTeleportAvailabilityChange",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.29"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.31"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_TeleportAborted",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.28"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.30"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:Event K25 Teleport Appear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.27"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.29"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_TeleportDisappear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.26"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.28"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnPossessGateway",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.25"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.27"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_StartItemDissolve",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.24"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.26"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_TeleportAppear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.23"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.25"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_StartItemDissolveIn",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.22"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.24"
+      },
+      {
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_ResetVignettes",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.23"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SpawnSwingAttackPortal_IN",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.21"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.22"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_CancelSwingAttackPortal_IN",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.20"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.21"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SpawnSwingAttackPortal_Miss",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.19"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.20"
       },
       {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SpawnChainSparks",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.19"
+      },
+      {
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeOut",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.18"
       },
       {
@@ -1852,7 +1920,7 @@
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.15"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeOut",
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeIn",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.14"
       },
       {
@@ -1864,31 +1932,31 @@
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.12"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeIn",
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_Spawn_WeaponTrail",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.11"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_Spawn_WeaponTrail",
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_VaultDissolve_01",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.10"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_VaultDissolve_01",
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_SetVisibilityOfChain_Off",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.9"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_SetVisibilityOfChain_Off",
+        "ObjectName": "Function BP_Slasher_Character_25_C:PlayLamentConfigurationMontage",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.8"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:PlayLamentConfigurationMontage",
+        "ObjectName": "Function BP_Slasher_Character_25_C:HideLamentConfiguration",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.7"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:HideLamentConfiguration",
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_SwingAttackPortal_Miss_BOW",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.6"
       },
       {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_SwingAttackPortal_Miss_BOW",
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnKillerDownsSurvivorHoldingLamentConfiguration",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.5"
       },
       {
@@ -2575,32 +2643,32 @@
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_Cancel_LightningOnWeapon",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.4"
       },
+      "K25_OnKillerDownsSurvivorHoldingLamentConfiguration": {
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnKillerDownsSurvivorHoldingLamentConfiguration",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.5"
+      },
       "K25_SwingAttackPortal_Miss_BOW": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SwingAttackPortal_Miss_BOW",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.5"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.6"
       },
       "HideLamentConfiguration": {
         "ObjectName": "Function BP_Slasher_Character_25_C:HideLamentConfiguration",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.6"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.7"
       },
       "PlayLamentConfigurationMontage": {
         "ObjectName": "Function BP_Slasher_Character_25_C:PlayLamentConfigurationMontage",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.7"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.8"
       },
       "K25_SetVisibilityOfChain_Off": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SetVisibilityOfChain_Off",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.8"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.9"
       },
       "K25_VaultDissolve_01": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_VaultDissolve_01",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.9"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.10"
       },
       "K25_Spawn_WeaponTrail": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_Spawn_WeaponTrail",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.10"
-      },
-      "K25_OnRepossessKillerFadeIn": {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeIn",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.11"
       },
       "K25_DissolveChainWipe": {
@@ -2611,8 +2679,8 @@
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SetVisibilityOfChain_On",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.13"
       },
-      "K25_OnRepossessKillerFadeOut": {
-        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeOut",
+      "K25_OnRepossessKillerFadeIn": {
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeIn",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.14"
       },
       "K25_SpawnSwingAttack_Wipe": {
@@ -2627,165 +2695,173 @@
         "ObjectName": "Function BP_Slasher_Character_25_C:ReceiveBeginPlay",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.17"
       },
+      "K25_OnRepossessKillerFadeOut": {
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnRepossessKillerFadeOut",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.18"
+      },
       "K25_SpawnChainSparks": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SpawnChainSparks",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.18"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.19"
       },
       "K25_SpawnSwingAttackPortal_Miss": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SpawnSwingAttackPortal_Miss",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.19"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.20"
       },
       "K25_CancelSwingAttackPortal_IN": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_CancelSwingAttackPortal_IN",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.20"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.21"
       },
       "K25_SpawnSwingAttackPortal_IN": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_SpawnSwingAttackPortal_IN",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.21"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.22"
+      },
+      "K25_ResetVignettes": {
+        "ObjectName": "Function BP_Slasher_Character_25_C:K25_ResetVignettes",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.23"
       },
       "K25_StartItemDissolveIn": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_StartItemDissolveIn",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.22"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.24"
       },
       "K25_TeleportAppear": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_TeleportAppear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.23"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.25"
       },
       "K25_StartItemDissolve": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_StartItemDissolve",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.24"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.26"
       },
       "K25_OnPossessGateway": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnPossessGateway",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.25"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.27"
       },
       "K25_TeleportDisappear": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_TeleportDisappear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.26"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.28"
       },
       "Event K25 Teleport Appear": {
         "ObjectName": "Function BP_Slasher_Character_25_C:Event K25 Teleport Appear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.27"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.29"
       },
       "K25_TeleportAborted": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_TeleportAborted",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.28"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.30"
       },
       "K25_OnTeleportAvailabilityChange": {
         "ObjectName": "Function BP_Slasher_Character_25_C:K25_OnTeleportAvailabilityChange",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.29"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.31"
       },
       "OnCompleted_B969700B477D7C849640CD96BEAF11B3": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnCompleted_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.30"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.32"
       },
       "OnBlendOut_B969700B477D7C849640CD96BEAF11B3": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnBlendOut_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.31"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.33"
       },
       "OnInterrupted_B969700B477D7C849640CD96BEAF11B3": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnInterrupted_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.32"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.34"
       },
       "OnNotifyBegin_B969700B477D7C849640CD96BEAF11B3": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyBegin_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.33"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.35"
       },
       "OnNotifyEnd_B969700B477D7C849640CD96BEAF11B3": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyEnd_B969700B477D7C849640CD96BEAF11B3",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.34"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.36"
       },
       "OnCompleted_816110684C00033F96124A923246188E": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnCompleted_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.35"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.37"
       },
       "OnBlendOut_816110684C00033F96124A923246188E": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnBlendOut_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.36"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.38"
       },
       "OnInterrupted_816110684C00033F96124A923246188E": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnInterrupted_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.37"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.39"
       },
       "OnNotifyBegin_816110684C00033F96124A923246188E": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyBegin_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.38"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.40"
       },
       "OnNotifyEnd_816110684C00033F96124A923246188E": {
         "ObjectName": "Function BP_Slasher_Character_25_C:OnNotifyEnd_816110684C00033F96124A923246188E",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.39"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.41"
       },
       "TML_ReturnToKiller__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_ReturnToKiller__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.40"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.42"
       },
       "TML_ReturnToKiller__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_ReturnToKiller__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.41"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.43"
       },
       "TML_VaultDissolve__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_VaultDissolve__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.42"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.44"
       },
       "TML_VaultDissolve__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_VaultDissolve__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.43"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.45"
       },
       "TML_DissolveChainWipe__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainWipe__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.44"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.46"
       },
       "TML_DissolveChainWipe__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainWipe__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.45"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.47"
       },
       "TML_DissolveChainMiss__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainMiss__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.46"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.48"
       },
       "TML_DissolveChainMiss__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveChainMiss__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.47"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.49"
       },
       "TML_DissolveItemfpv__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveItemfpv__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.48"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.50"
       },
       "TML_DissolveItemfpv__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_DissolveItemfpv__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.49"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.51"
       },
       "TML_PossessGateway__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_PossessGateway__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.50"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.52"
       },
       "TML_PossessGateway__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_PossessGateway__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.51"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.53"
       },
       "TML_Dissolve__Event__EventFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_Dissolve__Event__EventFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.52"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.54"
       },
       "TML_Dissolve__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_Dissolve__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.53"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.55"
       },
       "TML_Dissolve__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML_Dissolve__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.54"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.56"
       },
       "TML__UpdateFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.55"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.57"
       },
       "TML__FinishedFunc": {
         "ObjectName": "Function BP_Slasher_Character_25_C:TML__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.56"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.58"
       },
       "UserConstructionScript": {
         "ObjectName": "Function BP_Slasher_Character_25_C:UserConstructionScript",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.57"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.59"
       }
     },
     "ClassFlags": 8652820,
@@ -2799,7 +2875,7 @@
       {
         "Class": {
           "ObjectName": "BlueprintGeneratedClass BPI_Effect_K25_Killer_C",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Interface/K25/BPI_Effect_K25_Killer.27"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Interface/K25/BPI_Effect_K25_Killer.29"
         },
         "PointerOffset": 0,
         "bImplementedByK2": true
@@ -2808,7 +2884,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Slasher_Character_25_C Default__BP_Slasher_Character_25_C",
-      "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.59"
+      "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.61"
     }
   },
   {
@@ -2855,223 +2931,223 @@
       ],
       "KillerSoundCuesComponent": {
         "ObjectName": "KillerSoundCuesComponent Default__BP_Slasher_Character_25_C:Killer Sound Cues Component",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.145"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.147"
       },
       "_terrorNavModifierComponent": {
         "ObjectName": "DBDNavModifierComponent Default__BP_Slasher_Character_25_C:TerrorNavModifierComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.127"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.129"
       },
       "_stillnessTracker": {
         "ObjectName": "StillnessTrackerComponent Default__BP_Slasher_Character_25_C:StillnessTracker",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.204"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.206"
       },
       "_terrorRadiusEmitter": {
         "ObjectName": "SlasherTREmitterComponent Default__BP_Slasher_Character_25_C:Terror Radius Component",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.192"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.194"
       },
       "_hitsWhileCarryingTracker": {
         "ObjectName": "SlasherHitsWhileCarryingTrackerComponent Default__BP_Slasher_Character_25_C:HitsWhileCarryingTracker",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.188"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.190"
       },
       "_presenceTag": {
         "TagName": "State.Presence.TheK25"
       },
       "_moriComponent": {
         "ObjectName": "MoriComponent Default__BP_Slasher_Character_25_C:MoriComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.150"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.152"
       },
       "_hitValidator": {
         "ObjectName": "HitValidatorComponent Default__BP_Slasher_Character_25_C:Hit Validator",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.136"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.138"
       },
       "_hitValidationConfigurator": {
         "ObjectName": "HitValidatorConfigurator Default__BP_Slasher_Character_25_C:Hit Validator Configurator",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.137"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.139"
       },
       "_attackerComponent": {
         "ObjectName": "DBDAttackerComponent Default__BP_Slasher_Character_25_C:Attacker Component",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.126"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.128"
       },
       "_armIKSensorComponent": {
         "ObjectName": "ArmIKSensorComponent Default__BP_Slasher_Character_25_C:ArmIKSensor",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.63"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.65"
       },
       "_firstPersonViewComponent": {
         "ObjectName": "FirstPersonViewComponent Default__BP_Slasher_Character_25_C:FirstPersonViewComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.132"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.134"
       },
       "_killerIntroComponent": {
         "ObjectName": "KillerIntroComponent Default__BP_Slasher_Character_25_C:KillerIntroComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.143"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.145"
       },
       "_blindingFXComponent": {
         "ObjectName": "KillerBlindingFXComponent Default__BP_Slasher_Character_25_C:Blinding FX Component",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.141"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.143"
       },
       "_redStainUpdateStrategy": {
         "ObjectName": "KillerRedStainUpdateStrategy Default__BP_Slasher_Character_25_C:KillerRedStainUpdateStrategy",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.144"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.146"
       },
       "_slasherStunnableComponent": {
         "ObjectName": "SlasherStunnableComponent Default__BP_Slasher_Character_25_C:SlasherStunnableComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.191"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.193"
       },
       "MaterialHelper": {
         "ObjectName": "MaterialHelper Default__BP_Slasher_Character_25_C:MaterialHelperNative",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.147"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.149"
       },
       "_characterInventoryComponent": {
         "ObjectName": "CharacterInventoryComponent Default__BP_Slasher_Character_25_C:CharacterInventoryComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.83"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.85"
       },
       "_renderedPixelCounter": {
         "ObjectName": "BoxOcclusionQueryComponent Default__BP_Slasher_Character_25_C:RenderedPixelCounter",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.73"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.75"
       },
       "_standingOcclusionBox": {
         "ObjectName": "BoxComponent Default__BP_Slasher_Character_25_C:Standing Occlusion Box",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.72"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.74"
       },
       "_crouchingOcclusionBox": {
         "ObjectName": "BoxComponent Default__BP_Slasher_Character_25_C:Crouching Occlusion Box",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.71"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.73"
       },
       "_activator": {
         "ObjectName": "ActivatorComponent Default__BP_Slasher_Character_25_C:Activator",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.60"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.62"
       },
       "_stateMachine": {
         "ObjectName": "SlasherStateMachine Default__BP_Slasher_Character_25_C:SlasherStateMachine",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.190"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.192"
       },
       "_interactionHandler": {
         "ObjectName": "PlayerInteractionHandler Default__BP_Slasher_Character_25_C:InteractionHandler",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.161"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.163"
       },
       "_montagePlayer": {
         "ObjectName": "MontagePlayer Default__BP_Slasher_Character_25_C:MontagePlayer",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.149"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.151"
       },
       "_perkManager": {
         "ObjectName": "PerkManager Default__BP_Slasher_Character_25_C:PerkManager",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.158"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.160"
       },
       "_playerData": {
         "ObjectName": "DBDSlasherData Default__BP_Slasher_Character_25_C:PlayerData",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.130"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.132"
       },
       "_characterChaseVisualComponent": {
         "ObjectName": "CharacterChaseVisualComponent Default__BP_Slasher_Character_25_C:CharacterChaseVisualComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.84"
       },
       "_cameraHandlerComponent": {
         "ObjectName": "CameraHandlerComponent Default__BP_Slasher_Character_25_C:CameraHandlerComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.78"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
       },
       "_itemDropOffPosition": {
         "ObjectName": "SceneComponent Default__BP_Slasher_Character_25_C:ItemDropOffPosition",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.170"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.172"
       },
       "_perceptionStimuliComponent": {
         "ObjectName": "AIPerceptionStimuliSourceComponent Default__BP_Slasher_Character_25_C:AIPerceptionStimuliSourceComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.61"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.63"
       },
       "_blindingChargeableComponent": {
         "ObjectName": "ChargeableComponent Default__BP_Slasher_Character_25_C:BlindnessChargeableComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.86"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.88"
       },
       "_blindableComponent": {
         "ObjectName": "BlindableComponent Default__BP_Slasher_Character_25_C:BlindableComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.66"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.68"
       },
       "_eventListener": {
         "ObjectName": "PollableEventListener Default__BP_Slasher_Character_25_C:EventListener",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.163"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.165"
       },
       "_chaseComponent": {
         "ObjectName": "ChaserCharacterComponent Default__BP_Slasher_Character_25_C:Chase Component",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.88"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.90"
       },
       "_meatHookZoneDetector": {
         "ObjectName": "ZoneDetectorComponent Default__BP_Slasher_Character_25_C:MeatHookZoneDetector",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.216"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.218"
       },
       "_basementZoneDetector": {
         "ObjectName": "ZoneDetectorComponent Default__BP_Slasher_Character_25_C:BasementZoneDetector",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.215"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.217"
       },
       "_authoritativeMovementComponent": {
         "ObjectName": "AuthoritativeMovementComponent Default__BP_Slasher_Character_25_C:AuthoritativeMovement",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.65"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.67"
       },
       "_objectState": {
         "ObjectName": "GameplayTagContainerComponent Default__BP_Slasher_Character_25_C:ObjectState",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.135"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.137"
       },
       "_audioFXComponent": {
         "ObjectName": "AudioFXComponent Default__BP_Slasher_Character_25_C:AudioFXComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.64"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.66"
       },
       "_playerPerspectiveComponent": {
         "ObjectName": "PlayerPerspectiveComponent Default__BP_Slasher_Character_25_C:PlayerPerspectiveComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.162"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.164"
       },
       "_characterSightComponent": {
         "ObjectName": "CharacterSightComponent Default__BP_Slasher_Character_25_C:CharacterSightComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.85"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.87"
       },
       "_characterSightableComponent": {
         "ObjectName": "CharacterSightableComponent Default__BP_Slasher_Character_25_C:CharacterSightableComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.84"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.86"
       },
       "_interactionDetectorComponent": {
         "ObjectName": "InteractionDetectorComponent Default__BP_Slasher_Character_25_C:InteractionDetectorComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.139"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.141"
       },
       "_clippablePrimitivesRegistererComponent": {
         "ObjectName": "PrimitivesRegistererComponent Default__BP_Slasher_Character_25_C:PrimitiveRegistererComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.166"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.168"
       },
       "_clippableProviderComponent": {
         "ObjectName": "ClippableProviderComponent Default__BP_Slasher_Character_25_C:ClippableProviderComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.89"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.91"
       },
       "_dynCapsuleResizer": {
         "ObjectName": "DynamicCapsuleResizerComponent Default__BP_Slasher_Character_25_C:Dyn Capsule Resizer",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.131"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.133"
       },
       "_playerGameRelevancyComponent": {
         "ObjectName": "PlayerGameRelevancyComponent Default__BP_Slasher_Character_25_C:PlayerGameRelevancyComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.160"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.162"
       },
       "_contextualQuestComponent": {
         "ObjectName": "ContextualQuestComponent Default__BP_Slasher_Character_25_C:ContextualQuestComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.90"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.92"
       },
       "_presentationChargeableProgressComponent": {
         "ObjectName": "ChargeableProgressProviderComponent Default__BP_Slasher_Character_25_C:Presentation Chargeable Progress",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.87"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.89"
       },
       "_otherCharactersVerticalCollisionsHandler": {
         "ObjectName": "OtherCharactersVerticalCollisionsHandler Default__BP_Slasher_Character_25_C:OtherCharactersVerticalCollisionsHandler",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.152"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.154"
       },
       "_characterIndex": 268435480,
       "Mesh": {
         "ObjectName": "SkeletalMeshComponent Default__BP_Slasher_Character_25_C:CharacterMesh0",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.185"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.187"
       },
       "CharacterMovement": {
         "ObjectName": "SlasherMovementComponent Default__BP_Slasher_Character_25_C:CharMoveComp",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.189"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.191"
       },
       "CapsuleComponent": {
         "ObjectName": "CapsuleComponent Default__BP_Slasher_Character_25_C:CollisionCylinder",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
       },
       "RootComponent": {
         "ObjectName": "CapsuleComponent Default__BP_Slasher_Character_25_C:CollisionCylinder",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
       }
     }
   },
@@ -3122,7 +3198,7 @@
     "Properties": {
       "_chargeableComponent": {
         "ObjectName": "ChargeableComponent Default__BP_Slasher_Character_25_C:BlindnessChargeableComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.86"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.88"
       }
     }
   },
@@ -3134,7 +3210,7 @@
     "Properties": {
       "_pointsProvider": {
         "ObjectName": "MeshSocketPointsProvider BP_Slasher_Character_25_C:EyesFlashlightable_GEN_VARIABLE.BlindFlashlightableLightingStrategy_0.Mesh Point Provider",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.148"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.150"
       }
     }
   },
@@ -3173,7 +3249,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "CapsuleComponent Default__BP_Slasher_Character_25_C:CollisionCylinder",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
       }
     }
   },
@@ -3185,7 +3261,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "CapsuleComponent Default__BP_Slasher_Character_25_C:CollisionCylinder",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
       }
     }
   },
@@ -4746,7 +4822,7 @@
     "Properties": {
       "_lightingStrategy": {
         "ObjectName": "TracingConeFlashlightableLightingStrategy BP_Slasher_Character_25_C:BodyFlashlightable_GEN_VARIABLE.TracingConeFlashlightableLightingStrategy_0",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.214"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.216"
       }
     }
   },
@@ -4758,7 +4834,7 @@
     "Properties": {
       "_lightingStrategy": {
         "ObjectName": "BlindFlashlightableLightingStrategy BP_Slasher_Character_25_C:EyesFlashlightable_GEN_VARIABLE.BlindFlashlightableLightingStrategy_0",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.67"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.69"
       }
     }
   },
@@ -4793,7 +4869,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "FlashlightableComponent BP_Slasher_Character_25_C:BodyFlashlightable_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.133"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.135"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4815,7 +4891,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "FlashlightableComponent BP_Slasher_Character_25_C:EyesFlashlightable_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.134"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.136"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4837,7 +4913,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ParticleSystemComponent BP_Slasher_Character_25_C:P_Vignette_EndGame_Top_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.153"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.155"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4859,7 +4935,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ParticleSystemComponent BP_Slasher_Character_25_C:P_VignetteLeftE59A5013413716D3ED932F8783A625B4",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.154"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.156"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4881,7 +4957,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "DBDOutlineComponent BP_Slasher_Character_25_C:DBDOutlineComponent_2",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.128"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.130"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4903,7 +4979,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SceneComponent BP_Slasher_Character_25_C:Scene1FBE636D489F4E67FFC0EB967F90EAC0",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.168"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.170"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4925,7 +5001,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CapsuleComponent BP_Slasher_Character_25_C:CapsuleB3F23CF64DA6BE23BA2FD4A8BE196FB3",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.79"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.81"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4947,7 +5023,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "BoxComponent BP_Slasher_Character_25_C:BoxF1942F2B47A3392B57B0D381F4800C25",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.70"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.72"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4969,7 +5045,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "AkComponent BP_Slasher_Character_25_C:AkComponent_16",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.62"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.64"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -4991,7 +5067,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SceneComponent BP_Slasher_Character_25_C:Scene921EA90444BA05DD7DF524BE71551BBF",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.169"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.171"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5013,7 +5089,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:StaticMesh3E7341524BF8FA0693A309A6BF479D9A",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.201"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.203"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5035,7 +5111,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:StaticMesh1E78C91A4DECA8F36BF02A907686D8B1",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.199"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.201"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5057,7 +5133,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:StaticMesh1AB6297E4412B0AC167240FB83CBFC02E",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.198"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.200"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5079,7 +5155,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "BoxComponent BP_Slasher_Character_25_C:Box12CA137340F2B5649E3C4091BC985C45",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.68"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.70"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5101,7 +5177,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:StaticMesh1EA8636B4C6F8F86A67EE59D98BDF8FC",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.200"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.202"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5123,7 +5199,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:StaticMeshC3788C1F46A22E776987ABA221AC682D",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.202"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.204"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5145,7 +5221,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:StaticMesh0CF31C3340E72DBFF7CCDDAB1254956E",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.197"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.199"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5167,7 +5243,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:AttackZone_Wedge_Standard_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.196"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.198"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5189,7 +5265,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:AttackZone_Wedge_Large_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.195"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.197"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5211,7 +5287,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Slasher_Character_25_C:AttackZone_004_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.194"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.196"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5233,7 +5309,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ParticleSystemComponent BP_Slasher_Character_25_C:P_VignetteRightB834F27C4AF1EE4F5DAA7A83742CF9B2",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.155"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.157"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5255,7 +5331,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "BP_RedStainComponent_C BP_Slasher_Character_25_C:RedStainComponent_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.76"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.78"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5277,7 +5353,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CapsulePlayerOverlapComponent BP_Slasher_Character_25_C:PawnDetector_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.81"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.83"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5299,7 +5375,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CameraComponent BP_Slasher_Character_25_C:CameraComponent_214",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.77"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.79"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5321,7 +5397,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ParticleSystemComponent BP_Slasher_Character_25_C:ParticleSystem19A2C95CD49D002146DF21EA0F73A269F",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.156"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.158"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5343,7 +5419,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "LoudNoiseHUDIndicator BP_Slasher_Character_25_C:LoudNoiseHUDIndicator7C90E1D2468056CDB31015A780409DE1",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.146"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.148"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5365,7 +5441,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ScreenSpaceLocationComponent BP_Slasher_Character_25_C:ScreenSpaceLocationBC72336E45AFE78403571AB7EA3AAD84",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.174"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.176"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5387,7 +5463,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ScreenSpaceLocationComponent BP_Slasher_Character_25_C:ScreenSpaceLocationE298D299483F4C0ED599E094619F6405",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.175"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.177"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5409,7 +5485,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ScreenSpaceLocationComponent BP_Slasher_Character_25_C:ScreenSpaceLocation79E41DEF47CDB39AED6BE08370914E0F",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.172"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.174"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5431,7 +5507,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ScreenSpaceLocationComponent BP_Slasher_Character_25_C:ScreenSpaceLocation548576A64A480642A441E0872CCC1824",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.171"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.173"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5453,7 +5529,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "BoxComponent BP_Slasher_Character_25_C:BoxA71A067B4771F21AF897FE9C61373795",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.69"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.71"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5475,7 +5551,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "PostProcessComponent BP_Slasher_Character_25_C:VignetteBloodlust_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.165"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.167"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5497,7 +5573,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SphereComponent BP_Slasher_Character_25_C:AudioAmbientDetector_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.193"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.195"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5519,7 +5595,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "PostProcessComponent BP_Slasher_Character_25_C:BlindedPostProcess_new_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.164"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.166"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5541,7 +5617,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ScreenSpaceLocationComponent BP_Slasher_Character_25_C:ScreenSpaceLocation_MiddleT_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.173"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.175"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5563,7 +5639,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CustomizedAudioComponent BP_Slasher_Character_25_C:CustomizedAudio_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.125"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.127"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6006,7 +6082,7 @@
       ],
       "AttachParent": {
         "ObjectName": "SkeletalMeshComponent Default__BP_Slasher_Character_25_C:CharacterMesh0",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.185"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.187"
       }
     }
   },
@@ -6104,11 +6180,11 @@
     "Properties": {
       "_perks": {
         "ObjectName": "PerkCollectionComponent Default__BP_Slasher_Character_25_C:PerkCollectionComponent",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.157"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.159"
       },
       "_statusEffects": {
         "ObjectName": "StatusEffectCollectionComponent Default__BP_Slasher_Character_25_C:StatusEffectCollection",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.203"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.205"
       }
     }
   },
@@ -6197,7 +6273,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "CapsuleComponent Default__BP_Slasher_Character_25_C:CollisionCylinder",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
       }
     }
   },
@@ -6257,7 +6333,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Slasher_Character_25_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.167"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.169"
       },
       "VariableGuid": "7685695A-4D8FDB3B-5CBFBA9E-9724748F",
       "InternalVariableName": "DefaultSceneRoot"
@@ -6274,7 +6350,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent BP_Slasher_Character_25_C:LamentConfMesh_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.184"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.186"
       },
       "ParentComponentOrVariableName": "CharacterMesh0",
       "bIsParentComponentNative": true,
@@ -6293,7 +6369,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "K25ChainStrikeReplicationComponent BP_Slasher_Character_25_C:K25ChainStrikeReplication_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.140"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.142"
       },
       "VariableGuid": "C10605CC-40B325EC-6F968B88-027837A4",
       "InternalVariableName": "K25ChainStrikeReplication"
@@ -6310,7 +6386,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BP_Audio_KLR_25_C BP_Slasher_Character_25_C:BP_Audio_KLR_25_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.74"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.76"
       },
       "VariableGuid": "EBAC808A-45676B8F-81392F99-F465EA02",
       "InternalVariableName": "BP_Audio_KLR_25"
@@ -6327,7 +6403,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BP_K25PounceAttack_C BP_Slasher_Character_25_C:BP_K25PounceAttack_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.75"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.77"
       },
       "VariableGuid": "702693BB-48EF9F11-35D4EEA0-DE3A8FB1",
       "InternalVariableName": "BP_K25PounceAttack"
@@ -6344,7 +6420,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SlashAttack_BP_C BP_Slasher_Character_25_C:SlashAttack_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.187"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.189"
       },
       "VariableGuid": "EE1347F3-4BD1D61D-1957D8B8-3883D8C0",
       "InternalVariableName": "SlashAttack"
@@ -6364,50 +6440,50 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.179"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.181"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.180"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.182"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.177"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.179"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.178"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.180"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.181"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.183"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.179"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.181"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.180"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.182"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.177"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.179"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.178"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.180"
         },
         {
           "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.181"
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.183"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Slasher_Character_25_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.176"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.178"
       }
     }
   },
@@ -6447,7 +6523,7 @@
     "Properties": {
       "AnimClass": {
         "ObjectName": "AnimBlueprintGeneratedClass AB_Slasher_25_C",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Blueprints/AB_Slasher_25.10"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Blueprints/AB_Slasher_25.11"
       },
       "SkeletalMesh": {
         "ObjectName": "SkeletalMesh K25_DSkeleton_REF",
@@ -6461,7 +6537,7 @@
       ],
       "AttachParent": {
         "ObjectName": "CapsuleComponent Default__BP_Slasher_Character_25_C:CollisionCylinder",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
       }
     }
   },
@@ -6509,7 +6585,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "CapsuleComponent Default__BP_Slasher_Character_25_C:CollisionCylinder",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.80"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.82"
       }
     }
   },
@@ -6632,7 +6708,7 @@
           "FunctionName": "TML_Dissolve__Event__EventFunc",
           "CurveKeys": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_0_1_2_3",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.92"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.94"
           },
           "TrackName": "Event",
           "bIsExternalCurve": false
@@ -6642,7 +6718,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_1_2_3_4_5",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.105"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.107"
           },
           "PropertyName": "TML_Dissolve_GradientHardness_712B655E437815A504862880BAA8B7E2",
           "TrackName": "GradientHardness",
@@ -6651,7 +6727,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_6_7_8",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.117"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.119"
           },
           "PropertyName": "TML_Dissolve_InverseDissolve_712B655E437815A504862880BAA8B7E2",
           "TrackName": "InverseDissolve",
@@ -6660,7 +6736,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_7_8_9",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.118"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.120"
           },
           "PropertyName": "TML_Dissolve_BorderThresholdLow_712B655E437815A504862880BAA8B7E2",
           "TrackName": "BorderThresholdLow",
@@ -6669,7 +6745,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_8_9_10",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.121"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.123"
           },
           "PropertyName": "TML_Dissolve_BorderIntensity_712B655E437815A504862880BAA8B7E2",
           "TrackName": "BorderIntensity",
@@ -6678,7 +6754,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_9_10_11",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.122"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.124"
           },
           "PropertyName": "TML_Dissolve_Fresnel_Intensity_712B655E437815A504862880BAA8B7E2",
           "TrackName": "Fresnel_Intensity",
@@ -6687,7 +6763,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_10_11_12",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.95"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.97"
           },
           "PropertyName": "TML_Dissolve_Fresnel_Exponent_712B655E437815A504862880BAA8B7E2",
           "TrackName": "Fresnel_Exponent",
@@ -6696,7 +6772,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_11_12_13",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.96"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.98"
           },
           "PropertyName": "TML_Dissolve_Particle_SpawnRate_712B655E437815A504862880BAA8B7E2",
           "TrackName": "Particle_SpawnRate",
@@ -6705,7 +6781,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_1_3_4",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.106"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.108"
           },
           "PropertyName": "TML_Dissolve_DissolveProgress_712B655E437815A504862880BAA8B7E2",
           "TrackName": "DissolveProgress",
@@ -6714,7 +6790,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_7_9",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.119"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.121"
           },
           "PropertyName": "TML_Dissolve_PostProcess_Ligntning_Intensity_712B655E437815A504862880BAA8B7E2",
           "TrackName": "PostProcess_Ligntning_Intensity",
@@ -6723,7 +6799,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_8_10",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.120"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.122"
           },
           "PropertyName": "TML_Dissolve_FadeToBlack_712B655E437815A504862880BAA8B7E2",
           "TrackName": "FadeToBlack",
@@ -6732,7 +6808,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_13",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.98"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.100"
           },
           "PropertyName": "TML_Dissolve_Outline_Erode_712B655E437815A504862880BAA8B7E2",
           "TrackName": "Outline_Erode",
@@ -6741,7 +6817,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_0",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.91"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.93"
           },
           "PropertyName": "TML_Dissolve_Lightning_Erode_712B655E437815A504862880BAA8B7E2",
           "TrackName": "Lightning_Erode",
@@ -6765,7 +6841,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_1",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.94"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.96"
           },
           "PropertyName": "TML_DissolveChainMiss_DissolveChain_C8F510A14EE8BA6DDB3776B5DE7F0FA7",
           "TrackName": "DissolveChain",
@@ -6789,7 +6865,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_1_4",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.107"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.109"
           },
           "PropertyName": "TML_DissolveChainWipe_DissolveChain_D84BA10B487DD871117F39972593F1D4",
           "TrackName": "DissolveChain",
@@ -6814,7 +6890,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_2_4",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.111"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.113"
           },
           "PropertyName": "TML_DissolveItemfpv_Dissolve_35B9C08649EA51DDBDD5F397E6256A37",
           "TrackName": "Dissolve",
@@ -6823,7 +6899,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_3",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.112"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.114"
           },
           "PropertyName": "TML_DissolveItemfpv_DissolveProgress_35B9C08649EA51DDBDD5F397E6256A37",
           "TrackName": "DissolveProgress",
@@ -6834,7 +6910,7 @@
         {
           "CurveVector": {
             "ObjectName": "CurveVector BP_Slasher_Character_25_C:CurveVector_0_1",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.123"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.125"
           },
           "PropertyName": "TML_DissolveItemfpv_NewTrack_0_35B9C08649EA51DDBDD5F397E6256A37",
           "TrackName": "NewTrack_0",
@@ -6858,7 +6934,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_2_3",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.110"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.112"
           },
           "PropertyName": "TML_PossessGateway_CurveSize_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "CurveSize",
@@ -6867,7 +6943,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_1_2_3",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.104"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.106"
           },
           "PropertyName": "TML_PossessGateway_Light_Intensity_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "Light_Intensity",
@@ -6876,7 +6952,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_3_4",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.113"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.115"
           },
           "PropertyName": "TML_PossessGateway_Mask_Radius_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "Mask_Radius",
@@ -6885,7 +6961,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_4_5",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.114"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.116"
           },
           "PropertyName": "TML_PossessGateway_BlurIntensity_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "BlurIntensity",
@@ -6894,7 +6970,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_5_6",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.115"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.117"
           },
           "PropertyName": "TML_PossessGateway_Light_RayRadius_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "Light_RayRadius",
@@ -6903,7 +6979,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_12_13",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.97"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.99"
           },
           "PropertyName": "TML_PossessGateway_Light_Color_Intensity_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "Light_Color_Intensity",
@@ -6912,7 +6988,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_13_14",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.99"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.101"
           },
           "PropertyName": "TML_PossessGateway_Outline_Erode_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "Outline_Erode",
@@ -6921,7 +6997,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_16_17",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.102"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.104"
           },
           "PropertyName": "TML_PossessGateway_Outline_Intensity_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "Outline_Intensity",
@@ -6930,7 +7006,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_17_18",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.103"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.105"
           },
           "PropertyName": "TML_PossessGateway_BlurRadius_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "BlurRadius",
@@ -6939,7 +7015,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_2",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.109"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.111"
           },
           "PropertyName": "TML_PossessGateway_Outline_Erode_Lightning_B7499CED471F8A03996FFC84FFB401C2",
           "TrackName": "Outline_Erode_Lightning",
@@ -6964,7 +7040,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_15_18",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.101"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.103"
           },
           "PropertyName": "TML_ReturnToKiller_Vignette_952E33F648B1469A4EDEE38F52295826",
           "TrackName": "Vignette",
@@ -6973,7 +7049,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_0_3",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.93"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.95"
           },
           "PropertyName": "TML_ReturnToKiller_SizeCurve_952E33F648B1469A4EDEE38F52295826",
           "TrackName": "SizeCurve",
@@ -6997,7 +7073,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_14_17",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.100"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.102"
           },
           "PropertyName": "TML_NewTrack_0_FA289F7A43E7CD4F660FAC98206FEE40",
           "TrackName": "NewTrack_0",
@@ -7021,7 +7097,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_1_4_5",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.108"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.110"
           },
           "PropertyName": "TML_VaultDissolve_VaultOpacityDissolveLvl_7772DB4B41B78C794FC6978E331D7AF3",
           "TrackName": "VaultOpacityDissolveLvl",
@@ -7030,7 +7106,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_Slasher_Character_25_C:CurveFloat_6",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.116"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_25.118"
           },
           "PropertyName": "TML_VaultDissolve_VaultEmissiveDissolveLvl_7772DB4B41B78C794FC6978E331D7AF3",
           "TrackName": "VaultEmissiveDissolveLvl",

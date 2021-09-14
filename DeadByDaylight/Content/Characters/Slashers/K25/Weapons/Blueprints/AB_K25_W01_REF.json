@@ -19,7 +19,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Name": "CallFunc_LessEqual_FloatFloat_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -31,7 +31,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_LessEqual_FloatFloat_ReturnValue",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -40,6 +40,22 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Montage",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class AnimMontage",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_StartingPos",
+        "Flags": 1,
+        "ElementSize": 4
       },
       {
         "Type": "BoolProperty",
@@ -240,18 +256,8 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_Montage",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class AnimMontage",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
         "Type": "FloatProperty",
-        "Name": "K2Node_Event_StartingPos",
+        "Name": "CallFunc_GetRelevantAnimTimeRemaining_ReturnValue_2",
         "Flags": 1,
         "ElementSize": 4
       },
@@ -266,24 +272,6 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsTeleportAvailable",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetRelevantAnimTimeRemaining_ReturnValue_2",
-        "Flags": 1,
-        "ElementSize": 4
       },
       {
         "Type": "BoolProperty",
@@ -308,6 +296,40 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsTeleportAvailable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsCarryingSurvivor",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_SurvivorDowned",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class CamperPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       },
       {
         "Type": "FloatProperty",
@@ -377,9 +399,41 @@
   },
   {
     "Type": "Function",
-    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A",
+    "Name": "K25_ResetVignettes",
     "Outer": "AB_K25_W01_REF_C",
-    "FunctionFlags": 134217728
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "K25_OnKillerDownsSurvivorHoldingLamentConfiguration",
+    "Outer": "AB_K25_W01_REF_C",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsCarryingSurvivor",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SurvivorDowned",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class CamperPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 201457664
   },
   {
     "Type": "Function",
@@ -392,6 +446,12 @@
     "Name": "K25_TeleportDisappear",
     "Outer": "AB_K25_W01_REF_C",
     "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A",
+    "Outer": "AB_K25_W01_REF_C",
+    "FunctionFlags": 134217728
   },
   {
     "Type": "Function",
@@ -436,38 +496,6 @@
     "Type": "Function",
     "Name": "K25_CancelSwingAttackPortal_IN",
     "Outer": "AB_K25_W01_REF_C",
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "Function",
-    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27",
-    "Outer": "AB_K25_W01_REF_C",
-    "FunctionFlags": 134217728
-  },
-  {
-    "Type": "Function",
-    "Name": "PlayLamentConfigurationMontage",
-    "Outer": "AB_K25_W01_REF_C",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "Montage",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class AnimMontage",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "StartingPos",
-        "Flags": 1,
-        "ElementSize": 4,
-        "PropertyFlags": 148
-      }
-    ],
     "FunctionFlags": 201457664
   },
   {
@@ -587,6 +615,38 @@
   {
     "Type": "Function",
     "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_D70E930C49F9293C0AC01E809C389423",
+    "Outer": "AB_K25_W01_REF_C",
+    "FunctionFlags": 134217728
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayLamentConfigurationMontage",
+    "Outer": "AB_K25_W01_REF_C",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Montage",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class AnimMontage",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "StartingPos",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27",
     "Outer": "AB_K25_W01_REF_C",
     "FunctionFlags": 134217728
   },
@@ -807,7 +867,7 @@
             {
               "PreviousState": 0,
               "NextState": 1,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -833,7 +893,7 @@
             {
               "PreviousState": 2,
               "NextState": 3,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -846,7 +906,7 @@
             {
               "PreviousState": 2,
               "NextState": 4,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -872,7 +932,7 @@
             {
               "PreviousState": 5,
               "NextState": 0,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -885,7 +945,7 @@
             {
               "PreviousState": 4,
               "NextState": 0,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -898,7 +958,7 @@
             {
               "PreviousState": 3,
               "NextState": 0,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -911,7 +971,7 @@
             {
               "PreviousState": 1,
               "NextState": 0,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -924,7 +984,7 @@
             {
               "PreviousState": 2,
               "NextState": 0,
-              "CrossfadeDuration": 0.2,
+              "CrossfadeDuration": 0.01,
               "StartNotify": -1,
               "EndNotify": -1,
               "InterruptNotify": -1,
@@ -1038,7 +1098,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1120,7 +1180,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1202,7 +1262,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1284,7 +1344,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1366,7 +1426,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1383,7 +1443,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1400,7 +1460,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1417,7 +1477,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1434,7 +1494,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1451,7 +1511,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1468,7 +1528,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1485,7 +1545,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1502,7 +1562,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1519,7 +1579,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1528,7 +1588,7 @@
           "CopyRecords": [],
           "Function": {
             "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.17"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
           },
           "ValueHandlerNodeProperty": {
             "Path": [
@@ -1536,7 +1596,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         },
@@ -1545,7 +1605,7 @@
           "CopyRecords": [],
           "Function": {
             "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.9"
+            "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.13"
           },
           "ValueHandlerNodeProperty": {
             "Path": [
@@ -1553,7 +1613,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_K25_W01_REF_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.42"
             }
           }
         }
@@ -1570,6 +1630,14 @@
     "Children": [
       {
         "ObjectName": "Function AB_K25_W01_REF_C:AnimGraph",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.41"
+      },
+      {
+        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+      },
+      {
+        "ObjectName": "Function AB_K25_W01_REF_C:PlayLamentConfigurationMontage",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.39"
       },
       {
@@ -1653,43 +1721,43 @@
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.19"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:PlayLamentConfigurationMontage",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_CancelSwingAttackPortal_IN",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.18"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportAborted",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.17"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:K25_CancelSwingAttackPortal_IN",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_SpawnSwingAttackPortal_IN",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.16"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportAborted",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_OnTeleportAvailabilityChange",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.15"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:K25_SpawnSwingAttackPortal_IN",
+        "ObjectName": "Function AB_K25_W01_REF_C:HideLamentConfiguration",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.14"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:K25_OnTeleportAvailabilityChange",
+        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.13"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:HideLamentConfiguration",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportDisappear",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.12"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportDisappear",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportAppear",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.11"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportAppear",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_OnKillerDownsSurvivorHoldingLamentConfiguration",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.10"
       },
       {
-        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A",
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_ResetVignettes",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.9"
       },
       {
@@ -2039,44 +2107,44 @@
         "ObjectName": "Function AB_K25_W01_REF_C:K25_StartItemDissolveIn",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.8"
       },
-      "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A": {
-        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A",
+      "K25_ResetVignettes": {
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_ResetVignettes",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.9"
+      },
+      "K25_OnKillerDownsSurvivorHoldingLamentConfiguration": {
+        "ObjectName": "Function AB_K25_W01_REF_C:K25_OnKillerDownsSurvivorHoldingLamentConfiguration",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.10"
       },
       "K25_TeleportAppear": {
         "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportAppear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.10"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.11"
       },
       "K25_TeleportDisappear": {
         "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportDisappear",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.11"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.12"
+      },
+      "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A": {
+        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_0474A9354ABEA6B0E5C75ABFB7F68E3A",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.13"
       },
       "HideLamentConfiguration": {
         "ObjectName": "Function AB_K25_W01_REF_C:HideLamentConfiguration",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.12"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.14"
       },
       "K25_OnTeleportAvailabilityChange": {
         "ObjectName": "Function AB_K25_W01_REF_C:K25_OnTeleportAvailabilityChange",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.13"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.15"
       },
       "K25_SpawnSwingAttackPortal_IN": {
         "ObjectName": "Function AB_K25_W01_REF_C:K25_SpawnSwingAttackPortal_IN",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.14"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.16"
       },
       "K25_TeleportAborted": {
         "ObjectName": "Function AB_K25_W01_REF_C:K25_TeleportAborted",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.15"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.17"
       },
       "K25_CancelSwingAttackPortal_IN": {
         "ObjectName": "Function AB_K25_W01_REF_C:K25_CancelSwingAttackPortal_IN",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.16"
-      },
-      "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27": {
-        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.17"
-      },
-      "PlayLamentConfigurationMontage": {
-        "ObjectName": "Function AB_K25_W01_REF_C:PlayLamentConfigurationMontage",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.18"
       },
       "K25_SpawnSwingAttackPortal_Miss": {
@@ -2159,9 +2227,17 @@
         "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_D70E930C49F9293C0AC01E809C389423",
         "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.38"
       },
+      "PlayLamentConfigurationMontage": {
+        "ObjectName": "Function AB_K25_W01_REF_C:PlayLamentConfigurationMontage",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.39"
+      },
+      "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27": {
+        "ObjectName": "Function AB_K25_W01_REF_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_K25_W01_REF_AnimGraphNode_TransitionResult_840F240B4C297E72BBB7B1A7ECEB5F27",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.40"
+      },
       "AnimGraph": {
         "ObjectName": "Function AB_K25_W01_REF_C:AnimGraph",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.39"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.41"
       }
     },
     "ClassFlags": 8652824,
@@ -2175,7 +2251,7 @@
       {
         "Class": {
           "ObjectName": "BlueprintGeneratedClass BPI_Effect_K25_Killer_C",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Interface/K25/BPI_Effect_K25_Killer.27"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Interface/K25/BPI_Effect_K25_Killer.29"
         },
         "PointerOffset": 0,
         "bImplementedByK2": true
@@ -2184,7 +2260,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "AB_K25_W01_REF_C Default__AB_K25_W01_REF_C",
-      "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.41"
+      "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K25/Weapons/Blueprints/AB_K25_W01_REF.43"
     }
   },
   {
