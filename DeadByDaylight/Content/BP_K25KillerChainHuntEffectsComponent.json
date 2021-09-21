@@ -91,19 +91,6 @@
         "ElementSize": 4
       },
       {
-        "Type": "BoolProperty",
-        "Name": "K2Node_Event_hasChainHuntStarted",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 2,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "DelegateProperty",
         "Name": "Temp_delegate_Variable_1",
         "Flags": 1,
@@ -132,6 +119,30 @@
         }
       },
       {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_hasChainHuntStarted",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "Temp_delegate_Variable_2",
+        "Flags": 1,
+        "ElementSize": 20,
+        "PropertyFlags": 2,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkPostEventCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetOwningPlayer_ReturnValue_1",
         "Flags": 1,
@@ -143,13 +154,12 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetAudioComponent_ReturnValue_1",
+        "Name": "CallFunc_GetOwningPlayer_ReturnValue_2",
         "Flags": 1,
         "ElementSize": 8,
-        "PropertyFlags": 524288,
         "PropertyClass": {
-          "ObjectName": "Class AkComponent",
-          "ObjectPath": "/Script/AkAudio"
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
@@ -177,13 +187,92 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAudioComponent_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class AkComponent",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAudioComponent_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class AkComponent",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_4",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_5",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "IntProperty",
         "Name": "CallFunc_PostAkEvent_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_struct_Variable_2",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217730,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "Temp_struct_Variable_2",
+          "Flags": 1,
+          "ElementSize": 56,
+          "Struct": {
+            "ObjectName": "ScriptStruct AkExternalSourceInfo",
+            "ObjectPath": "/Script/AkAudio"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAkEvent_ReturnValue_2",
         "Flags": 1,
         "ElementSize": 4
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_TriggerChainHuntActivationSFX",
+    "Outer": "BP_K25KillerChainHuntEffectsComponent_C",
+    "SuperStruct": {
+      "ObjectName": "Function K25ChainHuntEffectsComponent:Cosmetic_TriggerChainHuntActivationSFX",
+      "ObjectPath": "/Script/TheK25"
+    },
+    "FunctionFlags": 134744072
   },
   {
     "Type": "Function",
@@ -236,10 +325,14 @@
     "Children": [
       {
         "ObjectName": "Function BP_K25KillerChainHuntEffectsComponent_C:Cosmetic_ActivateChainHuntEffects",
-        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.2"
+        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.3"
       },
       {
         "ObjectName": "Function BP_K25KillerChainHuntEffectsComponent_C:Cosmetic_DeactivateChainHuntEffects",
+        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.2"
+      },
+      {
+        "ObjectName": "Function BP_K25KillerChainHuntEffectsComponent_C:Cosmetic_TriggerChainHuntActivationSFX",
         "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.1"
       },
       {
@@ -265,13 +358,17 @@
         "ObjectName": "Function BP_K25KillerChainHuntEffectsComponent_C:ExecuteUbergraph_BP_K25KillerChainHuntEffectsComponent",
         "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.0"
       },
+      "Cosmetic_TriggerChainHuntActivationSFX": {
+        "ObjectName": "Function BP_K25KillerChainHuntEffectsComponent_C:Cosmetic_TriggerChainHuntActivationSFX",
+        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.1"
+      },
       "Cosmetic_DeactivateChainHuntEffects": {
         "ObjectName": "Function BP_K25KillerChainHuntEffectsComponent_C:Cosmetic_DeactivateChainHuntEffects",
-        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.1"
+        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.2"
       },
       "Cosmetic_ActivateChainHuntEffects": {
         "ObjectName": "Function BP_K25KillerChainHuntEffectsComponent_C:Cosmetic_ActivateChainHuntEffects",
-        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.2"
+        "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.3"
       }
     },
     "ClassFlags": 10749972,
@@ -285,7 +382,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_K25KillerChainHuntEffectsComponent_C Default__BP_K25KillerChainHuntEffectsComponent_C",
-      "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.4"
+      "ObjectPath": "DeadByDaylight/Content/BP_K25KillerChainHuntEffectsComponent.5"
     }
   },
   {
