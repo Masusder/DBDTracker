@@ -12,10 +12,22 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsDesignTime",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "StructProperty",
         "Name": "K2Node_Event_customizationViewData",
         "Flags": 1,
-        "ElementSize": 168,
+        "ElementSize": 200,
         "PropertyFlags": 2,
         "Struct": {
           "ObjectName": "ScriptStruct CustomizationTooltipViewData",
@@ -38,7 +50,7 @@
         "Type": "StructProperty",
         "Name": "customizationViewData",
         "Flags": 1,
-        "ElementSize": 168,
+        "ElementSize": 200,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct CustomizationTooltipViewData",
@@ -47,6 +59,31 @@
       }
     ],
     "FunctionFlags": 138545152
+  },
+  {
+    "Type": "Function",
+    "Name": "PreConstruct",
+    "Outer": "WBP_CoreCustomizationTooltip_C",
+    "SuperStruct": {
+      "ObjectName": "Function UserWidget:PreConstruct",
+      "ObjectPath": "/Script/UMG"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsDesignTime",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 134350856
   },
   {
     "Type": "Function",
@@ -392,12 +429,31 @@
     "FunctionFlags": 201457664
   },
   {
+    "Type": "Function",
+    "Name": "SetCustomizationData",
+    "Outer": "WBP_CoreCustomizationTooltip_C",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "Customization Tooltip Data",
+        "Flags": 1,
+        "ElementSize": 200,
+        "PropertyFlags": 148,
+        "Struct": {
+          "ObjectName": "ScriptStruct CustomizationTooltipViewData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
     "Type": "WidgetBlueprintGeneratedClass",
     "Name": "WBP_CoreCustomizationTooltip_C",
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_CoreCustomizationTooltip_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.82"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.97"
       },
       "bAllowTemplate": true,
       "bValidTemplate": true,
@@ -417,15 +473,23 @@
     },
     "Children": [
       {
+        "ObjectName": "Function WBP_CoreCustomizationTooltip_C:SetCustomizationData",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.6"
+      },
+      {
         "ObjectName": "Function WBP_CoreCustomizationTooltip_C:Set Status Text Color",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.5"
       },
       {
         "ObjectName": "Function WBP_CoreCustomizationTooltip_C:SetRoleIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.4"
       },
       {
         "ObjectName": "Function WBP_CoreCustomizationTooltip_C:SetRarity",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.3"
+      },
+      {
+        "ObjectName": "Function WBP_CoreCustomizationTooltip_C:PreConstruct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.2"
       },
       {
@@ -615,6 +679,17 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "WBP_CoreTooltipKillSwitch",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass WBP_CoreTooltipKillSwitch_C",
+          "ObjectPath": "/DBDUICore/Common/Tooltips/Common/WBP_CoreTooltipKillSwitch"
+        }
+      },
+      {
         "Type": "StructProperty",
         "Name": "LockedColor",
         "Flags": 2097153,
@@ -657,17 +732,25 @@
         "ObjectName": "Function WBP_CoreCustomizationTooltip_C:SetTooltipData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.1"
       },
+      "PreConstruct": {
+        "ObjectName": "Function WBP_CoreCustomizationTooltip_C:PreConstruct",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.2"
+      },
       "SetRarity": {
         "ObjectName": "Function WBP_CoreCustomizationTooltip_C:SetRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.3"
       },
       "SetRoleIcon": {
         "ObjectName": "Function WBP_CoreCustomizationTooltip_C:SetRoleIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.4"
       },
       "Set Status Text Color": {
         "ObjectName": "Function WBP_CoreCustomizationTooltip_C:Set Status Text Color",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.5"
+      },
+      "SetCustomizationData": {
+        "ObjectName": "Function WBP_CoreCustomizationTooltip_C:SetCustomizationData",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.6"
       }
     },
     "ClassFlags": 10754064,
@@ -681,7 +764,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreCustomizationTooltip_C Default__WBP_CoreCustomizationTooltip_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.6"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.8"
     }
   },
   {
@@ -739,7 +822,7 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tootip_Bg",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tootip_Bg.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tootip_Bg"
         },
         "DrawAs": "ESlateBrushDrawType::Box"
       },
@@ -752,7 +835,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.37"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.42"
       }
     }
   },
@@ -768,12 +851,12 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tooltip_infoIcon",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tooltip_infoIcon.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tooltip_infoIcon"
         }
       },
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionContainer.HorizontalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.55"
       }
     }
   },
@@ -793,7 +876,7 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tootip_Line",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tootip_Line.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tootip_Line"
         },
         "DrawAs": "ESlateBrushDrawType::Box"
       },
@@ -806,7 +889,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.39"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.44"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -823,12 +906,12 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D onboarding_iconLocked",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Onboarding/onboarding_iconLocked.0"
+          "ObjectPath": "/DBDUICore/Assets/Onboarding/onboarding_iconLocked"
         }
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_6",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.46"
       }
     }
   },
@@ -844,12 +927,12 @@
         },
         "ResourceObject": {
           "ObjectName": "Material M_UI_SmokeOneDirection",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/M_UI_SmokeOneDirection.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/M_UI_SmokeOneDirection"
         }
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.43"
       }
     }
   },
@@ -865,12 +948,12 @@
         },
         "ResourceObject": {
           "ObjectName": "MaterialInstanceConstant M_UI_TooltipOwner",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/M_UI_TooltipOwner.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/M_UI_TooltipOwner"
         }
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.59"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
       }
     }
   },
@@ -886,12 +969,12 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tooltipIcons_survivor",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tooltipIcons_survivor.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tooltipIcons_survivor"
         }
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.60"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.69"
       }
     }
   },
@@ -911,7 +994,7 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tootip_Bg",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tootip_Bg.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tootip_Bg"
         },
         "DrawAs": "ESlateBrushDrawType::Box"
       },
@@ -924,7 +1007,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.42"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.47"
       }
     }
   },
@@ -940,12 +1023,12 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tooltip_infoIcon",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tooltip_infoIcon.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tooltip_infoIcon"
         }
       },
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.InstructionContainer.HorizontalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.51"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.57"
       }
     }
   },
@@ -965,7 +1048,7 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tootip_Line",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tootip_Line.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tootip_Line"
         },
         "DrawAs": "ESlateBrushDrawType::Box"
       },
@@ -978,7 +1061,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.44"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.49"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -995,12 +1078,12 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D onboarding_iconLocked",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Onboarding/onboarding_iconLocked.0"
+          "ObjectPath": "/DBDUICore/Assets/Onboarding/onboarding_iconLocked"
         }
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_6",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.46"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.51"
       }
     }
   },
@@ -1016,12 +1099,12 @@
         },
         "ResourceObject": {
           "ObjectName": "Material M_UI_SmokeOneDirection",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/M_UI_SmokeOneDirection.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/M_UI_SmokeOneDirection"
         }
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.43"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.48"
       }
     }
   },
@@ -1037,12 +1120,12 @@
         },
         "ResourceObject": {
           "ObjectName": "MaterialInstanceConstant M_UI_TooltipOwner",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/M_UI_TooltipOwner.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/M_UI_TooltipOwner"
         }
       },
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.RoleContainer.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.73"
       }
     }
   },
@@ -1058,13 +1141,66 @@
         },
         "ResourceObject": {
           "ObjectName": "Texture2D tooltipIcons_survivor",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Tooltips/tooltipIcons_survivor.0"
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/tooltipIcons_survivor"
         }
       },
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.RoleContainer.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.65"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.74"
       }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "BG",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 1024.0,
+          "Y": 128.0
+        },
+        "TintColor": {
+          "SpecifiedColor": {
+            "R": 0.658375,
+            "G": 0.009134,
+            "B": 0.009134,
+            "A": 1.0,
+            "Hex": "A80202"
+          }
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D T_UI_TooltipKillSwitch_bg",
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/T_UI_TooltipKillSwitch_bg"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Overlay_0.OverlaySlot_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.76"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "Icon",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D T_UI_TooltipKillSwitch_icon",
+          "ObjectPath": "/DBDUICore/Assets/Common/Tooltips/T_UI_TooltipKillSwitch_icon"
+        }
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.59"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
   {
@@ -1079,12 +1215,12 @@
       },
       "TextStyleSet": {
         "ObjectName": "DataTable CoreTooltipRichTextStyle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Data/RichTexts/CoreTooltipRichTextStyle.0"
+        "ObjectPath": "/DBDUICore/Data/RichTexts/CoreTooltipRichTextStyle"
       },
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.72"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.83"
       }
     }
   },
@@ -1100,12 +1236,12 @@
       },
       "TextStyleSet": {
         "ObjectName": "DataTable CoreTooltipRichTextStyle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Data/RichTexts/CoreTooltipRichTextStyle.0"
+        "ObjectPath": "/DBDUICore/Data/RichTexts/CoreTooltipRichTextStyle"
       },
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.90"
       }
     }
   },
@@ -1122,7 +1258,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "CondensedItalic",
         "Size": 25
@@ -1130,7 +1266,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionContainer.HorizontalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.50"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.56"
       },
       "bIsVariable": true
     }
@@ -1158,7 +1294,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "Italic",
         "Size": 25
@@ -1166,7 +1302,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.Overlay_0.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.57"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.66"
       },
       "bIsVariable": true
     }
@@ -1194,7 +1330,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "Italic",
         "Size": 25
@@ -1203,7 +1339,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.Overlay_0.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.58"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
       },
       "bIsVariable": true
     }
@@ -1230,7 +1366,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "Light",
         "Size": 25
@@ -1238,7 +1374,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer.OverlaySlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.61"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.70"
       },
       "bIsVariable": true
     }
@@ -1265,14 +1401,14 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "Size": 30
       },
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.71"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.82"
       },
       "bIsVariable": true
     }
@@ -1291,14 +1427,14 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "Size": 45
       },
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.69"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.80"
       },
       "bIsVariable": true
     }
@@ -1316,7 +1452,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "CondensedItalic",
         "Size": 25
@@ -1324,7 +1460,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.InstructionContainer.HorizontalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.52"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.58"
       },
       "bIsVariable": true
     }
@@ -1352,7 +1488,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "Italic",
         "Size": 25
@@ -1360,7 +1496,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.Overlay_0.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.62"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.71"
       },
       "bIsVariable": true
     }
@@ -1388,7 +1524,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "Italic",
         "Size": 25
@@ -1397,7 +1533,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.Overlay_0.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.63"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.72"
       },
       "bIsVariable": true
     }
@@ -1424,7 +1560,7 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "TypefaceFontName": "Light",
         "Size": 25
@@ -1432,7 +1568,7 @@
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.RoleContainer.OverlaySlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.66"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.75"
       },
       "bIsVariable": true
     }
@@ -1459,14 +1595,14 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "Size": 30
       },
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.77"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.89"
       },
       "bIsVariable": true
     }
@@ -1485,16 +1621,53 @@
       "Font": {
         "FontObject": {
           "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
         },
         "Size": 45
       },
       "WrapTextAt": 920.0,
       "Slot": {
         "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.75"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.87"
       },
       "bIsVariable": true
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
+    "Name": "MessageText",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "8634E1624839970264901E9FD194D4DD",
+        "SourceString": "This is a message in a alert"
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.701102,
+          "G": 0.006049,
+          "B": 0.006049,
+          "A": 1.0,
+          "Hex": "B30202"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font DBDCoreFont",
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont"
+        },
+        "TypefaceFontName": "CondensedBold",
+        "Size": 34
+      },
+      "WrapTextAt": 840.0,
+      "LineHeightPercentage": 0.85,
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.60"
+      },
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
   {
@@ -1505,23 +1678,23 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.37"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.42"
         },
         {
           "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.38"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.43"
         },
         {
           "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.39"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.44"
         },
         {
           "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_6",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.46"
         },
         {
           "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.45"
         }
       ]
     }
@@ -1534,23 +1707,23 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.42"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.47"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.43"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.48"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.44"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.49"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_6",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.46"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.51"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.45"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.50"
         }
       ]
     }
@@ -1566,11 +1739,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationTooltip_C:WidgetTree.Bg",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.9"
       }
     }
   },
@@ -1582,15 +1755,14 @@
       "Padding": {
         "Top": -50.0
       },
-      "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Top",
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationTooltip_C:WidgetTree.RarityBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.11"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.13"
       }
     }
   },
@@ -1607,11 +1779,11 @@
       "VerticalAlignment": "VAlign_Top",
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationTooltip_C:WidgetTree.Line",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.11"
       }
     }
   },
@@ -1627,11 +1799,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
       },
       "Content": {
         "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
       }
     }
   },
@@ -1651,11 +1823,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationTooltip_C:WidgetTree.Locked",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.10"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.12"
       }
     }
   },
@@ -1670,11 +1842,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.Bg",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.16"
       }
     }
   },
@@ -1686,15 +1858,14 @@
       "Padding": {
         "Top": -50.0
       },
-      "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Top",
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.RarityBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.20"
       }
     }
   },
@@ -1711,11 +1882,11 @@
       "VerticalAlignment": "VAlign_Top",
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.Line",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.18"
       }
     }
   },
@@ -1731,11 +1902,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
       },
       "Content": {
         "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
       }
     }
   },
@@ -1755,11 +1926,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.Locked",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.19"
       }
     }
   },
@@ -1771,16 +1942,16 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionContainer.HorizontalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.49"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.55"
         },
         {
           "ObjectName": "HorizontalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionContainer.HorizontalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.50"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.56"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_8",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.74"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.86"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
@@ -1794,22 +1965,43 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.InstructionContainer.HorizontalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.51"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.57"
         },
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.InstructionContainer.HorizontalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.52"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.58"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_8",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.80"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.93"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
     }
   },
   {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_0",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.59"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_1",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.60"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Overlay_0.OverlaySlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.77"
+      }
+    }
+  },
+  {
     "Type": "HorizontalBoxSlot",
     "Name": "HorizontalBoxSlot_0",
     "Outer": "InstructionContainer",
@@ -1819,11 +2011,11 @@
       },
       "Parent": {
         "ObjectName": "HorizontalBox WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.47"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.52"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.10"
       }
     }
   },
@@ -1839,11 +2031,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "HorizontalBox WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.47"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.52"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionText",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.23"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.27"
       }
     }
   },
@@ -1857,11 +2049,11 @@
       },
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.InstructionContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.53"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.InstructionIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.17"
       }
     }
   },
@@ -1877,11 +2069,54 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.InstructionContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.53"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.InstructionText",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.33"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox_0",
+    "Properties": {
+      "Padding": {
+        "Left": 20.0,
+        "Top": -10.0,
+        "Right": 20.0,
+        "Bottom": -10.0
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.HorizontalBox_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.54"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Icon",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.24"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_1",
+    "Outer": "HorizontalBox_0",
+    "Properties": {
+      "Padding": {
+        "Top": -5.0
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.HorizontalBox_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.54"
+      },
+      "Content": {
+        "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.MessageText",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.39"
       }
     }
   },
@@ -1893,16 +2128,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.Overlay_0.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.57"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.66"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.Overlay_0.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.58"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.70"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.81"
       }
     }
   },
@@ -1914,20 +2149,20 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.59"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.60"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.69"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer.OverlaySlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.61"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.70"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.73"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.84"
       },
       "bIsVariable": true
     }
@@ -1940,16 +2175,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.Overlay_0.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.62"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.71"
         },
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.Overlay_0.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.63"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.72"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.76"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.88"
       }
     }
   },
@@ -1961,22 +2196,39 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.RoleContainer.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.64"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.73"
         },
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.RoleContainer.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.65"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.74"
         },
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.RoleContainer.OverlaySlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.66"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.75"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.91"
       },
       "bIsVariable": true
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Overlay_0.OverlaySlot_1",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.76"
+        },
+        {
+          "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Overlay_0.OverlaySlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.77"
+        }
+      ]
     }
   },
   {
@@ -1990,11 +2242,11 @@
       },
       "Parent": {
         "ObjectName": "Overlay WBP_CoreCustomizationTooltip_C:WidgetTree.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.53"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.61"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreCustomizationTooltip_C:WidgetTree.ToolTipCollectionName",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.28"
       }
     }
   },
@@ -2009,11 +2261,11 @@
       "HorizontalAlignment": "HAlign_Right",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreCustomizationTooltip_C:WidgetTree.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.53"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.61"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreCustomizationTooltip_C:WidgetTree.ToolTipRarityBody",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.29"
       }
     }
   },
@@ -2026,11 +2278,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.54"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.62"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationTooltip_C:WidgetTree.RoleBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.12"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.14"
       }
     }
   },
@@ -2045,11 +2297,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.54"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.62"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationTooltip_C:WidgetTree.RoleIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.15"
       }
     }
   },
@@ -2065,35 +2317,35 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.54"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.62"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreCustomizationTooltip_C:WidgetTree.ToolTipRoleOwner",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.26"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_0",
-    "Properties": {
-      "Padding": {
-        "Left": 5.0,
-        "Bottom": 20.0
-      },
-      "Parent": {
-        "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.55"
-      },
-      "Content": {
-        "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipCollectionName",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.30"
       }
     }
   },
   {
     "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_0",
+    "Properties": {
+      "Padding": {
+        "Left": 5.0,
+        "Bottom": 20.0
+      },
+      "Parent": {
+        "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.Overlay_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.63"
+      },
+      "Content": {
+        "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipCollectionName",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.34"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
     "Name": "OverlaySlot_1",
     "Outer": "Overlay_0",
     "Properties": {
@@ -2103,11 +2355,11 @@
       "HorizontalAlignment": "HAlign_Right",
       "Parent": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.55"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.63"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipRarityBody",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
       }
     }
   },
@@ -2120,11 +2372,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.56"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.64"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.RoleBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.21"
       }
     }
   },
@@ -2139,11 +2391,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.56"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.64"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.RoleIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.22"
       }
     }
   },
@@ -2159,11 +2411,45 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.56"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.64"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipRoleOwner",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "Overlay_0",
+    "Properties": {
+      "Padding": {
+        "Bottom": -20.0
+      },
+      "Parent": {
+        "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Overlay_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.65"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.BG",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.23"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "Overlay_0",
+    "Properties": {
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Overlay_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.65"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.HorizontalBox_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.54"
       }
     }
   },
@@ -2175,32 +2461,36 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.69"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.80"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.70"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.81"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.71"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.82"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.72"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.83"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.73"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.84"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_8",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.74"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.86"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_7",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.85"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0.GridSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.45"
       }
     }
   },
@@ -2212,32 +2502,36 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.75"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.87"
         },
         {
           "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.76"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.88"
         },
         {
           "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.77"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.89"
         },
         {
           "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.90"
         },
         {
           "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.91"
         },
         {
           "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_8",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.80"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.93"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_7",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.92"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.GridPanel_0.GridSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.45"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.50"
       }
     }
   },
@@ -2251,11 +2545,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreCustomizationTooltip_C:WidgetTree.TooltipTitle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.32"
       }
     }
   },
@@ -2269,11 +2563,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
       },
       "Content": {
         "ObjectName": "Overlay WBP_CoreCustomizationTooltip_C:WidgetTree.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.53"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.61"
       }
     }
   },
@@ -2287,11 +2581,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreCustomizationTooltip_C:WidgetTree.ToolTipStatusTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.31"
       }
     }
   },
@@ -2305,11 +2599,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
       },
       "Content": {
         "ObjectName": "DBDRichTextBlock WBP_CoreCustomizationTooltip_C:WidgetTree.ToolTipDescription",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.25"
       }
     }
   },
@@ -2325,11 +2619,32 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
       },
       "Content": {
         "ObjectName": "Overlay WBP_CoreCustomizationTooltip_C:WidgetTree.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.54"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.62"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_7",
+    "Outer": "Text",
+    "Properties": {
+      "Padding": {
+        "Left": -30.0,
+        "Top": 20.0,
+        "Right": -50.0
+      },
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreTooltipKillSwitch_C WBP_CoreCustomizationTooltip_C:WidgetTree.WBP_CoreTooltipKillSwitch",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.95"
       }
     }
   },
@@ -2343,11 +2658,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreCustomizationTooltip_C:WidgetTree.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.78"
       },
       "Content": {
         "ObjectName": "HorizontalBox WBP_CoreCustomizationTooltip_C:WidgetTree.InstructionContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.47"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.52"
       }
     }
   },
@@ -2361,11 +2676,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.TooltipTitle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.38"
       }
     }
   },
@@ -2379,11 +2694,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
       },
       "Content": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.55"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.63"
       }
     }
   },
@@ -2397,11 +2712,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipStatusTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.37"
       }
     }
   },
@@ -2415,11 +2730,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
       },
       "Content": {
         "ObjectName": "DBDRichTextBlock WidgetArchetype:WidgetTree_0.ToolTipDescription",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.26"
       }
     }
   },
@@ -2435,11 +2750,32 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
       },
       "Content": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.56"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.64"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_7",
+    "Outer": "Text",
+    "Properties": {
+      "Padding": {
+        "Left": -30.0,
+        "Top": 20.0,
+        "Right": -50.0
+      },
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreTooltipKillSwitch_C WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.96"
       }
     }
   },
@@ -2453,11 +2789,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WidgetArchetype:WidgetTree_0.Text",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.79"
       },
       "Content": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.InstructionContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.53"
       }
     }
   },
@@ -2468,73 +2804,116 @@
     "Properties": {
       "Bg": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.Bg",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.16"
       },
       "InstructionContainer": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.InstructionContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.53"
       },
       "InstructionIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.InstructionIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.17"
       },
       "InstructionText": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.InstructionText",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.33"
       },
       "Line": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.Line",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.18"
       },
       "Locked": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.Locked",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.19"
       },
       "RarityBG": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.RarityBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.20"
       },
       "RoleBG": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.RoleBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.21"
       },
       "RoleContainer": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.RoleContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.56"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.64"
       },
       "RoleIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.RoleIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.22"
       },
       "ToolTipCollectionName": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipCollectionName",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.34"
       },
       "ToolTipDescription": {
         "ObjectName": "DBDRichTextBlock WidgetArchetype:WidgetTree_0.ToolTipDescription",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.26"
       },
       "ToolTipRarityBody": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipRarityBody",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
       },
       "ToolTipRoleOwner": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipRoleOwner",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
       },
       "TooltipTitle": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.TooltipTitle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.38"
+      },
+      "WBP_CoreTooltipKillSwitch": {
+        "ObjectName": "WBP_CoreTooltipKillSwitch_C WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.96"
       },
       "ToolTipStatusTB": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ToolTipStatusTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.37"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.83"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.98"
       },
       "bCookedWidgetTree": true
+    }
+  },
+  {
+    "Type": "UObject",
+    "Name": "WBP_CoreTooltipKillSwitch",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot WBP_CoreCustomizationTooltip_C:WidgetTree.Text.VerticalBoxSlot_7",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.85"
+      }
+    }
+  },
+  {
+    "Type": "UObject",
+    "Name": "WBP_CoreTooltipKillSwitch",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "BG": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.BG",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.23"
+      },
+      "Icon": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Icon",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.24"
+      },
+      "MessageText": {
+        "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.MessageText",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.39"
+      },
+      "WidgetTree": {
+        "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.99"
+      },
+      "bCookedWidgetTree": true,
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot WidgetArchetype:WidgetTree_0.Text.VerticalBoxSlot_7",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.92"
+      }
     }
   },
   {
@@ -2544,7 +2923,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "GridPanel WBP_CoreCustomizationTooltip_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.40"
       }
     }
   },
@@ -2555,7 +2934,18 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.41"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree_0",
+    "Outer": "WBP_CoreTooltipKillSwitch",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.WBP_CoreTooltipKillSwitch.WidgetTree_0.Overlay_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tooltips/WBP_CoreCustomizationTooltip.65"
       }
     }
   }

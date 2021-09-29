@@ -2,35 +2,162 @@
   {
     "Type": "Function",
     "Name": "ExecuteUbergraph_FineStone",
-    "Properties": {}
+    "Outer": "FineStone_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Killer",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Survivor",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffect_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
   },
   {
     "Type": "Function",
     "Name": "OnHatchetHit",
-    "Properties": {}
+    "Outer": "FineStone_C",
+    "Super": "OnHatchetHit",
+    "SuperStruct": {
+      "ObjectName": "Function UnstackableHatchetAddon_C:OnHatchetHit",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/UnstackableHatchetAddon.1"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Killer",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Survivor",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 201850880
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "FineStone_C",
+    "Super": "UnstackableHatchetAddon_C",
     "Properties": {
       "UberGraphFunction": {
-        "ObjectName": "ExecuteUbergraph_FineStone:",
-        "ObjectPath": "FineStone_C.0"
+        "ObjectName": "Function FineStone_C:ExecuteUbergraph_FineStone",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/FineStone.0"
       }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass UnstackableHatchetAddon_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/UnstackableHatchetAddon.2"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function FineStone_C:OnHatchetHit",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/FineStone.1"
+      },
+      {
+        "ObjectName": "Function FineStone_C:ExecuteUbergraph_FineStone",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/FineStone.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "IncapacitatedDuration",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_FineStone": {
+        "ObjectName": "Function FineStone_C:ExecuteUbergraph_FineStone",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/FineStone.0"
+      },
+      "OnHatchetHit": {
+        "ObjectName": "Function FineStone_C:OnHatchetHit",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/FineStone.1"
+      }
+    },
+    "ClassFlags": 10749972,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "ClassGeneratedBy": null,
+    "Interfaces": [],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "FineStone_C Default__FineStone_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/FineStone.3"
     }
   },
   {
-    "Type": "UnstackableHatchetAddon_C",
+    "Type": "FineStone_C",
     "Name": "Default__FineStone_C",
+    "Template": "Default__UnstackableHatchetAddon_C",
     "Properties": {
       "UberGraphFrame": {},
       "IncapacitatedDuration": 10.0,
       "StatusEffectToSpawn": [
         "IncapacitatedEffect"
-      ],
-      "PrimaryComponentTick": {
-        "bStartWithTickEnabled": false
-      }
+      ]
     }
   }
 ]

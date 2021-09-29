@@ -1,43 +1,19 @@
 [
   {
     "Type": "Function",
-    "Name": "GetOwningSlasherPlayer",
+    "Name": "ExecuteUbergraph_TrapSetters",
     "Outer": "TrapSetters_C",
     "ChildProperties": [
       {
-        "Type": "ObjectProperty",
-        "Name": "Owning Slasher Player",
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
         "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 384,
-        "PropertyClass": {
-          "ObjectName": "Class SlasherPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsSlasher_Player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class SlasherPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
+        "ElementSize": 4,
+        "PropertyFlags": 148
       },
       {
         "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -46,41 +22,209 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_gameEventType",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameplayTag",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_gameEventData",
+        "Flags": 1,
+        "ElementSize": 40,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameEventData",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
       }
     ],
-    "FunctionFlags": 474087424
+    "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Authority_OnInstantiateModifierConditions",
+    "Outer": "TrapSetters_C",
+    "SuperStruct": {
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
+    },
+    "FunctionFlags": 134744068
+  },
+  {
+    "Type": "Function",
+    "Name": "OnGameEventDispatched",
+    "Outer": "TrapSetters_C",
+    "SuperStruct": {
+      "ObjectName": "Function GameplayModifierContainer:OnGameEventDispatched",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "gameEventType",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 150,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameplayTag",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "gameEventData",
+        "Flags": 1,
+        "ElementSize": 40,
+        "PropertyFlags": 134218134,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameEventData",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 138938368
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInitialized",
+    "Outer": "TrapSetters_C",
+    "Super": "OnInitialized",
+    "SuperStruct": {
+      "ObjectName": "Function BaseItemAddon_C:OnInitialized",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BaseItemAddon.1"
+    },
+    "FunctionFlags": 134350848
+  },
+  {
+    "Type": "Function",
+    "Name": "GetPercentageFill",
+    "Outer": "TrapSetters_C",
+    "SuperStruct": {
+      "ObjectName": "Function GameplayModifierContainer:GetPercentageFill",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 1408
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetActivationTimerPercentRemaining_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": 1547831296
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "TrapSetters_C",
     "Super": "BaseItemAddon_C",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function TrapSetters_C:ExecuteUbergraph_TrapSetters",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.0"
+      }
+    },
     "SuperStruct": {
       "ObjectName": "BlueprintGeneratedClass BaseItemAddon_C",
       "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BaseItemAddon.2"
     },
     "Children": [
       {
-        "ObjectName": "Function TrapSetters_C:GetOwningSlasherPlayer",
+        "ObjectName": "Function TrapSetters_C:GetPercentageFill",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.4"
+      },
+      {
+        "ObjectName": "Function TrapSetters_C:OnInitialized",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.3"
+      },
+      {
+        "ObjectName": "Function TrapSetters_C:OnGameEventDispatched",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.2"
+      },
+      {
+        "ObjectName": "Function TrapSetters_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.1"
+      },
+      {
+        "ObjectName": "Function TrapSetters_C:ExecuteUbergraph_TrapSetters",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.0"
       }
     ],
     "ChildProperties": [
       {
-        "Type": "ObjectProperty",
-        "Name": "BearTrap",
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
         "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 67589,
-        "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass BearTrap_C",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/BearTrap.13"
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "ActivationTime",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
-      "GetOwningSlasherPlayer": {
-        "ObjectName": "Function TrapSetters_C:GetOwningSlasherPlayer",
+      "ExecuteUbergraph_TrapSetters": {
+        "ObjectName": "Function TrapSetters_C:ExecuteUbergraph_TrapSetters",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.0"
+      },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function TrapSetters_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.1"
+      },
+      "OnGameEventDispatched": {
+        "ObjectName": "Function TrapSetters_C:OnGameEventDispatched",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.2"
+      },
+      "OnInitialized": {
+        "ObjectName": "Function TrapSetters_C:OnInitialized",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.3"
+      },
+      "GetPercentageFill": {
+        "ObjectName": "Function TrapSetters_C:GetPercentageFill",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.4"
       }
     },
     "ClassFlags": 10749972,
@@ -94,7 +238,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "TrapSetters_C Default__TrapSetters_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.2"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/BearTrapAddons/TrapSetters.6"
     }
   },
   {
@@ -102,26 +246,24 @@
     "Name": "Default__TrapSetters_C",
     "Template": "Default__BaseItemAddon_C",
     "Properties": {
+      "UberGraphFrame": {},
+      "ActivationTime": 5.0,
       "BaseItemType": {
         "ObjectName": "BlueprintGeneratedClass BearTrap_C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/BearTrap.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/BearTrap.15"
       },
       "ModifierData": {
-        "Conditions": [
-          {
-            "ObjectName": "BlueprintGeneratedClass PlayerIsSettingBearTrap_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/PlayerIsSettingBearTrap.0"
-          }
-        ],
         "Modifiers": [
           {
             "Type": {
-              "TagName": "GameplayModifierType.ActionSpeed"
+              "TagName": "GameplayModifierType.IncreaseAllMovementSpeed"
             },
-            "ModifierValue": 0.3
+            "ModifierValue": 0.05
           }
         ]
-      }
+      },
+      "BroadcastStatusView": true,
+      "StatusViewID": "Haste_StatusView"
     }
   }
 ]
