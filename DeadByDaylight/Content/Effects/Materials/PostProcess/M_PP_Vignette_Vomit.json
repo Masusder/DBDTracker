@@ -22,13 +22,17 @@
         }
       },
       "MaterialDomain": "MD_PostProcess",
+      "BlendMode": "BLEND_Translucent",
       "bCanMaskedBeAssumedOpaque": true,
-      "StateId": "B438E921-4C27635A-C22CFA89-82D3F9BD",
+      "BlendableOutputAlpha": true,
+      "StateId": "B48766EA-40CA1084-F51E3B8D-F41A297E",
       "CachedExpressionData": {
         "Parameters": {
           "Entries": {
             "NameHashes": [
               553063487804589222,
+              1347231371811114396,
+              2115314926286137022,
               2226990840619379814,
               2943179306097546593,
               3333247123846584336,
@@ -39,11 +43,24 @@
               13464832382896154370,
               14173442698191638646,
               14191919817893770240,
+              15557295723899208902,
+              15751478510237892673,
+              17739706237009202623,
               18110060556146085482
             ],
             "ParameterInfos": [
               {
                 "Name": "MinScale",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_DiskDiscard_Radius",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_Y",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -98,6 +115,21 @@
                 "Index": -1
               },
               {
+                "Name": "MF_PP_DiskDiscard_DebugControl",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_X",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_DebugControl",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "Vomit Opacity",
                 "Association": "GlobalParameter",
                 "Index": -1
@@ -105,6 +137,8 @@
             ],
             "ExpressionGuids": [
               "63A6F231-47CA677F-4AC03C8E-FCBD7D48",
+              "5737769A-4991BF11-1E566F9F-D664DEB1",
+              "299A7F09-4F64E924-D5CA81B1-AD9B8B62",
               "228EF649-452E7F00-EBFE2E85-DEDDC9BB",
               "3AC61704-42245823-B3314AB3-030C00C0",
               "5F18D962-4EB8A90F-9C13E2AA-61E2D2CF",
@@ -115,9 +149,17 @@
               "6FCCD571-4F3252B1-9A56A4BD-9F84A0D6",
               "7B6AA951-47945D1E-8511ADAD-9E3418A7",
               "84DF9A4D-4EFD9975-64694098-6A7635CC",
+              "C5CE4A5B-43454A1E-8AF40AA6-19B74657",
+              "639B4833-4E8A0021-5DD3E29E-B712A309",
+              "E4226ACB-4596AD27-1A872C9E-A45E6C57",
               "A98DC04E-43440F14-063ECEB6-704BEF76"
             ],
             "Overrides": [
+              false,
+              false,
+              false,
+              false,
+              false,
               false,
               false,
               false,
@@ -152,6 +194,8 @@
           },
           "ScalarValues": [
             0.0,
+            0.175,
+            0.35,
             3.5,
             1.0,
             0.0,
@@ -161,6 +205,9 @@
             1.0,
             1.5,
             5.0,
+            0.0,
+            0.0,
+            0.35,
             0.0,
             1.0
           ],
@@ -176,49 +223,63 @@
         },
         "ReferencedTextures": [
           {
-            "ObjectName": "T_Liquid_Smear01:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/Liquid/Water/T_Liquid_Smear01.10"
+            "ObjectName": "Texture2D T_Liquid_Smear01",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Liquid/Water/T_Liquid_Smear01.0"
           },
           {
-            "ObjectName": "T_Noise02:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_Noise02.12"
+            "ObjectName": "Texture2D T_Noise02",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Noise02.0"
           },
           {
-            "ObjectName": "T_FSbloodmist_02:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/Liquid/Blood/T_FSbloodmist_02.9"
+            "ObjectName": "Texture2D T_FSbloodmist_02",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Liquid/Blood/T_FSbloodmist_02.0"
           },
           {
-            "ObjectName": "T_Mud_Noise:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_Mud_Noise.11"
+            "ObjectName": "Texture2D T_Mud_Noise",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Mud_Noise.0"
           }
         ],
         "FunctionInfos": [
           {
             "StateId": "9A7BE529-488F99FF-5A13349D-ABD366FF",
             "Function": {
-              "ObjectName": "MF_SplatOffset:MaterialFunction",
-              "ObjectPath": "/Game/Materials/MaterialFunctions/MF_SplatOffset.2"
+              "ObjectName": "MaterialFunction MF_SplatOffset",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_SplatOffset.0"
             }
           },
           {
             "StateId": "9A7BE529-488F99FF-5A13349D-ABD366FF",
             "Function": {
-              "ObjectName": "MF_SplatOffset:MaterialFunction",
-              "ObjectPath": "/Game/Materials/MaterialFunctions/MF_SplatOffset.2"
+              "ObjectName": "MaterialFunction MF_SplatOffset",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_SplatOffset.0"
             }
           },
           {
             "StateId": "9A7BE529-488F99FF-5A13349D-ABD366FF",
             "Function": {
-              "ObjectName": "MF_SplatOffset:MaterialFunction",
-              "ObjectPath": "/Game/Materials/MaterialFunctions/MF_SplatOffset.2"
+              "ObjectName": "MaterialFunction MF_SplatOffset",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_SplatOffset.0"
             }
           },
           {
             "StateId": "9A7BE529-488F99FF-5A13349D-ABD366FF",
             "Function": {
-              "ObjectName": "MF_SplatOffset:MaterialFunction",
-              "ObjectPath": "/Game/Materials/MaterialFunctions/MF_SplatOffset.2"
+              "ObjectName": "MaterialFunction MF_SplatOffset",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_SplatOffset.0"
+            }
+          },
+          {
+            "StateId": "33D9B624-44AB1979-90100588-B1AD09C3",
+            "Function": {
+              "ObjectName": "MaterialFunction MF_PP_RectangleDiscard",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_PP_RectangleDiscard.0"
+            }
+          },
+          {
+            "StateId": "612102B5-408CB942-1AFEBABC-FFC1F5A3",
+            "Function": {
+              "ObjectName": "MaterialFunction MF_PP_DiskDiscard",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_PP_DiskDiscard.0"
             }
           }
         ],

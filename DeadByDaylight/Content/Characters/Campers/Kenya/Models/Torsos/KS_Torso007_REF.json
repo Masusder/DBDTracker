@@ -1,31 +1,38 @@
 [
   {
     "Type": "ClothConfigNv",
+    "Name": "ClothConfigNv",
+    "Outer": "Coat",
     "Properties": {
       "VerticalConstraint": {
         "Stiffness": 2.0
       },
+      "SelfCollisionRadius": 1.0,
+      "SelfCollisionStiffness": 5.0,
       "Damping": {
         "X": 0.7,
         "Y": 0.7,
         "Z": 0.7
       },
       "StiffnessFrequency": 200.0,
-      "GravityScale": 1.25
+      "GravityScale": 1.1,
+      "TetherStiffness": 10.0,
+      "CollisionThickness": 2.0
     }
   },
   {
     "Type": "ClothingAssetCommon",
-    "Name": "KS_Torso007_REF_Clothing_0",
+    "Name": "Coat",
+    "Outer": "KS_Torso007_REF",
     "Properties": {
       "PhysicsAsset": {
-        "ObjectName": "KS_Legs01_REF_Physics:PhysicsAsset",
-        "ObjectPath": "/Game/Characters/Campers/Kenya/Models/Physics/KS_Legs01_REF_Physics.17"
+        "ObjectName": "PhysicsAsset KS_Legs01_REF_Physics",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Kenya/Models/Physics/KS_Legs01_REF_Physics.0"
       },
       "ClothConfigs": {
         "ClothConfigNv": {
-          "ObjectName": "KS_Torso007_REF_Clothing_0:ClothConfigNv:",
-          "ObjectPath": "KS_Torso007_REF.0"
+          "ObjectName": "ClothConfigNv KS_Torso007_REF:Coat.ClothConfigNv",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Kenya/Models/Torsos/KS_Torso007_REF.0"
         }
       },
       "LodData": null,
@@ -75,15 +82,15 @@
     "Name": "KS_Torso007_REF",
     "Properties": {
       "Skeleton": {
-        "ObjectName": "CamperMale_REF_Skeleton:Skeleton",
-        "ObjectPath": "/Game/Characters/Campers/Models/CamperMale_REF_Skeleton.20"
+        "ObjectName": "Skeleton CamperMale_REF_Skeleton",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Models/CamperMale_REF_Skeleton.158"
       },
       "LODInfo": [
         {
           "ScreenSize": {
             "bCooked": true,
-            "Default": 1.0,
-            "Value": 1.0
+            "Default": 1.5,
+            "Value": 1.5
           },
           "LODHysteresis": 0.02,
           "LODMaterialMap": [],
@@ -104,10 +111,10 @@
           "ReductionSettings": {
             "TerminationCriterion": "SMTC_NumOfTriangles",
             "NumOfTrianglesPercentage": 1.0,
-            "NumOfVertPercentage": 1.0,
+            "NumOfVertPercentage": 0.5,
             "MaxNumOfTriangles": 4,
             "MaxNumOfVerts": 6,
-            "MaxDeviationPercentage": 0.0,
+            "MaxDeviationPercentage": 0.5,
             "ReductionMethod": "SMOT_NumOfTriangles",
             "SilhouetteImportance": "SMOI_Normal",
             "TextureImportance": "SMOI_Normal",
@@ -139,10 +146,10 @@
         {
           "ScreenSize": {
             "bCooked": true,
-            "Default": 0.2,
-            "Value": 0.2
+            "Default": 0.3,
+            "Value": 0.3
           },
-          "LODHysteresis": 0.02,
+          "LODHysteresis": 0.0,
           "LODMaterialMap": [],
           "BuildSettings": {
             "bRecomputeNormals": true,
@@ -174,36 +181,14 @@
             "bRecalcNormals": true,
             "WeldingThreshold": 0.1,
             "NormalsThreshold": 60.0,
-            "MaxBonesPerVertex": 3,
+            "MaxBonesPerVertex": 4,
             "bEnforceBoneBoundaries": false,
             "VolumeImportance": 1.0,
             "bLockEdges": false,
             "bLockColorBounaries": false,
             "BaseLOD": 0
           },
-          "BonesToRemove": [
-            {
-              "BoneName": "joint_Cam_03"
-            },
-            {
-              "BoneName": "joint_Cam_02"
-            },
-            {
-              "BoneName": "joint_CamperAttach_01"
-            },
-            {
-              "BoneName": "joint_SlasherAttach_01"
-            },
-            {
-              "BoneName": "joint_Head_01"
-            },
-            {
-              "BoneName": "joint_HipRT_01"
-            },
-            {
-              "BoneName": "joint_HipLT_01"
-            }
-          ],
+          "BonesToRemove": [],
           "BonesToPrioritize": [],
           "WeightOfPrioritization": 1.0,
           "BakePose": null,
@@ -218,10 +203,10 @@
         {
           "ScreenSize": {
             "bCooked": true,
-            "Default": 0.05,
-            "Value": 0.05
+            "Default": 0.1,
+            "Value": 0.1
           },
-          "LODHysteresis": 0.02,
+          "LODHysteresis": 0.0,
           "LODMaterialMap": [],
           "BuildSettings": {
             "bRecomputeNormals": true,
@@ -251,7 +236,7 @@
             "SkinningImportance": "SMOI_Normal",
             "bRemapMorphTargets": false,
             "bRecalcNormals": true,
-            "WeldingThreshold": 0.1,
+            "WeldingThreshold": 0.05,
             "NormalsThreshold": 60.0,
             "MaxBonesPerVertex": 2,
             "bEnforceBoneBoundaries": false,
@@ -260,59 +245,7 @@
             "bLockColorBounaries": false,
             "BaseLOD": 0
           },
-          "BonesToRemove": [
-            {
-              "BoneName": "joint_Cam_03"
-            },
-            {
-              "BoneName": "joint_Cam_02"
-            },
-            {
-              "BoneName": "joint_CamperAttach_01"
-            },
-            {
-              "BoneName": "joint_SlasherAttach_01"
-            },
-            {
-              "BoneName": "joint_Head_01"
-            },
-            {
-              "BoneName": "joint_HipRT_01"
-            },
-            {
-              "BoneName": "joint_HipLT_01"
-            },
-            {
-              "BoneName": "joint_ThumbART_01"
-            },
-            {
-              "BoneName": "joint_IndexART_01"
-            },
-            {
-              "BoneName": "joint_FingerART_01"
-            },
-            {
-              "BoneName": "joint_RingART_01"
-            },
-            {
-              "BoneName": "joint_PinkyART_01"
-            },
-            {
-              "BoneName": "joint_ThumbALT_01"
-            },
-            {
-              "BoneName": "joint_IndexALT_01"
-            },
-            {
-              "BoneName": "joint_FingerALT_01"
-            },
-            {
-              "BoneName": "joint_RingALT_01"
-            },
-            {
-              "BoneName": "joint_PinkyALT_01"
-            }
-          ],
+          "BonesToRemove": [],
           "BonesToPrioritize": [],
           "WeightOfPrioritization": 1.0,
           "BakePose": null,
@@ -327,10 +260,10 @@
         {
           "ScreenSize": {
             "bCooked": true,
-            "Default": 0.01,
-            "Value": 0.01
+            "Default": 0.05,
+            "Value": 0.05
           },
-          "LODHysteresis": 0.02,
+          "LODHysteresis": 0.0,
           "LODMaterialMap": [],
           "BuildSettings": {
             "bRecomputeNormals": true,
@@ -348,15 +281,15 @@
           },
           "ReductionSettings": {
             "TerminationCriterion": "SMTC_NumOfTriangles",
-            "NumOfTrianglesPercentage": 0.11,
+            "NumOfTrianglesPercentage": 0.5,
             "NumOfVertPercentage": 0.5,
             "MaxNumOfTriangles": 4,
             "MaxNumOfVerts": 6,
             "MaxDeviationPercentage": 0.5,
             "ReductionMethod": "SMOT_NumOfTriangles",
-            "SilhouetteImportance": "SMOI_Low",
-            "TextureImportance": "SMOI_Low",
-            "ShadingImportance": "SMOI_Low",
+            "SilhouetteImportance": "SMOI_Normal",
+            "TextureImportance": "SMOI_Normal",
+            "ShadingImportance": "SMOI_Normal",
             "SkinningImportance": "SMOI_Normal",
             "bRemapMorphTargets": false,
             "bRecalcNormals": true,
@@ -369,59 +302,7 @@
             "bLockColorBounaries": false,
             "BaseLOD": 2
           },
-          "BonesToRemove": [
-            {
-              "BoneName": "joint_Cam_03"
-            },
-            {
-              "BoneName": "joint_Cam_02"
-            },
-            {
-              "BoneName": "joint_CamperAttach_01"
-            },
-            {
-              "BoneName": "joint_SlasherAttach_01"
-            },
-            {
-              "BoneName": "joint_Head_01"
-            },
-            {
-              "BoneName": "joint_HipRT_01"
-            },
-            {
-              "BoneName": "joint_HipLT_01"
-            },
-            {
-              "BoneName": "joint_ThumbART_01"
-            },
-            {
-              "BoneName": "joint_IndexART_01"
-            },
-            {
-              "BoneName": "joint_FingerART_01"
-            },
-            {
-              "BoneName": "joint_RingART_01"
-            },
-            {
-              "BoneName": "joint_PinkyART_01"
-            },
-            {
-              "BoneName": "joint_ThumbALT_01"
-            },
-            {
-              "BoneName": "joint_IndexALT_01"
-            },
-            {
-              "BoneName": "joint_FingerALT_01"
-            },
-            {
-              "BoneName": "joint_RingALT_01"
-            },
-            {
-              "BoneName": "joint_PinkyALT_01"
-            }
-          ],
+          "BonesToRemove": [],
           "BonesToPrioritize": [],
           "WeightOfPrioritization": 1.0,
           "BakePose": null,
@@ -441,13 +322,13 @@
       },
       "bHasBeenSimplified": true,
       "PhysicsAsset": {
-        "ObjectName": "KS_Torso01_REF_Physics:PhysicsAsset",
-        "ObjectPath": "/Game/Characters/Campers/Kenya/Models/Physics/KS_Torso01_REF_Physics.18"
+        "ObjectName": "PhysicsAsset KS_Torso01_REF_Physics",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Kenya/Models/Physics/KS_Torso01_REF_Physics.0"
       },
       "MeshClothingAssets": [
         {
-          "ObjectName": "KS_Torso007_REF_Clothing_0:",
-          "ObjectPath": "KS_Torso007_REF.1"
+          "ObjectName": "ClothingAssetCommon KS_Torso007_REF:Coat",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Kenya/Models/Torsos/KS_Torso007_REF.1"
         }
       ],
       "SamplingInfo": {
@@ -484,6 +365,90 @@
           ]
         }
       }
-    }
+    },
+    "ImportedBounds": {
+      "Origin": {
+        "X": 0.002029419,
+        "Y": 0.86943626,
+        "Z": 108.08159
+      },
+      "BoxExtent": {
+        "X": 78.560135,
+        "Y": 20.079483,
+        "Z": 52.158237
+      },
+      "SphereRadius": 96.41246
+    },
+    "Materials": [
+      {
+        "MaterialSlotName": "MI_KSAcc007",
+        "ImportedMaterialSlotName": null,
+        "UVChannelData": {
+          "bInitialized": true,
+          "bOverrideDensities": false,
+          "LocalUVDensities": [
+            87.677986,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "MaterialSlotName": "MI_KSCoat007",
+        "ImportedMaterialSlotName": null,
+        "UVChannelData": {
+          "bInitialized": true,
+          "bOverrideDensities": false,
+          "LocalUVDensities": [
+            167.98564,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "MaterialSlotName": "MI_KSTorso007",
+        "ImportedMaterialSlotName": null,
+        "UVChannelData": {
+          "bInitialized": true,
+          "bOverrideDensities": false,
+          "LocalUVDensities": [
+            169.27159,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "MaterialSlotName": "lambert1",
+        "ImportedMaterialSlotName": null,
+        "UVChannelData": {
+          "bInitialized": true,
+          "bOverrideDensities": false,
+          "LocalUVDensities": [
+            173.1759,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "LODModels": [
+      {
+        "Sections": null,
+        "Indices": null,
+        "ActiveBoneIndices": null,
+        "NumVertices": 0,
+        "NumTexCoords": 0,
+        "RequiredBones": null,
+        "VertexBufferGPUSkin": null,
+        "ColorVertexBuffer": [],
+        "AdjacencyIndexBuffer": null
+      }
+    ]
   }
 ]

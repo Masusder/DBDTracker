@@ -22,14 +22,17 @@
         }
       },
       "MaterialDomain": "MD_PostProcess",
+      "BlendMode": "BLEND_Additive",
       "bCanMaskedBeAssumedOpaque": true,
       "BlendableLocation": "BL_BeforeTonemapping",
-      "StateId": "41AABB60-4F5CFA31-4D92829F-F61B0559",
+      "BlendableOutputAlpha": true,
+      "StateId": "80DA9F43-41F6610A-C30763B3-8A4A09BC",
       "CachedExpressionData": {
         "Parameters": {
           "Entries": {
             "NameHashes": [
               439030275664286563,
+              2115314926286137022,
               2492160638384389056,
               3902269659779694032,
               4235804970021973848,
@@ -49,12 +52,19 @@
               10512135190849443315,
               11757124976497425049,
               14411967534959686244,
+              15751478510237892673,
               16895794939529823903,
-              17068487395794034719
+              17068487395794034719,
+              17739706237009202623
             ],
             "ParameterInfos": [
               {
                 "Name": "DetailStaticErode_01",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_Y",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -154,6 +164,11 @@
                 "Index": -1
               },
               {
+                "Name": "MF_PP_RectangleDiscard_X",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "Erode_Lifeline_Panner",
                 "Association": "GlobalParameter",
                 "Index": -1
@@ -162,10 +177,16 @@
                 "Name": "LerpingStatic_Mask_Opacity",
                 "Association": "GlobalParameter",
                 "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_DebugControl",
+                "Association": "GlobalParameter",
+                "Index": -1
               }
             ],
             "ExpressionGuids": [
               "ADB37BE3-4CBE8D4A-4E857483-16ACA491",
+              "8CD66B4B-43C4B42D-14CC31BD-3F31F444",
               "7A9D3BDA-40399294-B0063BAE-92F65747",
               "33AC7BB2-40EA6E2F-E1B1E8B2-4C137455",
               "B4A1B877-4ABFB142-CF0700A1-0F53F19F",
@@ -185,10 +206,15 @@
               "1C7F2EE2-4E224552-F74CD18C-A24FEC92",
               "C7999BCE-445A9F99-1DE303B6-7485D6D1",
               "62709FE2-4A49BAB3-7FE8FB9C-98C29070",
+              "BFC50AE3-49E1059C-1CEE58A7-2B38E48A",
               "5FE68FC6-4F537449-4A199FB9-6E4E881C",
-              "91CE138C-464787DE-F59809A7-A8F0FC94"
+              "91CE138C-464787DE-F59809A7-A8F0FC94",
+              "5EB0CA74-4E690158-2C48F799-E5D1ACEA"
             ],
             "Overrides": [
+              false,
+              false,
+              false,
               false,
               false,
               false,
@@ -379,6 +405,7 @@
           },
           "ScalarValues": [
             -0.3,
+            0.25,
             250.0,
             -0.3,
             1.0,
@@ -398,8 +425,10 @@
             1.0,
             1.0,
             0.0,
+            0.25,
             1.0,
-            1.0
+            1.0,
+            0.0
           ],
           "VectorValues": [
             {
@@ -503,83 +532,90 @@
           ],
           "TextureValues": [
             {
-              "ObjectName": "T_StaticLines_01:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/T_StaticLines_01.19"
+              "ObjectName": "Texture2D T_StaticLines_01",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_StaticLines_01.0"
             },
             {
-              "ObjectName": "T_WaterNormal:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/T_WaterNormal.20"
+              "ObjectName": "Texture2D T_WaterNormal",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_WaterNormal.0"
             },
             {
-              "ObjectName": "T_VignetteSmoke:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteSmoke.15"
+              "ObjectName": "Texture2D T_VignetteSmoke",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteSmoke.0"
             },
             {
-              "ObjectName": "T_StaticLines_01:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/T_StaticLines_01.19"
+              "ObjectName": "Texture2D T_StaticLines_01",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_StaticLines_01.0"
             }
           ]
         },
         "ReferencedTextures": [
           {
-            "ObjectName": "T_VignetteSmoke:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteSmoke.15"
+            "ObjectName": "Texture2D T_VignetteSmoke",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteSmoke.0"
           },
           {
-            "ObjectName": "T_WaterNormal:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_WaterNormal.20"
+            "ObjectName": "Texture2D T_WaterNormal",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_WaterNormal.0"
           },
           {
-            "ObjectName": "T_StaticLines_01:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_StaticLines_01.19"
+            "ObjectName": "Texture2D T_StaticLines_01",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_StaticLines_01.0"
           },
           {
-            "ObjectName": "T_Lifeline_02:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_Lifeline_02.16"
+            "ObjectName": "Texture2D T_Lifeline_02",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Lifeline_02.0"
           },
           {
-            "ObjectName": "T_Lifeline_MaskPanner_01:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_Lifeline_MaskPanner_01.17"
+            "ObjectName": "Texture2D T_Lifeline_MaskPanner_01",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Lifeline_MaskPanner_01.0"
           },
           {
-            "ObjectName": "T_Moth_Wing_Displacement_01:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_Moth_Wing_Displacement_01.18"
+            "ObjectName": "Texture2D T_Moth_Wing_Displacement_01",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Moth_Wing_Displacement_01.0"
           }
         ],
         "FunctionInfos": [
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.4"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "B2F4A5A7-4EDE33D8-E70A4A83-A28D1503",
             "Function": {
-              "ObjectName": "ScaleUVsByCenter:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.2"
+              "ObjectName": "MaterialFunction ScaleUVsByCenter",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.0"
             }
           },
           {
             "StateId": "B2F4A5A7-4EDE33D8-E70A4A83-A28D1503",
             "Function": {
-              "ObjectName": "ScaleUVsByCenter:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.2"
+              "ObjectName": "MaterialFunction ScaleUVsByCenter",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.0"
             }
           },
           {
             "StateId": "E572D701-496E6D38-CC53A5BD-C450B0ED",
             "Function": {
-              "ObjectName": "CustomRotator:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Texturing/CustomRotator.3"
+              "ObjectName": "MaterialFunction CustomRotator",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/CustomRotator.0"
             }
           },
           {
             "StateId": "B2F4A5A7-4EDE33D8-E70A4A83-A28D1503",
             "Function": {
-              "ObjectName": "ScaleUVsByCenter:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.2"
+              "ObjectName": "MaterialFunction ScaleUVsByCenter",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.0"
+            }
+          },
+          {
+            "StateId": "33D9B624-44AB1979-90100588-B1AD09C3",
+            "Function": {
+              "ObjectName": "MaterialFunction MF_PP_RectangleDiscard",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_PP_RectangleDiscard.0"
             }
           }
         ],

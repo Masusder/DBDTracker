@@ -22,13 +22,16 @@
         }
       },
       "MaterialDomain": "MD_PostProcess",
+      "BlendMode": "BLEND_Additive",
       "bCanMaskedBeAssumedOpaque": true,
       "BlendableLocation": "BL_BeforeTonemapping",
-      "StateId": "2D2F2248-44FB4FA0-5AE6C2A6-E8600E24",
+      "BlendableOutputAlpha": true,
+      "StateId": "1218FBBE-4B24EBAA-B21574A1-6C592B59",
       "CachedExpressionData": {
         "Parameters": {
           "Entries": {
             "NameHashes": [
+              1347231371811114396,
               1908200868983356317,
               2017451342158293612,
               2226990840619379814,
@@ -47,10 +50,16 @@
               9361224501155412588,
               13796913644313830281,
               14630899236735616542,
+              15557295723899208902,
               15684328969772911168,
               16257407305736704200
             ],
             "ParameterInfos": [
+              {
+                "Name": "MF_PP_DiskDiscard_Radius",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
               {
                 "Name": "Corner Mask Density",
                 "Association": "GlobalParameter",
@@ -142,6 +151,11 @@
                 "Index": -1
               },
               {
+                "Name": "MF_PP_DiskDiscard_DebugControl",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "Opacity",
                 "Association": "GlobalParameter",
                 "Index": -1
@@ -153,6 +167,7 @@
               }
             ],
             "ExpressionGuids": [
+              "C7557E52-445EBB42-440C878B-262EBB56",
               "5A1C9132-4DAE13DE-6A288AA1-EFCE677B",
               "C263457F-4EB7F0B4-64447891-9C635E79",
               "8CC4693E-4681FF89-134D44B6-FC675AC1",
@@ -171,10 +186,13 @@
               "0B3462FF-442C4BDD-ABED048A-CF077425",
               "7A415A21-452612C1-A20C68B9-85B49BE4",
               "E04C9FB3-40D304EE-04D8308D-9E666D53",
+              "0EB0EF1C-4ED16453-96CA9D96-5E054ABD",
               "BEB6729F-4ACC543E-D55AC0A5-DEEADCF2",
               "2206925C-4DAD9A89-4E1C1188-DB7A58BE"
             ],
             "Overrides": [
+              false,
+              false,
               false,
               false,
               false,
@@ -250,6 +268,7 @@
             ]
           },
           "ScalarValues": [
+            0.275,
             10.0,
             0.01,
             1.0,
@@ -268,6 +287,7 @@
             0.675,
             1.0,
             0.2,
+            0.0,
             0.2,
             0.4
           ],
@@ -289,108 +309,122 @@
           ],
           "TextureValues": [
             {
-              "ObjectName": "T_VignetteSmoke:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteSmoke.17"
+              "ObjectName": "Texture2D T_VignetteSmoke",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteSmoke.0"
             },
             {
-              "ObjectName": "T_VignetteBreaks_Legion:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteBreaks_Legion.16"
+              "ObjectName": "Texture2D T_VignetteBreaks_Legion",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteBreaks_Legion.0"
             }
           ]
         },
         "ReferencedTextures": [
           {
-            "ObjectName": "T_WhispySmoke_Tile1:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_WhispySmoke_Tile1.19"
+            "ObjectName": "Texture2D T_WhispySmoke_Tile1",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_WhispySmoke_Tile1.0"
           },
           {
-            "ObjectName": "T_WaterNormal2:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_WaterNormal2.18"
+            "ObjectName": "Texture2D T_WaterNormal2",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_WaterNormal2.0"
           },
           {
-            "ObjectName": "T_VignetteSmoke:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteSmoke.17"
+            "ObjectName": "Texture2D T_VignetteSmoke",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteSmoke.0"
           },
           {
-            "ObjectName": "T_Smoke_Tiled_D:Texture2D",
-            "ObjectPath": "/Game/StarterContent/Textures/T_Smoke_Tiled_D.20"
+            "ObjectName": "Texture2D T_Smoke_Tiled_D",
+            "ObjectPath": "DeadByDaylight/Content/StarterContent/Textures/T_Smoke_Tiled_D.0"
           },
           {
-            "ObjectName": "T_VignetteBreaks_Legion:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteBreaks_Legion.16"
+            "ObjectName": "Texture2D T_VignetteBreaks_Legion",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteBreaks_Legion.0"
           }
         ],
         "FunctionInfos": [
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "235C8133-44D704CA-0297108A-59B9F710",
             "Function": {
-              "ObjectName": "RadialGradientExponential:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.2"
+              "ObjectName": "MaterialFunction RadialGradientExponential",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "95BEC976-42F62C25-D1841F89-9D859809",
             "Function": {
-              "ObjectName": "MF_TexturePanner:MaterialFunction",
-              "ObjectPath": "/Game/Effects/Materials/Functions/MF_TexturePanner.4"
+              "ObjectName": "MaterialFunction MF_TexturePanner",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Materials/Functions/MF_TexturePanner.0"
             }
           },
           {
             "StateId": "95BEC976-42F62C25-D1841F89-9D859809",
             "Function": {
-              "ObjectName": "MF_TexturePanner:MaterialFunction",
-              "ObjectPath": "/Game/Effects/Materials/Functions/MF_TexturePanner.4"
+              "ObjectName": "MaterialFunction MF_TexturePanner",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Materials/Functions/MF_TexturePanner.0"
             }
           },
           {
             "StateId": "95BEC976-42F62C25-D1841F89-9D859809",
             "Function": {
-              "ObjectName": "MF_TexturePanner:MaterialFunction",
-              "ObjectPath": "/Game/Effects/Materials/Functions/MF_TexturePanner.4"
+              "ObjectName": "MaterialFunction MF_TexturePanner",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Materials/Functions/MF_TexturePanner.0"
+            }
+          },
+          {
+            "StateId": "612102B5-408CB942-1AFEBABC-FFC1F5A3",
+            "Function": {
+              "ObjectName": "MaterialFunction MF_PP_DiskDiscard",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_PP_DiskDiscard.0"
+            }
+          },
+          {
+            "StateId": "612102B5-408CB942-1AFEBABC-FFC1F5A3",
+            "Function": {
+              "ObjectName": "MaterialFunction MF_PP_DiskDiscard",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_PP_DiskDiscard.0"
             }
           }
         ],
         "ParameterCollectionInfos": [
           {
-            "StateId": "F7385C83-47ABE769-C8186CB5-E06C27FE",
+            "StateId": "BAF78D28-42F42BD5-F7FB9AB2-5FB3536C",
             "ParameterCollection": {
-              "ObjectName": "MPC_WorldSettings:MaterialParameterCollection",
-              "ObjectPath": "/Game/Materials/MPC_WorldSettings.5"
+              "ObjectName": "MaterialParameterCollection MPC_WorldSettings",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MPC_WorldSettings.0"
             }
           }
         ],

@@ -12,6 +12,12 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetCurveValue_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetOwningActor_ReturnValue",
         "Flags": 1,
@@ -32,66 +38,53 @@
         }
       },
       {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameplayTag",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
         "Type": "FloatProperty",
         "Name": "K2Node_Event_DeltaTimeX",
         "Flags": 1,
         "ElementSize": 4
       },
       {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetCurveValue_ReturnValue",
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSemanticTag_ReturnValue",
         "Flags": 1,
-        "ElementSize": 4
+        "ElementSize": 32,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameplayTagContainer",
+          "ObjectPath": "/Script/GameplayTags"
+        }
       },
       {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Subtract_FloatFloat_ReturnValue",
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_BreakGameplayTagContainer_GameplayTags",
         "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_FTrunc_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsCamper_Player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class CamperPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
+        "ElementSize": 16,
+        "PropertyFlags": 134217728,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "CallFunc_BreakGameplayTagContainer_GameplayTags",
+          "Flags": 1,
+          "ElementSize": 12,
+          "Struct": {
+            "ObjectName": "ScriptStruct GameplayTag",
+            "ObjectPath": "/Script/GameplayTags"
+          }
         }
       },
       {
         "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Conv_IntToBool_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Name": "CallFunc_Array_Contains_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -102,13 +95,7 @@
         "bIsNativeBool": true
       }
     ],
-    "FunctionFlags": 32769
-  },
-  {
-    "Type": "Function",
-    "Name": "Vomit Now",
-    "Outer": "AB_Survivor_00_C",
-    "FunctionFlags": 201326592
+    "FunctionFlags": 8421377
   },
   {
     "Type": "Function",
@@ -177,7 +164,7 @@
               "StateName": "FaceIdle_State",
               "Transitions": [
                 {
-                  "CanTakeDelegateIndex": 5,
+                  "CanTakeDelegateIndex": 6,
                   "CustomResultNodeIndex": -1,
                   "TransitionIndex": 0,
                   "bDesiredTransitionReturnValue": true,
@@ -185,14 +172,14 @@
                   "PoseEvaluatorLinks": []
                 }
               ],
-              "StateRootNodeIndex": 1,
+              "StateRootNodeIndex": 2,
               "StartNotify": -1,
               "EndNotify": -1,
               "FullyBlendedNotify": -1,
               "bIsAConduit": false,
               "EntryRuleNodeIndex": -1,
               "PlayerNodeIndices": [
-                2
+                3
               ],
               "LayerNodeIndices": [],
               "bAlwaysResetOnEntry": false
@@ -201,7 +188,7 @@
               "StateName": "FaceIdleInjured_State_",
               "Transitions": [
                 {
-                  "CanTakeDelegateIndex": 6,
+                  "CanTakeDelegateIndex": 7,
                   "CustomResultNodeIndex": -1,
                   "TransitionIndex": 1,
                   "bDesiredTransitionReturnValue": true,
@@ -209,14 +196,14 @@
                   "PoseEvaluatorLinks": []
                 }
               ],
-              "StateRootNodeIndex": 3,
+              "StateRootNodeIndex": 4,
               "StartNotify": -1,
               "EndNotify": -1,
               "FullyBlendedNotify": -1,
               "bIsAConduit": false,
               "EntryRuleNodeIndex": -1,
               "PlayerNodeIndices": [
-                4
+                5
               ],
               "LayerNodeIndices": [],
               "bAlwaysResetOnEntry": false
@@ -259,13 +246,59 @@
       "OrderedSavedPoseIndicesMap": {
         "AnimGraph": {
           "OrderedSavedPoseNodeIndices": [
-            12,
+            13,
             45,
             47
           ]
         }
       },
       "EvaluateGraphExposedInputs": [
+        {
+          "BoundFunction": "None",
+          "CopyRecords": [
+            {
+              "SourcePropertyName": "UseFaceAdditive",
+              "SourceSubPropertyName": "None",
+              "SourceArrayIndex": 0,
+              "bInstanceIsTarget": false,
+              "PostCopyOperation": "EPostCopyOperation::None",
+              "DestProperty": {
+                "Path": [
+                  "Alpha"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "ScriptStruct AnimNode_TwoWayBlend",
+                  "ObjectPath": "/Script/AnimGraphRuntime"
+                }
+              },
+              "DestArrayIndex": 0,
+              "Size": 4,
+              "CachedSourceProperty": {
+                "Path": [
+                  "UseFaceAdditive"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
+                }
+              },
+              "CachedSourceStructSubProperty": {
+                "Path": [],
+                "ResolvedOwner": null
+              }
+            }
+          ],
+          "Function": null,
+          "ValueHandlerNodeProperty": {
+            "Path": [
+              "AnimGraphNode_TwoWayBlend"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
+            }
+          }
+        },
         {
           "BoundFunction": "None",
           "CopyRecords": [
@@ -292,7 +325,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -308,7 +341,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -338,7 +371,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -354,7 +387,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -400,7 +433,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -446,70 +479,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
-            }
-          }
-        },
-        {
-          "BoundFunction": "None",
-          "CopyRecords": [
-            {
-              "SourcePropertyName": "UseFaceIdle",
-              "SourceSubPropertyName": "None",
-              "SourceArrayIndex": 0,
-              "bInstanceIsTarget": false,
-              "PostCopyOperation": "EPostCopyOperation::None",
-              "DestProperty": {
-                "Path": [
-                  "bActiveValue"
-                ],
-                "ResolvedOwner": {
-                  "ObjectName": "ScriptStruct AnimNode_BlendListByBool",
-                  "ObjectPath": "/Script/AnimGraphRuntime"
-                }
-              },
-              "DestArrayIndex": 0,
-              "Size": 1,
-              "CachedSourceProperty": {
-                "Path": [
-                  "UseFaceIdle"
-                ],
-                "ResolvedOwner": {
-                  "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
-                }
-              },
-              "CachedSourceStructSubProperty": {
-                "Path": [],
-                "ResolvedOwner": null
-              }
-            }
-          ],
-          "Function": null,
-          "ValueHandlerNodeProperty": {
-            "Path": [
-              "AnimGraphNode_BlendListByBool"
-            ],
-            "ResolvedOwner": {
-              "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
-            }
-          }
-        },
-        {
-          "BoundFunction": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381",
-          "CopyRecords": [],
-          "Function": {
-            "ObjectName": "Function AB_Survivor_00_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381",
-            "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.4"
-          },
-          "ValueHandlerNodeProperty": {
-            "Path": [
-              "AnimGraphNode_LinkedAnimGraph"
-            ],
-            "ResolvedOwner": {
-              "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -539,7 +509,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -555,7 +525,24 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
+            }
+          }
+        },
+        {
+          "BoundFunction": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381",
+          "CopyRecords": [],
+          "Function": {
+            "ObjectName": "Function AB_Survivor_00_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381",
+            "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.3"
+          },
+          "ValueHandlerNodeProperty": {
+            "Path": [
+              "AnimGraphNode_LinkedAnimGraph"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -574,7 +561,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -605,7 +592,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -636,7 +623,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -667,7 +654,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -698,7 +685,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -729,7 +716,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -760,7 +747,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -791,7 +778,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -822,7 +809,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -853,7 +840,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -884,7 +871,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -915,7 +902,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -946,7 +933,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -973,7 +960,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -992,7 +979,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1023,7 +1010,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1054,7 +1041,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1081,7 +1068,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1100,7 +1087,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1131,7 +1118,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1162,7 +1149,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1193,7 +1180,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1220,7 +1207,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1239,7 +1226,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1270,7 +1257,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1297,7 +1284,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1316,7 +1303,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1347,7 +1334,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1374,7 +1361,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1393,7 +1380,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1424,7 +1411,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1451,7 +1438,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1470,7 +1457,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1501,7 +1488,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1532,7 +1519,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1563,7 +1550,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1594,7 +1581,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1625,7 +1612,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1656,7 +1643,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1683,7 +1670,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1702,7 +1689,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1733,7 +1720,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1764,7 +1751,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1795,7 +1782,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1826,7 +1813,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1853,7 +1840,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1872,7 +1859,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1903,7 +1890,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1930,7 +1917,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -1949,7 +1936,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1960,7 +1947,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -1980,7 +1967,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -1991,7 +1978,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2011,7 +1998,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2022,7 +2009,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2042,7 +2029,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2073,7 +2060,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2104,7 +2091,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2115,7 +2102,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2135,7 +2122,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2146,7 +2133,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2166,7 +2153,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2177,7 +2164,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2197,7 +2184,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2208,7 +2195,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2228,7 +2215,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2239,7 +2226,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2259,7 +2246,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2270,7 +2257,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "CachedSourceStructSubProperty": {
@@ -2286,7 +2273,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -2305,7 +2292,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2336,7 +2323,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2367,7 +2354,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2394,7 +2381,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -2413,7 +2400,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2444,7 +2431,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2475,7 +2462,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2506,7 +2493,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2533,7 +2520,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -2552,7 +2539,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2583,7 +2570,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2614,7 +2601,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2645,7 +2632,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2676,7 +2663,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2707,7 +2694,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2734,7 +2721,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -2753,7 +2740,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2784,7 +2771,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2815,7 +2802,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2846,7 +2833,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2877,7 +2864,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2908,7 +2895,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2939,7 +2926,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -2966,7 +2953,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -2985,7 +2972,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3016,7 +3003,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3043,7 +3030,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -3062,7 +3049,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3093,7 +3080,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3124,7 +3111,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3155,7 +3142,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3186,7 +3173,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3217,7 +3204,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3248,7 +3235,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3279,7 +3266,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3310,7 +3297,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3341,7 +3328,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3372,7 +3359,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3399,7 +3386,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -3418,7 +3405,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3449,7 +3436,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3476,7 +3463,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -3495,7 +3482,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3526,7 +3513,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3557,7 +3544,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3588,7 +3575,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3619,7 +3606,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3650,7 +3637,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3681,7 +3668,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3712,7 +3699,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3743,7 +3730,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3774,7 +3761,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3805,7 +3792,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3836,7 +3823,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3863,7 +3850,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -3882,7 +3869,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -3909,7 +3896,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -3951,11 +3938,11 @@
           "Function": null,
           "ValueHandlerNodeProperty": {
             "Path": [
-              "AnimGraphNode_BlendListByBool_1"
+              "AnimGraphNode_BlendListByBool"
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         },
@@ -3974,7 +3961,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -4005,7 +3992,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -4036,7 +4023,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -4067,7 +4054,7 @@
                 ],
                 "ResolvedOwner": {
                   "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+                  "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
                 }
               },
               "DestArrayIndex": 0,
@@ -4094,7 +4081,7 @@
             ],
             "ResolvedOwner": {
               "ObjectName": "AnimBlueprintGeneratedClass AB_Survivor_00_C",
-              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
+              "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
             }
           }
         }
@@ -4111,22 +4098,18 @@
     "Children": [
       {
         "ObjectName": "Function AB_Survivor_00_C:AnimGraph",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
-      },
-      {
-        "ObjectName": "Function AB_Survivor_00_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.4"
       },
       {
-        "ObjectName": "Function AB_Survivor_00_C:BlueprintUpdateAnimation",
+        "ObjectName": "Function AB_Survivor_00_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.3"
       },
       {
-        "ObjectName": "Function AB_Survivor_00_C:BlueprintInitializeAnimation",
+        "ObjectName": "Function AB_Survivor_00_C:BlueprintUpdateAnimation",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.2"
       },
       {
-        "ObjectName": "Function AB_Survivor_00_C:Vomit Now",
+        "ObjectName": "Function AB_Survivor_00_C:BlueprintInitializeAnimation",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.1"
       },
       {
@@ -4251,7 +4234,7 @@
       },
       {
         "Type": "StructProperty",
-        "Name": "AnimGraphNode_BlendListByBool_1",
+        "Name": "AnimGraphNode_BlendListByBool",
         "Flags": 2097153,
         "ElementSize": 160,
         "Struct": {
@@ -5695,16 +5678,6 @@
       },
       {
         "Type": "StructProperty",
-        "Name": "AnimGraphNode_ApplyAdditive",
-        "Flags": 2097153,
-        "ElementSize": 224,
-        "Struct": {
-          "ObjectName": "ScriptStruct AnimNode_ApplyAdditive",
-          "ObjectPath": "/Script/AnimGraphRuntime"
-        }
-      },
-      {
-        "Type": "StructProperty",
         "Name": "AnimGraphNode_LayeredBoneBlend",
         "Flags": 2097153,
         "ElementSize": 200,
@@ -5730,26 +5703,6 @@
         "ElementSize": 56,
         "Struct": {
           "ObjectName": "ScriptStruct AnimNode_UseCachedPose",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "AnimGraphNode_UseCachedPose",
-        "Flags": 2097153,
-        "ElementSize": 56,
-        "Struct": {
-          "ObjectName": "ScriptStruct AnimNode_UseCachedPose",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "AnimGraphNode_SequencePlayer_2",
-        "Flags": 2097153,
-        "ElementSize": 120,
-        "Struct": {
-          "ObjectName": "ScriptStruct AnimNode_SequencePlayer",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -5823,12 +5776,32 @@
       },
       {
         "Type": "StructProperty",
-        "Name": "AnimGraphNode_BlendListByBool",
+        "Name": "AnimGraphNode_ApplyAdditive",
         "Flags": 2097153,
-        "ElementSize": 160,
+        "ElementSize": 224,
         "Struct": {
-          "ObjectName": "ScriptStruct AnimNode_BlendListByBool",
+          "ObjectName": "ScriptStruct AnimNode_ApplyAdditive",
           "ObjectPath": "/Script/AnimGraphRuntime"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "AnimGraphNode_UseCachedPose",
+        "Flags": 2097153,
+        "ElementSize": 56,
+        "Struct": {
+          "ObjectName": "ScriptStruct AnimNode_UseCachedPose",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "AnimGraphNode_SequencePlayer_2",
+        "Flags": 2097153,
+        "ElementSize": 120,
+        "Struct": {
+          "ObjectName": "ScriptStruct AnimNode_SequencePlayer",
+          "ObjectPath": "/Script/Engine"
         }
       },
       {
@@ -5902,53 +5875,13 @@
         }
       },
       {
-        "Type": "BoolProperty",
-        "Name": "HasRecentlyBeenHitByVomit",
-        "Flags": 2097153,
-        "ElementSize": 1,
-        "PropertyFlags": 65541,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "IsSick",
-        "Flags": 2097153,
-        "ElementSize": 1,
-        "PropertyFlags": 65541,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "IsVomiting",
-        "Flags": 2097153,
-        "ElementSize": 1,
-        "PropertyFlags": 65541,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "StructProperty",
-        "Name": "OnVomitHitTimerHandle",
+        "Name": "AnimGraphNode_TwoWayBlend",
         "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 65541,
+        "ElementSize": 216,
         "Struct": {
-          "ObjectName": "ScriptStruct TimerHandle",
-          "ObjectPath": "/Script/Engine"
+          "ObjectName": "ScriptStruct AnimNode_TwoWayBlend",
+          "ObjectPath": "/Script/AnimGraphRuntime"
         }
       },
       {
@@ -6139,6 +6072,13 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "UseFaceAdditive",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
@@ -6146,25 +6086,21 @@
         "ObjectName": "Function AB_Survivor_00_C:ExecuteUbergraph_AB_Survivor_00",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.0"
       },
-      "Vomit Now": {
-        "ObjectName": "Function AB_Survivor_00_C:Vomit Now",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.1"
-      },
       "BlueprintInitializeAnimation": {
         "ObjectName": "Function AB_Survivor_00_C:BlueprintInitializeAnimation",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.2"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.1"
       },
       "BlueprintUpdateAnimation": {
         "ObjectName": "Function AB_Survivor_00_C:BlueprintUpdateAnimation",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.3"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.2"
       },
       "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381": {
         "ObjectName": "Function AB_Survivor_00_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_LinkedAnimGraph_CB0F859C49830F00D306B18482F56381",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.4"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.3"
       },
       "AnimGraph": {
         "ObjectName": "Function AB_Survivor_00_C:AnimGraph",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.5"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.4"
       }
     },
     "ClassFlags": 8652824,
@@ -6178,7 +6114,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "AB_Survivor_00_C Default__AB_Survivor_00_C",
-      "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.7"
+      "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Common/AnimBP/AB_Survivor_00.6"
     }
   },
   {
@@ -6189,7 +6125,7 @@
       "AnimGraphNode_SubInstance_16": {
         "InputPoses": [
           {
-            "LinkID": 41
+            "LinkID": 38
           }
         ],
         "InputPoseNames": [
@@ -6241,7 +6177,7 @@
         },
         "CachePoseName": "Post_Split"
       },
-      "AnimGraphNode_BlendListByBool_1": {
+      "AnimGraphNode_BlendListByBool": {
         "bActiveValue": false,
         "BlendPose": [
           {
@@ -7432,9 +7368,37 @@
           {
             "SourceIndex": 0,
             "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 1.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 1.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 1.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 1.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 1.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 1.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 1.0
           }
         ],
-        "SkeletonGuid": "CF50D3F7-414AF87B-932A75B1-C39A7366",
+        "SkeletonGuid": "AE5F9011-4B46FC52-97B1D688-26228547",
         "VirtualBoneGuid": "2F9C1787-400DBAE1-AEC5E89D-E8FFA267"
       },
       "AnimGraphNode_UseCachedPose_4": {
@@ -7882,7 +7846,7 @@
       },
       "AnimGraphNode_Root": {
         "Result": {
-          "LinkID": 36
+          "LinkID": 35
         },
         "Name": "AnimGraph",
         "Group": "None"
@@ -8180,61 +8144,13 @@
         ],
         "TargetInstance": null
       },
-      "AnimGraphNode_ApplyAdditive": {
-        "Base": {
-          "LinkID": 39
-        },
-        "Additive": {
-          "LinkID": 40
-        },
-        "Alpha": 1.0,
-        "AlphaScaleBias": {
-          "Scale": 1.0,
-          "Bias": 0.0
-        },
-        "LODThreshold": -1,
-        "AlphaBoolBlend": {
-          "BlendInTime": 0.0,
-          "BlendOutTime": 0.0,
-          "BlendOption": "EAlphaBlendOption::Linear",
-          "bInitialized": false,
-          "CustomCurve": null,
-          "AlphaBlend": {
-            "CustomCurve": null,
-            "BlendTime": 0.2,
-            "BlendOption": "EAlphaBlendOption::Linear"
-          }
-        },
-        "AlphaCurveName": "None",
-        "AlphaScaleBiasClamp": {
-          "bMapRange": false,
-          "bClampResult": false,
-          "bInterpResult": false,
-          "InRange": {
-            "Min": 0.0,
-            "Max": 1.0
-          },
-          "OutRange": {
-            "Min": 0.0,
-            "Max": 1.0
-          },
-          "Scale": 1.0,
-          "Bias": 0.0,
-          "ClampMin": 0.0,
-          "ClampMax": 1.0,
-          "InterpSpeedIncreasing": 10.0,
-          "InterpSpeedDecreasing": 10.0
-        },
-        "AlphaInputType": "EAnimAlphaInputType::Float",
-        "bAlphaBoolEnabled": true
-      },
       "AnimGraphNode_LayeredBoneBlend": {
         "BasePose": {
-          "LinkID": 38
+          "LinkID": 37
         },
         "BlendPoses": [
           {
-            "LinkID": 42
+            "LinkID": 49
           }
         ],
         "LayerSetup": [
@@ -9399,9 +9315,37 @@
           {
             "SourceIndex": 0,
             "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 0.0
+          },
+          {
+            "SourceIndex": 0,
+            "BlendWeight": 0.0
           }
         ],
-        "SkeletonGuid": "CF50D3F7-414AF87B-932A75B1-C39A7366",
+        "SkeletonGuid": "AE5F9011-4B46FC52-97B1D688-26228547",
         "VirtualBoneGuid": "2F9C1787-400DBAE1-AEC5E89D-E8FFA267"
       },
       "AnimGraphNode_SaveCachedPose": {
@@ -9412,46 +9356,9 @@
       },
       "AnimGraphNode_UseCachedPose_1": {
         "LinkToCachingNode": {
-          "LinkID": 37
+          "LinkID": 36
         },
         "CachePoseName": "FaceAdditive"
-      },
-      "AnimGraphNode_UseCachedPose": {
-        "LinkToCachingNode": {
-          "LinkID": 37
-        },
-        "CachePoseName": "FaceAdditive"
-      },
-      "AnimGraphNode_SequencePlayer_2": {
-        "Sequence": null,
-        "PlayRateBasis": 1.0,
-        "PlayRate": 1.0,
-        "PlayRateScaleBiasClamp": {
-          "bMapRange": false,
-          "bClampResult": false,
-          "bInterpResult": false,
-          "InRange": {
-            "Min": 0.0,
-            "Max": 1.0
-          },
-          "OutRange": {
-            "Min": 0.0,
-            "Max": 1.0
-          },
-          "Scale": 1.0,
-          "Bias": 0.0,
-          "ClampMin": 0.0,
-          "ClampMax": 1.0,
-          "InterpSpeedIncreasing": 10.0,
-          "InterpSpeedDecreasing": 10.0
-        },
-        "StartPosition": 0.0,
-        "bLoopAnimation": true,
-        "GroupIndex": -1,
-        "GroupRole": "EAnimGroupRole::CanBeLeader",
-        "bIgnoreForRelevancyTest": false,
-        "BlendWeight": 0.0,
-        "InternalTimeAccumulator": 0.0
       },
       "__CustomProperty__Velocity_CB0F859C49830F00D306B18482F56381": {
         "X": 0.0,
@@ -9492,25 +9399,90 @@
         ],
         "TargetInstance": null
       },
-      "AnimGraphNode_BlendListByBool": {
-        "bActiveValue": false,
-        "BlendPose": [
-          {
-            "LinkID": 49
-          },
-          {
-            "LinkID": 35
+      "AnimGraphNode_ApplyAdditive": {
+        "Base": {
+          "LinkID": 40
+        },
+        "Additive": {
+          "LinkID": 41
+        },
+        "Alpha": 1.0,
+        "AlphaScaleBias": {
+          "Scale": 1.0,
+          "Bias": 0.0
+        },
+        "LODThreshold": -1,
+        "AlphaBoolBlend": {
+          "BlendInTime": 0.0,
+          "BlendOutTime": 0.0,
+          "BlendOption": "EAlphaBlendOption::Linear",
+          "bInitialized": false,
+          "CustomCurve": null,
+          "AlphaBlend": {
+            "CustomCurve": null,
+            "BlendTime": 0.2,
+            "BlendOption": "EAlphaBlendOption::Linear"
           }
-        ],
-        "BlendTime": [
-          0.1,
-          0.1
-        ],
-        "TransitionType": "EBlendListTransitionType::StandardBlend",
-        "BlendType": "EAlphaBlendOption::Linear",
-        "bResetChildOnActivation": false,
-        "CustomBlendCurve": null,
-        "BlendProfile": null
+        },
+        "AlphaCurveName": "None",
+        "AlphaScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "AlphaInputType": "EAnimAlphaInputType::Float",
+        "bAlphaBoolEnabled": true
+      },
+      "AnimGraphNode_UseCachedPose": {
+        "LinkToCachingNode": {
+          "LinkID": 36
+        },
+        "CachePoseName": "FaceAdditive"
+      },
+      "AnimGraphNode_SequencePlayer_2": {
+        "Sequence": null,
+        "PlayRateBasis": 1.0,
+        "PlayRate": 1.0,
+        "PlayRateScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        },
+        "StartPosition": 0.0,
+        "bLoopAnimation": true,
+        "GroupIndex": -1,
+        "GroupRole": "EAnimGroupRole::CanBeLeader",
+        "bIgnoreForRelevancyTest": false,
+        "BlendWeight": 0.0,
+        "InternalTimeAccumulator": 0.0
       },
       "AnimGraphNode_TransitionResult_1": {
         "bCanEnterTransition": false
@@ -9551,7 +9523,7 @@
       },
       "AnimGraphNode_StateResult_1": {
         "Result": {
-          "LinkID": 45
+          "LinkID": 44
         },
         "Name": "FaceIdleInjured_State_",
         "Group": "None"
@@ -9589,7 +9561,7 @@
       },
       "AnimGraphNode_StateResult": {
         "Result": {
-          "LinkID": 47
+          "LinkID": 46
         },
         "Name": "FaceIdle_State",
         "Group": "None"
@@ -9600,8 +9572,53 @@
         "bSkipFirstUpdateTransition": true,
         "bReinitializeOnBecomingRelevant": true
       },
-      "OnVomitHitTimerHandle": {
-        "Handle": 0
+      "AnimGraphNode_TwoWayBlend": {
+        "A": {
+          "LinkID": 48
+        },
+        "B": {
+          "LinkID": 39
+        },
+        "AlphaInputType": "EAnimAlphaInputType::Float",
+        "bAlphaBoolEnabled": true,
+        "bResetChildOnActivation": false,
+        "Alpha": 0.0,
+        "AlphaScaleBias": {
+          "Scale": 1.0,
+          "Bias": 0.0
+        },
+        "AlphaBoolBlend": {
+          "BlendInTime": 0.0,
+          "BlendOutTime": 0.0,
+          "BlendOption": "EAlphaBlendOption::Linear",
+          "bInitialized": false,
+          "CustomCurve": null,
+          "AlphaBlend": {
+            "CustomCurve": null,
+            "BlendTime": 0.2,
+            "BlendOption": "EAlphaBlendOption::Linear"
+          }
+        },
+        "AlphaCurveName": "None",
+        "AlphaScaleBiasClamp": {
+          "bMapRange": false,
+          "bClampResult": false,
+          "bInterpResult": false,
+          "InRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "OutRange": {
+            "Min": 0.0,
+            "Max": 1.0
+          },
+          "Scale": 1.0,
+          "Bias": 0.0,
+          "ClampMin": 0.0,
+          "ClampMax": 1.0,
+          "InterpSpeedIncreasing": 10.0,
+          "InterpSpeedDecreasing": 10.0
+        }
       },
       "Override": true,
       "FaceIdle": {
@@ -9618,7 +9635,7 @@
       },
       "_animEffectHandlerClassForSFX": {
         "ObjectName": "BlueprintGeneratedClass BP_Audio_Survivor_AnimNotifies_Handler_C",
-        "ObjectPath": "DeadByDaylight/Content/Audio/BP_Audio_Survivor_AnimNotifies_Handler.10"
+        "ObjectPath": "DeadByDaylight/Content/Audio/BP_Audio_Survivor_AnimNotifies_Handler.15"
       },
       "_animEffectHandlerClassForVFX": {
         "ObjectName": "BlueprintGeneratedClass BP_VFX_Survivor_AnimNotifies_Handler_C",

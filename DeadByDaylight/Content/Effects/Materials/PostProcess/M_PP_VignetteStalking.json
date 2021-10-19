@@ -22,13 +22,16 @@
         }
       },
       "MaterialDomain": "MD_PostProcess",
+      "BlendMode": "BLEND_Translucent",
       "bCanMaskedBeAssumedOpaque": true,
-      "StateId": "5807C90F-44496DDB-05C9D6B0-A3B4B46B",
+      "BlendableOutputAlpha": true,
+      "StateId": "01FC7E36-49D6016C-B3AE9687-3614CAE0",
       "CachedExpressionData": {
         "Parameters": {
           "Entries": {
             "NameHashes": [
               614159561874720655,
+              1347231371811114396,
               2226990840619379814,
               3079585981525812968,
               3773417578873071379,
@@ -45,6 +48,7 @@
               14417553804857444901,
               14662552567893779037,
               14687747346848516498,
+              15557295723899208902,
               15684328969772911168,
               16533660825552492178,
               17970148778578944058
@@ -52,6 +56,11 @@
             "ParameterInfos": [
               {
                 "Name": "Param 3",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_DiskDiscard_Radius",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -136,6 +145,11 @@
                 "Index": -1
               },
               {
+                "Name": "MF_PP_DiskDiscard_DebugControl",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "Opacity",
                 "Association": "GlobalParameter",
                 "Index": -1
@@ -153,6 +167,7 @@
             ],
             "ExpressionGuids": [
               "337BE67C-4C8A5AD3-3EC424B4-D91A97C1",
+              "0F23FB67-4C27736B-7662F7B5-AB1CB70F",
               "0097CF55-4305C189-CA08C3B7-322F3832",
               "C8AD8A50-4453701E-DE334D87-9F85C512",
               "B73B6830-4F807B42-827B7481-6FEF8212",
@@ -169,11 +184,14 @@
               "FFB92E86-475209F3-F856DBAC-64E6865F",
               "ADF56C6F-4717889C-6082F594-42557834",
               "D8C9FB6E-4F8E0B68-3EAF1994-CD707DF4",
+              "F3A95343-445437F4-6C2510B3-5770E5C3",
               "A43F5931-40CDC27E-EE96759C-AC296D12",
               "71B20F23-43335AC0-AB45D5BA-3A28BE00",
               "4ED81F8D-4432D91F-CE482387-1DC83234"
             ],
             "Overrides": [
+              false,
+              false,
               false,
               false,
               false,
@@ -242,6 +260,7 @@
           },
           "ScalarValues": [
             2.0,
+            0.325,
             0.51,
             1.35,
             0.5,
@@ -254,10 +273,11 @@
             16.0,
             2.0,
             0.9,
-            0.0,
+            1.0,
             0.05,
             0.0,
             75.0,
+            0.0,
             0.15,
             65.0,
             50.0
@@ -273,77 +293,84 @@
           ],
           "TextureValues": [
             {
-              "ObjectName": "T_VignetteClouds_Stalking:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteClouds_Stalking.11"
+              "ObjectName": "Texture2D T_VignetteClouds_Stalking",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteClouds_Stalking.0"
             },
             {
-              "ObjectName": "T_Gradient_DissolveBorder_Spirit:Texture2D",
-              "ObjectPath": "/Game/Effects/Textures/Gradient/T_Gradient_DissolveBorder_Spirit.10"
+              "ObjectName": "Texture2D T_Gradient_DissolveBorder_Spirit",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Gradient/T_Gradient_DissolveBorder_Spirit.0"
             }
           ]
         },
         "ReferencedTextures": [
           {
-            "ObjectName": "T_SmokeTile:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_SmokeTile.12"
+            "ObjectName": "Texture2D T_SmokeTile",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_SmokeTile.0"
           },
           {
-            "ObjectName": "T_VignetteClouds_Stalking:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/PostProcess/T_VignetteClouds_Stalking.11"
+            "ObjectName": "Texture2D T_VignetteClouds_Stalking",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/PostProcess/T_VignetteClouds_Stalking.0"
           },
           {
-            "ObjectName": "T_Gradient_DissolveBorder_Spirit:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/Gradient/T_Gradient_DissolveBorder_Spirit.10"
+            "ObjectName": "Texture2D T_Gradient_DissolveBorder_Spirit",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Gradient/T_Gradient_DissolveBorder_Spirit.0"
           }
         ],
         "FunctionInfos": [
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
             "Function": {
-              "ObjectName": "VectorToRadialValue:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.3"
+              "ObjectName": "MaterialFunction VectorToRadialValue",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
             }
           },
           {
             "StateId": "9DEEF089-488C7FFC-CBA6D499-986AEB61",
             "Function": {
-              "ObjectName": "BoxMask-2D:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions01/Gradient/BoxMask-2D.2"
+              "ObjectName": "MaterialFunction BoxMask-2D",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/BoxMask-2D.0"
+            }
+          },
+          {
+            "StateId": "612102B5-408CB942-1AFEBABC-FFC1F5A3",
+            "Function": {
+              "ObjectName": "MaterialFunction MF_PP_DiskDiscard",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_PP_DiskDiscard.0"
             }
           }
         ],

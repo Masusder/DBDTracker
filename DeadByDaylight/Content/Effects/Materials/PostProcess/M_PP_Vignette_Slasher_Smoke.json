@@ -22,14 +22,17 @@
         }
       },
       "MaterialDomain": "MD_PostProcess",
+      "BlendMode": "BLEND_Translucent",
       "bCanMaskedBeAssumedOpaque": true,
       "BlendableLocation": "BL_BeforeTonemapping",
-      "StateId": "F3E80D9B-41945794-EE6ACDB5-2FC12F12",
+      "BlendableOutputAlpha": true,
+      "StateId": "172148CE-4B5B18BF-350455B7-B896B6D4",
       "CachedExpressionData": {
         "Parameters": {
           "Entries": {
             "NameHashes": [
               1791430321779933382,
+              2115314926286137022,
               2226990840619379814,
               2905376162324748746,
               3215702417026144829,
@@ -47,11 +50,18 @@
               11128044292466858287,
               13585372484428180515,
               13804218528578188920,
-              14725746099444793829
+              14725746099444793829,
+              15751478510237892673,
+              17739706237009202623
             ],
             "ParameterInfos": [
               {
                 "Name": "Detail_UV_Scale_X",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_Y",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -144,10 +154,21 @@
                 "Name": "UVMask_Scale_X",
                 "Association": "GlobalParameter",
                 "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_X",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "MF_PP_RectangleDiscard_DebugControl",
+                "Association": "GlobalParameter",
+                "Index": -1
               }
             ],
             "ExpressionGuids": [
               "4E90BA75-409E7851-031136A6-D687F230",
+              "D62D78B9-4D955B9C-27D5E5B4-409A641B",
               "A53EBF55-4955FD44-2CE0ECA1-3AC084A2",
               "F5E0E4FA-47956802-CDB8C899-E80BE1E2",
               "2BC0DA57-4539C807-FC3558A0-E79FB88B",
@@ -165,9 +186,14 @@
               "51BE58F2-4154EB41-150DE48C-B21B464D",
               "E488670E-497CAAD9-0E8CE9A7-63DD92A3",
               "C52B2458-4A8904BB-C831F8A2-F4EC27EC",
-              "A902968D-464862BA-BD55F28A-73998DF1"
+              "A902968D-464862BA-BD55F28A-73998DF1",
+              "CEBAB6C1-46D0380E-0B1343AD-AA665AEB",
+              "4566AD6D-4CC1A00C-42EF5DBC-1E0514E7"
             ],
             "Overrides": [
+              false,
+              false,
+              false,
               false,
               false,
               false,
@@ -209,8 +235,9 @@
           },
           "ScalarValues": [
             1.0,
+            0.01,
             0.58,
-            0.0,
+            1.0,
             0.2,
             0.6,
             1.25,
@@ -226,7 +253,9 @@
             1.25,
             0.209524,
             0.0,
-            0.95
+            0.95,
+            0.2,
+            0.0
           ],
           "VectorValues": [
             {
@@ -240,51 +269,58 @@
         },
         "ReferencedTextures": [
           {
-            "ObjectName": "FlowMap:Texture2D",
-            "ObjectPath": "/Game/Effects/Materials/PostProcess/FlowMap.18"
+            "ObjectName": "Texture2D FlowMap",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Materials/PostProcess/FlowMap.0"
           },
           null,
           {
-            "ObjectName": "DefaultNormal:Texture2D",
-            "ObjectPath": "/Engine/EngineMaterials/DefaultNormal.16"
+            "ObjectName": "Texture2D DefaultNormal",
+            "ObjectPath": "Engine/Content/EngineMaterials/DefaultNormal.0"
           },
           {
-            "ObjectName": "DefaultDiffuse:Texture2D",
-            "ObjectPath": "/Engine/EngineMaterials/DefaultDiffuse.15"
+            "ObjectName": "Texture2D DefaultDiffuse",
+            "ObjectPath": "Engine/Content/EngineMaterials/DefaultDiffuse.0"
           },
           {
-            "ObjectName": "LowResBlurredNoise:Texture2D",
-            "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/LowResBlurredNoise.17"
+            "ObjectName": "Texture2D LowResBlurredNoise",
+            "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/LowResBlurredNoise.0"
           },
           {
-            "ObjectName": "T_TilingNoise03:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_TilingNoise03.20"
+            "ObjectName": "Texture2D T_TilingNoise03",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_TilingNoise03.0"
           },
           {
-            "ObjectName": "T_SmokeTile:Texture2D",
-            "ObjectPath": "/Game/Effects/Textures/T_SmokeTile.19"
+            "ObjectName": "Texture2D T_SmokeTile",
+            "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_SmokeTile.0"
           }
         ],
         "FunctionInfos": [
           {
             "StateId": "FBA0403F-4A7CA3E5-804AFF96-BC0A03C1",
             "Function": {
-              "ObjectName": "MF_PP_ScreenCoordinates:MaterialFunction",
-              "ObjectPath": "/Game/Effects/Materials/PostProcess/MF_PP_ScreenCoordinates.4"
+              "ObjectName": "MaterialFunction MF_PP_ScreenCoordinates",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Materials/PostProcess/MF_PP_ScreenCoordinates.0"
             }
           },
           {
             "StateId": "0E7842A6-494FD95E-3F6CAD83-A96EE5DD",
             "Function": {
-              "ObjectName": "FlowMaps:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions02/Texturing/Flowmaps.3"
+              "ObjectName": "MaterialFunction FlowMaps",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/Flowmaps.0"
             }
           },
           {
             "StateId": "B7C71B91-4E2BB667-772D6CBE-2AB55665",
             "Function": {
-              "ObjectName": "LinearGradient:MaterialFunction",
-              "ObjectPath": "/Engine/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.2"
+              "ObjectName": "MaterialFunction LinearGradient",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.0"
+            }
+          },
+          {
+            "StateId": "33D9B624-44AB1979-90100588-B1AD09C3",
+            "Function": {
+              "ObjectName": "MaterialFunction MF_PP_RectangleDiscard",
+              "ObjectPath": "DeadByDaylight/Content/Materials/MaterialFunctions/MF_PP_RectangleDiscard.0"
             }
           }
         ],
