@@ -22,18 +22,6 @@
         }
       },
       {
-        "Type": "BoolProperty",
-        "Name": "Temp_bool_Variable",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "InterfaceProperty",
         "Name": "K2Node_DynamicCast_AsBPI_Effect_Camper_Anim",
         "Flags": 1,
@@ -46,18 +34,6 @@
       {
         "Type": "BoolProperty",
         "Name": "K2Node_DynamicCast_bSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Not_PreBool_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -98,9 +74,64 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsBPI_Survivor_Menu_Anim",
+        "Flags": 1,
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "BlueprintGeneratedClass BPI_SurvivorMenu_Anim_C",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Interface/Camper/BPI_SurvivorMenu_Anim.1"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_2",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsBPI_Survivor_Menu_Anim_1",
+        "Flags": 1,
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "BlueprintGeneratedClass BPI_SurvivorMenu_Anim_C",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Interface/Camper/BPI_SurvivorMenu_Anim.1"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_3",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "AnimNotify_IsPlayingMenuInterruptFromTransition",
+    "Outer": "AB_Menu_S28_C",
+    "Super": "AnimNotify_IsPlayingMenuInterruptFromTransition",
+    "SuperStruct": {
+      "ObjectName": "Function AB_Menu_Camper_C:AnimNotify_IsPlayingMenuInterruptFromTransition",
+      "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/Shared/AB_Menu_Camper.1"
+    },
+    "FunctionFlags": 201326592
   },
   {
     "Type": "Function",
@@ -111,12 +142,6 @@
   {
     "Type": "Function",
     "Name": "AnimNotify_FX_ShowProps",
-    "Outer": "AB_Menu_S28_C",
-    "FunctionFlags": 201326592
-  },
-  {
-    "Type": "Function",
-    "Name": "AnimNotify_IsPlayingMenuInterrupt",
     "Outer": "AB_Menu_S28_C",
     "FunctionFlags": 201326592
   },
@@ -250,7 +275,7 @@
                   "CustomResultNodeIndex": -1,
                   "TransitionIndex": 1,
                   "bDesiredTransitionReturnValue": true,
-                  "bAutomaticRemainingTimeRule": true,
+                  "bAutomaticRemainingTimeRule": false,
                   "PoseEvaluatorLinks": []
                 }
               ],
@@ -275,7 +300,7 @@
                   "CustomResultNodeIndex": -1,
                   "TransitionIndex": 0,
                   "bDesiredTransitionReturnValue": true,
-                  "bAutomaticRemainingTimeRule": true,
+                  "bAutomaticRemainingTimeRule": false,
                   "PoseEvaluatorLinks": []
                 }
               ],
@@ -333,7 +358,7 @@
               "PreviousState": 0,
               "NextState": 1,
               "CrossfadeDuration": 0.5,
-              "StartNotify": -1,
+              "StartNotify": 2,
               "EndNotify": -1,
               "InterruptNotify": -1,
               "BlendMode": "EAlphaBlendOption::Linear",
@@ -436,6 +461,43 @@
           "SegmentLength": 0.0,
           "LinkValue": 0.0,
           "LinkedSequence": null
+        },
+        {
+          "TriggerTimeOffset": 0.0,
+          "EndTriggerTimeOffset": 0.0,
+          "TriggerWeightThreshold": 1E-05,
+          "NotifyName": "IsPlayingMenuInterruptFromTransition",
+          "Notify": null,
+          "NotifyStateClass": null,
+          "Duration": 0.0,
+          "EndLink": {
+            "LinkedMontage": null,
+            "SlotIndex": 0,
+            "SegmentIndex": -1,
+            "LinkMethod": "EAnimLinkMethod::Absolute",
+            "CachedLinkMethod": "EAnimLinkMethod::Absolute",
+            "SegmentBeginTime": 0.0,
+            "SegmentLength": 0.0,
+            "LinkValue": 0.0,
+            "LinkedSequence": null
+          },
+          "bConvertedFromBranchingPoint": false,
+          "MontageTickType": "EMontageNotifyTickType::Queued",
+          "NotifyTriggerChance": 1.0,
+          "NotifyFilterType": "ENotifyFilterType::NoFiltering",
+          "NotifyFilterLOD": 0,
+          "bTriggerOnDedicatedServer": true,
+          "bTriggerOnFollower": false,
+          "TrackIndex": 0,
+          "LinkedMontage": null,
+          "SlotIndex": 0,
+          "SegmentIndex": -1,
+          "LinkMethod": "EAnimLinkMethod::Absolute",
+          "CachedLinkMethod": "EAnimLinkMethod::Absolute",
+          "SegmentBeginTime": 0.0,
+          "SegmentLength": 0.0,
+          "LinkValue": 0.0,
+          "LinkedSequence": null
         }
       ],
       "OrderedSavedPoseIndicesMap": {
@@ -453,19 +515,19 @@
     },
     "SuperStruct": {
       "ObjectName": "AnimBlueprintGeneratedClass AB_Menu_Camper_C",
-      "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/Shared/AB_Menu_Camper.14"
+      "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/Shared/AB_Menu_Camper.15"
     },
     "Children": [
       {
-        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_IsPlayingMenuInterrupt",
+        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_FX_ShowProps",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.3"
       },
       {
-        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_FX_ShowProps",
+        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_FX_HideProps",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.2"
       },
       {
-        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_FX_HideProps",
+        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_IsPlayingMenuInterruptFromTransition",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.1"
       },
       {
@@ -484,19 +546,6 @@
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "IsPlayingMenuInterrupt",
-        "Flags": 2097153,
-        "ElementSize": 1,
-        "PropertyFlags": 65541,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       }
     ],
     "FuncMap": {
@@ -504,16 +553,16 @@
         "ObjectName": "Function AB_Menu_S28_C:ExecuteUbergraph_AB_Menu_S28",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.0"
       },
+      "AnimNotify_IsPlayingMenuInterruptFromTransition": {
+        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_IsPlayingMenuInterruptFromTransition",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.1"
+      },
       "AnimNotify_FX_HideProps": {
         "ObjectName": "Function AB_Menu_S28_C:AnimNotify_FX_HideProps",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.1"
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.2"
       },
       "AnimNotify_FX_ShowProps": {
         "ObjectName": "Function AB_Menu_S28_C:AnimNotify_FX_ShowProps",
-        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.2"
-      },
-      "AnimNotify_IsPlayingMenuInterrupt": {
-        "ObjectName": "Function AB_Menu_S28_C:AnimNotify_IsPlayingMenuInterrupt",
         "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Animations/V2/S28/Menu/AB_Menu_S28.3"
       }
     },
