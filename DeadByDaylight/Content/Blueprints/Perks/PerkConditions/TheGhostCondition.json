@@ -2,30 +2,232 @@
   {
     "Type": "Function",
     "Name": "ExecuteUbergraph_TheGhostCondition",
-    "Properties": {}
+    "Outer": "TheGhostCondition_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningKiller_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class SlasherPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsCloaked_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningGameplayModifier_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class GameplayModifierContainer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetModifierValue_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": 32769
   },
   {
     "Type": "Function",
     "Name": "ReceiveTick",
-    "Properties": {}
+    "Outer": "TheGhostCondition_C",
+    "SuperStruct": {
+      "ObjectName": "Function ActorComponent:ReceiveTick",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 134350848
   },
   {
     "Type": "Function",
     "Name": "IsApplicable",
-    "Properties": {}
+    "Outer": "TheGhostCondition_C",
+    "SuperStruct": {
+      "ObjectName": "Function GameplayModifierCondition:IsApplicable",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 1408,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDone_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 1547831296
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "TheGhostCondition_C",
     "Properties": {
       "UberGraphFunction": {
-        "ObjectName": "ExecuteUbergraph_TheGhostCondition:",
-        "ObjectPath": "TheGhostCondition_C.0"
+        "ObjectName": "Function TheGhostCondition_C:ExecuteUbergraph_TheGhostCondition",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.0"
       }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class GameplayModifierCondition",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function TheGhostCondition_C:IsApplicable",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.2"
+      },
+      {
+        "ObjectName": "Function TheGhostCondition_C:ReceiveTick",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.1"
+      },
+      {
+        "ObjectName": "Function TheGhostCondition_C:ExecuteUbergraph_TheGhostCondition",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "UncloakTimer",
+        "Flags": 2097153,
+        "ElementSize": 40,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "ScriptStruct DBDTimer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "WasCloaked",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 65541,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "TimerDuration",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_TheGhostCondition": {
+        "ObjectName": "Function TheGhostCondition_C:ExecuteUbergraph_TheGhostCondition",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.0"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function TheGhostCondition_C:ReceiveTick",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.1"
+      },
+      "IsApplicable": {
+        "ObjectName": "Function TheGhostCondition_C:IsApplicable",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.2"
+      }
+    },
+    "ClassFlags": 10749972,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "ClassGeneratedBy": null,
+    "Interfaces": [],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "TheGhostCondition_C Default__TheGhostCondition_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/TheGhostCondition.4"
     }
   },
   {
-    "Type": "GameplayModifierCondition",
+    "Type": "TheGhostCondition_C",
     "Name": "Default__TheGhostCondition_C",
     "Properties": {
       "UberGraphFrame": {},

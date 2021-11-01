@@ -2,18 +2,94 @@
   {
     "Type": "Function",
     "Name": "IsInteractionPossibleBP",
-    "Properties": {}
+    "Outer": "BP_HatchetCooldown_C",
+    "SuperStruct": {
+      "ObjectName": "Function InteractionDefinition:IsInteractionPossibleBP",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 150,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "interactionType",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EInputInteractionType",
+          "ObjectPath": "/Script/DeadByDaylight"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 1408,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 1279789056
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_HatchetCooldown_C",
-    "Properties": {}
+    "SuperStruct": {
+      "ObjectName": "Class HatchetCooldown",
+      "ObjectPath": "/Script/TheHuntress"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function BP_HatchetCooldown_C:IsInteractionPossibleBP",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Hatchet/BP_HatchetCooldown.0"
+      }
+    ],
+    "FuncMap": {
+      "IsInteractionPossibleBP": {
+        "ObjectName": "Function BP_HatchetCooldown_C:IsInteractionPossibleBP",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Hatchet/BP_HatchetCooldown.0"
+      }
+    },
+    "ClassFlags": 10754068,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "ClassGeneratedBy": null,
+    "Interfaces": [],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_HatchetCooldown_C Default__BP_HatchetCooldown_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Hatchet/BP_HatchetCooldown.2"
+    }
   },
   {
-    "Type": "HatchetCooldown",
+    "Type": "BP_HatchetCooldown_C",
     "Name": "Default__BP_HatchetCooldown_C",
     "Properties": {
-      "InteractionInputType": "EInputInteractionType::VE_None",
       "SnapTime": 2.0,
       "StopInteractionOnTimerExpire": true,
       "SlasherCanInteract": true,
@@ -25,9 +101,10 @@
       "UseCameraMontageMode": false,
       "UseAuthoritativeMovement": false,
       "HideItem": false,
+      "InteractionInputType": "EInputInteractionType::VE_None",
       "NavigationSpeedCurveEnter": {
-        "ObjectName": "HatchetThrowNavigationSpeed:CurveFloat",
-        "ObjectPath": "/Game/Characters/Slashers/Blueprints/Curves/HatchetThrowNavigationSpeed.7"
+        "ObjectName": "CurveFloat HatchetThrowNavigationSpeed",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/Curves/HatchetThrowNavigationSpeed.0"
       },
       "EnterMontage": {
         "MontageID": "HatchetThrowCooldown"

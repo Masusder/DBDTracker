@@ -2,23 +2,162 @@
   {
     "Type": "Function",
     "Name": "IsInteractionPossibleBP",
-    "Properties": {}
+    "Outer": "LFChainsawCooldown_C",
+    "SuperStruct": {
+      "ObjectName": "Function InteractionDefinition:IsInteractionPossibleBP",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 150,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "interactionType",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EInputInteractionType",
+          "ObjectPath": "/Script/DeadByDaylight"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 1408,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 1279789056
   },
   {
     "Type": "Function",
     "Name": "CanOverrideInteraction",
-    "Properties": {}
+    "Outer": "LFChainsawCooldown_C",
+    "SuperStruct": {
+      "ObjectName": "Function InteractionDefinition:CanOverrideInteraction",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "interaction",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524436,
+        "PropertyClass": {
+          "ObjectName": "Class InteractionDefinition",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 1408,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanOverrideInteraction_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_StrStr_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 1547831296
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "LFChainsawCooldown_C",
-    "Properties": {}
+    "SuperStruct": {
+      "ObjectName": "Class InteractionDefinition",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function LFChainsawCooldown_C:CanOverrideInteraction",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Chainsaw/LFChainsawCooldown.1"
+      },
+      {
+        "ObjectName": "Function LFChainsawCooldown_C:IsInteractionPossibleBP",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Chainsaw/LFChainsawCooldown.0"
+      }
+    ],
+    "FuncMap": {
+      "IsInteractionPossibleBP": {
+        "ObjectName": "Function LFChainsawCooldown_C:IsInteractionPossibleBP",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Chainsaw/LFChainsawCooldown.0"
+      },
+      "CanOverrideInteraction": {
+        "ObjectName": "Function LFChainsawCooldown_C:CanOverrideInteraction",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Chainsaw/LFChainsawCooldown.1"
+      }
+    },
+    "ClassFlags": 10754068,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "ClassGeneratedBy": null,
+    "Interfaces": [],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "LFChainsawCooldown_C Default__LFChainsawCooldown_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Chainsaw/LFChainsawCooldown.3"
+    }
   },
   {
-    "Type": "InteractionDefinition",
+    "Type": "LFChainsawCooldown_C",
     "Name": "Default__LFChainsawCooldown_C",
     "Properties": {
-      "InteractionInputType": "EInputInteractionType::VE_None",
       "SnapTime": 1.5,
       "StopInteractionOnTimerExpire": true,
       "StopEnterMontageOnExit": false,
@@ -32,9 +171,10 @@
       "OwnerBlocksAttack": false,
       "UseAuthoritativeMovement": false,
       "HideItem": false,
+      "InteractionInputType": "EInputInteractionType::VE_None",
       "NavigationSpeedCurveEnter": {
-        "ObjectName": "ChainsawRevCancel_CA:CurveFloat",
-        "ObjectPath": "/Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawRevCancel_CA.7"
+        "ObjectName": "CurveFloat ChainsawRevCancel_CA",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/AttackCurves/ChainsawRevCancel_CA.0"
       },
       "EnterMontage": {
         "MontageID": "ChainsawRevCancel"

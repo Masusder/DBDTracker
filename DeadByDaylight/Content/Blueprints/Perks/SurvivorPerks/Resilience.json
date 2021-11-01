@@ -2,30 +2,138 @@
   {
     "Type": "Function",
     "Name": "ExecuteUbergraph_Resilience",
-    "Properties": {}
+    "Outer": "Resilience_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
   },
   {
     "Type": "Function",
     "Name": "Authority_OnInstantiateModifierConditions",
-    "Properties": {}
+    "Outer": "Resilience_C",
+    "SuperStruct": {
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
+    },
+    "FunctionFlags": 134744068
   },
   {
     "Type": "Function",
     "Name": "Apply",
-    "Properties": {}
+    "Outer": "Resilience_C",
+    "SuperStruct": {
+      "ObjectName": "Function GameplayModifierContainer:Apply",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaTime",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 201459712
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Resilience_C",
     "Properties": {
       "UberGraphFunction": {
-        "ObjectName": "ExecuteUbergraph_Resilience:",
-        "ObjectPath": "Resilience_C.0"
+        "ObjectName": "Function Resilience_C:ExecuteUbergraph_Resilience",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.0"
       }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class ResiliencePerk",
+      "ObjectPath": "/Script/DBDCompetence"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function Resilience_C:Apply",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.2"
+      },
+      {
+        "ObjectName": "Function Resilience_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.1"
+      },
+      {
+        "ObjectName": "Function Resilience_C:ExecuteUbergraph_Resilience",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Resilience": {
+        "ObjectName": "Function Resilience_C:ExecuteUbergraph_Resilience",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.0"
+      },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function Resilience_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.1"
+      },
+      "Apply": {
+        "ObjectName": "Function Resilience_C:Apply",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.2"
+      }
+    },
+    "ClassFlags": 10749972,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "ClassGeneratedBy": null,
+    "Interfaces": [],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Resilience_C Default__Resilience_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Resilience.4"
     }
   },
   {
-    "Type": "ResiliencePerk",
+    "Type": "Resilience_C",
     "Name": "Default__Resilience_C",
     "Properties": {
       "UberGraphFrame": {},
@@ -33,8 +141,8 @@
       "_actionSpeed": 0.06,
       "_actionSpeed": 0.09,
       "PerkIconStrategyClass": {
-        "ObjectName": "ActiveWhenApplicablePerkIconStrategy:Class",
-        "ObjectPath": "/Script/DeadByDaylight.9"
+        "ObjectName": "Class ActiveWhenApplicablePerkIconStrategy",
+        "ObjectPath": "/Script/DeadByDaylight"
       }
     }
   }
