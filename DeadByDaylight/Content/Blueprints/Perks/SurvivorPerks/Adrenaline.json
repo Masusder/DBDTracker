@@ -12,28 +12,6 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_gameEventType",
-        "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameplayTag",
-          "ObjectPath": "/Script/GameplayTags"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_gameEventData",
-        "Flags": 1,
-        "ElementSize": 40,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameEventData",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
         "Type": "FloatProperty",
         "Name": "CallFunc_GetModifierValue_ReturnValue",
         "Flags": 1,
@@ -418,16 +396,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "StructProperty",
-        "Name": "CallFunc_MakeLiteralGameplayTag_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 12,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameplayTag",
-          "ObjectPath": "/Script/GameplayTags"
-        }
-      },
-      {
         "Type": "BoolProperty",
         "Name": "CallFunc_Not_PreBool_ReturnValue_5",
         "Flags": 1,
@@ -452,6 +420,27 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_BooleanAND_ReturnValue_1",
         "Flags": 1,
@@ -462,6 +451,12 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaTime",
+        "Flags": 1,
+        "ElementSize": 4
       },
       {
         "Type": "BoolProperty",
@@ -504,47 +499,32 @@
   },
   {
     "Type": "Function",
-    "Name": "OnGameEventDispatched",
+    "Name": "Apply",
     "Outer": "Adrenaline_C",
     "SuperStruct": {
-      "ObjectName": "Function GameplayModifierContainer:OnGameEventDispatched",
+      "ObjectName": "Function GameplayModifierContainer:Apply",
       "ObjectPath": "/Script/DeadByDaylight"
     },
     "ChildProperties": [
       {
-        "Type": "StructProperty",
-        "Name": "gameEventType",
+        "Type": "FloatProperty",
+        "Name": "DeltaTime",
         "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 150,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameplayTag",
-          "ObjectPath": "/Script/GameplayTags"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "gameEventData",
-        "Flags": 1,
-        "ElementSize": 40,
-        "PropertyFlags": 134218134,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameEventData",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
+        "ElementSize": 4,
+        "PropertyFlags": 148
       }
     ],
-    "FunctionFlags": 138938368
+    "FunctionFlags": 134350848
   },
   {
     "Type": "Function",
-    "Name": "OnInitialized",
+    "Name": "Authority_OnInstantiateModifierConditions",
     "Outer": "Adrenaline_C",
     "SuperStruct": {
-      "ObjectName": "Function GameplayModifierContainer:OnInitialized",
-      "ObjectPath": "/Script/DeadByDaylight"
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
     },
-    "FunctionFlags": 134350848
+    "FunctionFlags": 134744068
   },
   {
     "Type": "BlueprintGeneratedClass",
@@ -561,11 +541,11 @@
     },
     "Children": [
       {
-        "ObjectName": "Function Adrenaline_C:OnInitialized",
+        "ObjectName": "Function Adrenaline_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Adrenaline.2"
       },
       {
-        "ObjectName": "Function Adrenaline_C:OnGameEventDispatched",
+        "ObjectName": "Function Adrenaline_C:Apply",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Adrenaline.1"
       },
       {
@@ -602,12 +582,12 @@
         "ObjectName": "Function Adrenaline_C:ExecuteUbergraph_Adrenaline",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Adrenaline.0"
       },
-      "OnGameEventDispatched": {
-        "ObjectName": "Function Adrenaline_C:OnGameEventDispatched",
+      "Apply": {
+        "ObjectName": "Function Adrenaline_C:Apply",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Adrenaline.1"
       },
-      "OnInitialized": {
-        "ObjectName": "Function Adrenaline_C:OnInitialized",
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function Adrenaline_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Adrenaline.2"
       }
     },
@@ -699,7 +679,8 @@
       "PerkIconStrategyClass": {
         "ObjectName": "Class ActiveOnTimerPerkIconStrategy",
         "ObjectPath": "/Script/DeadByDaylight"
-      }
+      },
+      "UseApplyFunction": true
     }
   }
 ]
