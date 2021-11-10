@@ -20,15 +20,15 @@
     "Outer": "BP_Paradise_Lighting_C",
     "Super": "ReceiveBeginPlay",
     "SuperStruct": {
-      "ObjectName": "Function BP_Lighting_01_C:ReceiveBeginPlay",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Lighting_01.1"
+      "ObjectName": "Function BP_Sky_Post_C:ReceiveBeginPlay",
+      "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.4"
     },
     "FunctionFlags": 134744064
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_Paradise_Lighting_C",
-    "Super": "BP_Lighting_01_C",
+    "Super": "BP_Sky_Post_C",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Paradise_Lighting_C:SimpleConstructionScript_2",
@@ -44,8 +44,8 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "BlueprintGeneratedClass BP_Lighting_01_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Lighting_01.2"
+      "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
+      "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.16"
     },
     "Children": [
       {
@@ -97,11 +97,11 @@
   {
     "Type": "BP_Paradise_Lighting_C",
     "Name": "Default__BP_Paradise_Lighting_C",
-    "Template": "Default__BP_Lighting_01_C",
+    "Template": "Default__BP_Sky_Post_C",
     "Properties": {
       "UberGraphFrame": {},
+      "Colors determined by sun position": false,
       "Sun height": -1.0,
-      "Sun brightness": 0.0,
       "Horizon Falloff": 18.163984,
       "Zenith Color": {
         "R": 0.03,
@@ -133,8 +133,34 @@
       },
       "Cloud opacity": 0.428571,
       "Stars brightness": 0.05,
+      "Horizon color curve": {
+        "ObjectName": "CurveLinearColor C_Sky_Cloud_Color",
+        "ObjectPath": "Engine/Content/EngineSky/C_Sky_Cloud_Color.0"
+      },
       "StartSkyFog": 300.0,
-      "DistanceSkyFog": 1535.345
+      "DistanceSkyFog": 1535.345,
+      "Directional speed": 0.05,
+      "Horizon Move amount": 0.3,
+      "Sky contrast": 2.0,
+      "HDR intensity": 0.18,
+      "Sky texture": null,
+      "Horizon Tint": {
+        "R": 48,
+        "G": 73,
+        "B": 73,
+        "A": 255,
+        "Hex": "FF304949"
+      },
+      "Sky Tint": {
+        "R": 199,
+        "G": 241,
+        "B": 255,
+        "A": 255,
+        "Hex": "FFC7F1FF"
+      },
+      "bOnlyRelevantToOwner": true,
+      "bNetLoadOnClient": false,
+      "bNetUseOwnerRelevancy": true
     }
   },
   {
@@ -155,10 +181,34 @@
     "Outer": "BP_Paradise_Lighting_C",
     "Template": "GodRayLight_GEN_VARIABLE",
     "Properties": {
+      "OcclusionMaskDarkness": 0.530973,
+      "OcclusionDepthRange": 0.0,
       "ShadowBias": 0.265487,
       "ShadowSharpen": 0.150442,
+      "BloomScale": 0.005,
       "BloomThreshold": 0.001,
-      "IndirectLightingIntensity": 2.0
+      "BloomTint": {
+        "R": 255,
+        "G": 250,
+        "B": 250,
+        "A": 255,
+        "Hex": "FFFFFAFA"
+      },
+      "LightColor": {
+        "R": 222,
+        "G": 216,
+        "B": 213,
+        "A": 0,
+        "Hex": "DED8D5"
+      },
+      "bAffectsWorld": false,
+      "CastDynamicShadowsWithNewDefaultValue": true,
+      "IndirectLightingIntensity": 2.0,
+      "RelativeRotation": {
+        "Pitch": -15.624939,
+        "Yaw": 0.000627,
+        "Roll": 1E-06
+      }
     }
   },
   {
@@ -167,7 +217,10 @@
     "Outer": "BP_Paradise_Lighting_C",
     "Template": "ShadowLight_GEN_VARIABLE",
     "Properties": {
+      "DynamicShadowDistanceMovableLight": 6000.0,
+      "DynamicShadowCascades": 4,
       "bCachedDirectionalMovableLight": false,
+      "bUsedAsAtmosphereSunLight": true,
       "Temperature": 5000.0,
       "bUseTemperature": true,
       "Intensity": 0.4,
@@ -178,6 +231,9 @@
         "A": 0,
         "Hex": "FFFFFF"
       },
+      "CastStaticShadows": false,
+      "bAffectTranslucentLighting": false,
+      "VolumetricScatteringIntensity": 1.0,
       "RelativeRotation": {
         "Pitch": -7.1392055,
         "Yaw": 127.71593,
@@ -191,6 +247,8 @@
     "Outer": "BP_Paradise_Lighting_C",
     "Template": "HeightFog_GEN_VARIABLE",
     "Properties": {
+      "FogDensity": 0.08,
+      "FogHeightFalloff": 2.0,
       "FogInscatteringColor": {
         "R": 1.0,
         "G": 0.565228,
@@ -199,7 +257,15 @@
         "Hex": "FF904C"
       },
       "FogMaxOpacity": 0.0,
-      "StartDistance": 0.0,
+      "bEnableVolumetricFog": true,
+      "VolumetricFogScatteringDistribution": 0.7,
+      "VolumetricFogAlbedo": {
+        "R": 230,
+        "G": 230,
+        "B": 255,
+        "A": 255,
+        "Hex": "FFE6E6FF"
+      },
       "VolumetricFogEmissive": {
         "R": 0.0625,
         "G": 0.04787,
@@ -207,6 +273,7 @@
         "A": 0.0,
         "Hex": "100C0C"
       },
+      "VolumetricFogExtinctionScale": 2.0,
       "VolumetricFogDistance": 1000.0,
       "FogGradient": [
         {
@@ -461,6 +528,18 @@
     "Template": "LevelPostProcess_GEN_VARIABLE",
     "Properties": {
       "Settings": {
+        "bOverride_ColorContrast": true,
+        "bOverride_AmbientOcclusionStaticFraction": true,
+        "bOverride_IndirectLightingColor": false,
+        "bOverride_ColorGradingIntensity": true,
+        "bOverride_ColorGradingLUT": true,
+        "FilmWhitePoint": {
+          "R": 0.1705,
+          "G": 0.186585,
+          "B": 0.22,
+          "A": 1.0,
+          "Hex": "2B3038"
+        },
         "SceneColorTint": {
           "R": 1.0,
           "G": 0.915855,
@@ -468,11 +547,23 @@
           "A": 1.0,
           "Hex": "FFEAB8"
         },
+        "BloomIntensity": 0.424779,
         "AutoExposureBias": 1.0,
         "AutoExposureBiasBackup": 1.0,
+        "AmbientOcclusionStaticFraction": 0.0,
         "AmbientOcclusionRadius": 500.0,
+        "IndirectLightingColor": {
+          "R": 0.11748,
+          "G": 0.150794,
+          "B": 0.22,
+          "A": 1.0,
+          "Hex": "1E2638"
+        },
+        "IndirectLightingIntensity": 2.407079,
         "LPVIntensity": 20.0,
-        "LPVVplInjectionBias": 2.0
+        "LPVSize": 3465.4866,
+        "LPVSecondaryOcclusionIntensity": 1.0,
+        "LPVGeometryVolumeBias": 0.560991
       }
     }
   },
@@ -515,6 +606,11 @@
     "Outer": "BP_Paradise_Lighting_C",
     "Template": "LevelSkyLight_GEN_VARIABLE",
     "Properties": {
+      "SourceType": "SLS_SpecifiedCubemap",
+      "Cubemap": {
+        "ObjectName": "TextureCube Night_HOS_AmbientCubemap",
+        "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Sky/Night_HOS_AmbientCubemap.0"
+      },
       "SourceCubemapAngle": 65.14286,
       "Intensity": 0.3,
       "LightColor": {
@@ -523,7 +619,8 @@
         "B": 251,
         "A": 255,
         "Hex": "FFFFF7FB"
-      }
+      },
+      "VolumetricScatteringIntensity": 2.0
     }
   },
   {
@@ -566,6 +663,10 @@
     "Outer": "BP_Paradise_Lighting_C",
     "Template": "SkyFollower_GEN_VARIABLE",
     "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh SM_DBD_SkySphere",
+        "ObjectPath": "DeadByDaylight/Content/Materials/Sky/SM_DBD_SkySphere.2"
+      },
       "RelativeLocation": {
         "X": -0.00026607513,
         "Y": 0.00019741058,

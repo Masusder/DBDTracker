@@ -12,6 +12,55 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "CallFunc_GetInGameSurvivors_ReturnValue",
         "Flags": 1,
@@ -29,10 +78,14 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "Temp_int_Array_Index_Variable",
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
         "Flags": 1,
-        "ElementSize": 4
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class CamperPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       },
       {
         "Type": "IntProperty",
@@ -42,13 +95,26 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_Array_Get_Item",
+        "Name": "CallFunc_Authority_ImposeStatusEffect_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
+        "PropertyFlags": 524288,
         "PropertyClass": {
-          "ObjectName": "Class CamperPlayer",
+          "ObjectName": "Class StatusEffect",
           "ObjectPath": "/Script/DeadByDaylight"
         }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "BoolProperty",
@@ -73,54 +139,19 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "Temp_int_Loop_Counter_Variable",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Less_IntInt_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Add_IntInt_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Authority_OnInstantiateModifierConditions",
+    "Outer": "Mother-Daughter_Ring_C",
+    "SuperStruct": {
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
+    },
+    "FunctionFlags": 134744068
   },
   {
     "Type": "Function",
@@ -150,6 +181,10 @@
     "Children": [
       {
         "ObjectName": "Function Mother-Daughter_Ring_C:OnInitialized",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.2"
+      },
+      {
+        "ObjectName": "Function Mother-Daughter_Ring_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.1"
       },
       {
@@ -175,9 +210,13 @@
         "ObjectName": "Function Mother-Daughter_Ring_C:ExecuteUbergraph_Mother-Daughter_Ring",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.0"
       },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function Mother-Daughter_Ring_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.1"
+      },
       "OnInitialized": {
         "ObjectName": "Function Mother-Daughter_Ring_C:OnInitialized",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.2"
       }
     },
     "ClassFlags": 10749972,
@@ -191,7 +230,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Mother-Daughter_Ring_C Default__Mother-Daughter_Ring_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.3"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/PhaseWalkerAddons/Mother-Daughter_Ring.4"
     }
   },
   {
@@ -201,12 +240,6 @@
     "Properties": {
       "UberGraphFrame": {},
       "ModifierData": {
-        "Conditions": [
-          {
-            "ObjectName": "BlueprintGeneratedClass PlayerIsActivePhaseWalking_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/PlayerIsActivePhaseWalking.0"
-          }
-        ],
         "Modifiers": [
           {
             "Type": {
