@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.15"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,28 @@
       "ObjectPath": "/Script/Engine"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "EdgeObjectCollider",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class StaticMeshComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "trapblocker",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "BP_CollisionTool",
@@ -69,15 +91,12 @@
         }
       }
     ],
-    "FuncMap": {},
     "ClassFlags": 8652820,
     "ClassWithin": {
       "ObjectName": "Class Object",
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Ion_Edge_VineBush_01_C Default__BP_Ion_Edge_VineBush_01_C",
@@ -93,6 +112,116 @@
       },
       "NetUpdateFrequency": 0.1,
       "NetPriority": 0.01
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "trapblocker_GEN_VARIABLE",
+    "Outer": "BP_Ion_Edge_VineBush_01_C",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionProfileName": "TrapBlocker",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -30.98285
+      },
+      "RelativeScale3D": {
+        "X": 1.7910358,
+        "Y": 1.4985051,
+        "Z": 3.8733652
+      },
+      "Mobility": "EComponentMobility::Static",
+      "ComponentTags": [
+        "BorderObject"
+      ]
     }
   },
   {
@@ -113,11 +242,11 @@
     "Properties": {
       "ChildActorClass": {
         "ObjectName": "BlueprintGeneratedClass BP_CollisionTool_C",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Collisions/BP_CollisionTool.4"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Collisions/BP_CollisionTool.5"
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_Ion_Edge_VineBush_01_C:BP_CollisionTool_GEN_VARIABLE.BP_CollisionTool_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.3"
       },
       "RelativeLocation": {
         "X": -9.000824,
@@ -125,10 +254,11 @@
         "Z": 132.64919
       },
       "RelativeScale3D": {
-        "X": 0.3,
-        "Y": 0.3,
-        "Z": 1.0
-      }
+        "X": -0.05374815,
+        "Y": 0.22054476,
+        "Z": 0.8483093
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -155,7 +285,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_Ion_Edge_VineBush_01_C:BP_CollisionTool_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.4"
       },
       "VariableGuid": "CA68744F-4E53B467-14675197-5D7267B0",
       "InternalVariableName": "BP_CollisionTool"
@@ -172,24 +302,32 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Ion_Edge_VineBush_01_C:SceneComponent_110",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.6"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.9"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_4",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.10"
         },
         {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.11"
+        },
+        {
           "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.9"
         },
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.6"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.7"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.12"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.13"
         }
       ],
       "VariableGuid": "4EB57E9F-4DC2DE8D-DCCE17B2-A10871B1",
@@ -207,7 +345,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_VineBush_01_C:SM_Ion_Vines_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.19"
       },
       "VariableGuid": "BCE75DBB-4F34A3F6-270B938B-6E51D055",
       "InternalVariableName": "SM_Ion_Vines_03"
@@ -224,7 +362,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_VineBush_01_C:SM_Ion_Vines_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.17"
       },
       "VariableGuid": "4D753315-466DF33A-9277848A-FA6DF2BB",
       "InternalVariableName": "SM_Ion_Vines_01"
@@ -241,10 +379,44 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_VineBush_01_C:SM_Ion_Vines_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.18"
       },
       "VariableGuid": "E13A352B-48CAA1C7-A488BB94-750D28D6",
       "InternalVariableName": "SM_Ion_Vines_02"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_Ion_Edge_VineBush_01_C:trapblocker_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.2"
+      },
+      "VariableGuid": "745DAAE9-493B6BF6-E67D0189-488C0448",
+      "InternalVariableName": "trapblocker"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class StaticMeshComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent BP_Ion_Edge_VineBush_01_C:EdgeObjectCollider_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.16"
+      },
+      "VariableGuid": "E085E648-44D05653-AC119282-E8C67B49",
+      "InternalVariableName": "EdgeObjectCollider"
     }
   },
   {
@@ -258,7 +430,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Ion_Edge_VineBush_01_C:SceneComponent_105",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.5"
       },
       "VariableGuid": "30AEBCFF-42BE5153-A2CF119D-01511A25",
       "InternalVariableName": "DefaultSceneRoot"
@@ -272,35 +444,72 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.8"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.7"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.9"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.8"
         },
         {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.10"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.11"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.9"
+        },
+        {
           "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.6"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.7"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.12"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.13"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Ion_Edge_VineBush_01_C:SimpleConstructionScript_1.SCS_Node_9",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_VineBush_01.14"
       }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "EdgeObjectCollider_GEN_VARIABLE",
+    "Outer": "BP_Ion_Edge_VineBush_01_C",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh Cube",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material BasicShapeMaterial",
+          "ObjectPath": "Engine/Content/BasicShapes/BasicShapeMaterial.0"
+        }
+      ],
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -62.28103
+      },
+      "RelativeScale3D": {
+        "X": 0.29117033,
+        "Y": 0.27769965,
+        "Z": 1.0
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -315,56 +524,11 @@
       "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "CollisionProfileName": "BlockAllDynamicFoliage",
         "CollisionResponses": {
           "ResponseArray": [
             {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Block"
             },
             {
               "Channel": "InteractionDetector",
@@ -377,6 +541,18 @@
             {
               "Channel": "Ground",
               "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
             }
           ]
         }
@@ -411,56 +587,11 @@
       "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "CollisionProfileName": "BlockAllDynamicFoliage",
         "CollisionResponses": {
           "ResponseArray": [
             {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Block"
             },
             {
               "Channel": "InteractionDetector",
@@ -473,6 +604,18 @@
             {
               "Channel": "Ground",
               "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
             }
           ]
         }
@@ -507,56 +650,11 @@
       "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "CollisionProfileName": "BlockAllDynamicFoliage",
         "CollisionResponses": {
           "ResponseArray": [
             {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Block"
             },
             {
               "Channel": "InteractionDetector",
@@ -569,6 +667,18 @@
             {
               "Channel": "Ground",
               "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
             }
           ]
         }

@@ -2677,8 +2677,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_TL_Bd_16x16_Tee_HD_104_C Default__BP_TL_Bd_16x16_Tee_HD_104_C",
@@ -3554,7 +3552,7 @@
         "G": 0.135633,
         "B": 0.132868,
         "A": 1.0,
-        "Hex": "1D2322"
+        "Hex": "FF5E6766"
       },
       "VolumetricScatteringIntensity": 10.0,
       "Light Rotation": {
@@ -3601,7 +3599,7 @@
         "G": 0.135633,
         "B": 0.132868,
         "A": 1.0,
-        "Hex": "1D2322"
+        "Hex": "FF5E6766"
       },
       "VolumetricScatteringIntensity": 10.0,
       "Light Rotation": {
@@ -3648,7 +3646,7 @@
         "G": 0.135633,
         "B": 0.132868,
         "A": 1.0,
-        "Hex": "1D2322"
+        "Hex": "FF5E6766"
       },
       "VolumetricScatteringIntensity": 10.0,
       "Light Rotation": {
@@ -3695,7 +3693,7 @@
         "G": 0.135633,
         "B": 0.132868,
         "A": 1.0,
-        "Hex": "1D2322"
+        "Hex": "FF5E6766"
       },
       "VolumetricScatteringIntensity": 10.0,
       "Light Rotation": {
@@ -10136,11 +10134,11 @@
       "AttenuationRadius": 400.0,
       "Intensity": 5.0,
       "LightColor": {
-        "R": 102,
+        "B": 102,
         "G": 103,
-        "B": 94,
+        "R": 94,
         "A": 255,
-        "Hex": "FF66675E"
+        "Hex": "FF5E6766"
       },
       "CastShadows": false,
       "CastStaticShadows": false,
@@ -10169,11 +10167,11 @@
       "AttenuationRadius": 400.0,
       "Intensity": 12.0,
       "LightColor": {
-        "R": 102,
+        "B": 102,
         "G": 103,
-        "B": 94,
+        "R": 94,
         "A": 255,
-        "Hex": "FF66675E"
+        "Hex": "FF5E6766"
       },
       "CastShadows": false,
       "CastStaticShadows": false,
@@ -10202,11 +10200,11 @@
       "AttenuationRadius": 400.0,
       "Intensity": 12.0,
       "LightColor": {
-        "R": 102,
+        "B": 102,
         "G": 103,
-        "B": 94,
+        "R": 94,
         "A": 255,
-        "Hex": "FF66675E"
+        "Hex": "FF5E6766"
       },
       "CastShadows": false,
       "CastStaticShadows": false,
@@ -10235,11 +10233,11 @@
       "AttenuationRadius": 400.0,
       "Intensity": 5.0,
       "LightColor": {
-        "R": 102,
+        "B": 102,
         "G": 103,
-        "B": 94,
+        "R": 94,
         "A": 255,
-        "Hex": "FF66675E"
+        "Hex": "FF5E6766"
       },
       "CastShadows": false,
       "CastStaticShadows": false,
@@ -10272,11 +10270,11 @@
       },
       "Intensity": 12.0,
       "LightColor": {
-        "R": 102,
+        "B": 102,
         "G": 103,
-        "B": 94,
+        "R": 94,
         "A": 255,
-        "Hex": "FF66675E"
+        "Hex": "FF5E6766"
       },
       "CastStaticShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -16512,27 +16510,69 @@
         "ObjectName": "StaticMesh SM_Fin_Tee_Stairs01_NavMesh",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Finland/Structures/SM_Fin_Tee_Stairs01_NavMesh.2"
       },
+      "bUseDefaultCollision": false,
       "bRenderInMainPass": false,
       "bReceivesDecals": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "bCastCinematicShadow": true,
       "bCastShadowAsTwoSided": true,
       "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel15",
-        "CollisionProfileName": "Ground",
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "GroundNonBlocking",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Interactable",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
             },
             {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
@@ -16543,11 +16583,24 @@
               "Response": "ECR_Overlap"
             },
             {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
+              "Channel": "Blink",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
             }
           ]
         }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 16.39589
       },
       "Mobility": "EComponentMobility::Static"
     }

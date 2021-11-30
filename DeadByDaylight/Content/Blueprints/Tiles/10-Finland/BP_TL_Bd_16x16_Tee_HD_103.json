@@ -5328,8 +5328,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_TL_Bd_16x16_Tee_HD_103_C Default__BP_TL_Bd_16x16_Tee_HD_103_C",
@@ -6180,7 +6178,7 @@
         "G": 0.135633,
         "B": 0.130136,
         "A": 1.0,
-        "Hex": "182321"
+        "Hex": "FF566765"
       },
       "CastVolumetricShadow": true,
       "Light Rotation": {
@@ -18933,11 +18931,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 0.25,
       "LightColor": {
-        "R": 255,
+        "B": 255,
         "G": 241,
-        "B": 190,
+        "R": 190,
         "A": 255,
-        "Hex": "FFFFF1BE"
+        "Hex": "FFBEF1FF"
       },
       "bAffectsWorld": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -18970,11 +18968,11 @@
       },
       "Intensity": 2000.0,
       "LightColor": {
-        "R": 255,
+        "B": 255,
         "G": 241,
-        "B": 190,
+        "R": 190,
         "A": 255,
-        "Hex": "FFFFF1BE"
+        "Hex": "FFBEF1FF"
       },
       "CastStaticShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -30085,27 +30083,69 @@
         "ObjectName": "StaticMesh SM_Fin_Tee_Stairs01_NavMesh",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Finland/Structures/SM_Fin_Tee_Stairs01_NavMesh.2"
       },
+      "bUseDefaultCollision": false,
       "bRenderInMainPass": false,
       "bReceivesDecals": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "bCastCinematicShadow": true,
       "bCastShadowAsTwoSided": true,
       "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel15",
-        "CollisionProfileName": "Ground",
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "GroundNonBlocking",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Interactable",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
             },
             {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
@@ -30116,11 +30156,24 @@
               "Response": "ECR_Overlap"
             },
             {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
+              "Channel": "Blink",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
             }
           ]
         }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.00012207031,
+        "Z": 11.047668
       },
       "Mobility": "EComponentMobility::Static"
     }

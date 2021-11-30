@@ -6,11 +6,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.183"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.185"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_TL_St_16x16_Ion_Shack_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.37"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.39"
       }
     },
     "SuperStruct": {
@@ -20,12 +20,23 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "P_ION_CandleFlame_08",
+        "Name": "GroundCollision02",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 17180393476,
         "PropertyClass": {
-          "ObjectName": "Class ParticleSystemComponent",
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GroundCollision01",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -1361,15 +1372,12 @@
         }
       }
     ],
-    "FuncMap": {},
     "ClassFlags": 8652820,
     "ClassWithin": {
       "ObjectName": "Class Object",
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_TL_St_16x16_Ion_Shack_C Default__BP_TL_St_16x16_Ion_Shack_C",
@@ -1553,7 +1561,7 @@
       "RelativeLocation": {
         "X": -190.18982,
         "Y": -403.5405,
-        "Z": 24.788689
+        "Z": 19.02238
       },
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -1864,11 +1872,11 @@
       },
       "AreaClass": null,
       "ShapeColor": {
-        "R": 3,
+        "B": 3,
         "G": 0,
-        "B": 84,
+        "R": 84,
         "A": 255,
-        "Hex": "FF030054"
+        "Hex": "FF540003"
       },
       "bGenerateOverlapEvents": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
@@ -1980,11 +1988,11 @@
       },
       "AreaClass": null,
       "ShapeColor": {
-        "R": 3,
+        "B": 3,
         "G": 0,
-        "B": 84,
+        "R": 84,
         "A": 255,
-        "Hex": "FF030054"
+        "Hex": "FF540003"
       },
       "bGenerateOverlapEvents": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
@@ -2202,6 +2210,118 @@
     }
   },
   {
+    "Type": "BoxComponent",
+    "Name": "GroundCollision01_GEN_VARIABLE",
+    "Outer": "BP_TL_St_16x16_Ion_Shack_C",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "Ground",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "World",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 184.82893,
+        "Y": 533.88403,
+        "Z": -8.121433
+      },
+      "RelativeScale3D": {
+        "X": 2.1525114,
+        "Y": 1.1875529,
+        "Z": 1.0
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "GroundCollision02_GEN_VARIABLE",
+    "Outer": "BP_TL_St_16x16_Ion_Shack_C",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "Ground",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "World",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -202.79333,
+        "Y": -531.43506,
+        "Z": -8.121433
+      },
+      "RelativeScale3D": {
+        "X": 2.1525114,
+        "Y": 1.1875529,
+        "Z": 1.0
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
     "Type": "BP_BoardedWindow_Shack_01_C",
     "Name": "BP_BoardedWindow_Shack_01_GEN_VARIABLE_BP_BoardedWindow_Shack_01_C_CAT",
     "Outer": "BP_BoardedWindow_Shack_01_GEN_VARIABLE",
@@ -2328,7 +2448,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_BoardedWindow_Shack_01_C BP_TL_St_16x16_Ion_Shack_C:BP_BoardedWindow_Shack_01_GEN_VARIABLE.BP_BoardedWindow_Shack_01_GEN_VARIABLE_BP_BoardedWindow_Shack_01_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.21"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.23"
       },
       "RelativeLocation": {
         "X": -524.1915,
@@ -2350,7 +2470,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_ION_Ink_Spawner_BP_TL_St_16x16_Ion_Shack_C BP_TL_St_16x16_Ion_Shack_C:BP_Effect_ION_Ink_Spawner_BP_TL_St_16x16_Ion_Shack_GEN_VARIABLE.BP_Effect_ION_Ink_Spawner_BP_TL_St_16x16_Ion_Shack_GEN_VARIABLE_BP_Effect_ION_Ink_Spawner_BP_TL_St_16x16_Ion_Shack_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.23"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.25"
       }
     }
   },
@@ -2362,7 +2482,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_St_16x16_Ion_Shack_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0.BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.24"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.26"
       }
     }
   },
@@ -2374,7 +2494,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_St_16x16_Ion_Shack_C:ChildActor23BD091E460EC1DDE3D925A74625A6B9.ChildActor23BD091E460EC1DDE3D925A74625A6B9_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.27"
       }
     }
   },
@@ -2386,7 +2506,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_St_16x16_Ion_Shack_C:ChildActor6A6657D944AA8C9BF8BFDC906DBACF23.ChildActor6A6657D944AA8C9BF8BFDC906DBACF23_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.28"
       }
     }
   },
@@ -2398,7 +2518,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_St_16x16_Ion_Shack_C:ChildActor7870C468478CD22B85EA62ABDE6B8721.ChildActor7870C468478CD22B85EA62ABDE6B8721_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.29"
       }
     }
   },
@@ -2434,31 +2554,31 @@
       "InstanceBaseMap": {
         "221": {
           "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_02_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.209"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.211"
         },
         "146": {
           "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_14_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.212"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.214"
         },
         "220": {
           "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_13_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.211"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.213"
         },
         "217": {
           "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_15_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.213"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.215"
         },
         "149": {
           "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_RoseBush_01_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.205"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.207"
         },
         "219": {
           "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_16_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.214"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.216"
         },
         "150": {
           "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_5_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.226"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.228"
         }
       }
     }
@@ -2619,7 +2739,60 @@
         "Invisible",
         "SpawnCheckCollision"
       ]
-    }
+    },
+    "PerInstanceSMData": [
+      {
+        "OffsetLocation": {
+          "X": 0.5166168,
+          "Y": 16.702545,
+          "Z": -70.0
+        },
+        "RelativeRotation": {
+          "Pitch": 0.0,
+          "Yaw": 0.0,
+          "Roll": 0.0
+        },
+        "RelativeScale3D": {
+          "X": 1.5,
+          "Y": 1.0,
+          "Z": 1.5
+        }
+      },
+      {
+        "OffsetLocation": {
+          "X": 423.5219,
+          "Y": 859.25476,
+          "Z": -70.0
+        },
+        "RelativeRotation": {
+          "Pitch": 0.0,
+          "Yaw": 0.0,
+          "Roll": 0.0
+        },
+        "RelativeScale3D": {
+          "X": 1.5,
+          "Y": 1.0,
+          "Z": 1.5
+        }
+      },
+      {
+        "OffsetLocation": {
+          "X": -375.8965,
+          "Y": 532.3186,
+          "Z": -70.0
+        },
+        "RelativeRotation": {
+          "Pitch": 0.0,
+          "Yaw": 0.0,
+          "Roll": 0.0
+        },
+        "RelativeScale3D": {
+          "X": 1.5,
+          "Y": 1.0,
+          "Z": 1.5
+        }
+      }
+    ]
   },
   {
     "Type": "InheritableComponentHandler",
@@ -2634,7 +2807,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ion_Shack_C:ChildActor7870C468478CD22B85EA62ABDE6B8721",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.33"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.35"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2656,7 +2829,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ion_Shack_C:ChildActor6A6657D944AA8C9BF8BFDC906DBACF23",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.32"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.34"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2678,7 +2851,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ion_Shack_C:ChildActor23BD091E460EC1DDE3D925A74625A6B9",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.31"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.33"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2700,7 +2873,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ion_Shack_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.30"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.32"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2766,7 +2939,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_St_16x16_Ion_Shack_C:TileSpawnPoint_22",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.268"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.270"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2810,7 +2983,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_St_16x16_Ion_Shack_C:TileSpawnPoint_13",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.266"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.268"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2832,7 +3005,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_St_16x16_Ion_Shack_C:TileSpawnPoint_19",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.267"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.269"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2854,7 +3027,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_St_16x16_Ion_Shack_C:TileSpawnPoint_10",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.265"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.267"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2876,7 +3049,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_St_16x16_Ion_Shack_C:TileSpawnPoint_7",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.270"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.272"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2898,7 +3071,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_St_16x16_Ion_Shack_C:TileSpawnPoint_4",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.269"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.271"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2920,7 +3093,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_St_16x16_Ion_Shack_C:TileSpawnPoint_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.264"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.266"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -2980,11 +3153,11 @@
       },
       "AreaClass": null,
       "ShapeColor": {
-        "R": 223,
+        "B": 223,
         "G": 197,
-        "B": 26,
+        "R": 26,
         "A": 255,
-        "Hex": "FFDFC51A"
+        "Hex": "FF1AC5DF"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "bApplyImpulseOnDamage": false,
@@ -3096,9 +3269,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3121,9 +3294,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3146,9 +3319,9 @@
             "Z": -25.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3171,9 +3344,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3196,9 +3369,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3245,9 +3418,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3270,9 +3443,9 @@
             "Z": 100.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3295,9 +3468,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3320,13 +3493,13 @@
     "Properties": {
       "Template": {
         "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
+        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.16"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 323.95084,
-        "Y": -128.85303,
-        "Z": 164.24693
+        "X": 510.28845,
+        "Y": -62.72499,
+        "Z": 122.01798
       },
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
@@ -3340,13 +3513,13 @@
     "Properties": {
       "Template": {
         "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
+        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.16"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 364.11563,
-        "Y": -119.50983,
-        "Z": 174.5754
+        "X": 507.22278,
+        "Y": 61.175636,
+        "Z": 123.03029
       },
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
@@ -3360,7 +3533,7 @@
     "Properties": {
       "Template": {
         "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
+        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.16"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
@@ -3380,13 +3553,13 @@
     "Properties": {
       "Template": {
         "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
+        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.16"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 300.79697,
-        "Y": -296.1145,
-        "Z": 174.33154
+        "X": -454.572,
+        "Y": -91.55036,
+        "Z": 46.994865
       },
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
@@ -3400,13 +3573,13 @@
     "Properties": {
       "Template": {
         "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
+        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.16"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 300.51282,
-        "Y": -304.18494,
-        "Z": 165.1168
+        "X": -334.6064,
+        "Y": 391.27182,
+        "Z": 63.342896
       },
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
@@ -3420,13 +3593,13 @@
     "Properties": {
       "Template": {
         "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
+        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.16"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 299.41907,
-        "Y": -317.2069,
-        "Z": 166.95598
+        "X": -334.85773,
+        "Y": 383.2616,
+        "Z": 53.915184
       },
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
@@ -3440,33 +3613,13 @@
     "Properties": {
       "Template": {
         "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
+        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.16"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 275.53885,
-        "Y": -356.65936,
-        "Z": 78.17512
-      },
-      "PrimaryComponentTick": {
-        "bStartWithTickEnabled": false
-      }
-    }
-  },
-  {
-    "Type": "ParticleSystemComponent",
-    "Name": "P_ION_CandleFlame_08_GEN_VARIABLE",
-    "Outer": "BP_TL_St_16x16_Ion_Shack_C",
-    "Properties": {
-      "Template": {
-        "ObjectName": "ParticleSystem P_ION_CandleFlame_01",
-        "ObjectPath": "DeadByDaylight/Content/Effects/ParticleSystems/Environment/Fire/P_ION_CandleFlame_01.42"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX",
-      "RelativeLocation": {
-        "X": 275.53885,
-        "Y": -349.6192,
-        "Z": 72.07518
+        "X": -299.07065,
+        "Y": 438.54572,
+        "Z": 41.038784
       },
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
@@ -3499,9 +3652,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3524,9 +3677,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3549,9 +3702,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3574,9 +3727,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3599,9 +3752,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3624,9 +3777,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3649,9 +3802,9 @@
             "Z": -435.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3700,9 +3853,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3725,9 +3878,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3750,9 +3903,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3775,9 +3928,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3800,9 +3953,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3825,9 +3978,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3850,9 +4003,9 @@
             "Z": -435.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3896,9 +4049,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3921,9 +4074,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3946,9 +4099,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3971,9 +4124,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -3996,9 +4149,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4021,9 +4174,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4046,9 +4199,9 @@
             "Z": -435.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4097,9 +4250,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4122,9 +4275,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4147,9 +4300,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4172,9 +4325,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4197,9 +4350,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4222,9 +4375,9 @@
             "Z": 0.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4247,9 +4400,9 @@
             "Z": -435.0
           },
           "Color": {
-            "R": 0,
-            "G": 0,
             "B": 0,
+            "G": 0,
+            "R": 0,
             "A": 0,
             "Hex": "000000"
           },
@@ -4373,152 +4526,152 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_GT_16x16_Indus_Shack01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.190"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.192"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.96"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_32",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.109"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_20",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.111"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.148"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.150"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_74",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.155"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.157"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_78",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.159"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.161"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_83",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.165"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.167"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_91",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.174"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_92",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.175"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_93",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.176"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_92",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.177"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_95",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_93",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.178"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_96",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.179"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_97",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_95",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.180"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_99",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_96",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.181"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_97",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.182"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_100",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.63"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_99",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.184"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_101",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_100",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.64"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_102",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_101",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.65"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_103",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_102",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.66"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_104",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_103",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.67"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_104",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.68"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.69"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.70"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_108",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.71"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_108",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.72"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.73"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_110",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.74"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.75"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.136"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.138"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.137"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.139"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_88",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.170"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.172"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_89",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.171"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.173"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_113",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_114",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.78"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_115",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_114",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.79"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_116",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_115",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.80"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_117",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_116",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.81"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_117",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.82"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.147"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.149"
         }
       ],
       "VariableGuid": "B9822DD0-415E07C0-A7F095AB-80C6C152",
@@ -4555,26 +4708,26 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ion_Shack_C:SceneComponent_49",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.57"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.58"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.60"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.61"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.95"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.97"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_77",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.158"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.160"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.129"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.131"
         }
       ],
       "VariableGuid": "080E9A31-85A1C4FF-3B9305CE-5C1DC0F5",
@@ -4592,7 +4745,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.255"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.257"
       },
       "VariableGuid": "E6B4CA73-490EA3E5-8CB858B3-736B74B7",
       "InternalVariableName": "SM_ION_Vine_Small_03"
@@ -4609,7 +4762,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.254"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.256"
       },
       "VariableGuid": "6553D1C3-40999069-B9036D9D-67598B06",
       "InternalVariableName": "SM_ION_Vine_Small_02"
@@ -4626,7 +4779,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.258"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.260"
       },
       "VariableGuid": "FC29C6FB-42B47321-36B91A81-960B9301",
       "InternalVariableName": "SM_ION_Vine_Small_4"
@@ -4643,7 +4796,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.257"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.259"
       },
       "VariableGuid": "3DB1B276-434ECF95-65B5AAAA-CC9A4EE6",
       "InternalVariableName": "SM_ION_Vine_Small_3"
@@ -4660,7 +4813,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.259"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.261"
       },
       "VariableGuid": "3B988344-4EDA8602-D5BC8BAD-FACF7EC7",
       "InternalVariableName": "SM_ION_Vine_Small_5"
@@ -4677,7 +4830,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.256"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.258"
       },
       "VariableGuid": "7B2E7CD0-4F20EF15-E84FA786-A63DA4F5",
       "InternalVariableName": "SM_ION_Vine_Small_2"
@@ -4694,7 +4847,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.260"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.262"
       },
       "VariableGuid": "D13D1993-4826E8C8-51E2118E-A038DF76",
       "InternalVariableName": "SM_ION_Vine_Small_6"
@@ -4711,7 +4864,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.261"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.263"
       },
       "VariableGuid": "2BCCBA38-4E1FC344-5B6FD197-4DE3C948",
       "InternalVariableName": "SM_ION_Vine_Small_7"
@@ -4728,7 +4881,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.250"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.252"
       },
       "VariableGuid": "DE790B6C-40AAEB11-274C71A4-65E9857D",
       "InternalVariableName": "SM_ION_Vine_7"
@@ -4745,7 +4898,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.251"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.253"
       },
       "VariableGuid": "F4EC7EC5-4748EF85-A7BD0C9F-CEB990D2",
       "InternalVariableName": "SM_ION_Vine_8"
@@ -4781,7 +4934,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_9_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.252"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.254"
       },
       "VariableGuid": "11006CB4-4FE574D9-9F621894-50379129",
       "InternalVariableName": "SM_ION_Vine_9"
@@ -4798,7 +4951,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_05_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.45"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.47"
       },
       "VariableGuid": "8C2D5D0B-45832B86-422745A3-BDEF09E4",
       "InternalVariableName": "P_ION_CandleFlame_05"
@@ -4815,7 +4968,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_06_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.46"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.48"
       },
       "VariableGuid": "D1DDA0EC-40754A9F-85E05290-3BEE4D45",
       "InternalVariableName": "P_ION_CandleFlame_06"
@@ -4832,7 +4985,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_15_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.213"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.215"
       },
       "VariableGuid": "86DDA208-4F0B5017-2F730381-C80D2114",
       "InternalVariableName": "SM_Ion_SandMound_15"
@@ -4849,20 +5002,20 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_16_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.214"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.216"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_118",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.82"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.83"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.84"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_121",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.86"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.87"
         }
       ],
       "VariableGuid": "C0473C92-43386390-CA4D6386-8E0B39F9",
@@ -4880,7 +5033,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_17_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.215"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.217"
       },
       "VariableGuid": "FAE8FCD9-4AB37D38-41FF9C80-80087626",
       "InternalVariableName": "SM_Ion_SandMound_17"
@@ -4897,7 +5050,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_18_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.216"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.218"
       },
       "VariableGuid": "0565B5F7-42B51FAD-F12E6686-165CA05F",
       "InternalVariableName": "SM_Ion_SandMound_18"
@@ -4914,7 +5067,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_19_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.217"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.219"
       },
       "VariableGuid": "94BD03B1-4C4F075B-C959619D-0C8791B7",
       "InternalVariableName": "SM_Ion_SandMound_19"
@@ -4931,7 +5084,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_RoseBush_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.206"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.208"
       },
       "VariableGuid": "036599A8-48BF8667-5461BF88-46A62EF7",
       "InternalVariableName": "SM_Ion_RoseBush_2"
@@ -4948,7 +5101,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_RoseBush_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.207"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.209"
       },
       "VariableGuid": "64A0D121-4B1AF9F6-C19A31A1-76EB65A4",
       "InternalVariableName": "SM_Ion_RoseBush_3"
@@ -4984,7 +5137,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_07_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.47"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.49"
       },
       "VariableGuid": "76DDC128-418954C6-C6731F80-4FD56E6A",
       "InternalVariableName": "P_ION_CandleFlame_07"
@@ -5001,7 +5154,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_RoseBush_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.208"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.210"
       },
       "VariableGuid": "B23DAFA8-49912069-2D04ADBC-686414D9",
       "InternalVariableName": "SM_Ion_RoseBush_4"
@@ -5013,15 +5166,32 @@
     "Outer": "SimpleConstructionScript_3",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class ParticleSystemComponent",
+        "ObjectName": "Class BoxComponent",
         "ObjectPath": "/Script/Engine"
       },
       "ComponentTemplate": {
-        "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_08_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.48"
+        "ObjectName": "BoxComponent BP_TL_St_16x16_Ion_Shack_C:GroundCollision01_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.21"
       },
-      "VariableGuid": "81E32964-41D12819-C365D6AB-44DE0734",
-      "InternalVariableName": "P_ION_CandleFlame_08"
+      "VariableGuid": "30D37538-4FB471CA-07512FA3-155B5487",
+      "InternalVariableName": "GroundCollision01"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_123",
+    "Outer": "SimpleConstructionScript_3",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_TL_St_16x16_Ion_Shack_C:GroundCollision02_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.22"
+      },
+      "VariableGuid": "65F91DDD-47DD6C7D-C2C36C81-0E55BBF6",
+      "InternalVariableName": "GroundCollision02"
     }
   },
   {
@@ -5073,7 +5243,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_DustModular_Gesture_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.40"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.42"
       },
       "VariableGuid": "EAE2DD19-4C46EFA4-7EFCCF97-62A5D5B3",
       "InternalVariableName": "P_DustModular_Gesture"
@@ -5090,7 +5260,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_C_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.200"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.202"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5109,7 +5279,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_Dust_Ceiling_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.41"
       },
       "VariableGuid": "06E35A40-42B7197C-917B1BB7-F779F991",
       "InternalVariableName": "P_Dust_Ceiling"
@@ -5126,7 +5296,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NatAudioAmbienceBox BP_TL_St_16x16_Ion_Shack_C:AudioAmbienceBox1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.38"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.40"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5181,8 +5351,18 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_Shack_Exterior_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.218"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.220"
       },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_122",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_123",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.89"
+        }
+      ],
       "VariableGuid": "90653B50-47984CF3-545A3CB5-0C9EFDE4",
       "InternalVariableName": "SM_Ion_Shack_Exterior_01"
     }
@@ -5255,7 +5435,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Window_Light_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.189"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.191"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5274,7 +5454,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.221"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.223"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5312,7 +5492,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Head_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.231"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.233"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5350,7 +5530,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_Light_Drips_Height_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.52"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.53"
       },
       "VariableGuid": "65F09364-40F9A60C-9C851591-03490DB0",
       "InternalVariableName": "P_Light_Drips_Height"
@@ -5367,7 +5547,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:EdgeObject Blocker_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.36"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.38"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5386,7 +5566,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_Shack_Interior_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.219"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.221"
       },
       "VariableGuid": "420F6414-40B9C3BD-5452559C-F430BD54",
       "InternalVariableName": "SM_Ion_Shack_Interior_01"
@@ -5403,7 +5583,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_TarpSmall_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.238"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.240"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5422,7 +5602,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_Vines_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.263"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.265"
       },
       "VariableGuid": "58F1CBD2-40196855-182D2CB4-511C42D4",
       "InternalVariableName": "SM_Ion_Vines_02"
@@ -5439,7 +5619,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_Light_Drips_Height1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.49"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.50"
       },
       "VariableGuid": "BCF6C3E6-4B948A16-BD96148C-C599561B",
       "InternalVariableName": "P_Light_Drips_Height1"
@@ -5456,7 +5636,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_Light_Drips_Height2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.50"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.51"
       },
       "VariableGuid": "3FBBA88E-47268B3E-BB73F697-D3EC4595",
       "InternalVariableName": "P_Light_Drips_Height2"
@@ -5473,7 +5653,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_Light_Drips_Height3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.51"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.52"
       },
       "VariableGuid": "D16E053A-48002460-66E24E9F-7B3AA46A",
       "InternalVariableName": "P_Light_Drips_Height3"
@@ -5490,7 +5670,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.223"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.225"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5509,7 +5689,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_C_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.201"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.203"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5528,7 +5708,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vase_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.239"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.241"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5547,7 +5727,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vase_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.240"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.242"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5566,7 +5746,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Window_Light_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.188"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.190"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5585,7 +5765,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vase_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.241"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.243"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5604,7 +5784,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.224"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.226"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5623,7 +5803,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_TarpLarge_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.236"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.238"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5642,7 +5822,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_TarpMedium_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.237"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.239"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5661,7 +5841,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.225"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.227"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5680,7 +5860,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Head_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.232"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.234"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5699,7 +5879,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.226"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.228"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5718,7 +5898,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_BrokenVase_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.193"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.195"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5737,7 +5917,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_ConcreteIncenseVase_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.196"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.198"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5756,7 +5936,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_A_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.198"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.200"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5775,7 +5955,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_ConcreteIncenseVase_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.195"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.197"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5794,7 +5974,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BP_Clipper_C BP_TL_St_16x16_Ion_Shack_C:BP_Clipper_frankyboi_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.22"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.24"
       },
       "VariableGuid": "5B52D72F-48BA1C76-961B6180-C93666EC",
       "InternalVariableName": "BP_Clipper_frankyboi"
@@ -5811,7 +5991,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Door_Light_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.185"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.187"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5830,7 +6010,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDBoxReflectionCaptureSpawnerComponent BP_TL_St_16x16_Ion_Shack_C:ION_Shack_BRC_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.34"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.36"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5849,7 +6029,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_C_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.202"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.204"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5868,7 +6048,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ion_Shack_C:VFX_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.59"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.60"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5887,7 +6067,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_A_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.199"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.201"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5906,7 +6086,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Door_Light_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.186"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.188"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5925,7 +6105,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.209"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.211"
       },
       "VariableGuid": "2F36B8E2-41354909-44F315AB-490F5B60",
       "InternalVariableName": "SM_Ion_SandMound_02"
@@ -5942,7 +6122,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_12_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.210"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.212"
       },
       "VariableGuid": "0953E00E-43F66BF5-C781C295-68322F9F",
       "InternalVariableName": "SM_Ion_SandMound_12"
@@ -5978,7 +6158,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "RectLightComponent BP_TL_St_16x16_Ion_Shack_C:Mobile_Light_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.55"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.56"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6035,7 +6215,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_C_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.203"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.205"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6054,7 +6234,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_C_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.204"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.206"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6073,7 +6253,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.227"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.229"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6092,7 +6272,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Head_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.233"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.235"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6111,7 +6291,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_BrokenVase_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.194"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.196"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6130,7 +6310,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_RoseBush_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.205"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.207"
       },
       "VariableGuid": "101694E5-4A559A68-9C873CA2-4EDDD560",
       "InternalVariableName": "SM_Ion_RoseBush_01"
@@ -6147,7 +6327,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_Vines_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.262"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.264"
       },
       "VariableGuid": "2B874C25-43EAE363-9ADC3DB9-DCF3809A",
       "InternalVariableName": "SM_Ion_Vines_01"
@@ -6164,7 +6344,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.41"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.43"
       },
       "VariableGuid": "7CAB0734-42CDF12D-FBE0A084-DAA71009",
       "InternalVariableName": "P_ION_CandleFlame_01"
@@ -6181,7 +6361,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_MeltedCandle_A_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.197"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.199"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6200,7 +6380,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.42"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.44"
       },
       "VariableGuid": "C8465FD4-4F80855F-B667A0A0-7A3F7198",
       "InternalVariableName": "P_ION_CandleFlame_02"
@@ -6217,7 +6397,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.228"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.230"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6236,7 +6416,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Head_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.234"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.236"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6255,7 +6435,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.229"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.231"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6274,7 +6454,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Ribs_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.235"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.237"
       },
       "VariableGuid": "8DE26006-47E2E052-7220DAAD-7D49E4DE",
       "InternalVariableName": "SM_ION_Skeleton_Ribs_01"
@@ -6291,7 +6471,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_9_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.230"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.232"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6310,7 +6490,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Skeleton_Femur_L_10_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.222"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.224"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6329,7 +6509,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ion_Shack_C:BP_BoardedWindow_Shack_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.28"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.30"
       },
       "VariableGuid": "013FC03F-4A60F913-3B37F8A0-7A7E71CC",
       "InternalVariableName": "BP_BoardedWindow_Shack_01"
@@ -6346,7 +6526,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.243"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.245"
       },
       "VariableGuid": "0D74DCA5-467C9E2A-4F015789-73D35D77",
       "InternalVariableName": "SM_ION_Vine_02"
@@ -6363,7 +6543,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ion_Shack_C:BP_Effect_ION_Ink_Spawner_BP_TL_St_16x16_Ion_Shack_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.29"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.31"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6382,7 +6562,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ion_Shack_C:SceneComponent_48",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.56"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.57"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -6399,7 +6579,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDInstancedFoliageComponent BP_TL_St_16x16_Ion_Shack_C:InstancedFoliageActor_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.35"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.37"
       },
       "VariableGuid": "A169D086-457E5869-A2461FB7-B9B63AA8",
       "InternalVariableName": "InstancedFoliageActor"
@@ -6416,7 +6596,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.43"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.45"
       },
       "VariableGuid": "63FCE1ED-440D1868-CE713993-2BB86F27",
       "InternalVariableName": "P_ION_CandleFlame_03"
@@ -6433,7 +6613,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ion_Shack_C:P_ION_CandleFlame_04_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.44"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.46"
       },
       "VariableGuid": "70C4651B-419B4209-EA1CF092-D3412ED8",
       "InternalVariableName": "P_ION_CandleFlame_04"
@@ -6450,7 +6630,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.242"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.244"
       },
       "VariableGuid": "51922D5C-4A2281D3-FB257599-B906F57E",
       "InternalVariableName": "SM_ION_Vine_01"
@@ -6467,7 +6647,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Center_Fill_Light_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.184"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.186"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6486,7 +6666,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PointLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Fill_Light_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.54"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.55"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6505,7 +6685,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_BrokenVase_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.191"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.193"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6524,7 +6704,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_BrokenVase_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.192"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.194"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6543,7 +6723,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_13_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.211"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.213"
       },
       "VariableGuid": "40D8163C-467AA67C-4D170E99-47A07A5F",
       "InternalVariableName": "SM_Ion_SandMound_13"
@@ -6560,7 +6740,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_SandMound_14_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.212"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.214"
       },
       "VariableGuid": "67E22EBD-491395DD-41E06C98-C478A307",
       "InternalVariableName": "SM_Ion_SandMound_14"
@@ -6577,66 +6757,62 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ion_Shack_C:VFX_Environment_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.58"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.59"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.90"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_17",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.92"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.94"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.105"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.107"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.110"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.111"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_35",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.112"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_69",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.149"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_34",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.113"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.114"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_69",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.151"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.153"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_81",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.163"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.165"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_82",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.164"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.166"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_111",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_112",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.76"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_120",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.85"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_112",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.77"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_122",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.87"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_120",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.86"
         }
       ],
       "VariableGuid": "76FD3AE5-4DD4BF7F-6701A8B4-D431CC2F",
@@ -6654,7 +6830,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Window_Light_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.187"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.189"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6673,7 +6849,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.244"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.246"
       },
       "VariableGuid": "DD069289-4C306393-4CECC081-F49306E6",
       "InternalVariableName": "SM_ION_Vine_03"
@@ -6690,7 +6866,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_Ion_Shack_Roof_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.220"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.222"
       },
       "VariableGuid": "97C53B0A-4746B156-C6677DA5-816B2A1F",
       "InternalVariableName": "SM_Ion_Shack_Roof_2"
@@ -6707,7 +6883,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.246"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.248"
       },
       "VariableGuid": "9CC3D837-4DE16120-216BDEA2-181171CB",
       "InternalVariableName": "SM_ION_Vine_3"
@@ -6724,7 +6900,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.245"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.247"
       },
       "VariableGuid": "9A9F3266-4B07D158-0CD984AA-3B280F06",
       "InternalVariableName": "SM_ION_Vine_2"
@@ -6741,7 +6917,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.247"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.249"
       },
       "VariableGuid": "7B61C923-49033D93-786BBC89-055DC1B1",
       "InternalVariableName": "SM_ION_Vine_4"
@@ -6758,7 +6934,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.248"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.250"
       },
       "VariableGuid": "44C7B2E4-40505C60-2FB0FD83-73E1B8D8",
       "InternalVariableName": "SM_ION_Vine_5"
@@ -6775,7 +6951,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.249"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.251"
       },
       "VariableGuid": "470DA5BE-4588A7ED-8257F982-1DE2E7D7",
       "InternalVariableName": "SM_ION_Vine_6"
@@ -6792,7 +6968,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PointLightComponent BP_TL_St_16x16_Ion_Shack_C:Shack_Fill_Light_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.53"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.54"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6811,7 +6987,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ion_Shack_C:SM_ION_Vine_Small_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.253"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.255"
       },
       "VariableGuid": "24FEBFF2-4298FA00-3795479A-BE771B8C",
       "InternalVariableName": "SM_ION_Vine_Small_01"
@@ -6825,758 +7001,762 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.62"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.63"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_19",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.94"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.96"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.84"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.85"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.73"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.74"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.102"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.97"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.104"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.106"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.172"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.133"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.138"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.140"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.141"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.139"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_86",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.168"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_87",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.169"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.98"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.99"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.128"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.106"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.150"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.62"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.91"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_31",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.108"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.113"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.174"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.114"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.115"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.116"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.118"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.119"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.120"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.121"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.122"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.123"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.124"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.125"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.126"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.127"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.132"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.134"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.142"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.143"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.144"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.145"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.146"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_71",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.152"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_72",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.153"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_73",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.154"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_75",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.156"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_76",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.157"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_90",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.173"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_98",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.181"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_84",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.166"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_85",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.167"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.117"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.100"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.130"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_56",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.135"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.140"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.142"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.143"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.141"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_86",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.170"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_87",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.171"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.130"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.152"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.115"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.116"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.117"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.118"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.120"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.121"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.122"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.123"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.124"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.125"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.126"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.127"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.128"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.129"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.134"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.136"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.144"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.145"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_64",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.146"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.147"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.148"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_71",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.154"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_72",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.155"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_73",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.156"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_75",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.158"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_76",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.159"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_90",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.175"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_98",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.183"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_84",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.168"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_85",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.169"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.119"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.102"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.132"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_56",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.137"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.88"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.90"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.89"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.91"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.131"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.133"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.160"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.162"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_80",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.162"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.164"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.62"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_19",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.94"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.102"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.97"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.104"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.106"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.90"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.92"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.105"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.110"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.111"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_35",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.112"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.95"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.172"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.133"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.138"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.140"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.141"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.139"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_77",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.158"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.129"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_86",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.168"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_87",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.169"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.98"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.99"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.128"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.150"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.91"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.108"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.113"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.114"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.115"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.116"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.118"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.119"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.120"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.121"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.122"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.123"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.124"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.125"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.126"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.127"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.132"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.134"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.142"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.143"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.144"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.145"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.146"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.96"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.109"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.148"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_71",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.152"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_72",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.153"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_73",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.154"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_74",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.155"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_75",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.156"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_76",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.157"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_90",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.173"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_98",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.181"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_84",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.166"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_85",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.167"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_78",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.159"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_83",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.165"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_91",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.174"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_92",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.175"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_93",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.176"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.177"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_95",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.178"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_96",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.179"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_97",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.180"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_99",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.182"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_100",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.63"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_101",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.64"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_19",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.96"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_102",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_103",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.66"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_104",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.67"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.68"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.69"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.70"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_108",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.71"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.72"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_110",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.74"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.117"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.100"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.130"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.135"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.136"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.137"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_88",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.170"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_89",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.171"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_113",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_114",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_115",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_116",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.80"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_117",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.147"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_118",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.82"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.83"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_121",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.131"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.160"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_80",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.162"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_69",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.149"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.151"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_81",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.163"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_82",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.164"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_111",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_112",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.76"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_120",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_12",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.85"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_122",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.74"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_26",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.104"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.99"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.106"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.61"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.62"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.108"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.94"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_29",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_33",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.112"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_34",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.113"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.114"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.97"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.174"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.135"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.140"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.142"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.143"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.141"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_77",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.160"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_50",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.131"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_86",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.170"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_87",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.171"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.130"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.152"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.115"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.116"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.117"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.118"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.120"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.121"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.122"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.123"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.124"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.125"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.126"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.127"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.128"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.129"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.134"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.136"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.144"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.145"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_64",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.146"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.147"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.148"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_20",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.111"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_68",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.150"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_71",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.154"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_72",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.155"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_73",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.156"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_74",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.157"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_75",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.158"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_76",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.159"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_90",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.175"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_98",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.183"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_84",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.168"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_85",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.169"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_78",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.161"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_83",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.167"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_91",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.176"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_92",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.177"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_93",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.178"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.179"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_95",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.180"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_96",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.181"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_97",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.182"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_99",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.184"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_100",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.64"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_101",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.65"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_102",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.66"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_103",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.67"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_104",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.68"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.69"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.70"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_108",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.72"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_110",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.119"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.102"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.132"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_56",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.137"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.138"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_58",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.139"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_88",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.172"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_89",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.173"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_113",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_114",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.79"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_115",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.80"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_116",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_117",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.82"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.90"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.91"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_67",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.149"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_118",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.83"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_121",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.87"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.133"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_79",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.162"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_80",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.164"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_69",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.151"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.153"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_81",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.165"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_82",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.166"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_111",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.76"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_112",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.77"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_120",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_122",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_123",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.89"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_TL_St_16x16_Ion_Shack_C:SimpleConstructionScript_3.SCS_Node_8",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.161"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/18-Ion/BP_TL_St_16x16_Ion_Shack.163"
       }
     }
   },
@@ -7865,7 +8045,37 @@
         }
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 2016
+        }
+      },
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 728
+        }
+      },
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 120
+        }
+      },
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 8
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8596,7 +8806,16 @@
         "Z": -1.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 48
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8650,7 +8869,23 @@
         "Z": -17.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 567
+        }
+      },
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 102
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8704,7 +8939,16 @@
         "Z": -14.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 48
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8763,7 +9007,16 @@
         "Roll": 0.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 48
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8822,7 +9075,16 @@
         "Roll": 0.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 48
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8881,7 +9143,16 @@
         "Roll": 0.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 48
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8940,7 +9211,16 @@
         "Roll": 0.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 48
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -8999,7 +9279,16 @@
         "Roll": 0.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 48
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",
@@ -9058,7 +9347,23 @@
         "Roll": 0.0
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 567
+        }
+      },
+      {
+        "MapBuildDataId": "00000000000000000000000000000000",
+        "OverrideVertexColors": {
+          "Stride": 4,
+          "NumVertices": 102
+        }
+      }
+    ]
   },
   {
     "Type": "StaticMeshComponent",

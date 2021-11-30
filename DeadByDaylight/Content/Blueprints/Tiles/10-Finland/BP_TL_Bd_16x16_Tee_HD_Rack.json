@@ -3341,8 +3341,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_TL_Bd_16x16_Tee_HD_Rack_C Default__BP_TL_Bd_16x16_Tee_HD_Rack_C",
@@ -6178,11 +6176,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 0.6,
       "LightColor": {
-        "R": 54,
+        "B": 54,
         "G": 73,
-        "B": 69,
+        "R": 69,
         "A": 255,
-        "Hex": "FF364945"
+        "Hex": "FF454936"
       },
       "CastDynamicShadowsWithNewDefaultValue": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
@@ -12424,11 +12422,11 @@
       },
       "Intensity": 5.0,
       "LightColor": {
-        "R": 102,
+        "B": 102,
         "G": 103,
-        "B": 94,
+        "R": 94,
         "A": 255,
-        "Hex": "FF66675E"
+        "Hex": "FF5E6766"
       },
       "CastStaticShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -12458,11 +12456,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 1.0,
       "LightColor": {
-        "R": 54,
+        "B": 54,
         "G": 73,
-        "B": 69,
+        "R": 69,
         "A": 255,
-        "Hex": "FF364945"
+        "Hex": "FF454936"
       },
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -12497,11 +12495,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 1.0,
       "LightColor": {
-        "R": 54,
+        "B": 54,
         "G": 73,
-        "B": 69,
+        "R": 69,
         "A": 255,
-        "Hex": "FF364945"
+        "Hex": "FF454936"
       },
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -12536,11 +12534,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 3.0,
       "LightColor": {
-        "R": 29,
+        "B": 29,
         "G": 124,
-        "B": 118,
+        "R": 118,
         "A": 255,
-        "Hex": "FF1D7C76"
+        "Hex": "FF767C1D"
       },
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -12574,11 +12572,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 3.0,
       "LightColor": {
-        "R": 29,
+        "B": 29,
         "G": 124,
-        "B": 118,
+        "R": 118,
         "A": 255,
-        "Hex": "FF1D7C76"
+        "Hex": "FF767C1D"
       },
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -12612,11 +12610,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 3.0,
       "LightColor": {
-        "R": 29,
+        "B": 29,
         "G": 124,
-        "B": 118,
+        "R": 118,
         "A": 255,
-        "Hex": "FF1D7C76"
+        "Hex": "FF767C1D"
       },
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -12650,11 +12648,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 1.0,
       "LightColor": {
-        "R": 54,
+        "B": 54,
         "G": 73,
-        "B": 69,
+        "R": 69,
         "A": 255,
-        "Hex": "FF364945"
+        "Hex": "FF454936"
       },
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -12689,11 +12687,11 @@
       "bCastShadowsFromCinematicObjectsOnly": true,
       "Intensity": 1.0,
       "LightColor": {
-        "R": 54,
+        "B": 54,
         "G": 73,
-        "B": 69,
+        "R": 69,
         "A": 255,
-        "Hex": "FF364945"
+        "Hex": "FF454936"
       },
       "CastShadows": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
@@ -15492,27 +15490,69 @@
         "ObjectName": "StaticMesh SM_Fin_FullFloor_NavMesh",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Finland/Structures/SM_Fin_FullFloor_NavMesh.2"
       },
+      "bUseDefaultCollision": false,
       "bRenderInMainPass": false,
       "bReceivesDecals": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "bCastCinematicShadow": true,
       "bCastShadowAsTwoSided": true,
       "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel15",
-        "CollisionProfileName": "Ground",
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "GroundNonBlocking",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Interactable",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
             },
             {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
@@ -15523,11 +15563,24 @@
               "Response": "ECR_Overlap"
             },
             {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
+              "Channel": "Blink",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
             }
           ]
         }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.00024414062,
+        "Z": 12.977707
       },
       "Mobility": "EComponentMobility::Static"
     }
