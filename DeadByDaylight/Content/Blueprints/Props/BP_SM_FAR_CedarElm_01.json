@@ -44,9 +44,62 @@
         "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "CustomEvent_1",
+    "Outer": "BP_SM_FAR_CedarElm_01_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
   },
   {
     "Type": "Function",
@@ -64,7 +117,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.15"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_SM_FAR_CedarElm_01_C:ExecuteUbergraph_BP_SM_FAR_CedarElm_01",
@@ -78,6 +131,10 @@
     "Children": [
       {
         "ObjectName": "Function BP_SM_FAR_CedarElm_01_C:ReceiveBeginPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.2"
+      },
+      {
+        "ObjectName": "Function BP_SM_FAR_CedarElm_01_C:CustomEvent_1",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.1"
       },
       {
@@ -99,6 +156,17 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "AudioEvent_Tree_Leaves_Play",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class AkComponent",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "P_LeafFalling",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -106,17 +174,6 @@
         "PropertyClass": {
           "ObjectName": "Class ParticleSystemComponent",
           "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "Ak_Audio_CedarElm",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class AkComponent",
-          "ObjectPath": "/Script/AkAudio"
         }
       },
       {
@@ -147,9 +204,13 @@
         "ObjectName": "Function BP_SM_FAR_CedarElm_01_C:ExecuteUbergraph_BP_SM_FAR_CedarElm_01",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.0"
       },
+      "CustomEvent_1": {
+        "ObjectName": "Function BP_SM_FAR_CedarElm_01_C:CustomEvent_1",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.1"
+      },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_SM_FAR_CedarElm_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.2"
       }
     },
     "ClassFlags": 8652820,
@@ -158,12 +219,10 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_SM_FAR_CedarElm_01_C Default__BP_SM_FAR_CedarElm_01_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.3"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.4"
     }
   },
   {
@@ -180,17 +239,18 @@
   },
   {
     "Type": "AkComponent",
-    "Name": "Ak_Audio_CedarElm_GEN_VARIABLE",
+    "Name": "AudioEvent_Tree_Leaves_Play_GEN_VARIABLE",
     "Outer": "BP_SM_FAR_CedarElm_01_C",
     "Properties": {
+      "MaxDistance": 1200.0,
       "AkAudioEvent": {
-        "ObjectName": "AkAudioEvent AudioEvent_T03_Emitter_CedarElm",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/03-Farm/Emitters/AudioEvent_T03_Emitter_CedarElm.0"
+        "ObjectName": "AkAudioEvent AudioEvent_Tree_Leaves_Play",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Objects/Trees/AudioEvent_Tree_Leaves_Play.0"
       },
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
-        "Z": 470.0
+        "Z": 486.0001
       }
     }
   },
@@ -246,7 +306,54 @@
         "Z": -16.000084
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "PerInstanceSMData": [
+      {
+        "OffsetLocation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "RelativeRotation": {
+          "Pitch": 0.0,
+          "Yaw": 0.0,
+          "Roll": 0.0
+        },
+        "RelativeScale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      }
+    ],
+    "ClusterTree": [
+      {
+        "MinInstanceScale": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        },
+        "MaxInstanceScale": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        },
+        "BoundMin": {
+          "X": -411.8803,
+          "Y": -562.60876,
+          "Z": -0.10107422
+        },
+        "FirstChild": -1,
+        "BoundMax": {
+          "X": 581.73627,
+          "Y": 691.33875,
+          "Z": 2506.4243
+        },
+        "LastChild": -1,
+        "FirstInstance": 0,
+        "LastInstance": 0
+      }
+    ]
   },
   {
     "Type": "ParticleSystemComponent",
@@ -284,7 +391,7 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_1",
+    "Name": "SCS_Node_0",
     "Outer": "SimpleConstructionScript_1",
     "Properties": {
       "ComponentClass": {
@@ -292,11 +399,11 @@
         "ObjectPath": "/Script/AkAudio"
       },
       "ComponentTemplate": {
-        "ObjectName": "AkComponent BP_SM_FAR_CedarElm_01_C:Ak_Audio_CedarElm_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.4"
+        "ObjectName": "AkComponent BP_SM_FAR_CedarElm_01_C:AudioEvent_Tree_Leaves_Play_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.5"
       },
-      "VariableGuid": "B36FCD81-48BD16AC-8FA052A9-E8A16288",
-      "InternalVariableName": "Ak_Audio_CedarElm"
+      "VariableGuid": "91748261-4D477F59-66706C8A-80B1EDF7",
+      "InternalVariableName": "AudioEvent_Tree_Leaves_Play"
     }
   },
   {
@@ -310,16 +417,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_SM_FAR_CedarElm_01_C:SceneComponent_110",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.9"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.11"
-        },
-        {
-          "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.12"
         }
       ],
       "VariableGuid": "4EB57E9F-4DC2DE8D-DCCE17B2-A10871B1",
@@ -337,12 +440,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_SM_FAR_CedarElm_01_C:HierarchicalInstancedStaticMesh0E4489524B0743FDE2AF37944D3D5BD8",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.6"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.13"
+        },
+        {
+          "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.10"
         }
       ],
       "VariableGuid": "C2DD59BB-402497E5-4D760090-6676DB25",
@@ -360,7 +467,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_SM_FAR_CedarElm_01_C:P_LeafFalling_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.7"
       },
       "VariableGuid": "D63C45E2-47CCD126-560EEC94-EFE30AE9",
       "InternalVariableName": "P_LeafFalling"
@@ -377,7 +484,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_SM_FAR_CedarElm_01_C:SceneComponent_105",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.8"
       },
       "VariableGuid": "30AEBCFF-42BE5153-A2CF119D-01511A25",
       "InternalVariableName": "DefaultSceneRoot"
@@ -391,30 +498,30 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.11"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_12",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.11"
         },
         {
-          "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.9"
+          "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.13"
+        },
+        {
+          "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.10"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_SM_FAR_CedarElm_01_C:SimpleConstructionScript_1.SCS_Node_9",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_CedarElm_01.14"
       }
     }
   }

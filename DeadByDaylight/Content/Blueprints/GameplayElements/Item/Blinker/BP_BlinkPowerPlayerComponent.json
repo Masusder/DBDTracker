@@ -1,0 +1,152 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_BlinkPowerPlayerComponent_C",
+    "SuperStruct": {
+      "ObjectName": "Class BlinkPowerPlayerComponent",
+      "ObjectPath": "/Script/TheNurse"
+    },
+    "ClassFlags": 10749972,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_BlinkPowerPlayerComponent_C Default__BP_BlinkPowerPlayerComponent_C",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Blinker/BP_BlinkPowerPlayerComponent.1"
+    }
+  },
+  {
+    "Type": "BP_BlinkPowerPlayerComponent_C",
+    "Name": "Default__BP_BlinkPowerPlayerComponent_C",
+    "Properties": {
+      "_maxBlinkCharges": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable NurseTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/TheNurse/NurseTunableDB.0"
+            },
+            "RowName": "MaximumBlinkCharges"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyNurseMaximumBlinks"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
+      "_rechargeDuration": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable NurseTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/TheNurse/NurseTunableDB.0"
+            },
+            "RowName": "BlinkRechargeTime"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyBlinkRechargeTimeAdditive"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
+      "_chainBlinkDuration": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable NurseTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/TheNurse/NurseTunableDB.0"
+            },
+            "RowName": "ChainBlinkTimerDuration"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Mult",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyNurseChainBlinkStateDuration"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::AddPlusOne"
+          }
+        ]
+      },
+      "_allowedInteractionSemancticsDuringChainBlink": [
+        "Semantics.Interaction.Killer.GettingStun",
+        "Semantics.Interaction.Killer.Blink"
+      ],
+      "_fatigueDuration": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable NurseTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/TheNurse/NurseTunableDB.0"
+            },
+            "RowName": "BlinkBaseFatigue"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Mult",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyBaseBlinkFatiguePenaltyMultiplicative"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::AddPlusOne"
+          }
+        ]
+      },
+      "_fatigueChainBlinkPenalty": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable NurseTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/TheNurse/NurseTunableDB.0"
+            },
+            "RowName": "ChainBlinkFatiguePenalty"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Mult",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.ModifyChainBlinkFatiguePenaltyMultiplicative"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::AddPlusOne"
+          }
+        ]
+      },
+      "_fatigueAttackPenalty": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable NurseTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/TheNurse/NurseTunableDB.0"
+            },
+            "RowName": "BlinkCooldown_AttackPenalty"
+          }
+        }
+      },
+      "_fatigueAttackMissPenaltyModifier": {
+        "TagName": "GameplayModifierType.ModifyBlinkAttackMissFatiguePenaltyMultiplicative"
+      },
+      "_fatigueSpeedCurve": {
+        "ObjectName": "CurveFloat BlinkCooldownSpeedCurve",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Blinker/BlinkCooldownSpeedCurve.0"
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      }
+    }
+  }
+]

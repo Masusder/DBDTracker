@@ -12,16 +12,25 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_And_conditionReceiver_CastInput",
         "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_And_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class AndModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
       },
       {
         "Type": "InterfaceProperty",
@@ -87,100 +96,42 @@
         }
       },
       {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput_2",
+        "Flags": 1,
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue_2",
         "Flags": 1,
         "ElementSize": 8,
+        "PropertyFlags": 524288,
         "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_gameEventType",
-        "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameplayTag",
-          "ObjectPath": "/Script/GameplayTags"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_gameEventData",
-        "Flags": 1,
-        "ElementSize": 40,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameEventData",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 8421377
-  },
-  {
-    "Type": "Function",
-    "Name": "OnGameEventDispatched",
-    "Outer": "BadManKeepsake_Effect_C",
-    "SuperStruct": {
-      "ObjectName": "Function GameplayModifierContainer:OnGameEventDispatched",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "gameEventType",
-        "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 150,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameplayTag",
-          "ObjectPath": "/Script/GameplayTags"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "gameEventData",
-        "Flags": 1,
-        "ElementSize": 40,
-        "PropertyFlags": 134218134,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameEventData",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
         }
       }
     ],
-    "FunctionFlags": 138938368
+    "FunctionFlags": 32769
   },
   {
     "Type": "Function",
-    "Name": "ReceiveBeginPlay",
+    "Name": "Authority_OnInstantiateModifierConditions",
     "Outer": "BadManKeepsake_Effect_C",
     "SuperStruct": {
-      "ObjectName": "Function ActorComponent:ReceiveBeginPlay",
-      "ObjectPath": "/Script/Engine"
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
     },
-    "FunctionFlags": 134350848
+    "FunctionFlags": 134744068
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "BadManKeepsake_Effect_C",
-    "Super": "BaseStatusEffect_C",
     "Properties": {
       "UberGraphFunction": {
         "ObjectName": "Function BadManKeepsake_Effect_C:ExecuteUbergraph_BadManKeepsake_Effect",
@@ -188,16 +139,12 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "BlueprintGeneratedClass BaseStatusEffect_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BaseStatusEffect.0"
+      "ObjectName": "Class ActivateByBlinkAttackTimedEffect",
+      "ObjectPath": "/Script/TheNurse"
     },
     "Children": [
       {
-        "ObjectName": "Function BadManKeepsake_Effect_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BadManKeepsake_Effect.2"
-      },
-      {
-        "ObjectName": "Function BadManKeepsake_Effect_C:OnGameEventDispatched",
+        "ObjectName": "Function BadManKeepsake_Effect_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BadManKeepsake_Effect.1"
       },
       {
@@ -216,13 +163,6 @@
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
         }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "Activation Time",
-        "Flags": 2097153,
-        "ElementSize": 4,
-        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
@@ -230,13 +170,9 @@
         "ObjectName": "Function BadManKeepsake_Effect_C:ExecuteUbergraph_BadManKeepsake_Effect",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BadManKeepsake_Effect.0"
       },
-      "OnGameEventDispatched": {
-        "ObjectName": "Function BadManKeepsake_Effect_C:OnGameEventDispatched",
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function BadManKeepsake_Effect_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BadManKeepsake_Effect.1"
-      },
-      "ReceiveBeginPlay": {
-        "ObjectName": "Function BadManKeepsake_Effect_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BadManKeepsake_Effect.2"
       }
     },
     "ClassFlags": 10749972,
@@ -245,28 +181,18 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BadManKeepsake_Effect_C Default__BadManKeepsake_Effect_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BadManKeepsake_Effect.4"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BadManKeepsake_Effect.3"
     }
   },
   {
     "Type": "BadManKeepsake_Effect_C",
     "Name": "Default__BadManKeepsake_Effect_C",
-    "Template": "Default__BaseStatusEffect_C",
     "Properties": {
       "UberGraphFrame": {},
-      "Activation Time": 60.0,
       "ModifierData": {
-        "Conditions": [
-          {
-            "ObjectName": "Class IsActivationTimerActive",
-            "ObjectPath": "/Script/DBDCompetence"
-          }
-        ],
         "Modifiers": [
           {
             "Type": {
@@ -275,7 +201,9 @@
             "ModifierValue": 2800.0
           }
         ]
-      }
+      },
+      "_removeOnRemainingLifetimeEnded": false,
+      "_canOptimizeTickActivation": true
     }
   }
 ]

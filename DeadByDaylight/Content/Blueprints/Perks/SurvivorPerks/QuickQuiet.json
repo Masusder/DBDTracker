@@ -137,9 +137,101 @@
           "ObjectName": "Class IsTimerDoneCondition",
           "ObjectPath": "/Script/Competence"
         }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_gameEventType",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameplayTag",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_gameEventData",
+        "Flags": 1,
+        "ElementSize": 40,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameEventData",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "GameplayTagsK2Node_SwitchGameplayTag_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
-    "FunctionFlags": 32769
+    "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "OnGameEventDispatched",
+    "Outer": "QuickQuiet_C",
+    "SuperStruct": {
+      "ObjectName": "Function GameplayModifierContainer:OnGameEventDispatched",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "gameEventType",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 150,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameplayTag",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "gameEventData",
+        "Flags": 1,
+        "ElementSize": 40,
+        "PropertyFlags": 134218134,
+        "Struct": {
+          "ObjectName": "ScriptStruct GameEventData",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 138938368
   },
   {
     "Type": "Function",
@@ -236,14 +328,18 @@
     "Children": [
       {
         "ObjectName": "Function QuickQuiet_C:OnInitialized",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.4"
       },
       {
         "ObjectName": "Function QuickQuiet_C:OnListenedGameEvent",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.3"
       },
       {
         "ObjectName": "Function QuickQuiet_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.2"
+      },
+      {
+        "ObjectName": "Function QuickQuiet_C:OnGameEventDispatched",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.1"
       },
       {
@@ -269,17 +365,21 @@
         "ObjectName": "Function QuickQuiet_C:ExecuteUbergraph_QuickQuiet",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.0"
       },
+      "OnGameEventDispatched": {
+        "ObjectName": "Function QuickQuiet_C:OnGameEventDispatched",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.1"
+      },
       "Authority_OnInstantiateModifierConditions": {
         "ObjectName": "Function QuickQuiet_C:Authority_OnInstantiateModifierConditions",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.2"
       },
       "OnListenedGameEvent": {
         "ObjectName": "Function QuickQuiet_C:OnListenedGameEvent",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.3"
       },
       "OnInitialized": {
         "ObjectName": "Function QuickQuiet_C:OnInitialized",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.4"
       }
     },
     "ClassFlags": 10749972,
@@ -288,12 +388,10 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "QuickQuiet_C Default__QuickQuiet_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.5"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/QuickQuiet.6"
     }
   },
   {

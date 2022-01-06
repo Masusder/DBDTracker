@@ -12,60 +12,46 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_And_conditionReceiver_CastInput",
         "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+        "Name": "CallFunc_And_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
+        "PropertyFlags": 524288,
         "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectName": "Class AndModifierCondition",
+          "ObjectPath": "/Script/Competence"
         }
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_gameEventType",
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
         "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameplayTag",
-          "ObjectPath": "/Script/GameplayTags"
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
         }
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_gameEventData",
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
         "Flags": 1,
-        "ElementSize": 40,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameEventData",
-          "ObjectPath": "/Script/DeadByDaylight"
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "InterfaceProperty",
@@ -89,7 +75,7 @@
         }
       }
     ],
-    "FunctionFlags": 8421377
+    "FunctionFlags": 32769
   },
   {
     "Type": "Function",
@@ -102,53 +88,8 @@
     "FunctionFlags": 134744068
   },
   {
-    "Type": "Function",
-    "Name": "OnGameEventDispatched",
-    "Outer": "MetalSpoon_Effect_C",
-    "SuperStruct": {
-      "ObjectName": "Function GameplayModifierContainer:OnGameEventDispatched",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "gameEventType",
-        "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 150,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameplayTag",
-          "ObjectPath": "/Script/GameplayTags"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "gameEventData",
-        "Flags": 1,
-        "ElementSize": 40,
-        "PropertyFlags": 134218134,
-        "Struct": {
-          "ObjectName": "ScriptStruct GameEventData",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      }
-    ],
-    "FunctionFlags": 138938368
-  },
-  {
-    "Type": "Function",
-    "Name": "ReceiveBeginPlay",
-    "Outer": "MetalSpoon_Effect_C",
-    "SuperStruct": {
-      "ObjectName": "Function ActorComponent:ReceiveBeginPlay",
-      "ObjectPath": "/Script/Engine"
-    },
-    "FunctionFlags": 134350848
-  },
-  {
     "Type": "BlueprintGeneratedClass",
     "Name": "MetalSpoon_Effect_C",
-    "Super": "BaseStatusEffect_C",
     "Properties": {
       "UberGraphFunction": {
         "ObjectName": "Function MetalSpoon_Effect_C:ExecuteUbergraph_MetalSpoon_Effect",
@@ -156,18 +97,10 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "BlueprintGeneratedClass BaseStatusEffect_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BaseStatusEffect.0"
+      "ObjectName": "Class ActivateByBlinkAttackTimedEffect",
+      "ObjectPath": "/Script/TheNurse"
     },
     "Children": [
-      {
-        "ObjectName": "Function MetalSpoon_Effect_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.3"
-      },
-      {
-        "ObjectName": "Function MetalSpoon_Effect_C:OnGameEventDispatched",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.2"
-      },
       {
         "ObjectName": "Function MetalSpoon_Effect_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.1"
@@ -188,13 +121,6 @@
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
         }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "Activation Time",
-        "Flags": 2097153,
-        "ElementSize": 4,
-        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
@@ -205,14 +131,6 @@
       "Authority_OnInstantiateModifierConditions": {
         "ObjectName": "Function MetalSpoon_Effect_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.1"
-      },
-      "OnGameEventDispatched": {
-        "ObjectName": "Function MetalSpoon_Effect_C:OnGameEventDispatched",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.2"
-      },
-      "ReceiveBeginPlay": {
-        "ObjectName": "Function MetalSpoon_Effect_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.3"
       }
     },
     "ClassFlags": 10749972,
@@ -221,28 +139,18 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "MetalSpoon_Effect_C Default__MetalSpoon_Effect_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.5"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/MetalSpoon_Effect.3"
     }
   },
   {
     "Type": "MetalSpoon_Effect_C",
     "Name": "Default__MetalSpoon_Effect_C",
-    "Template": "Default__BaseStatusEffect_C",
     "Properties": {
       "UberGraphFrame": {},
-      "Activation Time": 60.0,
       "ModifierData": {
-        "Conditions": [
-          {
-            "ObjectName": "Class IsActivationTimerActive",
-            "ObjectPath": "/Script/DBDCompetence"
-          }
-        ],
         "Modifiers": [
           {
             "Type": {
@@ -251,7 +159,9 @@
             "ModifierValue": 0.5
           }
         ]
-      }
+      },
+      "_removeOnRemainingLifetimeEnded": false,
+      "_canOptimizeTickActivation": true
     }
   }
 ]
