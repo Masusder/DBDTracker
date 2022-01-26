@@ -71,12 +71,12 @@
       "Timelines": [
         {
           "ObjectName": "TimelineTemplate BP_Effect_HK_PoseableMesh_01_C:Fade_Template",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.15"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.17"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Effect_HK_PoseableMesh_01_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.13"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.15"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_Effect_HK_PoseableMesh_01_C:ExecuteUbergraph_BP_Effect_HK_PoseableMesh_01",
@@ -123,6 +123,17 @@
         "Struct": {
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "MaterialHelper",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class MaterialHelper",
+          "ObjectPath": "/Script/GFXUtilities"
         }
       },
       {
@@ -199,8 +210,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Effect_HK_PoseableMesh_01_C Default__BP_Effect_HK_PoseableMesh_01_C",
@@ -216,7 +225,7 @@
       "Speed": 1.0,
       "_huskMesh": {
         "ObjectName": "SkeletalMeshComponent Default__BP_Effect_HK_PoseableMesh_01_C:HuskMesh",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.14"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.16"
       },
       "_huskCustomizedSkeletalMesh": {
         "ObjectName": "CustomizedSkeletalMesh Default__BP_Effect_HK_PoseableMesh_01_C:CustomizedSkeletalMesh",
@@ -235,9 +244,9 @@
       "FloatCurve": {
         "Keys": [
           {
-            "InterpMode": 0,
-            "TangentMode": 0,
-            "TangentWeightMode": 0,
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
             "Time": 0.0,
             "Value": 1.0,
             "ArriveTangent": 0.0,
@@ -246,9 +255,9 @@
             "LeaveTangentWeight": 0.0
           },
           {
-            "InterpMode": 0,
-            "TangentMode": 0,
-            "TangentWeightMode": 0,
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
             "Time": 0.4,
             "Value": 0.0,
             "ArriveTangent": 0.0,
@@ -268,9 +277,9 @@
       "FloatCurve": {
         "Keys": [
           {
-            "InterpMode": 0,
-            "TangentMode": 0,
-            "TangentWeightMode": 0,
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
             "Time": 0.15,
             "Value": 0.134067,
             "ArriveTangent": 0.0,
@@ -292,6 +301,190 @@
     }
   },
   {
+    "Type": "MaterialHelper",
+    "Name": "MaterialHelper_GEN_VARIABLE",
+    "Outer": "BP_Effect_HK_PoseableMesh_01_C",
+    "Properties": {
+      "Groups": [
+        {
+          "GroupName": "FirstPerson",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_SlasherBlood_Weapon",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_SlasherBlood_Weapon_FPS",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS.0"
+              }
+            }
+          ]
+        },
+        {
+          "GroupName": "Dissolve",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_SlasherBlood",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_SlasherBlood.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_SlasherBlood_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Cust",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Cust.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Blend",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Blend.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Blend_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_HairTAA_Anim",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_HairTAA_Anim.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_HairTAA_Anim_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_HairTAA_Anim_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust_Dither",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust_Dither.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve_Dither",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve_Dither.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fur",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fur.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fabric_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fabric",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fabric.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fabric_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.0"
+              }
+            }
+          ]
+        },
+        {
+          "GroupName": "FirstPerson_Dissolve",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_SlasherBlood_Weapon",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_SlasherBlood_Weapon_FPS_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_GlassIce",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_GlassIce.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_GlassIce_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_GlassIce_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Blend",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Blend.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Blend_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fur",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fur.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fur_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fur_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fabric",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fabric.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fabric_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.0"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_REMOVED_CB6F65F0413763E37ED5FBA9C130EAFC",
     "Outer": "BP_Effect_HK_PoseableMesh_01_C",
@@ -310,10 +503,29 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Effect_HK_PoseableMesh_01_C:DefaultSceneRoot_REMOVED_CB6F65F0413763E37ED5FBA9C130EAFC",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.11"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.12"
       },
       "VariableGuid": "E8E436E6-40815A57-79834C88-DA275DA0",
       "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class MaterialHelper",
+        "ObjectPath": "/Script/GFXUtilities"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "MaterialHelper BP_Effect_HK_PoseableMesh_01_C:MaterialHelper_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.11"
+      },
+      "ParentComponentOrVariableName": "HuskMesh",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "5D1CFDE7-41D91FB7-43059FB7-EB7EEF83",
+      "InternalVariableName": "MaterialHelper"
     }
   },
   {
@@ -321,9 +533,21 @@
     "Name": "SimpleConstructionScript_0",
     "Outer": "BP_Effect_HK_PoseableMesh_01_C",
     "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node BP_Effect_HK_PoseableMesh_01_C:SimpleConstructionScript_0.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.14"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node BP_Effect_HK_PoseableMesh_01_C:SimpleConstructionScript_0.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.14"
+        }
+      ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Effect_HK_PoseableMesh_01_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.12"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Killer13/BP_Effect_HK_PoseableMesh_01.13"
       }
     }
   },
