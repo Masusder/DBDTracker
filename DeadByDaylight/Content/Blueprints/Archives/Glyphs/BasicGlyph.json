@@ -724,13 +724,105 @@
     "FunctionFlags": 209846272
   },
   {
+    "Type": "Function",
+    "Name": "IsInterruptionPossible",
+    "Outer": "BasicGlyph_C",
+    "SuperStruct": {
+      "ObjectName": "Function Interactable:IsInterruptionPossible",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "interruptor",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 150,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "interruptee",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 150,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "interactor",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524438,
+        "PropertyClass": {
+          "ObjectName": "Class Interactor",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "definition",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524438,
+        "PropertyClass": {
+          "ObjectName": "Class InteractionDefinition",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "interruption",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524438,
+        "PropertyClass": {
+          "ObjectName": "Class InterruptionDefinition",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 1408,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 1279395840
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "BasicGlyph_C",
     "Super": "BaseGlyph_BP_C",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BasicGlyph_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.48"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.51"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BasicGlyph_C:ExecuteUbergraph_BasicGlyph",
@@ -742,6 +834,10 @@
       "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BaseGlyph_BP.0"
     },
     "Children": [
+      {
+        "ObjectName": "Function BasicGlyph_C:IsInterruptionPossible",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.9"
+      },
       {
         "ObjectName": "Function BasicGlyph_C:ShowGlyph",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.8"
@@ -789,6 +885,17 @@
         "Struct": {
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GlyphInterruption",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass GlyphInterruption_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/GlyphInterruption.0"
         }
       },
       {
@@ -1019,6 +1126,10 @@
       "ShowGlyph": {
         "ObjectName": "Function BasicGlyph_C:ShowGlyph",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.8"
+      },
+      "IsInterruptionPossible": {
+        "ObjectName": "Function BasicGlyph_C:IsInterruptionPossible",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.9"
       }
     },
     "ClassFlags": 8652820,
@@ -1030,7 +1141,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BasicGlyph_C Default__BasicGlyph_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.10"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.11"
     }
   },
   {
@@ -1049,50 +1160,50 @@
       "Play Common Stop Audio Event  On Stopped Interacting": true,
       "_glyphInteraction": {
         "ObjectName": "GlyphInteraction Default__BasicGlyph_C:GlyphInteraction",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.17"
       },
       "_glyphInteractionKiller": {
         "ObjectName": "GlyphInteraction Default__BasicGlyph_C:GlyphInteractionKiller",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.17"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.18"
       },
       "_glyphInteractionChargeable": {
         "ObjectName": "ChargeableComponent Default__BasicGlyph_C:GlyphInteractionChargeable",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.14"
       },
       "_glyphInteractionChargeableKiller": {
         "ObjectName": "ChargeableComponent Default__BasicGlyph_C:GlyphInteractionChargeableKiller",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.15"
       },
       "_glyphInteractor": {
         "ObjectName": "Interactor Default__BasicGlyph_C:GlyphInteractor",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.21"
       },
       "_glyphInteractionZone": {
         "ObjectName": "BoxComponent Default__BasicGlyph_C:GlyphInteractionZone",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.13"
       },
       "_outlineComponent": {
         "ObjectName": "DBDOutlineComponent Default__BasicGlyph_C:OutlineComponent",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.16"
       },
       "_glyphMesh": {
         "ObjectName": "StaticMeshComponent Default__BasicGlyph_C:GlyphMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.51"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.54"
       },
       "_nearTrackedActorComponent": {
         "ObjectName": "NearTrackedActorComponent Default__BasicGlyph_C:NearPlayerTracker",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.21"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.23"
       },
       "_transformOptimizer": {
         "ObjectName": "InteractableTransformOptimizer Default__BasicGlyph_C:InteractableOptimizer",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.18"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.20"
       },
       "PrimaryActorTick": {
         "bCanEverTick": true
       },
       "RootComponent": {
         "ObjectName": "SceneComponent Default__BasicGlyph_C:Root",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.32"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.34"
       }
     }
   },
@@ -1220,7 +1331,7 @@
       },
       "AttachParent": {
         "ObjectName": "SceneComponent Default__BasicGlyph_C:Root",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.32"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.34"
       },
       "RelativeLocation": {
         "X": 0.0,
@@ -1249,7 +1360,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "StaticMeshComponent Default__BasicGlyph_C:GlyphMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.51"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.54"
       }
     }
   },
@@ -1264,11 +1375,11 @@
       "SnapStopDistance": 85.0,
       "_interactor": {
         "ObjectName": "Interactor Default__BasicGlyph_C:GlyphInteractor",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.21"
       },
       "AttachParent": {
         "ObjectName": "Interactor Default__BasicGlyph_C:GlyphInteractor",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.21"
       }
     }
   },
@@ -1278,23 +1389,31 @@
     "Outer": "Default__BasicGlyph_C",
     "Template": "GlyphInteractionKiller",
     "Properties": {
-      "InteractionAnimation": "EInteractionAnimation::VE_None",
       "CamperCanInteract": false,
       "SnapRotation": true,
       "SnapStopDistance": 85.0,
       "CanInteractWhileCarrying": false,
       "UseCameraMontageMode": false,
-      "UpdateMontage": {
-        "MontageID": "Generic_Interaction"
-      },
-      "_startUpdateMontageDuringEnter": true,
       "_interactor": {
         "ObjectName": "Interactor Default__BasicGlyph_C:GlyphInteractor",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.21"
       },
       "AttachParent": {
         "ObjectName": "Interactor Default__BasicGlyph_C:GlyphInteractor",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.21"
+      }
+    }
+  },
+  {
+    "Type": "GlyphInterruption_C",
+    "Name": "GlyphInterruption_GEN_VARIABLE",
+    "Outer": "BasicGlyph_C",
+    "Template": "Default__GlyphInterruption_C",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -60.0
       }
     }
   },
@@ -1312,7 +1431,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "BoxComponent Default__BasicGlyph_C:GlyphInteractionZone",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.13"
       }
     }
   },
@@ -1591,7 +1710,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BasicGlyph_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.31"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.33"
       },
       "VariableGuid": "B12E39C7-41B73C2D-207A2693-F04FB706",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1608,7 +1727,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "TextRenderComponent BasicGlyph_C:Can Use placeholder text_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.52"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.55"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1633,7 +1752,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BasicGlyph_C:Ak_Audio_BasicGlyph_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.12"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1652,7 +1771,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_Killer_stopped_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.29"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.31"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1671,7 +1790,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_GlitchDisappear_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.28"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.30"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1690,7 +1809,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_GlitchAppear_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.29"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1709,12 +1828,31 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BasicGlyph_C:GlyphOutline_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.50"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.53"
       },
       "ParentComponentOrVariableName": "GlyphMesh",
       "bIsParentComponentNative": true,
       "VariableGuid": "9BC8F4DD-4F481A62-EB379F89-BDC29206",
       "InternalVariableName": "GlyphOutline"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Outer": "SimpleConstructionScript_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass GlyphInterruption_C",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/GlyphInterruption.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "GlyphInterruption_C BasicGlyph_C:GlyphInterruption_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.19"
+      },
+      "ParentComponentOrVariableName": "GlyphInteraction",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "58169352-4EB45B01-882511B3-700C7605",
+      "InternalVariableName": "GlyphInterruption"
     }
   },
   {
@@ -1728,7 +1866,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_Activation Killer_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.22"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.24"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1747,7 +1885,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "TextRenderComponent BasicGlyph_C:Cannot Use placeholder text_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.53"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.56"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1766,7 +1904,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_complete_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.27"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1785,7 +1923,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_Appear_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.24"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.26"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1804,7 +1942,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_Activation_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.23"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.25"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1823,7 +1961,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent BasicGlyph_C:Dwight_REF_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.49"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.52"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1842,7 +1980,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_stopped_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.30"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.32"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1861,7 +1999,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BasicGlyph_C:Glyph_disappear_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.28"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1877,122 +2015,130 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.34"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.41"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.42"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.43"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.44"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.45"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.46"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.47"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.35"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.40"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_11",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.36"
         },
         {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.39"
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.44"
         },
         {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_12",
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.45"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.46"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.47"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.48"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.49"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.50"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_10",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.37"
         },
         {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_13",
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.43"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_11",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.38"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.41"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.39"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.40"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.42"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.34"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.41"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.42"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.43"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.44"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.45"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.46"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.47"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.35"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.40"
-        },
-        {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_11",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.36"
         },
         {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.39"
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.44"
         },
         {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_12",
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.45"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.46"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.47"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.48"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.49"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.50"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_10",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.37"
         },
         {
-          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_13",
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.43"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_11",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.38"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.41"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.39"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.40"
+        },
+        {
+          "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.42"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BasicGlyph_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.33"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.35"
       }
     }
   },
@@ -2254,7 +2400,7 @@
       },
       "AttachParent": {
         "ObjectName": "SceneComponent Default__BasicGlyph_C:Root",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.32"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Archives/Glyphs/BasicGlyph.34"
       },
       "RelativeLocation": {
         "X": 0.0,

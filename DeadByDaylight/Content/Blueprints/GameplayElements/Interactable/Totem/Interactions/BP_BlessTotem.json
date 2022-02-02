@@ -12,6 +12,28 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_hasInteractionStarted",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -69,33 +91,12 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player_2",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
         "Name": "CallFunc_GetTotem_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
           "ObjectName": "Class Totem",
           "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetComponentByClass_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class AkComponent",
-          "ObjectPath": "/Script/AkAudio"
         }
       },
       {
@@ -115,6 +116,17 @@
         "ElementSize": 4
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetComponentByClass_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class AkComponent",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "IntProperty",
         "Name": "CallFunc_PostAkEvent_ReturnValue",
         "Flags": 1,
@@ -127,37 +139,6 @@
         "ElementSize": 8,
         "PropertyClass": {
           "ObjectName": "Class Totem",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_currentInterruption",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class InterruptionDefinition",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_interruptingPlayer",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
@@ -183,10 +164,10 @@
   },
   {
     "Type": "Function",
-    "Name": "OnInteractionInterruptStart",
+    "Name": "OnInteractionFinished",
     "Outer": "BP_BlessTotem_C",
     "SuperStruct": {
-      "ObjectName": "Function InteractionDefinition:OnInteractionInterruptStart",
+      "ObjectName": "Function InteractionDefinition:OnInteractionFinished",
       "ObjectPath": "/Script/DeadByDaylight"
     },
     "ChildProperties": [
@@ -202,26 +183,17 @@
         }
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "currentInterruption",
+        "Type": "BoolProperty",
+        "Name": "hasInteractionStarted",
         "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524436,
-        "PropertyClass": {
-          "ObjectName": "Class InterruptionDefinition",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "interruptingPlayer",
-        "Flags": 1,
-        "ElementSize": 8,
+        "ElementSize": 1,
         "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 134744064
@@ -257,29 +229,6 @@
     "FunctionFlags": 134744064
   },
   {
-    "Type": "Function",
-    "Name": "OnInteractionExitStart",
-    "Outer": "BP_BlessTotem_C",
-    "SuperStruct": {
-      "ObjectName": "Function InteractionDefinition:OnInteractionExitStart",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      }
-    ],
-    "FunctionFlags": 134744064
-  },
-  {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_BlessTotem_C",
     "Properties": {
@@ -294,15 +243,11 @@
     },
     "Children": [
       {
-        "ObjectName": "Function BP_BlessTotem_C:OnInteractionExitStart",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.3"
-      },
-      {
         "ObjectName": "Function BP_BlessTotem_C:OnInteractionEnterStart",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.2"
       },
       {
-        "ObjectName": "Function BP_BlessTotem_C:OnInteractionInterruptStart",
+        "ObjectName": "Function BP_BlessTotem_C:OnInteractionFinished",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.1"
       },
       {
@@ -328,17 +273,13 @@
         "ObjectName": "Function BP_BlessTotem_C:ExecuteUbergraph_BP_BlessTotem",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.0"
       },
-      "OnInteractionInterruptStart": {
-        "ObjectName": "Function BP_BlessTotem_C:OnInteractionInterruptStart",
+      "OnInteractionFinished": {
+        "ObjectName": "Function BP_BlessTotem_C:OnInteractionFinished",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.1"
       },
       "OnInteractionEnterStart": {
         "ObjectName": "Function BP_BlessTotem_C:OnInteractionEnterStart",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.2"
-      },
-      "OnInteractionExitStart": {
-        "ObjectName": "Function BP_BlessTotem_C:OnInteractionExitStart",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.3"
       }
     },
     "ClassFlags": 10754068,
@@ -350,7 +291,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_BlessTotem_C Default__BP_BlessTotem_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.5"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Totem/Interactions/BP_BlessTotem.4"
     }
   },
   {
