@@ -12,21 +12,50 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "EnumProperty",
-        "Name": "K2Node_Event_controlMode",
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_isHoldingFakeItem",
         "Flags": 1,
         "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum EControlMode",
-          "ObjectPath": "/Script/DBDSharedTypes"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "K2Node_Event_fakeItemIcon",
+        "Flags": 1,
+        "ElementSize": 48,
+        "PropertyFlags": 2,
+        "PropertyClass": {
+          "ObjectName": "Class Texture2D",
+          "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_itemBundleData",
+        "Flags": 1,
+        "ElementSize": 336,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct ItemBundleViewData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_fullClear",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "InterfaceProperty",
@@ -51,14 +80,64 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_itemBundleData",
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_isActive",
         "Flags": 1,
-        "ElementSize": 336,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct ItemBundleViewData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_controlMode",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EControlMode",
+          "ObjectPath": "/Script/DBDSharedTypes"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_BoolBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
         }
       },
       {
@@ -82,21 +161,45 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
+      }
+    ],
+    "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "SetFakeItem",
+    "Outer": "WBP_CoreEquippedItem_C",
+    "SuperStruct": {
+      "ObjectName": "Function EquippedItemViewInterface:SetFakeItem",
+      "ObjectPath": "/Script/DBDUIViewInterfaces"
+    },
+    "ChildProperties": [
       {
         "Type": "BoolProperty",
-        "Name": "K2Node_Event_isActive",
+        "Name": "isHoldingFakeItem",
         "Flags": 1,
         "ElementSize": 1,
+        "PropertyFlags": 148,
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "fakeItemIcon",
+        "Flags": 1,
+        "ElementSize": 48,
+        "PropertyFlags": 1125900041060758,
+        "PropertyClass": {
+          "ObjectName": "Class Texture2D",
+          "ObjectPath": "/Script/Engine"
+        }
       }
     ],
-    "FunctionFlags": 8421377
+    "FunctionFlags": 205654016
   },
   {
     "Type": "Function",
@@ -171,6 +274,21 @@
       "ObjectName": "Function EquippedItemViewInterface:ClearData",
       "ObjectPath": "/Script/DBDUIViewInterfaces"
     },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "fullClear",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
     "FunctionFlags": 201459712
   },
   {
@@ -223,16 +341,75 @@
     "FunctionFlags": 201457664
   },
   {
+    "Type": "Function",
+    "Name": "SetLimitedItem",
+    "Outer": "WBP_CoreEquippedItem_C",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsHoldingLimitedItem",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_BoolBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
     "Type": "WidgetBlueprintGeneratedClass",
     "Name": "WBP_CoreEquippedItem_C",
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_CoreEquippedItem_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.112"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.160"
       },
       "bAllowTemplate": true,
       "bValidTemplate": true,
       "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation WBP_CoreEquippedItem_C:FakeItemAnim_INST",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.159"
+        }
+      ],
       "TemplateAsset": {
         "AssetPathName": "/DBDUICore/HUD/EquippedItem/WBP_CoreEquippedItem.WidgetArchetype",
         "SubPathString": ""
@@ -248,27 +425,35 @@
     },
     "Children": [
       {
+        "ObjectName": "Function WBP_CoreEquippedItem_C:SetLimitedItem",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.8"
+      },
+      {
         "ObjectName": "Function WBP_CoreEquippedItem_C:UpdateControlMode",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.6"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.7"
       },
       {
         "ObjectName": "Function WBP_CoreEquippedItem_C:SetData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.5"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.6"
       },
       {
         "ObjectName": "Function WBP_CoreEquippedItem_C:ClearData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.5"
       },
       {
         "ObjectName": "Function WBP_CoreEquippedItem_C:SetActiveState",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.4"
       },
       {
         "ObjectName": "Function WBP_CoreEquippedItem_C:Construct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.3"
       },
       {
         "ObjectName": "Function WBP_CoreEquippedItem_C:OnControlModeChangedBP",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.2"
+      },
+      {
+        "ObjectName": "Function WBP_CoreEquippedItem_C:SetFakeItem",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.1"
       },
       {
@@ -290,6 +475,39 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "FakeItemAnim",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 2147491860,
+        "PropertyClass": {
+          "ObjectName": "Class WidgetAnimation",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FakeItemBG",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class DBDImage",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FakeItemIcon",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class DBDImage",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "ItemBundle",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -298,6 +516,30 @@
           "ObjectName": "WidgetBlueprintGeneratedClass WBP_CoreItemBundle_C",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreItemBundle.7"
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LayoutIconScale",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class ScaleBox",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "WasHoldingFakeItem",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 65541,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FuncMap": {
@@ -305,29 +547,37 @@
         "ObjectName": "Function WBP_CoreEquippedItem_C:ExecuteUbergraph_WBP_CoreEquippedItem",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.0"
       },
+      "SetFakeItem": {
+        "ObjectName": "Function WBP_CoreEquippedItem_C:SetFakeItem",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.1"
+      },
       "OnControlModeChangedBP": {
         "ObjectName": "Function WBP_CoreEquippedItem_C:OnControlModeChangedBP",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.2"
       },
       "Construct": {
         "ObjectName": "Function WBP_CoreEquippedItem_C:Construct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.3"
       },
       "SetActiveState": {
         "ObjectName": "Function WBP_CoreEquippedItem_C:SetActiveState",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.4"
       },
       "ClearData": {
         "ObjectName": "Function WBP_CoreEquippedItem_C:ClearData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.5"
       },
       "SetData": {
         "ObjectName": "Function WBP_CoreEquippedItem_C:SetData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.5"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.6"
       },
       "UpdateControlMode": {
         "ObjectName": "Function WBP_CoreEquippedItem_C:UpdateControlMode",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.6"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.7"
+      },
+      "SetLimitedItem": {
+        "ObjectName": "Function WBP_CoreEquippedItem_C:SetLimitedItem",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.8"
       }
     },
     "ClassFlags": 10754064,
@@ -339,7 +589,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreEquippedItem_C Default__WBP_CoreEquippedItem_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.8"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.10"
     }
   },
   {
@@ -362,8 +612,8 @@
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "CanvasPanelSlot WBP_CoreEquippedItem_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.11"
+          "ObjectName": "CanvasPanelSlot WBP_CoreEquippedItem_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.13"
         }
       ]
     }
@@ -375,23 +625,23 @@
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "CanvasPanelSlot WidgetArchetype:WidgetTree_0.CanvasPanel_0.CanvasPanelSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.12"
+          "ObjectName": "CanvasPanelSlot WidgetArchetype:WidgetTree_0.CanvasPanel_0.CanvasPanelSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.14"
         }
       ]
     }
   },
   {
     "Type": "CanvasPanelSlot",
-    "Name": "CanvasPanelSlot_5",
+    "Name": "CanvasPanelSlot_2",
     "Outer": "CanvasPanel_0",
     "Properties": {
       "LayoutData": {
         "Offsets": {
-          "Left": 120.0,
-          "Top": -170.0,
-          "Right": 0.0,
-          "Bottom": 0.0
+          "Left": 124.0,
+          "Top": -399.30444,
+          "Right": 806.0869,
+          "Bottom": 224.78261
         },
         "Anchors": {
           "Minimum": {
@@ -402,34 +652,29 @@
             "X": 0.0,
             "Y": 1.0
           }
-        },
-        "Alignment": {
-          "X": 0.0,
-          "Y": 1.0
         }
       },
-      "bAutoSize": true,
       "Parent": {
         "ObjectName": "CanvasPanel WBP_CoreEquippedItem_C:WidgetTree.CanvasPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.11"
       },
       "Content": {
-        "ObjectName": "WBP_CoreItemBundle_C WBP_CoreEquippedItem_C:WidgetTree.ItemBundle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.109"
+        "ObjectName": "HorizontalBox WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.76"
       }
     }
   },
   {
     "Type": "CanvasPanelSlot",
-    "Name": "CanvasPanelSlot_5",
+    "Name": "CanvasPanelSlot_2",
     "Outer": "CanvasPanel_0",
     "Properties": {
       "LayoutData": {
         "Offsets": {
-          "Left": 120.0,
-          "Top": -170.0,
-          "Right": 0.0,
-          "Bottom": 0.0
+          "Left": 124.0,
+          "Top": -399.30444,
+          "Right": 806.0869,
+          "Bottom": 224.78261
         },
         "Anchors": {
           "Minimum": {
@@ -440,21 +685,112 @@
             "X": 0.0,
             "Y": 1.0
           }
-        },
-        "Alignment": {
-          "X": 0.0,
-          "Y": 1.0
         }
       },
-      "bAutoSize": true,
       "Parent": {
         "ObjectName": "CanvasPanel WidgetArchetype:WidgetTree_0.CanvasPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.10"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.12"
       },
       "Content": {
-        "ObjectName": "WBP_CoreItemBundle_C WidgetArchetype:WidgetTree_0.ItemBundle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.110"
+        "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.77"
       }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "FakeItemBG",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 256.0,
+          "Y": 256.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D itemLimitedBG",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Inventory/itemLimitedBG.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "GridSlot WBP_CoreEquippedItem_C:WidgetTree.FakeItemGrid.GridSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.48"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "FakeItemIcon",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "Texture2D iconHelp_loadingMissing",
+        "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 256.0,
+          "Y": 256.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D iconItems_firstAidKit",
+          "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/items/iconItems_firstAidKit.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "GridSlot WBP_CoreEquippedItem_C:WidgetTree.FakeItemGrid.GridSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.49"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "FakeItemBG",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 256.0,
+          "Y": 256.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D itemLimitedBG",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Inventory/itemLimitedBG.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.FakeItemGrid.GridSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.50"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "FakeItemIcon",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "Texture2D iconHelp_loadingMissing",
+        "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 256.0,
+          "Y": 256.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D iconItems_firstAidKit",
+          "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/items/iconItems_firstAidKit.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.FakeItemGrid.GridSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.51"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
     }
   },
   {
@@ -479,7 +815,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.44"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.56"
       }
     }
   },
@@ -500,7 +836,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_7",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.47"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.59"
       }
     }
   },
@@ -521,7 +857,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_7",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.41"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.53"
       },
       "RenderTransform": {
         "Translation": {
@@ -554,7 +890,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_8",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.42"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.54"
       },
       "RenderTransform": {
         "Translation": {
@@ -590,7 +926,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_6",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.58"
       }
     }
   },
@@ -611,7 +947,7 @@
       },
       "Slot": {
         "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutPlusScale.ScaleBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.90"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.134"
       }
     }
   },
@@ -628,7 +964,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.45"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.57"
       }
     }
   },
@@ -654,7 +990,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.52"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
       }
     }
   },
@@ -675,7 +1011,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_7",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.55"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.67"
       }
     }
   },
@@ -696,7 +1032,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_7",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.61"
       },
       "RenderTransform": {
         "Translation": {
@@ -729,7 +1065,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_8",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.50"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.62"
       },
       "RenderTransform": {
         "Translation": {
@@ -765,7 +1101,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_6",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.54"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.66"
       }
     }
   },
@@ -786,7 +1122,7 @@
       },
       "Slot": {
         "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutPlusScale.ScaleBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.92"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.136"
       }
     }
   },
@@ -803,7 +1139,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.53"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.65"
       }
     }
   },
@@ -824,7 +1160,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.59"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.71"
       }
     }
   },
@@ -849,7 +1185,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.60"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.72"
       }
     }
   },
@@ -870,7 +1206,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_4",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.62"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.74"
       },
       "Visibility": "ESlateVisibility::Collapsed"
     }
@@ -888,7 +1224,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.61"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.73"
       }
     }
   },
@@ -913,7 +1249,7 @@
       },
       "Slot": {
         "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.ScaleBox_1.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.94"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.138"
       }
     }
   },
@@ -946,10 +1282,52 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid.GridSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.57"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.69"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
+    }
+  },
+  {
+    "Type": "GridPanel",
+    "Name": "FakeItemGrid",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "GridSlot WBP_CoreEquippedItem_C:WidgetTree.FakeItemGrid.GridSlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.48"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreEquippedItem_C:WidgetTree.FakeItemGrid.GridSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.49"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "ScaleBoxSlot WBP_CoreEquippedItem_C:WidgetTree.LayoutIconScale.ScaleBoxSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.132"
+      }
+    }
+  },
+  {
+    "Type": "GridPanel",
+    "Name": "FakeItemGrid",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.FakeItemGrid.GridSlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.50"
+        },
+        {
+          "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.FakeItemGrid.GridSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.51"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.LayoutIconScale.ScaleBoxSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.140"
+      }
     }
   },
   {
@@ -960,19 +1338,19 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_6",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.40"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.52"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_9",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.43"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.55"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_7",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.41"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.53"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_8",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.42"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.54"
         }
       ]
     }
@@ -985,24 +1363,24 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_7",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.47"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.59"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.45"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.57"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_6",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.58"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.44"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.56"
         }
       ],
       "Slot": {
         "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutIconScale.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.89"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.133"
       }
     }
   },
@@ -1014,19 +1392,19 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_6",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.48"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.60"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_9",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.51"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.63"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_7",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.49"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.61"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_8",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.50"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.62"
         }
       ]
     }
@@ -1039,24 +1417,24 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_7",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.55"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.67"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.53"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.65"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_6",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.54"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.66"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.52"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
         }
       ],
       "Slot": {
         "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutIconScale.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.91"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.135"
       }
     }
   },
@@ -1068,20 +1446,20 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.56"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.68"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid.GridSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.57"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.69"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid.GridSlot_4",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.58"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.70"
         }
       ],
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.HorizontalBox_104.HorizontalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.72"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.92"
       }
     }
   },
@@ -1093,24 +1471,24 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.59"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.71"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_4",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.62"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.74"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.61"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.73"
         },
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid.GridSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.60"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.72"
         }
       ],
       "Slot": {
         "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.layoutSizeScale.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.93"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.137"
       },
       "bIsVariable": true
     }
@@ -1123,68 +1501,128 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.GridPanel_262.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.63"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.75"
         }
       ],
       "Slot": {
         "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.LayoutScale.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.95"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.139"
       }
     }
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_6",
-    "Outer": "CoreGrid",
+    "Name": "GridSlot_0",
+    "Outer": "FakeItemGrid",
     "Properties": {
       "Parent": {
-        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.33"
+        "ObjectName": "GridPanel WBP_CoreEquippedItem_C:WidgetTree.FakeItemGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.39"
       },
       "Content": {
-        "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutIconScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.82"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_7",
-    "Outer": "CoreGrid",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Top",
-      "Layer": 2,
-      "Parent": {
-        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.33"
-      },
-      "Content": {
-        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageBuff",
+        "ObjectName": "DBDImage WBP_CoreEquippedItem_C:WidgetTree.FakeItemBG",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.15"
       }
     }
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_8",
-    "Outer": "CoreGrid",
+    "Name": "GridSlot_2",
+    "Outer": "FakeItemGrid",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Bottom",
-      "Layer": 2,
       "Parent": {
-        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.33"
+        "ObjectName": "GridPanel WBP_CoreEquippedItem_C:WidgetTree.FakeItemGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.39"
       },
       "Content": {
-        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageDebuff",
+        "ObjectName": "DBDImage WBP_CoreEquippedItem_C:WidgetTree.FakeItemIcon",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.16"
       }
     }
   },
   {
     "Type": "GridSlot",
+    "Name": "GridSlot_0",
+    "Outer": "FakeItemGrid",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.FakeItemGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.40"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.FakeItemBG",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.17"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_2",
+    "Outer": "FakeItemGrid",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.FakeItemGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.40"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.FakeItemIcon",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.18"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_6",
+    "Outer": "CoreGrid",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.41"
+      },
+      "Content": {
+        "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutIconScale",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.124"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_7",
+    "Outer": "CoreGrid",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Top",
+      "Layer": 2,
+      "Parent": {
+        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.41"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageBuff",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.21"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_8",
+    "Outer": "CoreGrid",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Bottom",
+      "Layer": 2,
+      "Parent": {
+        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.41"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageDebuff",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.22"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
     "Name": "GridSlot_9",
     "Outer": "CoreGrid",
     "Properties": {
@@ -1197,11 +1635,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.41"
       },
       "Content": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutPlusScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.83"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.125"
       }
     }
   },
@@ -1213,11 +1651,11 @@
       "Layer": 5,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.42"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.cooldownFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.19"
       }
     }
   },
@@ -1229,11 +1667,11 @@
       "Layer": 1,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.42"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.ImageRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.25"
       }
     }
   },
@@ -1245,11 +1683,11 @@
       "Layer": 2,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.42"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.ImageIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.23"
       }
     }
   },
@@ -1260,11 +1698,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.42"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.20"
       }
     }
   },
@@ -1275,11 +1713,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.43"
       },
       "Content": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutIconScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.84"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.126"
       }
     }
   },
@@ -1293,11 +1731,11 @@
       "Layer": 2,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.43"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imageBuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.28"
       }
     }
   },
@@ -1311,11 +1749,11 @@
       "Layer": 2,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.43"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imageDebuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.23"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.29"
       }
     }
   },
@@ -1333,11 +1771,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.43"
       },
       "Content": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutPlusScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.85"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.127"
       }
     }
   },
@@ -1349,11 +1787,11 @@
       "Layer": 5,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.44"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.cooldownFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.26"
       }
     }
   },
@@ -1365,11 +1803,11 @@
       "Layer": 1,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.44"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.ImageRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.26"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.32"
       }
     }
   },
@@ -1381,11 +1819,11 @@
       "Layer": 2,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.44"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.ImageIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.30"
       }
     }
   },
@@ -1396,11 +1834,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.44"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imageBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.27"
       }
     }
   },
@@ -1417,11 +1855,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.37"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.45"
       },
       "Content": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.layoutSizeScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.86"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.128"
       }
     }
   },
@@ -1439,11 +1877,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.37"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.45"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.TextStackCount",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
       }
     }
   },
@@ -1461,11 +1899,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.37"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.45"
       },
       "Content": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.OPACITYCONTAINER",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.76"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.117"
       }
     }
   },
@@ -1476,11 +1914,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.imageBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.33"
       }
     }
   },
@@ -1492,11 +1930,11 @@
       "Layer": 3,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.ImageIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.34"
       }
     }
   },
@@ -1508,11 +1946,11 @@
       "Layer": 1,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.ImageRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.36"
       }
     }
   },
@@ -1524,11 +1962,11 @@
       "Layer": 1,
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.ImageLimitedItem",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.35"
       }
     }
   },
@@ -1539,11 +1977,61 @@
     "Properties": {
       "Parent": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.GridPanel_262",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.39"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.47"
       },
       "Content": {
         "ObjectName": "SizeBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.sizeToTexture",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.96"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.141"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_29",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29.HorizontalBoxSlot_6",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.83"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29.HorizontalBoxSlot_3",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.82"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29.HorizontalBoxSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.81"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot WBP_CoreEquippedItem_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.13"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_29",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.HorizontalBox_29.HorizontalBoxSlot_6",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.86"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.HorizontalBox_29.HorizontalBoxSlot_3",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.85"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.HorizontalBox_29.HorizontalBoxSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.84"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot WidgetArchetype:WidgetTree_0.CanvasPanel_0.CanvasPanelSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.14"
       }
     }
   },
@@ -1555,23 +2043,23 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.69"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.89"
         },
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.67"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.87"
         },
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_9",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.71"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.91"
         },
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_4",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.70"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.90"
         },
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_10",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.68"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.88"
         }
       ],
       "RenderTransformPivot": {
@@ -1589,11 +2077,11 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.HorizontalBox_104.HorizontalBoxSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.73"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.93"
         },
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.HorizontalBox_104.HorizontalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.72"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.92"
         }
       ]
     }
@@ -1606,13 +2094,107 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.74"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.94"
         },
         {
           "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.75"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.95"
         }
       ]
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_2",
+    "Outer": "HorizontalBox_29",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "HorizontalBox WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.76"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreItemBundle_C WBP_CoreEquippedItem_C:WidgetTree.ItemBundle",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.156"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_3",
+    "Outer": "HorizontalBox_29",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.76"
+      },
+      "Content": {
+        "ObjectName": "ScaleBox WBP_CoreEquippedItem_C:WidgetTree.LayoutIconScale",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.123"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_6",
+    "Outer": "HorizontalBox_29",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "HorizontalBox WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.76"
+      },
+      "Content": {
+        "ObjectName": "Spacer WBP_CoreEquippedItem_C:WidgetTree.SpacerForOffset",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.145"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_2",
+    "Outer": "HorizontalBox_29",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.77"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreItemBundle_C WidgetArchetype:WidgetTree_0.ItemBundle",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.157"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_3",
+    "Outer": "HorizontalBox_29",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.77"
+      },
+      "Content": {
+        "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.LayoutIconScale",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.131"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_6",
+    "Outer": "HorizontalBox_29",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.HorizontalBox_29",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.77"
+      },
+      "Content": {
+        "ObjectName": "Spacer WidgetArchetype:WidgetTree_0.SpacerForOffset",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.149"
+      }
     }
   },
   {
@@ -1622,11 +2204,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
       },
       "Content": {
         "ObjectName": "Spacer WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Spacer_211",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.102"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.148"
       }
     }
   },
@@ -1642,11 +2224,11 @@
       "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
       },
       "Content": {
         "ObjectName": "WBP_CoreAddon_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.105"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.152"
       }
     }
   },
@@ -1657,11 +2239,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
       },
       "Content": {
         "ObjectName": "SizeBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.SizeBox_169",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.97"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.142"
       }
     }
   },
@@ -1672,11 +2254,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
       },
       "Content": {
         "ObjectName": "Spacer WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Spacer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.101"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.147"
       }
     }
   },
@@ -1692,11 +2274,11 @@
       "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
       },
       "Content": {
         "ObjectName": "WBP_CoreAddon_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.104"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.151"
       }
     }
   },
@@ -1707,11 +2289,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.HorizontalBox_104",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.65"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.79"
       },
       "Content": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.37"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.45"
       }
     }
   },
@@ -1726,11 +2308,11 @@
       "HorizontalAlignment": "HAlign_Center",
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.HorizontalBox_104",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.65"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.79"
       },
       "Content": {
         "ObjectName": "WBP_ItemChargeGauge_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.111"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.158"
       }
     }
   },
@@ -1741,11 +2323,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.HorizontalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.66"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.80"
       },
       "Content": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.77"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.118"
       }
     }
   },
@@ -1756,12 +2338,1225 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.HorizontalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.66"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.80"
       },
       "Content": {
         "ObjectName": "Spacer WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.SpacerForRect",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.100"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.146"
       }
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "FakeItemAnim",
+    "Outer": "FakeItemAnim_INST",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "6CDE8DD4-478DA3F1-47669F87-DF482585",
+          "Name": "LayoutIconScale",
+          "PossessedObjectClass": {
+            "ObjectName": "Class ScaleBox",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        },
+        {
+          "Tags": [],
+          "Guid": "518896AE-43D11D57-E897368C-D6EFCB9D",
+          "Name": "SpacerForOffset",
+          "PossessedObjectClass": {
+            "ObjectName": "Class Spacer",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        },
+        {
+          "Tags": [],
+          "Guid": "20D96164-42828689-385C20AD-A233AFD6",
+          "Name": "ItemBundle",
+          "PossessedObjectClass": {
+            "ObjectName": "WidgetBlueprintGeneratedClass WBP_CoreItemBundle_C",
+            "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreItemBundle.7"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "6CDE8DD4-478DA3F1-47669F87-DF482585",
+          "BindingName": "LayoutIconScale",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneFloatTrack WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneFloatTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.114"
+            },
+            {
+              "ObjectName": "MovieSceneByteTrack WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneByteTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.112"
+            },
+            {
+              "ObjectName": "MovieScene2DTransformTrack WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_1",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.100"
+            }
+          ]
+        },
+        {
+          "ObjectGuid": "518896AE-43D11D57-E897368C-D6EFCB9D",
+          "BindingName": "SpacerForOffset",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneVectorTrack WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneVectorTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.116"
+            }
+          ]
+        },
+        {
+          "ObjectGuid": "20D96164-42828689-385C20AD-A233AFD6",
+          "BindingName": "ItemBundle",
+          "Tracks": [
+            {
+              "ObjectName": "MovieScene2DTransformTrack WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.99"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 21001
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 20
+      },
+      "Signature": "EC69378E-4FD057BC-B8587998-5DC7559E"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Outer": "MovieScene2DTransformTrack_0",
+    "Properties": {
+      "TransformMask": {
+        "Mask": 27
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 15000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 10.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Rotation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 15000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 15000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.101"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.102"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 15000
+            }
+          }
+        }
+      },
+      "Signature": "FEB67B9C-499BD635-6C383F9F-0461C6E1"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Outer": "MovieScene2DTransformTrack_1",
+    "Properties": {
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Rotation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 15001
+          },
+          {
+            "Value": 21000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.75,
+            "Tangent": {
+              "ArriveTangent": -8.234877E-07,
+              "LeaveTangent": -8.234877E-07,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": -1.6666663E-05,
+              "LeaveTangent": -1.6666663E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": -8.1308514E-07,
+              "LeaveTangent": -8.1308514E-07,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 15001
+          },
+          {
+            "Value": 21000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.75,
+            "Tangent": {
+              "ArriveTangent": -2.514178E-07,
+              "LeaveTangent": -2.514178E-07,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": -8.7615325E-07,
+              "LeaveTangent": -8.7615325E-07,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 12000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.103"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.104"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 12000
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 21000
+            }
+          }
+        }
+      },
+      "Signature": "DC0D2B5B-47F44A78-215C1CA1-AC8239E8"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_0",
+    "Outer": "FakeItemAnim",
+    "Properties": {
+      "PropertyName": "RenderTransform",
+      "PropertyPath": "RenderTransform",
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformSection WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.97"
+        }
+      ],
+      "Signature": "F86EE795-428AF0D9-FEAD4092-75A1A1AD"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_1",
+    "Outer": "FakeItemAnim",
+    "Properties": {
+      "PropertyName": "RenderTransform",
+      "PropertyPath": "RenderTransform",
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformSection WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.98"
+        }
+      ],
+      "Signature": "4E438EA3-4ABB4C8B-00A6789C-52C34EA2"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneByteSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneByteSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneFloatSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneFloatSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneVectorSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneVectorSection_0"
+  },
+  {
+    "Type": "MovieSceneByteSection",
+    "Name": "MovieSceneByteSection_0",
+    "Outer": "MovieSceneByteTrack_0",
+    "Properties": {
+      "ByteCurve": {
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 21000
+          }
+        ],
+        "Values": [
+          1,
+          4,
+          4
+        ],
+        "Enum": {
+          "ObjectName": "Enum ESlateVisibility",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneByteTrack_0.MovieSceneByteSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.105"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneByteTrack_0.MovieSceneByteSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.106"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 21000
+            }
+          }
+        }
+      },
+      "Signature": "6C464FE9-4E185386-543E0DB7-07120856"
+    }
+  },
+  {
+    "Type": "MovieSceneByteTrack",
+    "Name": "MovieSceneByteTrack_0",
+    "Outer": "FakeItemAnim",
+    "Properties": {
+      "Enum": {
+        "ObjectName": "Enum ESlateVisibility",
+        "ObjectPath": "/Script/UMG"
+      },
+      "PropertyName": "Visibility",
+      "PropertyPath": "Visibility",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneByteSection WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneByteTrack_0.MovieSceneByteSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.111"
+        }
+      ],
+      "Signature": "E65B557C-40A57329-AE8424B3-7F3A08E8"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatSection",
+    "Name": "MovieSceneFloatSection_0",
+    "Outer": "MovieSceneFloatTrack_0",
+    "Properties": {
+      "FloatCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 15000
+          },
+          {
+            "Value": 18000
+          },
+          {
+            "Value": 21000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": -5.1614443E-05,
+              "LeaveTangent": -5.1614443E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 6.658719E-05,
+              "LeaveTangent": 6.658719E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 8.792523E-05,
+              "LeaveTangent": 8.792523E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.107"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.108"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 21000
+            }
+          }
+        }
+      },
+      "Signature": "D1F7AF64-421B1748-5FE675AD-12B887CC"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatTrack",
+    "Name": "MovieSceneFloatTrack_0",
+    "Outer": "FakeItemAnim",
+    "Properties": {
+      "PropertyName": "RenderOpacity",
+      "PropertyPath": "RenderOpacity",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneFloatSection WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.113"
+        }
+      ],
+      "Signature": "D0928DF9-411C7C51-E38D38AC-759B8D77"
+    }
+  },
+  {
+    "Type": "MovieSceneVectorSection",
+    "Name": "MovieSceneVectorSection_0",
+    "Outer": "MovieSceneVectorTrack_0",
+    "Properties": {
+      "Curves": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 12000
+          },
+          {
+            "Value": 21000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 70.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 70.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Curves": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "ChannelsUsed": 2,
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneVectorTrack_0.MovieSceneVectorSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.109"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneVectorTrack_0.MovieSceneVectorSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.110"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 21000
+            }
+          }
+        }
+      },
+      "Signature": "851ACD0D-470F887F-0D6B0295-8208D6BD"
+    }
+  },
+  {
+    "Type": "MovieSceneVectorTrack",
+    "Name": "MovieSceneVectorTrack_0",
+    "Outer": "FakeItemAnim",
+    "Properties": {
+      "NumChannelsUsed": 2,
+      "PropertyName": "Size",
+      "PropertyPath": "Size",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneVectorSection WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim.MovieSceneVectorTrack_0.MovieSceneVectorSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.115"
+        }
+      ],
+      "Signature": "6F72C930-4C746026-9BEFB89B-4166C2DD"
     }
   },
   {
@@ -1772,12 +3567,12 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.OPACITYCONTAINER.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.119"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid.GridSlot_4",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.58"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.70"
       },
       "bIsVariable": true
     }
@@ -1790,16 +3585,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.Overlay_0.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.79"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.120"
         },
         {
           "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.Overlay_0.OverlaySlot_4",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.80"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.121"
         }
       ],
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.74"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.94"
       }
     }
   },
@@ -1810,11 +3605,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.OPACITYCONTAINER",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.76"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.117"
       },
       "Content": {
         "ObjectName": "WBP_CoreInputPrompt_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.107"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.154"
       }
     }
   },
@@ -1827,11 +3622,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.77"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.118"
       },
       "Content": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.ScaleBox_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.87"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.129"
       }
     }
   },
@@ -1844,11 +3639,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.77"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.118"
       },
       "Content": {
         "ObjectName": "TextBlock WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.TextLabel",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.103"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.150"
       }
     }
   },
@@ -1894,9 +3689,29 @@
       "BarFillType": "EProgressBarFillType::BottomToTop",
       "Slot": {
         "ObjectName": "SizeBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.sizeToTexture.SizeBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.98"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.143"
       },
       "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "ScaleBox",
+    "Name": "LayoutIconScale",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Stretch": "EStretch::UserSpecified",
+      "UserSpecifiedScale": 0.75,
+      "Slots": [
+        {
+          "ObjectName": "ScaleBoxSlot WBP_CoreEquippedItem_C:WidgetTree.LayoutIconScale.ScaleBoxSlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.132"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29.HorizontalBoxSlot_3",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.82"
+      },
+      "bIsVariable": true
     }
   },
   {
@@ -1909,12 +3724,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutIconScale.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.89"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.133"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_6",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.40"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.52"
       }
     }
   },
@@ -1928,12 +3743,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutPlusScale.ScaleBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.90"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.134"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid.GridSlot_9",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.43"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.55"
       }
     }
   },
@@ -1947,12 +3762,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutIconScale.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.91"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.135"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_6",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.60"
       }
     }
   },
@@ -1966,12 +3781,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutPlusScale.ScaleBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.92"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.136"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid.GridSlot_9",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.51"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.63"
       }
     }
   },
@@ -1985,12 +3800,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.layoutSizeScale.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.93"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.137"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.coreItemGrid.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.56"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.68"
       },
       "bIsVariable": true
     }
@@ -2005,12 +3820,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.ScaleBox_1.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.94"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.138"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.Overlay_0.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.79"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.120"
       }
     }
   },
@@ -2024,9 +3839,44 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.LayoutScale.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.95"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.139"
         }
       ]
+    }
+  },
+  {
+    "Type": "ScaleBox",
+    "Name": "LayoutIconScale",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Stretch": "EStretch::UserSpecified",
+      "UserSpecifiedScale": 0.75,
+      "Slots": [
+        {
+          "ObjectName": "ScaleBoxSlot WidgetArchetype:WidgetTree_0.LayoutIconScale.ScaleBoxSlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.140"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.HorizontalBox_29.HorizontalBoxSlot_3",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.85"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "ScaleBoxSlot",
+    "Name": "ScaleBoxSlot_0",
+    "Outer": "LayoutIconScale",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "ScaleBox WBP_CoreEquippedItem_C:WidgetTree.LayoutIconScale",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.123"
+      },
+      "Content": {
+        "ObjectName": "GridPanel WBP_CoreEquippedItem_C:WidgetTree.FakeItemGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.39"
+      }
     }
   },
   {
@@ -2036,11 +3886,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutIconScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.82"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.124"
       },
       "Content": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.42"
       }
     }
   },
@@ -2051,11 +3901,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.layoutPlusScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.83"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.125"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imagePlusIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.24"
       }
     }
   },
@@ -2066,11 +3916,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutIconScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.84"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.126"
       },
       "Content": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.IconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.44"
       }
     }
   },
@@ -2081,11 +3931,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.layoutPlusScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.85"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.127"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imagePlusIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.31"
       }
     }
   },
@@ -2096,11 +3946,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.layoutSizeScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.86"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.128"
       },
       "Content": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
       }
     }
   },
@@ -2111,11 +3961,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.ScaleBox_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.87"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.129"
       },
       "Content": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.PromptIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.37"
       }
     }
   },
@@ -2126,11 +3976,26 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.LayoutScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.88"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.130"
       },
       "Content": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.GridPanel_262",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.39"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.47"
+      }
+    }
+  },
+  {
+    "Type": "ScaleBoxSlot",
+    "Name": "ScaleBoxSlot_0",
+    "Outer": "LayoutIconScale",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.LayoutIconScale",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.131"
+      },
+      "Content": {
+        "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.FakeItemGrid",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.40"
       }
     }
   },
@@ -2146,12 +4011,12 @@
       "Slots": [
         {
           "ObjectName": "SizeBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.sizeToTexture.SizeBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.98"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.143"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.GridPanel_262.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.63"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.75"
       }
     }
   },
@@ -2163,12 +4028,12 @@
       "Slots": [
         {
           "ObjectName": "SizeBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.SizeBox_169.SizeBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.99"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.144"
         }
       ],
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.69"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.89"
       }
     }
   },
@@ -2179,11 +4044,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "SizeBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.sizeToTexture",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.96"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.141"
       },
       "Content": {
         "ObjectName": "ProgressBar WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.ItemChargeGauge",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.81"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.122"
       }
     }
   },
@@ -2196,11 +4061,26 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "SizeBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.SizeBox_169",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.97"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.142"
       },
       "Content": {
         "ObjectName": "WBP_CoreItem_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.108"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.155"
+      }
+    }
+  },
+  {
+    "Type": "Spacer",
+    "Name": "SpacerForOffset",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Size": {
+        "X": 0.0,
+        "Y": 1.0
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29.HorizontalBoxSlot_6",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.83"
       }
     }
   },
@@ -2211,7 +4091,7 @@
     "Properties": {
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.HorizontalBox_0.HorizontalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.75"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.95"
       },
       "bIsVariable": true
     }
@@ -2227,7 +4107,7 @@
       },
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_4",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.70"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.90"
       }
     }
   },
@@ -2242,7 +4122,22 @@
       },
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.67"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.87"
+      }
+    }
+  },
+  {
+    "Type": "Spacer",
+    "Name": "SpacerForOffset",
+    "Outer": "WidgetTree_0",
+    "Properties": {
+      "Size": {
+        "X": 0.0,
+        "Y": 1.0
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.HorizontalBox_29.HorizontalBoxSlot_6",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.86"
       }
     }
   },
@@ -2260,7 +4155,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.Overlay_0.OverlaySlot_4",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.80"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.121"
       },
       "bIsVariable": true
     }
@@ -2273,40 +4168,40 @@
     "Properties": {
       "cooldownFill": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.cooldownFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.19"
       },
       "imageBG": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.20"
       },
       "imageBuff": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageBuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.21"
       },
       "imageDebuff": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imageDebuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.22"
       },
       "imagePlusIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.imagePlusIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.24"
       },
       "ImageRarity": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.ImageRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.25"
       },
       "ImageIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.ImageIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.23"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.115"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.163"
       },
       "bCookedWidgetTree": true,
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_9",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.71"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.91"
       }
     }
   },
@@ -2318,40 +4213,40 @@
     "Properties": {
       "cooldownFill": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.cooldownFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.26"
       },
       "imageBG": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imageBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.27"
       },
       "imageBuff": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imageBuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.28"
       },
       "imageDebuff": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imageDebuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.23"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.29"
       },
       "imagePlusIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.imagePlusIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.31"
       },
       "ImageRarity": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.ImageRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.26"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.32"
       },
       "ImageIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.ImageIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.30"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.116"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.164"
       },
       "bCookedWidgetTree": true,
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox.HorizontalBoxSlot_10",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.68"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.88"
       }
     }
   },
@@ -2360,13 +4255,25 @@
     "Name": "WidgetArchetype",
     "Template": "Default__WBP_CoreEquippedItem_C",
     "Properties": {
+      "FakeItemBG": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.FakeItemBG",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.17"
+      },
+      "FakeItemIcon": {
+        "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.FakeItemIcon",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.18"
+      },
       "ItemBundle": {
         "ObjectName": "WBP_CoreItemBundle_C WidgetArchetype:WidgetTree_0.ItemBundle",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.110"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.157"
+      },
+      "LayoutIconScale": {
+        "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.LayoutIconScale",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.131"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.113"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.161"
       },
       "bCookedWidgetTree": true
     }
@@ -2379,25 +4286,25 @@
     "Properties": {
       "PromptIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.PromptIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.37"
       },
       "SpacerForRect": {
         "ObjectName": "Spacer WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.SpacerForRect",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.100"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.146"
       },
       "TextLabel": {
         "ObjectName": "TextBlock WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.TextLabel",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.103"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.150"
       },
       "IsPromptFound": true,
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.118"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.166"
       },
       "bCookedWidgetTree": true,
       "Slot": {
         "ObjectName": "OverlaySlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.OPACITYCONTAINER.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.119"
       },
       "Visibility": "ESlateVisibility::Collapsed"
     }
@@ -2410,52 +4317,52 @@
     "Properties": {
       "iconGrid": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.iconGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.46"
       },
       "imageBG": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.imageBG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.33"
       },
       "ImageLimitedItem": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.ImageLimitedItem",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.35"
       },
       "layoutSizeScale": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.layoutSizeScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.86"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.128"
       },
       "OPACITYCONTAINER": {
         "ObjectName": "Overlay WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.OPACITYCONTAINER",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.76"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.117"
       },
       "WBP_CoreInputPrompt_1": {
         "ObjectName": "WBP_CoreInputPrompt_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.107"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.154"
       },
       "WBP_ItemChargeGauge": {
         "ObjectName": "WBP_ItemChargeGauge_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.111"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.158"
       },
       "ImageRarity": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.ImageRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.36"
       },
       "ImageIcon": {
         "ObjectName": "DBDImage WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.ImageIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.34"
       },
       "TextStackCount": {
         "ObjectName": "DBDTextBlock WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.TextStackCount",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.38"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.117"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.165"
       },
       "bCookedWidgetTree": true,
       "Slot": {
         "ObjectName": "SizeBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.SizeBox_169.SizeBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.99"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.144"
       }
     }
   },
@@ -2466,8 +4373,8 @@
     "Template": "Default__WBP_CoreItemBundle_C",
     "Properties": {
       "Slot": {
-        "ObjectName": "CanvasPanelSlot WBP_CoreEquippedItem_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.11"
+        "ObjectName": "HorizontalBoxSlot WBP_CoreEquippedItem_C:WidgetTree.HorizontalBox_29.HorizontalBoxSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.81"
       },
       "RenderTransformPivot": {
         "X": 0.0,
@@ -2483,28 +4390,28 @@
     "Properties": {
       "Addon1": {
         "ObjectName": "WBP_CoreAddon_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.104"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.151"
       },
       "Addon2": {
         "ObjectName": "WBP_CoreAddon_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.105"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.152"
       },
       "GlobalHorizontalBox": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
       },
       "Item": {
         "ObjectName": "WBP_CoreItem_C WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.108"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.155"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.114"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.162"
       },
       "bCookedWidgetTree": true,
       "Slot": {
-        "ObjectName": "CanvasPanelSlot WidgetArchetype:WidgetTree_0.CanvasPanel_0.CanvasPanelSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.12"
+        "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.HorizontalBox_29.HorizontalBoxSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.84"
       },
       "RenderTransformPivot": {
         "X": 0.0,
@@ -2520,18 +4427,797 @@
     "Properties": {
       "ItemChargeGauge": {
         "ObjectName": "ProgressBar WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.ItemChargeGauge",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.81"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.122"
       },
       "WidgetTree": {
         "ObjectName": "WidgetTree WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.119"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.167"
       },
       "bCookedWidgetTree": true,
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.HorizontalBox_104.HorizontalBoxSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.73"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.93"
       },
       "Visibility": "ESlateVisibility::Collapsed"
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "FakeItemAnim_INST",
+    "Outer": "WBP_CoreEquippedItem_C",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene WBP_CoreEquippedItem_C:FakeItemAnim_INST.FakeItemAnim",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.96"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "LayoutIconScale",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "6CDE8DD4-478DA3F1-47669F87-DF482585",
+          "bIsRootWidget": false
+        },
+        {
+          "WidgetName": "SpacerForOffset",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "518896AE-43D11D57-E897368C-D6EFCB9D",
+          "bIsRootWidget": false
+        },
+        {
+          "WidgetName": "ItemBundle",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "20D96164-42828689-385C20AD-A233AFD6",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "FakeItemAnim",
+      "PrecompiledEvaluationTemplate": {
+        "Tracks": null,
+        "EvaluationField": {
+          "Ranges": [
+            {
+              "Value": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 0,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              }
+            },
+            {
+              "Value": {
+                "LowerBound": {
+                  "Type": 1,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 0,
+                  "Value": {
+                    "Value": 12000
+                  }
+                }
+              }
+            },
+            {
+              "Value": {
+                "LowerBound": {
+                  "Type": 1,
+                  "Value": {
+                    "Value": 12000
+                  }
+                },
+                "UpperBound": {
+                  "Type": 0,
+                  "Value": {
+                    "Value": 15001
+                  }
+                }
+              }
+            },
+            {
+              "Value": {
+                "LowerBound": {
+                  "Type": 1,
+                  "Value": {
+                    "Value": 15001
+                  }
+                },
+                "UpperBound": {
+                  "Type": 0,
+                  "Value": {
+                    "Value": 21000
+                  }
+                }
+              }
+            },
+            {
+              "Value": {
+                "LowerBound": {
+                  "Type": 1,
+                  "Value": {
+                    "Value": 21000
+                  }
+                },
+                "UpperBound": {
+                  "Type": 0,
+                  "Value": {
+                    "Value": 21001
+                  }
+                }
+              }
+            },
+            {
+              "Value": {
+                "LowerBound": {
+                  "Type": 1,
+                  "Value": {
+                    "Value": 21001
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              }
+            }
+          ],
+          "Groups": [
+            {
+              "LUTIndices": [],
+              "SegmentPtrLUT": []
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 4
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 4
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 1
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 3
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 5
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 4
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 2
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 1
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 3
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 4
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 2
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 1
+                  }
+                },
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 3
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [
+                {
+                  "LUTOffset": 0,
+                  "NumInitPtrs": 0,
+                  "NumEvalPtrs": 1
+                }
+              ],
+              "SegmentPtrLUT": [
+                {
+                  "SegmentID": {
+                    "IdentifierIndex": 0
+                  },
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 3
+                  }
+                }
+              ]
+            },
+            {
+              "LUTIndices": [],
+              "SegmentPtrLUT": []
+            }
+          ],
+          "MetaData": [
+            {
+              "ActiveSequences": [
+                {
+                  "Value": 0
+                }
+              ],
+              "ActiveEntities": [],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "Value": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 3,
+                  "TearDownIndex": 65532
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 2,
+                  "TearDownIndex": 65533
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 1
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 5,
+                  "TearDownIndex": 65530
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 1
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 4,
+                  "TearDownIndex": 65531
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 7,
+                  "TearDownIndex": 65528
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 6,
+                  "TearDownIndex": 65529
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 4
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 4
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "Value": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 5,
+                  "TearDownIndex": 65530
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 4,
+                  "TearDownIndex": 65531
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 1
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 7,
+                  "TearDownIndex": 65528
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 1
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 6,
+                  "TearDownIndex": 65529
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 2
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 3,
+                  "TearDownIndex": 65532
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 2
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 2,
+                  "TearDownIndex": 65533
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 9,
+                  "TearDownIndex": 65526
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 8,
+                  "TearDownIndex": 65527
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 4
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 4
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "Value": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 0
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 3,
+                  "TearDownIndex": 65532
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 0
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 2,
+                  "TearDownIndex": 65533
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 1
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 5,
+                  "TearDownIndex": 65530
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 1
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 4,
+                  "TearDownIndex": 65531
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 2
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 2
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 7,
+                  "TearDownIndex": 65528
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 6,
+                  "TearDownIndex": 65529
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "Value": 0
+                }
+              ],
+              "ActiveEntities": [
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 0
+                  },
+                  "SetupIndex": 1,
+                  "TearDownIndex": 65534
+                },
+                {
+                  "Key": {
+                    "SequenceID": {
+                      "Value": 0
+                    },
+                    "TrackIdentifier": {
+                      "Value": 3
+                    },
+                    "SectionIndex": 4294967295
+                  },
+                  "SetupIndex": 0,
+                  "TearDownIndex": 65535
+                }
+              ],
+              "SubTemplateSerialNumbers": {}
+            },
+            {
+              "ActiveSequences": [
+                {
+                  "Value": 0
+                }
+              ],
+              "ActiveEntities": [],
+              "SubTemplateSerialNumbers": {}
+            }
+          ]
+        },
+        "SequenceSignature": "03C50A63-4FE7EFF2-3F3D1D9E-FF73853D",
+        "TemplateSerialNumber": {
+          "Value": 1
+        },
+        "TemplateLedger": {
+          "LastTrackIdentifier": {
+            "Value": 4
+          },
+          "TrackSignatureToTrackIdentifier": null
+        },
+        "TrackFieldData": null
+      },
+      "Signature": "03C50A63-4FE7EFF2-3F3D1D9E-FF73853D"
     }
   },
   {
@@ -2541,7 +5227,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "CanvasPanel WBP_CoreEquippedItem_C:WidgetTree.CanvasPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.11"
       }
     }
   },
@@ -2552,7 +5238,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "CanvasPanel WidgetArchetype:WidgetTree_0.CanvasPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.10"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.12"
       }
     }
   },
@@ -2563,7 +5249,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.GlobalHorizontalBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.64"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.78"
       }
     }
   },
@@ -2574,7 +5260,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon1.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.41"
       }
     }
   },
@@ -2585,7 +5271,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "GridPanel WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Addon2.WidgetTree_0.CoreGrid",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.43"
       }
     }
   },
@@ -2596,7 +5282,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.HorizontalBox_104",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.65"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.79"
       }
     }
   },
@@ -2607,7 +5293,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "HorizontalBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_CoreInputPrompt_1.WidgetTree_0.HorizontalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.66"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.80"
       }
     }
   },
@@ -2618,7 +5304,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "ScaleBox WidgetArchetype:WidgetTree_0.ItemBundle.WidgetTree_0.Item.WidgetTree_0.WBP_ItemChargeGauge.WidgetTree_0.LayoutScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.88"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.130"
       }
     }
   }
