@@ -326,8 +326,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_FL_OfficeFLoor01_C Default__BP_FL_OfficeFLoor01_C",
@@ -1293,8 +1291,36 @@
       ],
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "ObjectType": "ECC_WorldStatic",
-        "CollisionProfileName": "BlockAll"
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionProfileName": "Ground",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "World",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
       },
       "RelativeLocation": {
         "X": 0.0,
