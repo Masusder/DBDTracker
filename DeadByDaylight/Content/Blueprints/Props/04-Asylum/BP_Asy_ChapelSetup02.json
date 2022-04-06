@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.59"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.64"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,17 @@
       "ObjectPath": "/Script/Engine"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "NavLinkFall032",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class ChildActorComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "SM_Chapel_CadrageVault021",
@@ -410,15 +421,12 @@
         }
       }
     ],
-    "FuncMap": {},
     "ClassFlags": 8652820,
     "ClassWithin": {
       "ObjectName": "Class Object",
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Asy_ChapelSetup02_C Default__BP_Asy_ChapelSetup02_C",
@@ -657,6 +665,56 @@
         "Roll": 0.0
       },
       "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
+    "Type": "ChildActorComponent",
+    "Name": "NavLinkFall032_GEN_VARIABLE",
+    "Outer": "BP_Asy_ChapelSetup02_C",
+    "Properties": {
+      "ChildActorClass": {
+        "ObjectName": "BlueprintGeneratedClass NavLinkProxy_Fall_C",
+        "ObjectPath": "DeadByDaylight/Content/AI/Other/NavLinkProxy_Fall.0"
+      },
+      "ChildActorTemplate": {
+        "ObjectName": "NavLinkProxy_Fall_C BP_Asy_ChapelSetup02_C:NavLinkFall032_GEN_VARIABLE.NavLinkFall032_GEN_VARIABLE_NavLinkProxy_Fall_C_CAT",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.10"
+      },
+      "RelativeLocation": {
+        "X": 509.28152,
+        "Y": 67.94387,
+        "Z": 517.36975
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 180.00026,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "DBDNavLinkCustomComponent",
+    "Name": "SmartLinkComp",
+    "Outer": "NavLinkFall032_GEN_VARIABLE_NavLinkProxy_Fall_C_CAT",
+    "Template": "SmartLinkComp",
+    "Properties": {
+      "NavLinkUserId": 27302
+    }
+  },
+  {
+    "Type": "NavLinkProxy_Fall_C",
+    "Name": "NavLinkFall032_GEN_VARIABLE_NavLinkProxy_Fall_C_CAT",
+    "Outer": "NavLinkFall032_GEN_VARIABLE",
+    "Template": "Default__NavLinkProxy_Fall_C",
+    "Properties": {
+      "SmartLinkComp": {
+        "ObjectName": "DBDNavLinkCustomComponent BP_Asy_ChapelSetup02_C:NavLinkFall032_GEN_VARIABLE.NavLinkFall032_GEN_VARIABLE_NavLinkProxy_Fall_C_CAT.SmartLinkComp",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.9"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent BP_Asy_ChapelSetup02_C:NavLinkFall032_GEN_VARIABLE.NavLinkFall032_GEN_VARIABLE_NavLinkProxy_Fall_C_CAT.PositionComponent",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.23"
+      }
     }
   },
   {
@@ -985,6 +1043,12 @@
   },
   {
     "Type": "SceneComponent",
+    "Name": "PositionComponent",
+    "Outer": "NavLinkFall032_GEN_VARIABLE_NavLinkProxy_Fall_C_CAT",
+    "Template": "PositionComponent"
+  },
+  {
+    "Type": "SceneComponent",
     "Name": "Scene91F7F5354871ADA2F2B715B239EDB98C",
     "Outer": "BP_Asy_ChapelSetup02_C",
     "Properties": {
@@ -1007,7 +1071,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile04_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.64"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.69"
       },
       "VariableGuid": "BC2FEA31-427722CB-EAC33F89-0D788E0F",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile04"
@@ -1024,143 +1088,147 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Asy_ChapelSetup02_C:Scene91F7F5354871ADA2F2B715B239EDB98C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.24"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.34"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.54"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_29",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.39"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.43"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.59"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.49"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.26"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.36"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.41"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_34",
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_29",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.44"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_35",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.45"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.46"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.47"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_39",
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_33",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.48"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.50"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.54"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.51"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.52"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.22"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.33"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.55"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.25"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.37"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.31"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.29"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.28"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.27"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_19",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.32"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.24"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.58"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.57"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.56"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.40"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_16",
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_12",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.30"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_24",
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.41"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.46"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_34",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.49"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.50"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.51"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.52"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.53"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.55"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.56"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.57"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.26"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.38"
         },
         {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.60"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.29"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.42"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.36"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.33"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.32"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.31"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_19",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.37"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.28"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.62"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.61"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.45"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.34"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.43"
+        },
+        {
           "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.40"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_17",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.35"
         }
       ],
@@ -1179,7 +1247,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_05_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.18"
       },
       "VariableGuid": "EF4471EA-43E2EF0C-376F68B2-47D344A9",
       "InternalVariableName": "P_NG_Fire_Small_05"
@@ -1196,7 +1264,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_06_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.19"
       },
       "VariableGuid": "307FBB61-473B6418-36F3B798-B4D00657",
       "InternalVariableName": "P_NG_Fire_Small_06"
@@ -1213,7 +1281,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Chapel_Cadrage01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.73"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.78"
       },
       "VariableGuid": "28672426-4A741625-4902A7A7-41CF07AE",
       "InternalVariableName": "SM_Chapel_Cadrage01"
@@ -1230,7 +1298,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_07_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.17"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.20"
       },
       "VariableGuid": "C8AFEE54-492F2B26-C16B7D9B-DD0C98AB",
       "InternalVariableName": "P_NG_Fire_Small_07"
@@ -1247,7 +1315,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_08_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.18"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.21"
       },
       "VariableGuid": "4697550B-45805981-7D5C1F83-3612836F",
       "InternalVariableName": "P_NG_Fire_Small_08"
@@ -1264,7 +1332,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_09_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.22"
       },
       "VariableGuid": "185F8B88-46C5504F-7C8798AF-0A0618A7",
       "InternalVariableName": "P_NG_Fire_Small_09"
@@ -1281,10 +1349,27 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Chapel_CadrageVault02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.76"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.81"
       },
       "VariableGuid": "6CCB68E8-40EF9084-3C4162B4-6F68A423",
       "InternalVariableName": "SM_Chapel_CadrageVault02"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_17",
+    "Outer": "SimpleConstructionScript_7",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class ChildActorComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ChildActorComponent BP_Asy_ChapelSetup02_C:NavLinkFall032_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.8"
+      },
+      "VariableGuid": "2E01BFE2-458157E7-B56E59AB-BFEF3C3D",
+      "InternalVariableName": "NavLinkFall032"
     }
   },
   {
@@ -1298,7 +1383,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_010_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.11"
       },
       "VariableGuid": "194320B7-4CC596F8-1EE357B3-DE8A532F",
       "InternalVariableName": "P_NG_Fire_Small_010"
@@ -1315,7 +1400,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_011_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.12"
       },
       "VariableGuid": "7E77655B-4ECDB3CB-086A4F86-0A1A745E",
       "InternalVariableName": "P_NG_Fire_Small_011"
@@ -1366,7 +1451,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Chapel_CadrageVault021_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.75"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.80"
       },
       "VariableGuid": "BBAA3C9B-4E67C5FF-168E58A9-6AEE286B",
       "InternalVariableName": "SM_Chapel_CadrageVault021"
@@ -1383,7 +1468,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.61"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.66"
       },
       "VariableGuid": "F0987912-4CCFB89A-E6AA9FB6-CC9F44BD",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile01"
@@ -1400,7 +1485,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_012_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.13"
       },
       "VariableGuid": "31E88D43-4EFC96E1-966F728D-F456207D",
       "InternalVariableName": "P_NG_Fire_Small_012"
@@ -1417,7 +1502,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChpRaillingVault011_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.71"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.76"
       },
       "VariableGuid": "DE904745-4B254A29-5A592C8E-11B92B52",
       "InternalVariableName": "SM_Asylum_ChpRaillingVault011"
@@ -1451,7 +1536,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.14"
       },
       "VariableGuid": "1B6EAAB5-4A9E3149-F8E7229A-53A3AE98",
       "InternalVariableName": "P_NG_Fire_Small_01"
@@ -1468,7 +1553,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile05_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.67"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.72"
       },
       "VariableGuid": "DCBC6EEB-4FC05D7D-66D93EAE-FAED7894",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile05"
@@ -1485,7 +1570,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChpWallvault013_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.72"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.77"
       },
       "VariableGuid": "F8F4E524-4B607C36-4539EE85-725C2CB5",
       "InternalVariableName": "SM_Asylum_ChpWallvault013"
@@ -1507,7 +1592,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.42"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.47"
         }
       ],
       "VariableGuid": "9B9C6863-4F47805E-21FB24A4-951A6324",
@@ -1525,7 +1610,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile051_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.65"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.70"
       },
       "VariableGuid": "B2D2DF2F-4961A76E-0DFBAE8F-49CE7ABF",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile051"
@@ -1542,7 +1627,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile052_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.66"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.71"
       },
       "VariableGuid": "BE70C29B-4B51250D-26498DBD-8F30A772",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile052"
@@ -1559,7 +1644,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile011_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.60"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.65"
       },
       "VariableGuid": "F9069AA7-41204C55-89B37F93-D8CF6960",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile011"
@@ -1576,7 +1661,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile06_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.70"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.75"
       },
       "VariableGuid": "8AD5E65D-44B9BE7F-7ECB40BB-14D7923E",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile06"
@@ -1593,7 +1678,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile061_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.68"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.73"
       },
       "VariableGuid": "D842F717-4EC64ECB-793A848E-69083A7D",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile061"
@@ -1610,7 +1695,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Chapel_CadrageVault01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.74"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.79"
       },
       "VariableGuid": "BAFECC1B-4FB9A890-25DFF397-DB2FE35E",
       "InternalVariableName": "SM_Chapel_CadrageVault01"
@@ -1627,7 +1712,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile062_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.69"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.74"
       },
       "VariableGuid": "209DF415-4989D942-32C7CB82-CA6DA560",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile062"
@@ -1644,7 +1729,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile021_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.62"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.67"
       },
       "VariableGuid": "63038170-4022856C-20294485-3B7F3177",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile021"
@@ -1661,7 +1746,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Asy_ChapelSetup02_C:SM_Asylum_ChapelDebrisPile023_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.63"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.68"
       },
       "VariableGuid": "475E512B-41E3EA81-D234DB9F-58187195",
       "InternalVariableName": "SM_Asylum_ChapelDebrisPile023"
@@ -1678,7 +1763,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Asy_ChapelSetup02_C:SceneComponent_299",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.21"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.25"
       },
       "VariableGuid": "17846B23-44848B8C-9BCFCE90-A43C57C6",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1729,7 +1814,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.15"
       },
       "VariableGuid": "A824F762-4FFD2C37-557C29BC-8216B3A4",
       "InternalVariableName": "P_NG_Fire_Small_02"
@@ -1746,7 +1831,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.16"
       },
       "VariableGuid": "014FFCE5-4A5004D9-E93596B0-5A17412C",
       "InternalVariableName": "P_NG_Fire_Small_03"
@@ -1763,7 +1848,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Asy_ChapelSetup02_C:P_NG_Fire_Small_04_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.17"
       },
       "VariableGuid": "66C08CAF-4F1A511E-40F09E95-5C12FC77",
       "InternalVariableName": "P_NG_Fire_Small_04"
@@ -1777,158 +1862,162 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.23"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.27"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.23"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.34"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.54"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.39"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.43"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.42"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.49"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.26"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.36"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.41"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.44"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_35",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.45"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.46"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.47"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.48"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.50"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.51"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.52"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.22"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.33"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.55"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.25"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.37"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.31"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.29"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.28"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_13",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.27"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_19",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.32"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_20",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.39"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.24"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.59"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.58"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_29",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.44"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.57"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_33",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.48"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.56"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.47"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.40"
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.54"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_16",
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_12",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.30"
         },
         {
-          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_24",
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.41"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.46"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_34",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.49"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.50"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.51"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.52"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.53"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.55"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.56"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.57"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.26"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.38"
         },
         {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.60"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.29"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.42"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.36"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.33"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.32"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.31"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_19",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.37"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.28"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.62"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.61"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.45"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.34"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.43"
+        },
+        {
           "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.40"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_17",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.35"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Asy_ChapelSetup02_C:SimpleConstructionScript_7.SCS_Node_45",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.53"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/04-Asylum/BP_Asy_ChapelSetup02.58"
       }
     }
   },

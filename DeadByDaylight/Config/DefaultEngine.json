@@ -348,9 +348,6 @@ DefaultPhysMaterialName=/Game/Materials/PhysicalMaterials/PM_Default.PM_Default
 +ActiveClassRedirects=(ObjectName=,OldClassName="PaperAnimatedRenderComponent",NewClassName="/Script/Paper2D.PaperFlipbookComponent",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
 +ActiveClassRedirects=(ObjectName=,OldClassName="PaperRenderActor",NewClassName="/Script/Paper2D.PaperSpriteActor",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
 +ActiveClassRedirects=(ObjectName=,OldClassName="PaperTileMapRenderComponent",NewClassName="/Script/Paper2D.PaperTileMapComponent",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
-+ActiveClassRedirects=(ObjectName=,OldClassName="ECollisionTraceFlag",NewClassName="/Script/Engine.BodySetupEnums:ECollisionTraceFlag",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
-+ActiveClassRedirects=(ObjectName=,OldClassName="EBodyCollisionResponse",NewClassName="/Script/Engine.BodySetupEnums:EBodyCollisionResponse",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
-+ActiveClassRedirects=(ObjectName=,OldClassName="EPhysicsType",NewClassName="EPhysicsType",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
 +ActiveClassRedirects=(ObjectName=,OldClassName="PlayerCamera",NewClassName="PlayerCameraManager",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
 +ActiveClassRedirects=(ObjectName=,OldClassName="EModifyFrequency",NewClassName="EComponentMobility",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
 +ActiveClassRedirects=(ObjectName=,OldClassName="EMaterialLightingModel",NewClassName="EMaterialShadingModel",OldSubobjName=,NewSubobjName=,InstanceOnly=False)
@@ -428,7 +425,12 @@ DefaultPhysMaterialName=/Game/Materials/PhysicalMaterials/PM_Default.PM_Default
 +ActiveClassRedirects=(OldClassName="SpiritHuskOutlineUpdateStrategy",NewClassName="/Script/TheSpirit.SpiritHuskOutlineUpdateStrategy")
 +ActiveClassRedirects=(OldClassName="LegionKillerAnalyticsComponent",NewClassName="/Script/TheLegion.LegionKillerAnalyticsComponent")
 +ActiveClassRedirects=(OldClassName="LegionSurvivorAnalyticsComponent",NewClassName="/Script/TheLegion.LegionSurvivorAnalyticsComponent")
++ActiveClassRedirects=(OldClassName="FrenzyComponent",NewClassName="/Script/TheLegion.FrenzyComponent")
 +ActiveClassRedirects=(OldClassName="GhostKillerAnalyticsComponent",NewClassName="/Script/TheGhostFace.GhostKillerAnalyticsComponent")
++ActiveClassRedirects=(OldClassName="GhostStalkedComponent",NewClassName="/Script/TheGhostFace.GhostStalkedComponent")
++ActiveClassRedirects=(OldClassName="GhostStalkPowerComponent",NewClassName="/Script/TheGhostFace.GhostStalkPowerComponent")
++ActiveClassRedirects=(OldClassName="GhostStealthComponent",NewClassName="/Script/TheGhostFace.GhostStealthComponent")
++ActiveClassRedirects=(OldClassName="GhostChargeStalkModeInteraction",NewClassName="/Script/TheGhostFace.GhostChargeStalkModeInteraction")
 +ActiveClassRedirects=(OldClassName="PlagueSurvivorAnalyticsComponent",NewClassName="/Script/ThePlague.PlagueSurvivorAnalyticsComponent")
 +ActiveClassRedirects=(OldClassName="DBDEmblem_KillerChaser",NewClassName="/Script/DBDMetaGameplay.DBDEmblem_KillerChaser")
 +ActiveClassRedirects=(OldClassName="DBDEmblem_KillerDevout",NewClassName="/Script/DBDMetaGameplay.DBDEmblem_KillerDevout")
@@ -1126,7 +1128,6 @@ DirtyAreasUpdateFreq=60.000000
 +FunctionRedirects=(OldName="SlasherPlayer.OnPickUpEnd_BP",NewName="SlasherPlayer.Cosmetic_OnPickUpEnd")
 +FunctionRedirects=(OldName="SlasherPlayer.OnDropCamperEnd_BP",NewName="SlasherPlayer.Cosmetic_OnDropCamperEnd")
 
-; Fixed UE4 SkeletalMeshComponent.GetSubInstanceByName redirect to point to the right target method
 -FunctionRedirects=(OldName="SkeletalMeshComponent.GetSubInstanceByName",NewName="KismetSystemLibrary.GetSubInstanceByTag")
 +FunctionRedirects=(OldName="SkeletalMeshComponent.GetSubInstanceByName",NewName="SkeletalMeshComponent.GetLinkedAnimGraphInstanceByTag")
 +PropertyRedirects=(OldName="SkeletalMeshComponent.GetLinkedAnimGraphInstanceByTag.InName",NewName="InTag")
@@ -1230,6 +1231,8 @@ DirtyAreasUpdateFreq=60.000000
 +ClassRedirects=(OldName="HexSpawner", NewName="ActorSpawner")
 +ClassRedirects=(OldName="DarkRitualInteraction", NewName="RekindleTotemInteraction")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.RichTextNestedTagsDecorator", NewName="/Script/DBDUIViewsCore.RichTextNestedTagsDecorator")
++ClassRedirects=(OldName="/Script/DBDInteraction.InClosetFlashbangItemCraftInteraction", NewName="/Script/TheK24.InClosetFlashbangItemCraftInteraction")
++ClassRedirects=(OldName="/Script/DeadByDaylight.FirecrackerFromEffect", NewName="/Script/TheK24.BlastMineFirecracker")
 +StructRedirects=(OldName="/Script/DeadByDaylight.AtlantaFriendUIData", NewName="/Script/DBDUIViewsMobile.AtlantaFriendUIData")
 +StructRedirects=(OldName="/Script/DeadByDaylight.FriendStatusUIData", NewName="/Script/DBDUIViewsMobile.FriendStatusUIData")
 +StructRedirects=(OldName="/Script/DeadByDaylight.TutorialEndReward", NewName="/Script/DeadByDaylight.AtlantaTutorialEndReward")
@@ -1284,6 +1287,11 @@ DirtyAreasUpdateFreq=60.000000
 +EnumRedirects=(OldName="TextureGroup",ValueChanges=(("TEXTUREGROUP_LandscapeORM","TEXTUREGROUP_AtlasTrimSheetCombinedMap")))
 +PropertyRedirects=(OldName="/Script/Archives.FragileObjectComponent._generalObjectBreakinEvents",NewName="/Script/Archives.FragileObjectComponent._generalObjectBreakingEvents")
 +PropertyRedirects=(OldName="/Script/DBDCompetence.StatusEffectSpawnData.EffectId",NewName="/Script/DBDCompetence.StatusEffectSpawnData.DEPRECATED_EffectId")
++PropertyRedirects=(OldName="/Script/DBDCompetence.ImposeStatusEffectOnEventAddon._statusEffectName",NewName="/Script/DBDCompetence.ImposeStatusEffectOnEventAddon._statusEffectNameDeprecated")
++PropertyRedirects=(OldName="/Script/DBDCompetence.SimpleSpawnEffectsOnAllSurvivorsAddonParams._statusEffectId",NewName="/Script/DBDCompetence.SimpleSpawnEffectsOnAllSurvivorsAddonParams._statusEffectIdDeprecated")
++PropertyRedirects=(OldName="/Script/TheK24.BlastMineTrapComponent._isTrapActive",NewName="/Script/TheK24.BlastMineTrapComponent._isTrapSet")
++PropertyRedirects=(OldName="/Script/TheK24.BlastMine.__generatorTrapDurationLevels",NewName="/Script/TheK24.BlastMine._generatorTrapDurationLevels")
++ClassRedirects=(OldName="/Script/TheK24.FirecrackerFromEffect",NewName="/Script/TheK24.BlastMineFirecracker")
 
 [/Script/IOSRuntimeSettings.IOSRuntimeSettings]
 BundleIdentifier=com.bhvr.deadbydaylight
@@ -1488,6 +1496,7 @@ CookerMemoryUsedInGB=25
 MemoryToLeaveForTheOSInGB=3
 MemoryUsedPerSCWProcessInGB=0.4
 MinSCWsToSpawnBeforeWarning=8
+bDoNotChunkShaderLib=True
 
 [/Script/Engine.PhysicsSettings]
 DefaultGravityZ=-980.000000
@@ -1587,9 +1596,6 @@ ChaosSettings=(DefaultThreadingModel=TaskGraph,DedicatedThreadTickMode=VariableC
 [/Script/DbdPlugin.QADebugCommands]
 DebugCommands=DBD_ToggleProceduralDebugMode
 
-[Engine.BufferVisualizationMaterials]
-CustomColourNoDepth=(Material="/Engine/BufferVisualization/CustomColourNoDepth.CustomColourNoDepth", Name=LOCTEXT("BaseCustomColourNoDepthMat", "BHVR/Custom Colour No Depth"))
-
 [DDoSDetection]
 bDDoSDetection=false
 bDDoSAnalytics=false
@@ -1674,3 +1680,19 @@ bExportPipelineAndScene=False
 DebugPath=(FilePath="../../../DeadByDaylight/Intermediate/Simplygon")
 Tangentspace=OrthonormalLeftHanded
 
+[TextureFormatOodle]
+bForceRDOOff=False
+DefaultRDOLambda=30
+
+[/Script/AutomationController.AutomationControllerSettings]
+bTreatLogWarningsAsTestErrors=False
+
+[=/Script/Engine.CollisionProfile]
+[=/Script/Engine.LocalPlayer]
+[=/Script/Engine.PhysicsSettings]
+[=/Script/EngineSettings.GameMapsSettings]
+[==/Script/Engine.RendererSettings]
+[==/Script/Engine.RendererOverrideSettings]
+[==/Script/Engine.NetworkSettings]
+[==/Script/Engine.GarbageCollectionSettings]
+[==/Script/Engine.StreamingSettings]

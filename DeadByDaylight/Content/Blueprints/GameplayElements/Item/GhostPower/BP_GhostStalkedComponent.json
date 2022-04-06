@@ -314,21 +314,11 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "EnumProperty",
+        "Type": "ByteProperty",
         "Name": "K2Node_CustomEvent_StealthState_1",
         "Flags": 1,
         "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum EGhostStealthState",
-          "ObjectPath": "/Script/DeadByDaylight"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
+        "Enum": null
       },
       {
         "Type": "BoolProperty",
@@ -497,6 +487,18 @@
       },
       {
         "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocallyObserved_ReturnValue_4",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
         "Name": "K2Node_CustomEvent_Is_Marked",
         "Flags": 1,
         "ElementSize": 1,
@@ -524,7 +526,7 @@
         "ElementSize": 1,
         "Enum": {
           "ObjectName": "Enum EGhostStealthState",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectPath": "/Script/TheGhostface"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
@@ -590,7 +592,7 @@
         "ElementSize": 20,
         "SignatureFunction": {
           "ObjectName": "DelegateFunction GhostStalkedComponent:OnIsMarkedChanged__DelegateSignature",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectPath": "/Script/TheGhostface"
         }
       },
       {
@@ -737,7 +739,7 @@
         "ElementSize": 20,
         "SignatureFunction": {
           "ObjectName": "DelegateFunction GhostStalkedComponent:OnIsSpottingKiller__DelegateSignature",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectPath": "/Script/TheGhostface"
         }
       }
     ],
@@ -749,7 +751,7 @@
     "Outer": "BP_GhostStalkedComponent_C",
     "SuperStruct": {
       "ObjectName": "Function GhostStalkedComponent:Local_OnSpotKiller",
-      "ObjectPath": "/Script/DeadByDaylight"
+      "ObjectPath": "/Script/TheGhostface"
     },
     "FunctionFlags": 134744064
   },
@@ -822,7 +824,7 @@
     "Outer": "BP_GhostStalkedComponent_C",
     "SuperStruct": {
       "ObjectName": "Function GhostStalkedComponent:Initialize",
-      "ObjectPath": "/Script/DeadByDaylight"
+      "ObjectPath": "/Script/TheGhostface"
     },
     "ChildProperties": [
       {
@@ -852,7 +854,7 @@
         "PropertyFlags": 148,
         "Enum": {
           "ObjectName": "Enum EGhostStealthState",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectPath": "/Script/TheGhostface"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
@@ -946,22 +948,12 @@
     "Outer": "BP_GhostStalkedComponent_C",
     "ChildProperties": [
       {
-        "Type": "EnumProperty",
+        "Type": "ByteProperty",
         "Name": "StealthState",
         "Flags": 1,
         "ElementSize": 1,
         "PropertyFlags": 148,
-        "Enum": {
-          "ObjectName": "Enum EGhostStealthState",
-          "ObjectPath": "/Script/DeadByDaylight"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
+        "Enum": null
       }
     ],
     "FunctionFlags": 201326592
@@ -1007,7 +999,7 @@
         "ElementSize": 20,
         "SignatureFunction": {
           "ObjectName": "DelegateFunction GhostStealthComponent:OnStealthStateChanged__DelegateSignature",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectPath": "/Script/TheGhostface"
         }
       },
       {
@@ -1018,7 +1010,7 @@
         "PropertyFlags": 524288,
         "PropertyClass": {
           "ObjectName": "Class GhostStealthComponent",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectPath": "/Script/TheGhostface"
         }
       },
       {
@@ -1059,7 +1051,7 @@
     },
     "SuperStruct": {
       "ObjectName": "Class GhostStalkedComponent",
-      "ObjectPath": "/Script/DeadByDaylight"
+      "ObjectPath": "/Script/TheGhostface"
     },
     "Children": [
       {
@@ -1231,8 +1223,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_GhostStalkedComponent_C Default__BP_GhostStalkedComponent_C",
@@ -1247,6 +1237,55 @@
       "_markTimer": {
         "ObjectName": "TimerObject Default__BP_GhostStalkedComponent_C:MarkTimer",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/GhostPower/BP_GhostStalkedComponent.19"
+      },
+      "_killerInstinctDuration": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable GhostTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/Oman/GhostTunableDB.0"
+            },
+            "RowName": "GhostKillerInstinctDuration"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.GhostKillerInstinctDurationAdditive"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
+      "_markDuration": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable GhostTunableDB",
+              "ObjectPath": "DeadByDaylight/Content/Data/Dlc/Oman/GhostTunableDB.0"
+            },
+            "RowName": "GhostMarkDuration"
+          }
+        },
+        "_statModifiers": [
+          {
+            "OperationStrategy": "EModifierOperationStrategy::Add",
+            "ModifierTag": {
+              "TagName": "GameplayModifierType.GhostMarkDurationAdditive"
+            },
+            "CompoundStrategy": "EModifierCompoundStrategy::Add"
+          }
+        ]
+      },
+      "_stalkPointsDepleteDelay": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable GhostTunableDB",
+            "ObjectPath": "DeadByDaylight/Content/Data/Dlc/Oman/GhostTunableDB.0"
+          },
+          "RowName": "SurvivorStalkPointsDepleteDelay"
+        }
       }
     }
   },

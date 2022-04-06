@@ -2,6 +2,7 @@
   {
     "Type": "BodySetup",
     "Name": "BodySetup_0",
+    "Outer": "BoundingBoxEdge",
     "Properties": {
       "AggGeom": {
         "ConvexElems": [
@@ -67,7 +68,10 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "Z": 0.0,
-                "W": 1.0
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
               },
               "Translation": {
                 "X": 0.0,
@@ -82,11 +86,11 @@
             },
             "RestOffset": 0.0,
             "Name": "None",
-            "bContributeToMass": true
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
           }
         ]
       },
-      "CollisionTraceFlag": "CTF_UseSimpleAsComplex",
       "DefaultInstance": {
         "ObjectType": "ECC_WorldStatic",
         "CollisionProfileName": "BlockAll",
@@ -122,13 +126,31 @@
             }
           ]
         }
+      },
+      "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
+    },
+    "BodySetupGuid": "A45AC5F24F727E508B7132ADC00580F3",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_ForceInlinePayload",
+        "ElementCount": 963,
+        "SizeOnDisk": 963,
+        "OffsetInFile": "0x4174"
       }
     }
   },
   {
     "Type": "NavCollision",
     "Name": "NavCollision_3",
-    "Properties": {}
+    "Outer": "BoundingBoxEdge",
+    "CookedFormatData": {
+      "NavCollision_X": {
+        "BulkDataFlags": "BULKDATA_ForceInlinePayload",
+        "ElementCount": 481,
+        "SizeOnDisk": 481,
+        "OffsetInFile": "0x457F"
+      }
+    }
   },
   {
     "Type": "StaticMesh",
@@ -142,8 +164,8 @@
       "StaticMaterials": [
         {
           "MaterialInterface": {
-            "ObjectName": "TransformGizmoMaterial:Material",
-            "ObjectPath": "/Engine/VREditor/TransformGizmo/TransformGizmoMaterial.4"
+            "ObjectName": "Material TransformGizmoMaterial",
+            "ObjectPath": "Engine/Content/VREditor/TransformGizmo/TransformGizmoMaterial.0"
           },
           "MaterialSlotName": "TransformGizmoMaterial",
           "ImportedMaterialSlotName": "Main",
@@ -158,8 +180,8 @@
         },
         {
           "MaterialInterface": {
-            "ObjectName": "TranslucentTransformGizmoMaterial:Material",
-            "ObjectPath": "/Engine/VREditor/TransformGizmo/TranslucentTransformGizmoMaterial.5"
+            "ObjectName": "Material TranslucentTransformGizmoMaterial",
+            "ObjectPath": "Engine/Content/VREditor/TransformGizmo/TranslucentTransformGizmoMaterial.0"
           },
           "MaterialSlotName": "TranslucentTransformGizmoMaterial",
           "ImportedMaterialSlotName": "Xray",
@@ -188,6 +210,16 @@
         },
         "SphereRadius": 5.0366025
       }
-    }
+    },
+    "BodySetup": {
+      "ObjectName": "BodySetup BoundingBoxEdge:BodySetup_0",
+      "ObjectPath": "Engine/Content/VREditor/TransformGizmo/BoundingBoxEdge.0"
+    },
+    "NavCollision": {
+      "ObjectName": "NavCollision BoundingBoxEdge:NavCollision_3",
+      "ObjectPath": "Engine/Content/VREditor/TransformGizmo/BoundingBoxEdge.1"
+    },
+    "LightingGuid": "F83BBCE1-42BA0042-9AF122B2-7864CF35",
+    "RenderData": null
   }
 ]

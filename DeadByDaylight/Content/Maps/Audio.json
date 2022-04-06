@@ -2,25 +2,88 @@
   {
     "Type": "Function",
     "Name": "ExecuteUbergraph_Audio",
-    "Properties": {}
+    "Outer": "Audio_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 32769
   },
   {
     "Type": "Function",
     "Name": "ReceiveBeginPlay",
-    "Properties": {}
+    "Outer": "Audio_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveBeginPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": 134744064
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Audio_C",
     "Properties": {
       "UberGraphFunction": {
-        "ObjectName": "ExecuteUbergraph_Audio:",
-        "ObjectPath": "Audio_C.0"
+        "ObjectName": "Function Audio_C:ExecuteUbergraph_Audio",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.0"
       }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class LevelScriptActor",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function Audio_C:ReceiveBeginPlay",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.1"
+      },
+      {
+        "ObjectName": "Function Audio_C:ExecuteUbergraph_Audio",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Audio": {
+        "ObjectName": "Function Audio_C:ExecuteUbergraph_Audio",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.0"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function Audio_C:ReceiveBeginPlay",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.1"
+      }
+    },
+    "ClassFlags": 8653332,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Audio_C Default__Audio_C",
+      "ObjectPath": "DeadByDaylight/Content/Maps/Audio.3"
     }
   },
   {
-    "Type": "LevelScriptActor",
+    "Type": "Audio_C",
     "Name": "Default__Audio_C",
     "Properties": {
       "UberGraphFrame": {}
@@ -29,77 +92,99 @@
   {
     "Type": "AkLateReverbComponent",
     "Name": "LateReverb",
+    "Outer": "AkReverbVolume_Indoor",
     "Properties": {
-      "AuxBusName": "Reverb_Indoor",
       "FadeRate": 1.0,
-      "Priority": 10.0
+      "Priority": 10.0,
+      "AutoAssignAuxBus": false,
+      "AuxBusName": "Reverb_Indoor",
+      "AttachParent": {
+        "ObjectName": "BrushComponent Audio:PersistentLevel.AkReverbVolume_Indoor.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.11"
+      },
+      "PrimaryComponentTick": {
+        "bCanEverTick": true
+      }
     }
   },
   {
     "Type": "AkLateReverbComponent",
     "Name": "LateReverb",
+    "Outer": "AkReverbVolume_Outdoor",
     "Properties": {
-      "AuxBusName": "Reverb_Outdoor",
       "FadeRate": 1.0,
-      "Priority": 10.0
+      "Priority": 10.0,
+      "AutoAssignAuxBus": false,
+      "AuxBusName": "Reverb_Outdoor",
+      "AttachParent": {
+        "ObjectName": "BrushComponent Audio:PersistentLevel.AkReverbVolume_Outdoor.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.12"
+      },
+      "PrimaryComponentTick": {
+        "bCanEverTick": true
+      }
     }
   },
   {
     "Type": "AkReverbVolume",
     "Name": "AkReverbVolume_Indoor",
+    "Outer": "PersistentLevel",
     "Properties": {
       "LateReverbComponent": {
-        "ObjectName": "AkReverbVolume_Indoor:LateReverb:",
-        "ObjectPath": "Audio.4"
+        "ObjectName": "AkLateReverbComponent Audio:PersistentLevel.AkReverbVolume_Indoor.LateReverb",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.4"
       },
       "BrushType": "Brush_Add",
       "Brush": {
-        "ObjectName": "AkReverbVolume_Indoor:Model_11:",
-        "ObjectPath": "Audio.15"
+        "ObjectName": "Model Audio:PersistentLevel.AkReverbVolume_Indoor.Model_11",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.15"
       },
       "BrushComponent": {
-        "ObjectName": "AkReverbVolume_Indoor:BrushComponent0:",
-        "ObjectPath": "Audio.11"
+        "ObjectName": "BrushComponent Audio:PersistentLevel.AkReverbVolume_Indoor.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.11"
       },
       "bHidden": false,
       "RootComponent": {
-        "ObjectName": "AkReverbVolume_Indoor:BrushComponent0:",
-        "ObjectPath": "Audio.11"
+        "ObjectName": "BrushComponent Audio:PersistentLevel.AkReverbVolume_Indoor.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.11"
       }
     }
   },
   {
     "Type": "AkReverbVolume",
     "Name": "AkReverbVolume_Outdoor",
+    "Outer": "PersistentLevel",
     "Properties": {
       "LateReverbComponent": {
-        "ObjectName": "AkReverbVolume_Outdoor:LateReverb:",
-        "ObjectPath": "Audio.5"
+        "ObjectName": "AkLateReverbComponent Audio:PersistentLevel.AkReverbVolume_Outdoor.LateReverb",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.5"
       },
       "BrushType": "Brush_Add",
       "Brush": {
-        "ObjectName": "AkReverbVolume_Outdoor:Model_11:",
-        "ObjectPath": "Audio.16"
+        "ObjectName": "Model Audio:PersistentLevel.AkReverbVolume_Outdoor.Model_11",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.16"
       },
       "BrushComponent": {
-        "ObjectName": "AkReverbVolume_Outdoor:BrushComponent0:",
-        "ObjectPath": "Audio.12"
+        "ObjectName": "BrushComponent Audio:PersistentLevel.AkReverbVolume_Outdoor.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.12"
       },
       "bHidden": false,
       "RootComponent": {
-        "ObjectName": "AkReverbVolume_Outdoor:BrushComponent0:",
-        "ObjectPath": "Audio.12"
+        "ObjectName": "BrushComponent Audio:PersistentLevel.AkReverbVolume_Outdoor.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.12"
       }
     }
   },
   {
-    "Type": "LevelScriptActor",
+    "Type": "Audio_C",
     "Name": "Audio_C_1",
-    "Properties": {}
+    "Outer": "PersistentLevel",
+    "Template": "Default__Audio_C"
   },
   {
     "Type": "BodySetup",
     "Name": "BodySetup_751",
+    "Outer": "BrushComponent0",
     "Properties": {
       "AggGeom": {
         "ConvexElems": [
@@ -165,7 +250,10 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "Z": 0.0,
-                "W": 1.0
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
               },
               "Translation": {
                 "X": 0.0,
@@ -180,17 +268,28 @@
             },
             "RestOffset": 0.0,
             "Name": "None",
-            "bContributeToMass": true
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
           }
         ]
       },
       "bGenerateMirroredCollision": false,
       "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
+    },
+    "BodySetupGuid": "9969D35744A6A2BD79706586BD4F00AF",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_ForceInlinePayload",
+        "ElementCount": 470,
+        "SizeOnDisk": 470,
+        "OffsetInFile": "0x6E52"
+      }
     }
   },
   {
     "Type": "BodySetup",
     "Name": "BodySetup_751",
+    "Outer": "BrushComponent0",
     "Properties": {
       "AggGeom": {
         "ConvexElems": [
@@ -256,7 +355,10 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "Z": 0.0,
-                "W": 1.0
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
               },
               "Translation": {
                 "X": 0.0,
@@ -271,25 +373,36 @@
             },
             "RestOffset": 0.0,
             "Name": "None",
-            "bContributeToMass": true
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
           }
         ]
       },
       "bGenerateMirroredCollision": false,
       "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
+    },
+    "BodySetupGuid": "8F567490479051423A9BB3A572FA0268",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_ForceInlinePayload",
+        "ElementCount": 470,
+        "SizeOnDisk": 470,
+        "OffsetInFile": "0x73E0"
+      }
     }
   },
   {
     "Type": "BrushComponent",
     "Name": "BrushComponent0",
+    "Outer": "AkReverbVolume_Indoor",
     "Properties": {
       "Brush": {
-        "ObjectName": "AkReverbVolume_Indoor:Model_11:",
-        "ObjectPath": "Audio.15"
+        "ObjectName": "Model Audio:PersistentLevel.AkReverbVolume_Indoor.Model_11",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.15"
       },
       "BrushBodySetup": {
-        "ObjectName": "BrushComponent0:BodySetup_751:",
-        "ObjectPath": "Audio.9"
+        "ObjectName": "BodySetup Audio:PersistentLevel.AkReverbVolume_Indoor.BrushComponent0.BodySetup_751",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.9"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
@@ -362,14 +475,15 @@
   {
     "Type": "BrushComponent",
     "Name": "BrushComponent0",
+    "Outer": "AkReverbVolume_Outdoor",
     "Properties": {
       "Brush": {
-        "ObjectName": "AkReverbVolume_Outdoor:Model_11:",
-        "ObjectPath": "Audio.16"
+        "ObjectName": "Model Audio:PersistentLevel.AkReverbVolume_Outdoor.Model_11",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.16"
       },
       "BrushBodySetup": {
-        "ObjectName": "BrushComponent0:BodySetup_751:",
-        "ObjectPath": "Audio.10"
+        "ObjectName": "BodySetup Audio:PersistentLevel.AkReverbVolume_Outdoor.BrushComponent0.BodySetup_751",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.10"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
@@ -437,50 +551,1000 @@
   {
     "Type": "InstancedFoliageActor",
     "Name": "InstancedFoliageActor_0",
+    "Outer": "PersistentLevel",
     "Properties": {
       "RootComponent": {
-        "ObjectName": "InstancedFoliageActor_0:RootComponent0:",
-        "ObjectPath": "Audio.19"
+        "ObjectName": "SceneComponent Audio:PersistentLevel.InstancedFoliageActor_0.RootComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.19"
       }
     }
   },
   {
     "Type": "Level",
     "Name": "PersistentLevel",
+    "Outer": "Audio",
     "Properties": {
       "Model": {
-        "ObjectName": "PersistentLevel:Model_5:",
-        "ObjectPath": "Audio.17"
+        "ObjectName": "Model Audio:PersistentLevel.Model_5",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.17"
       },
       "LevelScriptActor": {
-        "ObjectName": "PersistentLevel:Audio_C_1:",
-        "ObjectPath": "Audio.8"
+        "ObjectName": "Audio_C Audio:PersistentLevel.Audio_C_1",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.8"
       },
       "LevelBuildDataId": "CE29BFBC-4E767F19-FE05C2A6-44FBBE6D",
       "WorldSettings": {
-        "ObjectName": "PersistentLevel:WorldSettings:",
-        "ObjectPath": "Audio.21"
+        "ObjectName": "WorldSettings Audio:PersistentLevel.WorldSettings",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.21"
       }
+    },
+    "Actors": [
+      {
+        "ObjectName": "WorldSettings Audio:PersistentLevel.WorldSettings",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.21"
+      },
+      null,
+      {
+        "ObjectName": "InstancedFoliageActor Audio:PersistentLevel.InstancedFoliageActor_0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.13"
+      },
+      {
+        "ObjectName": "AkReverbVolume Audio:PersistentLevel.AkReverbVolume_Outdoor",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.7"
+      },
+      {
+        "ObjectName": "AkReverbVolume Audio:PersistentLevel.AkReverbVolume_Indoor",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.6"
+      },
+      {
+        "ObjectName": "Audio_C Audio:PersistentLevel.Audio_C_1",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.8"
+      }
+    ],
+    "URL": {
+      "Protocol": "unreal",
+      "Host": "",
+      "Port": 7777,
+      "Valid": true,
+      "Map": "/Game/Maps/BlockyDangerUnleashed",
+      "Op": [],
+      "Portal": ""
+    },
+    "Model": {
+      "ObjectName": "Model Audio:PersistentLevel.Model_5",
+      "ObjectPath": "DeadByDaylight/Content/Maps/Audio.17"
+    },
+    "ModelComponents": [],
+    "LevelScriptActor": {
+      "ObjectName": "Audio_C Audio:PersistentLevel.Audio_C_1",
+      "ObjectPath": "DeadByDaylight/Content/Maps/Audio.8"
+    },
+    "NavListStart": null,
+    "NavListEnd": null,
+    "PrecomputedVisibilityHandler": {
+      "PrecomputedVisibilityCellBucketOriginXY": {
+        "X": 0.0,
+        "Y": 0.0
+      },
+      "PrecomputedVisibilityCellSizeXY": 0.0,
+      "PrecomputedVisibilityCellSizeZ": 0.0,
+      "PrecomputedVisibilityCellBucketSizeXY": 0,
+      "PrecomputedVisibilityNumCellBuckets": 0,
+      "PrecomputedVisibilityCellBuckets": []
+    },
+    "PrecomputedVolumeDistanceField": {
+      "VolumeMaxDistance": 0.0,
+      "VolumeBox": {
+        "Min": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Max": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "IsValid": 0
+      },
+      "VolumeSizeX": 0,
+      "VolumeSizeY": 0,
+      "VolumeSizeZ": 0,
+      "Data": []
     }
   },
   {
     "Type": "Model",
     "Name": "Model_11",
-    "Properties": {}
+    "Outer": "AkReverbVolume_Indoor",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 40000.0,
+        "Y": 40000.0,
+        "Z": 40000.0
+      },
+      "SphereRadius": 69282.03
+    },
+    "Vectors": [
+      {
+        "X": -1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -1.0
+      },
+      {
+        "X": 1.0,
+        "Y": -0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": -1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 1.0
+      }
+    ],
+    "Points": [
+      {
+        "X": -40000.0,
+        "Y": -40000.0,
+        "Z": -40000.0
+      },
+      {
+        "X": -40000.0,
+        "Y": -40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": -40000.0,
+        "Y": 40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": -40000.0,
+        "Y": 40000.0,
+        "Z": -40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": 40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": 40000.0,
+        "Z": -40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": -40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": -40000.0,
+        "Z": -40000.0
+      }
+    ],
+    "Nodes": [
+      {
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 0,
+        "iSurf": 0,
+        "iVertexIndex": 0,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 4,
+        "iSurf": 1,
+        "iVertexIndex": 4,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 2,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 8,
+        "iSurf": 2,
+        "iVertexIndex": 8,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 3,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 12,
+        "iSurf": 3,
+        "iVertexIndex": 12,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 4,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "iVertPool": 16,
+        "iSurf": 4,
+        "iVertexIndex": 16,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 5,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "iVertPool": 20,
+        "iSurf": 5,
+        "iVertexIndex": 20,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": -1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": 0,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      }
+    ],
+    "Surfs": [
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 0,
+        "vTextureU": 1,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 3,
+        "vNormal": 1,
+        "vTextureU": 3,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 5,
+        "vNormal": 3,
+        "vTextureU": 4,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 7,
+        "vNormal": 4,
+        "vTextureU": 0,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 2,
+        "vNormal": 5,
+        "vTextureU": 3,
+        "vTextureV": 1,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 2,
+        "vTextureU": 3,
+        "vTextureV": 4,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      }
+    ],
+    "NumSharedSides": 4,
+    "VertexBuffer": null,
+    "LightingGuid": "011E35EC-4CC6909F-51D9A5A9-5B747516",
+    "LightmassSettings": [
+      {
+        "bUseTwoSidedLighting": false,
+        "bShadowIndirectOnly": false,
+        "bUseEmissiveForStaticLighting": false,
+        "bUseVertexNormalForHemisphereGather": false,
+        "EmissiveLightFalloffExponent": 8.0,
+        "EmissiveLightExplicitInfluenceRadius": 0.0,
+        "EmissiveBoost": 1.0,
+        "DiffuseBoost": 1.0,
+        "FullyOccludedSamplesFraction": 1.0
+      }
+    ]
   },
   {
     "Type": "Model",
     "Name": "Model_11",
-    "Properties": {}
+    "Outer": "AkReverbVolume_Outdoor",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 40000.0,
+        "Y": 40000.0,
+        "Z": 40000.0
+      },
+      "SphereRadius": 69282.03
+    },
+    "Vectors": [
+      {
+        "X": -1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -1.0
+      },
+      {
+        "X": 1.0,
+        "Y": -0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": -1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 1.0
+      }
+    ],
+    "Points": [
+      {
+        "X": -40000.0,
+        "Y": -40000.0,
+        "Z": -40000.0
+      },
+      {
+        "X": -40000.0,
+        "Y": -40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": -40000.0,
+        "Y": 40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": -40000.0,
+        "Y": 40000.0,
+        "Z": -40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": 40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": 40000.0,
+        "Z": -40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": -40000.0,
+        "Z": 40000.0
+      },
+      {
+        "X": 40000.0,
+        "Y": -40000.0,
+        "Z": -40000.0
+      }
+    ],
+    "Nodes": [
+      {
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 0,
+        "iSurf": 0,
+        "iVertexIndex": 0,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 4,
+        "iSurf": 1,
+        "iVertexIndex": 4,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 2,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 8,
+        "iSurf": 2,
+        "iVertexIndex": 8,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 3,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 12,
+        "iSurf": 3,
+        "iVertexIndex": 12,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 4,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "iVertPool": 16,
+        "iSurf": 4,
+        "iVertexIndex": 16,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 5,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "iVertPool": 20,
+        "iSurf": 5,
+        "iVertexIndex": 20,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": -1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": 0,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      }
+    ],
+    "Surfs": [
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 0,
+        "vTextureU": 1,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 3,
+        "vNormal": 1,
+        "vTextureU": 3,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 5,
+        "vNormal": 3,
+        "vTextureU": 4,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 7,
+        "vNormal": 4,
+        "vTextureU": 0,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 2,
+        "vNormal": 5,
+        "vTextureU": 3,
+        "vTextureV": 1,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 2,
+        "vTextureU": 3,
+        "vTextureV": 4,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 40000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      }
+    ],
+    "NumSharedSides": 4,
+    "VertexBuffer": null,
+    "LightingGuid": "B0C1B707-4F1299BF-C0FB6C92-8B975A70",
+    "LightmassSettings": [
+      {
+        "bUseTwoSidedLighting": false,
+        "bShadowIndirectOnly": false,
+        "bUseEmissiveForStaticLighting": false,
+        "bUseVertexNormalForHemisphereGather": false,
+        "EmissiveLightFalloffExponent": 8.0,
+        "EmissiveLightExplicitInfluenceRadius": 0.0,
+        "EmissiveBoost": 1.0,
+        "DiffuseBoost": 1.0,
+        "FullyOccludedSamplesFraction": 1.0
+      }
+    ]
   },
   {
     "Type": "Model",
     "Name": "Model_5",
-    "Properties": {}
+    "Outer": "PersistentLevel",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "SphereRadius": 0.0
+    },
+    "Vectors": [],
+    "Points": [],
+    "Nodes": [],
+    "Surfs": [],
+    "NumSharedSides": 4,
+    "VertexBuffer": {
+      "Vertices": []
+    },
+    "LightingGuid": "57B22B0F-4679F00C-52FB4BAA-80C1581A",
+    "LightmassSettings": [
+      {
+        "bUseTwoSidedLighting": false,
+        "bShadowIndirectOnly": false,
+        "bUseEmissiveForStaticLighting": false,
+        "bUseVertexNormalForHemisphereGather": false,
+        "EmissiveLightFalloffExponent": 8.0,
+        "EmissiveLightExplicitInfluenceRadius": 0.0,
+        "EmissiveBoost": 1.0,
+        "DiffuseBoost": 1.0,
+        "FullyOccludedSamplesFraction": 1.0
+      }
+    ]
   },
   {
     "Type": "NavigationSystemModuleConfig",
     "Name": "NavigationSystemModuleConfig_0",
+    "Outer": "WorldSettings",
     "Properties": {
       "bCreateOnClient": true,
       "bAutoSpawnMissingNavData": true,
@@ -494,20 +1558,27 @@
   {
     "Type": "SceneComponent",
     "Name": "RootComponent0",
-    "Properties": {}
+    "Outer": "InstancedFoliageActor_0"
   },
   {
     "Type": "World",
     "Name": "Audio",
-    "Properties": {}
+    "PersistentLevel": {
+      "ObjectName": "Level Audio:PersistentLevel",
+      "ObjectPath": "DeadByDaylight/Content/Maps/Audio.14"
+    },
+    "ExtraReferencedObjects": [],
+    "StreamingLevels": []
   },
   {
     "Type": "WorldSettings",
+    "Name": "WorldSettings",
+    "Outer": "PersistentLevel",
     "Properties": {
       "bEnableNavigationSystem": false,
       "NavigationSystemConfig": {
-        "ObjectName": "WorldSettings:NavigationSystemModuleConfig_0:",
-        "ObjectPath": "Audio.18"
+        "ObjectName": "NavigationSystemModuleConfig Audio:PersistentLevel.WorldSettings.NavigationSystemModuleConfig_0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/Audio.18"
       },
       "BookmarkArray": [
         null,

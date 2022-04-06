@@ -2,6 +2,7 @@
   {
     "Type": "BodySetup",
     "Name": "RB_BodySetup_0",
+    "Outer": "Cube",
     "Properties": {
       "AggGeom": {
         "ConvexElems": [
@@ -67,7 +68,10 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "Z": 0.0,
-                "W": 1.0
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
               },
               "Translation": {
                 "X": 0.0,
@@ -82,13 +86,13 @@
             },
             "RestOffset": 0.0,
             "Name": "None",
-            "bContributeToMass": true
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
           }
         ]
       },
       "DefaultInstance": {
         "ObjectType": "ECC_WorldStatic",
-        "bSimulatePhysics": true,
         "CollisionProfileName": "BlockAll",
         "CollisionResponses": {
           "ResponseArray": [
@@ -121,14 +125,32 @@
               "Response": "ECR_Block"
             }
           ]
-        }
+        },
+        "bSimulatePhysics": true
+      }
+    },
+    "BodySetupGuid": "655DB63D4F06BA2BC136A19EC273BBD6",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_ForceInlinePayload",
+        "ElementCount": 1403,
+        "SizeOnDisk": 1403,
+        "OffsetInFile": "0x3557"
       }
     }
   },
   {
     "Type": "NavCollision",
     "Name": "NavCollision_0",
-    "Properties": {}
+    "Outer": "Cube",
+    "CookedFormatData": {
+      "NavCollision_X": {
+        "BulkDataFlags": "BULKDATA_ForceInlinePayload",
+        "ElementCount": 457,
+        "SizeOnDisk": 457,
+        "OffsetInFile": "0x3B1A"
+      }
+    }
   },
   {
     "Type": "StaticMesh",
@@ -142,8 +164,8 @@
       "StaticMaterials": [
         {
           "MaterialInterface": {
-            "ObjectName": "DefaultMaterial:Material",
-            "ObjectPath": "/Engine/EngineMaterials/DefaultMaterial.4"
+            "ObjectName": "Material DefaultMaterial",
+            "ObjectPath": "Engine/Content/EngineMaterials/DefaultMaterial.0"
           },
           "MaterialSlotName": "DefaultMaterial",
           "ImportedMaterialSlotName": "DefaultMaterial",
@@ -167,6 +189,16 @@
         },
         "SphereRadius": 221.7025
       }
-    }
+    },
+    "BodySetup": {
+      "ObjectName": "BodySetup Cube:RB_BodySetup_0",
+      "ObjectPath": "Engine/Content/EngineMeshes/Cube.0"
+    },
+    "NavCollision": {
+      "ObjectName": "NavCollision Cube:NavCollision_0",
+      "ObjectPath": "Engine/Content/EngineMeshes/Cube.1"
+    },
+    "LightingGuid": "C1786C43-4D216D82-7E8BD494-312794BA",
+    "RenderData": null
   }
 ]

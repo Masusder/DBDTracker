@@ -161,6 +161,35 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPerkManager_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class PerkManager",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetPerkLevel_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_WasRecentlyCloaked_ReturnValue",
         "Flags": 1,
@@ -174,26 +203,36 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPerkManager_ReturnValue",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyFlags": 524288,
         "PropertyClass": {
-          "ObjectName": "Class PerkManager",
+          "ObjectName": "Class StatusEffect",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsValid_ReturnValue",
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue_1",
         "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       },
       {
         "Type": "BoolProperty",
@@ -210,63 +249,6 @@
       {
         "Type": "BoolProperty",
         "Name": "CallFunc_BooleanAND_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_GetPerkLevel_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_ReturnValue_2",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_GetPerkLevel_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_SwitchInteger_CmpSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -346,13 +328,26 @@
       },
       {
         "Type": "ArrayProperty",
-        "Name": "Hemorrhage Frequency",
+        "Name": "Bleeding Lifetime",
         "Flags": 2097153,
         "ElementSize": 16,
         "PropertyFlags": 65541,
         "Inner": {
           "Type": "FloatProperty",
-          "Name": "Hemorrhage Frequency",
+          "Name": "Bleeding Lifetime",
+          "Flags": 1,
+          "ElementSize": 4
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Hemorrhage Regression",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 65541,
+        "Inner": {
+          "Type": "FloatProperty",
+          "Name": "Hemorrhage Regression",
           "Flags": 1,
           "ElementSize": 4
         }
@@ -386,8 +381,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "SloppyButcher_C Default__SloppyButcher_C",
@@ -399,10 +392,15 @@
     "Name": "Default__SloppyButcher_C",
     "Properties": {
       "UberGraphFrame": {},
-      "Hemorrhage Frequency": [
-        0.5,
-        0.75,
-        1.0
+      "Bleeding Lifetime": [
+        1.5,
+        2.25,
+        3.0
+      ],
+      "Hemorrhage Regression": [
+        0.15,
+        0.2,
+        0.25
       ],
       "PerkIconStrategyClass": {
         "ObjectName": "Class AlwaysVisiblePerkIconStrategy",

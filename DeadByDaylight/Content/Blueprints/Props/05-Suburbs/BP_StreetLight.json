@@ -74,7 +74,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_StreetLight_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.17"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.19"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_StreetLight_C:ExecuteUbergraph_BP_StreetLight",
@@ -109,6 +109,39 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "GMAdaptiveShadowMapSource",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class GMAdaptiveShadowMapSourceComponent",
+          "ObjectPath": "/Script/GraphicsExtensions"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SpotLight1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class SpotLightComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PointLight1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class PointLightComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "P_LightSourceFx",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -126,28 +159,6 @@
         "PropertyFlags": 17180393476,
         "PropertyClass": {
           "ObjectName": "Class ParticleSystemComponent",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "SpotLight",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class SpotLightComponent",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "PointLight",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class PointLightComponent",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -190,8 +201,6 @@
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_StreetLight_C Default__BP_StreetLight_C",
@@ -206,6 +215,14 @@
       "PrimaryActorTick": {
         "bStartWithTickEnabled": false
       }
+    }
+  },
+  {
+    "Type": "GMAdaptiveShadowMapSourceComponent",
+    "Name": "GMAdaptiveShadowMapSource_GEN_VARIABLE",
+    "Outer": "BP_StreetLight_C",
+    "Properties": {
+      "Levels": 3
     }
   },
   {
@@ -233,8 +250,8 @@
       "OcclusionLayerNumNodes": -842150451,
       "InstancingRandomSeed": 17300,
       "StaticMesh": {
-        "ObjectName": "StaticMesh SM_StreetLight01",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Props/Light/SM_StreetLight01.2"
+        "ObjectName": "StaticMesh SM_HAD_StreetLamp_Big_01",
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Suburbs/Props/SM_HAD_StreetLamp_Big_01.2"
       },
       "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
@@ -242,7 +259,26 @@
         "MassInKgOverride": 291.5936
       },
       "Mobility": "EComponentMobility::Static"
-    }
+    },
+    "PerInstanceSMData": [
+      {
+        "OffsetLocation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "RelativeRotation": {
+          "Pitch": 0.0,
+          "Yaw": 0.0,
+          "Roll": 0.0
+        },
+        "RelativeScale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      }
+    ]
   },
   {
     "Type": "ParticleSystemComponent",
@@ -256,8 +292,8 @@
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
         "X": 0.0,
-        "Y": 215.99998,
-        "Z": 620.0
+        "Y": 246.01361,
+        "Z": 948.92267
       },
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -282,9 +318,9 @@
       "WarmupTime": 5.0,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
-        "X": 0.0,
-        "Y": 215.99998,
-        "Z": 631.0
+        "X": 9.1552734E-05,
+        "Y": 249.1952,
+        "Z": 938.12335
       },
       "DetailModeBitMask": -5,
       "PrimaryComponentTick": {
@@ -294,22 +330,22 @@
   },
   {
     "Type": "PointLightComponent",
-    "Name": "PointLightB3EB51D04CAD6843597A519CAD4F5C6C",
+    "Name": "PointLight1_GEN_VARIABLE",
     "Outer": "BP_StreetLight_C",
     "Properties": {
-      "AttenuationRadius": 250.0,
-      "MaxDrawDistance": 0.0,
-      "MaxDistanceFadeRange": 0.0,
-      "Intensity": 1785.8446,
+      "IntensityUnits": "ELightUnits::Lumens",
+      "AttenuationRadius": 800.0,
+      "Temperature": 3500.0,
+      "bUseTemperature": true,
+      "Intensity": 5.0,
       "CastShadows": false,
-      "CastDynamicShadowsWithNewDefaultValue": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
+      "VolumetricScatteringIntensity": 1.0,
       "RelativeLocation": {
-        "X": 5.059045,
-        "Y": 212.94104,
-        "Z": 790.5119
-      },
-      "Mobility": "EComponentMobility::Static"
+        "X": 0.000884,
+        "Y": 248.3038,
+        "Z": 928.33777
+      }
     }
   },
   {
@@ -327,6 +363,29 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class SpotLightComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SpotLightComponent BP_StreetLight_C:SpotLight1_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.20"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.15"
+        }
+      ],
+      "VariableGuid": "5D2AC4A2-4A96755D-483424AE-7427100C",
+      "InternalVariableName": "SpotLight1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_11",
     "Outer": "SimpleConstructionScript_1",
     "Properties": {
@@ -336,28 +395,28 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_StreetLight_C:SceneComponent_110",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.10"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.15"
-        },
-        {
-          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.12"
-        },
-        {
-          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.13"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.17"
         },
         {
           "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.11"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.13"
         },
         {
           "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.16"
+        },
+        {
+          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_4",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.14"
+        },
+        {
+          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.11"
         }
       ],
       "VariableGuid": "4EB57E9F-4DC2DE8D-DCCE17B2-A10871B1",
@@ -375,7 +434,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_StreetLight_C:ParticleSystem6786B00E4FBAA627BC1AD69ACDCC0033",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.7"
       },
       "VariableGuid": "DC01AC1F-4F56506C-4BA92B9E-B2DFC2F2",
       "InternalVariableName": "P_Flies"
@@ -391,11 +450,11 @@
         "ObjectPath": "/Script/Engine"
       },
       "ComponentTemplate": {
-        "ObjectName": "PointLightComponent BP_StreetLight_C:PointLightB3EB51D04CAD6843597A519CAD4F5C6C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.7"
+        "ObjectName": "PointLightComponent BP_StreetLight_C:PointLight1_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.8"
       },
-      "VariableGuid": "849331C3-476709C1-14BF329F-36F84714",
-      "InternalVariableName": "PointLight"
+      "VariableGuid": "AE736EE6-46993DA9-F05594AD-229BF0A1",
+      "InternalVariableName": "PointLight1"
     }
   },
   {
@@ -404,15 +463,15 @@
     "Outer": "SimpleConstructionScript_1",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class SpotLightComponent",
-        "ObjectPath": "/Script/Engine"
+        "ObjectName": "Class GMAdaptiveShadowMapSourceComponent",
+        "ObjectPath": "/Script/GraphicsExtensions"
       },
       "ComponentTemplate": {
-        "ObjectName": "SpotLightComponent BP_StreetLight_C:SpotLightF6693B0648AC962454496CA685266DB5",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.18"
+        "ObjectName": "GMAdaptiveShadowMapSourceComponent BP_StreetLight_C:GMAdaptiveShadowMapSource_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.4"
       },
-      "VariableGuid": "9B853B02-4A77DA6D-4C8603A0-2D46A24D",
-      "InternalVariableName": "SpotLight"
+      "VariableGuid": "E0D8C90A-44268CFC-451BA9A0-FC983BDF",
+      "InternalVariableName": "GMAdaptiveShadowMapSource"
     }
   },
   {
@@ -426,7 +485,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_StreetLight_C:ParticleSystem5BB9E8C4472F4FE84E970B8395AD21A8",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.6"
       },
       "VariableGuid": "18EEB898-48E349BC-D5E84488-D7406442",
       "InternalVariableName": "P_LightSourceFx"
@@ -443,7 +502,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_StreetLight_C:HierarchicalInstancedStaticMesh4002D815453EB597E890268D04072BBE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.5"
       },
       "VariableGuid": "ADEFC53B-456CD5C8-BB37EF82-2A135448",
       "InternalVariableName": "patch"
@@ -460,7 +519,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_StreetLight_C:SceneComponent_105",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.9"
       },
       "VariableGuid": "30AEBCFF-42BE5153-A2CF119D-01511A25",
       "InternalVariableName": "DefaultSceneRoot"
@@ -474,71 +533,69 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.12"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.15"
-        },
-        {
-          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_4",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.12"
         },
         {
-          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.13"
+          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.17"
         },
         {
           "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.11"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.13"
         },
         {
           "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.16"
+        },
+        {
+          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_4",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.14"
+        },
+        {
+          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.11"
+        },
+        {
+          "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.15"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_StreetLight_C:SimpleConstructionScript_1.SCS_Node_9",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/05-Suburbs/BP_StreetLight.18"
       }
     }
   },
   {
     "Type": "SpotLightComponent",
-    "Name": "SpotLightF6693B0648AC962454496CA685266DB5",
+    "Name": "SpotLight1_GEN_VARIABLE",
     "Outer": "BP_StreetLight_C",
     "Properties": {
-      "OuterConeAngle": 40.0,
-      "AttenuationRadius": 900.0,
-      "bCastShadowsFromCinematicObjectsOnly": true,
-      "Intensity": 19624.77,
-      "LightColor": {
-        "R": 220,
-        "G": 255,
-        "B": 255,
-        "A": 0,
-        "Hex": "DCFFFF"
-      },
+      "OuterConeAngle": 50.0,
+      "IntensityUnits": "ELightUnits::Lumens",
+      "AttenuationRadius": 1600.0,
+      "Temperature": 2500.0,
+      "bUseTemperature": true,
+      "Intensity": 150.0,
       "CastDynamicShadowsWithNewDefaultValue": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
-      "bAffectTranslucentLighting": false,
+      "VolumetricScatteringIntensity": 0.015,
       "RelativeLocation": {
-        "X": -0.0005700719,
-        "Y": 219.31367,
-        "Z": 576.17773
+        "X": 0.38447577,
+        "Y": 251.20969,
+        "Z": 967.7254
       },
       "RelativeRotation": {
-        "Pitch": -84.99945,
-        "Yaw": 89.99964,
-        "Roll": -89.9996
-      },
-      "Mobility": "EComponentMobility::Stationary"
+        "Pitch": -90.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
     }
   }
 ]

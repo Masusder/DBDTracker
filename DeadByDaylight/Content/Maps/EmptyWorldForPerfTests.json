@@ -2,6 +2,7 @@
   {
     "Type": "BodySetup",
     "Name": "BodySetup_572",
+    "Outer": "BrushComponent0",
     "Properties": {
       "AggGeom": {
         "ConvexElems": [
@@ -147,7 +148,10 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "Z": 0.0,
-                "W": 1.0
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
               },
               "Translation": {
                 "X": 0.0,
@@ -162,38 +166,50 @@
             },
             "RestOffset": 0.0,
             "Name": "None",
-            "bContributeToMass": true
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
           }
         ]
       },
       "bGenerateMirroredCollision": false,
       "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
+    },
+    "BodySetupGuid": "9DF4237F4557661762DCFE98E6DB63A6",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_ForceInlinePayload",
+        "ElementCount": 1254,
+        "SizeOnDisk": 1254,
+        "OffsetInFile": "0x4DC0"
+      }
     }
   },
   {
     "Type": "BP_RotateCamera_C",
     "Name": "BP_RotateCamera_C_0",
+    "Outer": "PersistentLevel",
+    "Template": "Default__BP_RotateCamera_C",
     "Properties": {
       "Camera": {
-        "ObjectName": "BP_RotateCamera_C_0:Camera:",
-        "ObjectPath": "EmptyWorldForPerfTests.3"
+        "ObjectName": "CameraComponent EmptyWorldForPerfTests:PersistentLevel.BP_RotateCamera_C_0.Camera",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.3"
       },
       "DefaultSceneRoot": {
-        "ObjectName": "BP_RotateCamera_C_0:DefaultSceneRoot:",
-        "ObjectPath": "EmptyWorldForPerfTests.13"
+        "ObjectName": "SceneComponent EmptyWorldForPerfTests:PersistentLevel.BP_RotateCamera_C_0.DefaultSceneRoot",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.13"
       },
       "RootComponent": {
-        "ObjectName": "BP_RotateCamera_C_0:DefaultSceneRoot:",
-        "ObjectPath": "EmptyWorldForPerfTests.13"
+        "ObjectName": "SceneComponent EmptyWorldForPerfTests:PersistentLevel.BP_RotateCamera_C_0.DefaultSceneRoot",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.13"
       },
       "BlueprintCreatedComponents": [
         {
-          "ObjectName": "BP_RotateCamera_C_0:DefaultSceneRoot:",
-          "ObjectPath": "EmptyWorldForPerfTests.13"
+          "ObjectName": "SceneComponent EmptyWorldForPerfTests:PersistentLevel.BP_RotateCamera_C_0.DefaultSceneRoot",
+          "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.13"
         },
         {
-          "ObjectName": "BP_RotateCamera_C_0:Camera:",
-          "ObjectPath": "EmptyWorldForPerfTests.3"
+          "ObjectName": "CameraComponent EmptyWorldForPerfTests:PersistentLevel.BP_RotateCamera_C_0.Camera",
+          "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.3"
         }
       ]
     }
@@ -201,14 +217,15 @@
   {
     "Type": "BrushComponent",
     "Name": "BrushComponent0",
+    "Outer": "CullDistanceVolume_5",
     "Properties": {
       "Brush": {
-        "ObjectName": "CullDistanceVolume_5:Model_11:",
-        "ObjectPath": "EmptyWorldForPerfTests.10"
+        "ObjectName": "Model EmptyWorldForPerfTests:PersistentLevel.CullDistanceVolume_5.Model_11",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.10"
       },
       "BrushBodySetup": {
-        "ObjectName": "BrushComponent0:BodySetup_572:",
-        "ObjectPath": "EmptyWorldForPerfTests.0"
+        "ObjectName": "BodySetup EmptyWorldForPerfTests:PersistentLevel.CullDistanceVolume_5.BrushComponent0.BodySetup_572",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.0"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "RelativeLocation": {
@@ -221,10 +238,12 @@
   {
     "Type": "CameraComponent",
     "Name": "Camera",
+    "Outer": "BP_RotateCamera_C_0",
+    "Template": "Camera883F15E54374CCCCC6D502AAF95F04E7",
     "Properties": {
       "AttachParent": {
-        "ObjectName": "BP_RotateCamera_C_0:DefaultSceneRoot:",
-        "ObjectPath": "EmptyWorldForPerfTests.13"
+        "ObjectName": "SceneComponent EmptyWorldForPerfTests:PersistentLevel.BP_RotateCamera_C_0.DefaultSceneRoot",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.13"
       },
       "UCSSerializationIndex": 0,
       "bNetAddressable": true,
@@ -234,6 +253,7 @@
   {
     "Type": "CapsuleComponent",
     "Name": "CollisionCapsule",
+    "Outer": "CamperStart",
     "Properties": {
       "DetailLevelBeforeCastShadows": "DM_MAX"
     }
@@ -241,6 +261,7 @@
   {
     "Type": "CapsuleComponent",
     "Name": "CollisionCapsule",
+    "Outer": "SlasherStart",
     "Properties": {
       "DetailLevelBeforeCastShadows": "DM_MAX"
     }
@@ -248,6 +269,7 @@
   {
     "Type": "CullDistanceVolume",
     "Name": "CullDistanceVolume_5",
+    "Outer": "PersistentLevel",
     "Properties": {
       "CullDistances": [
         {
@@ -273,82 +295,599 @@
       ],
       "BrushType": "Brush_Add",
       "Brush": {
-        "ObjectName": "CullDistanceVolume_5:Model_11:",
-        "ObjectPath": "EmptyWorldForPerfTests.10"
+        "ObjectName": "Model EmptyWorldForPerfTests:PersistentLevel.CullDistanceVolume_5.Model_11",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.10"
       },
       "BrushComponent": {
-        "ObjectName": "CullDistanceVolume_5:BrushComponent0:",
-        "ObjectPath": "EmptyWorldForPerfTests.2"
+        "ObjectName": "BrushComponent EmptyWorldForPerfTests:PersistentLevel.CullDistanceVolume_5.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.2"
       },
       "bHidden": false,
       "RootComponent": {
-        "ObjectName": "CullDistanceVolume_5:BrushComponent0:",
-        "ObjectPath": "EmptyWorldForPerfTests.2"
+        "ObjectName": "BrushComponent EmptyWorldForPerfTests:PersistentLevel.CullDistanceVolume_5.BrushComponent0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.2"
       }
     }
   },
   {
     "Type": "DBDPlayerStart",
     "Name": "CamperStart",
+    "Outer": "PersistentLevel",
     "Properties": {
       "PlayerStartTag": "Camper",
       "CapsuleComponent": {
-        "ObjectName": "CamperStart:CollisionCapsule:",
-        "ObjectPath": "EmptyWorldForPerfTests.4"
+        "ObjectName": "CapsuleComponent EmptyWorldForPerfTests:PersistentLevel.CamperStart.CollisionCapsule",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.4"
       },
       "GoodSprite": null,
       "BadSprite": null,
       "RootComponent": {
-        "ObjectName": "CamperStart:CollisionCapsule:",
-        "ObjectPath": "EmptyWorldForPerfTests.4"
+        "ObjectName": "CapsuleComponent EmptyWorldForPerfTests:PersistentLevel.CamperStart.CollisionCapsule",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.4"
       }
     }
   },
   {
     "Type": "DBDPlayerStart",
     "Name": "SlasherStart",
+    "Outer": "PersistentLevel",
     "Properties": {
       "PlayerStartTag": "Slasher",
       "CapsuleComponent": {
-        "ObjectName": "SlasherStart:CollisionCapsule:",
-        "ObjectPath": "EmptyWorldForPerfTests.5"
+        "ObjectName": "CapsuleComponent EmptyWorldForPerfTests:PersistentLevel.SlasherStart.CollisionCapsule",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.5"
       },
       "GoodSprite": null,
       "BadSprite": null,
       "RootComponent": {
-        "ObjectName": "SlasherStart:CollisionCapsule:",
-        "ObjectPath": "EmptyWorldForPerfTests.5"
+        "ObjectName": "CapsuleComponent EmptyWorldForPerfTests:PersistentLevel.SlasherStart.CollisionCapsule",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.5"
       }
     }
   },
   {
     "Type": "Level",
     "Name": "PersistentLevel",
+    "Outer": "EmptyWorldForPerfTests",
     "Properties": {
       "Model": {
-        "ObjectName": "PersistentLevel:Model_9:",
-        "ObjectPath": "EmptyWorldForPerfTests.11"
+        "ObjectName": "Model EmptyWorldForPerfTests:PersistentLevel.Model_9",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.11"
       },
       "LevelBuildDataId": "FD871638-4070448C-8059C980-429EDB4F",
       "WorldSettings": {
-        "ObjectName": "PersistentLevel:WorldSettings:",
-        "ObjectPath": "EmptyWorldForPerfTests.15"
+        "ObjectName": "WorldSettings EmptyWorldForPerfTests:PersistentLevel.WorldSettings",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.15"
       }
+    },
+    "Actors": [
+      {
+        "ObjectName": "WorldSettings EmptyWorldForPerfTests:PersistentLevel.WorldSettings",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.15"
+      },
+      null,
+      {
+        "ObjectName": "DBDPlayerStart EmptyWorldForPerfTests:PersistentLevel.SlasherStart",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.8"
+      },
+      {
+        "ObjectName": "DBDPlayerStart EmptyWorldForPerfTests:PersistentLevel.CamperStart",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.7"
+      },
+      {
+        "ObjectName": "BP_RotateCamera_C EmptyWorldForPerfTests:PersistentLevel.BP_RotateCamera_C_0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.1"
+      },
+      {
+        "ObjectName": "CullDistanceVolume EmptyWorldForPerfTests:PersistentLevel.CullDistanceVolume_5",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.6"
+      }
+    ],
+    "URL": {
+      "Protocol": "unreal",
+      "Host": "",
+      "Port": 7777,
+      "Valid": true,
+      "Map": "/Game/Maps/OfflineLobby",
+      "Op": [],
+      "Portal": ""
+    },
+    "Model": {
+      "ObjectName": "Model EmptyWorldForPerfTests:PersistentLevel.Model_9",
+      "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.11"
+    },
+    "ModelComponents": [],
+    "LevelScriptActor": null,
+    "NavListStart": null,
+    "NavListEnd": null,
+    "PrecomputedVisibilityHandler": {
+      "PrecomputedVisibilityCellBucketOriginXY": {
+        "X": 0.0,
+        "Y": 0.0
+      },
+      "PrecomputedVisibilityCellSizeXY": 0.0,
+      "PrecomputedVisibilityCellSizeZ": 0.0,
+      "PrecomputedVisibilityCellBucketSizeXY": 0,
+      "PrecomputedVisibilityNumCellBuckets": 0,
+      "PrecomputedVisibilityCellBuckets": []
+    },
+    "PrecomputedVolumeDistanceField": {
+      "VolumeMaxDistance": 0.0,
+      "VolumeBox": {
+        "Min": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Max": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "IsValid": 0
+      },
+      "VolumeSizeX": 0,
+      "VolumeSizeY": 0,
+      "VolumeSizeZ": 0,
+      "Data": []
     }
   },
   {
     "Type": "Model",
     "Name": "Model_11",
-    "Properties": {}
+    "Outer": "CullDistanceVolume_5",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 10000000.0,
+        "Y": 10000000.0,
+        "Z": 10000000.0
+      },
+      "SphereRadius": 17320508.0
+    },
+    "Vectors": [
+      {
+        "X": -0.9999999,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -1.0
+      },
+      {
+        "X": 1.0,
+        "Y": -0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": -1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.9999999
+      }
+    ],
+    "Points": [
+      {
+        "X": -10000000.0,
+        "Y": -10000000.0,
+        "Z": -10000000.0
+      },
+      {
+        "X": -10000000.0,
+        "Y": -10000000.0,
+        "Z": 10000000.0
+      },
+      {
+        "X": -10000000.0,
+        "Y": 10000000.0,
+        "Z": 10000000.0
+      },
+      {
+        "X": -10000000.0,
+        "Y": 10000000.0,
+        "Z": -10000000.0
+      },
+      {
+        "X": 10000000.0,
+        "Y": 10000000.0,
+        "Z": 10000000.0
+      },
+      {
+        "X": 10000000.0,
+        "Y": 10000000.0,
+        "Z": -10000000.0
+      },
+      {
+        "X": 10000000.0,
+        "Y": -10000000.0,
+        "Z": 10000000.0
+      },
+      {
+        "X": 10000000.0,
+        "Y": -10000000.0,
+        "Z": -10000000.0
+      }
+    ],
+    "Nodes": [
+      {
+        "Plane": {
+          "Vector": {
+            "X": -0.9999999,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": -0.9999999,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 0,
+        "iSurf": 0,
+        "iVertexIndex": 0,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.9999999,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": 0.9999999,
+          "Z": 0.0
+        },
+        "iVertPool": 4,
+        "iSurf": 1,
+        "iVertexIndex": 4,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 2,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.9999999,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": 0.9999999,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 8,
+        "iSurf": 2,
+        "iVertexIndex": 8,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 3,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -0.9999999,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": -0.9999999,
+          "Z": 0.0
+        },
+        "iVertPool": 12,
+        "iSurf": 3,
+        "iVertexIndex": 12,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 4,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.9999999
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.9999999
+        },
+        "iVertPool": 16,
+        "iSurf": 4,
+        "iVertexIndex": 16,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 5,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -0.9999999
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -0.9999999
+        },
+        "iVertPool": 20,
+        "iSurf": 5,
+        "iVertexIndex": 20,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": -1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": 0,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      }
+    ],
+    "Surfs": [
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 0,
+        "vTextureU": 1,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": -0.9999999,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": -0.9999999,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 3,
+        "vNormal": 1,
+        "vTextureU": 3,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.9999999,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": 0.9999999,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 5,
+        "vNormal": 3,
+        "vTextureU": 4,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.9999999,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": 0.9999999,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 7,
+        "vNormal": 4,
+        "vTextureU": 0,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -0.9999999,
+            "Z": 0.0
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": -0.9999999,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 2,
+        "vNormal": 5,
+        "vTextureU": 3,
+        "vTextureV": 1,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.9999999
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.9999999
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 2,
+        "vTextureU": 3,
+        "vTextureV": 4,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -0.9999999
+          },
+          "W": 9999999.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -0.9999999
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      }
+    ],
+    "NumSharedSides": 4,
+    "VertexBuffer": null,
+    "LightingGuid": "D92F8F8C-400DE19A-B2EB57AA-609846AE",
+    "LightmassSettings": [
+      {
+        "bUseTwoSidedLighting": false,
+        "bShadowIndirectOnly": false,
+        "bUseEmissiveForStaticLighting": false,
+        "bUseVertexNormalForHemisphereGather": false,
+        "EmissiveLightFalloffExponent": 8.0,
+        "EmissiveLightExplicitInfluenceRadius": 0.0,
+        "EmissiveBoost": 1.0,
+        "DiffuseBoost": 1.0,
+        "FullyOccludedSamplesFraction": 1.0
+      }
+    ]
   },
   {
     "Type": "Model",
     "Name": "Model_9",
-    "Properties": {}
+    "Outer": "PersistentLevel",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "SphereRadius": 0.0
+    },
+    "Vectors": [],
+    "Points": [],
+    "Nodes": [],
+    "Surfs": [],
+    "NumSharedSides": 4,
+    "VertexBuffer": {
+      "Vertices": []
+    },
+    "LightingGuid": "60506B54-465975C8-9B07CB8D-79A035FC",
+    "LightmassSettings": []
   },
   {
     "Type": "NavigationSystemModuleConfig",
     "Name": "NavigationSystemModuleConfig_0",
+    "Outer": "WorldSettings",
     "Properties": {
       "bCreateOnClient": true,
       "bAutoSpawnMissingNavData": true,
@@ -362,6 +901,8 @@
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot",
+    "Outer": "BP_RotateCamera_C_0",
+    "Template": "DefaultSceneRootEE6AA99E46A37148564262BF6EB669A0",
     "Properties": {
       "RelativeLocation": {
         "X": 0.0,
@@ -374,8 +915,8 @@
       "UCSModifiedProperties": [
         {
           "MemberParent": {
-            "ObjectName": "SceneComponent:Class",
-            "ObjectPath": "/Script/Engine.15"
+            "ObjectName": "Class SceneComponent",
+            "ObjectPath": "/Script/Engine"
           },
           "MemberName": "RelativeLocation",
           "MemberGuid": "00000000-00000000-00000000-00000000"
@@ -386,19 +927,26 @@
   {
     "Type": "World",
     "Name": "EmptyWorldForPerfTests",
-    "Properties": {}
+    "PersistentLevel": {
+      "ObjectName": "Level EmptyWorldForPerfTests:PersistentLevel",
+      "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.9"
+    },
+    "ExtraReferencedObjects": [],
+    "StreamingLevels": []
   },
   {
     "Type": "WorldSettings",
+    "Name": "WorldSettings",
+    "Outer": "PersistentLevel",
     "Properties": {
       "bEnableNavigationSystem": false,
       "NavigationSystemConfig": {
-        "ObjectName": "WorldSettings:NavigationSystemModuleConfig_0:",
-        "ObjectPath": "EmptyWorldForPerfTests.12"
+        "ObjectName": "NavigationSystemModuleConfig EmptyWorldForPerfTests:PersistentLevel.WorldSettings.NavigationSystemModuleConfig_0",
+        "ObjectPath": "DeadByDaylight/Content/Maps/EmptyWorldForPerfTests.12"
       },
       "DefaultGameMode": {
-        "ObjectName": "DBDGameMode:Class",
-        "ObjectPath": "/Script/DeadByDaylight.6"
+        "ObjectName": "Class DBDGameMode",
+        "ObjectPath": "/Script/DeadByDaylight"
       },
       "BookmarkArray": [
         null,

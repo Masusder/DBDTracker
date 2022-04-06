@@ -1,26 +1,7 @@
-;
-; Base scalability settings
-; =========================
-;
-; The definitions here affect the console variables starting with "sg." and define the user quality levels (game/editor video settings)
-; To override a specific platform use DeviceProfile.ini (whach out for the different syntax).
-;
-;-----------------------------------------------------------------------------------------------------------------
 
-; Note: [ResolutionQuality] isn't using the usual 0/1/2/3 quality levels, the value directly maps to r.ScreenPercentage.
-; This is because we want custom scaling aligned with the screen/window resolution with more fine grained control
-;
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [ScalabilitySettings]
-; PerfIndexThresholds define the thresholds that determine what the autodetected quality should be for each group.
-; When you auto detect performance, both a CPUIndex and GPUIndex are calculated on the machine.
-; Use the console command "scalability auto" to print these values for a machine.
-; The type of perfindex used to determine the quality for a group is either the GPU, CPU or Min.
-; GPU means the quality is based on the speed of the graphics card. CPU means the quality is based on the processor, and Min means the group quality is based on the slower of either the CPU or GPU.
-; Each group has a type followed by three numbers.
-; The first number is the perfindex threshold that changes quality from 0 to 1. The second is the threshold from 1 to 2, the third is the threshold from 2 to 3.
 PerfIndexThresholds_ResolutionQuality="GPU 18 42 115"
 PerfIndexThresholds_ViewDistanceQuality="Min 18 42 105"
 PerfIndexThresholds_AntiAliasingQuality="GPU 18 42 115"
@@ -31,7 +12,6 @@ PerfIndexThresholds_EffectsQuality="Min 18 42 105"
 PerfIndexThresholds_FoliageQuality="GPU 18 42 115"
 PerfIndexThresholds_ShadingQuality="GPU 18 42 115"
 
-; This is the screen percentage for the resolution quality, corresponding to 25% pixels, 50% pixels, 75% pixels, and 100% pixels
 PerfIndexValues_ResolutionQuality="50 71 87 100 100"
 
 [AntiAliasingQuality@0]
@@ -49,7 +29,6 @@ r.PostProcessAAQuality=4
 [AntiAliasingQuality@Cine]
 r.PostProcessAAQuality=6
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [ViewDistanceQuality@0]
 r.SkeletalMeshLODBias=2
@@ -71,7 +50,6 @@ r.ViewDistanceScale=1.0
 r.SkeletalMeshLODBias=0
 r.ViewDistanceScale=10.0
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [ShadowQuality@0]
 r.LightFunctionQuality=0
@@ -165,7 +143,6 @@ r.VolumetricFog.HistoryMissSupersampleCount=16
 r.LightMaxDrawDistanceScale=1
 r.CapsuleShadows=1
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [PostProcessQuality@0]
 r.MotionBlurQuality=0
@@ -177,7 +154,7 @@ r.DepthOfFieldQuality=0
 r.RenderTargetPoolMin=300
 r.LensFlareQuality=0
 r.SceneColorFringeQuality=0
-r.EyeAdaptationQuality=0
+r.EyeAdaptationQuality=2
 r.BloomQuality=4
 r.FastBlurThreshold=0
 r.Upscale.Quality=1
@@ -196,7 +173,7 @@ r.DepthOfFieldQuality=1
 r.RenderTargetPoolMin=350
 r.LensFlareQuality=0
 r.SceneColorFringeQuality=0
-r.EyeAdaptationQuality=0
+r.EyeAdaptationQuality=2
 r.BloomQuality=4
 r.FastBlurThreshold=2
 r.Upscale.Quality=2
@@ -205,7 +182,6 @@ r.LightShaftQuality=0
 r.Filter.SizeScale=0.7
 r.Tonemapper.Quality=2
 
-; DOF settings.
 r.DOF.Gather.AccumulatorQuality=0        ; lower gathering accumulator quality
 r.DOF.Gather.PostfilterMethod=2          ; Max3x3 postfilering method
 r.DOF.Gather.EnableBokehSettings=0       ; no bokeh simulation when gathering
@@ -236,7 +212,6 @@ r.LightShaftQuality=1
 r.Filter.SizeScale=0.8
 r.Tonemapper.Quality=5
 
-; DOF settings.
 r.DOF.Gather.AccumulatorQuality=0        ; lower gathering accumulator quality
 r.DOF.Gather.PostfilterMethod=2          ; Max3x3 postfilering method
 r.DOF.Gather.EnableBokehSettings=0       ; no bokeh simulation when gathering
@@ -269,7 +244,6 @@ r.LightShaftQuality=1
 r.Filter.SizeScale=1
 r.Tonemapper.Quality=5
 
-; DOF settings.
 r.DOF.Gather.AccumulatorQuality=1        ; higher gathering accumulator quality
 r.DOF.Gather.PostfilterMethod=1          ; Median3x3 postfilering method
 r.DOF.Gather.EnableBokehSettings=0       ; no bokeh simulation when gathering
@@ -291,6 +265,7 @@ r.AmbientOcclusionMipLevelFactor=0.4
 r.AmbientOcclusionMaxQuality=100
 r.AmbientOcclusionLevels=-1
 r.AmbientOcclusionRadiusScale=1.0
+r.GTAO.Numangles=4
 r.DepthOfFieldQuality=4
 r.RenderTargetPoolMin=1000
 r.LensFlareQuality=3
@@ -304,7 +279,6 @@ r.LightShaftQuality=1
 r.Filter.SizeScale=1
 r.Tonemapper.Quality=5
 
-; DOF settings:
 r.DOF.Gather.AccumulatorQuality=1        ; higher gathering accumulator quality
 r.DOF.Gather.PostfilterMethod=1          ; Median3x3 postfilering method
 r.DOF.Gather.EnableBokehSettings=1       ; bokeh simulation when gathering
@@ -321,10 +295,8 @@ r.DOF.Kernel.MaxBackgroundRadius=0.025
 
 
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [TextureQuality@0]
-; Must be used with r.streaming.usepertexturebias set to 1. Otherwise, all textures will have a constant 16 mip bias
 r.Streaming.MipBias=16
 r.Streaming.AmortizeCPUToGPUCopy=1
 r.Streaming.MaxNumTexturesToStreamPerFrame=1
@@ -379,7 +351,6 @@ r.Streaming.LimitPoolSizeToVRAM=0
 r.Streaming.PoolSize=3000
 r.Streaming.MaxEffectiveScreenSize=0
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [EffectsQuality@0]
 r.TranslucencyLightingVolumeDim=24
@@ -390,6 +361,7 @@ r.SceneColorFormat=3
 r.DetailMode=0
 r.TranslucencyVolumeBlur=0
 r.MaterialQualityLevel=0 ; Low quality
+r.AnisotropicMaterials=0
 r.SSS.Scale=0
 r.SSS.SampleSet=0
 r.SSS.Quality=0
@@ -398,7 +370,7 @@ r.SSGI.Quality=0
 r.EmitterSpawnRateScale=0.125
 r.ParticleLightQuality=0
 r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque=1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky
-r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice=1
+r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice=1
 r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution=8.0
 r.SkyAtmosphere.FastSkyLUT=1
 r.SkyAtmosphere.FastSkyLUT.SampleCountMin=2.0
@@ -408,6 +380,7 @@ r.SkyAtmosphere.SampleCountMax=16.0
 r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat=1
 r.SkyAtmosphere.TransmittanceLUT.SampleCount=10.0
 r.SkyAtmosphere.MultiScatteringLUT.SampleCount=15.0
+r.SkyLight.RealTimeReflectionCapture=0
 fx.Niagara.QualityLevel=0
 
 [EffectsQuality@1]
@@ -419,6 +392,7 @@ r.SceneColorFormat=3
 r.DetailMode=1
 r.TranslucencyVolumeBlur=0
 r.MaterialQualityLevel=2 ; Medium quality
+r.AnisotropicMaterials=0
 r.SSS.Scale=0.75
 r.SSS.SampleSet=0
 r.SSS.Quality=0
@@ -427,7 +401,7 @@ r.SSGI.Quality=1
 r.EmitterSpawnRateScale=0.25
 r.ParticleLightQuality=0
 r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque=1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky
-r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice=1
+r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice=1
 r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution=16.0
 r.SkyAtmosphere.FastSkyLUT=1
 r.SkyAtmosphere.FastSkyLUT.SampleCountMin=4.0
@@ -437,6 +411,7 @@ r.SkyAtmosphere.SampleCountMax=32.0
 r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat=0
 r.SkyAtmosphere.TransmittanceLUT.SampleCount=10.0
 r.SkyAtmosphere.MultiScatteringLUT.SampleCount=15.0
+r.SkyLight.RealTimeReflectionCapture=0
 fx.Niagara.QualityLevel=1
 
 [EffectsQuality@2]
@@ -448,6 +423,7 @@ r.SceneColorFormat=3
 r.DetailMode=1
 r.TranslucencyVolumeBlur=1
 r.MaterialQualityLevel=1 ; High quality
+r.AnisotropicMaterials=1
 r.SSS.Scale=1
 r.SSS.SampleSet=1
 r.SSS.Quality=-1
@@ -456,16 +432,17 @@ r.SSGI.Quality=2
 r.EmitterSpawnRateScale=0.5
 r.ParticleLightQuality=1
 r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque=1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky
-r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice=1
+r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice=2
 r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution=16.0
 r.SkyAtmosphere.FastSkyLUT=1
 r.SkyAtmosphere.FastSkyLUT.SampleCountMin=4.0
-r.SkyAtmosphere.FastSkyLUT.SampleCountMax=32.0
+r.SkyAtmosphere.FastSkyLUT.SampleCountMax=64.0
 r.SkyAtmosphere.SampleCountMin=4.0
-r.SkyAtmosphere.SampleCountMax=32.0
+r.SkyAtmosphere.SampleCountMax=64.0
 r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat=0
 r.SkyAtmosphere.TransmittanceLUT.SampleCount=10.0
 r.SkyAtmosphere.MultiScatteringLUT.SampleCount=15.0
+r.SkyLight.RealTimeReflectionCapture=1
 fx.Niagara.QualityLevel=2
 
 [EffectsQuality@3]
@@ -477,6 +454,7 @@ r.SceneColorFormat=4
 r.DetailMode=2
 r.TranslucencyVolumeBlur=1
 r.MaterialQualityLevel=1 ; High quality
+r.AnisotropicMaterials=1
 r.SSS.Scale=1
 r.SSS.SampleSet=2
 r.SSS.Quality=1
@@ -485,16 +463,17 @@ r.SSGI.Quality=3
 r.EmitterSpawnRateScale=1.0
 r.ParticleLightQuality=2
 r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque=1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky
-r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice=1
+r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice=4
 r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution=16.0
 r.SkyAtmosphere.FastSkyLUT=1
 r.SkyAtmosphere.FastSkyLUT.SampleCountMin=4.0
-r.SkyAtmosphere.FastSkyLUT.SampleCountMax=32.0
+r.SkyAtmosphere.FastSkyLUT.SampleCountMax=128.0
 r.SkyAtmosphere.SampleCountMin=4.0
-r.SkyAtmosphere.SampleCountMax=32.0
+r.SkyAtmosphere.SampleCountMax=128.0
 r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat=0
 r.SkyAtmosphere.TransmittanceLUT.SampleCount=10.0
 r.SkyAtmosphere.MultiScatteringLUT.SampleCount=15.0
+r.SkyLight.RealTimeReflectionCapture=1
 fx.Niagara.QualityLevel=3
 
 [EffectsQuality@Cine]
@@ -506,6 +485,7 @@ r.SceneColorFormat=4
 r.DetailMode=2
 r.TranslucencyVolumeBlur=1
 r.MaterialQualityLevel=1 ; High quality
+r.AnisotropicMaterials=1
 r.SSS.Scale=1
 r.SSS.SampleSet=2
 r.SSS.Quality=1
@@ -514,93 +494,68 @@ r.SSGI.Quality=4
 r.EmitterSpawnRateScale=1.0
 r.ParticleLightQuality=2
 r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque=0
-r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice=2
+r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice=8
 r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution=32.0
 r.SkyAtmosphere.FastSkyLUT=0
 r.SkyAtmosphere.FastSkyLUT.SampleCountMin=4.0
-r.SkyAtmosphere.FastSkyLUT.SampleCountMax=32.0
+r.SkyAtmosphere.FastSkyLUT.SampleCountMax=256.0
 r.SkyAtmosphere.SampleCountMin=8.0
-r.SkyAtmosphere.SampleCountMax=32.0
+r.SkyAtmosphere.SampleCountMax=256.0
 r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat=0
 r.SkyAtmosphere.TransmittanceLUT.SampleCount=30.0
 r.SkyAtmosphere.MultiScatteringLUT.SampleCount=20.0
+r.SkyLight.RealTimeReflectionCapture=1
 fx.Niagara.QualityLevel=4
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [FoliageQuality@0]
 foliage.DensityScale=0
 grass.DensityScale=0
-;foliage.DiscardDataOnLoad=1 ; having this enabled will reduce ram use but will require reloading the level when changing FoliageQuality setting
-;grass.DiscardDataOnLoad=1   ; having this enabled will reduce ram use but will require reloading the level when changing FoliageQuality setting
 
 [FoliageQuality@1]
 foliage.DensityScale=0.4
 grass.DensityScale=0.4
-;foliage.DiscardDataOnLoad=0
-;grass.DiscardDataOnLoad=0
 
 [FoliageQuality@2]
 foliage.DensityScale=0.8
 grass.DensityScale=0.8
-;foliage.DiscardDataOnLoad=0
-;grass.DiscardDataOnLoad=0
 
 [FoliageQuality@3]
 foliage.DensityScale=1.0
 grass.DensityScale=1.0
-;foliage.DiscardDataOnLoad=0
-;grass.DiscardDataOnLoad=0
 
 [FoliageQuality@Cine]
 foliage.DensityScale=1.0
 grass.DensityScale=1.0
-;foliage.DiscardDataOnLoad=0
-;grass.DiscardDataOnLoad=0
 
-;-----------------------------------------------------------------------------------------------------------------
 
 [ShadingQuality@0]
-r.HairStrands.SkyLighting.SampleCount=8
-r.HairStrands.SkyLighting.JitterIntegration=0
-r.HairStrands.SkyAO.SampleCount=8
-r.HairStrands.DeepShadow.SuperSampling=0
-r.HairStrands.VisibilityPPLL=0
-r.HairStrands.RasterizationScale=0.5
-r.HairStrands.VelocityRasterizationScale=1
+r.HairStrands.SkyLighting.IntegrationType=2
+r.HairStrands.SkyAO.SampleCount=4
+r.HairStrands.Visibility.MSAA.SamplePerPixel=1
+r.HairStrands.Interpolation.UseSingleGuide=1
 
 [ShadingQuality@1]
-r.HairStrands.SkyLighting.SampleCount=16
-r.HairStrands.SkyLighting.JitterIntegration=0
-r.HairStrands.SkyAO.SampleCount=16
-r.HairStrands.DeepShadow.SuperSampling=0
-r.HairStrands.VisibilityPPLL=0
-r.HairStrands.RasterizationScale=0.5
-r.HairStrands.VelocityRasterizationScale=1
+r.HairStrands.SkyLighting.IntegrationType=2
+r.HairStrands.SkyAO.SampleCount=4
+r.HairStrands.Visibility.MSAA.SamplePerPixel=1
+r.HairStrands.Interpolation.UseSingleGuide=1
 
 [ShadingQuality@2]
-r.HairStrands.SkyLighting.SampleCount=16
-r.HairStrands.SkyLighting.JitterIntegration=0
-r.HairStrands.SkyAO.SampleCount=16
-r.HairStrands.DeepShadow.SuperSampling=0
-r.HairStrands.VisibilityPPLL=0
-r.HairStrands.RasterizationScale=0.5
-r.HairStrands.VelocityRasterizationScale=1
+r.HairStrands.SkyLighting.IntegrationType=2
+r.HairStrands.SkyAO.SampleCount=4
+r.HairStrands.Visibility.MSAA.SamplePerPixel=4
+r.HairStrands.Interpolation.UseSingleGuide=1
 
 [ShadingQuality@3]
-r.HairStrands.SkyLighting.SampleCount=16
-r.HairStrands.SkyLighting.JitterIntegration=0
-r.HairStrands.SkyAO.SampleCount=16
-r.HairStrands.DeepShadow.SuperSampling=0
-r.HairStrands.VisibilityPPLL=0
-r.HairStrands.RasterizationScale=0.5
-r.HairStrands.VelocityRasterizationScale=1
+r.HairStrands.SkyLighting.IntegrationType=2
+r.HairStrands.SkyAO.SampleCount=4
+r.HairStrands.Visibility.MSAA.SamplePerPixel=4
+r.HairStrands.Interpolation.UseSingleGuide=0
 
 [ShadingQuality@Cine]
-r.HairStrands.SkyLighting.SampleCount=64
-r.HairStrands.SkyLighting.JitterIntegration=1
-r.HairStrands.SkyAO.SampleCount=32
-r.HairStrands.DeepShadow.SuperSampling=1
-r.HairStrands.RasterizationScale=1
-r.HairStrands.VelocityRasterizationScale=1
-r.HairStrands.VisibilityPPLL=1
+r.HairStrands.SkyLighting.IntegrationType=0
+r.HairStrands.SkyAO.SampleCount=8
+r.HairStrands.Visibility.MSAA.SamplePerPixel=8
+r.HairStrands.Interpolation.UseSingleGuide=0
+

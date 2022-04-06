@@ -1,20 +1,25 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0",
-	"FriendlyName": "Movie Render Pipeline",
+	"VersionName": "1.3",
+	"FriendlyName": "Movie Render Queue",
 	"Description": "Advanced movie rendering pipeline for use in creating rendered cinematics or other multi-media creation.",
-	"Category": "Scripting",
+	"Category": "Rendering",
 	"CreatedBy": "Epic Games Inc.",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
 	"CanContainContent": true,
-	"IsBetaVersion": true,
+	"IsBetaVersion": false,
 	"Installed": false,
 	"EnabledByDefault": true,
 	"Plugins": [
+		{
+			"Name": "ActorLayerUtilities",
+			"Enabled": true,
+			"Optional": false
+		},
 		{
 			"Name": "EditorScriptingUtilities",
 			"Enabled": true
@@ -23,28 +28,46 @@
 			"Name": "LevelSequenceEditor",
 			"Enabled": true,
 			"Optional": true
+		},
+		{
+			"Name": "OpenColorIO",
+			"Enabled": true,
+			"Optional": false
+		},
+		{
+			"Name": "SequencerScripting",
+			"Enabled": true
 		}
 	],
 	"Modules": [
 		{
 			"Name": "MovieRenderPipelineCore",
-			"Type": "UncookedOnly",
-			"LoadingPhase": "Default"
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Mac", "Win32", "Win64", "Linux" ]
 		},
 		{
 			"Name": "MovieRenderPipelineSettings",
-			"Type": "UncookedOnly",
-			"LoadingPhase": "Default"
-		}, 
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Mac", "Win32", "Win64", "Linux" ]
+		},
 		{
-			"Name" : "MovieRenderPipelineRenderPasses",
-			"Type": "UncookedOnly",
-			"LoadingPhase": "Default"
+			"Name": "MovieRenderPipelineRenderPasses",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Mac", "Win32", "Win64", "Linux" ]
 		},
 		{
 			"Name": "MovieRenderPipelineEditor",
 			"Type": "Editor",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "UEOpenExrRTTI",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Mac", "Win32", "Win64", "Linux" ]
 		}
 	]
 }

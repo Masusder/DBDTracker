@@ -1,4 +1,3 @@
-[Launch]
 
 [/Script/EngineSettings.GameMapsSettings]
 GameInstanceClass=/Script/Engine.GameInstance
@@ -10,6 +9,7 @@ LocalMapOptions=
 
 [InstallBundleManager]
 ModuleName=NullInstallBundleManager
+EditorModuleName=NullInstallBundleManager
 
 [URL]
 Protocol=unreal
@@ -23,9 +23,17 @@ HttpConnectionTimeout=60
 HttpReceiveTimeout=30
 HttpSendTimeout=30
 
+[HTTP.Curl]
+bAllowSeekFunction=false
+
 [BackgroundHttp]
-BackgroundHttp.TempFileTimeOutSeconds=259200
-BackgroundHttp.MaxActiveDownloads=4
+MaxActiveDownloads=4
+
+TempFileTimeOutSeconds=259200
+
+DeleteTempFilesWithoutURLMappingEntries=true
+
+RemoveURLMappingEntriesWithoutPhysicalTempFiles=true
 
 [WebSockets.LibWebSockets]
 ThreadStackSize=131072
@@ -35,6 +43,7 @@ MaxHttpHeaderData=32768
 
 [Ping]
 StackSize=1048576
+MinPingSendWaitTimeMs=10.0
 
 [Voice]
 bEnabled=false
@@ -42,9 +51,6 @@ bDuckingOptOut=true
 
 [SlateStyle]
 DefaultFontName=/Engine/EngineFonts/Roboto
-
-[Scaleform]
-InputKeyHoldSupport=false
 
 [PlatformMemoryBuckets]
 LargestMemoryBucket_MinGB=32
@@ -112,11 +118,7 @@ DefaultPhysMaterialName=/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultP
 DefaultDeferredDecalMaterialName=/Engine/EngineMaterials/DefaultDeferredDecalMaterial.DefaultDeferredDecalMaterial
 DefaultPostProcessMaterialName=/Engine/EngineMaterials/DefaultPostProcessMaterial.DefaultPostProcessMaterial
 TimecodeProviderClassName=None
-DefaultTimecodeProviderClassName=/Script/Engine.SystemTimeTimecodeProvider
-TextureStreamingBoundsMaterialName=/Engine/EditorMaterials/Utilities/TextureStreamingBounds_MATInst.TextureStreamingBounds_MATInst
 ArrowMaterialName=/Engine/EngineMaterials/GizmoMaterial.GizmoMaterial
-bAllowHostMigration=false
-HostMigrationTimeout=15
 ParticleEventManagerClassPath="/Script/Engine.ParticleEventManager"
 LightingOnlyBrightness=(R=0.3,G=0.3,B=0.3,A=1.0)
 +ShaderComplexityColors=(R=0.0,G=1.0,B=0.127,A=1.0)
@@ -180,11 +182,9 @@ LightingOnlyBrightness=(R=0.3,G=0.3,B=0.3,A=1.0)
 +HLODColorationColors=(R=0.0,G=1.0,B=1.0,A=1.0) ; cyan
 +HLODColorationColors=(R=0.5,G=0.5,B=0.5,A=1.0) ; grey
 MaxPixelShaderAdditiveComplexityCount=2000
-MaxES2PixelShaderAdditiveComplexityCount=600
 MaxES3PixelShaderAdditiveComplexityCount=800
 bSubtitlesEnabled=True
 bSubtitlesForcedOff=false
-DefaultSoundName=/Engine/EngineSounds/WhiteNoise.WhiteNoise
 MaximumLoopIterationCount = 1000000
 bCanBlueprintsTickByDefault=true
 bOptimizeAnimBlueprintMemberVariableAccess=true
@@ -200,7 +200,6 @@ RenderLightMapDensityColorScale=1.0
 bRenderLightMapDensityGrayscale=false
 LightMapDensityVertexMappedColor=(R=0.65,G=0.65,B=0.25,A=1.0)
 LightMapDensitySelectedColor=(R=1.0,G=0.2,B=1.0,A=1.0)
-bDisablePhysXHardwareSupport=True
 bPauseOnLossOfFocus=false
 MaxParticleResize=0
 MaxParticleResizeWarn=0
@@ -223,8 +222,6 @@ DefaultSelectedMaterialColor=(R=0.84,G=0.92,B=0.02,A=1.0)
 bEnableOnScreenDebugMessages=true
 DurationOfErrorsAndWarningsOnHUD=0
 NearClipPlane=10.0
-bUseStreamingPause=false
-
 
 +MatineeTrackRedirects=(TargetClassName="/Script/Engine.CameraActor",OldFieldName="PostProcessSettings.EyeAdaptationLowPercent",NewFieldName="CameraComponent.PostProcessSettings.AutoExposureLowPercent")
 +MatineeTrackRedirects=(TargetClassName="/Script/Engine.CameraActor",OldFieldName="PostProcessSettings.EyeAdaptationHighPercent",NewFieldName="CameraComponent.PostProcessSettings.AutoExposureHighPercent")
@@ -363,7 +360,7 @@ bUseStreamingPause=false
 
 
 +ClassRedirects=(OldName="BackgroundBlurWidget",NewName="/Script/UMG.BackgroundBlur")
-+ClassRedirects=(OldName="MovieSceneVisibilitySection",NewName="/Script/MovieSceneTracks.MovieSceneBoolSection")
++ClassRedirects=(OldName="MovieSceneVisibilitySection",NewName="/Script/MovieScene.MovieSceneBoolSection")
 +ClassRedirects=(OldName="SoundClassGraph",NewName="/Script/AudioEditor.SoundClassGraph")
 +ClassRedirects=(OldName="SoundClassGraphNode",NewName="/Script/AudioEditor.SoundClassGraphNode")
 +ClassRedirects=(OldName="SoundClassGraphSchema",NewName="/Script/AudioEditor.SoundClassGraphSchema")
@@ -655,12 +652,15 @@ bUseStreamingPause=false
 
 +ClassRedirects=(OldName="/Script/ClothingSystemRuntimeNv.ClothingAssetNv",NewName="/Script/ClothingSystemRuntimeCommon.ClothingAssetCommon")
 +ClassRedirects=(OldName="/Script/ClothingSystemRuntimeNv.ClothLODDataNv",NewName="/Script/ClothingSystemRuntimeCommon.ClothLODDataCommon_Legacy")
-+EnumRedirects=(OldName="MaskTarget_PhysMesh",NewName="/Script/ClothingSystemRuntimeCommon.EWeightMapTargetCommon")
++EnumRedirects=(OldName="MaskTarget_PhysMesh",NewName="EWeightMapTargetCommon",ValueChanges=(("MaskTarget_PhysMesh::MaxDistance","EWeightMapTargetCommon::MaxDistance"),("MaskTarget_PhysMesh::BackstopDistance","EWeightMapTargetCommon::BackstopDistance"),("MaskTarget_PhysMesh::BackstopRadius","EWeightMapTargetCommon::BackstopRadius"),("MaskTarget_PhysMesh::AnimDriveMultiplier","EWeightMapTargetCommon::AnimDriveStiffness")))
 
 +ClassRedirects=(OldName="/Script/ClothingSystemRuntimeCommon.ClothLODDataCommon",NewName="/Script/ClothingSystemRuntimeCommon.ClothLODDataCommon_Legacy")
 
 +ClassRedirects=(OldName="/Script/ClothingSystemRuntimeInterface.ClothPhysicalMeshDataBase",NewName="/Script/ClothingSystemRuntimeInterface.ClothPhysicalMeshDataBase_Legacy")
 +ClassRedirects=(OldName="/Script/ClothingSystemRuntimeNv.ClothPhysicalMeshDataNv",NewName="/Script/ClothingSystemRuntimeNv.ClothPhysicalMeshDataNv_Legacy")
+
++EnumRedirects=(OldName="EWeightMapTargetCommon",ValueChanges=(("EWeightMapTargetCommon::AnimDriveMultiplier","EWeightMapTargetCommon::AnimDriveStiffness")))
++EnumRedirects=(OldName="EChaosWeightMapTarget",ValueChanges=(("EChaosWeightMapTarget::AnimDriveMultiplier","EChaosWeightMapTarget::AnimDriveStiffness")))
 
 +FunctionRedirects=(OldName="SkeletalMeshComponent.GetSubInstanceByTag",NewName="SkeletalMeshComponent.GetLinkedAnimGraphInstanceByTag")
 +FunctionRedirects=(OldName="SkeletalMeshComponent.GetSubInstancesByTag",NewName="SkeletalMeshComponent.GetLinkedAnimGraphInstancesByTag")
@@ -699,6 +699,89 @@ bUseStreamingPause=false
 +ClassRedirects=(OldName="/Script/OnlineBlueprintSupport.K2Node_LatentOnlineCall", NewName="/Script/BlueprintGraph.K2Node_AsyncAction")
 +ClassRedirects=(OldName="/Script/Kismet.K2Node_AsyncAction", NewName="/Script/BlueprintGraph.K2Node_AsyncAction")
 
++ClassRedirects=(OldName="MovieSceneSpawnTrack",NewName="/Script/MovieScene.MovieSceneSpawnTrack")
++ClassRedirects=(OldName="MovieSceneSpawnSection",NewName="/Script/MovieScene.MovieSceneSpawnSection")
++ClassRedirects=(OldName="MovieSceneBoolSection",NewName="/Script/MovieScene.MovieSceneBoolSection")
++ClassRedirects=(OldName="PhysicalMaterialPropertyBase",NewName="/Script/PhysicsCore.PhysicalMaterialPropertyBase")
++ClassRedirects=(OldName="PhysicalMaterial",NewName="/Script/PhysicsCore.PhysicalMaterial")
++ClassRedirects=(OldName="ChaosPhysicalMaterial",NewName="/Script/PhysicsCore.ChaosPhysicalMaterial")
++ClassRedirects=(OldName="SubmixEffectReverbFastPreset",NewName="/Script/AudioMixer.SubmixEffectReverbPreset")
++EnumRedirects=(OldName="EPhysicalSurface",NewName="/Script/PhysicsCore.EPhysicalSurface")
++EnumRedirects=(OldName="ECollisionTraceFlag",NewName="/Script/PhysicsCore.ECollisionTraceFlag")
++EnumRedirects=(OldName="EPhysicsType",NewName="/Script/PhysicsCore.EPhysicsType",ValueChanges=(("PhysType_Fixed", "PhysType_Kinematic"), ("PhysType_Unfixed", "PhysType_Simulated")))
++EnumRedirects=(OldName="EBodyCollisionResponse",NewName="/Script/PhysicsCore.EBodyCollisionResponse")
++EnumRedirects=(OldName="EFrictionCombineMode",NewName="/Script/PhysicsCore.EFrictionCombineMode")
++EnumRedirects=(OldName="ELinearConstraintMotion",NewName="/Script/PhysicsCore.ELinearConstraintMotion")
++EnumRedirects=(OldName="ERadialImpulseFalloff",NewName="/Script/PhysicsCore.ERadialImpulseFalloff")
++EnumRedirects=(OldName="ESleepFamily",NewName="/Script/PhysicsCore.ESleepFamily")
++EnumRedirects=(OldName="EAngularConstraintMotion",NewName="/Script/PhysicsCore.EAngularConstraintMotion")
++EnumRedirects=(OldName="EConstraintFrame",NewName="/Script/PhysicsCore.EConstraintFrame")
++StructRedirects=(OldName="/Script/AssetRegistry.ARFilter",NewName="/Script/CoreUObject.ARFilter")
++StructRedirects=(OldName="/Script/AssetRegistry.AssetBundleData",NewName="/Script/CoreUObject.AssetBundleData")
++StructRedirects=(OldName="/Script/AssetRegistry.AssetBundleEntry",NewName="/Script/CoreUObject.AssetBundleEntry")
++StructRedirects=(OldName="/Script/AssetRegistry.AssetData",NewName="/Script/CoreUObject.AssetData")
++StructRedirects=(OldName="SubmixEffectReverbFastSettings",NewName="/Script/AudioMixer.SubmixEffectReverbSettings")
+
++FunctionRedirects=(OldName="KismetInputLibrary.Key_IsFloatAxis",NewName="KismetInputLibrary.Key_IsAxis1D")
++FunctionRedirects=(OldName="KismetMathLibrary.Conv_VectorToQuaterion",NewName="KismetMathLibrary.Conv_VectorToQuaternion")
++FunctionRedirects=(OldName="KismetMathLibrary.Conv_Vector4ToQuaterion",NewName="KismetMathLibrary.Conv_Vector4ToQuaternion")
+
++FunctionRedirects=(OldName="PinComponentToARPin",NewName="/Script/AugmentedReality.ARBlueprintLibrary.PinComponentToARPin")
++FunctionRedirects=(OldName="IsWMRAnchorStoreReady",NewName="/Script/AugmentedReality.ARBlueprintLibrary.IsARPinLocalStoreReady")
++FunctionRedirects=(OldName="RemoveAllARPinsFromWMRAnchorStore",NewName="/Script/AugmentedReality.ARBlueprintLibrary.RemoveAllARPinsFromLocalStore")
++FunctionRedirects=(OldName="AzureSpatialAnchorsLibrary.CreateCloudAnchor",NewName="AzureSpatialAnchorsLibrary.ConstructCloudAnchor")
+
++PackageRedirects=(OldName="/Script/FieldSystemCore",NewName="/Script/Chaos")
++PackageRedirects=(OldName="/Script/GeometryCollectionSimulationCore",NewName="/Script/Chaos")
+
++ClassRedirects=(OldName="/VirtualCamera/VirtualCameraGameMode.VirtualCameraGameMode",NewName="/VirtualCamera/Deprecated/Deprecated_VirtualCameraGameMode.Deprecated_VirtualCameraGameMode")
++ClassRedirects=(OldName="/VirtualCamera/VirtualCameraPawn.VirtualCameraPawn",NewName="/VirtualCamera/Deprecated/Deprecated_VirtualCameraPawn.Deprecated_VirtualCameraPawn")
++ClassRedirects=(OldName="/VirtualCamera/VirtualCameraPlayerController.VirtualCameraPlayerController",NewName="/VirtualCamera/Deprecated/Deprecated_VirtualCameraPlayerController.Deprecated_VirtualCameraPlayerController")
++ClassRedirects=(OldName="/VirtualCamera/Widgets/VirtualCameraJoysticks.VirtualCameraJoysticks",NewName="/VirtualCamera/Deprecated/Widgets/Deprecated_VirtualCameraJoysticks.Deprecated_VirtualCameraJoysticks")
+
++PackageRedirects=(OldName="/VirtualCamera/Widgets/SequenceButton",NewName="/VirtualCamera/Deprecated/Widgets/SequenceButton")
++PackageRedirects=(OldName="/VirtualCamera/Widgets/SequenceMenu",NewName="/VirtualCamera/Deprecated/Widgets/SequenceMenu")
++PackageRedirects=(OldName="/VirtualCamera/Widgets/SequenceMenu",NewName="/VirtualCamera/Deprecated/Widgets/SequenceMenu")
+
++PackageRedirects=(OldName="/VirtualCamera/Textures/VPLeftJoystick",NewName="/VirtualCamera/Deprecated/Textures/VPLeftJoystick")
++PackageRedirects=(OldName="/VirtualCamera/Textures/VPLeftJoystickBG",NewName="/VirtualCamera/Deprecated/Textures/VPLeftJoystickBG")
++PackageRedirects=(OldName="/VirtualCamera/Textures/VPRightJoystick",NewName="/VirtualCamera/Deprecated/Textures/VPRightJoystick")
++PackageRedirects=(OldName="/VirtualCamera/Textures/VPRightJoystickBG",NewName="/VirtualCamera/Deprecated/Textures/VPRightJoystickBG")
+
++PackageRedirects=(OldName="/VCamCore/Assets/VCam_EmptyVisibleUMG",NewName="/VirtualCamera/VCamCore/Assets/VCam_EmptyVisibleUMG")
+
++PackageRedirects=(OldName="/Game/VirtualCamera/Blueprints/Modifiers/SinModifier", NewName="/VirtualCamera/VCamCore/Blueprints/Modifiers/SinModifier")
++PackageRedirects=(OldName="/Game/VirtualCamera/Blueprints/Modifiers/FollowModifier", NewName="/VirtualCamera/VCamCore/Blueprints/Modifiers/FollowModifier")
++PackageRedirects=(OldName="/Game/VirtualCamera/Blueprints/Modifiers/GamepadModifier", NewName="/VirtualCamera/VCamCore/Blueprints/Modifiers/GamepadModifier")
+
++PackageRedirects=(OldName="/Game/VirtualCamera/Blueprints/TestAJA", NewName="/VirtualCamera/VCamCore/Blueprints/TestAJA")
++PackageRedirects=(OldName="/Game/VirtualCamera/Assets/TestComposureMaterial_AOverB", NewName="/VirtualCamera/VCamCore/Assets/TestComposureMaterial_AOverB")
++PackageRedirects=(OldName="/Game/VirtualCamera/Assets/TestComposureRenderTargetOutput", NewName="/VirtualCamera/VCamCore/Assets/TestComposureRenderTargetOutput")
++PackageRedirects=(OldName="/Game/VirtualCamera/Assets/VCamSample_AOverBComposureMaterial", NewName="/VirtualCamera/VCamCore/Assets/VCamSample_AOverBComposureMaterial")
++PackageRedirects=(OldName="/Game/VirtualCamera/Assets/VCamSample_ComposureRenderTargetOutput", NewName="/VirtualCamera/VCamCore/Assets/VCamSample_ComposureRenderTargetOutput")
+
++EnumRedirects=(OldName="EOscillatorWaveform",NewName="/Script/GameplayCameras.EOscillatorWaveform")
++EnumRedirects=(OldName="EInitialOscillatorOffset",NewName="/Script/GameplayCameras.EInitialOscillatorOffset")
++StructRedirects=(OldName="FOscillator",NewName="/Script/GameplayCameras.FOscillator")
++StructRedirects=(OldName="ROscillator",NewName="/Script/GameplayCameras.ROscillator")
++StructRedirects=(OldName="VOscillator",NewName="/Script/GameplayCameras.VOscillator")
++ClassRedirects=(OldName="CameraShake",NewName="/Script/GameplayCameras.MatineeCameraShake")
++ClassRedirects=(OldName="MatineeCameraShake",NewName="/Script/GameplayCameras.MatineeCameraShake")
++ClassRedirects=(OldName="MatineeCameraShakePattern",NewName="/Script/GameplayCameras.MatineeCameraShakePattern")
++EnumRedirects=(OldName="ECameraAnimPlaySpace",NewName="/Script/Engine.ECameraShakePlaySpace")
++FunctionRedirects=(OldName="PlayerController.ClientPlayCameraShake",NewName="ClientStartCameraShake")
++FunctionRedirects=(OldName="PlayerController.ClientPlayCameraShakeFromSource",NewName="ClientStartCameraShakeFromSource")
++FunctionRedirects=(OldName="PlayerCameraManager.PlayCameraShake",NewName="StartCameraShake")
++FunctionRedirects=(OldName="PlayerCameraManager.PlayCameraShakeFromSource",NewName="StartCameraShakeFromSource")
++FunctionRedirects=(OldName="PlayerCameraManager.StartMatineeCameraShake",NewName="StartCameraShake")
++FunctionRedirects=(OldName="PlayerCameraManager.StartMatineeCameraShakeFromSource",NewName="StartCameraShakeFromSource")
++FunctionRedirects=(OldName="CameraShakeSourceComponent.Play",NewName="Start")
++FunctionRedirects=(OldName="CameraShakeSourceComponent.PlayCameraShake",NewName="StartCameraShake")
++PropertyRedirects=(OldName="CameraShakeSourceComponent.bAutoPlay",NewName="bAutoStart")
++PropertyRedirects=(OldName="FieldSystemComponent.IsChaosField",NewName="bIsChaosField")
++PropertyRedirects=(OldName="FieldSystemComponent.IsGlobalField",NewName="bIsWorldField")
++EnumRedirects=(OldName="TextureCompressionSettings",ValueChanges=(("TC_ReflectionCapture","TC_EncodedReflectionCapture")))
+
 [CoreUObject.Metadata]
 +MetadataRedirects=(OldKey="K2Protected", NewKey="BlueprintProtected")
 +MetadataRedirects=(OldKey="K2UnsafeForConstructionScripts", NewKey="UnsafeDuringActorConstruction")
@@ -713,13 +796,11 @@ bUseStreamingPause=false
 +MetadataRedirects=(OldKey="ArrayPointerParm", NewKey="TargetArrayParm")
 +MetadataRedirects=(OldKey="FriendlyName", NewKey="DisplayName")
 
+[EnumRemap]
+
 [PlatformInterface]
 CloudStorageInterfaceClassName=
 InGameAdManagerClassName=
-
-[Engine.StreamingMovies]
-RenderPriorityPS3=1001
-SuspendGameIO=True
 
 [/Script/Engine.UserInterfaceSettings]
 UIScaleRule=ShortestSide
@@ -732,8 +813,6 @@ MaxDeltaTime=0
 ServerFlushLogInterval=30
 
 [Engine.StartupPackages]
-bSerializeStartupPackagesFromMemory=true
-bFullyCompressStartupPackages=false
 +Package=/Engine/EngineMaterials/BlinkingCaret
 +Package=/Engine/EngineMaterials/DefaultBokeh
 +Package=/Engine/EngineMaterials/DefaultBloomKernel
@@ -787,6 +866,8 @@ bFullyCompressStartupPackages=false
 +Package=/Engine/EngineMaterials/DefaultTextMaterialTranslucent
 +Package=/Engine/EngineFonts/RobotoDistanceField
 
+[Core.Log]
+
 [Core.System]
 +Paths=../../../Engine/Content
 +Paths=%GAMEDIR%Content
@@ -799,11 +880,17 @@ CanUseUnversionedPropertySerialization=False
 TestUnversionedPropertySerializationWhenCooking=False
 DetailedCallstacksInNonMonolithicBuilds=True
 UseSeperateBulkDataFiles=False
+GameThreadHeartBeatStartSuspended=False
+GameThreadHeartBeatHitchDuration=-1.0
+GameThreadHeartBeatStackWalk=false
 AllowBulkDataInIoStore=True
 LegacyBulkDataOffsets=False
 HangDuration=0.0
 AssetLogShowsDiskPath=True
-
+AssetLogShowsAbsolutePath=True
+TaskThreadStackSize=393216
+PoolThreadStackSize=131072
+DefaultThreadStackSize=1048576
 
 [/Script/Engine.StreamingSettings]
 s.MinBulkDataSizeForAsyncLoading=131072
@@ -839,6 +926,7 @@ gc.MinGCClusterSize=5
 gc.ActorClusteringEnabled=False
 gc.BlueprintClusteringEnabled=False
 gc.UseDisregardForGCOnDedicatedServers=False
+gc.MultithreadedDestructionEnabled=True
 
 [Internationalization]
 +LocalizationPaths=../../../Engine/Content/Localization/Engine
@@ -849,10 +937,10 @@ gc.UseDisregardForGCOnDedicatedServers=False
 +CultureDisplayNameSubstitutes="\ub300\ub9cc;\uc911\ud654 \ud0c0\uc774\ubca0\uc774"
 
 [Audio]
-CommonAudioPoolSize=0
 UnfocusedVolumeMultiplier=0.0
 UseAudioThread=true
 EnableAudioMixer=false
+DeferStartupPrecache=false
 
 [AudioChannelAzimuthMap]
 FrontLeft=330
@@ -896,13 +984,17 @@ DialogueFilenameFormat="{DialogueGuid}_{ContextId}"
 +SoundGroupProfiles=(SoundGroup=SOUNDGROUP_Voice, bAlwaysDecompressOnLoad=false, DecompressedDuration=0)
 
 [/Script/Engine.Player]
-ConfiguredInternetSpeed=10000
-ConfiguredLanSpeed=20000
+ConfiguredInternetSpeed=100000
+ConfiguredLanSpeed=100000
 
 [/Script/Engine.NetDriver]
 +ChannelDefinitions=(ChannelName=Control, ClassName=/Script/Engine.ControlChannel, StaticChannelIndex=0, bTickOnCreate=true, bServerOpen=false, bClientOpen=true, bInitialServer=false, bInitialClient=true)
 +ChannelDefinitions=(ChannelName=Voice, ClassName=/Script/Engine.VoiceChannel, StaticChannelIndex=1, bTickOnCreate=true, bServerOpen=true, bClientOpen=true, bInitialServer=true, bInitialClient=true)
 +ChannelDefinitions=(ChannelName=Actor, ClassName=/Script/Engine.ActorChannel, StaticChannelIndex=-1, bTickOnCreate=false, bServerOpen=true, bClientOpen=false, bInitialServer=false, bInitialClient=false)
+
+[/Script/Engine.RendererSettings]
+VisualizeCalibrationColorMaterialPath=/Engine/EngineMaterials/PPM_DefaultCalibrationColor.PPM_DefaultCalibrationColor
+VisualizeCalibrationGrayscaleMaterialPath=/Engine/EngineMaterials/PPM_DefaultCalibrationGrayscale.PPM_DefaultCalibrationGrayscale
 
 [/Script/OnlineSubsystemUtils.IpNetDriver]
 AllowPeerConnections=False
@@ -912,8 +1004,8 @@ InitialConnectTimeout=60.0
 RecentlyDisconnectedTrackingTime=120
 TimeoutMultiplierForUnoptimizedBuilds=1
 KeepAliveTime=0.2
-MaxClientRate=15000
-MaxInternetClientRate=10000
+MaxClientRate=100000
+MaxInternetClientRate=100000
 RelevantTimeout=5.0
 SpawnPrioritySeconds=1.0
 ServerTravelPause=4.0
@@ -936,29 +1028,35 @@ HitchFrameTolerance=3
 +DetectionSeverity=DebilitatingDDoS
 
 [DDoSDetection.Burst]
-EscalateQuotaPacketsPerSec=400
-EscalateQuotaDisconnPacketsPerSec=3200
-EscalateQuotaBadPacketsPerSec=100
-
-[DDoSDetection.PersistentBurst]
+bSendEscalateAnalytics=false
 EscalateQuotaPacketsPerSec=800
 EscalateQuotaDisconnPacketsPerSec=3200
-EscalateQuotaBadPacketsPerSec=200
-EscalateTimeQuotaMSPerFrame=8
-CooloffTime=60
+EscalateQuotaBadPacketsPerSec=400
+
+[DDoSDetection.PersistentBurst]
+bSendEscalateAnalytics=false
+EscalateQuotaPacketsPerSec=1600
+EscalateQuotaDisconnPacketsPerSec=3200
+EscalateQuotaBadPacketsPerSec=800
+EscalateTimeQuotaMSPerFrame=10
+CooloffTime=10
 
 [DDoSDetection.DDoS]
+bSendEscalateAnalytics=false
 EscalateTimeQuotaMSPerFrame=50
-PacketLimitPerFrame=100
+PacketLimitPerFrame=1000
 PacketTimeLimitMSPerFrame=16
-CooloffTime=60
+CooloffTime=10
 
 [DDoSDetection.ExpensiveDDoS]
+bSendEscalateAnalytics=true
 EscalateTimeQuotaMSPerFrame=66
-PacketLimitPerFrame=0
+PacketLimitPerFrame=100
+PacketTimeLimitMSPerFrame=2
 CooloffTime=10
 
 [DDoSDetection.DebilitatingDDoS]
+bSendEscalateAnalytics=true
 PacketLimitPerFrame=0
 NetConnPacketTimeLimitMSPerFrame=100
 CooloffTime=10
@@ -1126,8 +1224,11 @@ bLogJobCompletionTimes=False
 ProcessGameThreadTargetTime=.01
 WorkerTimeToLive=20
 BuildWorkerTimeToLive=1200
+WorkerProcessPriority=-1
 
 bUseVirtualCores = False
+
+bForceUseSCWMemoryPressureLimits = False
 
 [LogFiles]
 PurgeLogsDays=5
@@ -1147,7 +1248,6 @@ bPersistentUberGraphFrame=true
 bReinstanceOnlyWhenNecessary=true
 bChangeDefaultValueWithoutReinstancing=true
 bDisplaysLayout=false
-bSkeletonInheritSkeletonClasses=false
 bOptimizeExecutionFlowStack=true
 bOptimizeAdjacentStates=true
 bEnableInheritableComponents=true
@@ -1166,9 +1266,6 @@ bRecompileOnLoad=true
 
 [/Script/Engine.AnimBlueprint]
 bRecompileOnLoad=true
-
-[Engine.DeviceConfiguration]
-ConfigClass=
 
 [CustomStats]
 +LD=Streaming fudge factor
@@ -1271,12 +1368,15 @@ ConfigClass=
 [MemoryPools]
 FLightPrimitiveInteractionInitialBlockSize=512
 
+[ProcessLimits]
+VirtualMemoryLimitInKB=0
+
 [SystemSettings]
+
 con.DebugEarlyDefault = True
 con.DebugEarlyCheat = True
 con.DebugLateDefault = True
 con.DebugLateCheat = True
-
 
 r.DetectAndWarnOfBadDrivers = 0
 
@@ -1293,19 +1393,12 @@ bHasVoiceEnabled=true
 VoiceNotificationDelta=0.33
 MaxLocalTalkers=1
 MaxRemoteTalkers=16
+PollingIntervalInMs=50
 bUseBuildIdOverride=false
 BuildIdOverride=0
-
-[OnlineSubsystemMcp.OnlinePartyMcp]
-PendingCreateResponseTimeout=0.0
-PendingJoinResponseTimeout=5.0
-PendingLeaveResponseTimeout=5.0
-PendingKickResponseTimeout=5.0
-PendingJoinRequestTimeout=5.0
-PendingPromoteResponseTimeout=10.0
-bQueryDisplayNameFromUserInterface=true
-bCanTrustUserProvidedDisplayName=true
-DefaultUntrustedDisplayName=Player
+!AdditionalModulesToLoad=Clear
++AdditionalModulesToLoad=HTTP
++AdditionalModulesToLoad=XMPP
 
 [OnlineSubsystemSteam]
 bEnabled=false
@@ -1328,22 +1421,11 @@ InitialConnectTimeout=120.0
 NetServerMaxTickRate=30
 MaxNetTickRate=120
 KeepAliveTime=0.2
-MaxClientRate=15000
-MaxInternetClientRate=10000
+MaxClientRate=100000
+MaxInternetClientRate=100000
 RelevantTimeout=5.0
 SpawnPrioritySeconds=1.0
 ServerTravelPause=4.0
-
-[OnlineSubsystemMcp]
-bEnabled=false
-bForceEnabledInEditor=false
-
-[OnlineSubsystemMcp.BaseServiceMcp]
-bUpdatesConnectionStatus=true
-
-[OnlineSubsystemMcp.OnlineChatMcp]
-+RestrictedPlatforms=PSN
-+RestrictedPlatforms=XBL
 
 [OnlineSubsystemAmazon]
 bEnabled=false
@@ -1399,6 +1481,9 @@ bEnabled=true
 QueryReceiptsResumeFailDelaySeconds=2.0
 CheckoutResumeFailDelaySeconds=2.0
 bIncludeSamsungLocText=true
+
+[OnlineSubsystemApple]
+bEnabled=false
 
 [OnlineSubsystemNull]
 bEnabled=true
@@ -1505,9 +1590,9 @@ Root=(Type=KeyLength, Length=120, Inner=AsyncPut)
 AsyncPut=(Type=AsyncPut, Inner=Hierarchy)
 Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Pak, Inner=EnginePak, Inner=Local, Inner=Shared)
 Boot=(Type=Boot, Filename="%GAMEDIR%DerivedDataCache/Boot.ddc", MaxCacheSize=512)
-Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=34, FoldersToClean=-1, Path=%ENGINEDIR%DerivedDataCache, EnvPathOverride=UE-LocalDataCachePath, EditorOverrideSetting=LocalDerivedDataCache)
-Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=10, FoldersToClean=10, MaxFileChecksPerSec=1, Path=?EpicDDC, EnvPathOverride=UE-SharedDataCachePath, EditorOverrideSetting=SharedDerivedDataCache, CommandLineOverride=SharedDataCachePath)
-AltShared=(Type=FileSystem, ReadOnly=true, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=23, FoldersToClean=10, MaxFileChecksPerSec=1, Path=?EpicDDC2, EnvPathOverride=UE-SharedDataCachePath2)
+Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=34, FoldersToClean=-1, PromptIfMissing=true, Path=%ENGINEDIR%DerivedDataCache, EnvPathOverride=UE-LocalDataCachePath, EditorOverrideSetting=LocalDerivedDataCache)
+Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=10, FoldersToClean=10, MaxFileChecksPerSec=1, ConsiderSlowAt=70, PromptIfMissing=false, Path=?EpicDDC, EnvPathOverride=UE-SharedDataCachePath, EditorOverrideSetting=SharedDerivedDataCache, CommandLineOverride=SharedDataCachePath)
+AltShared=(Type=FileSystem, ReadOnly=true, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=23, FoldersToClean=10, MaxFileChecksPerSec=1, ConsiderSlowAt=70, PromptIfMissing=false, Path=?EpicDDC2, EnvPathOverride=UE-SharedDataCachePath2)
 Pak=(Type=ReadPak, Filename="%GAMEDIR%DerivedDataCache/DDC.ddp")
 EnginePak=(Type=ReadPak, Filename=%ENGINEDIR%DerivedDataCache/DDC.ddp)
 
@@ -1541,7 +1626,7 @@ Root=(Type=KeyLength, Length=120, Inner=AsyncPut)
 AsyncPut=(Type=AsyncPut, Inner=Hierarchy)
 Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Pak, Inner=Local)
 Boot=(Type=Boot, Filename="%GAMEDIR%DerivedDataCache/Boot.ddc", MaxCacheSize=512)
-Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=34, FoldersToClean=-1, Path=%ENGINEDIR%DerivedDataCache, EnvPathOverride=UE-LocalDataCachePath)
+Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=34, FoldersToClean=-1, Path=%ENGINEDIR%DerivedDataCache, EnvPathOverride=UE-LocalDataCachePath, EditorOverrideSetting=LocalDerivedDataCache)
 Pak=(Type=ReadPak, Filename="%GAMEDIR%DerivedDataCache/DDC.ddp")
 
 [CreatePak]
@@ -1623,6 +1708,7 @@ AspectRatioAxisConstraint=AspectRatio_MaintainXFOV
 +Class=Texture2D
 
 [AssetRegistry]
++BlacklistContentSubPathScanFilters="__ExternalActors__"
 +CookedTagsBlacklist=(Class=Blueprint,Tag=FiB)
 +CookedTagsBlacklist=(Class=Blueprint,Tag=FiBData)
 +CookedTagsBlacklist=(Class=*,Tag=AssetImportData)
@@ -1641,7 +1727,6 @@ bUseAssetRegistryTagsWhitelistInsteadOfBlacklist=false
 +CookedTagsAsFName=PrimaryAssetName
 +CookedTagsAsPathName=GeneratedClass
 +CookedTagsAsPathName=ParentClass
-+CookedTagsAsLocText=DisplayName
 
 bSerializeAssetRegistry=true
 bSerializeDependencies=false
@@ -1713,12 +1798,15 @@ MinRegionArea=0.f
 MergeRegionSize=400.f
 bUseBetterOffsetsFromCorners=true
 
-
 [/Script/NavigationSystem.NavArea_Null]
 DrawColor=(R=38,G=38,B=38,A=64)
 
 [/Script/NavigationSystem.NavArea_Default]
 DrawColor=(R=140,G=255,B=0,A=164)
+
+[Trace.ChannelPresets]
+Default=cpu,frame,log,bookmark
+Rendering=gpu,cpu,frame,log,bookmark
 
 [RemoteConfiguration]
 Enabled=false
@@ -1788,15 +1876,16 @@ MaterialAO=(Material="/Engine/BufferVisualization/MaterialAO.MaterialAO", Name=L
 Metallic=(Material="/Engine/BufferVisualization/Metallic.Metallic", Name=LOCTEXT("BaseMetallicMat", "Metallic"))
 Opacity=(Material="/Engine/BufferVisualization/Opacity.Opacity", Name=LOCTEXT("BaseOpacityMat", "Opacity"))
 Roughness=(Material="/Engine/BufferVisualization/Roughness.Roughness", Name=LOCTEXT("BaseRoughnessMat", "Roughness"))
-Anisotropy=(Material="/Engine/BufferVisualization/Anisotropy.Anisotropy", Name=LOCTEXT("BaseAnisotropyMat", "Anisotropy"), Display="r.AnisotropicBRDF")
+Anisotropy=(Material="/Engine/BufferVisualization/Anisotropy.Anisotropy", Name=LOCTEXT("BaseAnisotropyMat", "Anisotropy"))
 SceneColor=(Material="/Engine/BufferVisualization/SceneColor.SceneColor", Name=LOCTEXT("BaseSceneColorMat", "Scene Color"))
 SceneDepth=(Material="/Engine/BufferVisualization/SceneDepth.SceneDepth", Name=LOCTEXT("BaseSceneDepthMat", "Scene Depth"))
 SeparateTranslucencyRGB=(Material="/Engine/BufferVisualization/SeparateTranslucencyRGB.SeparateTranslucencyRGB", Name=LOCTEXT("BaseSeparateTranslucencyRGBMat", "Separate Translucency RGB"))
 SeparateTranslucencyA=(Material="/Engine/BufferVisualization/SeparateTranslucencyA.SeparateTranslucencyA", Name=LOCTEXT("BaseSeparateTranslucencyAMat", "Separate Translucency Alpha"))
+DBDSeparateTranslucencyA=(Material="/Engine/BufferVisualization/DBDSeparateTranslucencyA.DBDSeparateTranslucencyA", Name=LOCTEXT("DBDBaseSeparateTranslucencyAMat", "DBD Separate Translucency Alpha"))
 Specular=(Material="/Engine/BufferVisualization/Specular.Specular", Name=LOCTEXT("BaseSpecularMat", "Specular"))
 SubsurfaceColor=(Material="/Engine/BufferVisualization/SubsurfaceColor.SubsurfaceColor", Name=LOCTEXT("BaseSubsurfaceColorMat", "Subsurface Color"))
 WorldNormal=(Material="/Engine/BufferVisualization/WorldNormal.WorldNormal", Name=LOCTEXT("BaseWorldNormalMat", "World Normal"))
-WorldTangent=(Material="/Engine/BufferVisualization/WorldTangent.WorldTangent", Name=LOCTEXT("BaseWorldTangentMat", "World Tangent"), Display="r.AnisotropicBRDF")
+WorldTangent=(Material="/Engine/BufferVisualization/WorldTangent.WorldTangent", Name=LOCTEXT("BaseWorldTangentMat", "World Tangent"))
 AmbientOcclusion=(Material="/Engine/BufferVisualization/AmbientOcclusion.AmbientOcclusion", Name=LOCTEXT("BaseAmbientOcclusionMat", "Ambient Occlusion"))
 CustomDepthWorldUnits=(Material="/Engine/BufferVisualization/CustomDepthWorldUnits.CustomDepthWorldUnits", Name=LOCTEXT("BaseCustomDepthWorldUnitsMat", "Custom Depth World Units"))
 SceneDepthWorldUnits=(Material="/Engine/BufferVisualization/SceneDepthWorldUnits.SceneDepthWorldUnits", Name=LOCTEXT("BaseSceneDepthWorldUnitsMat", "Scene Depth World Units"))
@@ -1816,16 +1905,6 @@ NumPreallocatedVertices=50000
 [MobileSlateUI]
 bTouchFallbackToMouse=true
 
-[Nadzorca]
-StagingDir=~/LinuxServer/
-RunningDir=../../../
-ExecutableLocation=shootergame/binaries/linux/
-ExecutableName=shootergameserver
-Arguments=-pak
-NumberOfInstances=3
-StartingEnginePort=5000
-StartingBeaconPort=15000
-
 [Pak]
 +ExtensionsToNotUsePluginCompression=uplugin
 +ExtensionsToNotUsePluginCompression=upluginmanifest
@@ -1833,6 +1912,15 @@ StartingBeaconPort=15000
 +ExtensionsToNotUsePluginCompression=ini
 +ExtensionsToNotUsePluginCompression=icu
 +ExtensionsToNotUsePluginCompression=res
++FileNamesToNotUsePluginCompression=AssetRegistry.bin
++DirectoryIndexKeepFiles="*/Config/Tags/*"
++DirectoryIndexKeepFiles="*/Content/Localization/*"
++DirectoryIndexKeepFiles="*/Content/Internationalization/*"
++DirectoryIndexKeepFiles="*/Content/Movies/*"
++DirectoryIndexKeepFiles="*/Plugins/*.uplugin*"
++DirectoryIndexKeepFiles="*/*.ini*"
++DirectoryIndexKeepEmptyDirectories=*/Plugins/*
++IndexValidationIgnore="*/Saved/Logs/*"
 
 [/Script/GameplayDebugger.GameplayDebuggingReplicator]
 MaxEQSQueries=5
@@ -1858,14 +1946,8 @@ bSupportsMetal=True
 bCookPVRTCTextures=True
 bCookASTCTextures=False
 bSupportsMetalMRT=False
-bDevForArmV7=False
-bDevForArm64=True
-bDevForArmV7S=False
-bShipForArmV7=False
-bShipForArm64=True
-bShipForArmV7S=False
 bShipForBitcode=True
-bTreatRemoteAsSeparateController=False
+bGameSupportsMultipleActiveControllers=False
 bAllowRemoteRotation=True
 bUseRemoteAsVirtualJoystick=True
 bUseAbsoluteDpadValues=False
@@ -1881,15 +1963,17 @@ BundleIdentifier=com.YourCompany.[PROJECT_NAME]
 VersionInfo=1.0
 FrameRateLock=PUFRL_30
 bEnableDynamicMaxFPS=False
-MinimumiOSVersion=IOS_11
+MinimumiOSVersion=IOS_12
 bSupportsIPad=True
 bSupportsIPhone=True
 AdditionalPlistData=
 RemoteServerName=
+RemoteServerOverrideBuildPath=
 RSyncUsername=
 SSHPrivateKeyOverridePath=
 bEnableRemoteNotificationsSupport=False
 bEnableCloudKitSupport=False
+bRunAsCurrentUser=False
 IOSCloudKitSyncStrategy=None
 bGenerateCrashReportSymbols=false
 bAutomaticSigning=false
@@ -1909,7 +1993,6 @@ bBuildForArmV7=true
 bBuildForArm64=false
 bBuildForX86=false
 bBuildForX8664=false
-bBuildForES2=false
 bBuildForES31=true
 bSupportsVulkan=false
 bSupportsVulkanSM5=false
@@ -1946,22 +2029,27 @@ bAndroidVoiceEnabled=false
 bBuildWithHiddenSymbolVisibility=false
 bSaveSymbols=false
 bAllowControllers=True
-bAllowIMU=True
+bAllowIMU=False
 bUseDisplayCutout=False
 bEnableSnapshots=False
 bRestoreNotificationsOnReboot=False
 bEnableBundle=False
-bEnableUniversalAPK=False
+bEnableUniversalAPK=True
 bBundleABISplit=True
 bBundleLanguageSplit=True
 bBundleDensitySplit=True
 bFullScreen=True
 bForceLDLinker=False
 bForceSmallOBBFiles=False
+bAllowLargeOBBFiles=False
+bAllowPatchOBBFile=False
+bAllowOverflowOBBFiles=False
+bExtractNativeLibs=true
+bEnableDomStorage=False
 
 [/Script/AndroidPlatformEditor.AndroidSDKSettings]
 SDKAPILevel=latest
-NDKAPILevel=android-19
+NDKAPILevel=android-21
 
 [/Script/MagicLeap.MagicLeapSettings]
 bEnableZI=False
@@ -2014,6 +2102,8 @@ DefaultASTCQualityBySize=3
 +ClassesExcludedOnDedicatedServer=InterpCurveEdSetup
 +ClassesExcludedOnDedicatedServer=MaterialExpression
 +ClassesExcludedOnDedicatedServer=MatineeActorCameraAnim
++ClassesExcludedOnDedicatedServer=NiagaraEmitter
++ClassesExcludedOnDedicatedServer=NiagaraScript
 +ClassesExcludedOnDedicatedServer=ParticleEmitter
 +ClassesExcludedOnDedicatedServer=ParticleLODLevel
 +ClassesExcludedOnDedicatedServer=ParticleModule
@@ -2038,6 +2128,8 @@ DefaultASTCQualityBySize=3
 +VersionedIntRValues=r.MobileHDR
 +VersionedIntRValues=r.UsePreExposure
 
+[/Script/UnrealEd.ChunkDependencyInfo]
+
 [/Script/Engine.PhysicsSettings]
 DefaultGravityZ=-980.0
 bEnable2DPhysics=false
@@ -2051,20 +2143,18 @@ bTarget32Bit=false
 [/Script/LinuxTargetPlatform.LinuxTargetSettings]
 +TargetedRHIs=SF_VULKAN_SM5
 
-
-
 [/Script/MacTargetPlatform.MacTargetSettings]
-MaxShaderLanguageVersion=3
+MaxShaderLanguageVersion=4
 +TargetedRHIs=SF_METAL_SM5
 UseFastIntrinsics=False
 ForceFloats=False
 EnableMathOptimisations=True
 
 [HMDPluginPriority]
-WindowsMixedRealityHMD=40
-OpenXRHMD=30
-OculusHMD=20
-SteamVR=10
+OculusHMD=40
+SteamVR=30
+OpenXRHMD=20
+WindowsMixedRealityHMD=10
 
 [/Script/Engine.AISystemBase]
 AISystemModuleName=AIModule
@@ -2129,6 +2219,8 @@ PktIncomingLagMax=200
 [/Script/Engine.NetworkSettings]
 +NetworkEmulationProfiles=(ProfileName="Average",ToolTip="Simulates average internet conditions")
 +NetworkEmulationProfiles=(ProfileName="Bad",ToolTip="Simulates laggy internet conditions")
+
+[PacketHandlerComponents]
 
 [/Script/GameplayDebugger.GameplayDebuggingControllerComponent]
 CategoryZeroBind=(Key=NumPadZero,bShift=False,bCtrl=False,bAlt=False,bCmd=False)
@@ -2200,6 +2292,12 @@ HMDWornMovementThreshold = 50.0
 
 [/Script/Engine.AnimationSettings]
 bStripAnimationDataOnDedicatedServer=False
++BoneCustomAttributesNames=(Name="TCHour",Meaning="Timecode Hour")
++BoneCustomAttributesNames=(Name="TCMinute",Meaning="Timecode Minute")
++BoneCustomAttributesNames=(Name="TCSecond",Meaning="Timecode Second")
++BoneCustomAttributesNames=(Name="TCFrame",Meaning="Timecode Frame")
++BoneCustomAttributesNames=(Name="TCSubframe",Meaning="Timecode Subframe")
++BoneCustomAttributesNames=(Name="Takename",Meaning="Takename")
 
 [Animation.DefaultObjectSettings]
 BoneCompressionSettings="/Engine/Animation/DefaultAnimBoneCompressionSettings"
@@ -2221,12 +2319,6 @@ r.MeshReductionModule="QuadricMeshReduction"
 +InternalOnlyPaths=(Path="/Engine/Sequencer")
 +InternalOnlyPaths=(Path="/Engine/NotForLicensees")
 
-[EngineSessionManager]
-UseWatchdogMTBF=false
-AllowWatchdogDialogs=false
-AllowWatchdogDetectHangs=false
-WatchdogMinimumHangSeconds=120
-
 [/Script/LevelSequence.LevelSequence]
 DefaultCompletionMode=RestoreState
 
@@ -2245,132 +2337,28 @@ bRequireDeviceSupportsARKit=true
 
 [/Script/Engine.RendererSettings]
 r.GPUCrashDebugging=false
+MaxSkinBones=(Default=65536,PerPlatform=(("Mobile", 256)))
 
 [Messaging]
 bAllowDelayedMessaging=false
-
-[RemoteSession]
-+ChannelRedirects=(OldName=FRemoteSessionFrameBufferChannel,NewName=FRemoteSessionFrameBufferChannel_DEPRECATED)
 
 [/Script/ChaosSolverEngine.ChaosSolverSettings]
 DefaultChaosSolverActorClass=/Script/ChaosSolverEngine.ChaosSolverActor
 
 [/Script/Engine.VirtualTexturePoolConfig]
 DefaultSizeInMegabyte=64
-+Pools=(SizeInMegabyte=64, MinTileSize=0, MaxTileSize=9999, Formats=(PF_DXT5, PF_DXT5))
-; Dead By Daylight Ultimate Dashboard
-; Free to use software for Dead By Daylight
-; Original creator and UI maker is Cranch (Кранч)
-; All the rights reserved against people, mentioned in settings menu ("?" button)
-; Respect other people work and dont make other believe, that original creator is you
-; SERVERNAME 2021
++Pools=(SizeInMegabyte=64, MinTileSize=0, MaxTileSize=9999, Formats=(PF_DXT1, PF_DXT5))
++Pools=(SizeInMegabyte=512, MinTileSize=0, MaxTileSize=9999, Formats=(PF_A32B32G32R32F))
 
-[Core.Log]
-=LogDBDEasyAntiCheat=null
+[AlternateTextureCompression]
+TextureCompressionFormat="TextureFormatOodle"
+TextureFormatPrefix="OODLE_"
+bEnableInEditor=True
 
-[/Script/Engine.NetworkSettings]
-n.VerifyPeer=false
+[TextureFormatOodle]
+bForceAllBC23ToBC7=False
+bForceRDOOff=True
+bDebugColor=False
+GlobalLambdaMultiplier=1.000000
+DefaultRDOLambda=30
 
-[==/Script/Engine.LocalPlayer]
-^AspectRatioAxisConstraint
-
-[==/Script/Engine.GarbageCollectionSettings]
-^r.Shadow.CachedShadowsCastFromMovablePrimitives
-^r.LightMaxDrawDistanceScale
-^r.BloomQuality
-^r.Bloom.Intensity
-^r.Bloom.Scale
-^r.Streaming.LimitPoolSizeToVRAM
-^r.LightingDetailMode
-^r.ReflectionCaptureResolution
-^r.ReflectionEnvironmentBeginMixingRoughness
-^r.ReflectionEnvironmentEndMixingRoughness
-^r.ReflectionEnvironmentLightmapMixBasedOnRoughness
-^r.ReflectionEnvironmentLightmapMixLargestWeight
-^r.Color.Max
-^r.Color.Min
-^r.Color.Mid
-^MinDesiredFrameRate
-^SmoothedFrameRateRange
-^gc.TimeBetweenPurgingPendingKillObjects
-^MaxPixelShaderAdditiveComplexityCount
-^MaxES2PixelShaderAdditiveComplexityCount
-^IdealLightMapDensity
-^MaxLightMapDensity
-^r.AmbientOcclusionLevels
-^r.AmbientOcclusionMaxQuality
-^r.AmbientOcclusionRadiusScale
-^r.AmbientOcclusionMipLevelFactor
-^r.AllowLandscapeShadows
-^r.EmitterSpawnRateScale
-^r.SeparateTranslucency
-^r.DistanceFieldShadowing
-^r.DistanceFieldAO
-^r.DefaultFeature.Bloom
-^r.DefaultFeature.AmbientOcclusion
-^r.DefaultFeature.AmbientOcclusionStaticFraction
-^r.DefaultFeature.MotionBlur
-^r.DefaultFeature.LensFlare
-^r.DefaultFeature.AntiAliasing
-^r.DetailMode
-^r.MSAA.CompositingSampleCount
-^r.MaterialQualityLevel
-^r.LodBias
-^r.SkeletalMeshLODBias
-^r.StaticMeshLODDistanceScale
-^r.SkeletalMeshLODRadiusScale
-^r.LightFunctionQuality
-^r.LightShaftQuality
-^r.LensFlareQuality
-^r.SSR.MaxRoughness
-^r.SSS.Scale
-^r.SSS.SampleSet
-^r.SSS.Quality
-^r.SSS.HalfRes
-^r.ShadowQuality
-^r.Shadow.CSM.MaxCascades
-^r.Shadow.CSM.TransitionScale
-^r.Shadow.MaxResolution
-^r.Shadow.RadiusThreshold
-^r.Shadow.DistanceScale
-^r.Streaming.Boost
-^r.Streaming.MipBias
-^r.Streaming.PoolSize
-^r.SceneColorFringeQuality
-^r.DepthOfFieldQuality
-^r.ReflectionEnvironment
-^r.RenderTargetPoolMin
-^r.Upscale.Quality
-^r.MipMapLODBias
-^r.MinTimeBetweenTicks
-^r.MaxAnisotropy
-^r.EyeAdaptationQuality
-^r.FastBlurThreshold
-^r.ScreenPercentage
-^r.TranslucencyLightingVolumeDim
-^r.TranslucencyVolumeBlur
-^r.Tonemapper.GrainQuantization
-^r.TemporalAAFilterSize
-^r.TemporalAASharpness
-^r.TemporalAASamples
-^r.SceneColorFormat
-^r.ParticleLightQuality
-^r.ParticleMinTimeBetweenTicks
-^r.PostProcessAAQuality
-^r.RefractionQuality
-^r.ViewDistanceScale
-^r.VolumetricFog
-^r.VolumetricFog.GridPixelSize
-^r.VolumetricFog.GridSizeZ
-^r.fog
-^foliage.CullAll
-^foliage.DitheredLOD
-^foliage.LODDistanceScale
-^foliage.MinLOD
-^foliage.OnlyLOD
-^foliage.DensityScale
-^BoostPlayerTextures
-^grass.DensityScale
-^grass.MaxUpdateFrequency
-^PerfIndexValues_ResolutionQuality
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

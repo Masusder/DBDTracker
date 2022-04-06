@@ -2,15 +2,134 @@
   {
     "Type": "Function",
     "Name": "AudioAmbienceOnOverlap",
-    "Properties": {}
+    "Outer": "AudioAmbienceBox_C",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class Actor",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Audioevent",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class AkAudioEvent",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "Temp_delegate_Variable",
+        "Flags": 1,
+        "ElementSize": 20,
+        "PropertyFlags": 2,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkPostEventCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDBDPlayer",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217730,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "Temp_struct_Variable",
+          "Flags": 1,
+          "ElementSize": 56,
+          "Struct": {
+            "ObjectName": "ScriptStruct AkExternalSourceInfo",
+            "ObjectPath": "/Script/AkAudio"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocallyObserved_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": 209846272
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "AudioAmbienceBox_C",
-    "Properties": {}
+    "SuperStruct": {
+      "ObjectName": "Class AmbienceBoxComponent",
+      "ObjectPath": "/Script/DBDAudio"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function AudioAmbienceBox_C:AudioAmbienceOnOverlap",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioCustomBox/AudioAmbienceBox.0"
+      }
+    ],
+    "FuncMap": {
+      "AudioAmbienceOnOverlap": {
+        "ObjectName": "Function AudioAmbienceBox_C:AudioAmbienceOnOverlap",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioCustomBox/AudioAmbienceBox.0"
+      }
+    },
+    "ClassFlags": 10754068,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "AudioAmbienceBox_C Default__AudioAmbienceBox_C",
+      "ObjectPath": "DeadByDaylight/Content/Audio/AudioCustomBox/AudioAmbienceBox.2"
+    }
   },
   {
-    "Type": "AmbienceBoxComponent",
+    "Type": "AudioAmbienceBox_C",
     "Name": "Default__AudioAmbienceBox_C",
     "Properties": {
       "BoxExtent": {
@@ -20,11 +139,11 @@
       },
       "AreaClass": null,
       "ShapeColor": {
-        "R": 223,
+        "B": 223,
         "G": 197,
-        "B": 26,
+        "R": 26,
         "A": 255,
-        "Hex": "FFDFC51A"
+        "Hex": "FF1AC5DF"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "bApplyImpulseOnDamage": false,
@@ -32,7 +151,6 @@
       "CanCharacterStepUpOn": "ECB_No",
       "BodyInstance": {
         "ObjectType": "ECC_GameTraceChannel2",
-        "bEnableGravity": false,
         "CollisionProfileName": "AudioAmbienceBox",
         "CollisionResponses": {
           "ResponseToChannels": {
@@ -115,7 +233,8 @@
               "Response": "ECR_Ignore"
             }
           ]
-        }
+        },
+        "bEnableGravity": false
       },
       "RelativeLocation": {
         "X": 0.0,

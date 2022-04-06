@@ -2,28 +2,42 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "PathStrategySelector_FleeTerror_C",
-    "Properties": {}
+    "SuperStruct": {
+      "ObjectName": "Class PathStrategySelector_Flee",
+      "ObjectPath": "/Script/DBDBots"
+    },
+    "ClassFlags": 8652816,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PathStrategySelector_FleeTerror_C Default__PathStrategySelector_FleeTerror_C",
+      "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.1"
+    }
   },
   {
-    "Type": "PathStrategySelector_Flee",
+    "Type": "PathStrategySelector_FleeTerror_C",
     "Name": "Default__PathStrategySelector_FleeTerror_C",
     "Properties": {
       "FleePathStrategies": {
         "EAIFleePathStrategy::KeepGoal": {
-          "ObjectName": "PathStrategy_Flee_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.8"
+          "ObjectName": "PathStrategy_Flee Default__PathStrategySelector_FleeTerror_C:PathStrategy_Flee_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.8"
         },
         "EAIFleePathStrategy::Away": {
-          "ObjectName": "PathStrategy_Flee_1:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.9"
+          "ObjectName": "PathStrategy_Flee Default__PathStrategySelector_FleeTerror_C:PathStrategy_Flee_1",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.9"
         },
         "EAIFleePathStrategy::Loop": {
-          "ObjectName": "PathStrategy_FleeLoop_1:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.10"
+          "ObjectName": "PathStrategy_FleeLoop Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLoop_1",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.10"
         },
         "EAIFleePathStrategy::AwayLOS": {
-          "ObjectName": "PathStrategy_FleeLOS_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.11"
+          "ObjectName": "PathStrategy_FleeLOS Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLOS_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.11"
         }
       }
     }
@@ -31,11 +45,12 @@
   {
     "Type": "PathBuilder_EQS",
     "Name": "PathBuilder_EQS_0",
+    "Outer": "PathStrategy_Flee_1",
     "Properties": {
       "EQSRequest": {
         "QueryTemplate": {
-          "ObjectName": "EQS_Flee_Forward:EnvQuery",
-          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Forward.11"
+          "ObjectName": "EnvQuery EQS_Flee_Forward",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Forward.0"
         },
         "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
       }
@@ -44,11 +59,12 @@
   {
     "Type": "PathBuilder_EQS",
     "Name": "PathBuilder_EQS_1",
+    "Outer": "PathStrategy_Flee_1",
     "Properties": {
       "EQSRequest": {
         "QueryTemplate": {
-          "ObjectName": "EQS_Flee_Backward:EnvQuery",
-          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Backward.10"
+          "ObjectName": "EnvQuery EQS_Flee_Backward",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Backward.0"
         },
         "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
       }
@@ -57,11 +73,12 @@
   {
     "Type": "PathBuilder_EQS",
     "Name": "PathBuilder_EQS_0",
+    "Outer": "PathStrategy_FleeLOS_0",
     "Properties": {
       "EQSRequest": {
         "QueryTemplate": {
-          "ObjectName": "EQS_Flee_Sideway:EnvQuery",
-          "ObjectPath": "/Game/AI/Camper/EQS_Flee_Sideway.12"
+          "ObjectName": "EnvQuery EQS_Flee_Sideway",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Sideway.0"
         },
         "RunMode": "EEnvQueryRunMode::RandomBest25Pct"
       },
@@ -71,26 +88,27 @@
   {
     "Type": "PathBuilder_EvadeLoop",
     "Name": "PathBuilder_EvadeLoop_0",
-    "Properties": {}
+    "Outer": "PathStrategy_FleeLoop_1"
   },
   {
     "Type": "PathBuilder_EvadeLoop",
     "Name": "PathBuilder_EvadeLoop_1",
-    "Properties": {}
+    "Outer": "PathStrategy_FleeLoop_1"
   },
   {
     "Type": "PathBuilder_LastGoal",
     "Name": "PathBuilder_LastGoal_0",
-    "Properties": {}
+    "Outer": "PathStrategy_Flee_0"
   },
   {
     "Type": "PathStrategy_Flee",
     "Name": "PathStrategy_Flee_0",
+    "Outer": "Default__PathStrategySelector_FleeTerror_C",
     "Properties": {
       "DefaultPathBuilders": [
         {
-          "ObjectName": "PathStrategy_Flee_0:PathBuilder_LastGoal_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.7"
+          "ObjectName": "PathBuilder_LastGoal Default__PathStrategySelector_FleeTerror_C:PathStrategy_Flee_0.PathBuilder_LastGoal_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.7"
         }
       ]
     }
@@ -98,15 +116,16 @@
   {
     "Type": "PathStrategy_Flee",
     "Name": "PathStrategy_Flee_1",
+    "Outer": "Default__PathStrategySelector_FleeTerror_C",
     "Properties": {
       "DefaultPathBuilders": [
         {
-          "ObjectName": "PathStrategy_Flee_1:PathBuilder_EQS_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.2"
+          "ObjectName": "PathBuilder_EQS Default__PathStrategySelector_FleeTerror_C:PathStrategy_Flee_1.PathBuilder_EQS_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.2"
         },
         {
-          "ObjectName": "PathStrategy_Flee_1:PathBuilder_EQS_1:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.3"
+          "ObjectName": "PathBuilder_EQS Default__PathStrategySelector_FleeTerror_C:PathStrategy_Flee_1.PathBuilder_EQS_1",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.3"
         }
       ]
     }
@@ -114,15 +133,16 @@
   {
     "Type": "PathStrategy_FleeLoop",
     "Name": "PathStrategy_FleeLoop_1",
+    "Outer": "Default__PathStrategySelector_FleeTerror_C",
     "Properties": {
       "FleeLoopStrategyPathBuilders": {
         "EAIFleeLoopStrategy::LoseKiller": {
-          "ObjectName": "PathStrategy_FleeLoop_1:PathBuilder_EvadeLoop_1:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.6"
+          "ObjectName": "PathBuilder_EvadeLoop Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLoop_1.PathBuilder_EvadeLoop_1",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.6"
         },
         "EAIFleeLoopStrategy::WasteTime": {
-          "ObjectName": "PathStrategy_FleeLoop_1:PathBuilder_EvadeLoop_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.5"
+          "ObjectName": "PathBuilder_EvadeLoop Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLoop_1.PathBuilder_EvadeLoop_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.5"
         }
       }
     }
@@ -130,11 +150,12 @@
   {
     "Type": "PathStrategy_FleeLOS",
     "Name": "PathStrategy_FleeLOS_0",
+    "Outer": "Default__PathStrategySelector_FleeTerror_C",
     "Properties": {
       "DefaultPathBuilders": [
         {
-          "ObjectName": "PathStrategy_FleeLOS_0:PathBuilder_EQS_0:",
-          "ObjectPath": "Default__PathStrategySelector_FleeTerror_C.4"
+          "ObjectName": "PathBuilder_EQS Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLOS_0.PathBuilder_EQS_0",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.4"
         }
       ]
     }

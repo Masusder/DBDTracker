@@ -1,5 +1,3 @@
-; Add a ArrayOfStruct key for all DeviceProfile PerObjectConfig sections (this must come before any DeviceProfile sections)
-; Note that * properties don't get written back out by the config system, but these aren't real sections, so that should be okay
 [DeviceProfile]
 *TextureLODGroups=Group
 
@@ -75,7 +73,6 @@
 +DeviceProfileNameAndTypes=Android_Mali_T8xx_No_Vulkan,Android
 +DeviceProfileNameAndTypes=Android_Mali_G71,Android
 +DeviceProfileNameAndTypes=Android_Mali_G72,Android
-; @todo Lumin: Once we get the IniPlatformParent stuff, this should move into a LuminBaseDeviceProfiles.ini, and make type be Lumin
 +DeviceProfileNameAndTypes=Lumin,Android
 
 [/Script/Engine.TextureLODSettings]
@@ -119,7 +116,6 @@ TextureLODGroups=(Group=TEXTUREGROUP_World,MinLODSize=1,MaxLODSize=1024,LODBias=
 
 [Mobile DeviceProfile]
 BaseProfileName=
-; Set Atlanta Flow Variables
 +CVars=dbd.UseAtlantaMatchmaking=1
 +CVars=dbd.UseAtlantaUI=1
 +CVars=dbd.UseAtlantaBloodweb=1
@@ -142,25 +138,17 @@ BaseProfileName=
 +CVars=dbd.LongPressDelay=1.0
 +CVars=dbd.Feature_HasArchives=0
 
-; Strip data
-; r.CookOutUnusedDetailModeComponents=1
-; TEMP HACK TO FORCE GESTURE COMPONENTS TO BE INCLUDE IN COOK
 r.CookOutUnusedDetailModeComponents=0
 
-; Remove meshes, components, things like that.
 +CVars=r.DetailModeBitMask=4
 
-;Particles are eating too much memory!
 +CVars=fx.GPUSimulationTextureSizeX=64
 +CVars=fx.GPUSimulationTextureSizeY=64
 
-;We don't want the buffers for this...'
 +CVars=r.CustomDepth=0
 
-;No drawcall merge on mobile. -Causing visibility issues
 +CVars=r.MergeDrawCalls=0
 
-;DBD specific scalability settings
 +CVars=dbd.scalability.allowAssetManagerForCharacterItems=1
 +CVars=dbd.scalability.allowAssetManagerForMenuAssets=0
 +CVars=dbd.scalability.allowAssetManagerForGlobalAssets=0
@@ -168,31 +156,22 @@ r.CookOutUnusedDetailModeComponents=0
 +CVars=dbd.scalability.allowAssetManagerForTutorialAssets=0
 +CVars=dbd.atlanta.SkipKeyboardInputConsuming=1
 
-;Prevent black screens
 +r.PostProcessing.DisableMaterials=1
 +CVars=r.LightShaftQuality=0
 
-;Cached Directional Light
 +CVars=r.Shadow.MaxCSMResolution=2048
-+CVars=r.Shadow.MaxCSMStaticCachedShadowResolution=2048
 
-;Prevent ghosting
 +CVars=r.PostProcessAAQuality=0
 
-;Lower than low-end PC settings
 +CVars=r.DetailMode=0
 +CVars=r.Streaming.PoolSize=128
 
-;Chase Visual Cue Switch
 +CVars=r.EnableChaseVisualCue=1
 
-; Particles bad.
 +CVars=r.EmitterSpawnRateScale=0.2
 
-; Scale the LODs...
 +CVars=r.StaticMeshLODDistanceScale=1.0
 
-; Occlusion queries tend to help...
 +CVars=r.AllowOcclusionQueries=1
 
 +TextureLODGroups=(Group=TEXTUREGROUP_SkyboxReflections,LODBias=2,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=64,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=64,MinMagFilter="aniso",MipFilter="point")
@@ -238,7 +217,6 @@ r.CookOutUnusedDetailModeComponents=0
 [Windows DeviceProfile]
 DeviceType=Windows
 BaseProfileName=
-; +CVars=r.Vulkan.EnableValidation=0
 +TextureLODGroups=(Group=TEXTUREGROUP_World,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
 +TextureLODGroups=(Group=TEXTUREGROUP_WorldNormalMap,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
 +TextureLODGroups=(Group=TEXTUREGROUP_WorldSpecular,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
@@ -278,23 +256,18 @@ BaseProfileName=
 +TextureLODGroups=(Group=TEXTUREGROUP_AtlasTrimSheet,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
 +TextureLODGroups=(Group=TEXTUREGROUP_AtlasTrimSheetNormalMap,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
 +TextureLODGroups=(Group=TEXTUREGROUP_AtlasTrimSheetCombinedMap,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
-;+CVars=dbd.UseAtlantaFixedMaps=1
 +CVars=dbd.UseRuntimeReflectionCaptureSpawner=1
 +CVars=dbd.DeltaTimeBetweenTwoReflectionCapture=0.20
 +CVars=dbd.LocalIBLFromCaptures=1
 
-; next 3 lines are needed because we change r.SeparateTranslucencyScreenPercentage on PC 4K resolution & above
 +CVars=r.AllowDownsampledStandardTranslucency=-1 ; Only downsample second translucency pass
 +CVars=r.SeparateTranslucencyUpsampleMode=0		; Use bilinear upsampling
 +CVars=dbd.SplashScreenSeparateTranslucencyScreenPercentage=100
-; Niagara GPU data buffer allocation chunk size used to round GPU allocations in bytes, must be power of 2 (Default=4096)
 +CVars=fx.NiagaraGPUDataBufferChunkSize=128
 
 +CVars=r.EarlyZPass=1
 +CVars=r.EarlyZPassForMaskedDenseGeometryBHVR=1
 
-;The code in vanilla UE4 dynamic resolution is in "DynamcResolution.cpp":"void BeginFrame(...)"
-;DO NOT USE r.DynamicRes.GPUTimingMeasureMethod=1 on PC
 +CVars=r.DynamicRes.TargetedGPUHeadRoomPercentage=3.0 ; Add present overhead in 4k (roughly 0.3ms) copied from Stadia
 +CVars=r.DynamicRes.MinScreenPercentage=70.0 ; set backstop
 +CVars=r.DynamicRes.MaxScreenPercentage=100.0
@@ -302,38 +275,33 @@ BaseProfileName=
 +CVars=r.DynamicRes.FrameTimeBudget=16.67
 +CVars=r.DynamicRes.GPUTimingMeasureMethod=0
 +CVars=r.TranslucencyLightingVolumeInnerDistance=500
-;+CVars=r.TemporalAA.Upsampling=0 ; too expensive for now...
 
-;--- FoliageQuality ---
 +CVars=foliage.MinimumScreenSize=0.01
+
++CVars=a.Budget.Enabled=0
++CVars=a.Budget.BudgetMs=0.95f
++CVars=a.Budget.InitialEstimatedWorkUnitTime=0.2f
 
 [WindowsNoEditor DeviceProfile]
 DeviceType=Windows
 BaseProfileName=Windows
-; next 3 lines are needed because we change r.SeparateTranslucencyScreenPercentage on PC 4K resolution & above
 +CVars=r.AllowDownsampledStandardTranslucency=-1 ; Only downsample second translucency pass
 +CVars=r.SeparateTranslucencyUpsampleMode=0		; Use bilinear upsampling
 +CVars=dbd.SplashScreenSeparateTranslucencyScreenPercentage=100
-; Niagara GPU data buffer allocation chunk size used to round GPU allocations in bytes, must be power of 2 (Default=4096)
 +CVars=fx.NiagaraGPUDataBufferChunkSize=128
 
-;The code in vanilla UE4 dynamic resolution is in "DynamcResolution.cpp":"void BeginFrame(...)"
-;DO NOT USE r.DynamicRes.GPUTimingMeasureMethod=1 on PC
 +CVars=r.DynamicRes.TargetedGPUHeadRoomPercentage=3.0 ; Add present overhead in 4k (roughly 0.3ms) copied from Stadia
 +CVars=r.DynamicRes.MinScreenPercentage=70.0 ; set backstop
 +CVars=r.DynamicRes.MaxScreenPercentage=100.0
 +CVars=r.DynamicRes.OperationMode=1 ; 0 = disabled, 2 = force enable dynamic res
 +CVars=r.DynamicRes.FrameTimeBudget=16.67
 +CVars=r.DynamicRes.GPUTimingMeasureMethod=0
-;+CVars=r.TemporalAA.Upsampling=0 ; too expensive for now...
 
-;--- FoliageQuality ---
 +CVars=foliage.MinimumScreenSize=0.01
 
 [WindowsServer DeviceProfile]
 DeviceType=Windows
 BaseProfileName=Windows
-; next 3 lines are needed because we change r.SeparateTranslucencyScreenPercentage on PC 4K resolution & above
 +CVars=r.AllowDownsampledStandardTranslucency=-1 ; Only downsample second translucency pass
 +CVars=r.SeparateTranslucencyUpsampleMode=0		; Use bilinear upsampling
 +CVars=dbd.SplashScreenSeparateTranslucencyScreenPercentage=100
@@ -382,30 +350,21 @@ BaseProfileName=Windows
 +TextureLODGroups=(Group=TEXTUREGROUP_AtlasTrimSheetNormalMap,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
 +TextureLODGroups=(Group=TEXTUREGROUP_AtlasTrimSheetCombinedMap,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=1024,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=1024,MinMagFilter="aniso",MipFilter="point")
 
-; next 3 lines are needed because we change r.SeparateTranslucencyScreenPercentage on PC 4K resolution & above
 +CVars=r.AllowDownsampledStandardTranslucency=-1 ; Only downsample second translucency pass
 +CVars=r.SeparateTranslucencyUpsampleMode=0		; Use bilinear upsampling
 +CVars=dbd.SplashScreenSeparateTranslucencyScreenPercentage=100
 
-; Niagara GPU data buffer allocation chunk size used to round GPU allocations in bytes, must be power of 2 (Default=4096)
 +CVars=fx.NiagaraGPUDataBufferChunkSize=128
 
-;The code in vanilla UE4 dynamic resolution is in "DynamcResolution.cpp":"void BeginFrame(...)"
-;DO NOT USE r.DynamicRes.GPUTimingMeasureMethod=1 on PC
 +CVars=r.DynamicRes.TargetedGPUHeadRoomPercentage=3.0 ; Add present overhead in 4k (roughly 0.3ms) copied from Stadia
 +CVars=r.DynamicRes.MinScreenPercentage=70.0 ; set backstop
 +CVars=r.DynamicRes.MaxScreenPercentage=100.0
 +CVars=r.DynamicRes.OperationMode=1 ; 0 = disabled, 2 = force enable dynamic res
 +CVars=r.DynamicRes.FrameTimeBudget=16.67
 +CVars=r.DynamicRes.GPUTimingMeasureMethod=0
-;+CVars=r.TemporalAA.Upsampling=0 ; too expensive for now...
 
-;--- FoliageQuality ---
 +CVars=foliage.MinimumScreenSize=0.01
 
-;-----------------------------------------------------
-; Settings that are common to PS4 and XboxOne device profiles goes here
-;-----------------------------------------------------
 [PS4XboxOneCommon DeviceProfile]
 +TextureLODGroups=(Group=TEXTUREGROUP_World,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=2048,MinMagFilter="aniso",MipFilter="point")
 +TextureLODGroups=(Group=TEXTUREGROUP_WorldNormalMap,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=1024,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=1024,MinMagFilter="aniso",MipFilter="point")
@@ -450,26 +409,19 @@ BaseProfileName=Windows
 +CVars=r.DynamicRes.OperationMode=0
 +CVars=r.DynamicRes.FrameTimeBudget=16.66
 
-; Do not change r.EarlyZPass. Must be set to 1 for the BoxOcclusionQueryComponent and optimized masked foliage features.
 +CVars=r.EarlyZPass=1
 +CVars=r.EarlyZPassForMaskedDenseGeometryBHVR=1
 
 +CVars=r.LightShaftBlurPasses=2
 +CVars=r.Streaming.PoolSize=800
 
-;--- AntiAliasingQuality ---
 +CVars=r.PostProcessAAQuality=3
 
-;--- ViewDistanceQuality ---
 
-;--- ShadowQuality ---
 +CVars=r.Shadow.CSM.MaxCascades=4
 +CVars=r.Shadow.MaxCSMResolution=512
-+CVars=r.Shadow.MaxCSMStaticCachedShadowResolution=1024
 +CVars=r.Shadow.MaxResolution=512
 +CVars=r.Shadow.MaxShadowMapAtlasResolution=512
-+CVars=r.PlatformRequiresDirectionalCachedShadows=0
-+CVars=r.EnableDirectionalCachedShadows=0
 +CVars=r.Shadow.ASM.MaxTileSize=128
 +CVars=r.Shadow.ASM.DynamicShadowMode=1
 +CVars=r.Shadow.ASM.quality=3
@@ -480,7 +432,6 @@ BaseProfileName=Windows
 +CVars=r.VolumetricFog.HistoryMissSupersampleCount=4
 +CVars=r.LPV.RSMResolution=128
 
-;--- PostProcessQuality ---
 +CVars=r.AmbientOcclusionMipLevelFactor=1.0
 +CVars=r.AmbientOcclusion.Compute=3
 +CVars=r.AmbientOcclusionMaxQuality=50
@@ -496,10 +447,8 @@ BaseProfileName=Windows
 +CVars=r.LightShaftQuality=0
 +CVars=r.Filter.SizeScale=0.7
 
-;--- TextureQuality ---
 +CVars=r.MaxAnisotropy=2
 
-;--- EffectsQuality ---
 +CVars=r.TranslucencyLightingVolumeDim=24
 +CVars=r.TranslucencyLightingVolumeInnerDistance=500
 +CVars=r.RefractionQuality=1
@@ -511,17 +460,11 @@ BaseProfileName=Windows
 +CVars=r.ReflectionCaptureResolution=64
 +CVars=dbd.LocalIBLFromCaptures=0
 
-;--- FoliageQuality ---
 +CVars=foliage.MinimumScreenSize=0.01
 
-;--- ShadingQuality ---
 
-; Niagara GPU data buffer allocation chunk size used to round GPU allocations in bytes, must be power of 2 (Default=4096)
 +CVars=fx.NiagaraGPUDataBufferChunkSize=128
 
-;-----------------------------------------------------
-; Settings that are common to all 4K consoles goes here (PS5, XSX, Stadia 4K...)
-;-----------------------------------------------------
 [4KCommon DeviceProfile]
 +CVars=r.ScreenPercentage=100
 +CVars=r.LobbyScreenPercentage=100
@@ -529,14 +472,12 @@ BaseProfileName=Windows
 +CVars=r.DynamicRes.FrameTimeBudget=16.66
 +CVars=r.DynamicRes.MinScreenPercentage=85
 
-; Do not change r.EarlyZPass. Must be set to 1 for the BoxOcclusionQueryComponent and optimized masked foliage features.
 +CVars=r.EarlyZPass=1
 +CVars=r.EarlyZPassForMaskedDenseGeometryBHVR=1
 
 +CVars=r.LightShaftBlurPasses=2
 +CVars=r.TranslucencyLightingVolumeInnerDistance=500
 
-; DownSample separate translucency (comes from the switch parameters)
 +CVars=r.SeparateTranslucencyScreenPercentage=50
 +CVars=r.AllowDownsampledStandardTranslucency=-1 ; Only downsample second translucency pass
 +CVars=r.SeparateTranslucencyUpsampleMode=0		 ; Use bilinear upsampling
@@ -582,12 +523,9 @@ BaseProfileName=Windows
 +TextureLODGroups=(Group=TEXTUREGROUP_AtlasTrimSheetCombinedMap,LODBias=0,LODBias_Smaller=-1,LODBias_Smallest=-1,NumStreamedMips=-1,MipGenSettings=TMGS_SimpleAverage,MinLODSize=1,MaxLODSize=2048,MaxLODSize_Smaller=-1,MaxLODSize_Smallest=-1,OptionalLODBias=0,OptionalMaxLODSize=4096,MinMagFilter="aniso",MipFilter="point")
 
 
-;--- AntiAliasingQuality ---
 +CVars=r.PostProcessAAQuality=3
 
-;--- ViewDistanceQuality ---
 
-;--- ShadowQuality ---
 +CVars=r.Shadow.MaxResolution=1536
 +CVars=r.Shadow.MaxShadowMapAtlasResolution=1536
 +CVars=r.VolumetricFog=1
@@ -595,14 +533,11 @@ BaseProfileName=Windows
 +CVars=r.VolumetricFog.GridSizeZ=64
 +CVars=r.VolumetricFog.HistoryMissSupersampleCount=4
 +CVars=r.LPV.RSMResolution=256
-+CVars=r.PlatformRequiresDirectionalCachedShadows=0
-+CVars=r.EnableDirectionalCachedShadows=0
 +CVars=r.Shadow.ASM.MaxTileSize=4096 ; Using value set in blueprint no specific limit
 +CVars=r.Shadow.ASM.DynamicShadowMode=1
 +CVars=r.Shadow.ASM.quality=4
 +CVars=r.Shadow.ASM.Enable=1
 
-;--- PostProcessQuality ---
 +CVars=r.MotionBlurQuality=3
 +CVars=r.AmbientOcclusionMipLevelFactor=1.0
 +CVars=r.AmbientOcclusion.Compute=3
@@ -619,13 +554,10 @@ BaseProfileName=Windows
 +CVars=r.LightShaftQuality=0
 +CVars=r.Filter.SizeScale=0.7
 
-;--- TextureQuality ---
-; DBDL-51044  define device profile for PS5, use High end PC specs to load 4K textures without bias on PS5
 +CVars=r.Streaming.MipBias=0
 +CVars=r.MaxAnisotropy=2
 +CVars=r.Streaming.PoolSize=4000
 
-;--- EffectsQuality ---
 +CVars=r.TranslucencyLightingVolumeDim=24
 +CVars=r.RefractionQuality=1
 +CVars=r.SSR.Quality=0
@@ -635,13 +567,10 @@ BaseProfileName=Windows
 +CVars=dbd.UseRuntimeReflectionCaptureSpawner=1
 +CVars=dbd.LocalIBLFromCaptures=1
 
-;--- FoliageQuality ---
 +CVars=foliage.MinimumScreenSize=0.01
 
-;--- ShadingQuality ---
 +CVars=r.TiledDeferredShading=0
 
-; Niagara GPU data buffer allocation chunk size used to round GPU allocations in bytes, must be power of 2 (Default=4096)
 +CVars=fx.NiagaraGPUDataBufferChunkSize=128
 
 [IOS DeviceProfile]
@@ -652,18 +581,12 @@ BaseProfileName=Mobile
 +CVars=r.LightShaftQuality=0
 +CVars=r.RefractionQuality=0
 +CVars=r.ShadowQuality=2
-; HZB will be slower with tiled, and not needed
 +CVars=r.HZBOcclusion=0
-; Non need for depth prepass
 +CVars=r.EarlyZPass=0
 +CVars=r.EarlyZPassMovable=0
-; Needs geometry shader support
 +CVars=r.TranslucentLightingVolume=0
-; Needs geometry shader support
 +CVars=r.AllowPointLightCubemapShadows=0
-; Temporal AA (?) looks blurry right now
 +CVars=r.PostProcessAAQuality=0
-; Not sure on this one - may need the whole D Buffer stuff going
 +CVars=r.Decal.StencilSizeThreshold=-1
 +CVars=r.MetalVertexParameterSize=50
 +CVars=r.MetalPixelParameterSize=50
@@ -923,7 +846,6 @@ BaseProfileName=Mobile
 +CVars=r.ShaderPipelineCache.BatchSize=30
 +CVars=r.OpenGL.AllowRHIThread=1
 
-;Lock the frame-rate to 30fps
 +CVars=t.maxfps=30
 
 [Android_Low DeviceProfile]
@@ -960,8 +882,6 @@ BaseProfileName=Android_Mid
 DeviceType=Android
 BaseProfileName=Android_Mid
 
-;This offset needs to be set for the mosaic fallback to work on Galaxy S4 (SAMSUNG-IGH-I337)
-;+CVars=r.DemosaicVposOffset=0.5
 
 [Android_Adreno330 DeviceProfile]
 DeviceType=Android
@@ -986,7 +906,6 @@ BaseProfileName=Android_Low
 [Android_Adreno5xx_Vulkan_Nougat DeviceProfile]
 DeviceType=Android
 BaseProfileName=Android_Adreno5xx
-; vulkan occlusion queries do not work on this device/android version atm
 +CVars=r.AllowOcclusionQueries=0
 
 [Android_Adreno6xx DeviceProfile]
@@ -1092,7 +1011,6 @@ BaseProfileName=Android_Mali_T8xx
 +CVars=r.Android.DisableVulkanSupport=1
 
 [Lumin DeviceProfile]
-; @todo Lumin: Android - no!
 DeviceType=Android
 +CVars=r.defaultfeature.postprocessing=0
 +CVars=r.Lumin.OverrideExternalTextureSupport=4

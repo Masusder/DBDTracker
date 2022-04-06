@@ -2,20 +2,16 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Addon_Frenzy_FranksMixTape_C",
-    "Super": "BaseFrenzyAddon_C",
     "SuperStruct": {
-      "ObjectName": "BlueprintGeneratedClass BaseFrenzyAddon_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/FrenzyAddons/BaseFrenzyAddon.0"
+      "ObjectName": "Class BaseFrenzyMixtapeAddon",
+      "ObjectPath": "/Script/TheLegion"
     },
-    "FuncMap": {},
     "ClassFlags": 10749972,
     "ClassWithin": {
       "ObjectName": "Class Object",
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
-    "ClassGeneratedBy": null,
-    "Interfaces": [],
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Addon_Frenzy_FranksMixTape_C Default__Addon_Frenzy_FranksMixTape_C",
@@ -25,15 +21,34 @@
   {
     "Type": "Addon_Frenzy_FranksMixTape_C",
     "Name": "Default__Addon_Frenzy_FranksMixTape_C",
-    "Template": "Default__BaseFrenzyAddon_C",
     "Properties": {
+      "_audioSwitchState": "AudioState_K14_MixTape4_Frank",
+      "BaseItemType": {
+        "ObjectName": "BlueprintGeneratedClass FrenzyItem_C",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Frenzy/FrenzyItem.2"
+      },
       "ModifierData": {
+        "Conditions": [
+          {
+            "ObjectName": "BlueprintGeneratedClass KillerIsInFrenzy_C",
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Frenzy/KillerIsInFrenzy.2"
+          },
+          {
+            "ObjectName": "BlueprintGeneratedClass PlayerIsBreakingGenerator_C",
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/PlayerIsBreakingGenerator.0"
+          }
+        ],
         "Modifiers": [
           {
             "Type": {
-              "TagName": "GameplayModifierType.ModifyInjuredBleedoutTimeToRemoveOnHitAdditive"
+              "TagName": "GameplayModifierType.ActionSpeed"
             },
-            "ModifierValue": 5.0
+            "ModifierValue": 0.2
+          }
+        ],
+        "TaggedFlags": [
+          {
+            "TagName": "GameplayModifierFlag.PauseFrenzyDepletion"
           }
         ]
       }

@@ -2,36 +2,176 @@
   {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CorePingStatus",
-    "Properties": {}
+    "Outer": "WBP_CorePingStatus_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_pingQuality",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "Enum EPingQuality",
+          "ObjectPath": "/Script/DBDSharedTypes"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 32769
   },
   {
     "Type": "Function",
     "Name": "SetData",
-    "Properties": {}
+    "Outer": "WBP_CorePingStatus_C",
+    "SuperStruct": {
+      "ObjectName": "Function PingStatusViewInterface:SetData",
+      "ObjectPath": "/Script/DBDUIViewInterfaces"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "pingQuality",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 134218134,
+        "Enum": {
+          "ObjectName": "Enum EPingQuality",
+          "ObjectPath": "/Script/DBDSharedTypes"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 205654016
   },
   {
     "Type": "WidgetBlueprintGeneratedClass",
     "Name": "WBP_CorePingStatus_C",
     "Properties": {
       "WidgetTree": {
-        "ObjectName": "WidgetTree:",
-        "ObjectPath": "WBP_CorePingStatus_C.11"
+        "ObjectName": "WidgetTree WBP_CorePingStatus_C:WidgetTree",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.7"
       },
-      "bAllowTemplate": true,
-      "bValidTemplate": true,
       "bClassRequiresNativeTick": true,
-      "TemplateAsset": {
-        "AssetPathName": "/DBDUICore/HUD/PingStatus/WBP_CorePingStatus.WidgetArchetype",
-        "SubPathString": ""
-      },
       "UberGraphFunction": {
-        "ObjectName": "ExecuteUbergraph_WBP_CorePingStatus:",
-        "ObjectPath": "WBP_CorePingStatus_C.0"
+        "ObjectName": "Function WBP_CorePingStatus_C:ExecuteUbergraph_WBP_CorePingStatus",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.0"
       }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class CorePingStatusWidget",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function WBP_CorePingStatus_C:SetData",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.1"
+      },
+      {
+        "ObjectName": "Function WBP_CorePingStatus_C:ExecuteUbergraph_WBP_CorePingStatus",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PingStatusIcon",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class DBDImage",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "BadPingColor",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "ScriptStruct LinearColor",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "AwfulPingColor",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "ScriptStruct LinearColor",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CorePingStatus": {
+        "ObjectName": "Function WBP_CorePingStatus_C:ExecuteUbergraph_WBP_CorePingStatus",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.0"
+      },
+      "SetData": {
+        "ObjectName": "Function WBP_CorePingStatus_C:SetData",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.1"
+      }
+    },
+    "ClassFlags": 10754064,
+    "ClassWithin": {
+      "ObjectName": "Class Object",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CorePingStatus_C Default__WBP_CorePingStatus_C",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.3"
     }
   },
   {
-    "Type": "CorePingStatusWidget",
+    "Type": "WBP_CorePingStatus_C",
     "Name": "Default__WBP_CorePingStatus_C",
     "Properties": {
       "UberGraphFrame": {},
@@ -40,14 +180,14 @@
         "G": 0.734375,
         "B": 0.734375,
         "A": 1.0,
-        "Hex": "BBBBBB"
+        "Hex": "FFDFDFDF"
       },
       "AwfulPingColor": {
         "R": 1.0,
         "G": 0.0,
         "B": 0.0,
         "A": 1.0,
-        "Hex": "FF0000"
+        "Hex": "FFFF0000"
       },
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
@@ -56,23 +196,12 @@
   {
     "Type": "CanvasPanel",
     "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-          "ObjectPath": "WBP_CorePingStatus_C.6"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "CanvasPanel",
-    "Name": "CanvasPanel_0",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-          "ObjectPath": "WidgetArchetype.7"
+          "ObjectName": "CanvasPanelSlot WBP_CorePingStatus_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.5"
         }
       ]
     }
@@ -80,52 +209,31 @@
   {
     "Type": "CanvasPanelSlot",
     "Name": "CanvasPanelSlot_0",
+    "Outer": "CanvasPanel_0",
     "Properties": {
       "LayoutData": {
         "Offsets": {
-          "Left": 40.0,
-          "Top": 26.0,
+          "Left": 185.0,
+          "Top": 170.0,
           "Right": 0.0,
           "Bottom": 0.0
         }
       },
       "bAutoSize": true,
       "Parent": {
-        "ObjectName": "WidgetTree:CanvasPanel_0:",
-        "ObjectPath": "WBP_CorePingStatus_C.4"
+        "ObjectName": "CanvasPanel WBP_CorePingStatus_C:WidgetTree.CanvasPanel_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.4"
       },
       "Content": {
-        "ObjectName": "WidgetTree:PingStatusIcon:",
-        "ObjectPath": "WBP_CorePingStatus_C.8"
-      }
-    }
-  },
-  {
-    "Type": "CanvasPanelSlot",
-    "Name": "CanvasPanelSlot_0",
-    "Properties": {
-      "LayoutData": {
-        "Offsets": {
-          "Left": 40.0,
-          "Top": 26.0,
-          "Right": 0.0,
-          "Bottom": 0.0
-        }
-      },
-      "bAutoSize": true,
-      "Parent": {
-        "ObjectName": "WidgetTree_0:CanvasPanel_0:",
-        "ObjectPath": "WidgetArchetype.5"
-      },
-      "Content": {
-        "ObjectName": "WidgetTree_0:PingStatusIcon:",
-        "ObjectPath": "WidgetArchetype.9"
+        "ObjectName": "DBDImage WBP_CorePingStatus_C:WidgetTree.PingStatusIcon",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.6"
       }
     }
   },
   {
     "Type": "DBDImage",
     "Name": "PingStatusIcon",
+    "Outer": "WidgetTree",
     "Properties": {
       "Brush": {
         "ImageSize": {
@@ -133,81 +241,31 @@
           "Y": 64.0
         },
         "ResourceObject": {
-          "ObjectName": "hud_ping_icon:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/Ping/hud_ping_icon.29"
+          "ObjectName": "Texture2D hud_ping_icon",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/HUD/Ping/hud_ping_icon.0"
         }
       },
       "Slot": {
-        "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-        "ObjectPath": "WBP_CorePingStatus_C.6"
+        "ObjectName": "CanvasPanelSlot WBP_CorePingStatus_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.5"
       },
       "RenderTransform": {
         "Scale": {
-          "X": 0.7,
-          "Y": 0.7
+          "X": 1.5,
+          "Y": 1.5
         }
       },
       "Visibility": "ESlateVisibility::Collapsed"
     }
   },
   {
-    "Type": "DBDImage",
-    "Name": "PingStatusIcon",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 64.0,
-          "Y": 64.0
-        },
-        "ResourceObject": {
-          "ObjectName": "hud_ping_icon:Texture2D",
-          "ObjectPath": "/DBDUICore/Assets/HUD/Ping/hud_ping_icon.29"
-        }
-      },
-      "Slot": {
-        "ObjectName": "CanvasPanel_0:CanvasPanelSlot_0:",
-        "ObjectPath": "WidgetArchetype.7"
-      },
-      "RenderTransform": {
-        "Scale": {
-          "X": 0.7,
-          "Y": 0.7
-        }
-      },
-      "Visibility": "ESlateVisibility::Collapsed"
-    }
-  },
-  {
-    "Type": "CorePingStatusWidget",
-    "Name": "WidgetArchetype",
-    "Properties": {
-      "PingStatusIcon": {
-        "ObjectName": "WidgetTree_0:PingStatusIcon:",
-        "ObjectPath": "WidgetArchetype.9"
-      },
-      "WidgetTree": {
-        "ObjectName": "WidgetTree_0:",
-        "ObjectPath": "WidgetArchetype.12"
-      },
-      "bCookedWidgetTree": true
-    }
-  },
-  {
     "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "WBP_CorePingStatus_C",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "WidgetTree:CanvasPanel_0:",
-        "ObjectPath": "WBP_CorePingStatus_C.4"
-      }
-    }
-  },
-  {
-    "Type": "WidgetTree",
-    "Name": "WidgetTree_0",
-    "Properties": {
-      "RootWidget": {
-        "ObjectName": "WidgetTree_0:CanvasPanel_0:",
-        "ObjectPath": "WidgetArchetype.5"
+        "ObjectName": "CanvasPanel WBP_CorePingStatus_C:WidgetTree.CanvasPanel_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.4"
       }
     }
   }
