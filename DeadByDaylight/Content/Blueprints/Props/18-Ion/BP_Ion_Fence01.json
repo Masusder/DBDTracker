@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Ion_Fence01_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.11"
       }
     },
     "SuperStruct": {
@@ -15,7 +15,7 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "Box1",
+        "Name": "Collision",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 17180393476,
@@ -32,17 +32,6 @@
         "PropertyFlags": 17180393476,
         "PropertyClass": {
           "ObjectName": "Class StaticMeshComponent",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "Box",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class BoxComponent",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -90,66 +79,6 @@
       },
       "NetUpdateFrequency": 0.1,
       "NetPriority": 0.01
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "Box1_GEN_VARIABLE",
-    "Outer": "BP_Ion_Fence01_C",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class NavArea_Obstacle",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX",
-      "BodyInstance": {
-        "ObjectType": "ECC_WorldStatic",
-        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "CollisionProfileName": "BlockAll",
-        "CollisionResponses": {
-          "ResponseArray": [
-            {
-              "Channel": "Interactable",
-              "Response": "ECR_Block"
-            },
-            {
-              "Channel": "Slasher",
-              "Response": "ECR_Block"
-            },
-            {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
-            },
-            {
-              "Channel": "InteractionDetector",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "BlinkBlocker",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Ground",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
-            }
-          ]
-        }
-      },
-      "RelativeLocation": {
-        "X": -370.0,
-        "Y": 6.443321,
-        "Z": 157.62006
-      },
-      "RelativeScale3D": {
-        "X": 12.8,
-        "Y": 1.872132,
-        "Z": 4.943938
-      },
-      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -234,12 +163,12 @@
       },
       "RelativeLocation": {
         "X": -370.0,
-        "Y": 5.306923,
+        "Y": 8.490997,
         "Z": 231.90521
       },
       "RelativeScale3D": {
         "X": 1.0,
-        "Y": 1.75,
+        "Y": 1.8125,
         "Z": 1.5625
       },
       "Mobility": "EComponentMobility::Static"
@@ -247,17 +176,23 @@
   },
   {
     "Type": "BoxComponent",
-    "Name": "Box_GEN_VARIABLE",
+    "Name": "Collision_GEN_VARIABLE",
     "Outer": "BP_Ion_Fence01_C",
     "Properties": {
+      "BoxExtent": {
+        "X": 420.0,
+        "Y": 32.0,
+        "Z": 400.0
+      },
       "AreaClass": {
         "ObjectName": "Class NavArea_Obstacle",
         "ObjectPath": "/Script/NavigationSystem"
       },
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
         "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "CollisionProfileName": "BlockAllDynamic",
+        "CollisionProfileName": "BlockAll",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -293,13 +228,13 @@
       },
       "RelativeLocation": {
         "X": -370.0,
-        "Y": 5.306923,
-        "Z": 99.99982
+        "Y": 8.490997,
+        "Z": 200.0
       },
       "RelativeScale3D": {
-        "X": 12.8,
-        "Y": 1.55,
-        "Z": 3.2
+        "X": 1.0,
+        "Y": 1.8125,
+        "Z": 0.5
       },
       "Mobility": "EComponentMobility::Static"
     }
@@ -319,23 +254,6 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_1",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class BoxComponent",
-        "ObjectPath": "/Script/Engine"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "BoxComponent BP_Ion_Fence01_C:Box_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.4"
-      },
-      "VariableGuid": "1DEFF938-4488462C-F844EA91-E786470F",
-      "InternalVariableName": "Box"
-    }
-  },
-  {
-    "Type": "SCS_Node",
     "Name": "SCS_Node_1",
     "Outer": "SimpleConstructionScript_1",
     "Properties": {
@@ -345,7 +263,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Ion_Fence01_C:SceneComponent_254",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.5"
       },
       "VariableGuid": "4B447BBD-471F6830-D415DDA6-F2E68132",
       "InternalVariableName": "DefaultSceneRoot"
@@ -362,7 +280,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BoxComponent BP_Ion_Fence01_C:Box968E2E014E3F0465A00B5CAF477EF05C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.2"
       },
       "VariableGuid": "E56F7EB2-48987E03-E508A58C-5B504915",
       "InternalVariableName": "BlinkBlocker"
@@ -370,7 +288,7 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_3",
+    "Name": "SCS_Node_4",
     "Outer": "SimpleConstructionScript_1",
     "Properties": {
       "ComponentClass": {
@@ -378,11 +296,11 @@
         "ObjectPath": "/Script/Engine"
       },
       "ComponentTemplate": {
-        "ObjectName": "BoxComponent BP_Ion_Fence01_C:Box1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.2"
+        "ObjectName": "BoxComponent BP_Ion_Fence01_C:Collision_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.3"
       },
-      "VariableGuid": "87CB6C00-4E1F18A1-689E55B4-A021B222",
-      "InternalVariableName": "Box1"
+      "VariableGuid": "86014E7C-48602D67-9F98AD95-E6F3B267",
+      "InternalVariableName": "Collision"
     }
   },
   {
@@ -396,7 +314,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Fence01_C:SM_MERGED_BP_Ion_Fence01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.12"
       },
       "VariableGuid": "4A8B62AA-4A6DCA91-DC51338E-08E92AF5",
       "InternalVariableName": "SM_MERGED_BP_Ion_Fence01"
@@ -413,24 +331,20 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Ion_Fence01_C:Scene_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.4"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.9"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_0",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.7"
         },
         {
           "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.11"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.9"
         },
         {
-          "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.10"
+          "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.8"
         }
       ],
       "VariableGuid": "9BF51199-471FEAAC-C71E1CB9-2800F1F6",
@@ -445,34 +359,30 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.10"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.10"
         },
         {
           "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.9"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_0",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.7"
         },
         {
           "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.11"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.9"
         },
         {
-          "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.10"
+          "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.8"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Ion_Fence01_C:SimpleConstructionScript_1.SCS_Node_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Fence01.6"
       }
     }
   },
