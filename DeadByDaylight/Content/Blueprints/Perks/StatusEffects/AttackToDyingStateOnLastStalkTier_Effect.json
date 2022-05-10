@@ -12,10 +12,78 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "IntProperty",
-        "Name": "Temp_int_Loop_Counter_Variable",
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
         "Flags": 1,
-        "ElementSize": 4
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "AttackToDyingStateOnLastStalkTier_Effect_C",
+    "SuperStruct": {
+      "ObjectName": "Function ActorComponent:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134350848
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "AttackToDyingStateOnLastStalkTier_Effect_C",
+    "SuperStruct": {
+      "ObjectName": "Function ActorComponent:ReceiveBeginPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": 134350848
+  },
+  {
+    "Type": "Function",
+    "Name": "Fire Status View on All Survivors",
+    "Outer": "AttackToDyingStateOnLastStalkTier_Effect_C",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsActive",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_StatusViewSource",
+        "Flags": 1,
+        "ElementSize": 40,
+        "Struct": {
+          "ObjectName": "ScriptStruct StatusViewSource",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       },
       {
         "Type": "IntProperty",
@@ -25,25 +93,15 @@
       },
       {
         "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
         "Name": "CallFunc_Add_IntInt_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "K2Node_Event_DeltaSeconds",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetDBDGameInstance_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDGameInstance",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
       },
       {
         "Type": "ArrayProperty",
@@ -114,18 +172,6 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_IsApplicable_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
         "Name": "CallFunc_Less_IntInt_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
@@ -135,38 +181,9 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "K2Node_MakeStruct_StatusViewSource",
-        "Flags": 1,
-        "ElementSize": 40,
-        "Struct": {
-          "ObjectName": "ScriptStruct StatusViewSource",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
       }
     ],
-    "FunctionFlags": 8421377
-  },
-  {
-    "Type": "Function",
-    "Name": "ReceiveTick",
-    "Outer": "AttackToDyingStateOnLastStalkTier_Effect_C",
-    "SuperStruct": {
-      "ObjectName": "Function ActorComponent:ReceiveTick",
-      "ObjectPath": "/Script/Engine"
-    },
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "DeltaSeconds",
-        "Flags": 1,
-        "ElementSize": 4,
-        "PropertyFlags": 148
-      }
-    ],
-    "FunctionFlags": 134350848
+    "FunctionFlags": 209846272
   },
   {
     "Type": "BlueprintGeneratedClass",
@@ -184,7 +201,15 @@
     },
     "Children": [
       {
-        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:ReceiveTick",
+        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:Fire Status View on All Survivors",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.3"
+      },
+      {
+        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:ReceiveBeginPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.2"
+      },
+      {
+        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:ReceiveEndPlay",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.1"
       },
       {
@@ -210,9 +235,17 @@
         "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:ExecuteUbergraph_AttackToDyingStateOnLastStalkTier_Effect",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.0"
       },
-      "ReceiveTick": {
-        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:ReceiveTick",
+      "ReceiveEndPlay": {
+        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:ReceiveEndPlay",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.1"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:ReceiveBeginPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.2"
+      },
+      "Fire Status View on All Survivors": {
+        "ObjectName": "Function AttackToDyingStateOnLastStalkTier_Effect_C:Fire Status View on All Survivors",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.3"
       }
     },
     "ClassFlags": 10749972,
@@ -224,7 +257,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "AttackToDyingStateOnLastStalkTier_Effect_C Default__AttackToDyingStateOnLastStalkTier_Effect_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.3"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/AttackToDyingStateOnLastStalkTier_Effect.5"
     }
   },
   {
@@ -246,10 +279,7 @@
           }
         ]
       },
-      "_id": "AttackToDyingStateOnLastTier_Effect",
-      "PrimaryComponentTick": {
-        "bCanEverTick": true
-      }
+      "_id": "AttackToDyingStateOnLastTier_Effect"
     }
   }
 ]
