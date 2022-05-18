@@ -701,12 +701,7 @@ DefaultPhysMaterialName=/Game/Materials/PhysicalMaterials/PM_Default.PM_Default
 +TaggedPropertyRedirects=(ClassName="CustomizationItemData",OldPropertyName="VariationDescription",NewPropertyName="CollectionDescription")
 +TaggedPropertyRedirects=(ClassName="OutfitData",OldPropertyName="VariationName",NewPropertyName="CollectionName")
 +TaggedPropertyRedirects=(ClassName="OutfitData",OldPropertyName="VariationDescription",NewPropertyName="CollectionDescription")
-+TaggedPropertyRedirects=(ClassName="SurvivorAnimInstance",OldPropertyName="IsFrightScreaming",NewPropertyName="_isFrightScreaming")
-+TaggedPropertyRedirects=(ClassName="CamperAnimInstance",OldPropertyName="IsFrightScreaming",NewPropertyName="_isFrightScreaming")
 +TaggedPropertyRedirects=(ClassName="SurvivorAnimInstance",OldPropertyName="Speed",NewPropertyName="_walkAnimSpeed")
-+TaggedPropertyRedirects=(ClassName="GeneratorAnimInstance",OldPropertyName="RushFailed",NewPropertyName="_rushFailed")
-+TaggedPropertyRedirects=(ClassName="GeneratorAnimInstance",OldPropertyName="IsActivated",NewPropertyName="_isActivated")
-+TaggedPropertyRedirects=(ClassName="GeneratorAnimInstance",OldPropertyName="PercentComplete",NewPropertyName="_percentComplete")
 +TaggedPropertyRedirects=(ClassName="DBDPlayer",OldPropertyName="OnSecondaryActionInput",NewPropertyName="Authority_OnSecondaryActionInput")
 +TaggedPropertyRedirects=(ClassName="AkComponent",OldPropertyName="MaxOcclusionDistance",NewPropertyName="MaxDistance")
 -ActiveStructRedirects=(OldStructName="VimDebugData",NewStructName="AnimBlueprintDebugData")
@@ -873,11 +868,21 @@ P2PConnectionTimeout=90
 [OnlineSubsystemDMM]
 bEnabled=true
 
+[/Script/Engine.Player]
+ConfiguredInternetSpeed=10000
+ConfiguredLanSpeed=20000
+
 [/Script/OnlineSubsystemUtils.IpNetDriver]
 NetConnectionClassName=/Script/DeadByDaylight.DBDRemotePlayer
+MaxClientRate=15000
+MaxInternetClientRate=10000
 
 [/Script/OnlineSubsystemSteam.SteamNetDriver]
 NetConnectionClassName=/Script/OnlineSubsystemSteam.SteamNetConnection
+
+[/Script/SteamSockets.SteamSocketsNetDriver]
+MaxClientRate=15000
+MaxInternetClientRate=10000
 
 [/Script/Engine.UserInterfaceSettings]
 RenderFocusRule=Never
@@ -953,11 +958,8 @@ DistortionDebug=verbose
 LogOnline=Verbose
 Interaction=Verbose
 InteractionHandler=Verbose
-LogStreaming=Warning
-OnlinePresence=Log
 LogShopSystem=Log
 LogS3Command=Log
-GUI=Warning
 PartyFacade=Verbose
 LogRealTimeMessaging=Log
 LogWebSocket=Verbose
@@ -970,7 +972,7 @@ LogHttp=Log
 bTickAnimationOnSkeletalMeshInit=false
 
 [/Script/EngineSettings.GameMapsSettings]
-EditorStartupMap=/Game/Maps/Zoo/GameplayZoo_TheOnryo.GameplayZoo_TheOnryo
+EditorStartupMap=/Game/Maps/Zoo/Zoo_jbedard.Zoo_jbedard
 LocalMapOptions=
 TransitionMap=
 bUseSplitscreen=True
@@ -1022,7 +1024,7 @@ r.PrecomputedVisibilityWarning=False
 r.TextureStreaming=True
 Compat.UseDXT5NormalMaps=False
 r.ClearCoatNormal=False
-r.ReflectionCaptureResolution=128
+r.ReflectionCaptureResolution=64
 r.ForwardShading=False
 r.AllowStaticLighting=False
 r.NormalMapsForStaticLighting=False
@@ -1130,6 +1132,7 @@ DirtyAreasUpdateFreq=60.000000
 +FunctionRedirects=(OldName="BaseModifierContainer.Local_OnInstantiateModifierConditions", NewName="BaseModifierContainer.Authority_OnInstantiateModifierConditions")
 +FunctionRedirects=(OldName="SlasherPlayer.OnPickUpEnd_BP",NewName="SlasherPlayer.Cosmetic_OnPickUpEnd")
 +FunctionRedirects=(OldName="SlasherPlayer.OnDropCamperEnd_BP",NewName="SlasherPlayer.Cosmetic_OnDropCamperEnd")
++FunctionRedirects=(OldName="CharacterInventoryComponent.SpawnCollectedItem",NewName="CharacterInventoryComponent.SpawnAndCollectItem")
 
 -FunctionRedirects=(OldName="SkeletalMeshComponent.GetSubInstanceByName",NewName="KismetSystemLibrary.GetSubInstanceByTag")
 +FunctionRedirects=(OldName="SkeletalMeshComponent.GetSubInstanceByName",NewName="SkeletalMeshComponent.GetLinkedAnimGraphInstanceByTag")
@@ -1140,9 +1143,7 @@ DirtyAreasUpdateFreq=60.000000
 +FunctionRedirects=(OldName="ObjectPlacerComponent.GetTrapPlacementRotation",NewName="ObjectPlacerComponent.GetObjectPlacementRotation")
 +FunctionRedirects=(OldName="Collectable.SetVisibility",NewName="Collectable.SetVisibilityEvent")
 +FunctionRedirects=(OldName="CharacterCollection.GetCharacters",NewName="CharacterCollection.GetMainDBDPlayers")
-+PropertyRedirects=(OldName="CamperPlayer.HealthComponent",NewName="CamperPlayer._healthComponent")
 +PropertyRedirects=(OldName="Generator.NativeIsDamaged",NewName="Generator._nativeIsDamaged")
-+PropertyRedirects=(OldName="ChargeableComponent.DechargeRate",NewName="ChargeableComponent._dechargeRate")
 +PropertyRedirects=(OldName="ExhaustedEffect.RunningCooldownModifier",NewName="ExhaustedEffect.CooldownModifier")
 +PropertyRedirects=(OldName="FlashLightableComponent.TimeToBlind",NewName="FlashLightableComponent._timeToCharge")
 +PropertyRedirects=(OldName="FlashLightableComponent.SecondsBeforeResettingLitTimer",NewName="FlashLightableComponent._timeBeforeChargeReset")

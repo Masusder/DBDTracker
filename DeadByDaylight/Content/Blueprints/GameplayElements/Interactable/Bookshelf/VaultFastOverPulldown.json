@@ -19,12 +19,12 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player",
+        "Name": "CallFunc_GetOwner_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
+          "ObjectName": "Class Actor",
+          "ObjectPath": "/Script/Engine"
         }
       },
       {
@@ -39,16 +39,85 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Name": "K2Node_Event_player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_hasInteractionStarted",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue_1",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
           "ObjectName": "Class Actor",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_player_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInteractionFinished",
+    "Outer": "VaultFastOverPulldown_C",
+    "Super": "OnInteractionFinished",
+    "SuperStruct": {
+      "ObjectName": "Function VaultFastDefinition_C:OnInteractionFinished",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Window/VaultFastDefinition.1"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "hasInteractionStarted",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -282,14 +351,18 @@
     "Children": [
       {
         "ObjectName": "Function VaultFastOverPulldown_C:IsInteractionPossibleClient",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.4"
       },
       {
         "ObjectName": "Function VaultFastOverPulldown_C:IsInteractionPossibleBP",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.3"
       },
       {
         "ObjectName": "Function VaultFastOverPulldown_C:OnInteractionUpdateStart",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.2"
+      },
+      {
+        "ObjectName": "Function VaultFastOverPulldown_C:OnInteractionFinished",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.1"
       },
       {
@@ -315,17 +388,21 @@
         "ObjectName": "Function VaultFastOverPulldown_C:ExecuteUbergraph_VaultFastOverPulldown",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.0"
       },
+      "OnInteractionFinished": {
+        "ObjectName": "Function VaultFastOverPulldown_C:OnInteractionFinished",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.1"
+      },
       "OnInteractionUpdateStart": {
         "ObjectName": "Function VaultFastOverPulldown_C:OnInteractionUpdateStart",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.2"
       },
       "IsInteractionPossibleBP": {
         "ObjectName": "Function VaultFastOverPulldown_C:IsInteractionPossibleBP",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.3"
       },
       "IsInteractionPossibleClient": {
         "ObjectName": "Function VaultFastOverPulldown_C:IsInteractionPossibleClient",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.4"
       }
     },
     "ClassFlags": 10754068,
@@ -337,7 +414,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "VaultFastOverPulldown_C Default__VaultFastOverPulldown_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.5"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/VaultFastOverPulldown.6"
     }
   },
   {
@@ -352,7 +429,10 @@
       "InteractionTime": 1.1,
       "UpdateMontage": {
         "MontageID": "PlankVaultFast"
-      }
+      },
+      "_tags": [
+        "Semantics.Interaction.Vaulting.Pallet.Rushed"
+      ]
     }
   }
 ]

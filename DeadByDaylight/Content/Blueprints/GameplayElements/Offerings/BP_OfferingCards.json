@@ -12,6 +12,34 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "ArrayProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217730,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "Temp_struct_Variable",
+          "Flags": 1,
+          "ElementSize": 56,
+          "Struct": {
+            "ObjectName": "ScriptStruct AkExternalSourceInfo",
+            "ObjectPath": "/Script/AkAudio"
+          }
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "Temp_delegate_Variable",
+        "Flags": 1,
+        "ElementSize": 20,
+        "PropertyFlags": 2,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkPostEventCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "EnumProperty",
         "Name": "K2Node_Event_state",
         "Flags": 1,
@@ -29,28 +57,8 @@
         }
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetAnimInstance_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class AnimInstance",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsBP_Cards_Anim",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "AnimBlueprintGeneratedClass BP_CardsAnim_C",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/Props/Cards/Animation/BP_CardsAnim.15"
-        }
-      },
-      {
         "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -59,22 +67,34 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       }
     ],
-    "FunctionFlags": 32769
+    "FunctionFlags": 8421377
   },
   {
     "Type": "Function",
-    "Name": "Event Cards Dissolve",
-    "Outer": "BP_OfferingCards_C",
-    "FunctionFlags": 201326592
-  },
-  {
-    "Type": "Function",
-    "Name": "PlayAnim",
+    "Name": "HandleStateChanged",
     "Outer": "BP_OfferingCards_C",
     "SuperStruct": {
-      "ObjectName": "Function OfferingCard:PlayAnim",
+      "ObjectName": "Function OfferingCard:HandleStateChanged",
       "ObjectPath": "/Script/DeadByDaylight"
     },
     "ChildProperties": [
@@ -97,7 +117,17 @@
         }
       }
     ],
-    "FunctionFlags": 134350848
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "HandleCardDissolved",
+    "Outer": "BP_OfferingCards_C",
+    "SuperStruct": {
+      "ObjectName": "Function OfferingCard:HandleCardDissolved",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -144,11 +174,11 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Offerings/BP_OfferingCards.3"
       },
       {
-        "ObjectName": "Function BP_OfferingCards_C:PlayAnim",
+        "ObjectName": "Function BP_OfferingCards_C:HandleCardDissolved",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Offerings/BP_OfferingCards.2"
       },
       {
-        "ObjectName": "Function BP_OfferingCards_C:Event Cards Dissolve",
+        "ObjectName": "Function BP_OfferingCards_C:HandleStateChanged",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Offerings/BP_OfferingCards.1"
       },
       {
@@ -238,6 +268,17 @@
           "ObjectName": "Class TimelineComponent",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StateAudioEvent",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 5,
+        "PropertyClass": {
+          "ObjectName": "Class AkAudioEvent",
+          "ObjectPath": "/Script/AkAudio"
+        }
       }
     ],
     "FuncMap": {
@@ -245,12 +286,12 @@
         "ObjectName": "Function BP_OfferingCards_C:ExecuteUbergraph_BP_OfferingCards",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Offerings/BP_OfferingCards.0"
       },
-      "Event Cards Dissolve": {
-        "ObjectName": "Function BP_OfferingCards_C:Event Cards Dissolve",
+      "HandleStateChanged": {
+        "ObjectName": "Function BP_OfferingCards_C:HandleStateChanged",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Offerings/BP_OfferingCards.1"
       },
-      "PlayAnim": {
-        "ObjectName": "Function BP_OfferingCards_C:PlayAnim",
+      "HandleCardDissolved": {
+        "ObjectName": "Function BP_OfferingCards_C:HandleCardDissolved",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Offerings/BP_OfferingCards.2"
       },
       "Dissolve__UpdateFunc": {
@@ -279,7 +320,11 @@
     "Name": "Default__BP_OfferingCards_C",
     "Properties": {
       "UberGraphFrame": {},
-      "RarityTextures": [
+      "StateAudioEvent": {
+        "ObjectName": "AkAudioEvent AudioEvent_Offering_Card_Pop",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Menu/AudioEvent_Offering_Card_Pop.0"
+      },
+      "_rarityTextures": [
         {
           "Type": "None",
           "Rarity": "EItemRarity::Common",
@@ -497,7 +542,7 @@
           }
         }
       ],
-      "OfferingTypeTextures": [
+      "_offeringTypeTextures": [
         {
           "Type": "None",
           "TextureBack": {
@@ -708,10 +753,6 @@
     "Name": "Offering_Card_REFBE488F514A6FB35DB9D81DA7A86B0CF2",
     "Outer": "BP_OfferingCards_C",
     "Properties": {
-      "AnimClass": {
-        "ObjectName": "AnimBlueprintGeneratedClass BP_CardsAnim_C",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Props/Cards/Animation/BP_CardsAnim.15"
-      },
       "bUpdateOverlapsOnAnimationFinalize": false,
       "bEnablePhysicsOnDedicatedServer": false,
       "bSkipBoundsUpdateWhenInterpolating": true,
