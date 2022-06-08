@@ -8,8 +8,8 @@
         "ObjectPath": "DeadByDaylight/Content/Materials/PhysicalMaterials/PM_Vegetation.0"
       },
       "Parent": {
-        "ObjectName": "MaterialInstanceConstant MIM_Masked_01",
-        "ObjectPath": "DeadByDaylight/Content/Materials/Master_Instances/Environment/MIM_Masked_01.0"
+        "ObjectName": "MaterialInstanceConstant MI_Foliage_v2_Masked",
+        "ObjectPath": "DeadByDaylight/Content/Materials/Masters/MI_Foliage_v2_Masked.0"
       },
       "bHasStaticPermutationResource": true,
       "ScalarParameterValues": [
@@ -23,22 +23,42 @@
           "ExpressionGUID": "00000000-00000000-00000000-00000000"
         }
       ],
-      "TextureParameterValues": [
+      "VectorParameterValues": [
         {
           "ParameterInfo": {
-            "Name": "BaseColor Map",
+            "Name": "050_MinVariation",
             "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": {
-            "ObjectName": "Texture2D T_Ion_Rose_and_Leaf_BC_02",
-            "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Ion/Nature/T_Ion_Rose_and_Leaf_BC_02.0"
+            "R": 1.0,
+            "G": 0.926145,
+            "B": 0.864583,
+            "A": 0.0,
+            "Hex": "FFF7F0"
           },
-          "ExpressionGUID": "9217CC03-43B500A4-1C95A69B-CF0B8993"
+          "ExpressionGUID": "DFCFF650-4C52FEBB-CDF83C9C-9D12B44B"
         },
         {
           "ParameterInfo": {
-            "Name": "Normal Map",
+            "Name": "050_MaxVariation",
+            "Association": "GlobalParameter",
+            "Index": -1
+          },
+          "ParameterValue": {
+            "R": 0.875,
+            "G": 0.839201,
+            "B": 0.797526,
+            "A": 0.0,
+            "Hex": "F1ECE7"
+          },
+          "ExpressionGUID": "E2BF8245-428EB3C3-3D5926B3-52B2162D"
+        }
+      ],
+      "TextureParameterValues": [
+        {
+          "ParameterInfo": {
+            "Name": "Main_Normal",
             "Association": "GlobalParameter",
             "Index": -1
           },
@@ -46,25 +66,27 @@
             "ObjectName": "Texture2D T_Ion_Rose_and_Leaf_N",
             "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Ion/Nature/T_Ion_Rose_and_Leaf_N.0"
           },
-          "ExpressionGUID": "8E4D9DB2-4FE26D11-FD4E79AD-2C0B2630"
+          "ExpressionGUID": "6048E55E-41423122-BFC3259E-FB0D9E25"
         },
         {
           "ParameterInfo": {
-            "Name": "HRM\\ORM Map",
+            "Name": "Main_BaseColor",
             "Association": "GlobalParameter",
             "Index": -1
           },
           "ParameterValue": {
-            "ObjectName": "Texture2D T_Ion_Rose_and_Leaf_HRM",
-            "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Ion/Nature/T_Ion_Rose_and_Leaf_HRM.0"
+            "ObjectName": "Texture2D T_Ion_Rose_and_Leaf_BC_02",
+            "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Ion/Nature/T_Ion_Rose_and_Leaf_BC_02.0"
           },
-          "ExpressionGUID": "C9CF5081-4FC975CC-284BC5B8-4D4E5029"
+          "ExpressionGUID": "19F0818F-451317BF-6ECB6EAC-7DF0A364"
         }
       ],
       "BasePropertyOverrides": {
         "bOverride_TwoSided": true,
         "TwoSided": true,
+        "CastMaskedMaterialShadow": true,
         "BlendMode": "BLEND_Masked",
+        "ShadingModel": "MSM_TwoSidedFoliage",
         "OpacityMaskClipValue": 0.3333
       },
       "StaticParameters": {
@@ -72,38 +94,16 @@
           {
             "Value": true,
             "ParameterInfo": {
-              "Name": "Use Normal Map",
+              "Name": "UseColourVariation",
               "Association": "GlobalParameter",
               "Index": -1
             },
             "bOverride": true,
-            "ExpressionGUID": "ED6BEAA7-4740A675-103AB8AF-807A0705"
-          },
-          {
-            "Value": true,
-            "ParameterInfo": {
-              "Name": "Use HRM\\ORM Map",
-              "Association": "GlobalParameter",
-              "Index": -1
-            },
-            "bOverride": true,
-            "ExpressionGUID": "2322B79E-4A9DF93A-3C6A0894-E92024B7"
+            "ExpressionGUID": "019D204C-4FE290F5-5B73B881-867C0A84"
           }
         ]
       },
       "CachedReferencedTextures": [
-        {
-          "ObjectName": "Texture2D T_Diffuse_Default",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Defaults/T_Diffuse_Default.0"
-        },
-        {
-          "ObjectName": "Texture2D T_NormalMap_Default",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Defaults/T_NormalMap_Default.0"
-        },
-        {
-          "ObjectName": "Texture2D T_MRH_Default",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Defaults/T_MRH_Default.0"
-        },
         {
           "ObjectName": "Texture2D BlendFunc_DefBlend",
           "ObjectPath": "Engine/Content/EngineMaterials/BlendFunc_DefBlend.0"
@@ -113,89 +113,36 @@
           "ObjectPath": "Engine/Content/EngineMaterials/BlendFunc_DefBase.0"
         },
         {
-          "ObjectName": "Texture2D T_DiffuseWithAlpha_Default",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default.0"
+          "ObjectName": "Texture2D FlatNormal",
+          "ObjectPath": "Engine/Content/EngineMaterials/FlatNormal.0"
         },
         {
-          "ObjectName": "Texture2D T_RgbMask_Default",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Defaults/T_RgbMask_Default.0"
+          "ObjectName": "Texture2D T_checker_grid",
+          "ObjectPath": "DeadByDaylight/Content/Textures/Props/Misc/T_checker_grid.0"
         },
         {
-          "ObjectName": "Texture2D T_RgbMaskWithAlpha_Default",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default.0"
-        },
-        null,
-        {
-          "ObjectName": "Texture2D DefaultDiffuse",
-          "ObjectPath": "Engine/Content/EngineMaterials/DefaultDiffuse.0"
+          "ObjectName": "Texture2D Yellow_Linear",
+          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Tiles/Yellow_Linear.0"
         },
         {
-          "ObjectName": "Texture2D T_NoiseNormal_01",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_NoiseNormal_01.0"
+          "ObjectName": "Texture2D Black_Linear",
+          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Tiles/Black_Linear.0"
         },
         {
-          "ObjectName": "Texture2D T_Noise02",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Noise02.0"
-        },
-        {
-          "ObjectName": "Texture2D Black",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Tiles/Black.0"
-        },
-        {
-          "ObjectName": "Texture2D T_FlatNormal_01",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_FlatNormal_01.0"
-        },
-        {
-          "ObjectName": "Texture2D T_SmokeTile",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_SmokeTile.0"
+          "ObjectName": "Texture2D White_Linear",
+          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Tiles/White_Linear.0"
         },
         {
           "ObjectName": "Texture2D Good64x64TilingNoiseHighFreq",
           "ObjectPath": "Engine/Content/EngineMaterials/Good64x64TilingNoiseHighFreq.0"
         },
         {
-          "ObjectName": "Texture2D T_Rain_Drops_A",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Tilable/Liquid/T_Rain_Drops_A.0"
+          "ObjectName": "Texture2D T_FoliageWaves_02_N",
+          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Vegetations/T_FoliageWaves_02_N.0"
         },
         {
-          "ObjectName": "Texture2D T_BurnLUT",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_BurnLUT.0"
-        },
-        {
-          "ObjectName": "Texture2D T_Noise01",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/_Common/Tilable/Mask/T_Noise01.0"
-        },
-        {
-          "ObjectName": "Texture2D T_BurnedEmbers",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_BurnedEmbers.0"
-        },
-        {
-          "ObjectName": "Texture2D T_BurnedAsh",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_BurnedAsh.0"
-        },
-        {
-          "ObjectName": "Texture2D T_Dissolve_spiderthing",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Dissolve_spiderthing.0"
-        },
-        {
-          "ObjectName": "Texture2D T_Veins",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_Veins.0"
-        },
-        {
-          "ObjectName": "Texture2D Dissolve_border_Entity",
-          "ObjectPath": "DeadByDaylight/Content/Textures/InteractableObjects/Entity_Objects/Dissolve_border_Entity.0"
-        },
-        {
-          "ObjectName": "Texture2D T_TilingNoise03",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_TilingNoise03.0"
-        },
-        {
-          "ObjectName": "Texture2D T_GS_FrontSign_Flickerama",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama.0"
-        },
-        {
-          "ObjectName": "Texture2D White_Linear",
-          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Tiles/White_Linear.0"
+          "ObjectName": "Texture2D T_MapleOakLeaves01_Wind",
+          "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Vegetations/T_MapleOakLeaves01_Wind.0"
         }
       ],
       "TextureStreamingData": [
@@ -207,12 +154,12 @@
         {
           "SamplingScale": 1.0,
           "UVChannelIndex": 0,
-          "TextureName": "T_Ion_Rose_and_Leaf_HRM"
+          "TextureName": "T_Ion_Rose_and_Leaf_N"
         },
         {
           "SamplingScale": 1.0,
           "UVChannelIndex": 0,
-          "TextureName": "T_Ion_Rose_and_Leaf_N"
+          "TextureName": "Yellow_Linear"
         }
       ]
     }

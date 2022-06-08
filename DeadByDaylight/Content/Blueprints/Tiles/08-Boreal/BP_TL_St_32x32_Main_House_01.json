@@ -4268,7 +4268,6 @@
         "AssetPathName": "/Game/Blueprints/Editor/BP_Editor_Hook.BP_Editor_Hook_C",
         "SubPathString": ""
       },
-      "ActivatedByDefault": false,
       "ActivatedSceneElement": [
         {
           "SceneElement": {
@@ -4279,16 +4278,19 @@
         }
       ],
       "RelativeLocation": {
-        "X": 1228.502,
-        "Y": -1062.7926,
-        "Z": -0.0058290255
+        "X": 1316.2965,
+        "Y": -1325.9165,
+        "Z": -0.0058900607
       },
       "RelativeRotation": {
         "Pitch": 0.0,
         "Yaw": -129.99918,
         "Roll": 0.0
       },
-      "Mobility": "EComponentMobility::Static"
+      "Mobility": "EComponentMobility::Static",
+      "ComponentTags": [
+        "BorderObject"
+      ]
     }
   },
   {
@@ -38668,6 +38670,12 @@
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Boreal/Structures/SM_BRL_HuntingCabin_NavMesh.2"
       },
       "bUseDefaultCollision": false,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant MI_BRL_PlankWood03",
+          "ObjectPath": "DeadByDaylight/Content/Materials/Instances/Boreal/MI_BRL_PlankWood03.0"
+        }
+      ],
       "bRenderInMainPass": false,
       "bReceivesDecals": false,
       "bCastDynamicShadow": false,
@@ -38675,62 +38683,21 @@
       "bCastCinematicShadow": true,
       "bCastShadowAsTwoSided": true,
       "BodyInstance": {
-        "ObjectType": "ECC_WorldStatic",
-        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "GroundNonBlocking",
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionProfileName": "Ground",
         "CollisionResponses": {
           "ResponseArray": [
             {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Audio",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Block"
             },
             {
               "Channel": "Slasher",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Block"
             },
             {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
+              "Channel": "Blood",
+              "Response": "ECR_Block"
             },
             {
               "Channel": "InteractionDetector",
@@ -38741,16 +38708,8 @@
               "Response": "ECR_Overlap"
             },
             {
-              "Channel": "Blink",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "BlinkBlocker",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Ground",
-              "Response": "ECR_Ignore"
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
             }
           ]
         }
@@ -38758,7 +38717,7 @@
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
-        "Z": -0.49798584
+        "Z": 10.0
       },
       "Mobility": "EComponentMobility::Static"
     }

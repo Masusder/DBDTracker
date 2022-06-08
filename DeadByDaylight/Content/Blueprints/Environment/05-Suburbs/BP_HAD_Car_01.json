@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_HAD_Car_01_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.11"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,17 @@
       "ObjectPath": "/Script/Engine"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "BlockAll1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "Decal_HAD_DeadLeaves_A_CircleDecals19",
@@ -80,6 +91,66 @@
     }
   },
   {
+    "Type": "BoxComponent",
+    "Name": "BlockAll1_GEN_VARIABLE",
+    "Outer": "BP_HAD_Car_01_C",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 108.92964
+      },
+      "RelativeScale3D": {
+        "X": 2.75,
+        "Y": 7.508603,
+        "Z": 2.0
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "SceneComponent_105",
     "Outer": "BP_HAD_Car_01_C"
@@ -103,7 +174,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_HAD_Car_01_C:Decal_HAD_DeadLeaves_A_CircleDecals18_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.12"
       },
       "VariableGuid": "E853B214-4E7C2198-A412AFAA-7A77C287",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_CircleDecals18"
@@ -120,7 +191,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_HAD_Car_01_C:SM_COM_BMWCar_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.14"
       },
       "VariableGuid": "FABA6CBD-4B1CE97B-C4384090-1ED2E526",
       "InternalVariableName": "SM_COM_BMWCar_01"
@@ -137,20 +208,24 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_HAD_Car_01_C:SceneComponent_110",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.4"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.5"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.6"
         },
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.4"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.5"
         },
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.8"
+        },
+        {
+          "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.9"
         }
       ],
       "VariableGuid": "4EB57E9F-4DC2DE8D-DCCE17B2-A10871B1",
@@ -168,10 +243,27 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_HAD_Car_01_C:Decal_HAD_DeadLeaves_A_CircleDecals19_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.13"
       },
       "VariableGuid": "3FF75F95-4B99D740-66C9CFBB-8D9B89BF",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_CircleDecals19"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_HAD_Car_01_C:BlockAll1_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.2"
+      },
+      "VariableGuid": "BE96B88F-4AF51AE9-AE124CB7-6D9D204B",
+      "InternalVariableName": "BlockAll1"
     }
   },
   {
@@ -185,7 +277,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_HAD_Car_01_C:SceneComponent_105",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.3"
       },
       "VariableGuid": "30AEBCFF-42BE5153-A2CF119D-01511A25",
       "InternalVariableName": "DefaultSceneRoot"
@@ -199,30 +291,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.6"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.7"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.6"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.7"
         },
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.5"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.6"
         },
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.4"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.5"
         },
         {
           "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.8"
+        },
+        {
+          "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.9"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_HAD_Car_01_C:SimpleConstructionScript_1.SCS_Node_9",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/05-Suburbs/BP_HAD_Car_01.10"
       }
     }
   },

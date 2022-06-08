@@ -6,11 +6,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.109"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.111"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_TL_Pt_32x16_Street_MD42_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.26"
       }
     },
     "SuperStruct": {
@@ -20,7 +20,18 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "Box",
+        "Name": "BlockAll1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BlockAll",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 17180393476,
@@ -886,7 +897,7 @@
       "ActivatedSceneElement": [
         {
           "SceneElement": {
-            "AssetPathName": "/Game/Blueprints/GameplayElements/Interactable/Bookshelf/Bookshelf.Bookshelf_C",
+            "AssetPathName": "/Game/Blueprints/GameplayElements/Interactable/Bookshelf/BP_Pallet.BP_Pallet_C",
             "SubPathString": ""
           },
           "Weight": 1.0
@@ -1102,7 +1113,7 @@
   },
   {
     "Type": "BoxComponent",
-    "Name": "Box_GEN_VARIABLE",
+    "Name": "BlockAll1_GEN_VARIABLE",
     "Outer": "BP_TL_Pt_32x16_Street_MD42_C",
     "Properties": {
       "AreaClass": {
@@ -1113,76 +1124,20 @@
       "BodyInstance": {
         "ObjectType": "ECC_WorldStatic",
         "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "CollisionProfileName": "SlasherBlocker",
+        "CollisionProfileName": "BlockAll",
         "CollisionResponses": {
           "ResponseArray": [
             {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel2",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel3",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel4",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel5",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel6",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Block"
             },
             {
               "Channel": "Slasher",
               "Response": "ECR_Block"
             },
             {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
+              "Channel": "Blood",
+              "Response": "ECR_Block"
             },
             {
               "Channel": "InteractionDetector",
@@ -1195,19 +1150,93 @@
             {
               "Channel": "Ground",
               "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
             }
           ]
         }
       },
       "RelativeLocation": {
-        "X": 0.0,
-        "Y": -152.0989,
-        "Z": 91.383804
+        "X": -622.82385,
+        "Y": 361.29944,
+        "Z": 101.84946
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -179.68463,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 2.9074583,
+        "Y": 7.9661055,
+        "Z": 2.3980227
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "BlockAll_GEN_VARIABLE",
+    "Outer": "BP_TL_Pt_32x16_Street_MD42_C",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -645.94824,
+        "Y": -354.5846,
+        "Z": 97.49231
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -179.68463,
+        "Roll": 0.0
       },
       "RelativeScale3D": {
         "X": 2.75,
-        "Y": 3.5,
-        "Z": 2.0
+        "Y": 7.7236986,
+        "Z": 2.3104515
       },
       "Mobility": "EComponentMobility::Static"
     }
@@ -1250,7 +1279,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Pt_32x16_Street_MD42_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0.BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.14"
       },
       "RelativeLocation": {
         "X": -399.99976,
@@ -1267,7 +1296,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Pt_32x16_Street_MD42_C:ChildActor23BD091E460EC1DDE3D925A74625A6B9.ChildActor23BD091E460EC1DDE3D925A74625A6B9_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.15"
       },
       "RelativeLocation": {
         "X": 399.99966,
@@ -1284,7 +1313,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Pt_32x16_Street_MD42_C:ChildActor6A6657D944AA8C9BF8BFDC906DBACF23.ChildActor6A6657D944AA8C9BF8BFDC906DBACF23_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.16"
       },
       "RelativeLocation": {
         "X": -399.99966,
@@ -1301,7 +1330,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Pt_32x16_Street_MD42_C:ChildActor7870C468478CD22B85EA62ABDE6B8721.ChildActor7870C468478CD22B85EA62ABDE6B8721_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.17"
       },
       "RelativeLocation": {
         "X": 399.99976,
@@ -1321,7 +1350,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_TL_Pt_32x16_Street_MD42_C:DBDChildActor_Blocker13_GEN_VARIABLE.DBDChildActor_Blocker13_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.13"
       },
       "RelativeLocation": {
         "X": -540.56726,
@@ -1362,7 +1391,7 @@
       "InstanceBaseMap": {
         "309": {
           "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesHighDensity_A2_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.146"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.148"
         }
       }
     }
@@ -1406,7 +1435,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_16",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.174"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.176"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1428,7 +1457,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_13",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.173"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.175"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1450,7 +1479,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.171"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.173"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1472,7 +1501,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_10",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.172"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.174"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1494,7 +1523,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_4",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.177"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.179"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1516,7 +1545,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_7",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.178"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.180"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1560,7 +1589,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_22",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.176"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.178"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1582,7 +1611,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Pt_32x16_Street_MD42_C:TileSpawnPoint_19",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.175"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.177"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1648,7 +1677,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SceneComponent BP_TL_Pt_32x16_Street_MD42_C:SceneB7B5B2F649E1FB3109D1F8AC54172147",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.29"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.30"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1670,7 +1699,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SceneComponent BP_TL_Pt_32x16_Street_MD42_C:SceneComponent_1",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.30"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.31"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1714,7 +1743,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Pt_32x16_Street_MD42_C:ChildActor7870C468478CD22B85EA62ABDE6B8721",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.20"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.21"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1736,7 +1765,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Pt_32x16_Street_MD42_C:ChildActor6A6657D944AA8C9BF8BFDC906DBACF23",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.19"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.20"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1758,7 +1787,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Pt_32x16_Street_MD42_C:ChildActor23BD091E460EC1DDE3D925A74625A6B9",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.18"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.19"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1780,7 +1809,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Pt_32x16_Street_MD42_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.17"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.18"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1990,7 +2019,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A39_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.134"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.136"
       },
       "VariableGuid": "7922DFD8-4575A179-B1B7D8BC-4C0F1330",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A39"
@@ -2007,7 +2036,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A40_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.135"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.137"
       },
       "VariableGuid": "87698547-4C5F8435-08B99389-FF03F104",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A40"
@@ -2062,7 +2091,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_MERGED_Decal_HAD_Atlas_StreetDressingBorders_8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.161"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.163"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2081,10 +2110,48 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDInstancedFoliageComponent BP_TL_Pt_32x16_Street_MD42_C:InstancedFoliageActor1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.23"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.24"
       },
       "VariableGuid": "E45D2F4F-45A8AE3C-DBC3B6A8-73607EFF",
       "InternalVariableName": "InstancedFoliageActor1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_TL_Pt_32x16_Street_MD42_C:BlockAll_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.12"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "VariableGuid": "6F5A556E-4F570E9F-7E6D1992-21772C2B",
+      "InternalVariableName": "BlockAll"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_TL_Pt_32x16_Street_MD42_C:BlockAll1_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.11"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "VariableGuid": "45AB74B8-4F8CED5A-F4A2BCA7-6AD0CA36",
+      "InternalVariableName": "BlockAll1"
     }
   },
   {
@@ -2098,7 +2165,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:StaticMesh526C02A5B4B88002F649938933F68F858",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.167"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.169"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2117,7 +2184,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:StaticMesh6B79E7E4E44C4F90BAECE2FA2D2622AC6",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.168"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.170"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2136,7 +2203,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:StaticMesh80E9B4BCE463DFF9FCEDDCBB024B58FDF",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.169"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.171"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2155,7 +2222,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:StaticMesh96BB2D2D54DBA670A820B7FA2E7C6A286",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.170"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.172"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2174,7 +2241,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:StaticMesh113C908CA141786F3175F1C680C3B0679F",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.165"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.167"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2193,7 +2260,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:StaticMesh12FC9259154D3F17077C170D97D8CE5AAB",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.166"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.168"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2212,7 +2279,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Pt_32x16_Street_MD42_C:proto_placeholder_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.28"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.29"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2231,7 +2298,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Pt_32x16_Street_MD42_C:SceneComponent_29",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.31"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.32"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2248,7 +2315,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_MERGED_Decal_HAD_Atlas_StreetDressingBorders_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.160"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.162"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2267,7 +2334,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Pt_32x16_Street_MD42_C:SceneComponent_30",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.32"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.33"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2286,7 +2353,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A45_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.140"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.142"
       },
       "VariableGuid": "5724930B-4297F7FE-7B6BE995-89E85F5E",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A45"
@@ -2303,7 +2370,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NatAudioAmbienceBox BP_TL_Pt_32x16_Street_MD42_C:AudioAmbienceBox1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.27"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2322,16 +2389,10 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_ChevyMonzaCar_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.145"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.147"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
-      "ChildNodes": [
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.98"
-        }
-      ],
       "VariableGuid": "C9E96BED-4C5FC0C7-33EB66BC-AD9412A7",
       "InternalVariableName": "SM_COM_ChevyMonzaCar_3"
     }
@@ -2347,7 +2408,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Pt_32x16_Street_MD42_C:HISM_SPLIT_SM_Mulches01_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.28"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2366,7 +2427,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A41_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.136"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.138"
       },
       "VariableGuid": "E4E5FA5F-4FCF98BC-5988DF8E-2CD6B664",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A41"
@@ -2383,7 +2444,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_PatchDecals_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.129"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.131"
       },
       "VariableGuid": "4D58BAEA-492A829C-CAC051BE-615FDCF3",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_PatchDecals"
@@ -2400,7 +2461,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A46_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.141"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.143"
       },
       "VariableGuid": "9F14FC39-4A7B58B7-D1D2EAB6-53CFFDD5",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A46"
@@ -2417,166 +2478,166 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Tile_16x16_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.158"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.160"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.33"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.34"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.35"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.53"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.56"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.76"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.87"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.49"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.55"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.66"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.72"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.59"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.62"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.63"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.54"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.64"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.69"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.70"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.71"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.74"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_69",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_72",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_62",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.68"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_73",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.80"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.79"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_74",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_76",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.83"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_77",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_78",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_80",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_81",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_82",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_8",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.90"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_83",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.52"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.58"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.64"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.69"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.62"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.65"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.66"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.57"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.67"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.72"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_64",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.74"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_67",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.76"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_68",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.77"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_69",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_72",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.82"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_73",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.83"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_74",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_76",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_77",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.87"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_78",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_79",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.89"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_80",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.91"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_81",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_82",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_83",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.94"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_87",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.95"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.98"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_88",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.96"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.99"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_89",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.97"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.100"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_90",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.99"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.101"
         }
       ],
       "VariableGuid": "D6A74C04-4FD1CFBC-2871EABF-B11AA3AB",
@@ -2594,7 +2655,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDSphereReflectionCaptureSpawnerComponent BP_TL_Pt_32x16_Street_MD42_C:SphereReflectionCapture6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.24"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.25"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2613,7 +2674,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Pt_32x16_Street_MD42_C:DBDChildActor_Blocker13_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.21"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.22"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2632,7 +2693,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_PaperTrash04_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.164"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.166"
       },
       "VariableGuid": "F1535467-407FCDD3-FCC59A9C-2DF9052E",
       "InternalVariableName": "SM_PaperTrash04"
@@ -2649,7 +2710,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A47_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.142"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.144"
       },
       "VariableGuid": "B0AA6861-4BB06C85-1DCC2CBF-67845F5E",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A47"
@@ -2666,7 +2727,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A48_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.143"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.145"
       },
       "VariableGuid": "161A632A-488700EA-9270E998-AEE3061F",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A48"
@@ -2683,7 +2744,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_PaperTrash01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.162"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.164"
       },
       "VariableGuid": "B4C4D513-4788D2E4-0FD9C197-30848B54",
       "InternalVariableName": "SM_PaperTrash01"
@@ -2700,7 +2761,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_PaperTrash03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.163"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.165"
       },
       "VariableGuid": "167442F0-4004C093-7760EE87-A7073827",
       "InternalVariableName": "SM_PaperTrash03"
@@ -2717,7 +2778,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_CircleDecals2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.123"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.125"
       },
       "VariableGuid": "EF0B4A82-4FB65938-D18B7CAC-CCF06A46",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_CircleDecals2"
@@ -2734,7 +2795,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A42_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.137"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.139"
       },
       "VariableGuid": "B8FEA0F1-4427EE72-5A75918F-8164B743",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A42"
@@ -2751,12 +2812,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_BMWCar_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.144"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.146"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.67"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.70"
         }
       ],
       "VariableGuid": "B953BF86-47CDCDAB-2AD5BD92-0A2E2A31",
@@ -2774,7 +2835,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_HAD_Bicycle_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.159"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.161"
       },
       "VariableGuid": "5DF571D6-4C338131-9B8CD895-4925A51A",
       "InternalVariableName": "SM_HAD_Bicycle_01"
@@ -2791,7 +2852,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesHighDensity_A_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.150"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.152"
       },
       "VariableGuid": "3CC8F275-4AEB6D0A-5818DDA2-F00435E0",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesHighDensity_A"
@@ -2808,7 +2869,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_StraightDecals_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.133"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.135"
       },
       "VariableGuid": "9E59126E-4A866457-571BFE89-28073D4B",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_StraightDecals"
@@ -2825,7 +2886,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_StraightDecals2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.130"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.132"
       },
       "VariableGuid": "9D32BAC5-4B191836-E542C28A-1FA11032",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_StraightDecals2"
@@ -2842,7 +2903,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_CircleDecals3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.124"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.126"
       },
       "VariableGuid": "4A515740-48254D4C-42AEDE83-97F8C841",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_CircleDecals3"
@@ -2859,7 +2920,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Pt_32x16_Street_MD42_C:DBDChildActor_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.22"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.23"
       },
       "VariableGuid": "595A821E-4ABA61B3-0E7F9187-93CB5B5C",
       "InternalVariableName": "DBDChildActor"
@@ -2876,7 +2937,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_PatchDecals2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.127"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.129"
       },
       "VariableGuid": "1B5BCA2C-461111EE-8F6E5599-DFE4EBC5",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_PatchDecals2"
@@ -2893,7 +2954,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_CircleDecals4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.125"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.127"
       },
       "VariableGuid": "131A39B7-4804F53A-E0D2DFA0-AA548229",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_CircleDecals4"
@@ -2910,7 +2971,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_StraightDecals3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.131"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.133"
       },
       "VariableGuid": "1982899A-453B32DF-727CBA93-EF3B044C",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_StraightDecals3"
@@ -2927,7 +2988,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A43_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.138"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.140"
       },
       "VariableGuid": "349E02C7-408F994C-D874199F-4CE6995F",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A43"
@@ -2963,7 +3024,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.121"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.123"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -2982,7 +3043,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_CircleDecals10_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.122"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.124"
       },
       "VariableGuid": "5C55E967-420D8560-B198EE92-51CABCF6",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_CircleDecals10"
@@ -2999,7 +3060,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesHighDensity_A2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.146"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.148"
       },
       "VariableGuid": "0F6B60FB-4D9115B9-FD2CCFB1-A646CFBA",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesHighDensity_A2"
@@ -3016,7 +3077,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesHighDensity_A3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.147"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.149"
       },
       "VariableGuid": "E99AF0AA-49526ACF-914BD2B8-783D2066",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesHighDensity_A3"
@@ -3033,7 +3094,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.112"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.114"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3052,7 +3113,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesLowDensity_A_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.157"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.159"
       },
       "VariableGuid": "E659A007-45ACE72A-4784F3A0-AB39C2EB",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesLowDensity_A"
@@ -3069,7 +3130,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesLowDensity_A2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.151"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.153"
       },
       "VariableGuid": "F08C9E8E-476031F1-2F9DFBB8-7EB5F527",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesLowDensity_A2"
@@ -3086,7 +3147,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesHighDensity_A4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.148"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.150"
       },
       "VariableGuid": "67CE6C5D-4CE010AE-6E0B0985-0AAF39A2",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesHighDensity_A4"
@@ -3103,7 +3164,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesLowDensity_A3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.152"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.154"
       },
       "VariableGuid": "35278B99-4F13A393-8AD477BD-60379E3C",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesLowDensity_A3"
@@ -3120,7 +3181,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_HAD_AsphaltPaintingLinesSmall_A44_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.139"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.141"
       },
       "VariableGuid": "F1B3C179-4B98B6E5-72C3C4BA-D2599C53",
       "InternalVariableName": "Decal_HAD_HAD_AsphaltPaintingLinesSmall_A44"
@@ -3137,7 +3198,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesLowDensity_A4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.153"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.155"
       },
       "VariableGuid": "6AD9BB22-465E7503-217724A9-63B418A9",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesLowDensity_A4"
@@ -3154,7 +3215,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesLowDensity_A5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.154"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.156"
       },
       "VariableGuid": "4AA86B8F-464E816B-CC94F7A2-D7436DF3",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesLowDensity_A5"
@@ -3171,7 +3232,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesLowDensity_A6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.155"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.157"
       },
       "VariableGuid": "38BB8111-4629E5AB-C1724688-06890651",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesLowDensity_A6"
@@ -3188,7 +3249,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesLowDensity_A7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.156"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.158"
       },
       "VariableGuid": "2DCCF11F-4AE2466A-12559195-F50FAAA3",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesLowDensity_A7"
@@ -3205,7 +3266,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.113"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.115"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3224,7 +3285,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.114"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.116"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3243,7 +3304,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.115"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.117"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3262,7 +3323,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_PatchDecals5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.128"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.130"
       },
       "VariableGuid": "65D37F00-464BD56A-A6F0C68C-2AFBC3C4",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_PatchDecals5"
@@ -3279,7 +3340,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_StraightDecals4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.132"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.134"
       },
       "VariableGuid": "7089EE5E-4F6D472B-19EE08BE-77FFDCAA",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_StraightDecals4"
@@ -3296,27 +3357,10 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Decal_HAD_DeadLeaves_A_CircleDecals5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.126"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.128"
       },
       "VariableGuid": "150DE443-4FBA20B6-0667B7B9-92372E12",
       "InternalVariableName": "Decal_HAD_DeadLeaves_A_CircleDecals5"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_9",
-    "Outer": "SimpleConstructionScript_1",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class BoxComponent",
-        "ObjectPath": "/Script/Engine"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "BoxComponent BP_TL_Pt_32x16_Street_MD42_C:Box_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.11"
-      },
-      "VariableGuid": "E38CE66E-4D65894E-A16116AC-F337879F",
-      "InternalVariableName": "Box"
     }
   },
   {
@@ -3330,7 +3374,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:SM_COM_Decal_DeadLeavesHighDensity_A6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.149"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.151"
       },
       "VariableGuid": "F5702DAD-4D68C50C-4837A4A0-2D4AB91A",
       "InternalVariableName": "SM_COM_Decal_DeadLeavesHighDensity_A6"
@@ -3347,7 +3391,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.116"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.118"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3366,7 +3410,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.117"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.119"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3404,7 +3448,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.118"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.120"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3423,7 +3467,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.119"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.121"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3442,7 +3486,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water9_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.120"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.122"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3461,7 +3505,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water10_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.110"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.112"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3480,7 +3524,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Pt_32x16_Street_MD42_C:Audio_Override_Water11_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.111"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.113"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3515,446 +3559,458 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.48"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_147",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.39"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_148",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.40"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_150",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.41"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_151",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.42"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_153",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.43"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_154",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.44"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.35"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.45"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.52"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.50"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.56"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_30",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.51"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.58"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_147",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.42"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_71",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.78"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_148",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.43"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_75",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.82"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_150",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.44"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_84",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.92"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_151",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.45"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_85",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.93"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_153",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.46"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_86",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.94"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_91",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.100"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_92",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_94",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_95",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.104"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_96",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.105"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_97",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.106"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_98",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_70",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_93",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.102"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_99",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.108"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_100",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.36"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_154",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.47"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_101",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.36"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.48"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.55"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.53"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.59"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.54"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.61"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_71",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_75",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.85"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_84",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_85",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.96"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_86",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.97"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_91",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.102"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_92",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_94",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_95",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.106"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_96",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_97",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.108"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_98",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_70",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.80"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_93",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.104"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_99",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_100",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.37"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_102",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.50"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_101",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.38"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_102",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.39"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.57"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.60"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.40"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.41"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.48"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_147",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.39"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_148",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.40"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_150",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.41"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_151",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.42"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_153",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.43"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_154",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.44"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.35"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.45"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.52"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.50"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.56"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.33"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.34"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.53"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.76"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.87"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.49"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.55"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.66"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.72"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.59"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.62"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.63"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.67"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_30",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.51"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.54"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_147",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.42"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.64"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_148",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.43"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.69"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_150",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.44"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.70"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_151",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.45"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.71"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_153",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.46"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.74"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_69",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.58"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_72",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.68"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_73",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.80"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_74",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_76",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.83"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_77",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_78",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_80",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_81",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_82",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.90"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_83",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.91"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_87",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.95"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_88",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.96"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_89",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.97"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_90",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.99"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_71",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_75",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.82"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_84",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.92"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_85",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_86",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.94"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_91",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.100"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_92",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_94",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_95",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.104"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_96",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.105"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_97",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.106"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_98",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_70",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_93",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.102"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_99",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.108"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_100",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.36"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_154",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.47"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_101",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.37"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.36"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_102",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.38"
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.48"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.55"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.53"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.59"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.34"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.35"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.56"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.68"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.79"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.90"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.52"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.58"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.64"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.69"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.62"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.65"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.66"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.70"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.54"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_48",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.57"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_9",
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.67"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.72"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_64",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.74"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_67",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.76"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_68",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.77"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_69",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.61"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_72",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.82"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_73",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.83"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_74",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_76",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_77",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.87"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_78",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_79",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.89"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_80",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.91"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_81",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_82",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_83",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.94"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_87",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_88",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.99"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_89",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_90",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_71",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_75",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.85"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_84",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_85",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.96"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_86",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.97"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_91",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.102"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_92",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_94",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_95",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.106"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_96",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_97",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.108"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_98",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_70",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.80"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_93",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.104"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_99",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_100",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.37"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.50"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_101",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.38"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_102",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.39"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.60"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.40"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.41"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_TL_Pt_32x16_Street_MD42_C:SimpleConstructionScript_1.SCS_Node_19",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.46"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_Pt_32x16_Street_MD42.49"
       }
     }
   },
