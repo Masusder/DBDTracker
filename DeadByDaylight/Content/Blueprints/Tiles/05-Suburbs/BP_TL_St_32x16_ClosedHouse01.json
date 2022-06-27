@@ -94,6 +94,17 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "InstancedFoliageActor1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class DBDInstancedFoliageComponent",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "BlockAll2",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -177,17 +188,6 @@
         "PropertyFlags": 17180393476,
         "PropertyClass": {
           "ObjectName": "Class ActorSpawner",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "InstancedFoliageActor1",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class DBDInstancedFoliageComponent",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
@@ -3484,20 +3484,76 @@
       "BodyInstance": {
         "ObjectType": "ECC_WorldStatic",
         "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "CollisionProfileName": "BlockAll",
+        "CollisionProfileName": "CharacterBlocker",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Interactable",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
               "Response": "ECR_Block"
             },
             {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
@@ -3510,10 +3566,6 @@
             {
               "Channel": "Ground",
               "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
             }
           ]
         }
@@ -4868,6 +4920,18 @@
     "Outer": "BP_TL_St_32x16_ClosedHouse01_C",
     "Properties": {
       "InstanceBaseMap": {
+        "15": {
+          "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:SM_HAD_Hedge_vault2_GEN_VARIABLE",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.477"
+        },
+        "168": {
+          "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:Decal_HAD_DeadLeaves_A_CircleDecals6_GEN_VARIABLE",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.349"
+        },
+        "17": {
+          "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:StaticMesh6_GEN_VARIABLE",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.500"
+        },
         "11": {
           "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:SM_HAD_Can_01_GEN_VARIABLE",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.473"
@@ -4884,17 +4948,9 @@
           "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:SM_GT_Yard01F017D5A3416B9C69888942A6298C4E17",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.445"
         },
-        "15": {
-          "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:SM_HAD_Hedge_vault2_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.477"
-        },
         "16": {
           "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:Ground2_GEN_VARIABLE",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.370"
-        },
-        "17": {
-          "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:StaticMesh6_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.500"
         },
         "18": {
           "ObjectName": "StaticMeshComponent BP_TL_St_32x16_ClosedHouse01_C:Decal_HAD_LeavesDeadPile_A7_GEN_VARIABLE",
@@ -4974,8 +5030,8 @@
               },
               "Rotation": {
                 "Pitch": -2.7320753E-05,
-                "Yaw": 112.88693,
-                "Roll": 1.6809534E-05
+                "Yaw": 112.8869,
+                "Roll": 1.6809545E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5000,8 +5056,8 @@
               },
               "Rotation": {
                 "Pitch": -2.7320753E-05,
-                "Yaw": 166.15013,
-                "Roll": -1.0357646E-05
+                "Yaw": 166.15012,
+                "Roll": -1.0357639E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5026,8 +5082,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": 8.933303,
-                "Roll": 2.0665795E-05
+                "Yaw": 8.933314,
+                "Roll": 2.0665799E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5130,8 +5186,8 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": -113.25942,
-                "Roll": -3.0013201E-05
+                "Yaw": -113.25939,
+                "Roll": -3.00132E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5156,8 +5212,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -8.855304,
-                "Roll": 1.2817444E-05
+                "Yaw": -8.855315,
+                "Roll": 1.2817439E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5208,8 +5264,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -44.75811,
-                "Roll": -5.858514E-06
+                "Yaw": -44.75809,
+                "Roll": -5.858503E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5390,8 +5446,8 @@
               },
               "Rotation": {
                 "Pitch": -3.4150944E-05,
-                "Yaw": 147.12138,
-                "Roll": -4.3212552E-07
+                "Yaw": 147.12137,
+                "Roll": -4.3211412E-07
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5442,8 +5498,8 @@
               },
               "Rotation": {
                 "Pitch": -2.7320753E-05,
-                "Yaw": 127.59798,
-                "Roll": 9.790309E-06
+                "Yaw": 127.59795,
+                "Roll": 9.790323E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5468,8 +5524,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -25.377354,
-                "Roll": 4.412191E-06
+                "Yaw": -25.377333,
+                "Roll": 4.4122035E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5520,8 +5576,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -30.169327,
-                "Roll": 1.8740443E-06
+                "Yaw": -30.169336,
+                "Roll": 1.8740393E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5598,8 +5654,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -27.91593,
-                "Roll": 3.0703293E-06
+                "Yaw": -27.915918,
+                "Roll": 3.070335E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5624,8 +5680,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": -80.7067,
-                "Roll": -2.232514E-05
+                "Yaw": -80.706696,
+                "Roll": -2.2325135E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5650,8 +5706,8 @@
               },
               "Rotation": {
                 "Pitch": 1.3660377E-05,
-                "Yaw": 25.36737,
-                "Roll": 2.617442E-05
+                "Yaw": 25.367348,
+                "Roll": 2.6174415E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5702,8 +5758,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": 17.38217,
-                "Roll": 2.3740777E-05
+                "Yaw": 17.38218,
+                "Roll": 2.3740782E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5780,8 +5836,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -10.646618,
-                "Roll": 1.1945483E-05
+                "Yaw": -10.646634,
+                "Roll": 1.1945475E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5858,8 +5914,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -52.36295,
-                "Roll": -9.770624E-06
+                "Yaw": -52.362965,
+                "Roll": -9.7706325E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -5936,7 +5992,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -162.86635,
+                "Yaw": -162.86633,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -5988,7 +6044,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 116.17135,
+                "Yaw": 116.17132,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -6040,7 +6096,7 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -4.449211,
+                "Yaw": -4.4492135,
                 "Roll": 1.4907335E-05
               },
               "PreAlignRotation": {
@@ -6066,8 +6122,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": 6.9664125,
-                "Roll": 1.9882867E-05
+                "Yaw": 6.9664187,
+                "Roll": 1.9882871E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6118,8 +6174,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": -80.420975,
-                "Roll": -2.2221082E-05
+                "Yaw": -80.42097,
+                "Roll": -2.2221077E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6144,7 +6200,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 48.5055,
+                "Yaw": 48.50548,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -6170,8 +6226,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -34.56426,
-                "Roll": -4.656194E-07
+                "Yaw": -34.56427,
+                "Roll": -4.656275E-07
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6248,7 +6304,7 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": 5.1754107,
+                "Yaw": 5.1754136,
                 "Roll": 1.9149536E-05
               },
               "PreAlignRotation": {
@@ -6352,8 +6408,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": -148.51587,
-                "Roll": -2.7697319E-05
+                "Yaw": -148.51584,
+                "Roll": -2.7697322E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6456,7 +6512,7 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -3.9987226,
+                "Yaw": -3.9987237,
                 "Roll": 1.5116221E-05
               },
               "PreAlignRotation": {
@@ -6482,8 +6538,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": 10.471748,
-                "Roll": 2.1261143E-05
+                "Yaw": 10.471763,
+                "Roll": 2.1261147E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6534,7 +6590,7 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": 18.820908,
+                "Yaw": 18.820911,
                 "Roll": 2.4214725E-05
               },
               "PreAlignRotation": {
@@ -6612,8 +6668,8 @@
               },
               "Rotation": {
                 "Pitch": -6.8301883E-06,
-                "Yaw": -137.35362,
-                "Roll": -2.9653827E-05
+                "Yaw": -137.35359,
+                "Roll": -2.9653831E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6690,8 +6746,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": 8.933349,
-                "Roll": 2.0665811E-05
+                "Yaw": 8.933359,
+                "Roll": 2.0665815E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6716,7 +6772,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 80.12379,
+                "Yaw": 80.12377,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -6742,8 +6798,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -50.275246,
-                "Roll": -8.710968E-06
+                "Yaw": -50.275257,
+                "Roll": -8.710976E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6898,8 +6954,8 @@
               },
               "Rotation": {
                 "Pitch": -2.0490565E-05,
-                "Yaw": -170.10464,
-                "Roll": -2.1039807E-05
+                "Yaw": -170.10463,
+                "Roll": -2.103981E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6924,8 +6980,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -22.74088,
-                "Roll": 5.7965285E-06
+                "Yaw": -22.740862,
+                "Roll": 5.7965385E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -6976,7 +7032,7 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": -147.7905,
+                "Yaw": -147.79048,
                 "Roll": -2.785734E-05
               },
               "PreAlignRotation": {
@@ -7028,8 +7084,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -38.5616,
-                "Roll": -2.591535E-06
+                "Yaw": -38.561577,
+                "Roll": -2.5915235E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -7080,8 +7136,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": -146.23053,
-                "Roll": -2.8186272E-05
+                "Yaw": -146.2305,
+                "Roll": -2.8186276E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -7262,8 +7318,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -11.66845,
-                "Roll": 1.14427685E-05
+                "Yaw": -11.6684675,
+                "Roll": 1.1442759E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -7288,7 +7344,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -43.173702,
+                "Yaw": -43.17371,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -7314,7 +7370,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -56.586063,
+                "Yaw": -56.58604,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -7392,7 +7448,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -146.99484,
+                "Yaw": -146.99481,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -7418,7 +7474,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -23.716745,
+                "Yaw": -23.716726,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -7548,8 +7604,8 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 50.628143,
-                "Roll": 3.0367606E-05
+                "Yaw": 50.628162,
+                "Roll": 3.036761E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -7626,7 +7682,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 2.933806,
+                "Yaw": 2.9338067,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -7730,8 +7786,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": -80.39901,
-                "Roll": -2.2213071E-05
+                "Yaw": -80.398994,
+                "Roll": -2.2213064E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -7756,7 +7812,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 23.58593,
+                "Yaw": 23.58591,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -7808,7 +7864,7 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 52.616333,
+                "Yaw": 52.616344,
                 "Roll": 3.045416E-05
               },
               "PreAlignRotation": {
@@ -7834,8 +7890,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -33.7516,
-                "Roll": -3.279523E-08
+                "Yaw": -33.751617,
+                "Roll": -3.280826E-08
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -7860,8 +7916,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": 11.800986,
-                "Roll": 2.1763293E-05
+                "Yaw": 11.801003,
+                "Roll": 2.1763297E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8016,7 +8072,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 78.36847,
+                "Yaw": 78.368454,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -8094,8 +8150,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -42.47489,
-                "Roll": -4.660809E-06
+                "Yaw": -42.4749,
+                "Roll": -4.6608134E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8146,7 +8202,7 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 42.4651,
+                "Yaw": 42.46512,
                 "Roll": 2.9630859E-05
               },
               "PreAlignRotation": {
@@ -8328,7 +8384,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -30.407194,
+                "Yaw": -30.407202,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -8458,8 +8514,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -48.37273,
-                "Roll": -7.735049E-06
+                "Yaw": -48.37271,
+                "Roll": -7.735038E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8484,8 +8540,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320757E-05,
-                "Yaw": -74.37807,
-                "Roll": -1.989549E-05
+                "Yaw": -74.37805,
+                "Roll": -1.9895482E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8510,8 +8566,8 @@
               },
               "Rotation": {
                 "Pitch": -2.7320753E-05,
-                "Yaw": 166.89716,
-                "Roll": -1.0731014E-05
+                "Yaw": 166.89711,
+                "Roll": -1.0730995E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8588,7 +8644,7 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 44.25339,
+                "Yaw": 44.25337,
                 "Roll": 2.984434E-05
               },
               "PreAlignRotation": {
@@ -8614,8 +8670,8 @@
               },
               "Rotation": {
                 "Pitch": -3.4150944E-05,
-                "Yaw": 148.36299,
-                "Roll": -1.0932054E-06
+                "Yaw": 148.36298,
+                "Roll": -1.0931989E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8718,8 +8774,8 @@
               },
               "Rotation": {
                 "Pitch": -2.0490565E-05,
-                "Yaw": -165.88544,
-                "Roll": -2.2609187E-05
+                "Yaw": -165.88539,
+                "Roll": -2.2609203E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8744,8 +8800,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": 78.77384,
-                "Roll": 2.8201883E-05
+                "Yaw": 78.77383,
+                "Roll": 2.8201886E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8770,8 +8826,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": 8.6476965,
-                "Roll": 2.0553603E-05
+                "Yaw": 8.647707,
+                "Roll": 2.0553605E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8796,7 +8852,7 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 53.055836,
+                "Yaw": 53.055843,
                 "Roll": 3.0468349E-05
               },
               "PreAlignRotation": {
@@ -8849,7 +8905,7 @@
               "Rotation": {
                 "Pitch": -2.7320753E-05,
                 "Yaw": 178.5008,
-                "Roll": -1.625787E-05
+                "Roll": -1.6257867E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8900,7 +8956,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -138.39552,
+                "Yaw": -138.39551,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -8926,8 +8982,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": 74.972176,
-                "Roll": 2.8912993E-05
+                "Yaw": 74.97215,
+                "Roll": 2.8913002E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8953,7 +9009,7 @@
               "Rotation": {
                 "Pitch": -2.0490565E-05,
                 "Yaw": 93.79362,
-                "Roll": 2.4216215E-05
+                "Roll": 2.4216213E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -8978,7 +9034,7 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -3.0538461,
+                "Yaw": -3.053847,
                 "Roll": 1.5551324E-05
               },
               "PreAlignRotation": {
@@ -9030,7 +9086,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 79.71169,
+                "Yaw": 79.71168,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -9082,8 +9138,8 @@
               },
               "Rotation": {
                 "Pitch": 1.3660377E-05,
-                "Yaw": 32.643078,
-                "Roll": 2.7950831E-05
+                "Yaw": 32.643097,
+                "Roll": 2.7950833E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9238,8 +9294,8 @@
               },
               "Rotation": {
                 "Pitch": -3.4150944E-05,
-                "Yaw": 129.61978,
-                "Roll": 8.764575E-06
+                "Yaw": 129.61975,
+                "Roll": 8.764592E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9264,8 +9320,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320742E-05,
-                "Yaw": -75.56435,
-                "Roll": -2.0370297E-05
+                "Yaw": -75.564316,
+                "Roll": -2.0370288E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9316,8 +9372,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -5.471093,
-                "Roll": 1.4429986E-05
+                "Yaw": -5.4710975,
+                "Roll": 1.4429984E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9368,8 +9424,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": 13.6031475,
-                "Roll": 2.2425316E-05
+                "Yaw": 13.603167,
+                "Roll": 2.2425322E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9602,8 +9658,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -40.188217,
-                "Roll": -3.4536577E-06
+                "Yaw": -40.18821,
+                "Roll": -3.453651E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9628,8 +9684,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": -147.0542,
-                "Roll": -2.8015238E-05
+                "Yaw": -147.05415,
+                "Roll": -2.801525E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9706,7 +9762,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 53.16553,
+                "Yaw": 53.16554,
                 "Roll": 3.0471616E-05
               },
               "PreAlignRotation": {
@@ -9732,7 +9788,7 @@
               },
               "Rotation": {
                 "Pitch": 1.3660377E-05,
-                "Yaw": 34.20273,
+                "Yaw": 34.202744,
                 "Roll": 2.827391E-05
               },
               "PreAlignRotation": {
@@ -9810,7 +9866,7 @@
               },
               "Rotation": {
                 "Pitch": 1.3660377E-05,
-                "Yaw": 31.40125,
+                "Yaw": 31.401272,
                 "Roll": 2.767872E-05
               },
               "PreAlignRotation": {
@@ -9836,8 +9892,8 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 48.384884,
-                "Roll": 3.0226029E-05
+                "Yaw": 48.384865,
+                "Roll": 3.0226021E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9913,9 +9969,9 @@
                 "Z": 5.709564
               },
               "Rotation": {
-                "Pitch": 2.7320746E-05,
-                "Yaw": -56.195225,
-                "Roll": -1.1681115E-05
+                "Pitch": 2.7320744E-05,
+                "Yaw": -56.195206,
+                "Roll": -1.1681107E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -9940,7 +9996,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": 42.11362,
+                "Yaw": 42.11364,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -9966,8 +10022,8 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 51.429993,
-                "Roll": 3.040694E-05
+                "Yaw": 51.43001,
+                "Roll": 3.0406944E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10018,8 +10074,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -27.245588,
-                "Roll": 3.4253674E-06
+                "Yaw": -27.245573,
+                "Roll": 3.4253756E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10122,8 +10178,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -21.247087,
-                "Roll": 6.5755908E-06
+                "Yaw": -21.24708,
+                "Roll": 6.575595E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10174,8 +10230,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -21.631517,
-                "Roll": 6.3755197E-06
+                "Yaw": -21.631506,
+                "Roll": 6.375525E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10278,7 +10334,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -111.90902,
+                "Yaw": -111.909004,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -10304,8 +10360,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": 5.8896008,
-                "Roll": 1.944428E-05
+                "Yaw": 5.8896046,
+                "Roll": 1.9444282E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10408,8 +10464,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -44.64793,
-                "Roll": -5.8008955E-06
+                "Yaw": -44.647907,
+                "Roll": -5.8008845E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10590,7 +10646,7 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 45.96962,
+                "Yaw": 45.96963,
                 "Roll": 3.0021869E-05
               },
               "PreAlignRotation": {
@@ -10616,8 +10672,8 @@
               },
               "Rotation": {
                 "Pitch": -2.0490565E-05,
-                "Yaw": -166.95114,
-                "Roll": -2.2224025E-05
+                "Yaw": -166.9511,
+                "Roll": -2.222404E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10668,7 +10724,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -111.86277,
+                "Yaw": -111.86274,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -10694,7 +10750,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -59.00786,
+                "Yaw": -59.00784,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -10720,8 +10776,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": 75.521416,
-                "Roll": 2.8818084E-05
+                "Yaw": 75.5214,
+                "Roll": 2.8818087E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10772,8 +10828,8 @@
               },
               "Rotation": {
                 "Pitch": 1.3660377E-05,
-                "Yaw": 36.827076,
-                "Roll": 2.8770095E-05
+                "Yaw": 36.827065,
+                "Roll": 2.8770093E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10798,8 +10854,8 @@
               },
               "Rotation": {
                 "Pitch": 1.3660377E-05,
-                "Yaw": 28.334791,
-                "Roll": 2.6951604E-05
+                "Yaw": 28.334784,
+                "Roll": 2.69516E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10850,8 +10906,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -8.65764,
-                "Roll": 1.2912925E-05
+                "Yaw": -8.657651,
+                "Roll": 1.29129185E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -10876,7 +10932,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -11.741481,
+                "Yaw": -11.741499,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -10902,8 +10958,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -66.00853,
-                "Roll": -1.63154E-05
+                "Yaw": -66.008545,
+                "Roll": -1.6315409E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11058,7 +11114,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -30.400494,
+                "Yaw": -30.400501,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -11084,8 +11140,8 @@
               },
               "Rotation": {
                 "Pitch": -2.7320753E-05,
-                "Yaw": 111.38217,
-                "Roll": 1.747263E-05
+                "Yaw": 111.38216,
+                "Roll": 1.7472636E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11110,7 +11166,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -115.38064,
+                "Yaw": -115.38061,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -11136,7 +11192,7 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": 75.74126,
+                "Yaw": 75.741234,
                 "Roll": 2.877934E-05
               },
               "PreAlignRotation": {
@@ -11214,8 +11270,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -66.51382,
-                "Roll": -1.6542224E-05
+                "Yaw": -66.51383,
+                "Roll": -1.6542228E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11292,8 +11348,8 @@
               },
               "Rotation": {
                 "Pitch": 6.8301883E-06,
-                "Yaw": 40.14515,
-                "Roll": 2.9311092E-05
+                "Yaw": 40.14514,
+                "Roll": 2.9311088E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11344,7 +11400,7 @@
               },
               "Rotation": {
                 "Pitch": -6.8301883E-06,
-                "Yaw": -134.73843,
+                "Yaw": -134.7384,
                 "Roll": -2.9951841E-05
               },
               "PreAlignRotation": {
@@ -11370,8 +11426,8 @@
               },
               "Rotation": {
                 "Pitch": -6.8301883E-06,
-                "Yaw": 67.76696,
-                "Roll": 2.9909495E-05
+                "Yaw": 67.766975,
+                "Roll": 2.9909494E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11422,7 +11478,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -134.05817,
+                "Yaw": -134.05815,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -11473,9 +11529,9 @@
                 "Z": 6.3062267
               },
               "Rotation": {
-                "Pitch": -2.6121614,
+                "Pitch": -2.612162,
                 "Yaw": 122.142746,
-                "Roll": -8.139322
+                "Roll": -8.139332
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11500,8 +11556,8 @@
               },
               "Rotation": {
                 "Pitch": -2.7320753E-05,
-                "Yaw": 113.897736,
-                "Roll": 1.6357602E-05
+                "Yaw": 113.8977,
+                "Roll": 1.6357619E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11526,8 +11582,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660371E-05,
-                "Yaw": 77.807076,
-                "Roll": 2.8394628E-05
+                "Yaw": 77.80706,
+                "Roll": 2.8394634E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11630,8 +11686,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -37.803326,
-                "Roll": -2.1888777E-06
+                "Yaw": -37.803303,
+                "Roll": -2.1888666E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11724,8 +11780,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": 75.70881,
-                "Roll": 2.8785087E-05
+                "Yaw": 75.708786,
+                "Roll": 2.8785093E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11750,8 +11806,8 @@
               },
               "Rotation": {
                 "Pitch": 1.3660377E-05,
-                "Yaw": 37.376507,
-                "Roll": 2.8866361E-05
+                "Yaw": 37.376488,
+                "Roll": 2.8866358E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11776,8 +11832,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -44.033997,
-                "Roll": -5.479618E-06
+                "Yaw": -44.033978,
+                "Roll": -5.4796083E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -11984,8 +12040,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -13.756036,
-                "Roll": 1.0404643E-05
+                "Yaw": -13.756055,
+                "Roll": 1.0404634E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12062,7 +12118,7 @@
               },
               "Rotation": {
                 "Pitch": 0.0,
-                "Yaw": -149.13095,
+                "Yaw": -149.13094,
                 "Roll": 0.0
               },
               "PreAlignRotation": {
@@ -12114,8 +12170,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": 22.972557,
-                "Roll": 2.5495781E-05
+                "Yaw": 22.972538,
+                "Roll": 2.5495776E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12140,8 +12196,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -48.702644,
-                "Roll": -7.904931E-06
+                "Yaw": -48.702633,
+                "Roll": -7.904923E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12166,8 +12222,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": -85.03625,
-                "Roll": -2.3832205E-05
+                "Yaw": -85.03624,
+                "Roll": -2.3832199E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12244,8 +12300,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -64.40447,
-                "Roll": -1.5587086E-05
+                "Yaw": -64.404495,
+                "Roll": -1.5587097E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12296,7 +12352,7 @@
               },
               "Rotation": {
                 "Pitch": -6.8301883E-06,
-                "Yaw": -128.27765,
+                "Yaw": -128.27762,
                 "Roll": -3.0419873E-05
               },
               "PreAlignRotation": {
@@ -12348,7 +12404,7 @@
               },
               "Rotation": {
                 "Pitch": -6.8301883E-06,
-                "Yaw": -127.92649,
+                "Yaw": -127.92646,
                 "Roll": -3.0434245E-05
               },
               "PreAlignRotation": {
@@ -12374,8 +12430,8 @@
               },
               "Rotation": {
                 "Pitch": -2.7320753E-05,
-                "Yaw": -171.47806,
-                "Roll": -2.050407E-05
+                "Yaw": -171.47804,
+                "Roll": -2.0504078E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12452,8 +12508,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -73.77388,
-                "Roll": -1.9650384E-05
+                "Yaw": -73.77386,
+                "Roll": -1.9650372E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12478,8 +12534,8 @@
               },
               "Rotation": {
                 "Pitch": 3.4150944E-05,
-                "Yaw": -24.082197,
-                "Roll": 5.093516E-06
+                "Yaw": -24.08218,
+                "Roll": 5.093526E-06
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12504,8 +12560,8 @@
               },
               "Rotation": {
                 "Pitch": 2.0490565E-05,
-                "Yaw": 21.357904,
-                "Roll": 2.5013103E-05
+                "Yaw": 21.357893,
+                "Roll": 2.50131E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12555,9 +12611,9 @@
                 "Z": 12.012205
               },
               "Rotation": {
-                "Pitch": -1.2030739,
+                "Pitch": -1.2030737,
                 "Yaw": -29.151878,
-                "Roll": -8.034658
+                "Roll": -8.034666
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12582,8 +12638,8 @@
               },
               "Rotation": {
                 "Pitch": 2.7320753E-05,
-                "Yaw": -6.1633105,
-                "Roll": 1.4104093E-05
+                "Yaw": -6.1633153,
+                "Roll": 1.4104088E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12634,8 +12690,8 @@
               },
               "Rotation": {
                 "Pitch": -1.3660377E-05,
-                "Yaw": 80.44478,
-                "Roll": 2.7849897E-05
+                "Yaw": 80.44476,
+                "Roll": 2.7849901E-05
               },
               "PreAlignRotation": {
                 "Pitch": 0.0,
@@ -12706,8 +12762,76 @@
         "ObjectName": "StaticMesh SM_COM_FieldGrass_01",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Vegetations/Common/SM_COM_FieldGrass_01.1"
       },
-      "UpdateGuid": "295BAE7D-45AD723F-129EE495-5B5D5AF1",
-      "Radius": 0.001,
+      "UpdateGuid": "C568F1D8-4FC7F5B0-36EFA2B3-72D4FADF",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldDynamic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAllDynamicFoliage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
       "ScaleCurve": {
         "EditorCurveData": {}
       }
@@ -12722,7 +12846,7 @@
         "ObjectName": "StaticMesh SM_COM_Grass02",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Vegetations/Common/SM_COM_Grass02.2"
       },
-      "UpdateGuid": "D5A9CFA6-49F822A1-87DA3B99-97AA3A2B",
+      "UpdateGuid": "BC12584F-46FAE878-6CEB0B9D-0EDC2DBE",
       "ScaleCurve": {
         "EditorCurveData": {}
       }
@@ -12737,7 +12861,7 @@
         "ObjectName": "StaticMesh SM_COM_Grass01",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Vegetations/Common/SM_COM_Grass01.1"
       },
-      "UpdateGuid": "D1F1A340-4BD6C39A-6CF64886-3E4B4E47",
+      "UpdateGuid": "3D36DCAC-46AF1B47-63A1C6BA-E9A16B69",
       "ScaleCurve": {
         "EditorCurveData": {}
       }
@@ -18308,7 +18432,7 @@
         "ObjectName": "DBDInstancedFoliageComponent BP_TL_St_32x16_ClosedHouse01_C:InstancedFoliageActor1_GEN_VARIABLE",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.75"
       },
-      "VariableGuid": "D0BAE8C5-4999FAB5-FEE5D68F-32C3B6E5",
+      "VariableGuid": "EA8084FF-4432A4AF-4D28DABA-381FF830",
       "InternalVariableName": "InstancedFoliageActor1"
     }
   },
@@ -18912,10 +19036,6 @@
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.106"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_91",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.333"
-        },
-        {
           "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_31",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.266"
         },
@@ -18946,6 +19066,10 @@
         {
           "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_35",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.271"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_91",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.333"
         }
       ],
       "AllNodes": [
@@ -19854,10 +19978,6 @@
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.106"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_91",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.333"
-        },
-        {
           "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_31",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.266"
         },
@@ -19888,6 +20008,10 @@
         {
           "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_35",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.271"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_32x16_ClosedHouse01_C:SimpleConstructionScript_3.SCS_Node_91",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/05-Suburbs/BP_TL_St_32x16_ClosedHouse01.333"
         }
       ],
       "DefaultSceneRootNode": {
