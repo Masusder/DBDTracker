@@ -1,10 +1,96 @@
 [
   {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_OffTheRecord",
+    "Outer": "OffTheRecord_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 1125899906842624,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "Authority_OnInstantiateModifierConditions",
+    "Outer": "OffTheRecord_C",
+    "SuperStruct": {
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
+    },
+    "FunctionFlags": 134744068
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "OffTheRecord_C",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function OffTheRecord_C:ExecuteUbergraph_OffTheRecord",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/OffTheRecord.0"
+      }
+    },
     "SuperStruct": {
       "ObjectName": "Class OffTheRecord",
       "ObjectPath": "/Script/TheGunslinger"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function OffTheRecord_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/OffTheRecord.1"
+      },
+      {
+        "ObjectName": "Function OffTheRecord_C:ExecuteUbergraph_OffTheRecord",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/OffTheRecord.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_OffTheRecord": {
+        "ObjectName": "Function OffTheRecord_C:ExecuteUbergraph_OffTheRecord",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/OffTheRecord.0"
+      },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function OffTheRecord_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/OffTheRecord.1"
+      }
     },
     "ClassFlags": 10749972,
     "ClassWithin": {
@@ -15,30 +101,20 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "OffTheRecord_C Default__OffTheRecord_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/OffTheRecord.1"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/OffTheRecord.3"
     }
   },
   {
     "Type": "OffTheRecord_C",
     "Name": "Default__OffTheRecord_C",
     "Properties": {
+      "UberGraphFrame": {},
       "_activationDurationLevels": 60.0,
       "_activationDurationLevels": 70.0,
       "_activationDurationLevels": 80.0,
-      "PerkLevelData": {
-        "Modifiers": [
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.ModifyInjuredVoiceLevel"
-            },
-            "ModifierValue": -1.0
-          }
-        ],
-        "TaggedFlags": [
-          {
-            "TagName": "GameplayModifierFlag.DetectionImmunity"
-          }
-        ]
+      "_activatableEnduranceEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass BP_ActivatableEnduranceEffect_C",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BP_ActivatableEnduranceEffect.0"
       },
       "PerkLevelData": {
         "Modifiers": [
@@ -69,7 +145,27 @@
             "TagName": "GameplayModifierFlag.DetectionImmunity"
           }
         ]
-      }
+      },
+      "PerkLevelData": {
+        "Modifiers": [
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.ModifyInjuredVoiceLevel"
+            },
+            "ModifierValue": -1.0
+          }
+        ],
+        "TaggedFlags": [
+          {
+            "TagName": "GameplayModifierFlag.DetectionImmunity"
+          }
+        ]
+      },
+      "PerkIconStrategyClass": {
+        "ObjectName": "Class ActivationTimerIconStrategy",
+        "ObjectPath": "/Script/DeadByDaylight"
+      },
+      "_canOptimizeTickActivation": true
     }
   }
 ]

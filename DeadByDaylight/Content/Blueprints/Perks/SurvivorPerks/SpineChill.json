@@ -1,10 +1,96 @@
 [
   {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_SpineChill",
+    "Outer": "SpineChill_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 1125899906842624,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "Authority_OnInstantiateModifierConditions",
+    "Outer": "SpineChill_C",
+    "SuperStruct": {
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
+    },
+    "FunctionFlags": 134744068
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "SpineChill_C",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function SpineChill_C:ExecuteUbergraph_SpineChill",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SpineChill.0"
+      }
+    },
     "SuperStruct": {
       "ObjectName": "Class SpineChillPerk",
       "ObjectPath": "/Script/DBDCompetence"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function SpineChill_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SpineChill.1"
+      },
+      {
+        "ObjectName": "Function SpineChill_C:ExecuteUbergraph_SpineChill",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SpineChill.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_SpineChill": {
+        "ObjectName": "Function SpineChill_C:ExecuteUbergraph_SpineChill",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SpineChill.0"
+      },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function SpineChill_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SpineChill.1"
+      }
     },
     "ClassFlags": 10749972,
     "ClassWithin": {
@@ -15,117 +101,22 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "SpineChill_C Default__SpineChill_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SpineChill.1"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SpineChill.3"
     }
   },
   {
     "Type": "SpineChill_C",
     "Name": "Default__SpineChill_C",
     "Properties": {
+      "UberGraphFrame": {},
+      "_spineChillEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass SpineChill_Effect_C",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/SpineChill_Effect.3"
+      },
       "_actionSpeed": 0.02,
       "_actionSpeed": 0.04,
       "_actionSpeed": 0.06,
-      "PerkLevelData": {
-        "Conditions": [
-          {
-            "ObjectName": "BlueprintGeneratedClass KillerIsLookingAtPlayer_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/KillerIsLookingAtPlayer.3"
-          },
-          {
-            "ObjectName": "BlueprintGeneratedClass KillerIsNotImmuneToDetection_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/KillerIsNotImmuneToDetection.3"
-          }
-        ],
-        "Modifiers": [
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.ModifySkillCheckProbability"
-            },
-            "ModifierValue": 0.1
-          },
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.ModifySkillCheckDifficulty"
-            },
-            "ModifierValue": 0.1
-          },
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.PerkEffectRange"
-            },
-            "ModifierValue": 3600.0
-          }
-        ]
-      },
-      "PerkLevelData": {
-        "Conditions": [
-          {
-            "ObjectName": "BlueprintGeneratedClass KillerIsLookingAtPlayer_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/KillerIsLookingAtPlayer.3"
-          },
-          {
-            "ObjectName": "BlueprintGeneratedClass KillerIsNotImmuneToDetection_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/KillerIsNotImmuneToDetection.3"
-          }
-        ],
-        "Modifiers": [
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.ModifySkillCheckProbability"
-            },
-            "ModifierValue": 0.1
-          },
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.ModifySkillCheckDifficulty"
-            },
-            "ModifierValue": 0.1
-          },
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.PerkEffectRange"
-            },
-            "ModifierValue": 3600.0
-          }
-        ]
-      },
-      "PerkLevelData": {
-        "Conditions": [
-          {
-            "ObjectName": "BlueprintGeneratedClass KillerIsLookingAtPlayer_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/KillerIsLookingAtPlayer.3"
-          },
-          {
-            "ObjectName": "BlueprintGeneratedClass KillerIsNotImmuneToDetection_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/KillerIsNotImmuneToDetection.3"
-          }
-        ],
-        "Modifiers": [
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.ModifySkillCheckProbability"
-            },
-            "ModifierValue": 0.1
-          },
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.ModifySkillCheckDifficulty"
-            },
-            "ModifierValue": 0.1
-          },
-          {
-            "Type": {
-              "TagName": "GameplayModifierType.PerkEffectRange"
-            },
-            "ModifierValue": 3600.0
-          }
-        ]
-      },
-      "PerkIconStrategyClass": {
-        "ObjectName": "Class ActiveWhenApplicablePerkIconStrategy",
-        "ObjectPath": "/Script/DeadByDaylight"
-      },
-      "UseApplyFunction": true
+      "_canOptimizeTickActivation": true
     }
   }
 ]

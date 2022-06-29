@@ -12,6 +12,12 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetCustomParam_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
         "Type": "InterfaceProperty",
         "Name": "CallFunc_And_conditionReceiver_CastInput",
         "Flags": 1,
@@ -30,28 +36,6 @@
         "PropertyFlags": 524288,
         "PropertyClass": {
           "ObjectName": "Class AndModifierCondition",
-          "ObjectPath": "/Script/Competence"
-        }
-      },
-      {
-        "Type": "InterfaceProperty",
-        "Name": "CallFunc_Or_conditionReceiver_CastInput",
-        "Flags": 1,
-        "ElementSize": 16,
-        "PropertyFlags": 1125899906842624,
-        "InterfaceClass": {
-          "ObjectName": "Class ConditionReceiver",
-          "ObjectPath": "/Script/Competence"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Or_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class OrModifierCondition",
           "ObjectPath": "/Script/Competence"
         }
       },
@@ -79,7 +63,7 @@
       },
       {
         "Type": "InterfaceProperty",
-        "Name": "CallFunc_CreateAndReceiveConditionWithSubjectForBP_conditionReceiver_CastInput",
+        "Name": "CallFunc_Or_conditionReceiver_CastInput",
         "Flags": 1,
         "ElementSize": 16,
         "PropertyFlags": 1125899906842624,
@@ -90,12 +74,12 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_CreateAndReceiveConditionWithSubjectForBP_ReturnValue",
+        "Name": "CallFunc_Or_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyFlags": 524288,
         "PropertyClass": {
-          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectName": "Class OrModifierCondition",
           "ObjectPath": "/Script/Competence"
         }
       },
@@ -120,9 +104,41 @@
           "ObjectName": "Class EventDrivenModifierCondition",
           "ObjectPath": "/Script/Competence"
         }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput_2",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 1125899906842624,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInitialized",
+    "Outer": "OverwhelmingPresenceEffect_C",
+    "SuperStruct": {
+      "ObjectName": "Function GameplayModifierContainer:OnInitialized",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "FunctionFlags": 134350848
   },
   {
     "Type": "Function",
@@ -150,6 +166,10 @@
     "Children": [
       {
         "ObjectName": "Function OverwhelmingPresenceEffect_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.2"
+      },
+      {
+        "ObjectName": "Function OverwhelmingPresenceEffect_C:OnInitialized",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.1"
       },
       {
@@ -175,9 +195,13 @@
         "ObjectName": "Function OverwhelmingPresenceEffect_C:ExecuteUbergraph_OverwhelmingPresenceEffect",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.0"
       },
+      "OnInitialized": {
+        "ObjectName": "Function OverwhelmingPresenceEffect_C:OnInitialized",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.1"
+      },
       "Authority_OnInstantiateModifierConditions": {
         "ObjectName": "Function OverwhelmingPresenceEffect_C:Authority_OnInstantiateModifierConditions",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.2"
       }
     },
     "ClassFlags": 10749972,
@@ -189,7 +213,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "OverwhelmingPresenceEffect_C Default__OverwhelmingPresenceEffect_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.3"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/OverwhelmingPresenceEffect.4"
     }
   },
   {
@@ -198,12 +222,6 @@
     "Properties": {
       "UberGraphFrame": {},
       "ModifierData": {
-        "Conditions": [
-          {
-            "ObjectName": "BlueprintGeneratedClass IsInTerrorRadius_C",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/PerkConditions/IsInTerrorRadius.0"
-          }
-        ],
         "Modifiers": [
           {
             "Type": {
@@ -214,7 +232,8 @@
         ]
       },
       "BroadcastAsStatusEffectWhenApplicable": true,
-      "BroadcastOriginatorGameEventNotificationWhenFirstApplicable": true
+      "BroadcastOriginatorGameEventNotificationWhenFirstApplicable": true,
+      "_id": "OverwhelmingPresenceEffect"
     }
   }
 ]

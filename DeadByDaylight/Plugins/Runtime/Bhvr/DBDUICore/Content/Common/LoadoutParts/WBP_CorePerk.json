@@ -12,6 +12,27 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_perkViewData",
+        "Flags": 1,
+        "ElementSize": 112,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct PerkViewData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class MaterialInstanceDynamic",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
         "Type": "BoolProperty",
         "Name": "K2Node_Event_IsDesignTime",
         "Flags": 1,
@@ -24,34 +45,82 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_perkViewData",
-        "Flags": 1,
-        "ElementSize": 104,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct PerkViewData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      },
-      {
         "Type": "FloatProperty",
         "Name": "K2Node_Event_cooldownValue",
         "Flags": 1,
         "ElementSize": 4
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsRechargeable",
         "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class MaterialInstanceDynamic",
-          "ObjectPath": "/Script/Engine"
-        }
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsRechargeableActive",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdatePerkCooldown",
+    "Outer": "WBP_CorePerk_C",
+    "SuperStruct": {
+      "ObjectName": "Function PerkViewInterface:UpdatePerkCooldown",
+      "ObjectPath": "/Script/DBDUIViewInterfaces"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "cooldownValue",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "IsRechargeable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "IsRechargeableActive",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201459712
   },
   {
     "Type": "Function",
@@ -90,25 +159,6 @@
   },
   {
     "Type": "Function",
-    "Name": "UpdatePerkCooldown",
-    "Outer": "WBP_CorePerk_C",
-    "SuperStruct": {
-      "ObjectName": "Function PerkViewInterface:UpdatePerkCooldown",
-      "ObjectPath": "/Script/DBDUIViewInterfaces"
-    },
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "cooldownValue",
-        "Flags": 1,
-        "ElementSize": 4,
-        "PropertyFlags": 148
-      }
-    ],
-    "FunctionFlags": 201459712
-  },
-  {
-    "Type": "Function",
     "Name": "SetData",
     "Outer": "WBP_CorePerk_C",
     "SuperStruct": {
@@ -120,7 +170,7 @@
         "Type": "StructProperty",
         "Name": "perkViewData",
         "Flags": 1,
-        "ElementSize": 104,
+        "ElementSize": 112,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct PerkViewData",
@@ -226,96 +276,6 @@
   },
   {
     "Type": "Function",
-    "Name": "UpdateCooldown",
-    "Outer": "WBP_CorePerk_C",
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "cooldownValue",
-        "Flags": 1,
-        "ElementSize": 4,
-        "PropertyFlags": 148
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Greater_FloatFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable_1",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "Temp_bool_Variable",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "K2Node_Select_Default",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
-      }
-    ],
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "Function",
     "Name": "SetPerkDebuff",
     "Outer": "WBP_CorePerk_C",
     "ChildProperties": [
@@ -378,21 +338,21 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_CorePerk_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.100"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.99"
       },
       "bClassRequiresNativeTick": true,
       "Animations": [
         {
           "ObjectName": "WidgetAnimation WBP_CorePerk_C:BTN_BecameAvailable_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.97"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.96"
         },
         {
           "ObjectName": "WidgetAnimation WBP_CorePerk_C:Highlight_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.99"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.98"
         },
         {
           "ObjectName": "WidgetAnimation WBP_CorePerk_C:BTN_BecomeUnavailable_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.98"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.97"
         }
       ],
       "UberGraphFunction": {
@@ -407,10 +367,6 @@
     "Children": [
       {
         "ObjectName": "Function WBP_CorePerk_C:SetPerkDebuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.9"
-      },
-      {
-        "ObjectName": "Function WBP_CorePerk_C:UpdateCooldown",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.8"
       },
       {
@@ -430,15 +386,15 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.4"
       },
       {
-        "ObjectName": "Function WBP_CorePerk_C:UpdatePerkCooldown",
+        "ObjectName": "Function WBP_CorePerk_C:ClearData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.3"
       },
       {
-        "ObjectName": "Function WBP_CorePerk_C:ClearData",
+        "ObjectName": "Function WBP_CorePerk_C:PreConstruct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.2"
       },
       {
-        "ObjectName": "Function WBP_CorePerk_C:PreConstruct",
+        "ObjectName": "Function WBP_CorePerk_C:UpdatePerkCooldown",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.1"
       },
       {
@@ -554,7 +510,7 @@
         "PropertyFlags": 562952101429260,
         "PropertyClass": {
           "ObjectName": "WidgetBlueprintGeneratedClass WBP_CorePerkCooldown_C",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerkCooldown.1"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerkCooldown.5"
         }
       },
       {
@@ -622,7 +578,7 @@
         "Type": "StructProperty",
         "Name": "PerkViewData",
         "Flags": 2097153,
-        "ElementSize": 104,
+        "ElementSize": 112,
         "PropertyFlags": 65541,
         "Struct": {
           "ObjectName": "ScriptStruct PerkViewData",
@@ -646,16 +602,16 @@
         "ObjectName": "Function WBP_CorePerk_C:ExecuteUbergraph_WBP_CorePerk",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.0"
       },
+      "UpdatePerkCooldown": {
+        "ObjectName": "Function WBP_CorePerk_C:UpdatePerkCooldown",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.1"
+      },
       "PreConstruct": {
         "ObjectName": "Function WBP_CorePerk_C:PreConstruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.2"
       },
       "ClearData": {
         "ObjectName": "Function WBP_CorePerk_C:ClearData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.2"
-      },
-      "UpdatePerkCooldown": {
-        "ObjectName": "Function WBP_CorePerk_C:UpdatePerkCooldown",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.3"
       },
       "SetData": {
@@ -674,13 +630,9 @@
         "ObjectName": "Function WBP_CorePerk_C:SetSlotUnlockLevel",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.7"
       },
-      "UpdateCooldown": {
-        "ObjectName": "Function WBP_CorePerk_C:UpdateCooldown",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.8"
-      },
       "SetPerkDebuff": {
         "ObjectName": "Function WBP_CorePerk_C:SetPerkDebuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.8"
       }
     },
     "ClassFlags": 10754064,
@@ -692,7 +644,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CorePerk_C Default__WBP_CorePerk_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.11"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.10"
     }
   },
   {
@@ -706,6 +658,8 @@
         "Cooldown": 0.0,
         "StatusEffectType": "EStatusEffectType::None",
         "StackCount": 0,
+        "IsRechargeable": false,
+        "IsRechargeableActive": false,
         "ItemId": "None",
         "IconTexture": {
           "AssetPathName": "None",
@@ -739,7 +693,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.24"
       }
     }
   },
@@ -760,7 +714,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_12",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.27"
       },
       "RenderTransform": {
         "Angle": 45.0
@@ -785,7 +739,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_10",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.26"
       },
       "RenderTransform": {
         "Scale": {
@@ -817,7 +771,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.28"
       }
     }
   },
@@ -838,7 +792,7 @@
       },
       "Slot": {
         "ObjectName": "ScaleBoxSlot WBP_CorePerk_C:WidgetTree.layoutSizeScaleLevel.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.95"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.94"
       }
     }
   },
@@ -859,7 +813,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.26"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.25"
       }
     }
   },
@@ -892,7 +846,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_7",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.21"
       },
       "bIsVariable": true
     }
@@ -905,19 +859,19 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_6",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.21"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
         },
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_9",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.24"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.23"
         },
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_7",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.22"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.21"
         },
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_8",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.23"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.22"
         }
       ]
     }
@@ -930,28 +884,28 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.25"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.24"
         },
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.26"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.25"
         },
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.29"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.28"
         },
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_10",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.27"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.26"
         },
         {
           "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer.GridSlot_12",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.28"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.27"
         }
       ],
       "Slot": {
         "ObjectName": "ScaleBoxSlot WBP_CorePerk_C:WidgetTree.layoutSizeScale.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.94"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.93"
       }
     }
   },
@@ -962,11 +916,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.CorePerkContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.18"
       },
       "Content": {
         "ObjectName": "ScaleBox WBP_CorePerk_C:WidgetTree.layoutSizeScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.92"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.91"
       }
     }
   },
@@ -984,11 +938,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.CorePerkContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.18"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CorePerk_C:WidgetTree.TextStackCount",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.17"
       }
     }
   },
@@ -1006,11 +960,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.CorePerkContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.18"
       },
       "Content": {
         "ObjectName": "ScaleBox WBP_CorePerk_C:WidgetTree.layoutSizeScaleLevel",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.93"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.92"
       }
     }
   },
@@ -1022,11 +976,11 @@
       "Layer": 10,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.CorePerkContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.18"
       },
       "Content": {
         "ObjectName": "WBP_CorePerkCooldown_C WBP_CorePerk_C:WidgetTree.WBP_PerkCooldown",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.96"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.95"
       }
     }
   },
@@ -1039,11 +993,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CorePerk_C:WidgetTree.imageBg",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.12"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.11"
       }
     }
   },
@@ -1055,11 +1009,11 @@
       "Layer": 3,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CorePerk_C:WidgetTree.imageRarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.16"
       }
     }
   },
@@ -1073,11 +1027,11 @@
       "Layer": 5,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CorePerk_C:WidgetTree.imageDebuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.13"
       }
     }
   },
@@ -1091,11 +1045,11 @@
       "Layer": 5,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CorePerk_C:WidgetTree.imageBuff",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.12"
       }
     }
   },
@@ -1107,11 +1061,11 @@
       "Layer": 4,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CorePerk_C:WidgetTree.ImageIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.14"
       }
     }
   },
@@ -1169,7 +1123,7 @@
           "Tracks": [
             {
               "ObjectName": "MovieScene2DTransformTrack WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_3",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.42"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.41"
             }
           ]
         },
@@ -1179,11 +1133,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieScene2DTransformTrack WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.39"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.38"
             },
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_2",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.84"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.83"
             }
           ]
         },
@@ -1193,11 +1147,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieScene2DTransformTrack WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_1",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.40"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.39"
             },
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_4",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.86"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.85"
             }
           ]
         },
@@ -1207,11 +1161,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieScene2DTransformTrack WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_2",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.41"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.40"
             },
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_3",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.85"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.84"
             }
           ]
         }
@@ -1282,7 +1236,7 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_11",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.88"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.87"
             }
           ]
         },
@@ -1292,7 +1246,7 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_10",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.87"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.86"
             }
           ]
         },
@@ -1302,7 +1256,7 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_2",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.89"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.88"
             }
           ]
         }
@@ -1363,11 +1317,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieScene2DTransformTrack WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_1",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.43"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.42"
             },
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_1",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.90"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.89"
             }
           ]
         },
@@ -1377,11 +1331,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieScene2DTransformTrack WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_2",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.44"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.43"
             },
             {
               "ObjectName": "MovieSceneFloatTrack WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_2",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.91"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.90"
             }
           ]
         }
@@ -1418,11 +1372,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.45"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.44"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.46"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.45"
         }
       },
       "SectionRange": {
@@ -1454,11 +1408,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.47"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.46"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.48"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.47"
         }
       },
       "SectionRange": {
@@ -1490,11 +1444,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.49"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.48"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.50"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.49"
         }
       },
       "SectionRange": {
@@ -1526,11 +1480,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_3.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.51"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.50"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_3.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.52"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.51"
         }
       },
       "SectionRange": {
@@ -1565,11 +1519,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.65"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.64"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.66"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.65"
         }
       },
       "SectionRange": {
@@ -1601,11 +1555,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.67"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.66"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.68"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.67"
         }
       },
       "SectionRange": {
@@ -1640,7 +1594,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.33"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.32"
         }
       ],
       "EvaluationFieldGuid": "B60FE55E-4081B518-134B8EB5-5F23F03F",
@@ -1649,7 +1603,7 @@
           {
             "Section": {
               "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.33"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.32"
             },
             "Range": {
               "LowerBound": {
@@ -1689,7 +1643,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.34"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.33"
         }
       ],
       "EvaluationFieldGuid": "8CF42394-47F0E1A1-09EE448C-58DF8879",
@@ -1698,7 +1652,7 @@
           {
             "Section": {
               "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.34"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.33"
             },
             "Range": {
               "LowerBound": {
@@ -1738,7 +1692,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.35"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.34"
         }
       ],
       "EvaluationFieldGuid": "6C09771E-4619637F-01E7C0B2-7364DC06",
@@ -1747,7 +1701,7 @@
           {
             "Section": {
               "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.35"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.34"
             },
             "Range": {
               "LowerBound": {
@@ -1787,7 +1741,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_3.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.36"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.35"
         }
       ],
       "EvaluationFieldGuid": "00F15991-4F32EDC0-54135688-5466B387",
@@ -1796,7 +1750,7 @@
           {
             "Section": {
               "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_3.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.36"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.35"
             },
             "Range": {
               "LowerBound": {
@@ -1836,7 +1790,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.37"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.36"
         }
       ],
       "EvaluationFieldGuid": "41A62276-43B61EB8-EFAF43A9-6CB18913",
@@ -1845,7 +1799,7 @@
           {
             "Section": {
               "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.37"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.36"
             },
             "Range": {
               "LowerBound": {
@@ -1885,7 +1839,7 @@
       "Sections": [
         {
           "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.38"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.37"
         }
       ],
       "EvaluationFieldGuid": "0B603BDF-49CF6505-8825A2B2-A3EC24A8",
@@ -1894,7 +1848,7 @@
           {
             "Section": {
               "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.38"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.37"
             },
             "Range": {
               "LowerBound": {
@@ -2295,7 +2249,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_3.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.36"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.35"
               },
               "EntityID": 0
             },
@@ -2305,7 +2259,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.33"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.32"
               },
               "EntityID": 0
             },
@@ -2315,7 +2269,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.76"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.75"
               },
               "EntityID": 0
             },
@@ -2325,7 +2279,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.34"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.33"
               },
               "EntityID": 0
             },
@@ -2335,7 +2289,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_4.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.78"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.77"
               },
               "EntityID": 0
             },
@@ -2345,7 +2299,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.35"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.34"
               },
               "EntityID": 0
             },
@@ -2355,7 +2309,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_3.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.77"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.76"
               },
               "EntityID": 0
             },
@@ -2596,7 +2550,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_11.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.80"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.79"
               },
               "EntityID": 0
             },
@@ -2606,7 +2560,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_10.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.79"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.78"
               },
               "EntityID": 0
             },
@@ -2616,7 +2570,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.81"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.80"
               },
               "EntityID": 0
             },
@@ -2882,7 +2836,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.37"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.36"
               },
               "EntityID": 0
             },
@@ -2892,7 +2846,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_1.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.82"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.81"
               },
               "EntityID": 0
             },
@@ -2902,7 +2856,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieScene2DTransformSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieScene2DTransformTrack_2.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.38"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.37"
               },
               "EntityID": 0
             },
@@ -2912,7 +2866,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.83"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.82"
               },
               "EntityID": 0
             },
@@ -2973,11 +2927,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.53"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.52"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.54"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.53"
         }
       },
       "SectionRange": {
@@ -3008,11 +2962,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_3.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.55"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.54"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_3.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.56"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.55"
         }
       },
       "SectionRange": {
@@ -3043,11 +2997,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_4.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.57"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.56"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_4.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.58"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.57"
         }
       },
       "SectionRange": {
@@ -3078,11 +3032,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_10.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.59"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.58"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_10.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.60"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.59"
         }
       },
       "SectionRange": {
@@ -3113,11 +3067,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_11.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.61"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.60"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_11.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.62"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.61"
         }
       },
       "SectionRange": {
@@ -3148,11 +3102,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.63"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.62"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.64"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.63"
         }
       },
       "SectionRange": {
@@ -3183,11 +3137,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.69"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.68"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.70"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.69"
         }
       },
       "SectionRange": {
@@ -3218,11 +3172,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_2.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.71"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.70"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_2.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.72"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.71"
         }
       },
       "SectionRange": {
@@ -3257,7 +3211,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.76"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.75"
         }
       ],
       "EvaluationFieldGuid": "CA8B2427-4FEC8807-62543DB2-220282D1",
@@ -3266,7 +3220,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.76"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.75"
             },
             "Range": {
               "LowerBound": {
@@ -3306,7 +3260,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_3.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.77"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.76"
         }
       ],
       "EvaluationFieldGuid": "F24EF6D7-4349DC0B-500A4992-69A92F18",
@@ -3315,7 +3269,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_3.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.77"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.76"
             },
             "Range": {
               "LowerBound": {
@@ -3355,7 +3309,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_4.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.78"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.77"
         }
       ],
       "EvaluationFieldGuid": "05899111-48751665-4564818C-A4819760",
@@ -3364,7 +3318,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable.MovieSceneFloatTrack_4.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.78"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.77"
             },
             "Range": {
               "LowerBound": {
@@ -3404,7 +3358,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_10.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.79"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.78"
         }
       ],
       "EvaluationFieldGuid": "012CE27B-4DAFA10B-2296289D-61200343",
@@ -3413,7 +3367,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_10.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.79"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.78"
             },
             "Range": {
               "LowerBound": {
@@ -3453,7 +3407,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_11.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.80"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.79"
         }
       ],
       "EvaluationFieldGuid": "D11F0F75-448231E6-E06887BC-93BA5FEB",
@@ -3462,7 +3416,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_11.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.80"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.79"
             },
             "Range": {
               "LowerBound": {
@@ -3502,7 +3456,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.81"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.80"
         }
       ],
       "EvaluationFieldGuid": "CD0391EE-4377EA4F-6E214D9A-A585EAF2",
@@ -3511,7 +3465,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.81"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.80"
             },
             "Range": {
               "LowerBound": {
@@ -3551,7 +3505,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_1.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.82"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.81"
         }
       ],
       "EvaluationFieldGuid": "011F6204-456D909A-81144889-4CA1482F",
@@ -3560,7 +3514,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_1.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.82"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.81"
             },
             "Range": {
               "LowerBound": {
@@ -3600,7 +3554,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.83"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.82"
         }
       ],
       "EvaluationFieldGuid": "4E51F53A-4D3B7F11-122A8288-D459687A",
@@ -3609,7 +3563,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_CorePerk_C:Highlight_INST.Highlight.MovieSceneFloatTrack_2.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.83"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.82"
             },
             "Range": {
               "LowerBound": {
@@ -3646,12 +3600,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WBP_CorePerk_C:WidgetTree.layoutSizeScale.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.94"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.93"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_6",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
       }
     }
   },
@@ -3665,12 +3619,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WBP_CorePerk_C:WidgetTree.layoutSizeScaleLevel.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.95"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.94"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_8",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.23"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.22"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
@@ -3683,11 +3637,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WBP_CorePerk_C:WidgetTree.layoutSizeScale",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.92"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.91"
       },
       "Content": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.PerkIconRarityContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
       }
     }
   },
@@ -3698,11 +3652,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WBP_CorePerk_C:WidgetTree.layoutSizeScaleLevel",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.93"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.92"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CorePerk_C:WidgetTree.ImagePerkLevel",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.15"
       }
     }
   },
@@ -3714,9 +3668,10 @@
     "Properties": {
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePerk_C:WidgetTree.CorePerkContainer.GridSlot_9",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.23"
       },
-      "Visibility": "ESlateVisibility::Hidden"
+      "Visibility": "ESlateVisibility::Hidden",
+      "RenderOpacity": 0.8
     }
   },
   {
@@ -3726,7 +3681,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "MovieScene WBP_CorePerk_C:BTN_BecameAvailable_INST.BTN_BecameAvailable",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.29"
       },
       "AnimationBindings": [
         {
@@ -3757,7 +3712,7 @@
       "DisplayLabel": "BTN_BecameAvailable",
       "CompiledData": {
         "ObjectName": "MovieSceneCompiledData WBP_CorePerk_C:BTN_BecameAvailable_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.73"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.72"
       },
       "Signature": "73657271-4A0FCAEC-ACB6A088-AE951876"
     }
@@ -3769,7 +3724,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "MovieScene WBP_CorePerk_C:BTN_BecomeUnavailable_INST.BTN_BecomeUnavailable",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.30"
       },
       "AnimationBindings": [
         {
@@ -3794,7 +3749,7 @@
       "DisplayLabel": "BTN_BecomeUnavailable",
       "CompiledData": {
         "ObjectName": "MovieSceneCompiledData WBP_CorePerk_C:BTN_BecomeUnavailable_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.74"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.73"
       },
       "Signature": "8A937FEA-4B5B7BFB-23640297-7559B89C"
     }
@@ -3806,7 +3761,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "MovieScene WBP_CorePerk_C:Highlight_INST.Highlight",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.31"
       },
       "AnimationBindings": [
         {
@@ -3825,7 +3780,7 @@
       "DisplayLabel": "Highlight",
       "CompiledData": {
         "ObjectName": "MovieSceneCompiledData WBP_CorePerk_C:Highlight_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.75"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.74"
       },
       "Signature": "8A93D1E6-4B0E39AC-7F0B5BAD-58A00E35"
     }
@@ -3837,7 +3792,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "GridPanel WBP_CorePerk_C:WidgetTree.CorePerkContainer",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CorePerk.18"
       }
     }
   }

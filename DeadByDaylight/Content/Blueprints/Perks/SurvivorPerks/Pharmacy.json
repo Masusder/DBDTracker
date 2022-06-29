@@ -1,10 +1,96 @@
 [
   {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Pharmacy",
+    "Outer": "Pharmacy_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 1125899906842624,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "Authority_OnInstantiateModifierConditions",
+    "Outer": "Pharmacy_C",
+    "SuperStruct": {
+      "ObjectName": "Function BaseModifierContainer:Authority_OnInstantiateModifierConditions",
+      "ObjectPath": "/Script/Competence"
+    },
+    "FunctionFlags": 134744068
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "Pharmacy_C",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function Pharmacy_C:ExecuteUbergraph_Pharmacy",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Pharmacy.0"
+      }
+    },
     "SuperStruct": {
       "ObjectName": "Class PharmacyPerk",
       "ObjectPath": "/Script/DBDCompetence"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function Pharmacy_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Pharmacy.1"
+      },
+      {
+        "ObjectName": "Function Pharmacy_C:ExecuteUbergraph_Pharmacy",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Pharmacy.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Pharmacy": {
+        "ObjectName": "Function Pharmacy_C:ExecuteUbergraph_Pharmacy",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Pharmacy.0"
+      },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function Pharmacy_C:Authority_OnInstantiateModifierConditions",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Pharmacy.1"
+      }
     },
     "ClassFlags": 10749972,
     "ClassWithin": {
@@ -15,66 +101,26 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Pharmacy_C Default__Pharmacy_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Pharmacy.1"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/Pharmacy.3"
     }
   },
   {
     "Type": "Pharmacy_C",
     "Name": "Default__Pharmacy_C",
     "Properties": {
-      "_searchSpeeds": [
-        0.4,
-        0.6,
-        0.8
-      ],
-      "PerkLevelData": {
-        "Conditions": [
-          {
-            "ObjectName": "Class IsPerkUsableCondition",
-            "ObjectPath": "/Script/DBDCompetence"
-          }
-        ],
-        "TaggedFlags": [
-          {
-            "TagName": "GameplayModifierFlag.GrantChestItem.Item_Camper_MedKit03"
-          }
-        ]
+      "UberGraphFrame": {},
+      "_pharmacyEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass BP_PharmacyEffect_C",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/BP_PharmacyEffect.3"
       },
-      "PerkLevelData": {
-        "Conditions": [
-          {
-            "ObjectName": "Class IsPerkUsableCondition",
-            "ObjectPath": "/Script/DBDCompetence"
-          }
-        ],
-        "TaggedFlags": [
-          {
-            "TagName": "GameplayModifierFlag.GrantChestItem.Item_Camper_MedKit03"
-          }
-        ]
-      },
-      "PerkLevelData": {
-        "Conditions": [
-          {
-            "ObjectName": "Class IsPerkUsableCondition",
-            "ObjectPath": "/Script/DBDCompetence"
-          }
-        ],
-        "TaggedFlags": [
-          {
-            "TagName": "GameplayModifierFlag.GrantChestItem.Item_Camper_MedKit03"
-          }
-        ]
-      },
+      "_searchSpeeds": 0.4,
+      "_searchSpeeds": 0.6,
+      "_searchSpeeds": 0.8,
       "PerkIconStrategyClass": {
-        "ObjectName": "Class AlwaysVisiblePerkIconStrategy",
+        "ObjectName": "Class ActiveWhenApplicablePerkIconStrategy",
         "ObjectPath": "/Script/DeadByDaylight"
-      }
+      },
+      "_canOptimizeTickActivation": true
     }
-  },
-  {
-    "Type": "TokenCounter",
-    "Name": "TokenCounter",
-    "Outer": "Default__Pharmacy_C"
   }
 ]
