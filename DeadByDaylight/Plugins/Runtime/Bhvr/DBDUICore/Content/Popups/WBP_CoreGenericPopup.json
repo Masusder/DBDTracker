@@ -13,12 +13,32 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimationReverse_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "K2Node_Event_data",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
           "ObjectName": "Class BasePopupViewData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimationForward_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
         }
       }
     ],
@@ -179,9 +199,19 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_CoreGenericPopup_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.39"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.69"
       },
       "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation WBP_CoreGenericPopup_C:Anim_FadeIn_INST",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.67"
+        },
+        {
+          "ObjectName": "WidgetAnimation WBP_CoreGenericPopup_C:Anim_FadeOut_INST",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.68"
+        }
+      ],
       "UberGraphFunction": {
         "ObjectName": "Function WBP_CoreGenericPopup_C:ExecuteUbergraph_WBP_CoreGenericPopup",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.0"
@@ -219,6 +249,28 @@
         "Struct": {
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Anim_FadeOut",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 2147491860,
+        "PropertyClass": {
+          "ObjectName": "Class WidgetAnimation",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Anim_FadeIn",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 2147491860,
+        "PropertyClass": {
+          "ObjectName": "Class WidgetAnimation",
+          "ObjectPath": "/Script/UMG"
         }
       },
       {
@@ -295,6 +347,55 @@
     }
   },
   {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot WBP_CoreGenericPopup_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.7"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "CanvasPanel_0",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 0.0,
+          "Bottom": 0.0
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.0,
+            "Y": 0.5
+          },
+          "Maximum": {
+            "X": 1.0,
+            "Y": 0.5
+          }
+        },
+        "Alignment": {
+          "X": 0.0,
+          "Y": 0.5
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel WBP_CoreGenericPopup_C:WidgetTree.CanvasPanel_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.6"
+      },
+      "Content": {
+        "ObjectName": "RetainerBox WBP_CoreGenericPopup_C:WidgetTree.Mask",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.55"
+      }
+    }
+  },
+  {
     "Type": "DBDImage",
     "Name": "BG",
     "Outer": "WidgetTree",
@@ -309,8 +410,8 @@
           "Bottom": 0.5
         },
         "ResourceObject": {
-          "ObjectName": "MaterialInstanceConstant MI_UI_PopupBG_Default",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Popups/Materials/MI_UI_PopupBG_Default.0"
+          "ObjectName": "MaterialInstanceConstant MI_UI_PopupBG_Generic",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Popups/Materials/MI_UI_PopupBG_Generic.0"
         },
         "DrawAs": "ESlateBrushDrawType::Box"
       },
@@ -318,12 +419,12 @@
         "R": 0.0,
         "G": 0.0,
         "B": 0.0,
-        "A": 0.9,
-        "Hex": "E6000000"
+        "A": 0.95,
+        "Hex": "F3000000"
       },
       "Slot": {
-        "ObjectName": "GridSlot WBP_CoreGenericPopup_C:WidgetTree.GridPanel_3.GridSlot_4",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.12"
+        "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.Overlay_1.OverlaySlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.52"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -343,8 +444,8 @@
           "Right": 0.5
         },
         "ResourceObject": {
-          "ObjectName": "Texture2D T_UI_popupHeader",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Popups/T_UI_popupHeader.0"
+          "ObjectName": "Texture2D T_UI_Popup_TitleBar",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Popups/Generic/T_UI_Popup_TitleBar.0"
         }
       },
       "ColorAndOpacity": {
@@ -356,7 +457,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.49"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -420,7 +521,7 @@
       "LineHeightPercentage": 1.5,
       "Slot": {
         "ObjectName": "SizeBoxSlot WBP_CoreGenericPopup_C:WidgetTree.ContainerDimensions.SizeBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.57"
       }
     }
   },
@@ -445,65 +546,10 @@
       "TextTransformPolicy": "ETextTransformPolicy::ToUpper",
       "Justification": "ETextJustify::Center",
       "Slot": {
-        "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_163.HorizontalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.18"
+        "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.50"
       },
       "bIsVariable": true
-    }
-  },
-  {
-    "Type": "GridPanel",
-    "Name": "GridPanel_3",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "GridSlot WBP_CoreGenericPopup_C:WidgetTree.GridPanel_3.GridSlot_4",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.12"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CoreGenericPopup_C:WidgetTree.GridPanel_3.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.11"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "PanelSlot WBP_CoreGenericPopup_C:WidgetTree.Mask.PanelSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.24"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_1",
-    "Outer": "GridPanel_3",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "GridPanel WBP_CoreGenericPopup_C:WidgetTree.GridPanel_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.10"
-      },
-      "Content": {
-        "ObjectName": "VerticalBox WBP_CoreGenericPopup_C:WidgetTree.Content",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.30"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_4",
-    "Outer": "GridPanel_3",
-    "Properties": {
-      "Padding": {
-        "Top": -130.0,
-        "Bottom": -130.0
-      },
-      "Parent": {
-        "ObjectName": "GridPanel WBP_CoreGenericPopup_C:WidgetTree.GridPanel_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.10"
-      },
-      "Content": {
-        "ObjectName": "DBDImage WBP_CoreGenericPopup_C:WidgetTree.BG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.6"
-      }
     }
   },
   {
@@ -514,20 +560,20 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.16"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.15"
         },
         {
           "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.17"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.16"
         },
         {
           "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.15"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.14"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.63"
       }
     }
   },
@@ -536,15 +582,9 @@
     "Name": "HorizontalBox_163",
     "Outer": "WidgetTree",
     "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_163.HorizontalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.18"
-        }
-      ],
       "Slot": {
-        "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.23"
+        "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.51"
       }
     }
   },
@@ -559,11 +599,11 @@
       "HorizontalAlignment": "HAlign_Right",
       "Parent": {
         "ObjectName": "HorizontalBox WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.12"
       },
       "Content": {
         "ObjectName": "WBP_CoreStandardInputSwitcher_C WBP_CoreGenericPopup_C:WidgetTree.ProgressionButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.37"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.65"
       }
     }
   },
@@ -578,11 +618,11 @@
       "HorizontalAlignment": "HAlign_Left",
       "Parent": {
         "ObjectName": "HorizontalBox WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.12"
       },
       "Content": {
         "ObjectName": "WBP_CoreStandardInputSwitcher_C WBP_CoreGenericPopup_C:WidgetTree.RegressionButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.66"
       }
     }
   },
@@ -597,32 +637,1342 @@
       "HorizontalAlignment": "HAlign_Center",
       "Parent": {
         "ObjectName": "HorizontalBox WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.12"
       },
       "Content": {
         "ObjectName": "WBP_CoreStandardInputSwitcher_C WBP_CoreGenericPopup_C:WidgetTree.AlternativeButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.64"
       }
     }
   },
   {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_1",
-    "Outer": "HorizontalBox_163",
+    "Type": "MovieScene",
+    "Name": "Anim_FadeIn",
+    "Outer": "Anim_FadeIn_INST",
     "Properties": {
-      "Size": {
-        "SizeRule": "ESlateSizeRule::Fill"
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78",
+          "Name": "Mask",
+          "PossessedObjectClass": {
+            "ObjectName": "Class RetainerBox",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        },
+        {
+          "Tags": [],
+          "Guid": "48F9AA70-43B1E8A6-7FD6E488-13A5F80A",
+          "Name": "BG",
+          "PossessedObjectClass": {
+            "ObjectName": "Class DBDImage",
+            "ObjectPath": "/Script/DBDUIViewsCore"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78",
+          "BindingName": "Mask",
+          "Tracks": [
+            {
+              "ObjectName": "MovieScene2DTransformTrack WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieScene2DTransformTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.21"
+            },
+            {
+              "ObjectName": "MovieSceneFloatTrack WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneFloatTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.39"
+            }
+          ]
+        },
+        {
+          "ObjectGuid": "48F9AA70-43B1E8A6-7FD6E488-13A5F80A",
+          "BindingName": "BG",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneWidgetMaterialTrack WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneWidgetMaterialTrack_2",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.43"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
       },
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "HorizontalBox WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_163",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.14"
+      "DisplayRate": {
+        "Numerator": 30
       },
-      "Content": {
-        "ObjectName": "DBDTextBlock WBP_CoreGenericPopup_C:WidgetTree.TitleText",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.9"
+      "Signature": "6B777643-4478043F-CE14DBB0-A4F051D0"
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "Anim_FadeOut",
+    "Outer": "Anim_FadeOut_INST",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78",
+          "Name": "Mask",
+          "PossessedObjectClass": {
+            "ObjectName": "Class RetainerBox",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        },
+        {
+          "Tags": [],
+          "Guid": "48F9AA70-43B1E8A6-7FD6E488-13A5F80A",
+          "Name": "BG",
+          "PossessedObjectClass": {
+            "ObjectName": "Class DBDImage",
+            "ObjectPath": "/Script/DBDUIViewsCore"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78",
+          "BindingName": "Mask",
+          "Tracks": [
+            {
+              "ObjectName": "MovieScene2DTransformTrack WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieScene2DTransformTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.22"
+            },
+            {
+              "ObjectName": "MovieSceneFloatTrack WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneFloatTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.40"
+            }
+          ]
+        },
+        {
+          "ObjectGuid": "48F9AA70-43B1E8A6-7FD6E488-13A5F80A",
+          "BindingName": "BG",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneWidgetMaterialTrack WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneWidgetMaterialTrack_2",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.44"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 30
+      },
+      "Signature": "9D0020D5-46B0DE3B-4C550596-F7AD1B3B"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Outer": "MovieScene2DTransformTrack_0",
+    "Properties": {
+      "TransformMask": {
+        "Mask": 3
+      },
+      "Translation": null,
+      "Translation": null,
+      "Rotation": null,
+      "Scale": null,
+      "Scale": null,
+      "Shear": null,
+      "Shear": null,
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.23"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.24"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
+      },
+      "Signature": "43AA9CCB-4DBAA140-2FCB03AA-1B3585BD"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Outer": "MovieScene2DTransformTrack_0",
+    "Properties": {
+      "TransformMask": {
+        "Mask": 3
+      },
+      "Translation": null,
+      "Translation": null,
+      "Rotation": null,
+      "Scale": null,
+      "Scale": null,
+      "Shear": null,
+      "Shear": null,
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.29"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.30"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
+      },
+      "Signature": "70081776-4745B06C-52CD708A-0734F64A"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_0",
+    "Outer": "Anim_FadeIn",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderTransform",
+        "PropertyPath": "RenderTransform",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.19"
+        }
+      ],
+      "EvaluationFieldGuid": "35FAF27D-43BB784A-10378EAE-36868080",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieScene2DTransformSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.19"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "35FAF27D-43BB784A-10378EAE-36868080"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_0",
+    "Outer": "Anim_FadeOut",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderTransform",
+        "PropertyPath": "RenderTransform",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.20"
+        }
+      ],
+      "EvaluationFieldGuid": "06EEA1A4-414FA6AC-066DA28F-3F1937C1",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieScene2DTransformSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.20"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "06EEA1A4-414FA6AC-066DA28F-3F1937C1"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneFloatSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneFloatSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneParameterSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneParameterSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieScene2DTransformSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneFloatSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneFloatSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneParameterSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneParameterSection_0"
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "Anim_FadeIn_INST",
+    "Properties": {
+      "EvaluationTemplate": {
+        "Tracks": null,
+        "TemplateLedger": {
+          "LastTrackIdentifier": {
+            "Value": 0
+          },
+          "TrackSignatureToTrackIdentifier": null
+        }
+      },
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 2,
+                  "Capacity": 2
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                },
+                {
+                  "EntityIndex": 1,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 0,
+                      "Value": {
+                        "Value": 22000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieScene2DTransformSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.19"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          },
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneFloatSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.37"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 1
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78"
+          },
+          {
+            "ObjectBindingID": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78"
+          }
+        ]
+      },
+      "TrackTemplateField": {
+        "Ranges": [
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 2,
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": 0,
+                "Value": {
+                  "Value": 0
+                }
+              }
+            }
+          },
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 1,
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": 0,
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            }
+          },
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 1,
+                "Value": {
+                  "Value": 22000
+                }
+              },
+              "UpperBound": {
+                "Type": 2,
+                "Value": {
+                  "Value": 0
+                }
+              }
+            }
+          }
+        ],
+        "Groups": [
+          {
+            "LUTIndices": [],
+            "TrackLUT": [],
+            "SectionLUT": []
+          },
+          {
+            "LUTIndices": [
+              {
+                "NumInitPtrs": 0,
+                "NumEvalPtrs": 1
+              }
+            ],
+            "TrackLUT": [
+              {
+                "TrackPtr": {
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  }
+                },
+                "NumChildren": 1
+              }
+            ],
+            "SectionLUT": [
+              {
+                "ChildIndex": 0,
+                "Flags": "ESectionEvaluationFlags::None",
+                "ForcedTime": {
+                  "Value": -2147483648
+                }
+              }
+            ]
+          },
+          {
+            "LUTIndices": [],
+            "TrackLUT": [],
+            "SectionLUT": []
+          }
+        ],
+        "MetaData": [
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": []
+          },
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": [
+              {
+                "Key": {
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  },
+                  "SectionIndex": 0
+                },
+                "SetupIndex": 0,
+                "TearDownIndex": 65535
+              }
+            ]
+          },
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": []
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 22000
+          },
+          "SubFrame": 0.0
+        }
+      ],
+      "CompiledSignature": "F675B4DA-4EC7DCA2-93115794-443438CB",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": {
+        "bEvaluationTemplate": true,
+        "bEvaluationTemplateField": true,
+        "bEntityComponentField": true
+      },
+      "AllocatedMask": {
+        "bEvaluationTemplate": true,
+        "bEvaluationTemplateField": true,
+        "bEntityComponentField": true
       }
+    }
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "Anim_FadeOut_INST",
+    "Properties": {
+      "EvaluationTemplate": {
+        "Tracks": null,
+        "TemplateLedger": {
+          "LastTrackIdentifier": {
+            "Value": 0
+          },
+          "TrackSignatureToTrackIdentifier": null
+        }
+      },
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 2,
+                  "Capacity": 2
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                },
+                {
+                  "EntityIndex": 1,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 0,
+                      "Value": {
+                        "Value": 22000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieScene2DTransformSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.20"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          },
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneFloatSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.38"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 1
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78"
+          },
+          {
+            "ObjectBindingID": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78"
+          }
+        ]
+      },
+      "TrackTemplateField": {
+        "Ranges": [
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 2,
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": 0,
+                "Value": {
+                  "Value": 0
+                }
+              }
+            }
+          },
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 1,
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": 0,
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            }
+          },
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 1,
+                "Value": {
+                  "Value": 22000
+                }
+              },
+              "UpperBound": {
+                "Type": 2,
+                "Value": {
+                  "Value": 0
+                }
+              }
+            }
+          }
+        ],
+        "Groups": [
+          {
+            "LUTIndices": [],
+            "TrackLUT": [],
+            "SectionLUT": []
+          },
+          {
+            "LUTIndices": [
+              {
+                "NumInitPtrs": 0,
+                "NumEvalPtrs": 1
+              }
+            ],
+            "TrackLUT": [
+              {
+                "TrackPtr": {
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  }
+                },
+                "NumChildren": 1
+              }
+            ],
+            "SectionLUT": [
+              {
+                "ChildIndex": 0,
+                "Flags": "ESectionEvaluationFlags::None",
+                "ForcedTime": {
+                  "Value": -2147483648
+                }
+              }
+            ]
+          },
+          {
+            "LUTIndices": [],
+            "TrackLUT": [],
+            "SectionLUT": []
+          }
+        ],
+        "MetaData": [
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": []
+          },
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": [
+              {
+                "Key": {
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  },
+                  "SectionIndex": 0
+                },
+                "SetupIndex": 0,
+                "TearDownIndex": 65535
+              }
+            ]
+          },
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": []
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 22000
+          },
+          "SubFrame": 0.0
+        }
+      ],
+      "CompiledSignature": "AAD7674D-4128718D-A9A065A5-84DE1E76",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": {
+        "bEvaluationTemplate": true,
+        "bEvaluationTemplateField": true,
+        "bEntityComponentField": true
+      },
+      "AllocatedMask": {
+        "bEvaluationTemplate": true,
+        "bEvaluationTemplateField": true,
+        "bEntityComponentField": true
+      }
+    }
+  },
+  {
+    "Type": "MovieSceneFloatSection",
+    "Name": "MovieSceneFloatSection_0",
+    "Outer": "MovieSceneFloatTrack_0",
+    "Properties": {
+      "FloatCurve": null,
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.25"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.26"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
+      },
+      "Signature": "8BC8E122-4F63F13C-12AC5FA3-CD5D96AF"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatSection",
+    "Name": "MovieSceneFloatSection_0",
+    "Outer": "MovieSceneFloatTrack_0",
+    "Properties": {
+      "FloatCurve": null,
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.31"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.32"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
+      },
+      "Signature": "BBB0B92F-4D522792-A981D2A9-DC133160"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatTrack",
+    "Name": "MovieSceneFloatTrack_0",
+    "Outer": "Anim_FadeIn",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderOpacity",
+        "PropertyPath": "RenderOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneFloatSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.37"
+        }
+      ],
+      "EvaluationFieldGuid": "B03B6411-4BC522DD-9A30C9A0-7350E9CE",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneFloatSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.37"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "B03B6411-4BC522DD-9A30C9A0-7350E9CE"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatTrack",
+    "Name": "MovieSceneFloatTrack_0",
+    "Outer": "Anim_FadeOut",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderOpacity",
+        "PropertyPath": "RenderOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneFloatSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.38"
+        }
+      ],
+      "EvaluationFieldGuid": "7E0A68E4-4147EC4B-FD99BABA-30CC6C44",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneFloatSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.38"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "7E0A68E4-4147EC4B-FD99BABA-30CC6C44"
+    }
+  },
+  {
+    "Type": "MovieSceneParameterSection",
+    "Name": "MovieSceneParameterSection_0",
+    "Outer": "MovieSceneWidgetMaterialTrack_2",
+    "Properties": {
+      "ColorParameterNamesAndCurves": [
+        {
+          "ParameterName": "SmokeColor",
+          "RedCurve": null,
+          "GreenCurve": null,
+          "BlueCurve": null,
+          "AlphaCurve": null
+        }
+      ],
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.27"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.28"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
+      },
+      "Signature": "AF3671D8-49DE8BB2-A72BE3A7-6AD835FA"
+    }
+  },
+  {
+    "Type": "MovieSceneParameterSection",
+    "Name": "MovieSceneParameterSection_0",
+    "Outer": "MovieSceneWidgetMaterialTrack_2",
+    "Properties": {
+      "ColorParameterNamesAndCurves": [
+        {
+          "ParameterName": "SmokeColor",
+          "RedCurve": null,
+          "GreenCurve": null,
+          "BlueCurve": null,
+          "AlphaCurve": null
+        }
+      ],
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.33"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.34"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 22000
+            }
+          }
+        }
+      },
+      "Signature": "59650074-428187CC-5B48CE8C-6FC625AB"
+    }
+  },
+  {
+    "Type": "MovieSceneWidgetMaterialTrack",
+    "Name": "MovieSceneWidgetMaterialTrack_2",
+    "Outer": "Anim_FadeIn",
+    "Properties": {
+      "BrushPropertyNamePath": [
+        "Brush"
+      ],
+      "TrackName": "Brush",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneParameterSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.41"
+        }
+      ],
+      "EvaluationFieldGuid": "A59E0607-4B5CAF99-ED8091A7-F8895879",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneParameterSection WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.41"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "A59E0607-4B5CAF99-ED8091A7-F8895879"
+    }
+  },
+  {
+    "Type": "MovieSceneWidgetMaterialTrack",
+    "Name": "MovieSceneWidgetMaterialTrack_2",
+    "Outer": "Anim_FadeOut",
+    "Properties": {
+      "BrushPropertyNamePath": [
+        "Brush"
+      ],
+      "TrackName": "Brush",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneParameterSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.42"
+        }
+      ],
+      "EvaluationFieldGuid": "89EDDD1F-484A5FBF-7549A4B3-01D4B8E2",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneParameterSection WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut.MovieSceneWidgetMaterialTrack_2.MovieSceneParameterSection_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.42"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 22000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "89EDDD1F-484A5FBF-7549A4B3-01D4B8E2"
     }
   },
   {
@@ -633,12 +1983,12 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.DescriptionOverlay.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.21"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.48"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.Content.VerticalBoxSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.61"
       }
     }
   },
@@ -650,16 +2000,41 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.22"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.49"
         },
         {
-          "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.23"
+          "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_1",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.50"
+        },
+        {
+          "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay.OverlaySlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.51"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.Content.VerticalBoxSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.60"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_1",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.Overlay_1.OverlaySlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.52"
+        },
+        {
+          "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.Overlay_1.OverlaySlot_1",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.53"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "PanelSlot WBP_CoreGenericPopup_C:WidgetTree.Mask.PanelSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.54"
       }
     }
   },
@@ -672,11 +2047,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.DescriptionOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.45"
       },
       "Content": {
         "ObjectName": "VerticalBox WBP_CoreGenericPopup_C:WidgetTree.VerticalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.59"
       }
     }
   },
@@ -689,28 +2064,82 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.46"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreGenericPopup_C:WidgetTree.PriorityHeader",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.9"
       }
     }
   },
   {
     "Type": "OverlaySlot",
-    "Name": "OverlaySlot_3",
+    "Name": "OverlaySlot_1",
+    "Outer": "HeaderOverlay",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.46"
+      },
+      "Content": {
+        "ObjectName": "DBDTextBlock WBP_CoreGenericPopup_C:WidgetTree.TitleText",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.11"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
     "Outer": "HeaderOverlay",
     "Properties": {
       "HorizontalAlignment": "HAlign_Fill",
       "VerticalAlignment": "VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.46"
       },
       "Content": {
         "ObjectName": "HorizontalBox WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_163",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.13"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_1",
+    "Properties": {
+      "Padding": {
+        "Top": -130.0,
+        "Bottom": -130.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.Overlay_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.47"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WBP_CoreGenericPopup_C:WidgetTree.BG",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.8"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "Overlay_1",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.Overlay_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.47"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox WBP_CoreGenericPopup_C:WidgetTree.Content",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.58"
       }
     }
   },
@@ -721,11 +2150,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "RetainerBox WBP_CoreGenericPopup_C:WidgetTree.Mask",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.55"
       },
       "Content": {
-        "ObjectName": "GridPanel WBP_CoreGenericPopup_C:WidgetTree.GridPanel_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.10"
+        "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.Overlay_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.47"
       }
     }
   },
@@ -736,46 +2165,18 @@
     "Properties": {
       "bRetainRender": false,
       "EffectMaterial": {
-        "ObjectName": "MaterialInstanceConstant M_HUD_TutorialMask_Popup",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Tutorial/M_HUD_TutorialMask_Popup.0"
+        "ObjectName": "Material M_UI_PopupMask",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Popups/Materials/M_UI_PopupMask.0"
       },
       "Slots": [
         {
           "ObjectName": "PanelSlot WBP_CoreGenericPopup_C:WidgetTree.Mask.PanelSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.24"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.54"
         }
       ],
       "Slot": {
-        "ObjectName": "ScaleBoxSlot WBP_CoreGenericPopup_C:WidgetTree.ScaleBox_0.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.27"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBox",
-    "Name": "ScaleBox_0",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "ScaleBoxSlot WBP_CoreGenericPopup_C:WidgetTree.ScaleBox_0.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.27"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Outer": "ScaleBox_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "ScaleBox WBP_CoreGenericPopup_C:WidgetTree.ScaleBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.26"
-      },
-      "Content": {
-        "ObjectName": "RetainerBox WBP_CoreGenericPopup_C:WidgetTree.Mask",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.25"
+        "ObjectName": "CanvasPanelSlot WBP_CoreGenericPopup_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.7"
       }
     }
   },
@@ -793,12 +2194,12 @@
       "Slots": [
         {
           "ObjectName": "SizeBoxSlot WBP_CoreGenericPopup_C:WidgetTree.ContainerDimensions.SizeBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.29"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.57"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.62"
       }
     }
   },
@@ -809,11 +2210,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "SizeBox WBP_CoreGenericPopup_C:WidgetTree.ContainerDimensions",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.56"
       },
       "Content": {
         "ObjectName": "DBDRichTextBlock WBP_CoreGenericPopup_C:WidgetTree.MessageText",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.10"
       }
     }
   },
@@ -825,16 +2226,16 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.Content.VerticalBoxSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.32"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.60"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.Content.VerticalBoxSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.33"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.61"
         }
       ],
       "Slot": {
-        "ObjectName": "GridSlot WBP_CoreGenericPopup_C:WidgetTree.GridPanel_3.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.11"
+        "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.Overlay_1.OverlaySlot_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.53"
       }
     }
   },
@@ -846,16 +2247,16 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.34"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.62"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.35"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.63"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreGenericPopup_C:WidgetTree.DescriptionOverlay.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.48"
       }
     }
   },
@@ -867,11 +2268,11 @@
       "VerticalAlignment": "VAlign_Top",
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreGenericPopup_C:WidgetTree.Content",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.58"
       },
       "Content": {
         "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.HeaderOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.46"
       }
     }
   },
@@ -887,11 +2288,11 @@
       "HorizontalAlignment": "HAlign_Center",
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreGenericPopup_C:WidgetTree.Content",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.58"
       },
       "Content": {
         "ObjectName": "Overlay WBP_CoreGenericPopup_C:WidgetTree.DescriptionOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.45"
       }
     }
   },
@@ -902,11 +2303,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreGenericPopup_C:WidgetTree.VerticalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.59"
       },
       "Content": {
         "ObjectName": "SizeBox WBP_CoreGenericPopup_C:WidgetTree.ContainerDimensions",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.56"
       }
     }
   },
@@ -923,11 +2324,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox WBP_CoreGenericPopup_C:WidgetTree.VerticalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.59"
       },
       "Content": {
         "ObjectName": "HorizontalBox WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.12"
       }
     }
   },
@@ -940,7 +2341,7 @@
       "_shouldRegisterForInputInConstruct": false,
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.16"
       }
     }
   },
@@ -951,9 +2352,10 @@
     "Template": "Default__WBP_CoreStandardInputSwitcher_C",
     "Properties": {
       "_shouldRegisterForInputInConstruct": false,
+      "_alignment": "ETextJustify::Right",
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.14"
       }
     }
   },
@@ -966,8 +2368,70 @@
       "_shouldRegisterForInputInConstruct": false,
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WBP_CoreGenericPopup_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.15"
       }
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "Anim_FadeIn_INST",
+    "Outer": "WBP_CoreGenericPopup_C",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene WBP_CoreGenericPopup_C:Anim_FadeIn_INST.Anim_FadeIn",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.17"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "Mask",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78",
+          "bIsRootWidget": false
+        },
+        {
+          "WidgetName": "BG",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "48F9AA70-43B1E8A6-7FD6E488-13A5F80A",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "Anim_FadeIn",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData WBP_CoreGenericPopup_C:Anim_FadeIn_INST.CompiledData",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.35"
+      },
+      "Signature": "F675B4DA-4EC7DCA2-93115794-443438CB"
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "Anim_FadeOut_INST",
+    "Outer": "WBP_CoreGenericPopup_C",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene WBP_CoreGenericPopup_C:Anim_FadeOut_INST.Anim_FadeOut",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.18"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "Mask",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "9E4FD634-4B9C3C0D-63FEA49F-F3BCDE78",
+          "bIsRootWidget": false
+        },
+        {
+          "WidgetName": "BG",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "48F9AA70-43B1E8A6-7FD6E488-13A5F80A",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "Anim_FadeOut",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData WBP_CoreGenericPopup_C:Anim_FadeOut_INST.CompiledData",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.36"
+      },
+      "Signature": "AAD7674D-4128718D-A9A065A5-84DE1E76"
     }
   },
   {
@@ -976,8 +2440,8 @@
     "Outer": "WBP_CoreGenericPopup_C",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "ScaleBox WBP_CoreGenericPopup_C:WidgetTree.ScaleBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.26"
+        "ObjectName": "CanvasPanel WBP_CoreGenericPopup_C:WidgetTree.CanvasPanel_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_CoreGenericPopup.6"
       }
     }
   }

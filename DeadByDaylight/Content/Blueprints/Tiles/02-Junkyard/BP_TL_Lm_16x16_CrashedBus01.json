@@ -86,6 +86,17 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
+        "Name": "TrapLeafPile",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "AudioAmbienceBox_Bus2",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -115,17 +126,6 @@
         "PropertyClass": {
           "ObjectName": "Class NatAudioAmbienceBox",
           "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "TrapLeafPile",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class BoxComponent",
-          "ObjectPath": "/Script/Engine"
         }
       },
       {
@@ -1745,21 +1745,76 @@
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
         "ObjectType": "ECC_WorldStatic",
-        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "CollisionProfileName": "BlockAll",
+        "CollisionProfileName": "TrapBlocker",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Interactable",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Slasher",
-              "Response": "ECR_Block"
+              "Response": "ECR_Ignore"
             },
             {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "InteractionDetector",
@@ -1768,26 +1823,23 @@
             {
               "Channel": "BlinkBlocker",
               "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Ground",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
             }
           ]
         }
       },
       "RelativeLocation": {
-        "X": -101.0,
-        "Y": -66.0,
-        "Z": 60.0
+        "X": -212.23087,
+        "Y": -162.52478,
+        "Z": 64.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -27.082134,
+        "Roll": 0.0
       },
       "RelativeScale3D": {
         "X": 1.3,
-        "Y": 2.5,
+        "Y": 2.7,
         "Z": 0.1
       },
       "Mobility": "EComponentMobility::Static"
@@ -3670,12 +3722,6 @@
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_CrashedBus01_C:SM_CrashedBus01_Planks_02_GEN_VARIABLE",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.179"
       },
-      "ChildNodes": [
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_CrashedBus01_C:SimpleConstructionScript_1.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.134"
-        }
-      ],
       "VariableGuid": "4281A762-41EDB2E7-DE27FBBC-5C5AC574",
       "InternalVariableName": "SM_CrashedBus01_Planks_02"
     }
@@ -4955,6 +5001,8 @@
         "ObjectName": "BoxComponent BP_TL_Lm_16x16_CrashedBus01_C:TrapLeafPile_GEN_VARIABLE",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.25"
       },
+      "ParentComponentOrVariableName": "Root",
+      "ParentComponentOwnerClassName": "TileBase01_C",
       "VariableGuid": "1B536635-4DB04BE2-337859B1-AA035993",
       "InternalVariableName": "TrapLeafPile"
     }
@@ -5339,6 +5387,10 @@
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_CrashedBus01_C:SimpleConstructionScript_1.SCS_Node_82",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.138"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_CrashedBus01_C:SimpleConstructionScript_1.SCS_Node_79",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.134"
         }
       ],
       "AllNodes": [
@@ -5643,10 +5695,6 @@
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.103"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_CrashedBus01_C:SimpleConstructionScript_1.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.134"
-        },
-        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_CrashedBus01_C:SimpleConstructionScript_1.SCS_Node_80",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.136"
         },
@@ -5657,6 +5705,10 @@
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_CrashedBus01_C:SimpleConstructionScript_1.SCS_Node_82",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.138"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_CrashedBus01_C:SimpleConstructionScript_1.SCS_Node_79",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CrashedBus01.134"
         }
       ],
       "DefaultSceneRootNode": {
@@ -6654,10 +6706,11 @@
         "ObjectName": "StaticMesh SM_CrashBusNavMesh",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Structures/SM_CrashBusNavMesh.2"
       },
+      "bUseDefaultCollision": false,
       "OverrideMaterials": [
         {
-          "ObjectName": "MaterialInstanceConstant MI_PlaceholderGrid_Red",
-          "ObjectPath": "DeadByDaylight/Content/Materials/PlaceHolder/MI_PlaceholderGrid_Red.0"
+          "ObjectName": "MaterialInstanceConstant MI_CrashedBus01_Bottom",
+          "ObjectPath": "DeadByDaylight/Content/Materials/Instances/Junkyard/Structures/MI_CrashedBus01_Bottom.0"
         }
       ],
       "bRenderInMainPass": false,
@@ -6665,6 +6718,8 @@
       "CastShadow": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionProfileName": "Ground",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -6695,15 +6750,16 @@
         }
       },
       "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 9E-06
+        "X": -0.0009225686,
+        "Y": 26.331282,
+        "Z": 17.236023
       },
       "RelativeRotation": {
         "Pitch": 0.0,
         "Yaw": 4.781132E-05,
         "Roll": 0.0
       },
+      "bHiddenInGame": true,
       "Mobility": "EComponentMobility::Static"
     }
   },
