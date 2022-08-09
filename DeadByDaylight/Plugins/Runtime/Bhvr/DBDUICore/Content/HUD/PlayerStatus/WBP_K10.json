@@ -15,7 +15,7 @@
         "Type": "StructProperty",
         "Name": "K2Node_Event_data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 2,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -23,8 +23,18 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsNightmare_Status_Data",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class NightmareStatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsDesignTime",
+        "Name": "K2Node_DynamicCast_bSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -33,9 +43,29 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class NightmareStatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_K10_C",
+    "SuperStruct": {
+      "ObjectName": "Function UserWidget:Construct",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": 134350856
   },
   {
     "Type": "Function",
@@ -50,7 +80,7 @@
         "Type": "StructProperty",
         "Name": "data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -62,42 +92,17 @@
   },
   {
     "Type": "Function",
-    "Name": "PreConstruct",
-    "Outer": "WBP_K10_C",
-    "SuperStruct": {
-      "ObjectName": "Function UserWidget:PreConstruct",
-      "ObjectPath": "/Script/UMG"
-    },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "IsDesignTime",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 134350856
-  },
-  {
-    "Type": "Function",
     "Name": "SetNightmareData",
     "Outer": "WBP_K10_C",
     "ChildProperties": [
       {
-        "Type": "StructProperty",
-        "Name": "SetNightmareViewData",
+        "Type": "ObjectProperty",
+        "Name": "KillerData",
         "Flags": 1,
-        "ElementSize": 12,
+        "ElementSize": 8,
         "PropertyFlags": 148,
-        "Struct": {
-          "ObjectName": "ScriptStruct NightmareStatusData",
+        "PropertyClass": {
+          "ObjectName": "Class NightmareStatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
@@ -115,6 +120,18 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "FloatProperty",
         "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
         "Flags": 1,
@@ -122,7 +139,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_Greater_FloatFloat_ReturnValue",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -139,30 +156,6 @@
         "ElementSize": 4
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_SwitchEnum_CmpSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
         "Flags": 1,
@@ -173,6 +166,18 @@
         }
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetDynamicMaterial_ReturnValue_1",
         "Flags": 1,
@@ -181,6 +186,18 @@
           "ObjectName": "Class MaterialInstanceDynamic",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "ObjectProperty",
@@ -195,18 +212,6 @@
       {
         "Type": "BoolProperty",
         "Name": "CallFunc_BooleanAND_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -531,11 +536,11 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K10.3"
       },
       {
-        "ObjectName": "Function WBP_K10_C:PreConstruct",
+        "ObjectName": "Function WBP_K10_C:SetKillerData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K10.2"
       },
       {
-        "ObjectName": "Function WBP_K10_C:SetKillerData",
+        "ObjectName": "Function WBP_K10_C:Construct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K10.1"
       },
       {
@@ -644,25 +649,14 @@
         }
       },
       {
-        "Type": "StructProperty",
+        "Type": "ObjectProperty",
         "Name": "CacheData",
         "Flags": 2097153,
-        "ElementSize": 12,
-        "PropertyFlags": 65541,
-        "Struct": {
-          "ObjectName": "ScriptStruct NightmareStatusData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "NewVar_0",
-        "Flags": 2097153,
         "ElementSize": 8,
-        "PropertyFlags": 589829,
+        "PropertyFlags": 65541,
         "PropertyClass": {
-          "ObjectName": "WidgetBlueprintGeneratedClass WBP_K10_C",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K10.5"
+          "ObjectName": "Class NightmareStatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
     ],
@@ -671,12 +665,12 @@
         "ObjectName": "Function WBP_K10_C:ExecuteUbergraph_WBP_K10",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K10.0"
       },
-      "SetKillerData": {
-        "ObjectName": "Function WBP_K10_C:SetKillerData",
+      "Construct": {
+        "ObjectName": "Function WBP_K10_C:Construct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K10.1"
       },
-      "PreConstruct": {
-        "ObjectName": "Function WBP_K10_C:PreConstruct",
+      "SetKillerData": {
+        "ObjectName": "Function WBP_K10_C:SetKillerData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K10.2"
       },
       "SetNightmareData": {
@@ -705,11 +699,6 @@
     "Name": "Default__WBP_K10_C",
     "Properties": {
       "UberGraphFrame": {},
-      "CacheData": {
-        "SleepingState": "ESleepingUIState::Off",
-        "SleepingProgress": 0.0,
-        "SleepProtectionRemainingDuration": 0.0
-      },
       "FocusAnimationDuration": 6.0,
       "FocusAnimationDelay": 0.0,
       "FocusAnimationEasing": "EEasingType::Linear",

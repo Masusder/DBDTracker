@@ -13,17 +13,28 @@
       },
       {
         "Type": "StructProperty",
-        "Name": "K2Node_MakeStruct_PlagueStatusData",
+        "Name": "K2Node_Event_data",
+        "Flags": 1,
+        "ElementSize": 64,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct PlayerStatusViewData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsPlague_Status_Data",
         "Flags": 1,
         "ElementSize": 8,
-        "Struct": {
-          "ObjectName": "ScriptStruct PlagueStatusData",
+        "PropertyClass": {
+          "ObjectName": "Class PlagueStatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsDesignTime",
+        "Name": "K2Node_DynamicCast_bSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -34,18 +45,27 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_data",
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
         "Flags": 1,
-        "ElementSize": 136,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct PlayerStatusViewData",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class PlagueStatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_K15_C",
+    "SuperStruct": {
+      "ObjectName": "Function UserWidget:Construct",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": 134350856
   },
   {
     "Type": "Function",
@@ -60,7 +80,7 @@
         "Type": "StructProperty",
         "Name": "data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -72,45 +92,9 @@
   },
   {
     "Type": "Function",
-    "Name": "PreConstruct",
-    "Outer": "WBP_K15_C",
-    "SuperStruct": {
-      "ObjectName": "Function UserWidget:PreConstruct",
-      "ObjectPath": "/Script/UMG"
-    },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "IsDesignTime",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 134350856
-  },
-  {
-    "Type": "Function",
     "Name": "SetPlagueData",
     "Outer": "WBP_K15_C",
     "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "PlagueStatusViewData",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "Struct": {
-          "ObjectName": "ScriptStruct PlagueStatusData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      },
       {
         "Type": "BoolProperty",
         "Name": "IsLocalKiller",
@@ -125,11 +109,58 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "KillerData",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class PlagueStatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
         "Type": "BoolProperty",
         "Name": "Status Change",
         "Flags": 1,
         "ElementSize": 1,
         "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_FloatToString_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetEnumeratorUserFriendlyName_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
@@ -146,18 +177,6 @@
           "ObjectName": "Class MaterialInstanceDynamic",
           "ObjectPath": "/Script/Engine"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_SwitchEnum_CmpSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "ObjectProperty",
@@ -188,18 +207,6 @@
           "ObjectName": "Class UMGSequencePlayer",
           "ObjectPath": "/Script/UMG"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 201457664
@@ -353,11 +360,11 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.3"
       },
       {
-        "ObjectName": "Function WBP_K15_C:PreConstruct",
+        "ObjectName": "Function WBP_K15_C:SetKillerData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.2"
       },
       {
-        "ObjectName": "Function WBP_K15_C:SetKillerData",
+        "ObjectName": "Function WBP_K15_C:Construct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.1"
       },
       {
@@ -422,13 +429,13 @@
         }
       },
       {
-        "Type": "StructProperty",
+        "Type": "ObjectProperty",
         "Name": "CacheData",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 65541,
-        "Struct": {
-          "ObjectName": "ScriptStruct PlagueStatusData",
+        "PropertyClass": {
+          "ObjectName": "Class PlagueStatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
@@ -438,12 +445,12 @@
         "ObjectName": "Function WBP_K15_C:ExecuteUbergraph_WBP_K15",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.0"
       },
-      "SetKillerData": {
-        "ObjectName": "Function WBP_K15_C:SetKillerData",
+      "Construct": {
+        "ObjectName": "Function WBP_K15_C:Construct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.1"
       },
-      "PreConstruct": {
-        "ObjectName": "Function WBP_K15_C:PreConstruct",
+      "SetKillerData": {
+        "ObjectName": "Function WBP_K15_C:SetKillerData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.2"
       },
       "SetPlagueData": {
@@ -472,10 +479,6 @@
     "Name": "Default__WBP_K15_C",
     "Properties": {
       "UberGraphFrame": {},
-      "CacheData": {
-        "SicknessLevel": "ESicknessLevel::Off",
-        "SicknessProgress": 0.0
-      },
       "FocusAnimationDuration": 6.0,
       "FocusAnimationDelay": 0.0,
       "FocusAnimationEasing": "EEasingType::Linear",

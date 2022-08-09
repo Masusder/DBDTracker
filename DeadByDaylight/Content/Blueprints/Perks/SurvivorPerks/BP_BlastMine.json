@@ -29,6 +29,37 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "Temp_delegate_Variable",
+        "Flags": 1,
+        "ElementSize": 20,
+        "PropertyFlags": 2,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkPostEventCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_trappedGenerator",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class Generator",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_location",
+        "Flags": 1,
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "ScriptStruct Transform",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetOwningSurvivor_ReturnValue",
         "Flags": 1,
@@ -39,14 +70,14 @@
         }
       },
       {
-        "Type": "DelegateProperty",
-        "Name": "Temp_delegate_Variable",
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_generator_1",
         "Flags": 1,
-        "ElementSize": 20,
+        "ElementSize": 8,
         "PropertyFlags": 2,
-        "SignatureFunction": {
-          "ObjectName": "DelegateFunction OnAkPostEventCallback__DelegateSignature",
-          "ObjectPath": "/Script/AkAudio"
+        "PropertyClass": {
+          "ObjectName": "Class Generator",
+          "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
@@ -69,26 +100,99 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "K2Node_Event_trappedGenerator",
+        "Name": "K2Node_Event_generator",
         "Flags": 1,
         "ElementSize": 8,
+        "PropertyFlags": 2,
         "PropertyClass": {
           "ObjectName": "Class Generator",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_location",
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_reason",
         "Flags": 1,
-        "ElementSize": 48,
-        "Struct": {
-          "ObjectName": "ScriptStruct Transform",
-          "ObjectPath": "/Script/CoreUObject"
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "Enum ETrapRemovedReason",
+          "ObjectPath": "/Script/DeadByDaylight"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
         }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Local_TrapDestroyed",
+    "Outer": "BP_BlastMine_C",
+    "SuperStruct": {
+      "ObjectName": "Function GeneratorTrapPerk:Local_TrapDestroyed",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "generator",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 150,
+        "PropertyClass": {
+          "ObjectName": "Class Generator",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "reason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 150,
+        "Enum": {
+          "ObjectName": "Enum ETrapRemovedReason",
+          "ObjectPath": "/Script/DeadByDaylight"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "Local_TrapActivated",
+    "Outer": "BP_BlastMine_C",
+    "SuperStruct": {
+      "ObjectName": "Function GeneratorTrapPerk:Local_TrapActivated",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "generator",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 150,
+        "PropertyClass": {
+          "ObjectName": "Class Generator",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -152,10 +256,18 @@
     "Children": [
       {
         "ObjectName": "Function BP_BlastMine_C:TrapAttachedToGenerator_Cosmetic",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.4"
       },
       {
         "ObjectName": "Function BP_BlastMine_C:ThrowBubbleIndicator_Cosmetic",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.3"
+      },
+      {
+        "ObjectName": "Function BP_BlastMine_C:Local_TrapActivated",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.2"
+      },
+      {
+        "ObjectName": "Function BP_BlastMine_C:Local_TrapDestroyed",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.1"
       },
       {
@@ -181,13 +293,21 @@
         "ObjectName": "Function BP_BlastMine_C:ExecuteUbergraph_BP_BlastMine",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.0"
       },
+      "Local_TrapDestroyed": {
+        "ObjectName": "Function BP_BlastMine_C:Local_TrapDestroyed",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.1"
+      },
+      "Local_TrapActivated": {
+        "ObjectName": "Function BP_BlastMine_C:Local_TrapActivated",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.2"
+      },
       "ThrowBubbleIndicator_Cosmetic": {
         "ObjectName": "Function BP_BlastMine_C:ThrowBubbleIndicator_Cosmetic",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.3"
       },
       "TrapAttachedToGenerator_Cosmetic": {
         "ObjectName": "Function BP_BlastMine_C:TrapAttachedToGenerator_Cosmetic",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.4"
       }
     },
     "ClassFlags": 10749972,
@@ -199,7 +319,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_BlastMine_C Default__BP_BlastMine_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.4"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/BP_BlastMine.6"
     }
   },
   {
@@ -213,7 +333,7 @@
       },
       "_blastMineFirecrackerClass": {
         "ObjectName": "BlueprintGeneratedClass BP_S26P03_BlastMine_C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Flashbang/BP_S26P03_BlastMine.107"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Flashbang/BP_S26P03_BlastMine.106"
       },
       "_secondaryActionProperties": {
         "SecondaryInteractionID": "TrapGenerator",
@@ -225,12 +345,13 @@
         }
       },
       "_secondsToActivatePerk": 3.0,
-      "_progressPercentRequirementLevels": 0.66,
-      "_progressPercentRequirementLevels": 0.66,
-      "_progressPercentRequirementLevels": 0.66,
       "_generatorTrapDurationLevels": 35.0,
       "_generatorTrapDurationLevels": 40.0,
-      "_generatorTrapDurationLevels": 45.0
+      "_generatorTrapDurationLevels": 45.0,
+      "_progressPercentRequirementLevels": 0.66,
+      "_progressPercentRequirementLevels": 0.66,
+      "_progressPercentRequirementLevels": 0.66,
+      "_onePerGenerator": true
     }
   }
 ]

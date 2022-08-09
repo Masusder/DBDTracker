@@ -15,7 +15,7 @@
         "Type": "StructProperty",
         "Name": "K2Node_Event_data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 2,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -23,8 +23,18 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsK25Status_Data",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class K25StatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsDesignTime",
+        "Name": "K2Node_DynamicCast_bSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -33,33 +43,28 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnObject_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class K25StatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
       }
     ],
     "FunctionFlags": 8421377
   },
   {
     "Type": "Function",
-    "Name": "PreConstruct",
+    "Name": "Construct",
     "Outer": "WBP_K25_C",
     "SuperStruct": {
-      "ObjectName": "Function UserWidget:PreConstruct",
+      "ObjectName": "Function UserWidget:Construct",
       "ObjectPath": "/Script/UMG"
     },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "IsDesignTime",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
     "FunctionFlags": 134350856
   },
   {
@@ -75,7 +80,7 @@
         "Type": "StructProperty",
         "Name": "data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -90,17 +95,6 @@
     "Name": "SetCenobiteData",
     "Outer": "WBP_K25_C",
     "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "CenobiteStatusViewData",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "Struct": {
-          "ObjectName": "ScriptStruct K25StatusData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      },
       {
         "Type": "EnumProperty",
         "Name": "PlayerStatus",
@@ -118,6 +112,29 @@
           "ElementSize": 1,
           "Enum": null
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "KillerData",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class K25StatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_BoolBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "ObjectProperty",
@@ -142,20 +159,18 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_BooleanNAND_ReturnValue",
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDynamicMaterial_ReturnValue_1",
         "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class MaterialInstanceDynamic",
+          "ObjectPath": "/Script/Engine"
+        }
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_NotEqual_BoolBool_ReturnValue",
+        "Name": "CallFunc_BooleanNAND_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -174,16 +189,6 @@
           "ObjectName": "Class UMGSequencePlayer",
           "ObjectPath": "/Script/UMG"
         }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetDynamicMaterial_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class MaterialInstanceDynamic",
-          "ObjectPath": "/Script/Engine"
-        }
       }
     ],
     "FunctionFlags": 201457664
@@ -193,17 +198,6 @@
     "Name": "SetCenobiteVisibility",
     "Outer": "WBP_K25_C",
     "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "CenobiteStatusViewData",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "Struct": {
-          "ObjectName": "ScriptStruct K25StatusData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      },
       {
         "Type": "EnumProperty",
         "Name": "PlayerStatus",
@@ -220,6 +214,17 @@
           "Flags": 1,
           "ElementSize": 1,
           "Enum": null
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "KillerData",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class K25StatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
@@ -255,6 +260,13 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_MakeLiteralByte_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_LessEqual_FloatFloat_ReturnValue",
         "Flags": 1,
@@ -265,13 +277,6 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "ByteProperty",
-        "Name": "CallFunc_MakeLiteralByte_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": null
       },
       {
         "Type": "BoolProperty",
@@ -369,7 +374,7 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K25.2"
       },
       {
-        "ObjectName": "Function WBP_K25_C:PreConstruct",
+        "ObjectName": "Function WBP_K25_C:Construct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K25.1"
       },
       {
@@ -478,13 +483,13 @@
         }
       },
       {
-        "Type": "StructProperty",
+        "Type": "ObjectProperty",
         "Name": "CacheData",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 65541,
-        "Struct": {
-          "ObjectName": "ScriptStruct K25StatusData",
+        "PropertyClass": {
+          "ObjectName": "Class K25StatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
@@ -494,8 +499,8 @@
         "ObjectName": "Function WBP_K25_C:ExecuteUbergraph_WBP_K25",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K25.0"
       },
-      "PreConstruct": {
-        "ObjectName": "Function WBP_K25_C:PreConstruct",
+      "Construct": {
+        "ObjectName": "Function WBP_K25_C:Construct",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K25.1"
       },
       "SetKillerData": {
@@ -528,11 +533,6 @@
     "Name": "Default__WBP_K25_C",
     "Properties": {
       "UberGraphFrame": {},
-      "CacheData": {
-        "ChainHuntProgressPercentage": 0.0,
-        "IsHoldingLamentConfiguration": false,
-        "IsSolvingLamentConfiguration": false
-      },
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
     }

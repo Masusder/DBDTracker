@@ -13,26 +13,9 @@
       },
       {
         "Type": "StructProperty",
-        "Name": "K2Node_MakeStruct_K24StatusData",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Struct": {
-          "ObjectName": "ScriptStruct K24StatusData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      },
-      {
-        "Type": "ByteProperty",
-        "Name": "CallFunc_MakeLiteralByte_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": null
-      },
-      {
-        "Type": "StructProperty",
         "Name": "K2Node_Event_data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 2,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -40,8 +23,18 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsK24Status_Data",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class K24StatusData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsDesignTime",
+        "Name": "K2Node_DynamicCast_bSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -56,31 +49,6 @@
   },
   {
     "Type": "Function",
-    "Name": "PreConstruct",
-    "Outer": "WBP_K24_C",
-    "SuperStruct": {
-      "ObjectName": "Function UserWidget:PreConstruct",
-      "ObjectPath": "/Script/UMG"
-    },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "IsDesignTime",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 134350856
-  },
-  {
-    "Type": "Function",
     "Name": "SetKillerData",
     "Outer": "WBP_K24_C",
     "SuperStruct": {
@@ -92,7 +60,7 @@
         "Type": "StructProperty",
         "Name": "data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -126,13 +94,13 @@
         }
       },
       {
-        "Type": "StructProperty",
-        "Name": "K24 Data",
+        "Type": "ObjectProperty",
+        "Name": "KillerData",
         "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 134218132,
-        "Struct": {
-          "ObjectName": "ScriptStruct K24StatusData",
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class K24StatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
@@ -195,7 +163,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_K24_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.11"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.10"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -210,14 +178,10 @@
     "Children": [
       {
         "ObjectName": "Function WBP_K24_C:setContaminationData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.3"
-      },
-      {
-        "ObjectName": "Function WBP_K24_C:SetKillerData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.2"
       },
       {
-        "ObjectName": "Function WBP_K24_C:PreConstruct",
+        "ObjectName": "Function WBP_K24_C:SetKillerData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.1"
       },
       {
@@ -269,24 +233,6 @@
           "ObjectName": "Class Overlay",
           "ObjectPath": "/Script/UMG"
         }
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "NewVar_0",
-        "Flags": 2097153,
-        "ElementSize": 1,
-        "PropertyFlags": 65541,
-        "Enum": {
-          "ObjectName": "Enum EPlayerStatus",
-          "ObjectPath": "/Script/DBDSharedTypes"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
       }
     ],
     "FuncMap": {
@@ -294,17 +240,13 @@
         "ObjectName": "Function WBP_K24_C:ExecuteUbergraph_WBP_K24",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.0"
       },
-      "PreConstruct": {
-        "ObjectName": "Function WBP_K24_C:PreConstruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.1"
-      },
       "SetKillerData": {
         "ObjectName": "Function WBP_K24_C:SetKillerData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.1"
       },
       "setContaminationData": {
         "ObjectName": "Function WBP_K24_C:setContaminationData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.2"
       }
     },
     "ClassFlags": 10754064,
@@ -316,7 +258,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_K24_C Default__WBP_K24_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.5"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.4"
     }
   },
   {
@@ -349,7 +291,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_K24_C:WidgetTree.ContaminationGroup.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.10"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.9"
       }
     }
   },
@@ -379,7 +321,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_K24_C:WidgetTree.ContaminationGroup.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.8"
       }
     }
   },
@@ -391,11 +333,11 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_K24_C:WidgetTree.ContaminationGroup.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.9"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.8"
         },
         {
           "ObjectName": "OverlaySlot WBP_K24_C:WidgetTree.ContaminationGroup.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.10"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.9"
         }
       ],
       "bIsVariable": true
@@ -408,11 +350,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "Overlay WBP_K24_C:WidgetTree.ContaminationGroup",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.7"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_K24_C:WidgetTree.Contaminated_BG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.6"
       }
     }
   },
@@ -423,11 +365,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "Overlay WBP_K24_C:WidgetTree.ContaminationGroup",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.7"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_K24_C:WidgetTree.Contaminated",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.6"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.5"
       }
     }
   },
@@ -438,7 +380,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "Overlay WBP_K24_C:WidgetTree.ContaminationGroup",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K24.7"
       }
     }
   }

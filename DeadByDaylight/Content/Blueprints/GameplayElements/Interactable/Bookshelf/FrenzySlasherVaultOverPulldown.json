@@ -35,6 +35,22 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "K2Node_Event_player_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_deltaTime",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "CallFunc_GetDBDGameState_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
@@ -75,7 +91,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player_1",
+        "Name": "K2Node_Event_player",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -119,19 +135,27 @@
       },
       {
         "Type": "FloatProperty",
-        "Name": "K2Node_Event_deltaTime",
+        "Name": "CallFunc_GetInteractionTime_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player",
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
         "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasPerkFlag_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "ObjectProperty",
@@ -148,22 +172,6 @@
         "Name": "CallFunc_Add_FloatFloat_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Subtract_FloatFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwner_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class Actor",
-          "ObjectPath": "/Script/Engine"
-        }
       },
       {
         "Type": "ObjectProperty",
@@ -188,8 +196,14 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Subtract_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwner_ReturnValue_2",
+        "Name": "CallFunc_GetOwner_ReturnValue_1",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -218,67 +232,9 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player_3",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetInteractionTime_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_HasPerkFlag_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 32769
-  },
-  {
-    "Type": "Function",
-    "Name": "OnInteractionUpdateEnd",
-    "Outer": "FrenzySlasherVaultOverPulldown_C",
-    "Super": "OnInteractionUpdateEnd",
-    "SuperStruct": {
-      "ObjectName": "Function FrenzySlasherVault_C:OnInteractionUpdateEnd",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Window/FrenzySlasherVault.1"
-    },
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      }
-    ],
-    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -346,7 +302,7 @@
     "Super": "OnInteractionUpdateTick",
     "SuperStruct": {
       "ObjectName": "Function SlasherVaultDefinition_C:OnInteractionUpdateTick",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Window/SlasherVaultDefinition.1"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Window/SlasherVaultDefinition.3"
     },
     "ChildProperties": [
       {
@@ -640,34 +596,30 @@
     "Children": [
       {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:CanOverrideInteraction",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.8"
-      },
-      {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:IsInteractionPossibleBP",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.7"
       },
       {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateStart",
+        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:IsInteractionPossibleBP",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.6"
       },
       {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateTick",
+        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateStart",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.5"
       },
       {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:ReceiveBeginPlay",
+        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateTick",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.4"
       },
       {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnSlasherSet_Event",
+        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:ReceiveBeginPlay",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.3"
       },
       {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionFinished",
+        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnSlasherSet_Event",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.2"
       },
       {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateEnd",
+        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionFinished",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.1"
       },
       {
@@ -724,37 +676,33 @@
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:ExecuteUbergraph_FrenzySlasherVaultOverPulldown",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.0"
       },
-      "OnInteractionUpdateEnd": {
-        "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateEnd",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.1"
-      },
       "OnInteractionFinished": {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionFinished",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.1"
       },
       "OnSlasherSet_Event": {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnSlasherSet_Event",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.2"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.3"
       },
       "OnInteractionUpdateTick": {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateTick",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.4"
       },
       "OnInteractionUpdateStart": {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:OnInteractionUpdateStart",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.5"
       },
       "IsInteractionPossibleBP": {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:IsInteractionPossibleBP",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.6"
       },
       "CanOverrideInteraction": {
         "ObjectName": "Function FrenzySlasherVaultOverPulldown_C:CanOverrideInteraction",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.7"
       }
     },
     "ClassFlags": 10754068,
@@ -766,7 +714,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "FrenzySlasherVaultOverPulldown_C Default__FrenzySlasherVaultOverPulldown_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.10"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/FrenzySlasherVaultOverPulldown.9"
     }
   },
   {
@@ -794,6 +742,9 @@
       "VaultSpeedCurve": {
         "ObjectName": "CurveFloat FrenzySlasherVaultOverPulldownSpeedCurve",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Window/FrenzySlasherVaultOverPulldownSpeedCurve.0"
+      },
+      "VaultGameEvent": {
+        "TagName": "GameEvent.Slasher.Vault.Pallet.Frenzy"
       },
       "InteractionID": "FrenzySlasherVaultOverPulldown",
       "StopUpdateMontageOnExit": true,

@@ -13,17 +13,28 @@
       },
       {
         "Type": "StructProperty",
-        "Name": "K2Node_MakeStruct_GhostStatusData",
+        "Name": "K2Node_Event_data",
+        "Flags": 1,
+        "ElementSize": 64,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct PlayerStatusViewData",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsGhostface_Status_Data",
         "Flags": 1,
         "ElementSize": 8,
-        "Struct": {
-          "ObjectName": "ScriptStruct GhostStatusData",
+        "PropertyClass": {
+          "ObjectName": "Class GhostfaceStatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsDesignTime",
+        "Name": "K2Node_DynamicCast_bSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -32,17 +43,6 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_data",
-        "Flags": 1,
-        "ElementSize": 136,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct PlayerStatusViewData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
       }
     ],
     "FunctionFlags": 8421377
@@ -60,7 +60,7 @@
         "Type": "StructProperty",
         "Name": "data",
         "Flags": 1,
-        "ElementSize": 136,
+        "ElementSize": 64,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct PlayerStatusViewData",
@@ -72,16 +72,12 @@
   },
   {
     "Type": "Function",
-    "Name": "PreConstruct",
+    "Name": "SetGhostData",
     "Outer": "WBP_K16_C",
-    "SuperStruct": {
-      "ObjectName": "Function UserWidget:PreConstruct",
-      "ObjectPath": "/Script/UMG"
-    },
     "ChildProperties": [
       {
         "Type": "BoolProperty",
-        "Name": "IsDesignTime",
+        "Name": "IsLocalKiller",
         "Flags": 1,
         "ElementSize": 1,
         "PropertyFlags": 148,
@@ -91,32 +87,23 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 134350856
-  },
-  {
-    "Type": "Function",
-    "Name": "SetGhostData",
-    "Outer": "WBP_K16_C",
-    "ChildProperties": [
+      },
       {
-        "Type": "StructProperty",
-        "Name": "SetGhostViewData",
+        "Type": "ObjectProperty",
+        "Name": "KillerData",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyFlags": 148,
-        "Struct": {
-          "ObjectName": "ScriptStruct GhostStatusData",
+        "PropertyClass": {
+          "ObjectName": "Class GhostfaceStatusData",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "BoolProperty",
-        "Name": "IsLocalKiller",
+        "Name": "CallFunc_LessEqual_FloatFloat_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
-        "PropertyFlags": 148,
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
@@ -133,18 +120,6 @@
           "ObjectName": "Class UMGSequencePlayer",
           "ObjectPath": "/Script/UMG"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_LessEqual_FloatFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "ObjectProperty",
@@ -348,17 +323,17 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_K16_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.46"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.45"
       },
       "bClassRequiresNativeTick": true,
       "Animations": [
         {
           "ObjectName": "WidgetAnimation WBP_K16_C:StalkingExposedIntro_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.44"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.43"
         },
         {
           "ObjectName": "WidgetAnimation WBP_K16_C:StalkingGhostOnlyIntro_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.45"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.44"
         }
       ],
       "UberGraphFunction": {
@@ -373,14 +348,10 @@
     "Children": [
       {
         "ObjectName": "Function WBP_K16_C:SetGhostVisibility",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.4"
-      },
-      {
-        "ObjectName": "Function WBP_K16_C:SetGhostData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.3"
       },
       {
-        "ObjectName": "Function WBP_K16_C:PreConstruct",
+        "ObjectName": "Function WBP_K16_C:SetGhostData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.2"
       },
       {
@@ -469,17 +440,13 @@
         "ObjectName": "Function WBP_K16_C:SetKillerData",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.1"
       },
-      "PreConstruct": {
-        "ObjectName": "Function WBP_K16_C:PreConstruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.2"
-      },
       "SetGhostData": {
         "ObjectName": "Function WBP_K16_C:SetGhostData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.2"
       },
       "SetGhostVisibility": {
         "ObjectName": "Function WBP_K16_C:SetGhostVisibility",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.3"
       }
     },
     "ClassFlags": 10754064,
@@ -491,7 +458,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_K16_C Default__WBP_K16_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.6"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.5"
     }
   },
   {
@@ -527,7 +494,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_K16_C:WidgetTree.StalkingOverlay.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.42"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.41"
       }
     }
   },
@@ -555,7 +522,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_K16_C:WidgetTree.StalkingOverlay.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.43"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.42"
       }
     }
   },
@@ -593,7 +560,7 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneColorTrack WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.29"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.28"
             }
           ]
         },
@@ -603,15 +570,15 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneColorTrack WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_1",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.30"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.29"
             },
             {
               "ObjectName": "MovieSceneWidgetMaterialTrack WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneWidgetMaterialTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.40"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.39"
             },
             {
               "ObjectName": "MovieSceneFloatTrack WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneFloatTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.37"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.36"
             }
           ]
         }
@@ -672,7 +639,7 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneColorTrack WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.31"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.30"
             }
           ]
         },
@@ -682,11 +649,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneColorTrack WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_1",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.32"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.31"
             },
             {
               "ObjectName": "MovieSceneFloatTrack WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneFloatTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.38"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.37"
             }
           ]
         }
@@ -795,11 +762,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.11"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.10"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.12"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.11"
         }
       },
       "SectionRange": {
@@ -833,11 +800,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.13"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.12"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.14"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.13"
         }
       },
       "SectionRange": {
@@ -871,11 +838,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.19"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.18"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.20"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.19"
         }
       },
       "SectionRange": {
@@ -909,11 +876,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.21"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.20"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.22"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.21"
         }
       },
       "SectionRange": {
@@ -948,7 +915,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.25"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.24"
         }
       ],
       "EvaluationFieldGuid": "C903D56B-49B6B231-3D30438B-9A57E802",
@@ -957,7 +924,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.25"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.24"
             },
             "Range": {
               "LowerBound": {
@@ -997,7 +964,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.26"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.25"
         }
       ],
       "EvaluationFieldGuid": "61CC02AB-48DCA853-65AD1DB2-DEA13F95",
@@ -1006,7 +973,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.26"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.25"
             },
             "Range": {
               "LowerBound": {
@@ -1046,7 +1013,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.27"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.26"
         }
       ],
       "EvaluationFieldGuid": "3A2F79F0-43191EF4-D5788CA4-9547C092",
@@ -1055,7 +1022,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.27"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.26"
             },
             "Range": {
               "LowerBound": {
@@ -1095,7 +1062,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.28"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.27"
         }
       ],
       "EvaluationFieldGuid": "166C1A7B-410EED15-7BAEC5A4-753DD132",
@@ -1104,7 +1071,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.28"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.27"
             },
             "Range": {
               "LowerBound": {
@@ -1282,7 +1249,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.25"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.24"
               },
               "EntityID": 0
             },
@@ -1292,7 +1259,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.26"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.25"
               },
               "EntityID": 0
             },
@@ -1302,7 +1269,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.35"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.34"
               },
               "EntityID": 0
             },
@@ -1632,7 +1599,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_0.MovieSceneColorSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.27"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.26"
               },
               "EntityID": 0
             },
@@ -1642,7 +1609,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneColorSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneColorTrack_1.MovieSceneColorSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.28"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.27"
               },
               "EntityID": 0
             },
@@ -1652,7 +1619,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.36"
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.35"
               },
               "EntityID": 0
             },
@@ -1704,11 +1671,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.15"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.14"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.16"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.15"
         }
       },
       "SectionRange": {
@@ -1739,11 +1706,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.23"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.22"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.24"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.23"
         }
       },
       "Signature": "AD6B0F11-440E040A-8C711795-F1F3A816"
@@ -1762,7 +1729,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.35"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.34"
         }
       ],
       "EvaluationFieldGuid": "2AED94DB-434A2F59-8AC44F9D-17F4FC79",
@@ -1771,7 +1738,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.35"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.34"
             },
             "Range": {
               "LowerBound": {
@@ -1811,7 +1778,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.36"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.35"
         }
       ],
       "EvaluationFieldGuid": "EB47CC1F-4637D18F-192E5CA2-99979638",
@@ -1820,7 +1787,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.36"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.35"
             },
             "Range": {
               "LowerBound": {
@@ -1870,11 +1837,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.17"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.16"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.18"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.17"
         }
       },
       "SectionRange": {
@@ -1908,7 +1875,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneParameterSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.39"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.38"
         }
       ],
       "EvaluationFieldGuid": "15705D7A-4AAAF87A-F6CF6AB6-D282CBD7",
@@ -1917,7 +1884,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneParameterSection WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.39"
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.38"
             },
             "Range": {
               "LowerBound": {
@@ -1952,11 +1919,11 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_K16_C:WidgetTree.StalkingOverlay.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.42"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.41"
         },
         {
           "ObjectName": "OverlaySlot WBP_K16_C:WidgetTree.StalkingOverlay.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.43"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.42"
         }
       ],
       "bIsVariable": true
@@ -1971,11 +1938,11 @@
       "VerticalAlignment": "VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay WBP_K16_C:WidgetTree.StalkingOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.41"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.40"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_K16_C:WidgetTree.StalkingFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.6"
       }
     }
   },
@@ -1988,11 +1955,11 @@
       "VerticalAlignment": "VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay WBP_K16_C:WidgetTree.StalkingOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.41"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.40"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_K16_C:WidgetTree.StalkingLines",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.7"
       }
     }
   },
@@ -2003,7 +1970,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "MovieScene WBP_K16_C:StalkingExposedIntro_INST.StalkingExposedIntro",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.8"
       },
       "AnimationBindings": [
         {
@@ -2022,7 +1989,7 @@
       "DisplayLabel": "StalkingExposedIntro",
       "CompiledData": {
         "ObjectName": "MovieSceneCompiledData WBP_K16_C:StalkingExposedIntro_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.32"
       },
       "Signature": "55DC7622-4C8A6B3E-59D5D9BE-586B1661"
     }
@@ -2034,7 +2001,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "MovieScene WBP_K16_C:StalkingGhostOnlyIntro_INST.StalkingGhostOnlyIntro",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.10"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.9"
       },
       "AnimationBindings": [
         {
@@ -2053,7 +2020,7 @@
       "DisplayLabel": "StalkingGhostOnlyIntro",
       "CompiledData": {
         "ObjectName": "MovieSceneCompiledData WBP_K16_C:StalkingGhostOnlyIntro_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.33"
       },
       "Signature": "410D95C2-41974066-5BE79494-EE0F41FE"
     }
@@ -2065,7 +2032,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "Overlay WBP_K16_C:WidgetTree.StalkingOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.41"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K16.40"
       }
     }
   }
