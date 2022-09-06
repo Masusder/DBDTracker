@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Brl_LogPile_02_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.13"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,17 @@
       "ObjectPath": "/Script/Engine"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "projectileBlocker",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "Cube",
@@ -102,6 +113,109 @@
     }
   },
   {
+    "Type": "BoxComponent",
+    "Name": "projectileBlocker_GEN_VARIABLE",
+    "Outer": "BP_Brl_LogPile_02_C",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "Projectile",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Traps",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 86.510544,
+        "Y": 2.4107819,
+        "Z": 75.01777
+      },
+      "RelativeScale3D": {
+        "X": 5.2667646,
+        "Y": 1.698102,
+        "Z": 3.095654
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "SceneComponent_105",
     "Outer": "BP_Brl_LogPile_02_C"
@@ -125,7 +239,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Brl_LogPile_02_C:Cube_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.14"
       },
       "VariableGuid": "EE96F9A7-42194149-C530FAB0-3C1BB485",
       "InternalVariableName": "Cube"
@@ -142,7 +256,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Brl_LogPile_02_C:SM_BRL_LogPile_Square01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.16"
       },
       "VariableGuid": "192474FF-43506214-D9912D91-65D4ADFD",
       "InternalVariableName": "SM_BRL_LogPile_Square01"
@@ -159,28 +273,32 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Brl_LogPile_02_C:SceneComponent_110",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.4"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.5"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.6"
         },
         {
           "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.7"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_3",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.8"
         },
         {
-          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_3",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.9"
         },
         {
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.10"
+        },
+        {
           "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.4"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.5"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.11"
         }
       ],
       "VariableGuid": "4EB57E9F-4DC2DE8D-DCCE17B2-A10871B1",
@@ -198,7 +316,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Brl_LogPile_02_C:SM_BRL_LogPile01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.15"
       },
       "VariableGuid": "46572DA5-4BFD815B-614832BB-2798C382",
       "InternalVariableName": "SM_BRL_LogPile01"
@@ -215,7 +333,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Brl_LogPile_02_C:SM_BRL_LogPole02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.18"
       },
       "VariableGuid": "8CB038B6-4079D984-3266FCAA-AB8E8B20",
       "InternalVariableName": "SM_BRL_LogPole02"
@@ -232,10 +350,27 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Brl_LogPile_02_C:SM_BRL_LogPole01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.17"
       },
       "VariableGuid": "8B2D5AA8-40D6772C-6096F28C-BB8D30CC",
       "InternalVariableName": "SM_BRL_LogPole01"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_Brl_LogPile_02_C:projectileBlocker_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.2"
+      },
+      "VariableGuid": "9244C245-4E76BF6E-7D347BAA-C4F29659",
+      "InternalVariableName": "projectileBlocker"
     }
   },
   {
@@ -249,7 +384,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Brl_LogPile_02_C:SceneComponent_105",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.3"
       },
       "VariableGuid": "30AEBCFF-42BE5153-A2CF119D-01511A25",
       "InternalVariableName": "DefaultSceneRoot"
@@ -263,38 +398,42 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.6"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.7"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.6"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.5"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.7"
         },
         {
-          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.6"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.8"
         },
         {
-          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_3",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.9"
         },
         {
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.10"
+        },
+        {
           "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.4"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.5"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.11"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Brl_LogPile_02_C:SimpleConstructionScript_1.SCS_Node_9",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/08-Boreal/BP_Brl_LogPile_02.12"
       }
     }
   },
@@ -406,7 +545,7 @@
       "RelativeLocation": {
         "X": 86.0,
         "Y": -8.0,
-        "Z": 62.0
+        "Z": 126.55709
       },
       "RelativeScale3D": {
         "X": 3.7233887,

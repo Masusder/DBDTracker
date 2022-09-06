@@ -13,7 +13,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player",
+        "Name": "K2Node_Event_player_1",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -34,16 +34,20 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsLocallyControlled_ReturnValue",
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_player",
         "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_actualSnapTime",
+        "Flags": 1,
+        "ElementSize": 4
       },
       {
         "Type": "ObjectProperty",
@@ -54,6 +58,18 @@
           "ObjectName": "Class K29Power",
           "ObjectPath": "/Script/TheK29"
         }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocallyControlled_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "ObjectProperty",
@@ -91,6 +107,36 @@
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInteractionEnterStart",
+    "Outer": "BP_K29SlashBreakableInteractionDefinition_C",
+    "SuperStruct": {
+      "ObjectName": "Function InteractionDefinition:OnInteractionEnterStart",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "actualSnapTime",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -331,14 +377,18 @@
     "Children": [
       {
         "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:IsInteractionDone",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.4"
       },
       {
         "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:CanOverrideInteraction",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.3"
       },
       {
         "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:OnInteractionFinished",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.2"
+      },
+      {
+        "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:OnInteractionEnterStart",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.1"
       },
       {
@@ -364,17 +414,21 @@
         "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:ExecuteUbergraph_BP_K29SlashBreakableInteractionDefinition",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.0"
       },
+      "OnInteractionEnterStart": {
+        "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:OnInteractionEnterStart",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.1"
+      },
       "OnInteractionFinished": {
         "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:OnInteractionFinished",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.2"
       },
       "CanOverrideInteraction": {
         "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:CanOverrideInteraction",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.3"
       },
       "IsInteractionDone": {
         "ObjectName": "Function BP_K29SlashBreakableInteractionDefinition_C:IsInteractionDone",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.4"
       }
     },
     "ClassFlags": 10754068,
@@ -386,7 +440,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_K29SlashBreakableInteractionDefinition_C Default__BP_K29SlashBreakableInteractionDefinition_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.5"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K29Power/BP_K29SlashBreakableInteractionDefinition.6"
     }
   },
   {

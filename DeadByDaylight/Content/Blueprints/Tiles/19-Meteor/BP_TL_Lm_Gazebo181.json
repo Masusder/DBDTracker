@@ -6,11 +6,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.114"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.116"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_TL_Lm_Gazebo181_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.47"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.48"
       }
     },
     "SuperStruct": {
@@ -18,6 +18,17 @@
       "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/TileBase01.8"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Victor Blocker",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "BP_CollisionTool1",
@@ -1104,6 +1115,71 @@
     }
   },
   {
+    "Type": "BoxComponent",
+    "Name": "Victor Blocker_GEN_VARIABLE",
+    "Outer": "BP_TL_Lm_Gazebo181_C",
+    "Properties": {
+      "BoxExtent": {
+        "X": 50.0,
+        "Y": 60.0,
+        "Z": 80.0
+      },
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -224.78787,
+        "Y": 199.26149,
+        "Z": 95.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 40.000122,
+        "Roll": 0.0
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
     "Type": "BP_CollisionTool_C",
     "Name": "BP_CollisionTool_GEN_VARIABLE_BP_CollisionTool_C_CAT",
     "Outer": "BP_CollisionTool1_GEN_VARIABLE",
@@ -1125,7 +1201,14 @@
     "Type": "BP_CollisionTool_C",
     "Name": "BP_CollisionTool_GEN_VARIABLE_BP_CollisionTool_C_CAT",
     "Outer": "BP_CollisionTool_GEN_VARIABLE",
-    "Template": "Default__BP_CollisionTool_C"
+    "Template": "Default__BP_CollisionTool_C",
+    "Properties": {
+      "Box collision size": {
+        "X": 50.0,
+        "Y": 50.0,
+        "Z": 70.0
+      }
+    }
   },
   {
     "Type": "BP_Effect_Mist_C",
@@ -1296,7 +1379,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_TL_Lm_Gazebo181_C:BP_CollisionTool1_GEN_VARIABLE.BP_CollisionTool_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.18"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.19"
       },
       "RelativeLocation": {
         "X": 545.9888,
@@ -1322,7 +1405,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_TL_Lm_Gazebo181_C:BP_CollisionTool3_GEN_VARIABLE.BP_CollisionTool3_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.20"
       },
       "RelativeLocation": {
         "X": -453.01358,
@@ -1352,12 +1435,12 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_TL_Lm_Gazebo181_C:BP_CollisionTool_GEN_VARIABLE.BP_CollisionTool_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.21"
       },
       "RelativeLocation": {
         "X": 54.556038,
         "Y": -83.54473,
-        "Z": 68.25809
+        "Z": 93.25809
       },
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -1379,7 +1462,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Lm_Gazebo181_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0.BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.21"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.22"
       },
       "RelativeLocation": {
         "X": -400.00015,
@@ -1404,7 +1487,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_Mtr_Edge_WhitePine_01_C BP_TL_Lm_Gazebo181_C:BP_Mtr_WhitePine_01_GEN_VARIABLE.BP_Mtr_WhitePine_01_GEN_VARIABLE_BP_Mtr_WhitePine_01_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.26"
       },
       "RelativeLocation": {
         "X": -475.10135,
@@ -1430,7 +1513,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_SM_MTR_Gazebo_01_C BP_TL_Lm_Gazebo181_C:BP_SM_MTR_Gazebo_01_GEN_VARIABLE.BP_SM_MTR_Gazebo_01_GEN_VARIABLE_BP_SM_MTR_Gazebo_01_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.27"
       },
       "RelativeLocation": {
         "X": 10.416798,
@@ -1453,7 +1536,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Lm_Gazebo181_C:ChildActor23BD091E460EC1DDE3D925A74625A6B9.ChildActor23BD091E460EC1DDE3D925A74625A6B9_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.22"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.23"
       }
     }
   },
@@ -1465,7 +1548,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Lm_Gazebo181_C:ChildActor6A6657D944AA8C9BF8BFDC906DBACF23.ChildActor6A6657D944AA8C9BF8BFDC906DBACF23_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.23"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.24"
       }
     }
   },
@@ -1477,7 +1560,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Lm_Gazebo181_C:ChildActor7870C468478CD22B85EA62ABDE6B8721.ChildActor7870C468478CD22B85EA62ABDE6B8721_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.24"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.25"
       },
       "RelativeLocation": {
         "X": 358.77304,
@@ -1494,18 +1577,18 @@
       "InstanceBaseMap": {
         "139": {
           "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_GT_16x16_Asy_Plain01_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.133"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.135"
         },
         "140": {
           "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Rock_A_3_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.128"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.130"
         }
       },
       "foliage": [
         {
           "foliageType": {
             "ObjectName": "FoliageType_InstancedStaticMesh BP_TL_Lm_Gazebo181_C:InstancedFoliageActor_GEN_VARIABLE.FoliageType_InstancedStaticMesh_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.42"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.43"
           },
           "instances": [
             {
@@ -4477,7 +4560,7 @@
         {
           "foliageType": {
             "ObjectName": "FoliageType_InstancedStaticMesh BP_TL_Lm_Gazebo181_C:InstancedFoliageActor_GEN_VARIABLE.FoliageType_InstancedStaticMesh_1",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.43"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.44"
           },
           "instances": [
             {
@@ -5343,7 +5426,7 @@
         {
           "foliageType": {
             "ObjectName": "FoliageType_InstancedStaticMesh BP_TL_Lm_Gazebo181_C:InstancedFoliageActor_GEN_VARIABLE.FoliageType_InstancedStaticMesh_2",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.44"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.45"
           },
           "instances": [
             {
@@ -5507,7 +5590,7 @@
         {
           "foliageType": {
             "ObjectName": "FoliageType_InstancedStaticMesh BP_TL_Lm_Gazebo181_C:InstancedFoliageActor_GEN_VARIABLE.FoliageType_InstancedStaticMesh_3",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.45"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.46"
           },
           "instances": [
             {
@@ -5775,7 +5858,7 @@
         {
           "foliageType": {
             "ObjectName": "FoliageType_InstancedStaticMesh BP_TL_Lm_Gazebo181_C:InstancedFoliageActor_GEN_VARIABLE.FoliageType_InstancedStaticMesh_4",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.46"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.47"
           },
           "instances": [
             {
@@ -6088,7 +6171,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_10",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.147"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.149"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6110,7 +6193,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.146"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.148"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6132,7 +6215,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_22",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.151"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.153"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6154,7 +6237,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_13",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.148"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.150"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6176,7 +6259,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_19",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.150"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.152"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6198,7 +6281,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_7",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.153"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.155"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6220,7 +6303,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_4",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.152"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.154"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6330,7 +6413,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_Gazebo181_C:TileSpawnPoint_16",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.149"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.151"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6374,7 +6457,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:ChildActor7870C468478CD22B85EA62ABDE6B8721",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.37"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.38"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6396,7 +6479,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:ChildActor6A6657D944AA8C9BF8BFDC906DBACF23",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.36"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.37"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6418,7 +6501,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:ChildActor23BD091E460EC1DDE3D925A74625A6B9",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.35"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.36"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6440,7 +6523,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.32"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.33"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -6587,16 +6670,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_GT_16x16_Asy_Plain01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.133"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.135"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.79"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.80"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.82"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.84"
         }
       ],
       "VariableGuid": "BA7E64D3-4F5C100B-22F9C192-70719E61",
@@ -6614,7 +6697,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_GardenBoxes_8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.124"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.126"
       },
       "VariableGuid": "97D5FB1A-4A227184-B32F7C8C-29889047",
       "InternalVariableName": "SM_COM_GardenBoxes_8"
@@ -6650,7 +6733,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:BP_CollisionTool_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.31"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.32"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6669,7 +6752,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:Audio_T19_EMT_Owl_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.28"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.29"
       },
       "VariableGuid": "0B0AF87F-4B19DDC9-A2293B91-8A069430",
       "InternalVariableName": "Audio_T19_EMT_Owl"
@@ -6724,7 +6807,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CapsuleComponent BP_TL_Lm_Gazebo181_C:Capsule1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.28"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6781,7 +6864,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NatAudioCustomMesh BP_TL_Lm_Gazebo181_C:AudioAmbBox_Gazebo_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.49"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.50"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6800,7 +6883,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_Gazebo181_C:SceneComponent_29",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.53"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.54"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -6817,7 +6900,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDSphereReflectionCaptureSpawnerComponent BP_TL_Lm_Gazebo181_C:SphereReflectionCapture_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.40"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.41"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6836,14 +6919,14 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_Gazebo181_C:SceneComponent_30",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.54"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.55"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.55"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.56"
         }
       ],
       "VariableGuid": "AB2F3414-DE8DE1EA-4898826F-D14390BE",
@@ -6861,7 +6944,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:BP_CollisionTool3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.30"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.31"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6880,14 +6963,14 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:BP_Mtr_WhitePine_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.33"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.34"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.59"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.60"
         }
       ],
       "VariableGuid": "19E66B3B-472F8E9C-78DB94AA-DF3C1B9B",
@@ -6905,7 +6988,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_Lm_Gazebo181_C:SpotLight_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.115"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.117"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6924,7 +7007,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_Gazebo181_C:BP_SM_MTR_Gazebo_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.51"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.52"
       },
       "VariableGuid": "41FAA65C-455D5567-EE062383-2DDE49D7",
       "InternalVariableName": "BP_SM_MTR_Gazebo_02"
@@ -6941,7 +7024,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDInstancedFoliageComponent BP_TL_Lm_Gazebo181_C:InstancedFoliageActor_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.38"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.39"
       },
       "VariableGuid": "7D3A7133-405C7526-C0F6F8B1-325C0930",
       "InternalVariableName": "InstancedFoliageActor"
@@ -6958,7 +7041,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:BP_CollisionTool1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.29"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.30"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7034,7 +7117,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Bushes_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.117"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.119"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist03",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7053,7 +7136,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Bushes_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.119"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.121"
       },
       "VariableGuid": "81F6641D-4FFB250B-E95F3F9E-CC1EEBA6",
       "InternalVariableName": "SM_COM_Bushes_4"
@@ -7070,7 +7153,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_Gazebo181_C:BP_CollisionTool2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.50"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.51"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7089,12 +7172,31 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Rock_A_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.127"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.129"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist04",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "VariableGuid": "31A2BCE9-47AD43A7-05D94CA1-2C34BC2D",
       "InternalVariableName": "SM_COM_Rock_A_2"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_33",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_TL_Lm_Gazebo181_C:Victor Blocker_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.18"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "VariableGuid": "1FCB1B2E-499C2910-4F8B408D-C9D94DD5",
+      "InternalVariableName": "Victor Blocker"
     }
   },
   {
@@ -7108,7 +7210,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Bushes_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.120"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.122"
       },
       "VariableGuid": "A0CAF587-4C03C9EB-FDA185B9-05C10DA1",
       "InternalVariableName": "SM_COM_Bushes_5"
@@ -7125,7 +7227,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:Plane_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.116"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.118"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist02",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7163,70 +7265,70 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_Lm_Gazebo181_C:BP_SM_MTR_Gazebo_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.34"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.35"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_49",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.90"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.91"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_49",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.92"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_50",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.94"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_51",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.95"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_52",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.96"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_55",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_53",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.97"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.99"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.100"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.102"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.104"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_63",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.106"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.108"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.56"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.57"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.111"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.113"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.72"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.73"
         }
       ],
       "VariableGuid": "22E1B450-4936BB6F-BE3D2CB0-73E44D7B",
@@ -7244,7 +7346,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Rock_A_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.128"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.130"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist04",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7263,7 +7365,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_WoodLadder_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.131"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.133"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist03",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7282,7 +7384,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.136"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.138"
       },
       "VariableGuid": "E5528CD1-43E3ED25-258716A4-3F083481",
       "InternalVariableName": "SM_MTR_FlowerPot_01"
@@ -7299,7 +7401,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.138"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.140"
       },
       "VariableGuid": "22E2E572-41B8FF92-53445988-8C3D0911",
       "InternalVariableName": "SM_MTR_FlowerPot_2"
@@ -7316,7 +7418,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_GardenBoxes_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.122"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.124"
       },
       "VariableGuid": "BFA4742F-4C9C6944-BE1586AA-51CA5278",
       "InternalVariableName": "SM_COM_GardenBoxes_2"
@@ -7333,7 +7435,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NatAudioAmbienceBox BP_TL_Lm_Gazebo181_C:AudioAmbBox_Outside_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.48"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.49"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7352,7 +7454,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_DirtBag_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.135"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.137"
       },
       "VariableGuid": "3F050EA4-4F906F6F-9019FF9F-29E5913A",
       "InternalVariableName": "SM_MTR_DirtBag_01"
@@ -7369,7 +7471,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.137"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.139"
       },
       "VariableGuid": "7DAF805C-480379D3-3E834784-84C903A7",
       "InternalVariableName": "SM_MTR_FlowerPot_02"
@@ -7386,7 +7488,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.139"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.141"
       },
       "VariableGuid": "DDCB3A83-429DE972-1201599C-806A1048",
       "InternalVariableName": "SM_MTR_FlowerPot_3"
@@ -7403,7 +7505,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.140"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.142"
       },
       "VariableGuid": "A0F55695-4546F310-7F7B4A8A-68638B2E",
       "InternalVariableName": "SM_MTR_FlowerPot_4"
@@ -7420,7 +7522,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.141"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.143"
       },
       "VariableGuid": "15A7E494-41E82742-8A556DB3-985A0BDE",
       "InternalVariableName": "SM_MTR_FlowerPot_5"
@@ -7437,7 +7539,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.142"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.144"
       },
       "VariableGuid": "59C758AA-459C0DB6-06EF2584-1D77205B",
       "InternalVariableName": "SM_MTR_FlowerPot_6"
@@ -7454,7 +7556,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_Small_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.143"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.145"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist03",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7473,7 +7575,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_WateringCan_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.145"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.147"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist03",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7492,16 +7594,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_ECL_WoodTable_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.132"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.134"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.101"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.103"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.105"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.107"
         }
       ],
       "VariableGuid": "F6FB51BA-43E89A6C-60EC38B9-4F88A8BE",
@@ -7519,7 +7621,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_FlowerPot_Small_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.144"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.146"
       },
       "VariableGuid": "64DB8E12-4D0E797E-BC9F949A-9B33D26D",
       "InternalVariableName": "SM_MTR_FlowerPot_Small_02"
@@ -7536,7 +7638,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDSphereReflectionCaptureSpawnerComponent BP_TL_Lm_Gazebo181_C:Reflection_Capture_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.40"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7555,7 +7657,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_ConstrucGloves_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.121"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.123"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist03",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7574,7 +7676,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_GardenBoxes_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.123"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.125"
       },
       "VariableGuid": "C9DFC597-499E36B0-E7763DA1-01B9A2CB",
       "InternalVariableName": "SM_COM_GardenBoxes_3"
@@ -7591,7 +7693,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_GardeningPlanter_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.126"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.128"
       },
       "VariableGuid": "DF775687-48A0EC19-83637280-C09AC8A1",
       "InternalVariableName": "SM_COM_GardeningPlanter_3"
@@ -7608,7 +7710,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DecalComponent BP_TL_Lm_Gazebo181_C:MI_COM_DirtDecal_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.41"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.42"
       },
       "VariableGuid": "B001E627-48DD27CA-D5AEDBAF-85EEFD7D",
       "InternalVariableName": "MI_COM_DirtDecal_01"
@@ -7625,7 +7727,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_MTR_BLockerBush_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.134"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.136"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist02",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7644,7 +7746,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Bushes_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.118"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.120"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist03",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7663,7 +7765,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Rock_A_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.129"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.131"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist04",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7682,7 +7784,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_Tree_Small_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.130"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.132"
       },
       "ParentComponentOrVariableName": "BP_Effect_Mist03",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7701,7 +7803,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_Gazebo181_C:SM_COM_GardenBoxes_9_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.125"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.127"
       },
       "VariableGuid": "35BD0251-416D062D-2E1D0088-A51599A2",
       "InternalVariableName": "SM_COM_GardenBoxes_9"
@@ -7718,7 +7820,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_Gazebo181_C:PlaceholderCollision_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.52"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.53"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -7753,390 +7855,398 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.68"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.112"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.76"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.113"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.57"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.63"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.91"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.70"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.67"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.87"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.98"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.99"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.108"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.109"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.110"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.58"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.64"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.102"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.71"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.83"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_21",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.69"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.80"
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.114"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_15",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.77"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_29",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.76"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.115"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.58"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.61"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_14",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.62"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_26",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.64"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.87"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.66"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.68"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.82"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.89"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_56",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_67",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.111"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_68",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.112"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.59"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.65"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.104"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.72"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.79"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.85"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_25",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.74"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.70"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_26",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_33",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.83"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.68"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.55"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.112"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.76"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.113"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.57"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.63"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.91"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.70"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.67"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.87"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.90"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.92"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.94"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.95"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.96"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.97"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.98"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.99"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.100"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.104"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.105"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.106"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.108"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.109"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.110"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.59"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.56"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.111"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.58"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.64"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.102"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.80"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.72"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.71"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.82"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.83"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_21",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.69"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_15",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.56"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.114"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.77"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_29",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.76"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.115"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.58"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.61"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_14",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.62"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_26",
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.64"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.87"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.66"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.68"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.82"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.89"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.90"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.91"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.94"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.96"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.97"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.99"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_56",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.102"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.106"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.108"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_67",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.111"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_68",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.112"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.60"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.57"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.113"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.59"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.65"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.104"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.72"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.79"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.80"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_34",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.85"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_25",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.74"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.70"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_26",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_33",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.83"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_TL_Lm_Gazebo181_C:SimpleConstructionScript_1.SCS_Node_19",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.66"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/19-Meteor/BP_TL_Lm_Gazebo181.67"
       }
     }
   },
