@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.10"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,17 @@
       "ObjectPath": "/Script/Engine"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cube8",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class StaticMeshComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "BreakableWall09",
@@ -177,11 +188,15 @@
         },
         {
           "ObjectName": "SCS_Node BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.8"
         },
         {
           "ObjectName": "SCS_Node BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.9"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.7"
         }
       ],
       "VariableGuid": "38E8EE5B-47EAC120-D1B52EBC-BBEB4646",
@@ -199,10 +214,27 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ukr_SaloonTrap01_C:SM_UKR_WindowPanels_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.12"
       },
       "VariableGuid": "11BDD098-4C9C7940-BCAC059D-CD0BB4A2",
       "InternalVariableName": "SM_UKR_WindowPanels_01"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class StaticMeshComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent BP_Ukr_SaloonTrap01_C:Cube8_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.11"
+      },
+      "VariableGuid": "B0917212-410A60DD-488A508B-7F34471F",
+      "InternalVariableName": "Cube8"
     }
   },
   {
@@ -261,17 +293,93 @@
         },
         {
           "ObjectName": "SCS_Node BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.8"
         },
         {
           "ObjectName": "SCS_Node BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.9"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.7"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Ukr_SaloonTrap01_C:SimpleConstructionScript_0.SCS_Node_0",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/15-Ukraine/BP_Ukr_SaloonTrap01.5"
       }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Cube8_GEN_VARIABLE",
+    "Outer": "BP_Ukr_SaloonTrap01_C",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh Cube",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "bUseDefaultCollision": false,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material BasicShapeMaterial",
+          "ObjectPath": "Engine/Content/BasicShapes/BasicShapeMaterial.0"
+        }
+      ],
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 291.99402,
+        "Y": 103.41992,
+        "Z": 172.07007
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.00005,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.2272,
+        "Y": 2.3145046,
+        "Z": 2.1536224
+      },
+      "bHiddenInGame": true,
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {

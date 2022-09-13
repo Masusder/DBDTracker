@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Ion_Edge_MD173_C:SimpleConstructionScript_2",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.16"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,17 @@
       "ObjectPath": "/Script/Engine"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character_Blocker",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class ChildActorComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "StaticMesh",
@@ -65,17 +76,6 @@
         "PropertyFlags": 17180393476,
         "PropertyClass": {
           "ObjectName": "Class StaticMeshComponent",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "Box",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class BoxComponent",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -154,62 +154,34 @@
     }
   },
   {
-    "Type": "BoxComponent",
-    "Name": "Box_GEN_VARIABLE",
+    "Type": "BP_CollisionTool_C",
+    "Name": "ChildActor_GEN_VARIABLE_BP_CollisionTool_C_CAT",
+    "Outer": "Character_Blocker_GEN_VARIABLE",
+    "Template": "Default__BP_CollisionTool_C"
+  },
+  {
+    "Type": "ChildActorComponent",
+    "Name": "Character_Blocker_GEN_VARIABLE",
     "Outer": "BP_Ion_Edge_MD173_C",
     "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class NavArea_Obstacle",
-        "ObjectPath": "/Script/NavigationSystem"
+      "ChildActorClass": {
+        "ObjectName": "BlueprintGeneratedClass BP_CollisionTool_C",
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Collisions/BP_CollisionTool.5"
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX",
-      "BodyInstance": {
-        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "CollisionProfileName": "BlockAllDynamic",
-        "CollisionResponses": {
-          "ResponseArray": [
-            {
-              "Channel": "Interactable",
-              "Response": "ECR_Block"
-            },
-            {
-              "Channel": "Slasher",
-              "Response": "ECR_Block"
-            },
-            {
-              "Channel": "Blood",
-              "Response": "ECR_Block"
-            },
-            {
-              "Channel": "InteractionDetector",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "BlinkBlocker",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Ground",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Walkable",
-              "Response": "ECR_Block"
-            }
-          ]
-        }
+      "ChildActorTemplate": {
+        "ObjectName": "BP_CollisionTool_C BP_Ion_Edge_MD173_C:Character_Blocker_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_CollisionTool_C_CAT",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.3"
       },
       "RelativeLocation": {
-        "X": 10.0,
-        "Y": -195.0,
-        "Z": 110.0
+        "X": 10.354973,
+        "Y": -198.33969,
+        "Z": 109.73915
       },
       "RelativeScale3D": {
-        "X": 1.1,
-        "Y": 9.85,
-        "Z": 3.35
-      },
-      "Mobility": "EComponentMobility::Static"
+        "X": 0.71118915,
+        "Y": 6.3863444,
+        "Z": 2.1694908
+      }
     }
   },
   {
@@ -227,19 +199,19 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_0",
+    "Name": "SCS_Node_1",
     "Outer": "SimpleConstructionScript_2",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class BoxComponent",
+        "ObjectName": "Class ChildActorComponent",
         "ObjectPath": "/Script/Engine"
       },
       "ComponentTemplate": {
-        "ObjectName": "BoxComponent BP_Ion_Edge_MD173_C:Box_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.3"
+        "ObjectName": "ChildActorComponent BP_Ion_Edge_MD173_C:Character_Blocker_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.4"
       },
-      "VariableGuid": "FF0381CC-4A8857BD-1D22F894-C3D46551",
-      "InternalVariableName": "Box"
+      "VariableGuid": "E82713AB-42AAEBA7-3CEE9F8D-98D1D9AC",
+      "InternalVariableName": "Character_Blocker"
     }
   },
   {
@@ -253,7 +225,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_MD173_C:SM_Ion_SandMound_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.17"
       },
       "VariableGuid": "24958A88-406F5157-10C069B8-D38500C4",
       "InternalVariableName": "SM_Ion_SandMound_02"
@@ -270,7 +242,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Ion_Edge_MD173_C:SceneComponent_255",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.6"
       },
       "VariableGuid": "91FCFAB7-42743E92-ED32769A-D7EECD4A",
       "InternalVariableName": "DefaultSceneRoot"
@@ -287,7 +259,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_MD173_C:StaticMesh_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.21"
       },
       "VariableGuid": "24D5A460-46C85C0E-EFC60B90-52C9499B",
       "InternalVariableName": "StaticMesh"
@@ -321,7 +293,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_MD173_C:SM_Ion_Vines_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.20"
       },
       "VariableGuid": "6D7E4FD5-4CFCC7F0-02182CA4-7FC900DB",
       "InternalVariableName": "SM_Ion_Vines_02"
@@ -338,7 +310,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_MD173_C:SM_Ion_Vines_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.18"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.19"
       },
       "VariableGuid": "DC5ED67B-426F7C23-2E0EE197-2DDBB700",
       "InternalVariableName": "SM_Ion_Vines_01"
@@ -355,36 +327,36 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Ion_Edge_MD173_C:Scene_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.5"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.6"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.7"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_6",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.11"
         },
         {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_7",
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.8"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_6",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.12"
         },
         {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.13"
+        },
+        {
           "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.14"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.15"
         },
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.10"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.7"
         }
       ],
       "VariableGuid": "D2CED976-4B494D1E-793F73B3-671C41EB",
@@ -402,7 +374,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Ion_Edge_MD173_C:SM_Ion_SandMound_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.17"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.18"
       },
       "VariableGuid": "BC7652A6-41D9E989-6E551CBF-BB5694EB",
       "InternalVariableName": "SM_Ion_SandMound_03"
@@ -416,46 +388,46 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.13"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.14"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.13"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.6"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.7"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.11"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.12"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_9",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.14"
         },
         {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.11"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.8"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.12"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.13"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.15"
+        },
+        {
           "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.10"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.7"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Ion_Edge_MD173_C:SimpleConstructionScript_2.SCS_Node_3",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/18-Ion/BP_Ion_Edge_MD173.9"
       }
     }
   },
