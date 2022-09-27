@@ -12,8 +12,19 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_InKeyEvent",
+        "Flags": 1,
+        "ElementSize": 64,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct KeyEvent",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "CallFunc_SelectNext_ReturnValue",
+        "Name": "K2Node_Event_IsDesignTime",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -24,8 +35,18 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetKey_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 32,
+        "Struct": {
+          "ObjectName": "ScriptStruct Key",
+          "ObjectPath": "/Script/InputCore"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsDesignTime",
+        "Name": "CallFunc_Key_IsGamepadKey_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -53,25 +74,16 @@
         }
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_InKeyEvent",
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
         "Flags": 1,
-        "ElementSize": 64,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct KeyEvent",
-          "ObjectPath": "/Script/SlateCore"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "CallFunc_GetKey_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 32,
-        "Struct": {
-          "ObjectName": "ScriptStruct Key",
-          "ObjectPath": "/Script/InputCore"
-        }
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "BoolProperty",
@@ -99,18 +111,6 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_Key_IsGamepadKey_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
         "Name": "CallFunc_SelectPrevious_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
@@ -123,7 +123,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Name": "CallFunc_SelectNext_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -138,10 +138,10 @@
   },
   {
     "Type": "Function",
-    "Name": "HandleKeyUpEvent",
+    "Name": "HandleKeyDownEvent",
     "Outer": "WBP_CoreTabContainer_C",
     "SuperStruct": {
-      "ObjectName": "Function InteractiveWidgetInterface:HandleKeyUpEvent",
+      "ObjectName": "Function InteractiveWidgetInterface:HandleKeyDownEvent",
       "ObjectPath": "/Script/DBDInput"
     },
     "ChildProperties": [
@@ -430,7 +430,7 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.2"
       },
       {
-        "ObjectName": "Function WBP_CoreTabContainer_C:HandleKeyUpEvent",
+        "ObjectName": "Function WBP_CoreTabContainer_C:HandleKeyDownEvent",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.1"
       },
       {
@@ -458,7 +458,7 @@
         "PropertyFlags": 562952101429260,
         "PropertyClass": {
           "ObjectName": "WidgetBlueprintGeneratedClass WBP_CoreInputPrompt_C",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/ButtonPrompts/WBP_CoreInputPrompt.7"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.7"
         }
       },
       {
@@ -469,7 +469,7 @@
         "PropertyFlags": 562952101429260,
         "PropertyClass": {
           "ObjectName": "WidgetBlueprintGeneratedClass WBP_CoreInputPrompt_C",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/ButtonPrompts/WBP_CoreInputPrompt.7"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.7"
         }
       },
       {
@@ -534,8 +534,8 @@
         "ObjectName": "Function WBP_CoreTabContainer_C:ExecuteUbergraph_WBP_CoreTabContainer",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.0"
       },
-      "HandleKeyUpEvent": {
-        "ObjectName": "Function WBP_CoreTabContainer_C:HandleKeyUpEvent",
+      "HandleKeyDownEvent": {
+        "ObjectName": "Function WBP_CoreTabContainer_C:HandleKeyDownEvent",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.1"
       },
       "OnControlModeChangedBP": {
@@ -583,31 +583,17 @@
         "KeyName": "Gamepad_RightShoulder"
       },
       "ControlModeDataMap": {
-        "EControlMode::XBOX": {
-          "ObjectName": "DataTable Xbox_PromptDataTable",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/ButtonPrompts/Xbox_PromptDataTable.0"
-        },
-        "EControlMode::PS": {
-          "ObjectName": "DataTable PS_PromptDataTable",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/ButtonPrompts/PS_PromptDataTable.0"
-        },
-        "EControlMode::SWITCH": {
-          "ObjectName": "DataTable Switch_PromptDataTable",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/ButtonPrompts/Switch_PromptDataTable.0"
-        },
-        "EControlMode::STADIA": {
-          "ObjectName": "DataTable Stadia_PromptDataTable",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/ButtonPrompts/Stadia_PromptDataTable.0"
-        },
-        "EControlMode::SWITCH_PRO": {
-          "ObjectName": "DataTable SwitchPro_PromptDataTable",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/ButtonPrompts/SwitchPro_PromptDataTable.0"
-        }
+        "EControlMode::XBOX": null,
+        "EControlMode::PS": null,
+        "EControlMode::SWITCH": null,
+        "EControlMode::STADIA": null,
+        "EControlMode::SWITCH_PRO": null
       },
       "CoreTabClass": {
         "ObjectName": "WidgetBlueprintGeneratedClass WBP_CoreTab_C",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTab.6"
       },
+      "UseControllerTabSwitching": false,
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
     }
@@ -700,7 +686,8 @@
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreTabContainer_C:WidgetTree.GridPanel_236.GridSlot_1",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.12"
-      }
+      },
+      "Visibility": "ESlateVisibility::Collapsed"
     }
   },
   {
@@ -712,7 +699,8 @@
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreTabContainer_C:WidgetTree.GridPanel_236.GridSlot_6",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.13"
-      }
+      },
+      "Visibility": "ESlateVisibility::Collapsed"
     }
   },
   {

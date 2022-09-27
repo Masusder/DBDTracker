@@ -805,6 +805,7 @@ p.NetUseClientTimestampForReplicatedTransform=0
 Slate.EnableRawInputSimulationOverRDP=0
 g.TimeoutForBlockOnRenderFence=180000
 r.D3D11.UseAllowTearing=0
+Slate.EnableRetainedRenderingWithLocalTransform=False
 r.OffsetXOnScreenMessage=300
 r.OffsetYOnScreenMessage=-75
 
@@ -886,10 +887,11 @@ GrabHandCursor=/Game/UI/Cursor/BP_GrabCursor.BP_GrabCursor_C
 GrabHandClosedCursor=None
 SlashedCircleCursor=None
 ApplicationScale=1.000000
-UIScaleRule=ShortestSide
+UIScaleRule=ScaleToFit
 CustomScalingRuleClass=None
-UIScaleCurve=(EditorCurveData=(Keys=((Time=480.000000,Value=0.444000),(Time=639.000000,Value=0.590000),(Time=1080.000000,Value=1.000000),(Time=8640.000000,Value=8.000000)),DefaultValue=340282346638528859811704183484516925440.000000,PreInfinityExtrap=RCCE_Constant,PostInfinityExtrap=RCCE_Constant),ExternalCurve=CurveFloat'"/DBDUICore/Debug/TestWidgets/4KDPI/4KDPICurve.4KDPICurve"')
+UIScaleCurve=(EditorCurveData=(Keys=((Time=480.000000,Value=0.133300),(Time=639.000000,Value=0.200000),(Time=1080.000000,Value=0.400000),(Time=2160.000000,Value=0.900000),(Time=8640.000000,Value=7.900000)),DefaultValue=340282346638528859811704183484516925440.000000,PreInfinityExtrap=RCCE_Constant,PostInfinityExtrap=RCCE_Constant),ExternalCurve=None)
 HandCursor=/Game/UI/Cursor/BP_HandCursor.BP_HandCursor_C
+DesignScreenSize=(X=3840,Y=2160)
 
 [/Script/AIModule.AISystem]
 PerceptionSystemClassName=/Script/AIModule.AIPerceptionSystem
@@ -1137,6 +1139,13 @@ DirtyAreasUpdateFreq=60.000000
 +FunctionRedirects=(OldName="ObjectPlacerComponent.GetTrapPlacementRotation",NewName="ObjectPlacerComponent.GetObjectPlacementRotation")
 +FunctionRedirects=(OldName="Collectable.SetVisibility",NewName="Collectable.SetVisibilityEvent")
 +FunctionRedirects=(OldName="CharacterCollection.GetCharacters",NewName="CharacterCollection.GetMainDBDPlayers")
+
++FunctionRedirects=(OldName="DBDPlayer.Authority_ImposeStatusEffect",NewName="DBDPlayer.Authority_ImposeStatusEffect_DEPRECATED")
++FunctionRedirects=(OldName="DBDPlayer.Authority_ImposeDynamicStatusEffect",NewName="DBDPlayer.Authority_ImposeDynamicStatusEffect_DEPRECATED")
++FunctionRedirects=(OldName="PerkManager.Authority_ImposeStatusEffect",NewName="PerkManager.Authority_ImposeStatusEffect_DEPRECATED")
++FunctionRedirects=(OldName="PerkManager.Authority_ImposeDynamicStatusEffect",NewName="PerkManager.Authority_ImposeDynamicStatusEffect_DEPRECATED")
++FunctionRedirects=(OldName="PerkManager.Authority_ImposeNewStatusEffectOrChangeLifeTime",NewName="PerkManager.Authority_ImposeNewStatusEffectOrChangeLifeTime_DEPRECATED")
+
 +PropertyRedirects=(OldName="Generator.NativeIsDamaged",NewName="Generator._nativeIsDamaged")
 +PropertyRedirects=(OldName="ExhaustedEffect.RunningCooldownModifier",NewName="ExhaustedEffect.CooldownModifier")
 +PropertyRedirects=(OldName="FlashLightableComponent.TimeToBlind",NewName="FlashLightableComponent._timeToCharge")
@@ -1235,6 +1244,8 @@ DirtyAreasUpdateFreq=60.000000
 +ClassRedirects=(OldName="/Script/DeadByDaylight.RichTextNestedTagsDecorator", NewName="/Script/DBDUIViewsCore.RichTextNestedTagsDecorator")
 +ClassRedirects=(OldName="/Script/DBDInteraction.InClosetFlashbangItemCraftInteraction", NewName="/Script/TheK24.InClosetFlashbangItemCraftInteraction")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.FirecrackerFromEffect", NewName="/Script/TheK24.BlastMineFirecracker")
++ClassRedirects=(OldName="/Script/DeadByDaylight.PhantomTrap", NewName="/Script/TheHag.PhantomTrap")
++ClassRedirects=(OldName="/Script/DBDAnimation.HagDynamicAccessoryAnimInstance", NewName="/Script/TheHag.HagDynamicAccessoryAnimInstance")
 +StructRedirects=(OldName="/Script/DeadByDaylight.AtlantaFriendUIData", NewName="/Script/DBDUIViewsMobile.AtlantaFriendUIData")
 +StructRedirects=(OldName="/Script/DeadByDaylight.FriendStatusUIData", NewName="/Script/DBDUIViewsMobile.FriendStatusUIData")
 +StructRedirects=(OldName="/Script/DeadByDaylight.TutorialEndReward", NewName="/Script/DeadByDaylight.AtlantaTutorialEndReward")
@@ -1294,6 +1305,29 @@ DirtyAreasUpdateFreq=60.000000
 +PropertyRedirects=(OldName="/Script/TheK24.BlastMineTrapComponent._isTrapActive",NewName="/Script/TheK24.BlastMineTrapComponent._isTrapSet")
 +PropertyRedirects=(OldName="/Script/TheK24.BlastMine.__generatorTrapDurationLevels",NewName="/Script/TheK24.BlastMine._generatorTrapDurationLevels")
 +ClassRedirects=(OldName="/Script/TheK24.FirecrackerFromEffect",NewName="/Script/TheK24.BlastMineFirecracker")
+
+// TheDemogorgon
++ClassRedirects=(OldName="/Script/DBDInteraction.DestroyDemogorgonPortalInteraction",NewName="/Script/TheDemogorgon.DestroyDemogorgonPortalInteraction")
++ClassRedirects=(OldName="/Script/DBDInteraction.SetGroundPortalInteraction",NewName="/Script/TheDemogorgon.SetGroundPortalInteraction")
++ClassRedirects=(OldName="/Script/DBDInteraction.TeleportToDemogorgonPortalInteraction",NewName="/Script/TheDemogorgon.TeleportToDemogorgonPortalInteraction")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DemogorgonPortal",NewName="/Script/TheDemogorgon.DemogorgonPortal")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DemogorgonPortalPlacementValidationStrategy",NewName="/Script/TheDemogorgon.DemogorgonPortalPlacementValidationStrategy")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DemogorgonStealthComponent",NewName="/Script/TheDemogorgon.DemogorgonStealthComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.PortalOutlineUpdateStrategy",NewName="/Script/TheDemogorgon.DemogorgonPortalOutlineUpdateStrategy")
++ClassRedirects=(OldName="/Script/DeadByDaylight.PortalPlacerStateComponent",NewName="/Script/TheDemogorgon.DemogorgonPortalPlacerStateComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.PortalRadiusDetectorComponent",NewName="/Script/TheDemogorgon.DemogorgonPortalRadiusDetectorComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.PortalTargetingComponent",NewName="/Script/TheDemogorgon.DemogorgonPortalTargetingComponent")
++EnumRedirects=(OldName="/Script/DeadByDaylight.DemogorgonPortalState",NewName="/Script/TheDemogorgon.DemogorgonPortalState")
+
++PropertyRedirects=(OldName="/Script/DeadByDaylight.Collectable.IsInUse",NewName="/Script/DeadByDaylight.Collectable._isInUse")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.Collectable.AimOnUse",NewName="/Script/DeadByDaylight.Collectable._aimOnUse")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.BPAttachementSocketData.AttachementBlueprint",NewName="/Script/DeadByDaylight.BPAttachementSocketData.Deprecated_AttachementBlueprint")
++PropertyRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance._animEffectHandlerForSFX",NewName="/Script/DBDAnimation.DBDBaseAnimInstance._animEffectHandlerForSFX")
++PropertyRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance._animEffectHandlerForVFX",NewName="/Script/DBDAnimation.DBDBaseAnimInstance._animEffectHandlerForVFX")
++PropertyRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance._animEffectHandlerClassForSFX",NewName="/Script/DBDAnimation.DBDBaseAnimInstance._animEffectHandlerClassForSFX")
++PropertyRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance._animEffectHandlerClassForVFX",NewName="/Script/DBDAnimation.DBDBaseAnimInstance._animEffectHandlerClassForVFX")
++PropertyRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance._animEffectBlackBoard",NewName="/Script/DBDAnimation.DBDBaseAnimInstance._animEffectBlackBoard")
++FunctionRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance.HasBeenNotified",NewName="/Script/DBDAnimation.DBDBaseAnimInstance.HasBeenNotified")
 
 [/Script/IOSRuntimeSettings.IOSRuntimeSettings]
 BundleIdentifier=com.bhvr.deadbydaylight

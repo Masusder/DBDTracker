@@ -62,9 +62,29 @@
         "Name": "K2Node_Event_percentage",
         "Flags": 1,
         "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class MaterialInstanceDynamic",
+          "ObjectPath": "/Script/Engine"
+        }
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "ResetWidget",
+    "Outer": "WBP_CoreStatusEffects_Item_C",
+    "SuperStruct": {
+      "ObjectName": "Function CoreStatusEffectIcon:ResetWidget",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": 201459712
   },
   {
     "Type": "Function",
@@ -240,6 +260,38 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class MaterialInstanceDynamic",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_NameName_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_Greater_FloatFloat_ReturnValue",
         "Flags": 1,
@@ -370,9 +422,15 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_CoreStatusEffects_Item_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.41"
       },
       "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation WBP_CoreStatusEffects_Item_C:GlowAnim_INST",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.36"
+        }
+      ],
       "UberGraphFunction": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:ExecuteUbergraph_WBP_CoreStatusEffects_Item",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.0"
@@ -385,38 +443,42 @@
     "Children": [
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:SetWidget",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.10"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:SetGaugeFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.9"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:BP_OnEntryReleased",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.8"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:BP_OnItemExpansionChanged",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.6"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.7"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:BP_OnItemSelectionChanged",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.5"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.6"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:OnListItemObjectSet",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.5"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:PreConstruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.4"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:UpdateWidget",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.3"
       },
       {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:UpdatePercentageFill",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.2"
+      },
+      {
+        "ObjectName": "Function WBP_CoreStatusEffects_Item_C:ResetWidget",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.1"
       },
       {
@@ -434,6 +496,28 @@
         "Struct": {
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GlowAnim",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 2147491860,
+        "PropertyClass": {
+          "ObjectName": "Class WidgetAnimation",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Background",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class Image",
+          "ObjectPath": "/Script/UMG"
         }
       },
       {
@@ -558,6 +642,26 @@
             "ObjectPath": "/Script/CoreUObject"
           }
         }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "BackgroundMaterial",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 65541,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CachedID",
+        "Flags": 2097153,
+        "ElementSize": 12,
+        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
@@ -565,41 +669,45 @@
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:ExecuteUbergraph_WBP_CoreStatusEffects_Item",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.0"
       },
+      "ResetWidget": {
+        "ObjectName": "Function WBP_CoreStatusEffects_Item_C:ResetWidget",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.1"
+      },
       "UpdatePercentageFill": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:UpdatePercentageFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.2"
       },
       "UpdateWidget": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:UpdateWidget",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.3"
       },
       "PreConstruct": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:PreConstruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.4"
       },
       "OnListItemObjectSet": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:OnListItemObjectSet",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.5"
       },
       "BP_OnItemSelectionChanged": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:BP_OnItemSelectionChanged",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.5"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.6"
       },
       "BP_OnItemExpansionChanged": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:BP_OnItemExpansionChanged",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.6"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.7"
       },
       "BP_OnEntryReleased": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:BP_OnEntryReleased",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.8"
       },
       "SetGaugeFill": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:SetGaugeFill",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.9"
       },
       "SetWidget": {
         "ObjectName": "Function WBP_CoreStatusEffects_Item_C:SetWidget",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.10"
       }
     },
     "ClassFlags": 10754064,
@@ -621,7 +729,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreStatusEffects_Item_C Default__WBP_CoreStatusEffects_Item_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.11"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.12"
     }
   },
   {
@@ -637,7 +745,8 @@
         },
         "StatusEffectType": "EStatusEffectType::None",
         "Level": 0,
-        "Percentage": 0.0
+        "Percentage": 0.0,
+        "PlayIntroAnimation": false
       },
       "ProgressBarTints": null,
       "ProgressBarEmptyTints": null,
@@ -653,7 +762,7 @@
       "Slots": [
         {
           "ObjectName": "CanvasPanelSlot WBP_CoreStatusEffects_Item_C:WidgetTree.CanvasPanel_173.CanvasPanelSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.13"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.14"
         }
       ]
     }
@@ -672,11 +781,11 @@
       "bAutoSize": true,
       "Parent": {
         "ObjectName": "CanvasPanel WBP_CoreStatusEffects_Item_C:WidgetTree.CanvasPanel_173",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.12"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.13"
       },
       "Content": {
         "ObjectName": "Overlay WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
       }
     }
   },
@@ -697,7 +806,7 @@
       },
       "Slot": {
         "ObjectName": "ScaleBoxSlot WBP_CoreStatusEffects_Item_C:WidgetTree.ScaleBox_0.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.35"
       }
     }
   },
@@ -708,19 +817,18 @@
     "Properties": {
       "Brush": {
         "ImageSize": {
-          "X": 128.0,
-          "Y": 128.0
+          "X": 256.0,
+          "Y": 256.0
         },
         "ResourceObject": {
-          "ObjectName": "Texture2D statuseffect_bkg",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/HUD/StatusEffects/statuseffect_bkg.0"
+          "ObjectName": "MaterialInstanceConstant MI_UI_StatusEffectBackground",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/HUD/StatusEffects/MI_UI_StatusEffectBackground.0"
         }
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.23"
-      },
-      "bIsVariable": false
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.30"
+      }
     }
   },
   {
@@ -740,7 +848,7 @@
       },
       "Slot": {
         "ObjectName": "WidgetSwitcherSlot WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher.WidgetSwitcherSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.38"
       },
       "RenderTransform": {
         "Angle": 180.0
@@ -765,7 +873,7 @@
       },
       "Slot": {
         "ObjectName": "WidgetSwitcherSlot WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher.WidgetSwitcherSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.39"
       },
       "RenderTransform": {
         "Angle": 180.0
@@ -790,7 +898,7 @@
       },
       "Slot": {
         "ObjectName": "WidgetSwitcherSlot WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher.WidgetSwitcherSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.40"
       },
       "RenderTransform": {
         "Angle": 180.0
@@ -815,7 +923,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.29"
       }
     }
   },
@@ -836,8 +944,332 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.26"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.33"
       }
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "GlowAnim",
+    "Outer": "GlowAnim_INST",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "148D44C3-483B4C03-54DC03B3-4A891D92",
+          "Name": "Background",
+          "PossessedObjectClass": {
+            "ObjectName": "Class Image",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "148D44C3-483B4C03-54DC03B3-4A891D92",
+          "BindingName": "Background",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneWidgetMaterialTrack WBP_CoreStatusEffects_Item_C:GlowAnim_INST.GlowAnim.MovieSceneWidgetMaterialTrack_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.27"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 60001
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 20
+      },
+      "Signature": "546113CA-4427ABE6-C89C0CBC-9D6FCC3B"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneParameterSection_0"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneParameterSection_0"
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "GlowAnim_INST",
+    "Properties": {
+      "EvaluationTemplate": {
+        "Tracks": null,
+        "TemplateLedger": {
+          "LastTrackIdentifier": {
+            "Value": 0
+          },
+          "TrackSignatureToTrackIdentifier": null
+        }
+      },
+      "TrackTemplateField": {
+        "Ranges": [
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 2,
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": 0,
+                "Value": {
+                  "Value": 0
+                }
+              }
+            }
+          },
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 1,
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": 1,
+                "Value": {
+                  "Value": 60000
+                }
+              }
+            }
+          },
+          {
+            "Value": {
+              "LowerBound": {
+                "Type": 0,
+                "Value": {
+                  "Value": 60000
+                }
+              },
+              "UpperBound": {
+                "Type": 2,
+                "Value": {
+                  "Value": 0
+                }
+              }
+            }
+          }
+        ],
+        "Groups": [
+          {
+            "LUTIndices": [],
+            "TrackLUT": [],
+            "SectionLUT": []
+          },
+          {
+            "LUTIndices": [
+              {
+                "NumInitPtrs": 0,
+                "NumEvalPtrs": 1
+              }
+            ],
+            "TrackLUT": [
+              {
+                "TrackPtr": {
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  }
+                },
+                "NumChildren": 1
+              }
+            ],
+            "SectionLUT": [
+              {
+                "ChildIndex": 0,
+                "Flags": "ESectionEvaluationFlags::None",
+                "ForcedTime": {
+                  "Value": -2147483648
+                }
+              }
+            ]
+          },
+          {
+            "LUTIndices": [],
+            "TrackLUT": [],
+            "SectionLUT": []
+          }
+        ],
+        "MetaData": [
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": []
+          },
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": [
+              {
+                "Key": {
+                  "SequenceID": {
+                    "Value": 0
+                  },
+                  "TrackIdentifier": {
+                    "Value": 0
+                  },
+                  "SectionIndex": 0
+                },
+                "SetupIndex": 0,
+                "TearDownIndex": 65535
+              }
+            ]
+          },
+          {
+            "ActiveSequences": [
+              {
+                "Value": 0
+              }
+            ],
+            "ActiveEntities": []
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 60000
+          },
+          "SubFrame": 0.0
+        }
+      ],
+      "CompiledSignature": "2C957F98-4A346F6E-695D22AD-730FCDF2",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": {
+        "bEvaluationTemplate": true,
+        "bEvaluationTemplateField": true
+      },
+      "AllocatedMask": {
+        "bEvaluationTemplate": true,
+        "bEvaluationTemplateField": true
+      }
+    }
+  },
+  {
+    "Type": "MovieSceneParameterSection",
+    "Name": "MovieSceneParameterSection_0",
+    "Outer": "MovieSceneWidgetMaterialTrack_0",
+    "Properties": {
+      "ScalarParameterNamesAndCurves": [
+        {
+          "ParameterName": "GlowValue",
+          "ParameterCurve": null
+        },
+        {
+          "ParameterName": "GlowSize",
+          "ParameterCurve": null
+        }
+      ],
+      "EvalOptions": {
+        "CompletionMode": "EMovieSceneCompletionMode::KeepState"
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreStatusEffects_Item_C:GlowAnim_INST.GlowAnim.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0.EaseInFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.23"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_CoreStatusEffects_Item_C:GlowAnim_INST.GlowAnim.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0.EaseOutFunction",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.24"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 60000
+            }
+          }
+        }
+      },
+      "Signature": "D38F8B56-429A27FE-591D05BB-F7391876"
+    }
+  },
+  {
+    "Type": "MovieSceneWidgetMaterialTrack",
+    "Name": "MovieSceneWidgetMaterialTrack_0",
+    "Outer": "GlowAnim",
+    "Properties": {
+      "BrushPropertyNamePath": [
+        "Brush"
+      ],
+      "TrackName": "Brush",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneParameterSection WBP_CoreStatusEffects_Item_C:GlowAnim_INST.GlowAnim.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.26"
+        }
+      ],
+      "EvaluationFieldGuid": "4FC8642D-4B45640D-82994E93-C44A088B",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneParameterSection WBP_CoreStatusEffects_Item_C:GlowAnim_INST.GlowAnim.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.26"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 60000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "4FC8642D-4B45640D-82994E93-C44A088B"
     }
   },
   {
@@ -848,28 +1280,28 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.23"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.30"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.26"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.33"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.22"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.29"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_14",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.24"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.31"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_15",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.25"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.32"
         }
       ],
       "Slot": {
         "ObjectName": "CanvasPanelSlot WBP_CoreStatusEffects_Item_C:WidgetTree.CanvasPanel_173.CanvasPanelSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.14"
       }
     }
   },
@@ -882,11 +1314,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
       },
       "Content": {
         "ObjectName": "Image WBP_CoreStatusEffects_Item_C:WidgetTree.ProgressGauge",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.20"
       }
     }
   },
@@ -895,15 +1327,21 @@
     "Name": "OverlaySlot_1",
     "Outer": "Overlay_33",
     "Properties": {
+      "Padding": {
+        "Left": -64.0,
+        "Top": -64.0,
+        "Right": -64.0,
+        "Bottom": -64.0
+      },
       "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
       },
       "Content": {
         "ObjectName": "Image WBP_CoreStatusEffects_Item_C:WidgetTree.Background",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.16"
       }
     }
   },
@@ -916,11 +1354,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
       },
       "Content": {
         "ObjectName": "ScaleBox WBP_CoreStatusEffects_Item_C:WidgetTree.ScaleBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.34"
       }
     }
   },
@@ -933,11 +1371,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
       },
       "Content": {
         "ObjectName": "WidgetSwitcher WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.37"
       }
     }
   },
@@ -950,11 +1388,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
       },
       "Content": {
         "ObjectName": "Image WBP_CoreStatusEffects_Item_C:WidgetTree.ProgressGaugeEmpty",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.21"
       }
     }
   },
@@ -968,12 +1406,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WBP_CoreStatusEffects_Item_C:WidgetTree.ScaleBox_0.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.28"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.35"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_14",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.31"
       }
     }
   },
@@ -984,12 +1422,37 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WBP_CoreStatusEffects_Item_C:WidgetTree.ScaleBox_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.34"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreStatusEffects_Item_C:WidgetTree.StatusIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.15"
       }
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "GlowAnim_INST",
+    "Outer": "WBP_CoreStatusEffects_Item_C",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene WBP_CoreStatusEffects_Item_C:GlowAnim_INST.GlowAnim",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.22"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "Background",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "148D44C3-483B4C03-54DC03B3-4A891D92",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "GlowAnim",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData WBP_CoreStatusEffects_Item_C:GlowAnim_INST.CompiledData",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.25"
+      },
+      "Signature": "2C957F98-4A346F6E-695D22AD-730FCDF2"
     }
   },
   {
@@ -1001,20 +1464,20 @@
       "Slots": [
         {
           "ObjectName": "WidgetSwitcherSlot WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher.WidgetSwitcherSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.30"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.38"
         },
         {
           "ObjectName": "WidgetSwitcherSlot WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher.WidgetSwitcherSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.31"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.39"
         },
         {
           "ObjectName": "WidgetSwitcherSlot WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher.WidgetSwitcherSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.32"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.40"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreStatusEffects_Item_C:WidgetTree.Overlay_33.OverlaySlot_15",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.32"
       },
       "RenderTransform": {
         "Translation": {
@@ -1031,11 +1494,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetSwitcher WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.37"
       },
       "Content": {
         "ObjectName": "Image WBP_CoreStatusEffects_Item_C:WidgetTree.Level1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.17"
       }
     }
   },
@@ -1046,11 +1509,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetSwitcher WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.37"
       },
       "Content": {
         "ObjectName": "Image WBP_CoreStatusEffects_Item_C:WidgetTree.Level2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.18"
       }
     }
   },
@@ -1061,11 +1524,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetSwitcher WBP_CoreStatusEffects_Item_C:WidgetTree.LevelSwitcher",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.37"
       },
       "Content": {
         "ObjectName": "Image WBP_CoreStatusEffects_Item_C:WidgetTree.Level3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.19"
       }
     }
   },
@@ -1076,7 +1539,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "CanvasPanel WBP_CoreStatusEffects_Item_C:WidgetTree.CanvasPanel_173",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.12"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects_Item.13"
       }
     }
   }

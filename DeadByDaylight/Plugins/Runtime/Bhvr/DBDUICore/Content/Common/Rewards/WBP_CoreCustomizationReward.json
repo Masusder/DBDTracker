@@ -12,10 +12,20 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetGameInstanceSubsystem_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDTooltipManager",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
         "Type": "StructProperty",
         "Name": "K2Node_Event_customizationRewardViewData",
         "Flags": 1,
-        "ElementSize": 232,
+        "ElementSize": 288,
         "PropertyFlags": 2,
         "Struct": {
           "ObjectName": "ScriptStruct CustomizationRewardViewData",
@@ -34,14 +44,16 @@
         }
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetGameInstanceSubsystem_ReturnValue",
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_isSelected",
         "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDTooltipManager",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "ObjectProperty",
@@ -52,9 +64,67 @@
           "ObjectName": "Class DBDTooltipManager",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetGameInstanceSubsystem_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDTooltipManager",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetPaintSpaceGeometry_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 56,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct Geometry",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsHovered_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "OnSelectedChanged",
+    "Outer": "WBP_CoreCustomizationReward_C",
+    "SuperStruct": {
+      "ObjectName": "Function CoreSelectableButtonWidget:OnSelectedChanged",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "isSelected",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -99,7 +169,7 @@
         "Type": "StructProperty",
         "Name": "customizationRewardViewData",
         "Flags": 1,
-        "ElementSize": 232,
+        "ElementSize": 288,
         "PropertyFlags": 134218134,
         "Struct": {
           "ObjectName": "ScriptStruct CustomizationRewardViewData",
@@ -115,7 +185,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_CoreCustomizationReward_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.47"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -130,18 +200,22 @@
     "Children": [
       {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:SetData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.5"
       },
       {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:Destruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.4"
       },
       {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:OnHovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.3"
       },
       {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:OnUnhovered",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.2"
+      },
+      {
+        "ObjectName": "Function WBP_CoreCustomizationReward_C:OnSelectedChanged",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.1"
       },
       {
@@ -196,13 +270,24 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "Rarity",
+        "Name": "OwnedIndicator",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 562952101429260,
         "PropertyClass": {
-          "ObjectName": "Class DBDImage",
-          "ObjectPath": "/Script/DBDUIViewsCore"
+          "ObjectName": "Class Overlay",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SelectedContainer",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class Overlay",
+          "ObjectPath": "/Script/UMG"
         }
       },
       {
@@ -222,21 +307,25 @@
         "ObjectName": "Function WBP_CoreCustomizationReward_C:ExecuteUbergraph_WBP_CoreCustomizationReward",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.0"
       },
+      "OnSelectedChanged": {
+        "ObjectName": "Function WBP_CoreCustomizationReward_C:OnSelectedChanged",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.1"
+      },
       "OnUnhovered": {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:OnUnhovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.2"
       },
       "OnHovered": {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:OnHovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.3"
       },
       "Destruct": {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:Destruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.4"
       },
       "SetData": {
         "ObjectName": "Function WBP_CoreCustomizationReward_C:SetData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.4"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.5"
       }
     },
     "ClassFlags": 10754064,
@@ -248,7 +337,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreCustomizationReward_C Default__WBP_CoreCustomizationReward_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.6"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.7"
     }
   },
   {
@@ -267,7 +356,7 @@
     "Properties": {
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_4",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.24"
       }
     }
   },
@@ -288,9 +377,65 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.21"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "BottomLeft",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 64.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D items_addon_selectedMark",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/loadout/inventory/items_addon_selectedMark.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_5",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.39"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": 1.0,
+          "Y": -1.0
+        }
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "BottomRight",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 64.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D items_addon_selectedMark",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/loadout/inventory/items_addon_selectedMark.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_4",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.38"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": -1.0,
+          "Y": -1.0
+        }
+      },
+      "bIsVariable": false
     }
   },
   {
@@ -310,14 +455,43 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.KillSwitch.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.33"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "Rarity",
+    "Name": "OwnderIndicatorBg",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 256.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D storeItem_ownedBkg",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Store/storeItem_ownedBkg.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.OwnedIndicator.OverlaySlot_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.34"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": 0.65,
+          "Y": 0.65
+        }
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "RarityIMG",
     "Outer": "WidgetTree",
     "Properties": {
       "Brush": {
@@ -326,13 +500,13 @@
           "Y": 512.0
         },
         "ResourceObject": {
-          "ObjectName": "MaterialInstanceConstant M_storeRarity_Common",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Store/M_storeRarity_Common.0"
+          "ObjectName": "MaterialInstanceConstant MI_StoreRarity_Common",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Store/MI_StoreRarity_Common.0"
         }
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.22"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -358,7 +532,7 @@
       },
       "Slot": {
         "ObjectName": "ScaleBoxSlot WBP_CoreCustomizationReward_C:WidgetTree.KeepIconScaleProportions.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.41"
       }
     }
   },
@@ -388,9 +562,59 @@
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.20"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "TopLeft",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 64.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D items_addon_selectedMark",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/loadout/inventory/items_addon_selectedMark.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.36"
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "TopRight",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 64.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D items_addon_selectedMark",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/loadout/inventory/items_addon_selectedMark.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_3",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.37"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": -1.0,
+          "Y": 1.0
+        }
+      },
+      "bIsVariable": false
     }
   },
   {
@@ -401,31 +625,43 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.14"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.15"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.16"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.17"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_4",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.18"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_8",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.20"
         },
         {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_1",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.21"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.22"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_3",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.23"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_4",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.24"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_6",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.26"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_8",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.28"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_9",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.29"
+        },
+        {
           "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_5",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.25"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_7",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.27"
         }
       ]
     }
@@ -445,11 +681,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.Shadow",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.12"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.16"
       }
     }
   },
@@ -468,11 +704,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.BackgroundImage",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.9"
       }
     }
   },
@@ -491,11 +727,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       },
       "Content": {
-        "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.Rarity",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.10"
+        "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.RarityIMG",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.14"
       }
     }
   },
@@ -508,11 +744,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       },
       "Content": {
         "ObjectName": "SizeBox WBP_CoreCustomizationReward_C:WidgetTree.KeepWithinSize",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.42"
       }
     }
   },
@@ -524,11 +760,11 @@
       "Layer": 10,
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       },
       "Content": {
         "ObjectName": "DBDButton WBP_CoreCustomizationReward_C:WidgetTree.HitZoneButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.8"
       }
     }
   },
@@ -540,11 +776,54 @@
       "Layer": 2,
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       },
       "Content": {
         "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.KillSwitch",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.30"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_6",
+    "Outer": "GridPanel_0",
+    "Properties": {
+      "Padding": {
+        "Left": 10.0,
+        "Top": 4.0,
+        "Right": 12.0,
+        "Bottom": 9.0
+      },
+      "Parent": {
+        "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreOnHoverBorder_C WBP_CoreCustomizationReward_C:WidgetTree.OnHoverBorder",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.45"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_7",
+    "Outer": "GridPanel_0",
+    "Properties": {
+      "Padding": {
+        "Top": 15.0,
+        "Right": -10.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Top",
+      "Layer": 3,
+      "Parent": {
+        "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
+      },
+      "Content": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.OwnedIndicator",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.31"
       }
     }
   },
@@ -562,11 +841,32 @@
       "Layer": 1,
       "Parent": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       },
       "Content": {
         "ObjectName": "WBP_LockedOverlay_C WBP_CoreCustomizationReward_C:WidgetTree.Lockedoverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.46"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_9",
+    "Outer": "GridPanel_0",
+    "Properties": {
+      "Padding": {
+        "Left": 10.0,
+        "Top": 5.0,
+        "Right": 10.0,
+        "Bottom": 10.0
+      },
+      "Parent": {
+        "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
+      },
+      "Content": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.32"
       }
     }
   },
@@ -578,15 +878,69 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.KillSwitch.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.22"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.33"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_5",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.25"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "OwnedIndicator",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.OwnedIndicator.OverlaySlot_0",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.34"
+        },
+        {
+          "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.OwnedIndicator.OverlaySlot_1",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.35"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_7",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.27"
+      },
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::Hidden"
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "SelectedContainer",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.36"
+        },
+        {
+          "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_3",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.37"
+        },
+        {
+          "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_4",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.38"
+        },
+        {
+          "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer.OverlaySlot_5",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.39"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_9",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.29"
+      },
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::Hidden"
     }
   },
   {
@@ -604,11 +958,129 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.KillSwitch",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.30"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.KillSwitchIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.12"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "OwnedIndicator",
+    "Properties": {
+      "Padding": {
+        "Right": -30.0
+      },
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.OwnedIndicator",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.31"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.OwnderIndicatorBg",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "OwnedIndicator",
+    "Properties": {
+      "Padding": {
+        "Top": 17.0,
+        "Right": 22.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.OwnedIndicator",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.31"
+      },
+      "Content": {
+        "ObjectName": "TextBlock WBP_CoreCustomizationReward_C:WidgetTree.OwnderIndicatorTB",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.44"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "SelectedContainer",
+    "Properties": {
+      "Padding": {
+        "Left": -15.0,
+        "Top": -15.0
+      },
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.32"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.TopLeft",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.17"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_3",
+    "Outer": "SelectedContainer",
+    "Properties": {
+      "Padding": {
+        "Top": -15.0,
+        "Right": -15.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.32"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.TopRight",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.18"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Outer": "SelectedContainer",
+    "Properties": {
+      "Padding": {
+        "Right": -15.0,
+        "Bottom": -15.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.32"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.BottomRight",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.11"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_5",
+    "Outer": "SelectedContainer",
+    "Properties": {
+      "Padding": {
+        "Left": -15.0,
+        "Bottom": -15.0
+      },
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "Overlay WBP_CoreCustomizationReward_C:WidgetTree.SelectedContainer",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.32"
+      },
+      "Content": {
+        "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.BottomLeft",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.10"
       }
     }
   },
@@ -620,12 +1092,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WBP_CoreCustomizationReward_C:WidgetTree.KeepIconScaleProportions.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.24"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.41"
         }
       ],
       "Slot": {
         "ObjectName": "SizeBoxSlot WBP_CoreCustomizationReward_C:WidgetTree.KeepWithinSize.SizeBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.26"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.43"
       }
     }
   },
@@ -636,11 +1108,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WBP_CoreCustomizationReward_C:WidgetTree.KeepIconScaleProportions",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.23"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.40"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreCustomizationReward_C:WidgetTree.RewardIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.11"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.15"
       }
     }
   },
@@ -656,12 +1128,12 @@
       "Slots": [
         {
           "ObjectName": "SizeBoxSlot WBP_CoreCustomizationReward_C:WidgetTree.KeepWithinSize.SizeBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.26"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.43"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.23"
       },
       "Visibility": "ESlateVisibility::HitTestInvisible"
     }
@@ -673,11 +1145,65 @@
     "Properties": {
       "Parent": {
         "ObjectName": "SizeBox WBP_CoreCustomizationReward_C:WidgetTree.KeepWithinSize",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.42"
       },
       "Content": {
         "ObjectName": "ScaleBox WBP_CoreCustomizationReward_C:WidgetTree.KeepIconScaleProportions",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.23"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.40"
+      }
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "OwnderIndicatorTB",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "1EFC377F4F6526A91EBDC09D1E6E64EF",
+        "SourceString": "OWNED"
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.48515,
+          "G": 0.520996,
+          "B": 0.584079,
+          "A": 1.0,
+          "Hex": "FFB9BFC9"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font RobotoCondensed-Bold_Font",
+          "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Fonts/RobotoCondensed-Bold_Font.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 20
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot WBP_CoreCustomizationReward_C:WidgetTree.OwnedIndicator.OverlaySlot_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.35"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "WBP_CoreOnHoverBorder_C",
+    "Name": "OnHoverBorder",
+    "Outer": "WidgetTree",
+    "Template": "Default__WBP_CoreOnHoverBorder_C",
+    "Properties": {
+      "MaterialInstance": {
+        "ObjectName": "MaterialInstanceConstant MI_UI_NoBgOnHoverBorder",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Borders/OnHover/MI_UI_NoBgOnHoverBorder.0"
+      },
+      "PreviewProgress": 0.361905,
+      "PreviewThickness": 8,
+      "WidthRatio": 0.027586,
+      "HeightRatio": 0.022857,
+      "Slot": {
+        "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_6",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.26"
       }
     }
   },
@@ -697,7 +1223,7 @@
       "IconOffsetY": -4.0,
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0.GridSlot_8",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.28"
       },
       "Visibility": "ESlateVisibility::Collapsed"
     }
@@ -709,7 +1235,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "GridPanel WBP_CoreCustomizationReward_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Rewards/WBP_CoreCustomizationReward.19"
       }
     }
   }

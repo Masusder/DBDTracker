@@ -6,7 +6,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.151"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.152"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_TL_Lm_16x16_SlaughterTree01_C:InheritableComponentHandler",
@@ -18,6 +18,17 @@
       "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/TileBase01.8"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "MoriFinisher1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class TileSpawnPoint",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "AudioAmbienceBox1",
@@ -1277,7 +1288,6 @@
     "Outer": "BP_TL_Lm_16x16_SlaughterTree01_C",
     "Properties": {
       "OcclusionRefreshInterval": 0.0,
-      "ShouldTransmitRelativeAngle": true,
       "OcclusionAffect": 0.0,
       "AutoPostOnBeginPlay": true,
       "AkAudioEvent": {
@@ -1506,9 +1516,9 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.24"
       },
       "RelativeLocation": {
-        "X": -23.595856,
-        "Y": 308.17975,
-        "Z": 795.1011
+        "X": -23.595795,
+        "Y": 308.17972,
+        "Z": 795.1012
       },
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -1567,8 +1577,8 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.26"
       },
       "RelativeLocation": {
-        "X": -711.028,
-        "Y": 301.82404,
+        "X": -711.0277,
+        "Y": 301.8238,
         "Z": 556.8364
       },
       "RelativeRotation": {
@@ -1810,8 +1820,8 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.27"
       },
       "RelativeLocation": {
-        "X": -294.54846,
-        "Y": 715.6027,
+        "X": -294.54834,
+        "Y": 715.60266,
         "Z": 508.1636
       },
       "RelativeRotation": {
@@ -1841,8 +1851,8 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.28"
       },
       "RelativeLocation": {
-        "X": -506.9256,
-        "Y": -122.31268,
+        "X": -506.92566,
+        "Y": -122.31256,
         "Z": 735.4863
       },
       "RelativeRotation": {
@@ -1897,9 +1907,9 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.23"
       },
       "RelativeLocation": {
-        "X": -90.8132,
-        "Y": -231.95134,
-        "Z": 882.37366
+        "X": -90.81323,
+        "Y": -231.9513,
+        "Z": 882.3738
       },
       "RelativeRotation": {
         "Pitch": -0.5611054,
@@ -1992,9 +2002,7 @@
       ],
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "ObjectType": "ECC_WorldStatic",
-        "CollisionEnabled": "ECollisionEnabled::NoCollision",
-        "CollisionProfileName": "NoCollision",
+        "CollisionProfileName": "BlockAllDynamicFoliage",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -2007,11 +2015,11 @@
             },
             {
               "Channel": "Pawn",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Visibility",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Camera",
@@ -2019,7 +2027,7 @@
             },
             {
               "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Vehicle",
@@ -2030,35 +2038,11 @@
               "Response": "ECR_Ignore"
             },
             {
-              "Channel": "EngineTraceChannel2",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel3",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel4",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel5",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel6",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
               "Response": "ECR_Ignore"
             },
             {
               "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Slasher",
               "Response": "ECR_Ignore"
             },
             {
@@ -2082,6 +2066,9 @@
               "Response": "ECR_Ignore"
             }
           ]
+        },
+        "WalkableSlopeOverride": {
+          "WalkableSlopeBehavior": "WalkableSlope_Unwalkable"
         }
       },
       "Mobility": "EComponentMobility::Static"
@@ -2848,9 +2835,7 @@
       ],
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "ObjectType": "ECC_WorldStatic",
-        "CollisionEnabled": "ECollisionEnabled::NoCollision",
-        "CollisionProfileName": "NoCollision",
+        "CollisionProfileName": "BlockAllDynamicFoliage",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -2863,11 +2848,11 @@
             },
             {
               "Channel": "Pawn",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Visibility",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Camera",
@@ -2875,7 +2860,7 @@
             },
             {
               "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Vehicle",
@@ -2886,35 +2871,11 @@
               "Response": "ECR_Ignore"
             },
             {
-              "Channel": "EngineTraceChannel2",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel3",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel4",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel5",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel6",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
               "Response": "ECR_Ignore"
             },
             {
               "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Slasher",
               "Response": "ECR_Ignore"
             },
             {
@@ -2938,6 +2899,9 @@
               "Response": "ECR_Ignore"
             }
           ]
+        },
+        "WalkableSlopeOverride": {
+          "WalkableSlopeBehavior": "WalkableSlope_Unwalkable"
         }
       },
       "Mobility": "EComponentMobility::Static"
@@ -4292,9 +4256,7 @@
       ],
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "BodyInstance": {
-        "ObjectType": "ECC_WorldStatic",
-        "CollisionEnabled": "ECollisionEnabled::NoCollision",
-        "CollisionProfileName": "NoCollision",
+        "CollisionProfileName": "BlockAllDynamicFoliage",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -4307,11 +4269,11 @@
             },
             {
               "Channel": "Pawn",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Visibility",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Camera",
@@ -4319,7 +4281,7 @@
             },
             {
               "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Vehicle",
@@ -4330,35 +4292,11 @@
               "Response": "ECR_Ignore"
             },
             {
-              "Channel": "EngineTraceChannel2",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel3",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel4",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel5",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "EngineTraceChannel6",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Interactable",
               "Response": "ECR_Ignore"
             },
             {
               "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Slasher",
               "Response": "ECR_Ignore"
             },
             {
@@ -4382,6 +4320,9 @@
               "Response": "ECR_Ignore"
             }
           ]
+        },
+        "WalkableSlopeOverride": {
+          "WalkableSlopeBehavior": "WalkableSlope_Unwalkable"
         }
       },
       "Mobility": "EComponentMobility::Static"
@@ -9143,7 +9084,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_4",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.169"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.171"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9165,7 +9106,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_22",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.168"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.170"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9187,7 +9128,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_10",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.164"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.166"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9209,7 +9150,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_13",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.165"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.167"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9231,7 +9172,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_19",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.167"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.169"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9253,7 +9194,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.163"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.165"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9275,7 +9216,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_16",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.166"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.168"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9297,7 +9238,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:TileSpawnPoint_7",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.170"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.172"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -10115,7 +10056,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:Ground_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.152"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.153"
       },
       "VariableGuid": "D1175440-4DF04FA4-DC29A6A2-C5542336",
       "InternalVariableName": "Ground"
@@ -10170,7 +10111,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:SM_BK_RockWallVault011AFFE4024973B040105457BFEA3D90FE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.154"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.155"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10189,7 +10130,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:SM_BK_RockWallVault02D2334A6F412399BB84206F99F57D5426",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.155"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.156"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10217,19 +10158,19 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.129"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.130"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.140"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_61",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.141"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.142"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.135"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.136"
         }
       ],
       "VariableGuid": "AE7F18A5-48FFBD20-90D58AA1-DC114F6F",
@@ -10256,7 +10197,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.132"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.133"
         }
       ],
       "VariableGuid": "262266C6-4A55C117-76238C80-1784BF67",
@@ -10293,11 +10234,11 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.121"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.122"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.142"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.143"
         }
       ],
       "VariableGuid": "C0F7B80E-43D42681-EFB8CF8B-7DBA2285",
@@ -10315,7 +10256,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:StaticMesh55102168B46FCC998981C8FA74D3FC305",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.158"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.159"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10334,7 +10275,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:StaticMesh77E0D80BC4AFE0EF678A270B089EBB4CF",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.160"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.161"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10499,7 +10440,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.122"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.123"
         }
       ],
       "VariableGuid": "33F82FE7-4FD1AB4A-59DC62A0-C88EA254",
@@ -10522,15 +10463,15 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.126"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.127"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.130"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.131"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.143"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.144"
         }
       ],
       "VariableGuid": "763BCB14-43B27373-43B13B9B-582CF210",
@@ -10572,15 +10513,15 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_45",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.123"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.124"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.137"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.138"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.138"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.139"
         }
       ],
       "VariableGuid": "DD147E41-4E2E6A79-76211FB6-BFA522F9",
@@ -10622,7 +10563,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.124"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.125"
         }
       ],
       "VariableGuid": "70584B0A-4874F6C7-2643DF8B-99D99CDD",
@@ -10697,7 +10638,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:StaticMesh2D442E098411FBD3B83181F8DC566E963",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.157"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.158"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10754,7 +10695,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:StaticMesh685FD7DF44A085AAD42628584FFAC6D62",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.159"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.160"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10792,7 +10733,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:StaticMesh9_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.162"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.163"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10850,19 +10791,38 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.127"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.128"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.134"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.135"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.133"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.134"
         }
       ],
       "VariableGuid": "15A1D243-44E770A2-602A5997-6BA646D9",
       "InternalVariableName": "BP_DeadCowHooked02_3"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class TileSpawnPoint",
+        "ObjectPath": "/Script/DeadByDaylight"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_SlaughterTree01_C:MoriFinisher1_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.164"
+      },
+      "ParentComponentOrVariableName": "KillerSpawn01",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "VariableGuid": "517F604F-435E93D8-1701C480-D12D2877",
+      "InternalVariableName": "MoriFinisher1"
     }
   },
   {
@@ -11001,7 +10961,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:StaticMesh895C2A6884BA70EFC19D2FBAAFA4FE14F",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.161"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.162"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11114,7 +11074,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.136"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.137"
         }
       ],
       "VariableGuid": "178C18E5-4CF7C9DC-7F0793A3-25D3C162",
@@ -11251,7 +11211,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:SM_BK_RockWall011551B0B144938DEFFABCF1292728631C1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.153"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.154"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11395,7 +11355,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_SlaughterTree01_C:SM_SlaughterTree01249B5A5847B8AEC9CB290FAFE07587E0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.156"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.157"
       },
       "VariableGuid": "9EF0007D-4F817D31-4CCA71A2-02FA8803",
       "InternalVariableName": "SM_SlaughterTree01"
@@ -11438,7 +11398,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.147"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.148"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_12",
@@ -11524,7 +11484,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.125"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.126"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_102",
@@ -11536,7 +11496,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.139"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.140"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_35",
@@ -11544,11 +11504,11 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.148"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.149"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.150"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.151"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_2",
@@ -11560,7 +11520,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.128"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.129"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_18",
@@ -11568,7 +11528,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_85",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.149"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.150"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_10",
@@ -11620,31 +11580,35 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.118"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_41",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.119"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_41",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.120"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.121"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.131"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.132"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.144"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_65",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.145"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_65",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.146"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.147"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.118"
         }
       ],
       "AllNodes": [
@@ -11654,7 +11618,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.147"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.148"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_12",
@@ -11698,7 +11662,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.125"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.126"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_102",
@@ -11710,7 +11674,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.139"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.140"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_35",
@@ -11718,11 +11682,11 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.148"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.149"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.150"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.151"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_2",
@@ -11734,7 +11698,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.128"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.129"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_18",
@@ -11742,7 +11706,7 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_85",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.149"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.150"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_13",
@@ -11810,15 +11774,15 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.118"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_41",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.119"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_41",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.120"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.121"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_37",
@@ -11830,95 +11794,99 @@
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.121"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_44",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.122"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_45",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_44",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.123"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_45",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.124"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.126"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.125"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_48",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.127"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.128"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.129"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.132"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.134"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.133"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.137"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.138"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.140"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.141"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.142"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_51",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.130"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.143"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.133"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_56",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_55",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.135"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.136"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.134"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.138"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.139"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.141"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.142"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.143"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_51",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.131"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_64",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_63",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.144"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_65",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_56",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.136"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.137"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.132"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_64",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.145"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_65",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.146"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.147"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_SlaughterTree01_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/03-Farm/BP_TL_Lm_16x16_SlaughterTree01.118"
         }
       ],
       "DefaultSceneRootNode": {
@@ -12273,6 +12241,31 @@
       "ComponentTags": [
         "BorderObject"
       ]
+    }
+  },
+  {
+    "Type": "TileSpawnPoint",
+    "Name": "MoriFinisher1_GEN_VARIABLE",
+    "Outer": "BP_TL_Lm_16x16_SlaughterTree01_C",
+    "Properties": {
+      "TileSpawnPointType": "ETileSpawnPointType::FinisherMori",
+      "Visualization": {
+        "AssetPathName": "/Game/Blueprints/Editor/BP_Editor_MoriFinisher_Reference.BP_Editor_MoriFinisher_Reference_C",
+        "SubPathString": ""
+      },
+      "_weightInfluenceable": false,
+      "_weightInfluencer": false,
+      "RelativeLocation": {
+        "X": 320.9744,
+        "Y": 219.42749,
+        "Z": -7.397137
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 156.32072,
+        "Roll": 0.0
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
