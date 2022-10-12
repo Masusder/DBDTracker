@@ -460,12 +460,6 @@
         "ElementSize": 24
       },
       {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Conv_IntToFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
         "Flags": 1,
@@ -474,6 +468,12 @@
           "ObjectName": "Class MaterialInstanceDynamic",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Conv_IntToFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       },
       {
         "Type": "FloatProperty",
@@ -846,6 +846,17 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "CurrentProgressInfoTB",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class DBDTextBlock",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "DebugNextTierTooltip",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -990,17 +1001,6 @@
       {
         "Type": "ObjectProperty",
         "Name": "PurchaseDescriptionTB",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 562952101429260,
-        "PropertyClass": {
-          "ObjectName": "Class DBDTextBlock",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "PurchaseDescriptionTB_1",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 562952101429260,
@@ -2016,6 +2016,36 @@
   },
   {
     "Type": "DBDTextBlock",
+    "Name": "CurrentProgressInfoTB",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.132868,
+          "G": 0.3564,
+          "B": 0.545725,
+          "A": 1.0,
+          "Hex": "FF66A1C3"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font DBDCoreFont",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+        },
+        "TypefaceFontName": "CondensedItalic",
+        "Size": 26
+      },
+      "WrapTextAt": 1700.0,
+      "Slot": {
+        "ObjectName": "GridSlot WBP_CoreArchiveRiftPanel_C:WidgetTree.GridPanel_0.GridSlot_1",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.67"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
     "Name": "DebugNextTierTooltip",
     "Outer": "WidgetTree",
     "Properties": {
@@ -2167,41 +2197,6 @@
       "Slot": {
         "ObjectName": "GridSlot WBP_CoreArchiveRiftPanel_C:WidgetTree.GridPanel_0.GridSlot_2",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.68"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "PurchaseDescriptionTB_1",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "6DFAE1964B89AF5413191ABFCD00B1B2",
-        "SourceString": "Your current progress will be applied to the next Tier."
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 0.132868,
-          "G": 0.3564,
-          "B": 0.545725,
-          "A": 1.0,
-          "Hex": "FF66A1C3"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "TypefaceFontName": "CondensedItalic",
-        "Size": 26
-      },
-      "WrapTextAt": 1700.0,
-      "Slot": {
-        "ObjectName": "GridSlot WBP_CoreArchiveRiftPanel_C:WidgetTree.GridPanel_0.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.67"
       },
       "bIsVariable": true
     }
@@ -2521,7 +2516,7 @@
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreArchiveRiftPanel_C:WidgetTree.FreeTrackLabelTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.46"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.47"
       }
     }
   },
@@ -2559,7 +2554,7 @@
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreArchiveRiftPanel_C:WidgetTree.PremiumTrackLabelTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.49"
       }
     }
   },
@@ -2598,8 +2593,8 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.56"
       },
       "Content": {
-        "ObjectName": "DBDTextBlock WBP_CoreArchiveRiftPanel_C:WidgetTree.PurchaseDescriptionTB_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.50"
+        "ObjectName": "DBDTextBlock WBP_CoreArchiveRiftPanel_C:WidgetTree.CurrentProgressInfoTB",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.45"
       }
     }
   },
@@ -2618,7 +2613,7 @@
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreArchiveRiftPanel_C:WidgetTree.PurchaseDescriptionTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.50"
       }
     }
   },
@@ -3100,7 +3095,7 @@
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreArchiveRiftPanel_C:WidgetTree.PaginationTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.47"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.48"
       }
     }
   },
@@ -6592,7 +6587,7 @@
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CoreArchiveRiftPanel_C:WidgetTree.DebugNextTierTooltip",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.45"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Archives/Rift/WBP_CoreArchiveRiftPanel.46"
       }
     }
   },

@@ -35,6 +35,28 @@
       },
       {
         "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 1125899906842624,
+        "InterfaceClass": {
+          "ObjectName": "Class ConditionReceiver",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class EventDrivenModifierCondition",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
         "Name": "CallFunc_Not_conditionReceiver_CastInput",
         "Flags": 1,
         "ElementSize": 16,
@@ -56,25 +78,13 @@
         }
       },
       {
-        "Type": "InterfaceProperty",
-        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
-        "Flags": 1,
-        "ElementSize": 16,
-        "PropertyFlags": 1125899906842624,
-        "InterfaceClass": {
-          "ObjectName": "Class ConditionReceiver",
-          "ObjectPath": "/Script/Competence"
-        }
-      },
-      {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
-        "PropertyFlags": 524288,
         "PropertyClass": {
-          "ObjectName": "Class EventDrivenModifierCondition",
-          "ObjectPath": "/Script/Competence"
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
@@ -98,6 +108,17 @@
           "ObjectName": "Class EventDrivenModifierCondition",
           "ObjectPath": "/Script/Competence"
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffect_DEPRECATED_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       }
     ],
     "FunctionFlags": 32769
@@ -113,6 +134,16 @@
     "FunctionFlags": 134744068
   },
   {
+    "Type": "Function",
+    "Name": "OnInitialized",
+    "Outer": "SelfSufficient_C",
+    "SuperStruct": {
+      "ObjectName": "Function GameplayModifierContainer:OnInitialized",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "FunctionFlags": 134350848
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "SelfSufficient_C",
     "Properties": {
@@ -126,6 +157,10 @@
       "ObjectPath": "/Script/DeadByDaylight"
     },
     "Children": [
+      {
+        "ObjectName": "Function SelfSufficient_C:OnInitialized",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfSufficient.2"
+      },
       {
         "ObjectName": "Function SelfSufficient_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfSufficient.1"
@@ -156,6 +191,10 @@
       "Authority_OnInstantiateModifierConditions": {
         "ObjectName": "Function SelfSufficient_C:Authority_OnInstantiateModifierConditions",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfSufficient.1"
+      },
+      "OnInitialized": {
+        "ObjectName": "Function SelfSufficient_C:OnInitialized",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfSufficient.2"
       }
     },
     "ClassFlags": 10749972,
@@ -167,7 +206,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "SelfSufficient_C Default__SelfSufficient_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfSufficient.3"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfSufficient.4"
     }
   },
   {
@@ -181,7 +220,7 @@
             "Type": {
               "TagName": "GameplayModifierType.ModifyRecoverSpeed"
             },
-            "ModifierValue": 0.8
+            "ModifierValue": 0.25
           }
         ]
       },
@@ -191,7 +230,7 @@
             "Type": {
               "TagName": "GameplayModifierType.ModifyRecoverSpeed"
             },
-            "ModifierValue": 0.9
+            "ModifierValue": 0.3
           }
         ]
       },
@@ -201,7 +240,7 @@
             "Type": {
               "TagName": "GameplayModifierType.ModifyRecoverSpeed"
             },
-            "ModifierValue": 1.0
+            "ModifierValue": 0.35
           }
         ]
       },
