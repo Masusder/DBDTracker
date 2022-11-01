@@ -18,7 +18,7 @@
         "ElementSize": 20,
         "SignatureFunction": {
           "ObjectName": "DelegateFunction EventEntrySkinUpdate__DelegateSignature",
-          "ObjectPath": "/Script/DBDUIViewsCore"
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
@@ -382,25 +382,6 @@
       },
       "bClassRequiresNativeTick": true,
       "Bindings": [
-        {
-          "ObjectName": "TitleText",
-          "PropertyName": "Text",
-          "FunctionName": "None",
-          "SourcePath": {
-            "Segments": [
-              {
-                "Name": "ViewData",
-                "ArrayIndex": -1
-              },
-              {
-                "Name": "Title",
-                "ArrayIndex": -1
-              }
-            ],
-            "CachedFunction": null
-          },
-          "Kind": "EBindingKind::Property"
-        },
         {
           "ObjectName": "EventDateText",
           "PropertyName": "Text",
@@ -944,7 +925,7 @@
       "Brush": {
         "ImageSize": {
           "X": 1024.0,
-          "Y": 64.0
+          "Y": 128.0
         }
       },
       "ColorAndOpacity": {
@@ -972,8 +953,8 @@
           "Y": 512.0
         },
         "ResourceObject": {
-          "ObjectName": "Texture2D T_UI_Icon_EventEntry_Halloween",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Icons/EventEntry/T_UI_Icon_EventEntry_Halloween.0"
+          "ObjectName": "Texture2D T_UI_EventEntry_Icon_Halloween",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Icons/EventEntry/T_UI_EventEntry_Icon_Halloween.0"
         }
       },
       "Slot": {
@@ -1019,6 +1000,50 @@
           "X": -1.0,
           "Y": 1.0
         }
+      }
+    }
+  },
+  {
+    "Type": "DBDRichTextBlock",
+    "Name": "TitleText",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "_hasUndocking": true,
+      "TextStyleSet": {
+        "ObjectName": "DataTable CoreRichTextStyle",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Data/RichTexts/CoreRichTextStyle.0"
+      },
+      "bOverrideDefaultStyle": true,
+      "DefaultTextStyleOverride": {
+        "Font": {
+          "FontObject": {
+            "ObjectName": "Font DBDCoreFont",
+            "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
+          },
+          "TypefaceFontName": "Bold",
+          "Size": 60
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFFFF"
+          }
+        },
+        "ShadowColorAndOpacity": {
+          "R": 0.0,
+          "G": 0.0,
+          "B": 0.0,
+          "A": 0.0,
+          "Hex": "000000"
+        }
+      },
+      "TextTransformPolicy": "ETextTransformPolicy::ToUpper",
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent.VerticalBoxSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.75"
       }
     }
   },
@@ -1180,33 +1205,6 @@
       },
       "Slot": {
         "ObjectName": "VerticalBoxSlot WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent.VerticalBoxSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.75"
-      },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "TitleText",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "915092E8457C5CBDAEB9DDB8272F9704",
-        "SourceString": "Event Title"
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "TypefaceFontName": "Black",
-        "Size": 60
-      },
-      "TextTransformPolicy": "ETextTransformPolicy::ToUpper",
-      "Slot": {
-        "ObjectName": "VerticalBoxSlot WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent.VerticalBoxSlot_0",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.74"
       },
       "bIsVariable": true,
@@ -1373,7 +1371,7 @@
       },
       "Content": {
         "ObjectName": "DBDScrollBox WBP_EventEntryPopupWidget_C:WidgetTree.ScrollBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.25"
       }
     }
   },
@@ -2311,7 +2309,7 @@
     "Properties": {
       "Parent": {
         "ObjectName": "DBDScrollBox WBP_EventEntryPopupWidget_C:WidgetTree.ScrollBox",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.25"
       },
       "Content": {
         "ObjectName": "DBDRichTextBlock WBP_EventEntryPopupWidget_C:WidgetTree.MessageText",
@@ -2326,12 +2324,12 @@
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "VerticalBoxSlot WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent.VerticalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.74"
+          "ObjectName": "VerticalBoxSlot WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent.VerticalBoxSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.75"
         },
         {
           "ObjectName": "VerticalBoxSlot WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent.VerticalBoxSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.75"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.74"
         }
       ],
       "Slot": {
@@ -2367,21 +2365,6 @@
   },
   {
     "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_0",
-    "Outer": "TitleContent",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "VerticalBox WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.72"
-      },
-      "Content": {
-        "ObjectName": "DBDTextBlock WBP_EventEntryPopupWidget_C:WidgetTree.TitleText",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.26"
-      }
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
     "Name": "VerticalBoxSlot_1",
     "Outer": "TitleContent",
     "Properties": {
@@ -2394,7 +2377,22 @@
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_EventEntryPopupWidget_C:WidgetTree.EventDateText",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.26"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Outer": "TitleContent",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox WBP_EventEntryPopupWidget_C:WidgetTree.TitleContent",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.72"
+      },
+      "Content": {
+        "ObjectName": "DBDRichTextBlock WBP_EventEntryPopupWidget_C:WidgetTree.TitleText",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Popups/WBP_EventEntryPopupWidget.24"
       }
     }
   },

@@ -13,7 +13,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player_1",
+        "Name": "K2Node_Event_slasher",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -35,12 +35,12 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPhantomTrap_PhantomTrap",
+        "Name": "K2Node_Event_player",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
@@ -66,22 +66,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetTunableValue_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "BoolProperty",
         "Name": "CallFunc_IsLocallyObserved_ReturnValue",
         "Flags": 1,
@@ -94,12 +78,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetTunableValue_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "BoolProperty",
         "Name": "CallFunc_Not_PreBool_ReturnValue",
         "Flags": 1,
@@ -110,6 +88,12 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetTunableValue_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       },
       {
         "Type": "ObjectProperty",
@@ -135,30 +119,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetStatusEffect_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsValid_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPhantomTrap_PhantomTrap_1",
+        "Name": "CallFunc_GetBPPhantomTrap_PhantomTrap",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -167,8 +128,54 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetBPPhantomTrap_PhantomTrap_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_slasher_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class SlasherPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_trap",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class PhantomTrap",
+          "ObjectPath": "/Script/TheHag"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetTunableValue_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Slasher_Character_05_2",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass BP_Slasher_Character_05_C",
+          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_05.24"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Name": "K2Node_DynamicCast_bSuccess_2",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -201,9 +208,89 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetBPPhantomTrap_PhantomTrap_2",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
+        }
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_OnInteractionFinished",
+    "Outer": "TeleportToPhantomTrap_C",
+    "SuperStruct": {
+      "ObjectName": "Function TeleportToPhantomTrap:Cosmetic_OnInteractionFinished",
+      "ObjectPath": "/Script/TheHag"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "slasher",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "hasInteractionStarted",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 134744072
+  },
+  {
+    "Type": "Function",
+    "Name": "Cosmetic_OnTeleport",
+    "Outer": "TeleportToPhantomTrap_C",
+    "SuperStruct": {
+      "ObjectName": "Function TeleportToPhantomTrap:Cosmetic_OnTeleport",
+      "ObjectPath": "/Script/TheHag"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "slasher",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class SlasherPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "trap",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class PhantomTrap",
+          "ObjectPath": "/Script/TheHag"
+        }
+      }
+    ],
+    "FunctionFlags": 134744072
   },
   {
     "Type": "Function",
@@ -227,93 +314,6 @@
       }
     ],
     "FunctionFlags": 134744064
-  },
-  {
-    "Type": "Function",
-    "Name": "OnInteractionFinished",
-    "Outer": "TeleportToPhantomTrap_C",
-    "SuperStruct": {
-      "ObjectName": "Function InteractionDefinition:OnInteractionFinished",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "hasInteractionStarted",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 134744064
-  },
-  {
-    "Type": "Function",
-    "Name": "GetPhantomTrap",
-    "Outer": "TeleportToPhantomTrap_C",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "PhantomTrap",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 384,
-        "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwner_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class Actor",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsBP_Phantom_Trap",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 1547829248
   },
   {
     "Type": "Function",
@@ -383,142 +383,6 @@
   },
   {
     "Type": "Function",
-    "Name": "SetSlasherTransform",
-    "Outer": "TeleportToPhantomTrap_C",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "Slasher",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "CallFunc_GetSnapPointPositionAtStart_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 12,
-        "Struct": {
-          "ObjectName": "ScriptStruct Vector",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "CallFunc_GetRotationToSnapPoint_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 12,
-        "Struct": {
-          "ObjectName": "ScriptStruct Rotator",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      }
-    ],
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "Function",
-    "Name": "SetSlasherInvisible",
-    "Outer": "TeleportToPhantomTrap_C",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "Slasher",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsSlasher_Player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class SlasherPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsLocallyObserved_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "Function",
-    "Name": "GetTeleportMaxDistance",
-    "Outer": "TeleportToPhantomTrap_C",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "Slasher",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass BP_Slasher_Character_C",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character.182"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "Distance",
-        "Flags": 1,
-        "ElementSize": 4,
-        "PropertyFlags": 384
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetTunableValue_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetMultiplicativeModifierValue_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      }
-    ],
-    "FunctionFlags": 1547829248
-  },
-  {
-    "Type": "Function",
     "Name": "IsInteractionDone",
     "Outer": "TeleportToPhantomTrap_C",
     "SuperStruct": {
@@ -570,7 +434,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPhantomTrap_PhantomTrap",
+        "Name": "CallFunc_GetBPPhantomTrap_PhantomTrap",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -589,96 +453,15 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_BoolToString_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
       }
     ],
     "FunctionFlags": 1279395840
-  },
-  {
-    "Type": "Function",
-    "Name": "DoTeleport",
-    "Outer": "TeleportToPhantomTrap_C",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "Slasher",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 148,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPhantomTrap_PhantomTrap",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetTunableValue_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetDistanceTo_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsLocallyObserved_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Not_PreBool_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsBP_Slasher_Character_05",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass BP_Slasher_Character_05_C",
-          "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Blueprints/BP_Slasher_Character_05.24"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 201588736
   },
   {
     "Type": "Function",
@@ -724,7 +507,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPhantomTrap_PhantomTrap",
+        "Name": "CallFunc_GetBPPhantomTrap_PhantomTrap",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -745,6 +528,18 @@
       {
         "Type": "BoolProperty",
         "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDone_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -816,7 +611,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_IsDone_ReturnValue",
+        "Name": "CallFunc_Not_PreBool_ReturnValue_3",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -828,9 +623,21 @@
       },
       {
         "Type": "FloatProperty",
-        "Name": "CallFunc_GetTeleportMaxDistance_Distance",
+        "Name": "CallFunc_GetTeleportMaxDistance_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDone_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "BoolProperty",
@@ -865,30 +672,6 @@
       {
         "Type": "BoolProperty",
         "Name": "CallFunc_Less_FloatFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsDone_ReturnValue_1",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Not_PreBool_ReturnValue_3",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -1006,7 +789,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPhantomTrap_PhantomTrap",
+        "Name": "CallFunc_GetBPPhantomTrap_PhantomTrap",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
@@ -1028,6 +811,57 @@
     "FunctionFlags": 1547831296
   },
   {
+    "Type": "Function",
+    "Name": "GetBPPhantomTrap",
+    "Outer": "TeleportToPhantomTrap_C",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "PhantomTrap",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 384,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class Actor",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Phantom_Trap",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass BP_PhantomTrap_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/BP_PhantomTrap.55"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 1547829248
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "TeleportToPhantomTrap_C",
     "Properties": {
@@ -1037,36 +871,24 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "Class InteractionDefinition",
-      "ObjectPath": "/Script/DeadByDaylight"
+      "ObjectName": "Class TeleportToPhantomTrap",
+      "ObjectPath": "/Script/TheHag"
     },
     "Children": [
       {
-        "ObjectName": "Function TeleportToPhantomTrap_C:GetRotationToSnapPoint",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.11"
-      },
-      {
-        "ObjectName": "Function TeleportToPhantomTrap_C:IsTeleportPossible",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.10"
-      },
-      {
-        "ObjectName": "Function TeleportToPhantomTrap_C:DoTeleport",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.9"
-      },
-      {
-        "ObjectName": "Function TeleportToPhantomTrap_C:IsInteractionDone",
+        "ObjectName": "Function TeleportToPhantomTrap_C:GetBPPhantomTrap",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.8"
       },
       {
-        "ObjectName": "Function TeleportToPhantomTrap_C:GetTeleportMaxDistance",
+        "ObjectName": "Function TeleportToPhantomTrap_C:GetRotationToSnapPoint",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.7"
       },
       {
-        "ObjectName": "Function TeleportToPhantomTrap_C:SetSlasherInvisible",
+        "ObjectName": "Function TeleportToPhantomTrap_C:IsTeleportPossible",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.6"
       },
       {
-        "ObjectName": "Function TeleportToPhantomTrap_C:SetSlasherTransform",
+        "ObjectName": "Function TeleportToPhantomTrap_C:IsInteractionDone",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.5"
       },
       {
@@ -1074,15 +896,15 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.4"
       },
       {
-        "ObjectName": "Function TeleportToPhantomTrap_C:GetPhantomTrap",
+        "ObjectName": "Function TeleportToPhantomTrap_C:OnInteractionUpdateStart",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.3"
       },
       {
-        "ObjectName": "Function TeleportToPhantomTrap_C:OnInteractionFinished",
+        "ObjectName": "Function TeleportToPhantomTrap_C:Cosmetic_OnTeleport",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.2"
       },
       {
-        "ObjectName": "Function TeleportToPhantomTrap_C:OnInteractionUpdateStart",
+        "ObjectName": "Function TeleportToPhantomTrap_C:Cosmetic_OnInteractionFinished",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.1"
       },
       {
@@ -1101,19 +923,6 @@
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "TeleportRequested",
-        "Flags": 2097153,
-        "ElementSize": 1,
-        "PropertyFlags": 65541,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       }
     ],
     "FuncMap": {
@@ -1121,49 +930,37 @@
         "ObjectName": "Function TeleportToPhantomTrap_C:ExecuteUbergraph_TeleportToPhantomTrap",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.0"
       },
-      "OnInteractionUpdateStart": {
-        "ObjectName": "Function TeleportToPhantomTrap_C:OnInteractionUpdateStart",
+      "Cosmetic_OnInteractionFinished": {
+        "ObjectName": "Function TeleportToPhantomTrap_C:Cosmetic_OnInteractionFinished",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.1"
       },
-      "OnInteractionFinished": {
-        "ObjectName": "Function TeleportToPhantomTrap_C:OnInteractionFinished",
+      "Cosmetic_OnTeleport": {
+        "ObjectName": "Function TeleportToPhantomTrap_C:Cosmetic_OnTeleport",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.2"
       },
-      "GetPhantomTrap": {
-        "ObjectName": "Function TeleportToPhantomTrap_C:GetPhantomTrap",
+      "OnInteractionUpdateStart": {
+        "ObjectName": "Function TeleportToPhantomTrap_C:OnInteractionUpdateStart",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.3"
       },
       "IsInteractionPossibleBP": {
         "ObjectName": "Function TeleportToPhantomTrap_C:IsInteractionPossibleBP",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.4"
       },
-      "SetSlasherTransform": {
-        "ObjectName": "Function TeleportToPhantomTrap_C:SetSlasherTransform",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.5"
-      },
-      "SetSlasherInvisible": {
-        "ObjectName": "Function TeleportToPhantomTrap_C:SetSlasherInvisible",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.6"
-      },
-      "GetTeleportMaxDistance": {
-        "ObjectName": "Function TeleportToPhantomTrap_C:GetTeleportMaxDistance",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.7"
-      },
       "IsInteractionDone": {
         "ObjectName": "Function TeleportToPhantomTrap_C:IsInteractionDone",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.8"
-      },
-      "DoTeleport": {
-        "ObjectName": "Function TeleportToPhantomTrap_C:DoTeleport",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.5"
       },
       "IsTeleportPossible": {
         "ObjectName": "Function TeleportToPhantomTrap_C:IsTeleportPossible",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.6"
       },
       "GetRotationToSnapPoint": {
         "ObjectName": "Function TeleportToPhantomTrap_C:GetRotationToSnapPoint",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.7"
+      },
+      "GetBPPhantomTrap": {
+        "ObjectName": "Function TeleportToPhantomTrap_C:GetBPPhantomTrap",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.8"
       }
     },
     "ClassFlags": 10754068,
@@ -1175,7 +972,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "TeleportToPhantomTrap_C Default__TeleportToPhantomTrap_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.13"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.10"
     }
   },
   {
@@ -1183,6 +980,24 @@
     "Name": "Default__TeleportToPhantomTrap_C",
     "Properties": {
       "UberGraphFrame": {},
+      "_teleportMaxDistance": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable WitchTunableDB",
+            "ObjectPath": "DeadByDaylight/Content/Data/WitchTunableDB.0"
+          },
+          "RowName": "TeleportMaxDistance"
+        }
+      },
+      "_slowdownTimeAfterTeleport": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable WitchTunableDB",
+            "ObjectPath": "DeadByDaylight/Content/Data/WitchTunableDB.0"
+          },
+          "RowName": "SlowdownTimeAfterTeleport"
+        }
+      },
       "InteractionID": "Teleport",
       "SlasherCanInteract": true,
       "TestClearPathDuringSnap": false,

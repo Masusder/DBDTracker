@@ -187,8 +187,8 @@
         }
       ],
       "TargetSkeleton": {
-        "ObjectName": "Skeleton SK_Plank_01_REF_Skeleton",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/PullDown/Models/SK_Plank_01_REF_Skeleton.0"
+        "ObjectName": "Skeleton SK_Pallet_01_REF_Skeleton",
+        "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/Pallet/Mesh/SK_Pallet_01_REF_Skeleton.0"
       },
       "OrderedSavedPoseIndicesMap": {
         "AnimGraph": {
@@ -217,7 +217,12 @@
         },
         {
           "BoundFunction": "None",
-          "CopyRecords": [],
+          "CopyRecords": [
+            {
+              "CopyIndex": 1,
+              "PostCopyOperation": "EPostCopyOperation::LogicalNegateBool"
+            }
+          ],
           "Function": null,
           "ValueHandlerNodeProperty": {
             "Path": [
@@ -231,7 +236,12 @@
         },
         {
           "BoundFunction": "None",
-          "CopyRecords": [],
+          "CopyRecords": [
+            {
+              "CopyIndex": 2,
+              "PostCopyOperation": "EPostCopyOperation::None"
+            }
+          ],
           "Function": null,
           "ValueHandlerNodeProperty": {
             "Path": [
@@ -296,6 +306,108 @@
             "Function": null,
             "ArrayIndex": -1,
             "Flags": 2
+          },
+          {
+            "Name": "_isPulledDown",
+            "Struct": null,
+            "Property": {
+              "Path": [
+                "_isPulledDown"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class PalletAnimInstance",
+                "ObjectPath": "/Script/DBDAnimation"
+              }
+            },
+            "Function": null,
+            "ArrayIndex": -1,
+            "Flags": 2
+          },
+          {
+            "Name": "AnimGraphNode_TransitionResult_1",
+            "Struct": {
+              "ObjectName": "ScriptStruct AnimNode_TransitionResult",
+              "ObjectPath": "/Script/Engine"
+            },
+            "Property": {
+              "Path": [
+                "AnimGraphNode_TransitionResult_1"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "AnimBlueprintGeneratedClass Dream_PullDownsAnimBP_C",
+                "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/Dream_PullDownsAnimBP.6"
+              }
+            },
+            "Function": null,
+            "ArrayIndex": -1,
+            "Flags": 1
+          },
+          {
+            "Name": "bCanEnterTransition",
+            "Struct": null,
+            "Property": {
+              "Path": [
+                "bCanEnterTransition"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "ScriptStruct AnimNode_TransitionResult",
+                "ObjectPath": "/Script/Engine"
+              }
+            },
+            "Function": null,
+            "ArrayIndex": -1,
+            "Flags": 2
+          },
+          {
+            "Name": "_isPulledDown",
+            "Struct": null,
+            "Property": {
+              "Path": [
+                "_isPulledDown"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class PalletAnimInstance",
+                "ObjectPath": "/Script/DBDAnimation"
+              }
+            },
+            "Function": null,
+            "ArrayIndex": -1,
+            "Flags": 2
+          },
+          {
+            "Name": "AnimGraphNode_TransitionResult_2",
+            "Struct": {
+              "ObjectName": "ScriptStruct AnimNode_TransitionResult",
+              "ObjectPath": "/Script/Engine"
+            },
+            "Property": {
+              "Path": [
+                "AnimGraphNode_TransitionResult_2"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "AnimBlueprintGeneratedClass Dream_PullDownsAnimBP_C",
+                "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Bookshelf/Dream_PullDownsAnimBP.6"
+              }
+            },
+            "Function": null,
+            "ArrayIndex": -1,
+            "Flags": 1
+          },
+          {
+            "Name": "bCanEnterTransition",
+            "Struct": null,
+            "Property": {
+              "Path": [
+                "bCanEnterTransition"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "ScriptStruct AnimNode_TransitionResult",
+                "ObjectPath": "/Script/Engine"
+              }
+            },
+            "Function": null,
+            "ArrayIndex": -1,
+            "Flags": 2
           }
         ],
         "SrcPaths": [
@@ -303,11 +415,31 @@
             "PathSegmentStartIndex": 0,
             "PathSegmentCount": 1,
             "bHasEvents": false
+          },
+          {
+            "PathSegmentStartIndex": 3,
+            "PathSegmentCount": 1,
+            "bHasEvents": false
+          },
+          {
+            "PathSegmentStartIndex": 6,
+            "PathSegmentCount": 1,
+            "bHasEvents": false
           }
         ],
         "DestPaths": [
           {
             "PathSegmentStartIndex": 1,
+            "PathSegmentCount": 2,
+            "bHasEvents": false
+          },
+          {
+            "PathSegmentStartIndex": 4,
+            "PathSegmentCount": 2,
+            "bHasEvents": false
+          },
+          {
+            "PathSegmentStartIndex": 7,
             "PathSegmentCount": 2,
             "bHasEvents": false
           }
@@ -318,6 +450,18 @@
               "AccessIndex": 0,
               "DestAccessStartIndex": 0,
               "DestAccessEndIndex": 1,
+              "Type": "EPropertyAccessCopyType::Bool"
+            },
+            {
+              "AccessIndex": 1,
+              "DestAccessStartIndex": 1,
+              "DestAccessEndIndex": 2,
+              "Type": "EPropertyAccessCopyType::Bool"
+            },
+            {
+              "AccessIndex": 2,
+              "DestAccessStartIndex": 2,
+              "DestAccessEndIndex": 3,
               "Type": "EPropertyAccessCopyType::Bool"
             }
           ]
@@ -567,7 +711,7 @@
       "AnimGraphNode_SequencePlayer_2": {
         "Sequence": {
           "ObjectName": "AnimSequence DreamPallet_Drop",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/PullDown/Animations/DreamPallet_Drop.1"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/Pallet/Animations/DreamPallet_Drop.1"
         },
         "PlayRateBasis": 1.0,
         "PlayRate": 1.0,
@@ -609,7 +753,7 @@
       "AnimGraphNode_SequencePlayer_1": {
         "Sequence": {
           "ObjectName": "AnimSequence Plank01_StandIdle",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/PullDown/Animations/Plank01_StandIdle.0"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/Pallet/Animations/Plank01_StandIdle.0"
         },
         "PlayRateBasis": 1.0,
         "PlayRate": 1.0,
@@ -651,7 +795,7 @@
       "AnimGraphNode_SequencePlayer": {
         "Sequence": {
           "ObjectName": "AnimSequence Plank01_FallOnGround",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/PullDown/Animations/Plank01_FallOnGround.1"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/Pallet/Animations/Plank01_FallOnGround.1"
         },
         "PlayRateBasis": 1.0,
         "PlayRate": 1.0,
@@ -701,7 +845,7 @@
           {
             "Sequence": {
               "ObjectName": "AnimSequence Plank01_DestroyBookShelf",
-              "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/PullDown/Animations/Plank01_DestroyBookShelf.0"
+              "ObjectPath": "DeadByDaylight/Content/Meshes/InteractableObjects/Pallet/Animations/Plank01_DestroyBookShelf.0"
             },
             "Tags": []
           }

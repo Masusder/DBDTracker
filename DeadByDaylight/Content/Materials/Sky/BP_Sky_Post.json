@@ -681,6 +681,12 @@
     "Outer": "BP_Sky_Post_C",
     "ChildProperties": [
       {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Conv_BoolToFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_Less_FloatFloat_ReturnValue",
         "Flags": 1,
@@ -922,6 +928,12 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Conv_BoolToFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_ShouldUseAtlantaLighting_ReturnValue",
         "Flags": 1,
@@ -972,6 +984,18 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ClassProperty",
         "Name": "CallFunc_GetObjectClass_ReturnValue",
         "Flags": 1,
@@ -984,18 +1008,6 @@
           "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
           "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_BooleanAND_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "ClassProperty",
@@ -1360,7 +1372,7 @@
   },
   {
     "Type": "Function",
-    "Name": "Create Dynamic Material Instances",
+    "Name": "CreateDynamicMaterialInstances",
     "Outer": "BP_Sky_Post_C",
     "ChildProperties": [
       {
@@ -1548,7 +1560,7 @@
         "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.15"
       },
       {
-        "ObjectName": "Function BP_Sky_Post_C:Create Dynamic Material Instances",
+        "ObjectName": "Function BP_Sky_Post_C:CreateDynamicMaterialInstances",
         "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.14"
       },
       {
@@ -2067,6 +2079,13 @@
       },
       {
         "Type": "FloatProperty",
+        "Name": "HDR Power",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "FloatProperty",
         "Name": "HDR intensity",
         "Flags": 2097153,
         "ElementSize": 4,
@@ -2116,6 +2135,30 @@
           "ObjectName": "Class Texture2D",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Flowmap Mask",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 5,
+        "PropertyClass": {
+          "ObjectName": "Class Texture2D",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "TextureIsHDR",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "StructProperty",
@@ -2254,8 +2297,8 @@
         "ObjectName": "Function BP_Sky_Post_C:UpdateMaterials",
         "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.13"
       },
-      "Create Dynamic Material Instances": {
-        "ObjectName": "Function BP_Sky_Post_C:Create Dynamic Material Instances",
+      "CreateDynamicMaterialInstances": {
+        "ObjectName": "Function BP_Sky_Post_C:CreateDynamicMaterialInstances",
         "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.14"
       },
       "GetBasementPost": {
@@ -2378,12 +2421,17 @@
       "Sky saturation": 1.0,
       "Sky contrast": 1.0,
       "HDR tint": 1.0,
+      "HDR Power": 1.0,
       "HDR intensity": 1.0,
       "Sun/Moon radius": 0.1,
       "Moon contrast": 0.5,
       "Sky texture": {
         "ObjectName": "Texture2D Sunset_Clouds_TX",
         "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Sunset_Clouds_TX.0"
+      },
+      "Flowmap Mask": {
+        "ObjectName": "Texture2D White_Linear",
+        "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Tiles/White_Linear.0"
       },
       "Horizon Tint": {
         "B": 255,
