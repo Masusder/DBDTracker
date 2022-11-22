@@ -13,6 +13,27 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "K2Node_Event_collector",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "CallFunc_GetOwner_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
@@ -48,9 +69,44 @@
         "Name": "CallFunc_GetTunableValue_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnCollectorSet",
+    "Outer": "PhaseWalker_C",
+    "SuperStruct": {
+      "ObjectName": "Function Collectable:OnCollectorSet",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "collector",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -80,11 +136,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript PhaseWalker_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.20"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler PhaseWalker_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.10"
       },
       "UberGraphFunction": {
         "ObjectName": "Function PhaseWalker_C:ExecuteUbergraph_PhaseWalker",
@@ -98,10 +154,14 @@
     "Children": [
       {
         "ObjectName": "Function PhaseWalker_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.3"
       },
       {
         "ObjectName": "Function PhaseWalker_C:OnUse",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.2"
+      },
+      {
+        "ObjectName": "Function PhaseWalker_C:OnCollectorSet",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.1"
       },
       {
@@ -149,13 +209,17 @@
         "ObjectName": "Function PhaseWalker_C:ExecuteUbergraph_PhaseWalker",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.0"
       },
+      "OnCollectorSet": {
+        "ObjectName": "Function PhaseWalker_C:OnCollectorSet",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.1"
+      },
       "OnUse": {
         "ObjectName": "Function PhaseWalker_C:OnUse",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.2"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function PhaseWalker_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.3"
       }
     },
     "ClassFlags": 8652820,
@@ -167,7 +231,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "PhaseWalker_C Default__PhaseWalker_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.4"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.5"
     }
   },
   {
@@ -179,49 +243,49 @@
       "ItemID": "Item_Slasher_PhaseWalker",
       "BaseItemModifier": {
         "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.12"
       },
       "ItemModifier1": {
         "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.13"
       },
       "ItemModifier2": {
         "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier2",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.14"
       },
       "_mesh": {
         "ObjectName": "SkeletalMeshComponent Default__PhaseWalker_C:ItemMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.21"
       },
       "_objectState": {
         "ObjectName": "GameplayTagContainerComponent Default__PhaseWalker_C:ObjectState",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.9"
       },
       "_placementOrigin": {
         "ObjectName": "SceneComponent Default__PhaseWalker_C:PlacementOrigin",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.15"
       },
       "_itemModifiers": [
         {
           "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.11"
-        },
-        {
-          "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.12"
         },
         {
-          "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier2",
+          "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.13"
+        },
+        {
+          "ObjectName": "ItemModifier Default__PhaseWalker_C:ItemModifier2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.14"
         }
       ],
       "_transformOptimizer": {
         "ObjectName": "InteractableTransformOptimizer Default__PhaseWalker_C:InteractableOptimizer",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.11"
       },
       "RootComponent": {
         "ObjectName": "SkeletalMeshComponent Default__PhaseWalker_C:ItemMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.21"
       }
     }
   },
@@ -301,7 +365,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SkeletalMeshComponent Default__PhaseWalker_C:ItemMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.21"
       }
     }
   },
@@ -321,7 +385,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent PhaseWalker_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.16"
       },
       "VariableGuid": "2B9FF072-488AC033-AD9776A2-60B54983",
       "InternalVariableName": "DefaultSceneRoot"
@@ -338,7 +402,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ActivePhaseWalk_C PhaseWalker_C:ActivePhaseWalk_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.7"
       },
       "ParentComponentOrVariableName": "Item Interactor",
       "ParentComponentOwnerClassName": "BaseSlasherItem_C",
@@ -357,7 +421,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChargeableComponent PhaseWalker_C:ActivePhaseWalkChargeable_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.8"
       },
       "VariableGuid": "DB54F008-47BAECD8-2BF8A8AC-87B98B23",
       "InternalVariableName": "ActivePhaseWalkChargeable"
@@ -371,26 +435,26 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node PhaseWalker_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.17"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.18"
         },
         {
           "ObjectName": "SCS_Node PhaseWalker_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.18"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.19"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node PhaseWalker_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.17"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.18"
         },
         {
           "ObjectName": "SCS_Node PhaseWalker_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.18"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.19"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node PhaseWalker_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Teleporter/PhaseWalker.17"
       }
     }
   },

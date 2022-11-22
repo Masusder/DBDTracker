@@ -3,6 +3,18 @@
     "Type": "Material",
     "Name": "M_K30_BurningBanner",
     "Properties": {
+      "Specular": {
+        "OutputIndex": 1,
+        "InputName": "None",
+        "Mask": 0,
+        "MaskR": 0,
+        "MaskG": 0,
+        "MaskB": 0,
+        "MaskA": 0,
+        "ExpressionName": "None",
+        "UseConstant": false,
+        "Constant": 0.5
+      },
       "Normal": {
         "OutputIndex": 0,
         "InputName": "None",
@@ -27,7 +39,7 @@
         "MaskG": 0,
         "MaskB": 0,
         "MaskA": 0,
-        "ExpressionName": "MaterialExpressionMultiply_11",
+        "ExpressionName": "MaterialExpressionLinearInterpolate_5",
         "UseConstant": false,
         "Constant": {
           "B": 0,
@@ -56,7 +68,8 @@
         }
       },
       "TwoSided": true,
-      "StateId": "B49BAB1B-4011700B-703094BE-C82AA5AC",
+      "bCanMaskedBeAssumedOpaque": true,
+      "StateId": "A0F5A25A-4CB64377-6F9D49B0-3FC9285C",
       "CachedExpressionData": {
         "Parameters": {
           "RuntimeEntries": {
@@ -70,12 +83,17 @@
               2784211278577409189,
               3749153622600286679,
               3933003101393589125,
+              5507187010751114741,
               6544240446404994828,
               7525828379349132438,
               7535710365883997125,
+              10978408753078265287,
               11105585354952475438,
               12358141153524501401,
+              13824981243340048431,
               14012026373451383837,
+              14578062941603554108,
+              16350614526060236619,
               16554195688154948942
             ],
             "ParameterInfos": [
@@ -125,6 +143,11 @@
                 "Index": -1
               },
               {
+                "Name": "Full Dissolve Length",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "FlowmapTiling",
                 "Association": "GlobalParameter",
                 "Index": -1
@@ -140,6 +163,11 @@
                 "Index": -1
               },
               {
+                "Name": "Full Dissolve Emissive",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "Dissolve_Tiling_Y",
                 "Association": "GlobalParameter",
                 "Index": -1
@@ -150,7 +178,22 @@
                 "Index": -1
               },
               {
+                "Name": "Full Dissolve Noise Contrast",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
                 "Name": "WPOIntensity_UnburnedSection",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "Full Dissolve Control",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "Dissolve Switch",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -170,13 +213,40 @@
               "97A19B74-4DA02AC1-6E659D91-1225E628",
               "24379B95-4638CC82-93B53EB2-7F87A114",
               "A98B6C3C-43497DB4-AD04B28F-E49946F7",
+              "C8F08911-4C24AF4B-E9F3D692-57142F4A",
               "A25FD1DA-49B8A0B1-D5CD709F-BDDDD72A",
               "0D8F54AE-4BE7E9A9-F8C477B2-61B71482",
               "DF62FA68-4749CBAD-0E29148B-638C5885",
+              "F71835AB-4B8E388C-854D2BBE-19A9F21B",
               "AA15A1C8-4679362A-47A2D8B3-C39B040B",
               "8F13174F-49E42A07-70159AA7-ED7C6701",
+              "520BF23F-4206C8D0-586BE196-04C004DD",
               "5417ABA0-4943B365-CFA9549B-EEDA8A3C",
+              "291321F6-40817CCF-43C17DAD-B602B742",
+              "1AF5A710-470C660A-F06F54AB-D89D0452",
               "BD9B8D8F-4F5FBAB7-A9562185-64585111"
+            ]
+          },
+          "RuntimeEntries": {
+            "NameHashes": [
+              8435675184869225789,
+              10502815732482249452
+            ],
+            "ParameterInfos": [
+              {
+                "Name": "Full Dissolve Color",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "Dissolve Noise Speed X Y",
+                "Association": "GlobalParameter",
+                "Index": -1
+              }
+            ],
+            "ExpressionGuids": [
+              "C057A545-4467436A-BC41A8A7-E9EF0D72",
+              "0BE32849-4D0DA47F-D07639B3-8F0DC95B"
             ]
           },
           "RuntimeEntries": {
@@ -224,14 +294,35 @@
             0.0,
             -0.75,
             0.35,
-            0.192381,
+            0.0,
+            0.11,
             0.5,
             0.0,
             1.0,
+            11.0,
             1.0,
             10.0,
+            0.5,
             60.0,
+            0.0,
+            0.0,
             0.25
+          ],
+          "VectorValues": [
+            {
+              "R": 0.0,
+              "G": 0.572917,
+              "B": 0.275491,
+              "A": 1.0,
+              "Hex": "FF00C88F"
+            },
+            {
+              "R": 0.0,
+              "G": 0.0,
+              "B": 0.0,
+              "A": 1.0,
+              "Hex": "FF000000"
+            }
           ],
           "TextureValues": [
             {
@@ -280,6 +371,50 @@
           {
             "ObjectName": "Texture2D T_K30SWBanner01_M",
             "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/K30/Weapons/textures/K30_SWBanner01/T_K30SWBanner01_M.0"
+          }
+        ],
+        "FunctionInfos": [
+          {
+            "StateId": "B7C71B91-4E2BB667-772D6CBE-2AB55665",
+            "Function": {
+              "ObjectName": "MaterialFunction LinearGradient",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.0"
+            }
+          },
+          {
+            "StateId": "1F3C7ECC-4653CAFB-2A6AEE82-B1F2F3A5",
+            "Function": {
+              "ObjectName": "MaterialFunction CheapContrast",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/ImageAdjustment/CheapContrast.0"
+            }
+          },
+          {
+            "StateId": "B7C71B91-4E2BB667-772D6CBE-2AB55665",
+            "Function": {
+              "ObjectName": "MaterialFunction LinearGradient",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.0"
+            }
+          },
+          {
+            "StateId": "1F3C7ECC-4653CAFB-2A6AEE82-B1F2F3A5",
+            "Function": {
+              "ObjectName": "MaterialFunction CheapContrast",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/ImageAdjustment/CheapContrast.0"
+            }
+          },
+          {
+            "StateId": "B7C71B91-4E2BB667-772D6CBE-2AB55665",
+            "Function": {
+              "ObjectName": "MaterialFunction LinearGradient",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.0"
+            }
+          },
+          {
+            "StateId": "1F3C7ECC-4653CAFB-2A6AEE82-B1F2F3A5",
+            "Function": {
+              "ObjectName": "MaterialFunction CheapContrast",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/ImageAdjustment/CheapContrast.0"
+            }
           }
         ],
         "QualityLevelsUsed": [

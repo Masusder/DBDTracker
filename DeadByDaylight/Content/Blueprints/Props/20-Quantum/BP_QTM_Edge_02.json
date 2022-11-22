@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_QTM_Edge_02_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.14"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,17 @@
       "ObjectPath": "/Script/Engine"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "EdgeObjectCollider",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class StaticMeshComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "BP_CollisionTool2",
@@ -195,6 +206,10 @@
         {
           "ObjectName": "SCS_Node BP_QTM_Edge_02_C:SimpleConstructionScript_0.SCS_Node_5",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.12"
+        },
+        {
+          "ObjectName": "SCS_Node BP_QTM_Edge_02_C:SimpleConstructionScript_0.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.13"
         }
       ],
       "VariableGuid": "8F07EE9D-432056C8-4DE225BE-796576F1",
@@ -212,7 +227,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_QTM_Edge_02_C:SM_QTM_HouseRubbles_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.18"
       },
       "VariableGuid": "F00A599F-47AF5FC1-2987AF84-0558C045",
       "InternalVariableName": "SM_QTM_HouseRubbles_03"
@@ -229,7 +244,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_QTM_Edge_02_C:SM_QTM_HouseRubbles_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.17"
       },
       "ChildNodes": [
         {
@@ -252,7 +267,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_QTM_Edge_02_C:SM_QTM_HouseRubbles_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.16"
       },
       "VariableGuid": "21BC08D3-4C194DFC-F792CEAE-A81AA312",
       "InternalVariableName": "SM_QTM_HouseRubbles_01"
@@ -293,6 +308,23 @@
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class StaticMeshComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent BP_QTM_Edge_02_C:EdgeObjectCollider_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.15"
+      },
+      "VariableGuid": "8E474C5D-4273A82D-FB5DAFAC-56917FD3",
+      "InternalVariableName": "EdgeObjectCollider"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
     "Outer": "BP_QTM_Edge_02_C",
@@ -327,12 +359,50 @@
         {
           "ObjectName": "SCS_Node BP_QTM_Edge_02_C:SimpleConstructionScript_0.SCS_Node_5",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.12"
+        },
+        {
+          "ObjectName": "SCS_Node BP_QTM_Edge_02_C:SimpleConstructionScript_0.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.13"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_QTM_Edge_02_C:SimpleConstructionScript_0.SCS_Node_0",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Edge_02.7"
       }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "EdgeObjectCollider_GEN_VARIABLE",
+    "Outer": "BP_QTM_Edge_02_C",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh Cube",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material BasicShapeMaterial",
+          "ObjectPath": "Engine/Content/BasicShapes/BasicShapeMaterial.0"
+        }
+      ],
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionProfileName": "BlockAll"
+      },
+      "RelativeLocation": {
+        "X": 7.07518,
+        "Y": -2.76334,
+        "Z": -84.771034
+      },
+      "RelativeScale3D": {
+        "X": 3.6196501,
+        "Y": 3.139547,
+        "Z": 1.759773
+      },
+      "bHiddenInGame": true,
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
