@@ -12,28 +12,8 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsCamper_Player",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class CamperPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
         "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -95,12 +75,6 @@
         "ElementSize": 4
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_GetPerkLevel_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "BoolProperty",
         "Name": "CallFunc_Less_IntInt_ReturnValue",
         "Flags": 1,
@@ -113,8 +87,40 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetPerkLevel_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class Actor",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsCamper_Player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class CamperPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "K2Node_SwitchInteger_CmpSuccess",
+        "Name": "K2Node_DynamicCast_bSuccess",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -126,12 +132,22 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Name": "CallFunc_GetDBDGameState_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class Actor",
-          "ObjectPath": "/Script/Engine"
+          "ObjectName": "Class DBDGameState",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
@@ -157,29 +173,16 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_DEPRECATED_ReturnValue",
+        "Type": "ClassProperty",
+        "Name": "CallFunc_Array_Get_Item_1",
         "Flags": 1,
         "ElementSize": 8,
-        "PropertyFlags": 524288,
         "PropertyClass": {
+          "ObjectName": "Class Class",
+          "ObjectPath": "/Script/CoreUObject"
+        },
+        "MetaClass": {
           "ObjectName": "Class StatusEffect",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "K2Node_Event_DeltaSeconds",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetDBDGameState_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDGameState",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
@@ -190,8 +193,19 @@
         "ElementSize": 4
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Name": "CallFunc_HasAuthority_ReturnValue_1",
         "Flags": 1,
         "ElementSize": 1,
         "FieldSize": 1,
@@ -200,12 +214,6 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_SelectFloat_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
       }
     ],
     "FunctionFlags": 8421377
@@ -279,11 +287,25 @@
         }
       },
       {
-        "Type": "NameProperty",
-        "Name": "StatusEffectToImpose",
+        "Type": "ArrayProperty",
+        "Name": "UpTheAnteEffects",
         "Flags": 2097153,
-        "ElementSize": 12,
-        "PropertyFlags": 65541
+        "ElementSize": 16,
+        "PropertyFlags": 65541,
+        "Inner": {
+          "Type": "ClassProperty",
+          "Name": "UpTheAnteEffects",
+          "Flags": 1,
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class Class",
+            "ObjectPath": "/Script/CoreUObject"
+          },
+          "MetaClass": {
+            "ObjectName": "Class StatusEffect",
+            "ObjectPath": "/Script/DeadByDaylight"
+          }
+        }
       }
     ],
     "FuncMap": {
@@ -317,6 +339,24 @@
     "Name": "Default__UpTheAnte_C",
     "Properties": {
       "UberGraphFrame": {},
+      "UpTheAnteEffects": [
+        {
+          "ObjectName": "BlueprintGeneratedClass UpTheAnte_Effect_0_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/UpTheAnte_Effect_0.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass UpTheAnte_Effect_1_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/UpTheAnte_Effect_1.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass UpTheAnte_Effect_2_C",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/UpTheAnte_Effect_2.0"
+        }
+      ],
+      "PerkIconStrategyClass": {
+        "ObjectName": "Class HasTokenPerkIconStrategy",
+        "ObjectPath": "/Script/DeadByDaylight"
+      },
       "PrimaryComponentTick": {
         "bCanEverTick": true
       }

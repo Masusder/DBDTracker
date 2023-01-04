@@ -6,11 +6,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_TL_Stable_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.106"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.108"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_TL_Stable_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.32"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.33"
       }
     },
     "SuperStruct": {
@@ -18,6 +18,17 @@
       "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/TileBase01.8"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "VictorColl",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class BoxComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "InstancedFoliageActor",
@@ -918,6 +929,7 @@
     "Outer": "BP_TL_Stable_C",
     "Template": "ActorSpawner_18",
     "Properties": {
+      "Weight": 10.0,
       "RelativeLocation": {
         "X": 544.8198,
         "Y": -187.41776,
@@ -1385,6 +1397,71 @@
     }
   },
   {
+    "Type": "BoxComponent",
+    "Name": "VictorColl_GEN_VARIABLE",
+    "Outer": "BP_TL_Stable_C",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class NavArea_Obstacle",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -408.54727,
+        "Y": -591.1679,
+        "Z": 45.890533
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -22.908947,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 1.230759,
+        "Y": 1.9263841,
+        "Z": 0.90038025
+      },
+      "Mobility": "EComponentMobility::Static"
+    }
+  },
+  {
     "Type": "BP_Effect_Mist_C",
     "Name": "BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0_BP_Effect_Mist_C_CAT",
     "Outer": "BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0",
@@ -1398,7 +1475,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C BP_TL_Stable_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0.BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0_BP_Effect_Mist_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.23"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.24"
       },
       "RelativeLocation": {
         "X": -400.0,
@@ -1415,22 +1492,22 @@
       "InstanceBaseMap": {
         "53": {
           "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Haypile_Large_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.145"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.147"
         },
         "54": {
           "ObjectName": "StaticMeshComponent BP_TL_Stable_C:Ground_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.107"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.109"
         },
         "55": {
           "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayBale_13_GEN_VARIABLE",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.131"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.133"
         }
       },
       "foliage": [
         {
           "foliageType": {
             "ObjectName": "FoliageType_InstancedStaticMesh BP_TL_Stable_C:InstancedFoliageActor_GEN_VARIABLE.FoliageType_InstancedStaticMesh_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.30"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.31"
           },
           "instances": [
             {
@@ -2478,7 +2555,7 @@
         {
           "foliageType": {
             "ObjectName": "FoliageType_InstancedStaticMesh BP_TL_Stable_C:InstancedFoliageActor_GEN_VARIABLE.FoliageType_InstancedStaticMesh_1",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.31"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.32"
           },
           "instances": [
             {
@@ -3155,7 +3232,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_19",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.153"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.155"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3177,7 +3254,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_22",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.154"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.156"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3199,7 +3276,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.149"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.151"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3221,7 +3298,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_4",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.155"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.157"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3243,7 +3320,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_10",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.150"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.152"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3265,7 +3342,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_7",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.156"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.158"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3287,7 +3364,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_16",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.152"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.154"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3331,7 +3408,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Stable_C:TileSpawnPoint_13",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.151"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.153"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3441,7 +3518,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent BP_TL_Stable_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.24"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.25"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -3577,12 +3654,31 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NatAudioAmbienceBox BP_TL_Stable_C:AudioAmbienceBox_Outdoor_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.34"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.35"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "VariableGuid": "C8167266-4F061708-50426787-A13B6555",
       "InternalVariableName": "AudioAmbienceBox_Outdoor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class BoxComponent",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent BP_TL_Stable_C:VictorColl_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.23"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "VariableGuid": "8F5932B5-4AC95C16-5E12E586-E5CDC5D8",
+      "InternalVariableName": "VictorColl"
     }
   },
   {
@@ -3596,7 +3692,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_DeadPig_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.121"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.123"
       },
       "VariableGuid": "5B4C9672-49A06956-E68D6692-6AD73AAE",
       "InternalVariableName": "SM_DeadPig_2"
@@ -3630,7 +3726,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_TL_Stable_C:N_S_Falling_Pine_Leaves_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.35"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.36"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3668,7 +3764,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_DeadPig_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.122"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.124"
       },
       "VariableGuid": "6B4255FD-4F2C3E9E-DFF5BBB2-C5FCC1F5",
       "InternalVariableName": "SM_DeadPig_4"
@@ -3723,7 +3819,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_DeadPig_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.123"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.125"
       },
       "VariableGuid": "D55AA401-49248BA8-027EDEAA-6795F221",
       "InternalVariableName": "SM_DeadPig_5"
@@ -3740,12 +3836,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_DeadPig_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.124"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.126"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.53"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.55"
         }
       ],
       "VariableGuid": "22E5AEE5-4A7E44A1-D438C19F-6B98A9CA",
@@ -3763,7 +3859,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Stable_C:SceneComponent_29",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.36"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.37"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -3780,7 +3876,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_DeadCow_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.119"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.121"
       },
       "VariableGuid": "CA2326C7-4F76BDD1-3E694292-E1305D41",
       "InternalVariableName": "SM_DeadCow_01"
@@ -3797,14 +3893,14 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Stable_C:SceneComponent_30",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.37"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.38"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.70"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.72"
         }
       ],
       "VariableGuid": "AB2F3414-DE8DE1EA-4898826F-D14390BE",
@@ -3841,7 +3937,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DecalComponent BP_TL_Stable_C:MI_Com_SplattersBlood_A3_Wet_Dark_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.29"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.30"
       },
       "VariableGuid": "41954120-48CEBD97-D74BAA8E-7DFDB271",
       "InternalVariableName": "MI_Com_SplattersBlood_A3_Wet_Dark"
@@ -3858,7 +3954,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DecalComponent BP_TL_Stable_C:MI_Com_SplattersBlood_A3_Wet_Dark2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.28"
       },
       "VariableGuid": "55716AAD-47BC5A45-1B36938B-CC56102F",
       "InternalVariableName": "MI_Com_SplattersBlood_A3_Wet_Dark2"
@@ -3875,7 +3971,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DecalComponent BP_TL_Stable_C:MI_Com_SplattersBlood_A3_Wet_Dark3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.28"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.29"
       },
       "VariableGuid": "9FD77DC0-4163DD17-8A32769C-2A68E320",
       "InternalVariableName": "MI_Com_SplattersBlood_A3_Wet_Dark3"
@@ -3909,7 +4005,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_Com_SplatterBlood_A7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.111"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.113"
       },
       "VariableGuid": "7A0B97FE-40079A0F-95A542AB-609826DE",
       "InternalVariableName": "SM_Com_SplatterBlood_A7"
@@ -3926,7 +4022,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_Com_SplatterBlood_A8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.112"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.114"
       },
       "VariableGuid": "C77D2E3D-4A02DC87-8C0B8195-57866D28",
       "InternalVariableName": "SM_Com_SplatterBlood_A8"
@@ -3943,7 +4039,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_Com_SplatterBlood_A9_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.113"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.115"
       },
       "VariableGuid": "D54F53EA-463C6310-A53608B4-2F84E638",
       "InternalVariableName": "SM_Com_SplatterBlood_A9"
@@ -3960,7 +4056,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_PrincipalHouse_StableBig_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.148"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.150"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -3996,7 +4092,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.136"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.138"
       },
       "VariableGuid": "FCFBB8C8-4B54E858-F94B0A9B-4F589358",
       "InternalVariableName": "SM_QTM_HayGround_01"
@@ -4013,7 +4109,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.137"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.139"
       },
       "VariableGuid": "EB7277F3-4260E103-693C57B0-28014512",
       "InternalVariableName": "SM_QTM_HayGround_2"
@@ -4030,7 +4126,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Bushes_06_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.125"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.127"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -4049,7 +4145,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Bushes_07_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.126"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.128"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -4068,7 +4164,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.138"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.140"
       },
       "VariableGuid": "2C405456-4D133F27-61E8D19C-75E9F4E5",
       "InternalVariableName": "SM_QTM_HayGround_3"
@@ -4085,7 +4181,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.139"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.141"
       },
       "VariableGuid": "E8CCB919-493A1F34-E777F6A0-3CF1405F",
       "InternalVariableName": "SM_QTM_HayGround_4"
@@ -4102,7 +4198,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.140"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.142"
       },
       "VariableGuid": "D67D66AE-4CDD353C-0C6EA494-8807C7E9",
       "InternalVariableName": "SM_QTM_HayGround_5"
@@ -4119,7 +4215,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.141"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.143"
       },
       "VariableGuid": "D4B6E9A9-4F374FB6-B676DD86-4EF8736A",
       "InternalVariableName": "SM_QTM_HayGround_6"
@@ -4136,7 +4232,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.142"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.144"
       },
       "VariableGuid": "F51E714F-456D3C99-7B358495-6283C7C5",
       "InternalVariableName": "SM_QTM_HayGround_7"
@@ -4153,180 +4249,180 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:Ground_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.107"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.109"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.75"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.77"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_49",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.80"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_49",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.82"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.84"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.87"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_57",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.88"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_56",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.89"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_59",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_57",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.90"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.92"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.95"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.97"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.98"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.99"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_58",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.91"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.49"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.92"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.39"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.94"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.43"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.95"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.46"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.97"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.47"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.99"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.52"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.100"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.56"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.57"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.58"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.105"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.55"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.62"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_35",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.66"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.67"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.68"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.69"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.71"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_45",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.76"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.54"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_69",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_67",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.101"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_70",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.103"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.93"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.40"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.51"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.41"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.45"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.48"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.49"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.54"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_26",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.58"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.59"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_28",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.60"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_25",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.57"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.64"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.67"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.68"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.69"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.70"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.56"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_69",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_70",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.42"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.62"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.77"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.79"
         }
       ],
       "VariableGuid": "BE6A0C99-473798C6-C94A1494-BF075CF1",
@@ -4344,7 +4440,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.143"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.145"
       },
       "VariableGuid": "E994D946-47213A6A-D9F5B18B-7662CA8B",
       "InternalVariableName": "SM_QTM_HayGround_8"
@@ -4418,7 +4514,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayBale_12_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.130"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.132"
       },
       "VariableGuid": "0D604FE6-439F99D6-82A65FB8-D5B465E7",
       "InternalVariableName": "SM_QTM_HayBale_12"
@@ -4435,7 +4531,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayGround_9_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.144"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.146"
       },
       "VariableGuid": "823CF43A-4437CA00-75BE7488-EA4A7643",
       "InternalVariableName": "SM_QTM_HayGround_9"
@@ -4469,7 +4565,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Haypile_Large_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.145"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.147"
       },
       "VariableGuid": "D3CFD15B-44E5F8F1-584EFF9C-5BEB6090",
       "InternalVariableName": "SM_QTM_Haypile_Large"
@@ -4486,7 +4582,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Horse_WaterTrough_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.146"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.148"
       },
       "VariableGuid": "CD0CCCFE-42CB29D5-EE335695-2876CD48",
       "InternalVariableName": "SM_QTM_Horse_WaterTrough_01"
@@ -4503,12 +4599,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Kiosk_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.147"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.149"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.100"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.102"
         }
       ],
       "VariableGuid": "33F278CD-42483B02-C79189B9-BDE7A340",
@@ -4545,7 +4641,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Cart_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.129"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.131"
       },
       "VariableGuid": "AF332458-4FA5ECEE-2C0518AA-A4CC347A",
       "InternalVariableName": "SM_QTM_Cart_2"
@@ -4562,7 +4658,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDInstancedFoliageComponent BP_TL_Stable_C:InstancedFoliageActor_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.26"
       },
       "VariableGuid": "D69DE278-4FB2B19B-B35745AF-683FE7DE",
       "InternalVariableName": "InstancedFoliageActor"
@@ -4579,7 +4675,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Bushes_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.127"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.129"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -4598,7 +4694,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_Bushes_8_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.128"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.130"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -4617,7 +4713,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayBale_13_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.131"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.133"
       },
       "VariableGuid": "DDB823F6-45B841E6-6BA06882-8CDE6D0B",
       "InternalVariableName": "SM_QTM_HayBale_13"
@@ -4634,7 +4730,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayBale_14_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.132"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.134"
       },
       "VariableGuid": "2A4DE829-4DC8A7B2-AB8CB3A0-82A22158",
       "InternalVariableName": "SM_QTM_HayBale_14"
@@ -4651,7 +4747,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayBale_15_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.133"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.135"
       },
       "VariableGuid": "19CCFB5E-4E440DE0-DEFE3E8C-D8E487E1",
       "InternalVariableName": "SM_QTM_HayBale_15"
@@ -4668,7 +4764,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayBale_16_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.134"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.136"
       },
       "VariableGuid": "E2417B0B-4E3D4D35-3B28E3AD-FC08F76D",
       "InternalVariableName": "SM_QTM_HayBale_16"
@@ -4685,7 +4781,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_QTM_HayBale_17_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.135"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.137"
       },
       "VariableGuid": "9040593D-4C0A81AA-534329BE-D4924C76",
       "InternalVariableName": "SM_QTM_HayBale_17"
@@ -4702,7 +4798,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_DeadPig_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.120"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.122"
       },
       "VariableGuid": "4E1909AE-46FB0A13-B5147ABD-9AA9C10F",
       "InternalVariableName": "SM_DeadPig_01"
@@ -4719,7 +4815,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_Barrel_Medium_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.108"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.110"
       },
       "VariableGuid": "5944449B-418281C0-A1D755AA-B79193BB",
       "InternalVariableName": "SM_COM_Barrel_Medium_01"
@@ -4741,11 +4837,11 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.94"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.96"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.96"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.98"
         }
       ],
       "VariableGuid": "A1AA7EDB-4DAB8AB6-AF8450B9-8B8DA6AB",
@@ -4763,7 +4859,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_Crate_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.110"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.112"
       },
       "VariableGuid": "CF2DF448-426A543B-31BC02A3-D7ECA2BF",
       "InternalVariableName": "SM_COM_Crate_01"
@@ -4780,7 +4876,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_Crate_01_B2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.109"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.111"
       },
       "VariableGuid": "F566014D-4F80B163-20130DB7-AD13D8AF",
       "InternalVariableName": "SM_COM_Crate_01_B2"
@@ -4797,7 +4893,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_WheatBag_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.114"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.116"
       },
       "VariableGuid": "7750A4B5-4C22024C-3C57F898-BFE81169",
       "InternalVariableName": "SM_COM_WheatBag_01"
@@ -4814,7 +4910,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_WheatBag_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.115"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.117"
       },
       "VariableGuid": "98B773BD-425ADF10-03A21AAF-E736731B",
       "InternalVariableName": "SM_COM_WheatBag_03"
@@ -4831,7 +4927,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_WheatBag_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.118"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.120"
       },
       "VariableGuid": "E43D16DF-4D9593AC-321F50B8-A4E24E53",
       "InternalVariableName": "SM_COM_WheatBag_5"
@@ -4848,7 +4944,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_WheatBag_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.117"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.119"
       },
       "VariableGuid": "76D88737-431C6B21-F37C8DA7-3ED4B5DE",
       "InternalVariableName": "SM_COM_WheatBag_4"
@@ -4865,7 +4961,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Stable_C:SM_COM_WheatBag_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.116"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.118"
       },
       "VariableGuid": "1AB8EC94-4DD15DD0-6FFAE2A1-EE5EC5F1",
       "InternalVariableName": "SM_COM_WheatBag_2"
@@ -4899,7 +4995,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NatAudioAmbienceBox BP_TL_Stable_C:AudioAmbienceBox_Barn_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.33"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.34"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -4935,7 +5031,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDSphereReflectionCaptureSpawnerComponent BP_TL_Stable_C:DBDSphereReflectionCaptureSpawner_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.27"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -4968,354 +5064,362 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.50"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.52"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.44"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.46"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.45"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.47"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.41"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.43"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.104"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.106"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.81"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.83"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.38"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.39"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.63"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.65"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.64"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.66"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_41",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.72"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.42"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.51"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_43",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.74"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.44"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.53"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.76"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.59"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.61"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.84"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.86"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.85"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.87"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.102"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.104"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.83"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.85"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.40"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.50"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.44"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.45"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.41"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.70"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.104"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.38"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.63"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.64"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_41",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.72"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.42"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.51"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.74"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.59"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.80"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.82"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.87"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.90"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.92"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.94"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.95"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.96"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.97"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.98"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.99"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.100"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.91"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.49"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.39"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.43"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.46"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.47"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_22",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.52"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.53"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.46"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.56"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.47"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.57"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.43"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.58"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.72"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.102"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.106"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.105"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.83"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.55"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.39"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.62"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_35",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_33",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.65"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_34",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.66"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.67"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_41",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.74"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.68"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.44"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.69"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.53"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.71"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.75"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_45",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_43",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.76"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.54"
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_29",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.61"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_69",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_70",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.40"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_44",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.77"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.80"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.82"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.87"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_56",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.89"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.90"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.91"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.94"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.96"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.97"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_64",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.99"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_67",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_68",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.102"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.51"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.41"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.45"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.48"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.49"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.54"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.55"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_26",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.58"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.59"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.60"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.104"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_25",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.57"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.64"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.67"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.68"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.69"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.70"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.56"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_69",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_70",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.42"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.62"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.79"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.83"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.85"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.40"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_TL_Stable_C:SimpleConstructionScript_1.SCS_Node_19",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.48"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/20-Quantum/BP_TL_Stable.50"
       }
     }
   },

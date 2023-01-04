@@ -10,9 +10,78 @@
         "Flags": 1,
         "ElementSize": 4,
         "PropertyFlags": 148
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class Actor",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsK30Power",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class K30Power",
+          "ObjectPath": "/Script/TheK30"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Subtract_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "BP_DrawPathIndicator_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveTick",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 134350848
   },
   {
     "Type": "Function",
@@ -30,7 +99,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_DrawPathIndicator_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.10"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_DrawPathIndicator_C:ExecuteUbergraph_BP_DrawPathIndicator",
@@ -44,6 +113,10 @@
     "Children": [
       {
         "ObjectName": "Function BP_DrawPathIndicator_C:ReceiveBeginPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.2"
+      },
+      {
+        "ObjectName": "Function BP_DrawPathIndicator_C:ReceiveTick",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.1"
       },
       {
@@ -84,6 +157,13 @@
           "ObjectName": "Class SceneComponent",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "DistanceFactor",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
@@ -91,9 +171,13 @@
         "ObjectName": "Function BP_DrawPathIndicator_C:ExecuteUbergraph_BP_DrawPathIndicator",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.0"
       },
+      "ReceiveTick": {
+        "ObjectName": "Function BP_DrawPathIndicator_C:ReceiveTick",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.1"
+      },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_DrawPathIndicator_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.2"
       }
     },
     "ClassFlags": 8652820,
@@ -105,7 +189,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_DrawPathIndicator_C Default__BP_DrawPathIndicator_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.3"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.4"
     }
   },
   {
@@ -113,6 +197,10 @@
     "Name": "Default__BP_DrawPathIndicator_C",
     "Properties": {
       "UberGraphFrame": {},
+      "DistanceFactor": 1.0,
+      "PrimaryActorTick": {
+        "bCanEverTick": true
+      },
       "bReplicates": true
     }
   },
@@ -123,11 +211,22 @@
     "Properties": {
       "Asset": {
         "ObjectName": "NiagaraSystem NS_K30_PathIndicator",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Niagara/NiagaraParticleSystem/Slasher/K30/NS_K30_PathIndicator.100"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Niagara/NiagaraParticleSystem/Slasher/K30/NS_K30_PathIndicator.128"
       },
       "OverrideParameters": {
         "UserParameterRedirects": null,
         "SortedParameterOffsets": [
+          {
+            "Offset": 16,
+            "Name": "User.DistanceShrink",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "ScriptStruct NiagaraFloat",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2
+            }
+          },
           {
             "Offset": 0,
             "Name": "User.MistColor",
@@ -167,12 +266,16 @@
           0,
           0,
           128,
-          63
+          63,
+          154,
+          153,
+          153,
+          62
         ],
         "DataInterfaces": [
           {
             "ObjectName": "NiagaraDataInterfaceVectorCurve BP_DrawPathIndicator_C:IndicatorParticleSystem_GEN_VARIABLE.NiagaraDataInterfaceVectorCurve_2",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.5"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.6"
           }
         ]
       },
@@ -528,12 +631,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_DrawPathIndicator_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.7"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_DrawPathIndicator_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.9"
         }
       ],
       "VariableGuid": "ADC09584-4272C8D8-F1C22A83-8F638737",
@@ -551,7 +654,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_DrawPathIndicator_C:IndicatorParticleSystem_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.5"
       },
       "VariableGuid": "44309666-49289680-2AAECAAA-28C32891",
       "InternalVariableName": "IndicatorParticleSystem"
@@ -565,22 +668,22 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_DrawPathIndicator_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.8"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_DrawPathIndicator_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.8"
         },
         {
           "ObjectName": "SCS_Node BP_DrawPathIndicator_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.9"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_DrawPathIndicator_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/BP_DrawPathIndicator.8"
       }
     }
   }
