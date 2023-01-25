@@ -500,21 +500,6 @@
   },
   {
     "Type": "Function",
-    "Name": "Authority_UseCharge",
-    "Outer": "BP_Map_C",
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "ChargeToUse",
-        "Flags": 1,
-        "ElementSize": 4,
-        "PropertyFlags": 148
-      }
-    ],
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "Function",
     "Name": "GetGameInstance",
     "Outer": "BP_Map_C",
     "ChildProperties": [
@@ -563,27 +548,6 @@
       }
     ],
     "FunctionFlags": 1547960320
-  },
-  {
-    "Type": "Function",
-    "Name": "Authority_SetKnowledgeAvailable",
-    "Outer": "BP_Map_C",
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "value",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 201457664
   },
   {
     "Type": "Function",
@@ -1067,36 +1031,72 @@
   },
   {
     "Type": "Function",
-    "Name": "Local_SetKnowledgeAvailable",
+    "Name": "GetActorKnowledgeCollection",
     "Outer": "BP_Map_C",
+    "SuperStruct": {
+      "ObjectName": "Function MapCollectable:GetActorKnowledgeCollection",
+      "ObjectPath": "/Script/DBDGameplay"
+    },
     "ChildProperties": [
       {
-        "Type": "BoolProperty",
-        "Name": "value",
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
         "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsLocallyControlled_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 8,
+        "PropertyFlags": 525696,
+        "PropertyClass": {
+          "ObjectName": "Class ActorKnowledgeCollection",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       }
     ],
-    "FunctionFlags": 201457664
+    "FunctionFlags": 1279395840
+  },
+  {
+    "Type": "Function",
+    "Name": "GetChargeableComponent",
+    "Outer": "BP_Map_C",
+    "SuperStruct": {
+      "ObjectName": "Function MapCollectable:GetChargeableComponent",
+      "ObjectPath": "/Script/DBDGameplay"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 525696,
+        "PropertyClass": {
+          "ObjectName": "Class ChargeableComponent",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 1279395840
+  },
+  {
+    "Type": "Function",
+    "Name": "GetChargerComponent",
+    "Outer": "BP_Map_C",
+    "SuperStruct": {
+      "ObjectName": "Function MapCollectable:GetChargerComponent",
+      "ObjectPath": "/Script/DBDGameplay"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 525696,
+        "PropertyClass": {
+          "ObjectName": "Class ChargerComponent",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "FunctionFlags": 1279395840
   },
   {
     "Type": "BlueprintGeneratedClass",
@@ -1134,68 +1134,68 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "Class BaseCamperCollectable",
+      "ObjectName": "Class MapCollectable",
       "ObjectPath": "/Script/DBDGameplay"
     },
     "Children": [
       {
-        "ObjectName": "Function BP_Map_C:Local_SetKnowledgeAvailable",
+        "ObjectName": "Function BP_Map_C:GetChargerComponent",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.29"
       },
       {
-        "ObjectName": "Function BP_Map_C:GetUsePercentLeft",
+        "ObjectName": "Function BP_Map_C:GetChargeableComponent",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.28"
       },
       {
-        "ObjectName": "Function BP_Map_C:AddUniqueCategory",
+        "ObjectName": "Function BP_Map_C:GetActorKnowledgeCollection",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.27"
       },
       {
-        "ObjectName": "Function BP_Map_C:RunInit",
+        "ObjectName": "Function BP_Map_C:GetUsePercentLeft",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.26"
       },
       {
-        "ObjectName": "Function BP_Map_C:CleanupOnDestroy",
+        "ObjectName": "Function BP_Map_C:AddUniqueCategory",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.25"
       },
       {
-        "ObjectName": "Function BP_Map_C:SetSharingType",
+        "ObjectName": "Function BP_Map_C:RunInit",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.24"
       },
       {
-        "ObjectName": "Function BP_Map_C:InitSharing",
+        "ObjectName": "Function BP_Map_C:CleanupOnDestroy",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.23"
       },
       {
-        "ObjectName": "Function BP_Map_C:InitRange",
+        "ObjectName": "Function BP_Map_C:SetSharingType",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.22"
       },
       {
-        "ObjectName": "Function BP_Map_C:InitCategories",
+        "ObjectName": "Function BP_Map_C:InitSharing",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.21"
       },
       {
-        "ObjectName": "Function BP_Map_C:GetOwningPlayer",
+        "ObjectName": "Function BP_Map_C:InitRange",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.20"
       },
       {
-        "ObjectName": "Function BP_Map_C:Authority_AddInitialKnowledge",
+        "ObjectName": "Function BP_Map_C:InitCategories",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.19"
       },
       {
-        "ObjectName": "Function BP_Map_C:GetGameState",
+        "ObjectName": "Function BP_Map_C:GetOwningPlayer",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.18"
       },
       {
-        "ObjectName": "Function BP_Map_C:Authority_SetKnowledgeAvailable",
+        "ObjectName": "Function BP_Map_C:Authority_AddInitialKnowledge",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.17"
       },
       {
-        "ObjectName": "Function BP_Map_C:GetGameInstance",
+        "ObjectName": "Function BP_Map_C:GetGameState",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.16"
       },
       {
-        "ObjectName": "Function BP_Map_C:Authority_UseCharge",
+        "ObjectName": "Function BP_Map_C:GetGameInstance",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.15"
       },
       {
@@ -1290,7 +1290,7 @@
         "PropertyFlags": 17180393476,
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass ReadMap_C",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Interactions/ReadMap.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Interactions/ReadMap.7"
         }
       },
       {
@@ -1527,64 +1527,64 @@
         "ObjectName": "Function BP_Map_C:UserConstructionScript",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.14"
       },
-      "Authority_UseCharge": {
-        "ObjectName": "Function BP_Map_C:Authority_UseCharge",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.15"
-      },
       "GetGameInstance": {
         "ObjectName": "Function BP_Map_C:GetGameInstance",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.16"
-      },
-      "Authority_SetKnowledgeAvailable": {
-        "ObjectName": "Function BP_Map_C:Authority_SetKnowledgeAvailable",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.17"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.15"
       },
       "GetGameState": {
         "ObjectName": "Function BP_Map_C:GetGameState",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.18"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.16"
       },
       "Authority_AddInitialKnowledge": {
         "ObjectName": "Function BP_Map_C:Authority_AddInitialKnowledge",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.17"
       },
       "GetOwningPlayer": {
         "ObjectName": "Function BP_Map_C:GetOwningPlayer",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.18"
       },
       "InitCategories": {
         "ObjectName": "Function BP_Map_C:InitCategories",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.21"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.19"
       },
       "InitRange": {
         "ObjectName": "Function BP_Map_C:InitRange",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.22"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.20"
       },
       "InitSharing": {
         "ObjectName": "Function BP_Map_C:InitSharing",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.23"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.21"
       },
       "SetSharingType": {
         "ObjectName": "Function BP_Map_C:SetSharingType",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.24"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.22"
       },
       "CleanupOnDestroy": {
         "ObjectName": "Function BP_Map_C:CleanupOnDestroy",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.23"
       },
       "RunInit": {
         "ObjectName": "Function BP_Map_C:RunInit",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.24"
       },
       "AddUniqueCategory": {
         "ObjectName": "Function BP_Map_C:AddUniqueCategory",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.25"
       },
       "GetUsePercentLeft": {
         "ObjectName": "Function BP_Map_C:GetUsePercentLeft",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.26"
+      },
+      "GetActorKnowledgeCollection": {
+        "ObjectName": "Function BP_Map_C:GetActorKnowledgeCollection",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.27"
+      },
+      "GetChargeableComponent": {
+        "ObjectName": "Function BP_Map_C:GetChargeableComponent",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.28"
       },
-      "Local_SetKnowledgeAvailable": {
-        "ObjectName": "Function BP_Map_C:Local_SetKnowledgeAvailable",
+      "GetChargerComponent": {
+        "ObjectName": "Function BP_Map_C:GetChargerComponent",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Common/BP_Map.29"
       }
     },
@@ -1744,7 +1744,8 @@
       "InteractionDescriptionText": {
         "Namespace": "",
         "Key": "98EE8C60458E4CACB0A687B10D17A670",
-        "SourceString": "Collect"
+        "SourceString": "Collect",
+        "LocalizedString": "Collect"
       },
       "AttachParent": {
         "ObjectName": "Interactor Default__BP_Map_C:CollectableInteractorComponent",
@@ -2026,7 +2027,8 @@
       "InteractionDescriptionText": {
         "Namespace": "",
         "Key": "A9655522418D8B0BDE448CAE366837B6",
-        "SourceString": "Read Map"
+        "SourceString": "Read Map",
+        "LocalizedString": "Read Map"
       },
       "RelativeLocation": {
         "X": 0.0,
@@ -2094,7 +2096,7 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass ReadMap_C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Interactions/ReadMap.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/Interactions/ReadMap.7"
       },
       "ComponentTemplate": {
         "ObjectName": "ReadMap_C BP_Map_C:ReadMap6C83ED3742C7A13D07906DB599024A1E",
