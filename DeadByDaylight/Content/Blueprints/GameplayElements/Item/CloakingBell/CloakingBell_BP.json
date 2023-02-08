@@ -143,12 +143,12 @@
       "Timelines": [
         {
           "ObjectName": "TimelineTemplate CloakingBell_BP_C:Timeline_0_Template",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.41"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.43"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript CloakingBell_BP_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.38"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.40"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler CloakingBell_BP_C:InheritableComponentHandler",
@@ -211,6 +211,17 @@
         "Struct": {
           "ObjectName": "ScriptStruct PointerToUberGraphFrame",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "MaterialHelper",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class MaterialHelper",
+          "ObjectPath": "/Script/GFXUtilities"
         }
       },
       {
@@ -338,6 +349,13 @@
           "ObjectName": "Class TimelineComponent",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "InvisibilityGroupName",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
@@ -414,7 +432,7 @@
       },
       "_mesh": {
         "ObjectName": "SkeletalMeshComponent Default__CloakingBell_BP_C:ItemMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.41"
       },
       "_objectState": {
         "ObjectName": "GameplayTagContainerComponent Default__CloakingBell_BP_C:ObjectState",
@@ -422,7 +440,7 @@
       },
       "_placementOrigin": {
         "ObjectName": "SceneComponent Default__CloakingBell_BP_C:PlacementOrigin",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.28"
       },
       "_itemModifiers": [
         {
@@ -445,7 +463,7 @@
       "bReplicateMovement": false,
       "RootComponent": {
         "ObjectName": "SkeletalMeshComponent Default__CloakingBell_BP_C:ItemMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.41"
       }
     }
   },
@@ -589,6 +607,385 @@
     "Template": "ItemModifier2"
   },
   {
+    "Type": "MaterialHelper",
+    "Name": "MaterialHelper_GEN_VARIABLE",
+    "Outer": "CloakingBell_BP_C",
+    "Properties": {
+      "Groups": [
+        {
+          "GroupName": "FirstPerson",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Weapon",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Weapon.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Weapon_FPS",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_SlasherBlood_Weapon",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_SlasherBlood_Weapon_FPS",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS.0"
+              }
+            }
+          ]
+        },
+        {
+          "GroupName": "Dissolve",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Hair",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/M_Hair.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Hair_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_SlasherBlood",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_SlasherBlood.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_SlasherBlood_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Dither",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Dither.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Cust",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Cust.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Burn",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Burn.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Burn_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Blend",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Blend.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Blend_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust_Dither",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust_Dither.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve_Dither",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve_Dither.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fur",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fur.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fabric_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fabric",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fabric.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fabric_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_FabricMask",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_FabricMask.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fabric_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_HairTAA_Anim",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_HairTAA_Anim.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_HairTAA_Anim_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_HairTAA_Anim_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust_Glass",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust_Glass.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Glass_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MV_Slasher_Cust_Glass_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairNextGenTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairNextGenTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairNextGenTAA_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairNextGenTAA_Dissolve.0"
+              }
+            }
+          ]
+        },
+        {
+          "GroupName": "SlasherInvisible",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "Material M_Basicdistortion",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Basicdistortion.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_SlasherBlood",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_SlasherBlood.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "Material M_Basicdistortion",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Basicdistortion.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Cust",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Cust.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "Material M_Basicdistortion",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Basicdistortion.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "Material M_Basicdistortion",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Basicdistortion.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust_Glass",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust_Glass.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "Material M_Basicdistortion",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Basicdistortion.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairNextGenTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairNextGenTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "Material M_Basicdistortion",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Basicdistortion.0"
+              }
+            }
+          ]
+        },
+        {
+          "GroupName": "FirstPerson_Dissolve",
+          "Maps": [
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Weapon",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Weapon.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Weapon_FPS_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_SlasherBlood_Weapon",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_SlasherBlood_Weapon_FPS_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Burn",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Burn.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Burn_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_GlassIce",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_GlassIce.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_GlassIce_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_GlassIce_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "Material M_Slasher_Blend",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/M_Slasher_Blend.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Blend_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Instances/MI_HairTAA.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_HairTAA_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fur",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fur.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fur_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fur_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Fabric",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_Fabric.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Fabric_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_FabricMask",
+                "ObjectPath": "DeadByDaylight/Content/Materials/Instances/MI_FabricMask.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_FabricMask_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/Variants/MV_FabricMask_Dissolve.0"
+              }
+            },
+            {
+              "SrcMaterial": {
+                "ObjectName": "MaterialInstanceConstant MI_Slasher_Cust_Glass",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MI_Slasher_Cust_Glass.0"
+              },
+              "DstMaterial": {
+                "ObjectName": "MaterialInstanceConstant MV_Slasher_Cust_Glass_Dissolve",
+                "ObjectPath": "DeadByDaylight/Content/Characters/Slashers/Materials/MV_Slasher_Cust_Glass_Dissolve.0"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "PalletStunUncloakInteractionDefinition_C",
     "Name": "PalletStunUncloak_GEN_VARIABLE",
     "Outer": "CloakingBell_BP_C",
@@ -614,7 +1011,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SkeletalMeshComponent Default__CloakingBell_BP_C:ItemMesh",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.41"
       }
     }
   },
@@ -648,10 +1045,29 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent CloakingBell_BP_C:DefaultSceneRootC0BF56C44DBD5316EE5EB39AC42F953A",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.27"
       },
       "VariableGuid": "9DC0493D-4E79CCD2-918A0B9D-C23E400E",
       "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class MaterialHelper",
+        "ObjectPath": "/Script/GFXUtilities"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "MaterialHelper CloakingBell_BP_C:MaterialHelper_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.25"
+      },
+      "ParentComponentOrVariableName": "PlacementOrigin",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "6B6ABF40-49C688C6-943173AA-49F9B24D",
+      "InternalVariableName": "MaterialHelper"
     }
   },
   {
@@ -718,7 +1134,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "UncloakInteractionDefinition_C CloakingBell_BP_C:UncloakInteractionDefinitionE569EB9346BACAC5BD208E8E6F1E1C7B",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.42"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.44"
       },
       "ParentComponentOrVariableName": "Item Interactor",
       "ParentComponentOwnerClassName": "BaseSlasherItem_C",
@@ -773,7 +1189,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent CloakingBell_BP_C:Slasher03_BellDB7D55DE4559C83F045F3F9CB64EA3CB",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.40"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.42"
       },
       "ParentComponentOrVariableName": "ItemMesh",
       "bIsParentComponentNative": true,
@@ -792,7 +1208,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PalletStunUncloakInteractionDefinition_C CloakingBell_BP_C:PalletStunUncloak_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.26"
       },
       "ParentComponentOrVariableName": "Item Interactor",
       "ParentComponentOwnerClassName": "BaseSlasherItem_C",
@@ -808,82 +1224,90 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.33"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.32"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.30"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.31"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_7",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.35"
         },
         {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_4",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.34"
         },
         {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.32"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.33"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.37"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_6",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.36"
         },
         {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.38"
+        },
+        {
           "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.28"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.29"
         },
         {
           "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.37"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.39"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.31"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.33"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.32"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.30"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.31"
-        },
-        {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_7",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.35"
         },
         {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_4",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.34"
         },
         {
-          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.32"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.33"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.37"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_6",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.36"
         },
         {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.38"
+        },
+        {
           "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.28"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.29"
         },
         {
           "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.37"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.39"
+        },
+        {
+          "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.31"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node CloakingBell_BP_C:SimpleConstructionScript_1.SCS_Node_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.29"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/CloakingBell/CloakingBell_BP.30"
       }
     }
   },
