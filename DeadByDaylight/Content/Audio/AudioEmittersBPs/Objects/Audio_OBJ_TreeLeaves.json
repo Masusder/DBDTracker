@@ -50,6 +50,43 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
         "Type": "IntProperty",
         "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
         "Flags": 1,
@@ -74,6 +111,55 @@
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "Audio_OBJ_TreeLeaves_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "Audio_OBJ_TreeLeaves_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -117,7 +203,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript Audio_OBJ_TreeLeaves_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.9"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.11"
       },
       "UberGraphFunction": {
         "ObjectName": "Function Audio_OBJ_TreeLeaves_C:ExecuteUbergraph_Audio_OBJ_TreeLeaves",
@@ -131,10 +217,18 @@
     "Children": [
       {
         "ObjectName": "Function Audio_OBJ_TreeLeaves_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.2"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.4"
       },
       {
         "ObjectName": "Function Audio_OBJ_TreeLeaves_C:Sound Start",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.3"
+      },
+      {
+        "ObjectName": "Function Audio_OBJ_TreeLeaves_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.2"
+      },
+      {
+        "ObjectName": "Function Audio_OBJ_TreeLeaves_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.1"
       },
       {
@@ -171,13 +265,21 @@
         "ObjectName": "Function Audio_OBJ_TreeLeaves_C:ExecuteUbergraph_Audio_OBJ_TreeLeaves",
         "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function Audio_OBJ_TreeLeaves_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function Audio_OBJ_TreeLeaves_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.2"
+      },
       "Sound Start": {
         "ObjectName": "Function Audio_OBJ_TreeLeaves_C:Sound Start",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.1"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function Audio_OBJ_TreeLeaves_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.2"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.4"
       }
     },
     "ClassFlags": 8652820,
@@ -189,7 +291,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Audio_OBJ_TreeLeaves_C Default__Audio_OBJ_TreeLeaves_C",
-      "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.4"
+      "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.6"
     }
   },
   {
@@ -229,7 +331,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent Audio_OBJ_TreeLeaves_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.6"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.8"
       },
       "VariableGuid": "0382B63C-4A8D8A7B-A510209B-F00949FE",
       "InternalVariableName": "DefaultSceneRoot"
@@ -246,7 +348,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent Audio_OBJ_TreeLeaves_C:AudioEvent_Tree_Leaves_Play_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.5"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.7"
       },
       "VariableGuid": "DD4DB2EC-47B4110C-0921E1B3-2DA37A06",
       "InternalVariableName": "AudioEvent_Tree_Leaves_Play"
@@ -260,18 +362,18 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node Audio_OBJ_TreeLeaves_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.8"
+          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.10"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node Audio_OBJ_TreeLeaves_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.8"
+          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.10"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node Audio_OBJ_TreeLeaves_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.7"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_TreeLeaves.9"
       }
     }
   }

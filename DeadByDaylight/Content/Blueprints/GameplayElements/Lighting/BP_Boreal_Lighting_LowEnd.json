@@ -17,11 +17,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Boreal_Lighting_LowEnd_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.9"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_Boreal_Lighting_LowEnd_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.5"
       }
     },
     "SuperStruct": {
@@ -57,8 +57,32 @@
     "Name": "Default__BP_Boreal_Lighting_LowEnd_C",
     "Template": "Default__BP_Boreal_Lighting_1_C",
     "Properties": {
-      "StartSkyFog": 2000.0,
-      "DistanceSkyFog": 4000.0
+      "RemoteRole": "ROLE_None"
+    }
+  },
+  {
+    "Type": "DirectionalLightComponent",
+    "Name": "ShadowLight_GEN_VARIABLE",
+    "Outer": "BP_Boreal_Lighting_LowEnd_C",
+    "Template": "ShadowLight_GEN_VARIABLE",
+    "Properties": {
+      "DynamicShadowDistanceMovableLight": 4500.0,
+      "DynamicShadowCascades": 2,
+      "CascadeDistributionExponent": 2.0,
+      "CascadeTransitionFraction": 0.2,
+      "ShadowResolutionScale": 0.75,
+      "CastTranslucentShadows": false,
+      "bAffectDynamicIndirectLighting": false,
+      "bAffectTranslucentLighting": false
+    }
+  },
+  {
+    "Type": "GMAdaptiveShadowMapSourceComponent",
+    "Name": "AdaptiveShadowMapSource_GEN_VARIABLE",
+    "Outer": "BP_Boreal_Lighting_LowEnd_C",
+    "Template": "AdaptiveShadowMapSource_GEN_VARIABLE",
+    "Properties": {
+      "Levels": 4
     }
   },
   {
@@ -74,15 +98,59 @@
           },
           "ComponentTemplate": {
             "ObjectName": "PostProcessComponent BP_Boreal_Lighting_LowEnd_C:LevelPostProcess_GEN_VARIABLE",
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
+            },
+            "SCSVariableName": "LevelPostProcess",
+            "AssociatedGuid": "6C302177-4D9362D3-BC849A86-44E524B1"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class GMAdaptiveShadowMapSourceComponent",
+            "ObjectPath": "/Script/GraphicsExtensions"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "GMAdaptiveShadowMapSourceComponent BP_Boreal_Lighting_LowEnd_C:AdaptiveShadowMapSource_GEN_VARIABLE",
             "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.4"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
-            "SCSVariableName": "LevelPostProcess",
-            "AssociatedGuid": "6C302177-4D9362D3-BC849A86-44E524B1"
+            "SCSVariableName": "AdaptiveShadowMapSource",
+            "AssociatedGuid": "E12E3EC6-4A3AB4D8-7C55A985-365B88A6"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class DirectionalLightComponent",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "DirectionalLightComponent BP_Boreal_Lighting_LowEnd_C:ShadowLight_GEN_VARIABLE",
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.3"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
+            },
+            "SCSVariableName": "ShadowLight",
+            "AssociatedGuid": "8E1CCF0D-4139D3CC-363AE68F-481B22E4"
           },
           "CookedComponentInstancingData": {
             "ChangedPropertyList": [],
@@ -99,7 +167,6 @@
     "Template": "LevelPostProcess_GEN_VARIABLE",
     "Properties": {
       "Settings": {
-        "AutoExposureBias": 2.5,
         "AutoExposureBiasBackup": 2.5
       }
     }
@@ -120,7 +187,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Boreal_Lighting_LowEnd_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.7"
       },
       "VariableGuid": "777595EC-4B2F56F4-53CF2990-D1C95FA2",
       "InternalVariableName": "DefaultSceneRoot"
@@ -133,7 +200,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Boreal_Lighting_LowEnd_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_LowEnd.8"
       }
     }
   }

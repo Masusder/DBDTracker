@@ -12,6 +12,23 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -40,12 +57,6 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "DelegateProperty",
         "Name": "K2Node_CreateDelegate_OutputDelegate",
         "Flags": 1,
@@ -56,8 +67,18 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
+        "Name": "K2Node_CustomEvent_Result_1",
         "Flags": 1,
         "ElementSize": 1,
         "Enum": {
@@ -71,9 +92,74 @@
           "ElementSize": 1,
           "Enum": null
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_Mtr_Edge_WhitePine_01_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_Mtr_Edge_WhitePine_01_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -117,7 +203,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.13"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:ExecuteUbergraph_BP_Mtr_Edge_WhitePine_01",
@@ -131,10 +217,18 @@
     "Children": [
       {
         "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.4"
       },
       {
         "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:Start Sound",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.3"
+      },
+      {
+        "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.2"
+      },
+      {
+        "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.1"
       },
       {
@@ -204,13 +298,21 @@
         "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:ExecuteUbergraph_BP_Mtr_Edge_WhitePine_01",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.2"
+      },
       "Start Sound": {
         "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:Start Sound",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_Mtr_Edge_WhitePine_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.4"
       }
     },
     "ClassFlags": 8652820,
@@ -222,7 +324,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Mtr_Edge_WhitePine_01_C Default__BP_Mtr_Edge_WhitePine_01_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.4"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.6"
     }
   },
   {
@@ -270,16 +372,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Mtr_Edge_WhitePine_01_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.8"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.10"
         }
       ],
       "VariableGuid": "F3CC5008-48CBAE59-A456BF99-34C34AAD",
@@ -297,7 +399,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_Mtr_Edge_WhitePine_01_C:AudioEvent_Tree_Needles_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.7"
       },
       "VariableGuid": "F2532FE1-4ADC463E-8DDB0CB5-11307C4C",
       "InternalVariableName": "AudioEvent_Tree_Needles"
@@ -314,7 +416,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Mtr_Edge_WhitePine_01_C:SM_MTR_WhitePine_leaves_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.15"
       },
       "VariableGuid": "7D4E6B4F-488EB36E-066E79A8-B12F032C",
       "InternalVariableName": "SM_MTR_WhitePine_leaves"
@@ -331,12 +433,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Mtr_Edge_WhitePine_01_C:SM_MTR_WhitePine_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.14"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.11"
         }
       ],
       "VariableGuid": "C4B2110C-44E99302-FAC485B0-25C9C5FD",
@@ -351,30 +453,30 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.9"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.7"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.9"
         },
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.10"
         },
         {
           "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.11"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Mtr_Edge_WhitePine_01_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/19-Meteor/BP_Mtr_Edge_WhitePine_01.9"
       }
     }
   },

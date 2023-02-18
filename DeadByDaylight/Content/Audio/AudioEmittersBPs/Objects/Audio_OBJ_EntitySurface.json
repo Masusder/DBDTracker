@@ -12,6 +12,23 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -40,12 +57,6 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "DelegateProperty",
         "Name": "K2Node_CreateDelegate_OutputDelegate",
         "Flags": 1,
@@ -56,8 +67,18 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
+        "Name": "K2Node_CustomEvent_Result_1",
         "Flags": 1,
         "ElementSize": 1,
         "Enum": {
@@ -71,9 +92,74 @@
           "ElementSize": 1,
           "Enum": null
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "Audio_OBJ_EntitySurface_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "Audio_OBJ_EntitySurface_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -117,7 +203,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript Audio_OBJ_EntitySurface_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.9"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.11"
       },
       "UberGraphFunction": {
         "ObjectName": "Function Audio_OBJ_EntitySurface_C:ExecuteUbergraph_Audio_OBJ_EntitySurface",
@@ -131,10 +217,18 @@
     "Children": [
       {
         "ObjectName": "Function Audio_OBJ_EntitySurface_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.2"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.4"
       },
       {
         "ObjectName": "Function Audio_OBJ_EntitySurface_C:Start Sound",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.3"
+      },
+      {
+        "ObjectName": "Function Audio_OBJ_EntitySurface_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.2"
+      },
+      {
+        "ObjectName": "Function Audio_OBJ_EntitySurface_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.1"
       },
       {
@@ -171,13 +265,21 @@
         "ObjectName": "Function Audio_OBJ_EntitySurface_C:ExecuteUbergraph_Audio_OBJ_EntitySurface",
         "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function Audio_OBJ_EntitySurface_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function Audio_OBJ_EntitySurface_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.2"
+      },
       "Start Sound": {
         "ObjectName": "Function Audio_OBJ_EntitySurface_C:Start Sound",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.1"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function Audio_OBJ_EntitySurface_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.2"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.4"
       }
     },
     "ClassFlags": 8652820,
@@ -189,7 +291,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Audio_OBJ_EntitySurface_C Default__Audio_OBJ_EntitySurface_C",
-      "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.4"
+      "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.6"
     }
   },
   {
@@ -229,7 +331,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent Audio_OBJ_EntitySurface_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.6"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.8"
       },
       "VariableGuid": "FDA8ED03-4ABCD97A-31AB568F-57EE7B69",
       "InternalVariableName": "DefaultSceneRoot"
@@ -246,7 +348,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent Audio_OBJ_EntitySurface_C:AudioEvent_EntitySurface_Loop_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.5"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.7"
       },
       "VariableGuid": "D9CF9F67-461B370C-575B87AD-092D09D9",
       "InternalVariableName": "AudioEvent_EntitySurface_Loop"
@@ -260,18 +362,18 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node Audio_OBJ_EntitySurface_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.8"
+          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.10"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node Audio_OBJ_EntitySurface_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.8"
+          "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.10"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node Audio_OBJ_EntitySurface_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.7"
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEmittersBPs/Objects/Audio_OBJ_EntitySurface.9"
       }
     }
   }

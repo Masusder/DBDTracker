@@ -12,6 +12,23 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -40,12 +57,6 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "DelegateProperty",
         "Name": "K2Node_CreateDelegate_OutputDelegate",
         "Flags": 1,
@@ -56,8 +67,18 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
+        "Name": "K2Node_CustomEvent_Result_1",
         "Flags": 1,
         "ElementSize": 1,
         "Enum": {
@@ -71,9 +92,74 @@
           "ElementSize": 1,
           "Enum": null
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_FAR_PostOak_01_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_FAR_PostOak_01_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -117,7 +203,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_FAR_PostOak_01_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.12"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.14"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_FAR_PostOak_01_C:ExecuteUbergraph_BP_FAR_PostOak_01",
@@ -131,10 +217,18 @@
     "Children": [
       {
         "ObjectName": "Function BP_FAR_PostOak_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.4"
       },
       {
         "ObjectName": "Function BP_FAR_PostOak_01_C:Start Sound",
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.3"
+      },
+      {
+        "ObjectName": "Function BP_FAR_PostOak_01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.2"
+      },
+      {
+        "ObjectName": "Function BP_FAR_PostOak_01_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.1"
       },
       {
@@ -193,13 +287,21 @@
         "ObjectName": "Function BP_FAR_PostOak_01_C:ExecuteUbergraph_BP_FAR_PostOak_01",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_FAR_PostOak_01_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_FAR_PostOak_01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.2"
+      },
       "Start Sound": {
         "ObjectName": "Function BP_FAR_PostOak_01_C:Start Sound",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.1"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_FAR_PostOak_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.4"
       }
     },
     "ClassFlags": 8652820,
@@ -211,7 +313,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_FAR_PostOak_01_C Default__BP_FAR_PostOak_01_C",
-      "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.4"
+      "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.6"
     }
   },
   {
@@ -264,7 +366,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_FAR_PostOak_01_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.6"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.8"
       },
       "VariableGuid": "F675EA35-4CF56C20-793C12BF-BCB0ABA3",
       "InternalVariableName": "DefaultSceneRoot"
@@ -281,16 +383,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_FAR_PostOak_01_C:Root_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.7"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.9"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_FAR_PostOak_01_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_FAR_PostOak_01_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.11"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.13"
         }
       ],
       "VariableGuid": "9D6390C1-4AD0139C-695EDF84-B6F1A541",
@@ -308,7 +410,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_FAR_PostOak_01_C:SM_FAR_PostOak_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.13"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.15"
       },
       "VariableGuid": "908E5887-4C0D5F0D-99068BAF-CA08BBA7",
       "InternalVariableName": "SM_FAR_PostOak_01"
@@ -325,7 +427,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_FAR_PostOak_01_C:AudioEvent_Tree_Leaves_Play_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.5"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.7"
       },
       "VariableGuid": "A69CF74C-4BAE87F2-C21BC596-256ACB10",
       "InternalVariableName": "AudioEvent_Tree_Leaves_Play"
@@ -339,26 +441,26 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_FAR_PostOak_01_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.9"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.11"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_FAR_PostOak_01_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.9"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.11"
         },
         {
           "ObjectName": "SCS_Node BP_FAR_PostOak_01_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_FAR_PostOak_01_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.11"
+          "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.13"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_FAR_PostOak_01_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.8"
+        "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Farm/Vegetations/BP_FAR_PostOak_01.10"
       }
     }
   },

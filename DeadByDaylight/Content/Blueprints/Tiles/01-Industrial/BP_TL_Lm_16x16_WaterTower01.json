@@ -6,11 +6,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.143"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.145"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_TL_Lm_16x16_WaterTower01_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.41"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.42"
       }
     },
     "SuperStruct": {
@@ -27,6 +27,28 @@
         "PropertyClass": {
           "ObjectName": "Class ChildActorComponent",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InstancedFoliageActor1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class DBDInstancedFoliageComponent",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AudioEvent_T01_Emitter_WaterTower",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class AkComponent",
+          "ObjectPath": "/Script/AkAudio"
         }
       },
       {
@@ -97,7 +119,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "AudioAmbienceBox",
+        "Name": "AudioAmbBox_Outdoor",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 17180393476,
@@ -900,17 +922,6 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "Ak_Audio_EMT_WaterTower",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class AkComponent",
-          "ObjectPath": "/Script/AkAudio"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
         "Name": "Scene1",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -1462,20 +1473,27 @@
   },
   {
     "Type": "AkComponent",
-    "Name": "Ak_Audio_EMT_WaterTower_GEN_VARIABLE",
+    "Name": "AudioEvent_T01_Emitter_WaterTower_GEN_VARIABLE",
     "Outer": "BP_TL_Lm_16x16_WaterTower01_C",
     "Properties": {
       "OcclusionRefreshInterval": 0.0,
       "OcclusionAffect": 0.0,
+      "MaxDistance": 3400.0,
       "AutoPostOnBeginPlay": true,
+      "StaticAmbientEmitter": true,
       "AkAudioEvent": {
-        "ObjectName": "AkAudioEvent AudioEvent_EMT_T01_WaterTower",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/01-Industrial/AudioEvent_EMT_T01_WaterTower.0"
+        "ObjectName": "AkAudioEvent AudioEvent_T01_Emitter_WaterTower",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/01-Industrial/Emitters/AudioEvent_T01_Emitter_WaterTower.0"
       },
       "RelativeLocation": {
-        "X": 170.0,
-        "Y": 130.0,
-        "Z": 820.0
+        "X": 159.87648,
+        "Y": 42.88934,
+        "Z": 800.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -10.000027,
+        "Roll": 0.0
       }
     }
   },
@@ -1740,19 +1758,24 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "NavLinkProxy_Bridge_C BP_TL_Lm_16x16_WaterTower01_C:NavLinkFall055_GEN_VARIABLE.NavLinkFall055_GEN_VARIABLE_NavLinkProxy_Bridge_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.44"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.45"
       },
       "RelativeLocation": {
-        "X": 499.4095,
-        "Y": 293.93207,
-        "Z": 30.331451
+        "X": 521.42114,
+        "Y": 301.54285,
+        "Z": 115.33145
       },
       "RelativeRotation": {
         "Pitch": 0.0,
-        "Yaw": 110.00009,
+        "Yaw": 110.0001,
         "Roll": 0.0
       }
     }
+  },
+  {
+    "Type": "DBDInstancedFoliageComponent",
+    "Name": "InstancedFoliageActor1_GEN_VARIABLE",
+    "Outer": "BP_TL_Lm_16x16_WaterTower01_C"
   },
   {
     "Type": "DBDNavLinkCustomComponent",
@@ -1760,7 +1783,7 @@
     "Outer": "NavLinkFall055_GEN_VARIABLE_NavLinkProxy_Bridge_C_CAT",
     "Template": "SmartLinkComp",
     "Properties": {
-      "NavLinkUserId": 456,
+      "NavLinkUserId": 524,
       "LinkRelativeStart": {
         "X": -20.000025,
         "Y": 2.7E-05,
@@ -9029,7 +9052,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_7",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.191"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.193"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9051,7 +9074,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_16",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.187"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.189"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9073,7 +9096,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_10",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.185"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.187"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9095,7 +9118,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_22",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.189"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.191"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9117,7 +9140,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_4",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.190"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.192"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9139,7 +9162,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_19",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.188"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.190"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9161,7 +9184,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.184"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.186"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9205,7 +9228,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint BP_TL_Lm_16x16_WaterTower01_C:TileSpawnPoint_13",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.186"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.188"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -9388,7 +9411,6 @@
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Vegetations/Common/SM_COM_PlantFern01.1"
       },
       "bUseDefaultCollision": false,
-      "CachedMaxDrawDistance": 2000.0,
       "bHasPerInstanceHitProxies": true,
       "DetailLevelBeforeCastShadows": "DM_MAX",
       "DetailLevelBeforeCastDynamicShadows": "ELightingDetailMode::High",
@@ -9495,12 +9517,12 @@
   },
   {
     "Type": "NatAudioAmbienceBox",
-    "Name": "AudioAmbienceBox_GEN_VARIABLE",
+    "Name": "AudioAmbBox_Outdoor_GEN_VARIABLE",
     "Outer": "BP_TL_Lm_16x16_WaterTower01_C",
     "Properties": {
       "_onBeginOverlapAudioEvent": {
-        "ObjectName": "AkAudioEvent AudioEvent_AM_T01_Forest_Med",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/01-Industrial/AudioEvent_AM_T01_Forest_Med.0"
+        "ObjectName": "AkAudioEvent AudioEvent_AM_T01_Outdoor",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/01-Industrial/AudioEvent_AM_T01_Outdoor.0"
       },
       "BoxExtent": {
         "X": 800.0,
@@ -9525,7 +9547,7 @@
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
-        "Z": 100.0
+        "Z": 150.0
       }
     }
   },
@@ -9537,11 +9559,11 @@
     "Properties": {
       "SmartLinkComp": {
         "ObjectName": "DBDNavLinkCustomComponent BP_TL_Lm_16x16_WaterTower01_C:NavLinkFall055_GEN_VARIABLE.NavLinkFall055_GEN_VARIABLE_NavLinkProxy_Bridge_C_CAT.SmartLinkComp",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.35"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.36"
       },
       "RootComponent": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:NavLinkFall055_GEN_VARIABLE.NavLinkFall055_GEN_VARIABLE_NavLinkProxy_Bridge_C_CAT.PositionComponent",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.57"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.58"
       }
     }
   },
@@ -10008,7 +10030,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DBDSphereReflectionCaptureSpawnerComponent BP_TL_Lm_16x16_WaterTower01_C:DBDSphereReflectionCaptureSpawner_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.36"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.37"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10027,7 +10049,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_Lm_16x16_WaterTower01_C:P_Dust_LightZone_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.48"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.49"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10045,13 +10067,13 @@
         "ObjectPath": "/Script/DeadByDaylight"
       },
       "ComponentTemplate": {
-        "ObjectName": "NatAudioAmbienceBox BP_TL_Lm_16x16_WaterTower01_C:AudioAmbienceBox_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.43"
+        "ObjectName": "NatAudioAmbienceBox BP_TL_Lm_16x16_WaterTower01_C:AudioAmbBox_Outdoor_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.44"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "VariableGuid": "BF13BD0A-4DC7F784-93F792B5-6CD37918",
-      "InternalVariableName": "AudioAmbienceBox"
+      "InternalVariableName": "AudioAmbBox_Outdoor"
     }
   },
   {
@@ -10084,22 +10106,22 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SPLIT_SM_COM_FieldGrass_01_1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.50"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.51"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_148",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.68"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.69"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_155",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.70"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.71"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_165",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.72"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.73"
         }
       ],
       "VariableGuid": "3B7036DE-4D8ECB29-52AB5C96-02731CFD",
@@ -10117,7 +10139,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_Lm_16x16_WaterTower01_C:P_Light_Drips_Height_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.49"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.50"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10155,7 +10177,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_TL_Lm_16x16_WaterTower01_C:FX_Falling_Pine_Leaves_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.45"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.46"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10174,7 +10196,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_72_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.151"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.153"
       },
       "VariableGuid": "018D7B72-4154FB1F-467A6692-AF6BB409",
       "InternalVariableName": "SM_COM_FieldGrass_01_72"
@@ -10191,7 +10213,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_Crate03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.176"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.178"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10210,7 +10232,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_79_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.152"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.154"
       },
       "VariableGuid": "ED4A2607-4E4FAB23-85078099-BB2FE174",
       "InternalVariableName": "SM_COM_FieldGrass_01_79"
@@ -10227,7 +10249,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_TL_Lm_16x16_WaterTower01_C:FX_Falling_Pine_Leaves_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.46"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.47"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10246,7 +10268,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_89_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.153"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.155"
       },
       "VariableGuid": "6A8F4020-41FAB5AA-93D459A8-191F88F1",
       "InternalVariableName": "SM_COM_FieldGrass_01_89"
@@ -10263,22 +10285,22 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SPLIT_SM_COM_FieldGrass_01_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.51"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.52"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_194",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.77"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.78"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_201",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.80"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.81"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_211",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.82"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.83"
         }
       ],
       "VariableGuid": "BF615FD9-4B6549F7-0DADD78A-90228598",
@@ -10296,7 +10318,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_TL_Lm_16x16_WaterTower01_C:FX_Falling_Pine_Leaves_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.47"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.48"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10320,7 +10342,11 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.108"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.139"
         }
       ],
       "VariableGuid": "F3D96FCC-43ED67B9-7D804988-8CCFABDF",
@@ -10338,7 +10364,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:SceneComponent_29",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.58"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.59"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -10355,7 +10381,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_117_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.145"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.147"
       },
       "VariableGuid": "64DB32B9-485DBE87-97D289A6-1428FED2",
       "InternalVariableName": "SM_COM_FieldGrass_01_117"
@@ -10391,18 +10417,18 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:SceneComponent_30",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.59"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.60"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.75"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.76"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.119"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.120"
         }
       ],
       "VariableGuid": "AB2F3414-DE8DE1EA-4898826F-D14390BE",
@@ -10420,7 +10446,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_124_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.146"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.148"
       },
       "VariableGuid": "3AC9E0BD-411017F1-EA0D9FAA-223645F4",
       "InternalVariableName": "SM_COM_FieldGrass_01_124"
@@ -10437,7 +10463,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:StaticMesh_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.183"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.185"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10456,7 +10482,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_134_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.147"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.149"
       },
       "VariableGuid": "FAC006C6-4C9D9EB8-662D6FAF-A73910A8",
       "InternalVariableName": "SM_COM_FieldGrass_01_134"
@@ -10473,22 +10499,22 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SPLIT_SM_COM_FieldGrass_01_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.52"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.53"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_240",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.87"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_247",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.88"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_247",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.89"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_257",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.90"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.91"
         }
       ],
       "VariableGuid": "D22D4C3A-418739D7-AEA9F79B-E51BCB7D",
@@ -10506,7 +10532,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:StaticMesh1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.177"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.179"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10525,7 +10551,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:StaticMesh2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.178"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.180"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10544,7 +10570,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:StaticMesh3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.179"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.181"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10563,7 +10589,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_162_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.148"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.150"
       },
       "VariableGuid": "DFCF881C-4FA0D2BA-E7545DA5-3AF39982",
       "InternalVariableName": "SM_COM_FieldGrass_01_162"
@@ -10580,7 +10606,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_169_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.149"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.151"
       },
       "VariableGuid": "11A133AA-446ED7CA-AA4EFCBE-2F091308",
       "InternalVariableName": "SM_COM_FieldGrass_01_169"
@@ -10597,7 +10623,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:StaticMesh4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.180"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.182"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10616,7 +10642,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_FieldGrass_01_179_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.150"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.152"
       },
       "VariableGuid": "EEEC2089-4F00AE28-15FFE197-B7BFB592",
       "InternalVariableName": "SM_COM_FieldGrass_01_179"
@@ -10633,42 +10659,42 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SPLIT_SM_COM_Grass01_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.53"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.54"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_259",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.92"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.93"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_260",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.94"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_261",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.95"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_262",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_261",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.96"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_263",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_262",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.97"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_264",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_263",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.98"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_265",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_264",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.99"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_266",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_265",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_266",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.101"
         }
       ],
       "VariableGuid": "CDB7F66F-444B966F-47652FB9-7E5B1025",
@@ -10686,7 +10712,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.154"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.156"
       },
       "VariableGuid": "F80C45EF-4EBA8CAD-FC1496B4-701F97F0",
       "InternalVariableName": "SM_COM_Grass01_0"
@@ -10703,7 +10729,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_Crate02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.175"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.177"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10722,7 +10748,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.155"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.157"
       },
       "VariableGuid": "544A4030-4BC81BE1-8683AE8F-495D059F",
       "InternalVariableName": "SM_COM_Grass01_1"
@@ -10739,7 +10765,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.156"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.158"
       },
       "VariableGuid": "15B95FC1-40BA3390-C536258C-3BAA3606",
       "InternalVariableName": "SM_COM_Grass01_2"
@@ -10756,7 +10782,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.157"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.159"
       },
       "VariableGuid": "96C071CA-48D636C2-AF3ADC83-3A240BEC",
       "InternalVariableName": "SM_COM_Grass01_3"
@@ -10773,7 +10799,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.158"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.160"
       },
       "VariableGuid": "E4C57DAA-4F05FBE7-24F49283-37DDCB0E",
       "InternalVariableName": "SM_COM_Grass01_4"
@@ -10790,7 +10816,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.159"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.161"
       },
       "VariableGuid": "6DBD8071-49FA9014-3232E688-95DEA4FF",
       "InternalVariableName": "SM_COM_Grass01_5"
@@ -10807,7 +10833,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.160"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.162"
       },
       "VariableGuid": "E6C00321-4E975FB6-D78C49B7-84A2422D",
       "InternalVariableName": "SM_COM_Grass01_6"
@@ -10824,7 +10850,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass01_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.161"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.163"
       },
       "VariableGuid": "0C9D6BE5-4EA53A3B-89F3AEAE-A2C9B02E",
       "InternalVariableName": "SM_COM_Grass01_7"
@@ -10841,7 +10867,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:StaticMesh5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.181"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.183"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10860,7 +10886,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SM_COM_FieldGrass_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.37"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.38"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10879,7 +10905,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:StaticMesh6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.182"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.184"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10898,7 +10924,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SM_COM_FieldGrass_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.38"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.39"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10917,7 +10943,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SM_COM_FieldGrass_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.40"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -10936,7 +10962,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SM_COM_Grass01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.40"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.41"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11048,7 +11074,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "InstancedStaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:InstancedStaticMesh0AC113FD4C19344EE4C3AC9B2088EA7E",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.42"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.43"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11067,7 +11093,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.167"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.169"
       },
       "VariableGuid": "2B346AFA-45C535D9-7C7A7BBB-7F2C73E4",
       "InternalVariableName": "SM_COM_SmallTree02_0"
@@ -11084,7 +11110,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.168"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.170"
       },
       "VariableGuid": "A1EA2C0D-42C34EA2-C74638B4-8C0BCC56",
       "InternalVariableName": "SM_COM_SmallTree02_1"
@@ -11101,7 +11127,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.169"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.171"
       },
       "VariableGuid": "31DA597F-43AECC7A-39894081-7D3FF24E",
       "InternalVariableName": "SM_COM_SmallTree02_2"
@@ -11118,7 +11144,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "TriplanarDecalComponent BP_TL_Lm_16x16_WaterTower01_C:TriplanarDecal7BB6540F42169EBF886A98A4C2F80422",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.194"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.196"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11137,7 +11163,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "TriplanarDecalComponent BP_TL_Lm_16x16_WaterTower01_C:TriplanarDecal18D6FC7B64F278EE290B6438A8D807F0F",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.192"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.194"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11156,7 +11182,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "TriplanarDecalComponent BP_TL_Lm_16x16_WaterTower01_C:TriplanarDecal1FC7C19F9482DF181533317879B44CE7D",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.193"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.195"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11175,7 +11201,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:Ground_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.144"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.146"
       },
       "VariableGuid": "1E5B6A0E-4F92AF25-19EA3CAC-7E360E02",
       "InternalVariableName": "Ground"
@@ -11192,7 +11218,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.170"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.172"
       },
       "VariableGuid": "DEBEFF5E-43401833-185A8484-978F5CF5",
       "InternalVariableName": "SM_COM_SmallTree02_3"
@@ -11209,7 +11235,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.171"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.173"
       },
       "VariableGuid": "F493CC0D-45F1D322-0CAFFBB4-7D8EE412",
       "InternalVariableName": "SM_COM_SmallTree02_4"
@@ -11226,7 +11252,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.172"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.174"
       },
       "VariableGuid": "4A7E0404-4FFCB2B7-C6276AA4-3C7147D6",
       "InternalVariableName": "SM_COM_SmallTree02_5"
@@ -11243,7 +11269,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_6_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.173"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.175"
       },
       "VariableGuid": "2D061BA4-42C5DFC3-8BC708AE-1B4419A0",
       "InternalVariableName": "SM_COM_SmallTree02_6"
@@ -11260,7 +11286,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_SmallTree02_7_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.174"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.176"
       },
       "VariableGuid": "E70F02CE-49BD5248-A688898A-121DA933",
       "InternalVariableName": "SM_COM_SmallTree02_7"
@@ -11338,7 +11364,7 @@
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
-      "VariableGuid": "53A70EC1-424CE495-76ABD182-63E1C4FD",
+      "VariableGuid": "356FDC9B-49EA1200-697E2B99-3A024282",
       "InternalVariableName": "NavLinkFall055"
     }
   },
@@ -11353,30 +11379,30 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SPLIT_SM_COM_Grass05_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.54"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.55"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.131"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_51",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.132"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_51",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.133"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_52",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.134"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_53",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.135"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.136"
         }
       ],
       "VariableGuid": "4134E147-40B93DEE-F4F98FB9-A16D1280",
@@ -11389,17 +11415,15 @@
     "Outer": "SimpleConstructionScript_1",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class AkComponent",
-        "ObjectPath": "/Script/AkAudio"
+        "ObjectName": "Class DBDInstancedFoliageComponent",
+        "ObjectPath": "/Script/DeadByDaylight"
       },
       "ComponentTemplate": {
-        "ObjectName": "AkComponent BP_TL_Lm_16x16_WaterTower01_C:Ak_Audio_EMT_WaterTower_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.20"
+        "ObjectName": "DBDInstancedFoliageComponent BP_TL_Lm_16x16_WaterTower01_C:InstancedFoliageActor1_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.35"
       },
-      "ParentComponentOrVariableName": "Audio",
-      "ParentComponentOwnerClassName": "TileBase01_C",
-      "VariableGuid": "5CA5F7DC-4246597B-FBB07298-BD596E4C",
-      "InternalVariableName": "Ak_Audio_EMT_WaterTower"
+      "VariableGuid": "BD67B059-4B9E8C20-87D63B84-0B956F56",
+      "InternalVariableName": "InstancedFoliageActor1"
     }
   },
   {
@@ -11413,7 +11437,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass05_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.162"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.164"
       },
       "VariableGuid": "A0D6D1DD-4B47AD83-D1D0C1A3-B305A836",
       "InternalVariableName": "SM_COM_Grass05_0"
@@ -11430,7 +11454,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass05_1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.163"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.165"
       },
       "VariableGuid": "68C7D188-4767A5BF-B6A6268E-6BB837CB",
       "InternalVariableName": "SM_COM_Grass05_1"
@@ -11447,7 +11471,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass05_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.164"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.166"
       },
       "VariableGuid": "FB6ABC36-4F5B352C-B2B3A391-B8353712",
       "InternalVariableName": "SM_COM_Grass05_2"
@@ -11464,7 +11488,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass05_3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.165"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.167"
       },
       "VariableGuid": "C8F573D6-4EBC3990-F8459EB9-1DACCEE3",
       "InternalVariableName": "SM_COM_Grass05_3"
@@ -11481,7 +11505,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_TL_Lm_16x16_WaterTower01_C:SM_COM_Grass05_4_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.166"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.168"
       },
       "VariableGuid": "4FF8DA77-4DC7D872-63B8EF81-988F472B",
       "InternalVariableName": "SM_COM_Grass05_4"
@@ -11498,7 +11522,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SPLIT_SM_COM_SmallTree03_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.56"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.57"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -11523,6 +11547,23 @@
       "ParentComponentOwnerClassName": "TileBase01_C",
       "VariableGuid": "1D3E7071-4ADF0D90-8AC29C99-A7CEE353",
       "InternalVariableName": "ActorSpawner8"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_57",
+    "Outer": "SimpleConstructionScript_1",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class AkComponent",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent BP_TL_Lm_16x16_WaterTower01_C:AudioEvent_T01_Emitter_WaterTower_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.20"
+      },
+      "VariableGuid": "55E10A74-468B343C-64C8AAB8-ED86F798",
+      "InternalVariableName": "AudioEvent_T01_Emitter_WaterTower"
     }
   },
   {
@@ -11555,42 +11596,42 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_Lm_16x16_WaterTower01_C:HISM_SPLIT_SM_COM_SmallTree02_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.55"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.56"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.113"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_35",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.114"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_35",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.115"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.120"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.116"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_41",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_40",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.121"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_41",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.122"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_43",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_42",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.123"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_44",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_43",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.124"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.125"
         }
       ],
       "VariableGuid": "5470A3B0-48BC3FF1-527C63A6-E81EA75E",
@@ -11662,534 +11703,538 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.130"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.80"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.69"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.70"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.81"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.82"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_24",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.86"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.87"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.89"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.90"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.84"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.85"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.93"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.94"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.118"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.119"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.116"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.112"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_38",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.117"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_33",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.113"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.118"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.142"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.144"
         },
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.63"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.66"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.110"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.140"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.141"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.71"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.74"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.67"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.109"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.111"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.139"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.129"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.136"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_114",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.64"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_166",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.73"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.67"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_212",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.83"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.111"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_258",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.91"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.142"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_279",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.102"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.79"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_280",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_28",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.104"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_281",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.105"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.102"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_282",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.106"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.61"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.66"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.143"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.62"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.126"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.72"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_45",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.125"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.75"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.127"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.68"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_56",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_29",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.108"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.112"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.141"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.130"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_55",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.137"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_114",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.65"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_166",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.74"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_212",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_258",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_279",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_280",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_281",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.106"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_282",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.127"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.126"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.128"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_56",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.138"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.140"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.131"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.128"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.129"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.130"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.69"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.118"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.116"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.112"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.117"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.142"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.63"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.66"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.110"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.140"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.60"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.65"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_8",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.141"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.61"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.71"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.74"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.67"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.119"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.109"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.111"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.139"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.113"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_35",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.114"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.115"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.120"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_41",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.121"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.122"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.123"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.124"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.129"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.131"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.132"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.133"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_53",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.134"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.135"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.136"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_114",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.64"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_148",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.68"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_155",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.70"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_165",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.72"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_166",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_194",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_201",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.80"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_211",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.76"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.70"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_21",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.82"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_212",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.83"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_23",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.86"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_240",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_24",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.87"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_247",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_257",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_25",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.90"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_258",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.91"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.85"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_259",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.92"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_260",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_26",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.94"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_261",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.95"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.119"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_262",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.96"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.117"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_263",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.97"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_33",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.113"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_264",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.98"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.118"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_265",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.99"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.144"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_266",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.100"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.64"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_279",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.102"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.67"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_280",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.111"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.142"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.79"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_28",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.104"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_281",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.105"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.102"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_282",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.106"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.61"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_12",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.66"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.143"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.62"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.72"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.68"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.120"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_29",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.108"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.126"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.110"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_45",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.112"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.141"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_34",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.114"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.115"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.116"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.121"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_41",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.122"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.123"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.124"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_44",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.125"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.127"
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.130"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_56",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_50",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.132"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.133"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.134"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.135"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_54",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.136"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_55",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.137"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_114",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.65"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_148",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.69"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_155",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.71"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_165",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_166",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.74"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_194",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_201",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_211",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.83"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_212",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_240",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.88"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_247",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.89"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_257",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.91"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_258",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_259",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_260",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_261",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.96"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_262",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.97"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_263",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_264",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.99"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_265",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_266",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_279",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_280",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_281",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.106"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_282",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_10",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.63"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.127"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.126"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.128"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_56",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.138"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_58",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.140"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.139"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.131"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.128"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.129"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_TL_Lm_16x16_WaterTower01_C:SimpleConstructionScript_1.SCS_Node_19",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.76"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_Lm_16x16_WaterTower01.77"
       }
     }
   },

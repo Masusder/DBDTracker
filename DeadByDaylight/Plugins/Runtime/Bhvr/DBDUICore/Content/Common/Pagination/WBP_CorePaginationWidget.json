@@ -22,9 +22,41 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsSelected_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnUnhovered",
+    "Outer": "WBP_CorePaginationWidget_C",
+    "SuperStruct": {
+      "ObjectName": "Function CoreButtonWidget:OnUnhovered",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "OnHovered",
+    "Outer": "WBP_CorePaginationWidget_C",
+    "SuperStruct": {
+      "ObjectName": "Function CoreButtonWidget:OnHovered",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -72,6 +104,14 @@
     "Children": [
       {
         "ObjectName": "Function WBP_CorePaginationWidget_C:OnSelectedChanged",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.3"
+      },
+      {
+        "ObjectName": "Function WBP_CorePaginationWidget_C:OnHovered",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.2"
+      },
+      {
+        "ObjectName": "Function WBP_CorePaginationWidget_C:OnUnhovered",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.1"
       },
       {
@@ -101,17 +141,6 @@
           "ObjectName": "Class DBDImage",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "SelectedBackground",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 562952101429260,
-        "PropertyClass": {
-          "ObjectName": "Class DBDImage",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
       }
     ],
     "FuncMap": {
@@ -119,9 +148,17 @@
         "ObjectName": "Function WBP_CorePaginationWidget_C:ExecuteUbergraph_WBP_CorePaginationWidget",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.0"
       },
+      "OnUnhovered": {
+        "ObjectName": "Function WBP_CorePaginationWidget_C:OnUnhovered",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.1"
+      },
+      "OnHovered": {
+        "ObjectName": "Function WBP_CorePaginationWidget_C:OnHovered",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.2"
+      },
       "OnSelectedChanged": {
         "ObjectName": "Function WBP_CorePaginationWidget_C:OnSelectedChanged",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.3"
       }
     },
     "ClassFlags": 10754064,
@@ -133,7 +170,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CorePaginationWidget_C Default__WBP_CorePaginationWidget_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.3"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.5"
     }
   },
   {
@@ -141,6 +178,10 @@
     "Name": "Default__WBP_CorePaginationWidget_C",
     "Properties": {
       "UberGraphFrame": {},
+      "HoveredSfx": {
+        "ObjectName": "AkAudioEvent AudioEvent_UI_Highlight_Ligns",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Menu/AudioEvent_UI_Highlight_Ligns.0"
+      },
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
     }
@@ -152,7 +193,7 @@
     "Properties": {
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_10",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.11"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.12"
       }
     }
   },
@@ -163,57 +204,17 @@
     "Properties": {
       "Brush": {
         "ImageSize": {
-          "X": 256.0,
-          "Y": 256.0
-        },
-        "TintColor": {
-          "SpecifiedColor": {
-            "R": 0.0,
-            "G": 0.0,
-            "B": 0.0,
-            "A": 1.0,
-            "Hex": "FF000000"
-          }
+          "X": 64.0,
+          "Y": 64.0
         },
         "ResourceObject": {
-          "ObjectName": "Texture2D itemBG",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/loadout/inventory/itemBG.0"
+          "ObjectName": "Texture2D T_customBots_PaginationBg",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/CustomBots/T_customBots_PaginationBg.0"
         }
       },
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.10"
-      },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "SelectedBackground",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 256.0,
-          "Y": 256.0
-        },
-        "TintColor": {
-          "SpecifiedColor": {
-            "R": 0.0625,
-            "G": 0.0625,
-            "B": 0.0625,
-            "A": 1.0,
-            "Hex": "FF464646"
-          }
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D itemBG",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/loadout/inventory/itemBG.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_3",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.12"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.11"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -226,7 +227,8 @@
       "Text": {
         "Namespace": "",
         "Key": "115A09624CF423D8763163931378FD00",
-        "SourceString": "1"
+        "SourceString": "1",
+        "LocalizedString": "1"
       },
       "Font": {
         "FontObject": {
@@ -234,17 +236,25 @@
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
         },
         "OutlineSettings": {
-          "OutlineSize": 3
+          "OutlineSize": 4,
+          "OutlineColor": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 0.4,
+            "Hex": "66000000"
+          }
         },
         "TypefaceFontName": "Black",
-        "Size": 42
+        "Size": 20
       },
-      "Justification": "ETextJustify::Right",
+      "Justification": "ETextJustify::Center",
       "Slot": {
         "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.9"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.10"
       },
-      "bIsVariable": true
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
   {
@@ -255,19 +265,15 @@
       "Slots": [
         {
           "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.9"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_3",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.12"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_1",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.10"
         },
         {
-          "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_10",
+          "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_1",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.11"
+        },
+        {
+          "ObjectName": "GridSlot WBP_CorePaginationWidget_C:WidgetTree.MainContent.GridSlot_10",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.12"
         }
       ],
       "Slot": {
@@ -281,16 +287,19 @@
     "Name": "GridSlot_0",
     "Outer": "MainContent",
     "Properties": {
+      "Padding": {
+        "Top": 1.0
+      },
       "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Center",
       "Layer": 4,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePaginationWidget_C:WidgetTree.MainContent",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.9"
       },
       "Content": {
         "ObjectName": "DBDTextBlock WBP_CorePaginationWidget_C:WidgetTree.LabelTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.7"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.8"
       }
     }
   },
@@ -302,11 +311,11 @@
       "Layer": 1,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePaginationWidget_C:WidgetTree.MainContent",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.9"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CorePaginationWidget_C:WidgetTree.Background",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.5"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.7"
       }
     }
   },
@@ -315,29 +324,19 @@
     "Name": "GridSlot_10",
     "Outer": "MainContent",
     "Properties": {
+      "Padding": {
+        "Left": 10.0,
+        "Top": 10.0,
+        "Right": 10.0,
+        "Bottom": 10.0
+      },
       "Layer": 10,
       "Parent": {
         "ObjectName": "GridPanel WBP_CorePaginationWidget_C:WidgetTree.MainContent",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.9"
       },
       "Content": {
         "ObjectName": "DBDButton WBP_CorePaginationWidget_C:WidgetTree.HitzoneButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.4"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_3",
-    "Outer": "MainContent",
-    "Properties": {
-      "Layer": 1,
-      "Parent": {
-        "ObjectName": "GridPanel WBP_CorePaginationWidget_C:WidgetTree.MainContent",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.8"
-      },
-      "Content": {
-        "ObjectName": "DBDImage WBP_CorePaginationWidget_C:WidgetTree.SelectedBackground",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.6"
       }
     }
@@ -348,7 +347,6 @@
     "Outer": "WidgetTree",
     "Properties": {
       "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.5,
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WBP_CorePaginationWidget_C:WidgetTree.layoutScale.ScaleBoxSlot_0",
@@ -368,7 +366,7 @@
       },
       "Content": {
         "ObjectName": "GridPanel WBP_CorePaginationWidget_C:WidgetTree.MainContent",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Pagination/WBP_CorePaginationWidget.9"
       }
     }
   },

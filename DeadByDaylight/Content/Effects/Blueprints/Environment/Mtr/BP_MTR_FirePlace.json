@@ -80,10 +80,14 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_2",
         "Flags": 1,
-        "ElementSize": 4
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
       },
       {
         "Type": "FloatProperty",
@@ -93,7 +97,7 @@
       },
       {
         "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
+        "Name": "K2Node_CustomEvent_Result_1",
         "Flags": 1,
         "ElementSize": 1,
         "Enum": {
@@ -167,9 +171,91 @@
           "ObjectName": "ScriptStruct Vector",
           "ObjectPath": "/Script/CoreUObject"
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_MTR_FirePlace_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_MTR_FirePlace_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -251,12 +337,12 @@
       "Timelines": [
         {
           "ObjectName": "TimelineTemplate BP_MTR_FirePlace_C:WindController_Template",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.26"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.28"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_MTR_FirePlace_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.23"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.25"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_MTR_FirePlace_C:ExecuteUbergraph_BP_MTR_FirePlace",
@@ -270,26 +356,34 @@
     "Children": [
       {
         "ObjectName": "Function BP_MTR_FirePlace_C:WindController__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.6"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.8"
       },
       {
         "ObjectName": "Function BP_MTR_FirePlace_C:WindController__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.5"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.7"
       },
       {
         "ObjectName": "Function BP_MTR_FirePlace_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.4"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.6"
       },
       {
         "ObjectName": "Function BP_MTR_FirePlace_C:ReceiveTick",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.3"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.5"
       },
       {
         "ObjectName": "Function BP_MTR_FirePlace_C:CustomEvent_1",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.2"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.4"
       },
       {
         "ObjectName": "Function BP_MTR_FirePlace_C:Start FireplaceWind",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.3"
+      },
+      {
+        "ObjectName": "Function BP_MTR_FirePlace_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.2"
+      },
+      {
+        "ObjectName": "Function BP_MTR_FirePlace_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.1"
       },
       {
@@ -414,29 +508,37 @@
         "ObjectName": "Function BP_MTR_FirePlace_C:ExecuteUbergraph_BP_MTR_FirePlace",
         "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_MTR_FirePlace_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_MTR_FirePlace_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.2"
+      },
       "Start FireplaceWind": {
         "ObjectName": "Function BP_MTR_FirePlace_C:Start FireplaceWind",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.1"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.3"
       },
       "CustomEvent_1": {
         "ObjectName": "Function BP_MTR_FirePlace_C:CustomEvent_1",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.2"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.4"
       },
       "ReceiveTick": {
         "ObjectName": "Function BP_MTR_FirePlace_C:ReceiveTick",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.3"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.5"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_MTR_FirePlace_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.4"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.6"
       },
       "WindController__UpdateFunc": {
         "ObjectName": "Function BP_MTR_FirePlace_C:WindController__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.5"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.7"
       },
       "WindController__FinishedFunc": {
         "ObjectName": "Function BP_MTR_FirePlace_C:WindController__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.6"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.8"
       }
     },
     "ClassFlags": 8652820,
@@ -448,7 +550,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_MTR_FirePlace_C Default__BP_MTR_FirePlace_C",
-      "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.8"
+      "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.10"
     }
   },
   {
@@ -468,7 +570,8 @@
     "Name": "AudioEvent_Fireplace_Loop_GEN_VARIABLE",
     "Outer": "BP_MTR_FirePlace_C",
     "Properties": {
-      "MaxDistance": 800.0,
+      "MaxDistance": 850.0,
+      "StaticAmbientEmitter": true,
       "AkAudioEvent": {
         "ObjectName": "AkAudioEvent AudioEvent_Fireplace_Loop",
         "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Objects/Fireplace/AudioEvent_Fireplace_Loop.0"
@@ -652,7 +755,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_MTR_FirePlace_C:SceneComponent_39",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.14"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.16"
       },
       "VariableGuid": "F40C88A7-433176A6-1A59EC86-5CC0FAB7",
       "InternalVariableName": "DefaultSceneRoot"
@@ -669,12 +772,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_MTR_FirePlace_C:SM_FirePit0147C597FF4D17DAB15AA956B772AFFA91",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.24"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.26"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.22"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.24"
         }
       ],
       "VariableGuid": "A520F206-4D396FFD-91072A94-5B2E1A9A",
@@ -692,24 +795,24 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_MTR_FirePlace_C:SceneComponent_40",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.15"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.17"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.20"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.22"
         },
         {
           "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.21"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.23"
         },
         {
           "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.17"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.19"
         },
         {
           "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.19"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.21"
         }
       ],
       "VariableGuid": "D669C06F-42A4D4E7-86512A9C-5244E926",
@@ -727,7 +830,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_MTR_FirePlace_C:P_MTR_Chalet_Fire_VU_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.12"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.14"
       },
       "VariableGuid": "24270607-4E6D9B91-2F1BBFAA-BD120862",
       "InternalVariableName": "P_MTR_Chalet_Fire_VU"
@@ -744,7 +847,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_MTR_FirePlace_C:AudioEvent_Fireplace_Loop_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.9"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.11"
       },
       "VariableGuid": "022DB535-46FC6C51-501DFEBD-60F1F197",
       "InternalVariableName": "AudioEvent_Fireplace_Loop"
@@ -761,7 +864,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_MTR_FirePlace_C:StaticMeshComponent_190",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.25"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.27"
       },
       "VariableGuid": "2813FF72-48CB565A-2E34C98B-CD824133",
       "InternalVariableName": "SM_Campfire01"
@@ -778,7 +881,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_MTR_FirePlace_C:Light_LF_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.13"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.15"
       },
       "VariableGuid": "D93735A7-40B858F0-FED04282-191431CA",
       "InternalVariableName": "Light_LF"
@@ -792,38 +895,38 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.18"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.20"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.18"
-        },
-        {
-          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_5",
           "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.20"
         },
         {
-          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.21"
-        },
-        {
-          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.17"
-        },
-        {
-          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_5",
           "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.22"
         },
         {
-          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.23"
+        },
+        {
+          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.19"
+        },
+        {
+          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.24"
+        },
+        {
+          "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.21"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_MTR_FirePlace_C:SimpleConstructionScript_1.SCS_Node_1",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.16"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.18"
       }
     }
   },
@@ -891,7 +994,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_MTR_FirePlace_C:CurveFloat_1",
-            "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.10"
+            "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.12"
           },
           "PropertyName": "WindController_WindIntensity_1A71B3CB4934D55482C033B40B0D1CB1",
           "TrackName": "WindIntensity",
@@ -900,7 +1003,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_MTR_FirePlace_C:CurveFloat_2",
-            "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.11"
+            "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/Environment/Mtr/BP_MTR_FirePlace.13"
           },
           "PropertyName": "WindController_FireWindIntensity_1A71B3CB4934D55482C033B40B0D1CB1",
           "TrackName": "FireWindIntensity",

@@ -12,18 +12,6 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "BoolProperty",
-        "Name": "K2Node_Event_Visibility",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "IntProperty",
         "Name": "Temp_int_Array_Index_Variable",
         "Flags": 1,
@@ -106,7 +94,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_DEPRECATED_ReturnValue",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyFlags": 524288,
@@ -117,7 +105,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_DEPRECATED_ReturnValue_1",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue_1",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyFlags": 524288,
@@ -165,29 +153,6 @@
         }
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_DEPRECATED_ReturnValue_2",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_HasStatusEffect_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "BoolProperty",
         "Name": "K2Node_Event_Visibility_1",
         "Flags": 1,
@@ -198,6 +163,41 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_Visibility",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasStatusEffectOfClass_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       }
     ],
     "FunctionFlags": 8421377
@@ -1223,7 +1223,7 @@
         "PropertyFlags": 17180393476,
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass BombThrow_C",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/BombSpawner/BombThrow.13"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/BombSpawner/BombThrow.14"
         }
       },
       {
@@ -1343,11 +1343,19 @@
         }
       },
       {
-        "Type": "NameProperty",
-        "Name": "GasStatusEffectId",
+        "Type": "ClassProperty",
+        "Name": "GasStatusEffectClass",
         "Flags": 2097153,
-        "ElementSize": 12,
-        "PropertyFlags": 65541
+        "ElementSize": 8,
+        "PropertyFlags": 65541,
+        "PropertyClass": {
+          "ObjectName": "Class Class",
+          "ObjectPath": "/Script/CoreUObject"
+        },
+        "MetaClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       }
     ],
     "FuncMap": {
@@ -1479,7 +1487,10 @@
         "A": 0.0,
         "Hex": "000000"
       },
-      "GasStatusEffectId": "GasCloudEffect",
+      "GasStatusEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass GasCloudEffect_C",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/GasCloudEffect.26"
+      },
       "VisibleWhenEquipped": false,
       "HandPosition": "EItemHandPosition::HandleItem",
       "ItemID": "Item_Slasher_GasBomb",
@@ -2240,7 +2251,7 @@
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass BombThrow_C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/BombSpawner/BombThrow.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/BombSpawner/BombThrow.14"
       },
       "ComponentTemplate": {
         "ObjectName": "BombThrow_C BombSpawner_C:BombThrow_GEN_VARIABLE",

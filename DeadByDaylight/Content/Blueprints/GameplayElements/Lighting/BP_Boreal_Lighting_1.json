@@ -43,11 +43,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Boreal_Lighting_1_C:SimpleConstructionScript_2",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.18"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.19"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_Boreal_Lighting_1_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.10"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_Boreal_Lighting_1_C:ExecuteUbergraph_BP_Boreal_Lighting_1",
@@ -56,7 +56,7 @@
     },
     "SuperStruct": {
       "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-      "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+      "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
     },
     "Children": [
       {
@@ -154,18 +154,47 @@
         "ObjectName": "CurveLinearColor C_Sky_Cloud_Color",
         "ObjectPath": "Engine/Content/EngineSky/C_Sky_Cloud_Color.0"
       },
-      "StartSkyFog": 1000.0,
-      "DistanceSkyFog": 6000.0,
       "SunRadius": 0.001,
       "FadeToMistColour": {
-        "R": 0.1449,
-        "G": 0.204832,
-        "B": 0.23,
+        "R": 0.378825,
+        "G": 0.458348,
+        "B": 0.546875,
         "A": 1.0,
-        "Hex": "FF6A7D84"
+        "Hex": "FFA6B5C3"
       },
       "MoonStartOffset": 4000.0,
+      "Horizon Move amount": 0.095238,
+      "Sky saturation": 0.963519,
+      "Sky contrast": 1.045066,
+      "HDR tint": 1.113464,
+      "HDR Power": 0.365638,
+      "HDR intensity": 0.02,
+      "Horizon Tint Falloff": 8.360468,
+      "Enable Flowmap Sky": true,
+      "Sky texture": {
+        "ObjectName": "Texture2D T_Saturn_SKY",
+        "ObjectPath": "DeadByDaylight/Content/Textures/Lighting/T_Saturn_SKY.0"
+      },
+      "Flowmap Mask": {
+        "ObjectName": "Texture2D T_Saturn_Flowmap_Mask",
+        "ObjectPath": "DeadByDaylight/Content/Textures/Lighting/T_Saturn_Flowmap_Mask.0"
+      },
+      "Horizon Tint": {
+        "B": 108,
+        "G": 96,
+        "R": 65,
+        "A": 0,
+        "Hex": "41606C"
+      },
+      "Sky Tint": {
+        "B": 255,
+        "G": 244,
+        "R": 233,
+        "A": 0,
+        "Hex": "E9F4FF"
+      },
       "CondemnedStatusVignetteIntensity": 2.0,
+      "bReplicates": false,
       "RemoteRole": "ROLE_SimulatedProxy"
     }
   },
@@ -240,11 +269,6 @@
       "Intensity": 0.15,
       "bAffectsWorld": false,
       "CastDynamicShadowsWithNewDefaultValue": true,
-      "RelativeLocation": {
-        "X": 423.99014,
-        "Y": 283.94772,
-        "Z": -246.38383
-      },
       "RelativeRotation": {
         "Pitch": -28.645231,
         "Yaw": -78.54179,
@@ -258,29 +282,33 @@
     "Outer": "BP_Boreal_Lighting_1_C",
     "Template": "ShadowLight_GEN_VARIABLE",
     "Properties": {
+      "bEnableLightShaftOcclusion": true,
+      "OcclusionMaskDarkness": 0.742857,
+      "OcclusionDepthRange": 7000.0,
       "DynamicShadowDistanceMovableLight": 6000.0,
       "DynamicShadowCascades": 4,
-      "ShadowBias": 0.265487,
-      "ShadowSharpen": 0.3,
-      "Intensity": 6.0,
+      "LightSourceAngle": 4.0,
+      "LightSourceSoftAngle": 10.0,
+      "bUsedAsAtmosphereSunLight": true,
+      "ShadowBias": 0.15,
+      "ShadowSlopeBias": 0.45,
+      "ShadowSharpen": 0.1,
+      "bEnableLightShaftBloom": true,
+      "BloomScale": 0.952381,
+      "Intensity": 0.025,
       "LightColor": {
-        "B": 40,
-        "G": 36,
-        "R": 22,
+        "B": 255,
+        "G": 226,
+        "R": 204,
         "A": 255,
-        "Hex": "FF162428"
+        "Hex": "FFCCE2FF"
       },
-      "bAffectTranslucentLighting": false,
-      "VolumetricScatteringIntensity": 2.0,
-      "RelativeLocation": {
-        "X": 884.3299,
-        "Y": -709.8567,
-        "Z": 849.07794
-      },
+      "VolumetricScatteringIntensity": 10.0,
+      "AmbientOcclusionContribution": 1.0,
       "RelativeRotation": {
-        "Pitch": -73.533264,
-        "Yaw": 171.92381,
-        "Roll": -20.235352
+        "Pitch": -83.41514,
+        "Yaw": 86.52974,
+        "Roll": 65.03199
       },
       "RelativeScale3D": {
         "X": 2.5,
@@ -295,18 +323,19 @@
     "Outer": "BP_Boreal_Lighting_1_C",
     "Template": "HeightFog_GEN_VARIABLE",
     "Properties": {
-      "FogDensity": 1.0,
-      "FogHeightFalloff": 2.0,
-      "FogInscatteringColor": {
-        "R": 0.0,
-        "G": 0.0,
-        "B": 0.0,
-        "A": 1.0,
-        "Hex": "FF000000"
+      "FogDensity": 0.05,
+      "FogHeightFalloff": 1.2,
+      "SecondFogData": {
+        "FogDensity": 0.15,
+        "FogHeightFalloff": 3.0,
+        "FogHeightOffset": 200.0
       },
-      "InscatteringColorCubemap": {
-        "ObjectName": "TextureCube T_SunsetAmbientCubemap",
-        "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Sky/T_SunsetAmbientCubemap.0"
+      "FogInscatteringColor": {
+        "R": 0.004557,
+        "G": 0.008431,
+        "B": 0.015625,
+        "A": 1.0,
+        "Hex": "FF0E1621"
       },
       "DirectionalInscatteringExponent": 42.053097,
       "DirectionalInscatteringStartDistance": 158.0127,
@@ -317,71 +346,98 @@
         "A": 1.0,
         "Hex": "FF000000"
       },
-      "FogMaxOpacity": 0.5,
       "StartDistance": 200.0,
-      "FogCutoffDistance": 49335.535,
+      "FogCutoffDistance": 0.0,
       "bEnableVolumetricFog": true,
-      "VolumetricFogAlbedo": {
-        "B": 103,
-        "G": 100,
-        "R": 93,
-        "A": 255,
-        "Hex": "FF5D6467"
+      "VolumetricFogScatteringDistribution": 0.3,
+      "VolumetricFogEmissive": {
+        "R": 0.01,
+        "G": 0.01,
+        "B": 0.01,
+        "A": 0.0,
+        "Hex": "191919"
       },
-      "VolumetricFogExtinctionScale": 0.6,
+      "VolumetricFogDistance": 3000.0,
       "FogGradient": [
         {
           "Colour": {
-            "R": 0.5712,
-            "G": 0.630394,
+            "R": 0.68,
+            "G": 0.68,
             "B": 0.68,
-            "A": 1.0,
-            "Hex": "FFC7D0D7"
+            "A": 0.015831,
+            "Hex": "04D7D7D7"
           },
-          "GradientHeight": 0.0
+          "GradientHeight": 0.001
         },
         {
           "Colour": {
-            "R": 0.295633,
-            "G": 0.34477,
+            "R": 0.672917,
+            "G": 0.68,
+            "B": 0.675396,
+            "A": 0.433091,
+            "Hex": "6ED6D7D7"
+          },
+          "GradientHeight": 3.540246
+        },
+        {
+          "Colour": {
+            "R": 0.286979,
+            "G": 0.341156,
             "B": 0.38,
-            "A": 1.0,
-            "Hex": "FF949FA6"
+            "A": 2.479886,
+            "Hex": "FF929EA6"
           },
-          "GradientHeight": 400.0
+          "GradientHeight": 470.55743
         },
         {
           "Colour": {
-            "R": 0.194618,
-            "G": 0.226966,
-            "B": 0.250158,
-            "A": 1.0,
-            "Hex": "FF7A8389"
+            "R": 0.271267,
+            "G": 0.315362,
+            "B": 0.520833,
+            "A": -0.015111,
+            "Hex": "8E98BF"
           },
-          "GradientHeight": 800.0
+          "GradientHeight": 529.53064
         },
         {
           "Colour": {
-            "R": 0.194618,
-            "G": 0.226966,
-            "B": 0.250158,
-            "A": 1.0,
-            "Hex": "FF7A8389"
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 0.88565,
+            "Hex": "E2FFFFFF"
           },
           "GradientHeight": 1200.0
         },
         {
           "Colour": {
-            "R": 0.001821,
-            "G": 0.012983,
-            "B": 0.026241,
-            "A": 1.0,
-            "Hex": "FF061E2D"
+            "R": 0.69496,
+            "G": 0.713542,
+            "B": 0.70549,
+            "A": 18.543013,
+            "Hex": "FFDADCDB"
           },
-          "GradientHeight": 252.13788
+          "GradientHeight": 15588.431
         }
       ],
-      "DistanceUntilFlatFog": 9344.612
+      "DistanceUntilFlatFog": 3000.0,
+      "bReplaceVolumetricFogAlbedoWithColorGradient": true
+    }
+  },
+  {
+    "Type": "GMAdaptiveShadowMapSourceComponent",
+    "Name": "AdaptiveShadowMapSource_GEN_VARIABLE",
+    "Outer": "BP_Boreal_Lighting_1_C",
+    "Template": "AdaptiveShadowMapSource_GEN_VARIABLE",
+    "Properties": {
+      "Radius": 10389.293,
+      "DepthMin": -10389.289,
+      "DepthMax": 10389.289,
+      "RelativeLocation": {
+        "X": 420.50665,
+        "Y": -4664.6025,
+        "Z": -1387.6698
+      }
     }
   },
   {
@@ -402,7 +458,7 @@
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "ShadowLight",
             "AssociatedGuid": "8E1CCF0D-4139D3CC-363AE68F-481B22E4"
@@ -419,12 +475,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SkyLightComponent BP_Boreal_Lighting_1_C:LevelSkyLight_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.19"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.20"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "LevelSkyLight",
             "AssociatedGuid": "C8C46290-4B7C2E69-DDA6D1B6-8954E67A"
@@ -441,12 +497,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "PostProcessComponent BP_Boreal_Lighting_1_C:LevelPostProcess_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.10"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.11"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "LevelPostProcess",
             "AssociatedGuid": "6C302177-4D9362D3-BC849A86-44E524B1"
@@ -468,7 +524,7 @@
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "HeightFog",
             "AssociatedGuid": "74916A29-4FA36772-FC6A6E86-4B4CD07D"
@@ -485,12 +541,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Boreal_Lighting_1_C:MoonMesh_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.20"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.21"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "MoonMesh",
             "AssociatedGuid": "5C8F8E5E-449223C9-681DA3AD-C773F710"
@@ -512,7 +568,7 @@
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "GodRayLight",
             "AssociatedGuid": "14D16A01-4CBAEEBE-F05FB882-615E2A06"
@@ -529,12 +585,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Boreal_Lighting_1_C:SkyFollower_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.21"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.22"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "SkyFollower",
             "AssociatedGuid": "70D71414-4B3415C6-7F969E99-009CD9DF"
@@ -551,12 +607,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent BP_Boreal_Lighting_1_C:SkyMax_GEN_VARIABLE",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.22"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.23"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "SkyMax",
             "AssociatedGuid": "C9933BDF-45430E76-BD734684-2C8D3380"
@@ -578,10 +634,32 @@
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
-              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.17"
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
             },
             "SCSVariableName": "DBDCullDistanceVolume",
             "AssociatedGuid": "492E6FC6-45EB83EF-FCAC29AC-0F6D0072"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class GMAdaptiveShadowMapSourceComponent",
+            "ObjectPath": "/Script/GraphicsExtensions"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "GMAdaptiveShadowMapSourceComponent BP_Boreal_Lighting_1_C:AdaptiveShadowMapSource_GEN_VARIABLE",
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.9"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass BP_Sky_Post_C",
+              "ObjectPath": "DeadByDaylight/Content/Materials/Sky/BP_Sky_Post.18"
+            },
+            "SCSVariableName": "AdaptiveShadowMapSource",
+            "AssociatedGuid": "E12E3EC6-4A3AB4D8-7C55A985-365B88A6"
           },
           "CookedComponentInstancingData": {
             "ChangedPropertyList": [],
@@ -598,6 +676,16 @@
     "Template": "LevelPostProcess_GEN_VARIABLE",
     "Properties": {
       "Settings": {
+        "bOverride_BloomThreshold": true,
+        "bOverride_Bloom1Tint": true,
+        "bOverride_Bloom1Size": true,
+        "bOverride_Bloom2Size": true,
+        "bOverride_Bloom2Tint": true,
+        "bOverride_Bloom3Size": true,
+        "bOverride_Bloom4Size": true,
+        "bOverride_Bloom5Size": true,
+        "bOverride_ColorGradingIntensity": true,
+        "bOverride_ColorGradingLUT": true,
         "ColorContrast": {
           "X": 1.2,
           "Y": 1.2,
@@ -612,21 +700,49 @@
           "Hex": "FFA7D9E8"
         },
         "SceneColorTint": {
-          "R": 0.461914,
-          "G": 0.530142,
-          "B": 0.671875,
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
           "A": 1.0,
-          "Hex": "FFB5C1D6"
+          "Hex": "FFFFFFFF"
         },
-        "BloomIntensity": 0.424779,
-        "AutoExposureBias": 2.8,
-        "AutoExposureBiasBackup": 2.8,
-        "IndirectLightingColor": {
-          "R": 0.201951,
-          "G": 0.345,
-          "B": 0.244024,
+        "BloomIntensity": 1.0,
+        "BloomThreshold": -1.0,
+        "BloomSizeScale": 9.142858,
+        "Bloom1Size": 0.761904,
+        "Bloom2Size": 2.133333,
+        "Bloom3Size": 9.142858,
+        "Bloom4Size": 22.495237,
+        "Bloom5Size": 48.895237,
+        "Bloom1Tint": {
+          "R": 0.765625,
+          "G": 0.297131,
+          "B": 0.071961,
           "A": 1.0,
-          "Hex": "FF7C9F87"
+          "Hex": "FFE3944C"
+        },
+        "Bloom2Tint": {
+          "R": 0.138,
+          "G": 0.091356,
+          "B": 0.049889,
+          "A": 1.0,
+          "Hex": "FF68553F"
+        },
+        "AutoExposureBias": 1.0,
+        "AutoExposureBiasBackup": 2.8,
+        "VignetteIntensity": 0.4,
+        "IndirectLightingColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFFFFFFF"
+        },
+        "IndirectLightingIntensity": 1.0,
+        "ColorGradingIntensity": 1.0,
+        "ColorGradingLUT": {
+          "ObjectName": "Texture2D NeutrralLut",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/NeutrralLut.0"
         },
         "LPVIntensity": 3.0
       }
@@ -675,28 +791,28 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Boreal_Lighting_1_C:DefaultSceneRootD6CA23074F2828607116EAB62A660365",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.12"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.16"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_8",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.17"
         },
         {
-          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.12"
+          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_8",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.18"
         },
         {
-          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_12",
+          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_10",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.13"
         },
         {
-          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_15",
+          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_12",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.14"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.15"
         }
       ],
       "VariableGuid": "2752DD0E-49C4214C-3B578393-20551977",
@@ -728,7 +844,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Boreal_Lighting_1_C:SimpleConstructionScript_2.SCS_Node_2",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Lighting/BP_Boreal_Lighting_1.16"
       }
     }
   },
@@ -744,15 +860,9 @@
         "ObjectPath": "DeadByDaylight/Content/Textures/Environment/Sky/Night_HOS_AmbientCubemap.0"
       },
       "SkyDistanceThreshold": 235738.44,
-      "Intensity": 6.0,
-      "LightColor": {
-        "B": 31,
-        "G": 31,
-        "R": 31,
-        "A": 255,
-        "Hex": "FF1F1F1F"
-      },
-      "VolumetricScatteringIntensity": 2.0
+      "bVisibleInReflectionCaptures": true,
+      "Intensity": 0.055,
+      "VolumetricScatteringIntensity": 1.0
     }
   },
   {
@@ -799,6 +909,9 @@
       "StaticMesh": {
         "ObjectName": "StaticMesh SM_DBD_SkySphere",
         "ObjectPath": "DeadByDaylight/Content/Materials/Sky/SM_DBD_SkySphere.2"
+      },
+      "BodyInstance": {
+        "MaxAngularVelocity": 3599.9998
       }
     }
   },
@@ -811,6 +924,9 @@
       "StaticMesh": {
         "ObjectName": "StaticMesh SM_DBD_SkySphere",
         "ObjectPath": "DeadByDaylight/Content/Materials/Sky/SM_DBD_SkySphere.2"
+      },
+      "BodyInstance": {
+        "MaxAngularVelocity": 3599.9998
       }
     }
   }

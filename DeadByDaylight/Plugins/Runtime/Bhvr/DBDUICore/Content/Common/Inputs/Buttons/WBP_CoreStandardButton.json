@@ -12,6 +12,18 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_isEnabled",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "StructProperty",
         "Name": "CallFunc_MakeVector2D_ReturnValue",
         "Flags": 1,
@@ -19,16 +31,6 @@
         "Struct": {
           "ObjectName": "ScriptStruct Vector2D",
           "ObjectPath": "/Script/CoreUObject"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_PlayAnimation_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class UMGSequencePlayer",
-          "ObjectPath": "/Script/UMG"
         }
       },
       {
@@ -50,40 +52,6 @@
           "ObjectName": "ScriptStruct Vector2D",
           "ObjectPath": "/Script/CoreUObject"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_Event_isEnabled",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "ByteProperty",
-        "Name": "K2Node_Event_newAlignment",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum ETextJustify",
-          "ObjectPath": "/Script/Slate"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_SwitchEnum_CmpSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "StructProperty",
@@ -216,6 +184,16 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "CallFunc_PlayAnimation_ReturnValue_1",
         "Flags": 1,
         "ElementSize": 8,
@@ -233,9 +211,56 @@
           "ObjectName": "Class UMGSequencePlayer",
           "ObjectPath": "/Script/UMG"
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_newAlignment",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum ETextJustify",
+          "ObjectPath": "/Script/Slate"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnEnabledChanged",
+    "Outer": "WBP_CoreStandardButton_C",
+    "SuperStruct": {
+      "ObjectName": "Function CoreButtonWidget:OnEnabledChanged",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "isEnabled",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -291,31 +316,6 @@
     "FunctionFlags": 134744064
   },
   {
-    "Type": "Function",
-    "Name": "OnEnabledChanged",
-    "Outer": "WBP_CoreStandardButton_C",
-    "SuperStruct": {
-      "ObjectName": "Function CoreButtonWidget:OnEnabledChanged",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "isEnabled",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 134744064
-  },
-  {
     "Type": "WidgetBlueprintGeneratedClass",
     "Name": "WBP_CoreStandardButton_C",
     "Properties": {
@@ -348,28 +348,28 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "Class CoreKeyListenerButtontWidget",
+      "ObjectName": "Class CoreKeyListenerButtonWidget",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "Children": [
       {
-        "ObjectName": "Function WBP_CoreStandardButton_C:OnEnabledChanged",
+        "ObjectName": "Function WBP_CoreStandardButton_C:OnAlignmentChanged",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.5"
       },
       {
-        "ObjectName": "Function WBP_CoreStandardButton_C:OnAlignmentChanged",
+        "ObjectName": "Function WBP_CoreStandardButton_C:OnHovered",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.4"
       },
       {
-        "ObjectName": "Function WBP_CoreStandardButton_C:OnHovered",
+        "ObjectName": "Function WBP_CoreStandardButton_C:OnUnhovered",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.3"
       },
       {
-        "ObjectName": "Function WBP_CoreStandardButton_C:OnUnhovered",
+        "ObjectName": "Function WBP_CoreStandardButton_C:OnPressed",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.2"
       },
       {
-        "ObjectName": "Function WBP_CoreStandardButton_C:OnPressed",
+        "ObjectName": "Function WBP_CoreStandardButton_C:OnEnabledChanged",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.1"
       },
       {
@@ -497,24 +497,24 @@
         "ObjectName": "Function WBP_CoreStandardButton_C:ExecuteUbergraph_WBP_CoreStandardButton",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.0"
       },
+      "OnEnabledChanged": {
+        "ObjectName": "Function WBP_CoreStandardButton_C:OnEnabledChanged",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.1"
+      },
       "OnPressed": {
         "ObjectName": "Function WBP_CoreStandardButton_C:OnPressed",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.2"
       },
       "OnUnhovered": {
         "ObjectName": "Function WBP_CoreStandardButton_C:OnUnhovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.3"
       },
       "OnHovered": {
         "ObjectName": "Function WBP_CoreStandardButton_C:OnHovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.3"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.4"
       },
       "OnAlignmentChanged": {
         "ObjectName": "Function WBP_CoreStandardButton_C:OnAlignmentChanged",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.4"
-      },
-      "OnEnabledChanged": {
-        "ObjectName": "Function WBP_CoreStandardButton_C:OnEnabledChanged",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreStandardButton.5"
       }
     },
@@ -536,19 +536,6 @@
     "Properties": {
       "UberGraphFrame": {},
       "PaddingText": 34.0,
-      "HoveredSfx": {
-        "ObjectName": "AkAudioEvent AudioEvent_UI_Highlight",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Menu/AudioEvent_UI_Highlight.0"
-      },
-      "PressedSfx": {
-        "ObjectName": "AkAudioEvent AudioEvent_UI_Select_Press",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Menu/AudioEvent_UI_Select_Press.0"
-      },
-      "ClickedSfx": {
-        "ObjectName": "AkAudioEvent AudioEvent_UI_Select_Release",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Menu/AudioEvent_UI_Select_Release.0"
-      },
-      "_alignment": "ETextJustify::Right",
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
     }
@@ -637,7 +624,8 @@
       "Text": {
         "Namespace": "",
         "Key": "6219A9054F1725378D313BB67DAA64D0",
-        "SourceString": "Action Name"
+        "SourceString": "ACTION NAME",
+        "LocalizedString": "ACTION NAME"
       },
       "ColorAndOpacity": {
         "SpecifiedColor": {
@@ -3305,7 +3293,9 @@
     "Properties": {
       "Padding": {
         "Left": 34.0,
-        "Right": 34.0
+        "Top": 2.0,
+        "Right": 34.0,
+        "Bottom": 1.0
       },
       "HorizontalAlignment": "HAlign_Fill",
       "VerticalAlignment": "VAlign_Center",
@@ -3368,7 +3358,8 @@
     "Outer": "MouseButtonContainer",
     "Properties": {
       "Padding": {
-        "Bottom": 7.0
+        "Top": 3.0,
+        "Bottom": 3.0
       },
       "HorizontalAlignment": "HAlign_Fill",
       "VerticalAlignment": "VAlign_Fill",
@@ -3389,8 +3380,8 @@
     "Properties": {
       "Padding": {
         "Left": -15.0,
-        "Top": -18.0,
-        "Bottom": -11.0
+        "Top": -15.0,
+        "Bottom": -15.0
       },
       "HorizontalAlignment": "HAlign_Fill",
       "VerticalAlignment": "VAlign_Fill",

@@ -12,6 +12,23 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -40,12 +57,6 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "DelegateProperty",
         "Name": "K2Node_CreateDelegate_OutputDelegate",
         "Flags": 1,
@@ -56,8 +67,18 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
+        "Name": "K2Node_CustomEvent_Result_1",
         "Flags": 1,
         "ElementSize": 1,
         "Enum": {
@@ -71,13 +92,78 @@
           "ElementSize": 1,
           "Enum": null
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       }
     ],
     "FunctionFlags": 8421377
   },
   {
     "Type": "Function",
-    "Name": "CustomEvent_1",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_SM_FAR_PostOak_01_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_SM_FAR_PostOak_01_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "Start Sound",
     "Outer": "BP_SM_FAR_PostOak_01_C",
     "ChildProperties": [
       {
@@ -117,7 +203,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.17"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_SM_FAR_PostOak_01_C:ExecuteUbergraph_BP_SM_FAR_PostOak_01",
@@ -131,10 +217,18 @@
     "Children": [
       {
         "ObjectName": "Function BP_SM_FAR_PostOak_01_C:ReceiveBeginPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.4"
+      },
+      {
+        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:Start Sound",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.3"
+      },
+      {
+        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:ReceiveEndPlay",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.2"
       },
       {
-        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:CustomEvent_1",
+        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.1"
       },
       {
@@ -204,13 +298,21 @@
         "ObjectName": "Function BP_SM_FAR_PostOak_01_C:ExecuteUbergraph_BP_SM_FAR_PostOak_01",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.0"
       },
-      "CustomEvent_1": {
-        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:CustomEvent_1",
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.2"
+      },
+      "Start Sound": {
+        "ObjectName": "Function BP_SM_FAR_PostOak_01_C:Start Sound",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_SM_FAR_PostOak_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.4"
       }
     },
     "ClassFlags": 8652820,
@@ -222,7 +324,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_SM_FAR_PostOak_01_C Default__BP_SM_FAR_PostOak_01_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.4"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.6"
     }
   },
   {
@@ -310,20 +412,27 @@
     },
     "PerInstanceSMData": [
       {
-        "OffsetLocation": {
-          "X": 0.0,
-          "Y": 0.0,
-          "Z": 0.0
-        },
-        "RelativeRotation": {
-          "Pitch": 0.0,
-          "Yaw": 0.0,
-          "Roll": 0.0
-        },
-        "RelativeScale3D": {
-          "X": 1.0,
-          "Y": 1.0,
-          "Z": 1.0
+        "TransformData": {
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 0.99830717,
+            "IsNormalized": true,
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
+          },
+          "Translation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Scale3D": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "IsRotationNormalized": true
         }
       }
     ],
@@ -401,7 +510,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_SM_FAR_PostOak_01_C:P_Frm_LeafFalling_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.9"
       },
       "VariableGuid": "24E75AA2-476FC05D-EF684ABB-44AAD6FD",
       "InternalVariableName": "P_Frm_LeafFalling"
@@ -418,12 +527,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_SM_FAR_PostOak_01_C:SceneComponent_110",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.11"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.14"
         }
       ],
       "VariableGuid": "4EB57E9F-4DC2DE8D-DCCE17B2-A10871B1",
@@ -441,16 +550,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_SM_FAR_PostOak_01_C:HierarchicalInstancedStaticMesh0E4489524B0743FDE2AF37944D3D5BD8",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.8"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.13"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.15"
         }
       ],
       "VariableGuid": "C2DD59BB-402497E5-4D760090-6676DB25",
@@ -468,7 +577,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_SM_FAR_PostOak_01_C:AudioEvent_Tree_Leaves_Play_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.7"
       },
       "VariableGuid": "4293A0BD-48C937D0-98ADE2B7-9A6AF9DB",
       "InternalVariableName": "AudioEvent_Tree_Leaves_Play"
@@ -485,7 +594,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_SM_FAR_PostOak_01_C:SceneComponent_105",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.10"
       },
       "VariableGuid": "30AEBCFF-42BE5153-A2CF119D-01511A25",
       "InternalVariableName": "DefaultSceneRoot"
@@ -499,30 +608,30 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.11"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.13"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.11"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.13"
         },
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.14"
         },
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.13"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.15"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_SM_FAR_PostOak_01_C:SimpleConstructionScript_1.SCS_Node_9",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_SM_FAR_PostOak_01.16"
       }
     }
   }

@@ -55,6 +55,16 @@
     "Outer": "WakeUp_C",
     "ChildProperties": [
       {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_HasAuthority_ReturnValue",
         "Flags": 1,
@@ -68,17 +78,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_DEPRECATED_ReturnValue",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyFlags": 524288,
@@ -218,26 +218,6 @@
   },
   {
     "Type": "Function",
-    "Name": "InitRevealDistance",
-    "Outer": "WakeUp_C",
-    "ChildProperties": [
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_GetPerkLevel_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Array_Get_Item",
-        "Flags": 1,
-        "ElementSize": 4
-      }
-    ],
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "Function",
     "Name": "InitRevealToSurvivorModifier",
     "Outer": "WakeUp_C",
     "FunctionFlags": 201457664
@@ -258,10 +238,6 @@
     "Children": [
       {
         "ObjectName": "Function WakeUp_C:InitRevealToSurvivorModifier",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.7"
-      },
-      {
-        "ObjectName": "Function WakeUp_C:InitRevealDistance",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.6"
       },
       {
@@ -309,19 +285,6 @@
         "PropertyFlags": 65541
       },
       {
-        "Type": "ArrayProperty",
-        "Name": "PERK_LEVEL_REVEAL_DISTANCES",
-        "Flags": 2097153,
-        "ElementSize": 16,
-        "PropertyFlags": 65541,
-        "Inner": {
-          "Type": "FloatProperty",
-          "Name": "PERK_LEVEL_REVEAL_DISTANCES",
-          "Flags": 1,
-          "ElementSize": 4
-        }
-      },
-      {
         "Type": "ObjectProperty",
         "Name": "RevealExitStatusEffect",
         "Flags": 2097153,
@@ -346,11 +309,19 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "NameProperty",
-        "Name": "WAKE_UP_EFFECT_SHOW_EXIT_GATES",
+        "Type": "ClassProperty",
+        "Name": "WakeUpEffectClass",
         "Flags": 2097153,
-        "ElementSize": 12,
-        "PropertyFlags": 65541
+        "ElementSize": 8,
+        "PropertyFlags": 65541,
+        "PropertyClass": {
+          "ObjectName": "Class Class",
+          "ObjectPath": "/Script/CoreUObject"
+        },
+        "MetaClass": {
+          "ObjectName": "Class StatusEffect",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
       }
     ],
     "FuncMap": {
@@ -378,13 +349,9 @@
         "ObjectName": "Function WakeUp_C:RetrieveRevealExitGateStatusEffect",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.5"
       },
-      "InitRevealDistance": {
-        "ObjectName": "Function WakeUp_C:InitRevealDistance",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.6"
-      },
       "InitRevealToSurvivorModifier": {
         "ObjectName": "Function WakeUp_C:InitRevealToSurvivorModifier",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.6"
       }
     },
     "ClassFlags": 10749972,
@@ -396,7 +363,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WakeUp_C Default__WakeUp_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.9"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/WakeUp.8"
     }
   },
   {
@@ -404,12 +371,11 @@
     "Name": "Default__WakeUp_C",
     "Properties": {
       "UberGraphFrame": {},
-      "PERK_LEVEL_REVEAL_DISTANCES": [
-        12800.0,
-        12800.0,
-        12800.0
-      ],
-      "WAKE_UP_EFFECT_SHOW_EXIT_GATES": "WakeUp_Effect_ShowExitGates",
+      "RevealDistance": 12800.0,
+      "WakeUpEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass WakeUp_Effect_ShowExitGates_C",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/WakeUp_Effect_ShowExitGates.2"
+      },
       "PerkLevelData": {
         "Conditions": [
           {

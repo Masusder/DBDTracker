@@ -5,7 +5,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Effect_SmokeHouse_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.8"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.12"
       }
     },
     "SuperStruct": {
@@ -13,6 +13,28 @@
       "ObjectPath": "/Script/VFXUtilities"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_Brl_Smokehouse_TopSmoke",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class NiagaraComponent",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_Brl_Smokehouse_Rework_01",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class NiagaraComponent",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "P_Smoke_SmokeHouse_Inside",
@@ -64,6 +86,37 @@
     "Name": "Default__BP_Effect_SmokeHouse_C"
   },
   {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Brl_Smokehouse_Rework_01_GEN_VARIABLE",
+    "Outer": "BP_Effect_SmokeHouse_C",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem NS_Brl_Smokehouse_Rework_01",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Niagara/NiagaraParticleSystem/Maps/Boreal/NS_Brl_Smokehouse_Rework_01.36"
+      },
+      "OverrideParameters": {},
+      "DetailLevelBeforeCastShadows": "DM_MAX"
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Brl_Smokehouse_TopSmoke_GEN_VARIABLE",
+    "Outer": "BP_Effect_SmokeHouse_C",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem NS_Brl_Smokehouse_Rework_TopSmoke",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Niagara/NiagaraParticleSystem/Maps/Boreal/NS_Brl_Smokehouse_Rework_TopSmoke.16"
+      },
+      "OverrideParameters": {},
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "RelativeLocation": {
+        "X": 165.48558,
+        "Y": -102.2569,
+        "Z": 811.2952
+      }
+    }
+  },
+  {
     "Type": "ParticleSystemComponent",
     "Name": "P_Smoke_SmokeHouse_Inside_GEN_VARIABLE",
     "Outer": "BP_Effect_SmokeHouse_C",
@@ -74,6 +127,7 @@
       },
       "WarmupTime": 15.0,
       "DetailLevelBeforeCastShadows": "DM_MAX",
+      "bVisible": false,
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
       }
@@ -90,6 +144,7 @@
       },
       "WarmupTime": 15.0,
       "DetailLevelBeforeCastShadows": "DM_MAX",
+      "bVisible": false,
       "PrimaryComponentTick": {
         "bStartWithTickEnabled": false
       }
@@ -111,16 +166,24 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Effect_SmokeHouse_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.4"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.6"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.6"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.8"
         },
         {
           "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.7"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.10"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.9"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.11"
         }
       ],
       "VariableGuid": "11EA0E3E-407DACA0-89B385B8-2B6455BC",
@@ -138,10 +201,27 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Effect_SmokeHouse_C:P_Smoke_SmokeHouse_Top_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.3"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.5"
       },
       "VariableGuid": "109CDDFA-4292FD7F-5C7210A4-311615FD",
       "InternalVariableName": "P_Smoke_SmokeHouse_Top"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class NiagaraComponent",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent BP_Effect_SmokeHouse_C:NS_Brl_Smokehouse_Rework_01_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.2"
+      },
+      "VariableGuid": "3C654AC1-41CAFABF-E0BCE1AB-9CD04B47",
+      "InternalVariableName": "NS_Brl_Smokehouse_Rework_01"
     }
   },
   {
@@ -155,10 +235,27 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_Effect_SmokeHouse_C:P_Smoke_SmokeHouse_Inside_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.2"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.4"
       },
       "VariableGuid": "3BE2CEDF-492A0302-6F2732BA-118269DA",
       "InternalVariableName": "P_Smoke_SmokeHouse_Inside"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class NiagaraComponent",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent BP_Effect_SmokeHouse_C:NS_Brl_Smokehouse_TopSmoke_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.3"
+      },
+      "VariableGuid": "164DF16A-4DFC67A0-291F34BF-72B41A3C",
+      "InternalVariableName": "NS_Brl_Smokehouse_TopSmoke"
     }
   },
   {
@@ -169,26 +266,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.5"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.7"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.5"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.7"
         },
         {
           "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.6"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.8"
         },
         {
           "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.7"
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.10"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.9"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.11"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Effect_SmokeHouse_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.5"
+        "ObjectPath": "DeadByDaylight/Content/Effects/Blueprints/BP_Effect_SmokeHouse.7"
       }
     }
   }

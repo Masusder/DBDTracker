@@ -697,6 +697,7 @@ DefaultPhysMaterialName=/Game/Materials/PhysicalMaterials/PM_Default.PM_Default
 +ActiveStructRedirects=(OldStructName=GameEventDelegate,NewStructName=FGameEventBPDelegate)
 +ActiveStructRedirects=(OldStructName="AnimationMontageDescriptor",NewStructName="/Script/AnimationUtilities.AnimationMontageDescriptor")
 +ActiveStructRedirects=(OldStructName="MontagePlaybackDefinition",NewStructName="/Script/AnimationUtilities.MontagePlaybackDefinition")
++ActiveStructRedirects=(OldStructName="DBDTextDockingProperties",NewStructName="TextBlockOverrideProperties")
 +TaggedPropertyRedirects=(ClassName="DBDLocatorComponent",OldPropertyName="_locatorMesh",NewPropertyName="EditorOnlyLocatorMesh")
 +TaggedPropertyRedirects=(ClassName="KillerAnimInstance",OldPropertyName="_mySlasher",NewPropertyName="_owningKiller")
 +TaggedPropertyRedirects=(ClassName="CustomizationItemData",OldPropertyName="VariationName",NewPropertyName="CollectionName")
@@ -744,7 +745,6 @@ bSmoothFrameRate=True
 SmoothedFrameRateRange=(LowerBound=(Type=Inclusive,Value=22.000000),UpperBound=(Type=Exclusive,Value=62.000000))
 bCheckForMultiplePawnsSpawnedInAFrame=False
 NumPawnsAllowedToBeSpawnedInAFrame=2
-bShouldGenerateLowQualityLightmaps=True
 MeshLODRange=0.000000
 bAllowMatureLanguage=False
 CameraRotationThreshold=45.000000
@@ -776,10 +776,10 @@ ParticleEventManagerClassPath=/Script/Engine.ParticleEventManager
 MinimumDaysToKeepFile=7
 Root=(Type=KeyLength, Length=120, Inner=AsyncPut)
 AsyncPut=(Type=AsyncPut, Inner=Hierarchy)
-Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Pak, Inner=EnginePak, Inner=Local, Inner=Shared)
-Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=7, FoldersToClean=-1, Path=%ENGINEDIR%DerivedDataCache, EnvPathOverride=UE-LocalDataCachePath, EditorOverrideSetting=LocalDerivedDataCache)
-Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=19, FoldersToClean=-1, PromptIfMissing=1, Path=\\bhvr-vulcan.ad.bhvr.com\Builds\DeadByDaylight\DerivedDataCache, EnvPathOverride=UE-SharedDataCachePath)
+Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Local, Inner=Shared)
 Boot=(Type=Boot, Filename="%GAMEDIR%DerivedDataCache/Boot.ddc", MaxCacheSize=2048)
+Local=(Type=FileSystem, PurgeTransient=true, Touch=true, UnusedFileAge=7, Path=%ENGINEDIR%DerivedDataCache, EnvPathOverride=UE-LocalDataCachePath)
+Shared=(Type=FileSystem, PromptIfMissing=1, Path=\\bhvr-vulcan.ad.bhvr.com\Builds\DeadByDaylight\DerivedDataCache, EnvPathOverride=UE-SharedDataCachePath)
 
 [/Script/Paper2D.PaperRuntimeSettings]
 DefaultPixelsPerUnrealUnit=2.560000
@@ -875,6 +875,11 @@ bEnabled=true
 
 [/Script/OnlineSubsystemUtils.IpNetDriver]
 NetConnectionClassName=/Script/DeadByDaylight.DBDRemotePlayer
+
+[/Script/OnlineSubsystemUtils.IpNetDriver]
+ExpireViewTargetDelay=-1
+ConnectionTimeout=15
+InitialDevConnectionTimeout=200.0
 
 [/Script/OnlineSubsystemSteam.SteamNetDriver]
 NetConnectionClassName=/Script/OnlineSubsystemSteam.SteamNetConnection
@@ -990,11 +995,6 @@ bEnableGPUDebugger=False
 s.MinBulkDataSizeForAsyncLoading=-1
 s.EventDrivenLoaderEnabled=True
 s.FlushStreamingOnExit=False
-
-[/Script/OnlineSubsystemUtils.IpNetDriver]
-ExpireViewTargetDelay=-1
-ConnectionTimeout=15
-InitialDevConnectionTimeout=200.0
 
 [/Script/Engine.RendererSettings]
 sg.ViewDistanceQuality.NumLevels=6
@@ -1336,6 +1336,48 @@ DirtyAreasUpdateFreq=60.000000
 +PropertyRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance._animEffectBlackBoard",NewName="/Script/DBDAnimation.DBDBaseAnimInstance._animEffectBlackBoard")
 +FunctionRedirects=(OldName="/Script/DBDAnimation.PlayerAnimInstance.HasBeenNotified",NewName="/Script/DBDAnimation.DBDBaseAnimInstance.HasBeenNotified")
 +PropertyRedirects=(OldName="/Script/DeadByDaylight.SlasherPlayer._animGameplayTags",NewName="/Script/DeadByDaylight.DBDPlayer._animGameplayTags")
++PropertyRedirects=(OldName="/Script/TheK31.K31DroneScoutDetectionComponent._slices",NewName="/Script/TheK31.K31DroneScoutDetectionComponent._sliceCount")
++PropertyRedirects=(OldName="/Script/TheK31.K31DroneScoutDetectionComponent._tracesPerSlice",NewName="/Script/TheK31.K31DroneScoutDetectionComponent._tracesPerSliceCount")
++PropertyRedirects=(OldName="/Script/TheK31.K31DroneScoutDetectionComponent._baseDetectionConeHalfAngle",NewName="/Script/TheK31.K31DroneScoutDetectionComponent._baseDetectionConeYawHalfAngleDegrees")
++PropertyRedirects=(OldName="/Script/TheK31.K31DroneScoutDetectionComponent._baseDetectionConeHalfAngleDegrees",NewName="/Script/TheK31.K31DroneScoutDetectionComponent._baseDetectionConeYawHalfAngleDegrees")
++PropertyRedirects=(OldName="/Script/TheK31.K31DroneScoutDetectionComponent._baseDetectionConePitchAngleDegrees",NewName="/Script/TheK31.K31DroneScoutDetectionComponent._baseDetectionConePitchHalfAngleDegrees")
++PropertyRedirects=(OldName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.survivor",NewName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.Survivor")
++PropertyRedirects=(OldName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.totalTraces",NewName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.TotalTraces")
++PropertyRedirects=(OldName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.completedTraces",NewName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.CompletedTraces")
++PropertyRedirects=(OldName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.LoSCompletedTraces",NewName="/Script/TheK31.K31SurvivorTraceInformationThisFrame.CompletedTracesWithLoS")
++PropertyRedirects=(OldName="/Script/TheK31.K31DroneActiveState._authority_detectedPlayersInZone",NewName="/Script/TheK31.K31DroneActiveState._detectedPlayersInZone")
++ClassRedirects=(OldName="/Script/TheK28.K28TeleportationIndicator",NewName="/Script/DBDCosmetic.DBDActorIndicator")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.RestrictedPlacementAreaStrategy.MaxHeightRestriction",NewName="/Script/DeadByDaylight.RestrictedPlacementAreaStrategy._maxHeightRestriction")
++PropertyRedirects=(OldName="/Script/Barrel2023.Barrel.BarrelType",NewName="/Script/Barrel2023.Barrel._barrelType")
++PropertyRedirects=(OldName="/Script/TheK31.K31Scanner._detectedPlayersShownOnRadar",NewName="/Script/TheK31.K31Scanner._playersShownOnRadar")
++PropertyRedirects=(OldName="/Script/Barrel2023.BarrelEventComponent._barrelClasses",NewName="/Script/Barrel2023.BarrelEventComponent._spawnableBarrelClasses")
++ClassRedirects=(OldName="/Script/TheK28.K28CustomizationAnimationSelector",NewName="/Script/DBDAnimation.CustomizationAnimationSelector")
++StructRedirects=(OldName="/Script/TheK28.K28AnimationMappingInfo",NewName="/Script/DBDAnimation.CustomizationCategoryAnimationMappingInfo")
++StructRedirects=(OldName="/Script/TheK28.K28CustomizationAnimationMapping",NewName="/Script/DBDAnimation.CustomizationAnimationMapping")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.ChargeableComponent._startingChargePercent",NewName="/Script/DeadByDaylight.ChargeableComponent.StartingChargePercent")
++FunctionRedirects=(OldName="/Script/Barrel2023.Barrel.Cosmetic_OnBarrelSpawn",NewName="/Script/Barrel2023.Barrel.Cosmetic_OnBarrelRespawn")
++FunctionRedirects=(OldName="/Script/Barrel2023.Barrel.OnBarrelDespawnComplete",NewName="/Script/Barrel2023.Barrel.OnBarrelDespawnCosmeticsComplete")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.ChargeableInteractionDefinition._interactionSpecificActionSpeedAdditiveTags",NewName="/Script/DeadByDaylight.ChargeableInteractionDefinition._interactionSpecificActionDurationAdditiveTags")
++PropertyRedirects=(OldName="/Script/TheK31.K31DroneMovementComponent._additionnalRotatingComponents",NewName="/Script/TheK31.K31DroneMovementComponent._additionalRotatingComponents")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewSource.SourceID",NewName="/Script/DeadByDaylight.StatusViewSource._sourceID")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewSource.IsActive",NewName="/Script/DeadByDaylight.StatusViewSource._isActive")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewSource.PercentageFill",NewName="/Script/DeadByDaylight.StatusViewSource._percentageFill")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewSource.Level",NewName="/Script/DeadByDaylight.StatusViewSource._level")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewSource.SourceType",NewName="/Script/DeadByDaylight.StatusViewSource._sourceType")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewSource.SourceIconIndex",NewName="/Script/DeadByDaylight.StatusViewSource._sourceIconIndex")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewSource.SourceLevel",NewName="/Script/DeadByDaylight.StatusViewSource._sourceLevel")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusView.IsActive",NewName="/Script/DeadByDaylight.StatusView._isActive")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusView.Level",NewName="/Script/DeadByDaylight.StatusView._level")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusView.PercentageFill",NewName="/Script/DeadByDaylight.StatusView._percentageFill")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusView.IsClockwiseTimer",NewName="/Script/DeadByDaylight.StatusView._isClockwiseTimer")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.StatusViewID",NewName="/Script/DeadByDaylight.StatusViewProperties._statusViewID")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.Description",NewName="/Script/DeadByDaylight.StatusViewProperties._description")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.DisplayName",NewName="/Script/DeadByDaylight.StatusViewProperties._displayName")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.StatusViewBlueprint",NewName="/Script/DeadByDaylight.StatusViewProperties._statusViewBlueprint")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.StatusType",NewName="/Script/DeadByDaylight.StatusViewProperties._statusType")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.IconFilePath",NewName="/Script/DeadByDaylight.StatusViewProperties._iconFilePath")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.IconAsset",NewName="/Script/DeadByDaylight.StatusViewProperties._iconAsset")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.PlayIntroAnimmation",NewName="/Script/DeadByDaylight.StatusViewProperties._playIntroAnimation")
 
 [/Script/IOSRuntimeSettings.IOSRuntimeSettings]
 BundleIdentifier=com.bhvr.deadbydaylight
@@ -1543,29 +1585,8 @@ MinSCWsToSpawnBeforeWarning=8
 bDoNotChunkShaderLib=True
 
 [/Script/Engine.PhysicsSettings]
-DefaultGravityZ=-980.000000
-DefaultTerminalVelocity=4000.000000
-DefaultFluidFriction=0.300000
-SimulateScratchMemorySize=262144
-RagdollAggregateThreshold=4
-TriangleMeshTriangleMinAreaThreshold=5.000000
-bEnableShapeSharing=False
-bEnablePCM=True
-bEnableStabilization=False
-bWarnMissingLocks=True
-bEnable2DPhysics=False
 PhysicErrorCorrection=(PingExtrapolation=0.100000,PingLimit=100.000000,ErrorPerLinearDifference=1.000000,ErrorPerAngularDifference=1.000000,MaxRestoredStateError=1.000000,MaxLinearHardSnapDistance=400.000000,PositionLerp=0.000000,AngleLerp=0.400000,LinearVelocityCoefficient=100.000000,AngularVelocityCoefficient=10.000000,ErrorAccumulationSeconds=0.500000,ErrorAccumulationDistanceSq=15.000000,ErrorAccumulationSimilarity=100.000000)
 DefaultDegreesOfFreedom=Full3D
-BounceThresholdVelocity=200.000000
-FrictionCombineMode=Average
-RestitutionCombineMode=Average
-MaxAngularVelocity=3600.000000
-MaxDepenetrationVelocity=0.000000
-ContactOffsetMultiplier=0.020000
-MinContactOffset=2.000000
-MaxContactOffset=8.000000
-bSimulateSkeletalMeshOnDedicatedServer=True
-DefaultShapeComplexity=CTF_UseSimpleAndComplex
 bSuppressFaceRemapTable=False
 bSupportUVFromHitResults=False
 bDisableActiveActors=False
@@ -1623,7 +1644,9 @@ PhysXTreeRebuildRate=10
 +PhysicalSurfaces=(Type=SurfaceType38,Name="Leaves")
 +PhysicalSurfaces=(Type=SurfaceType39,Name="Ceramic")
 +PhysicalSurfaces=(Type=SurfaceType40,Name="HardWood")
++PhysicalSurfaces=(Type=SurfaceType41,Name="Mannequin")
 DefaultBroadphaseSettings=(bUseMBPOnClient=False,bUseMBPOnServer=False,bUseMBPOuterBounds=False,MBPBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=0),MBPOuterBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=0),MBPNumSubdivs=2)
+MinDeltaVelocityForHitEvents=0.000000
 ChaosSettings=(DefaultThreadingModel=TaskGraph,DedicatedThreadTickMode=VariableCappedWithTarget,DedicatedThreadBufferMode=Double)
 
 [/Script/DbdPlugin.CheckGestureReferences]
@@ -1809,22 +1832,32 @@ DefaultRDOLambda=30
 [/Script/AutomationController.AutomationControllerSettings]
 bTreatLogWarningsAsTestErrors=False
 
+
 [=/Script/Engine.CollisionProfile]
+
 [=/Script/Engine.LocalPlayer]
+
 [=/Script/Engine.PhysicsSettings]
+
 [=/Script/EngineSettings.GameMapsSettings]
+
 [==/Script/Engine.RendererSettings]
 ^r.DefaultFeature.AntiAliasing
+
 [==/Script/Engine.RendererOverrideSettings]
 ^r.DefaultFeature.AntiAliasing
+
 [==/Script/Engine.NetworkSettings]
 ^r.DefaultFeature.AntiAliasing
+
 [==/Script/Engine.GarbageCollectionSettings]
 ^r.DefaultFeature.AntiAliasing
+
 [==/Script/Engine.StreamingSettings]
 ^r.DefaultFeature.AntiAliasing
 
 [/Script/Engine.SkeletalMeshSimplificationSettings]
 r.SkeletalMeshReductionModule=SkeletalMeshReduction
 
-
+[/Script/Engine.DataDrivenConsoleVariableSettings]
++CVarsArray=(Type=CVarInt,Name="dbd.SelectCharacterMenuIdleAnimation",ToolTip="Select between all idle menu animation (0=Main, 1=interrupt01, 2=interrupt02..etc...)",DefaultValueFloat=0.000000,DefaultValueInt=0,DefaultValueBool=False)

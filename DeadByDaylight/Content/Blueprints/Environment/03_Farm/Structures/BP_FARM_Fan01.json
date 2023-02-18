@@ -12,23 +12,6 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum EAkResult",
-          "ObjectPath": "/Script/AkAudio"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -67,6 +50,16 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "FloatProperty",
         "Name": "CallFunc_RandomFloatInRange_ReturnValue",
         "Flags": 1,
@@ -95,6 +88,12 @@
         }
       },
       {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
         "Type": "StructProperty",
         "Name": "CallFunc_K2_AddLocalRotation_SweepHitResult",
         "Flags": 1,
@@ -106,13 +105,100 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result_1",
         "Flags": 1,
-        "ElementSize": 4
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_FARM_Fan01_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_FARM_Fan01_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -175,12 +261,12 @@
       "Timelines": [
         {
           "ObjectName": "TimelineTemplate BP_FARM_Fan01_C:TML_FanRotationController_Template",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.22"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.24"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_FARM_Fan01_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.19"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.21"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_FARM_Fan01_C:ExecuteUbergraph_BP_FARM_Fan01",
@@ -194,22 +280,30 @@
     "Children": [
       {
         "ObjectName": "Function BP_FARM_Fan01_C:TML_FanRotationController__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.7"
       },
       {
         "ObjectName": "Function BP_FARM_Fan01_C:TML_FanRotationController__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.6"
       },
       {
         "ObjectName": "Function BP_FARM_Fan01_C:FanStart",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.5"
       },
       {
         "ObjectName": "Function BP_FARM_Fan01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.4"
       },
       {
         "ObjectName": "Function BP_FARM_Fan01_C:CustomEvent_1",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.3"
+      },
+      {
+        "ObjectName": "Function BP_FARM_Fan01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.2"
+      },
+      {
+        "ObjectName": "Function BP_FARM_Fan01_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.1"
       },
       {
@@ -317,25 +411,33 @@
         "ObjectName": "Function BP_FARM_Fan01_C:ExecuteUbergraph_BP_FARM_Fan01",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_FARM_Fan01_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_FARM_Fan01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.2"
+      },
       "CustomEvent_1": {
         "ObjectName": "Function BP_FARM_Fan01_C:CustomEvent_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_FARM_Fan01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.4"
       },
       "FanStart": {
         "ObjectName": "Function BP_FARM_Fan01_C:FanStart",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.5"
       },
       "TML_FanRotationController__UpdateFunc": {
         "ObjectName": "Function BP_FARM_Fan01_C:TML_FanRotationController__UpdateFunc",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.6"
       },
       "TML_FanRotationController__FinishedFunc": {
         "ObjectName": "Function BP_FARM_Fan01_C:TML_FanRotationController__FinishedFunc",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.7"
       }
     },
     "ClassFlags": 8652820,
@@ -347,7 +449,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_FARM_Fan01_C Default__BP_FARM_Fan01_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.7"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.9"
     }
   },
   {
@@ -363,6 +465,7 @@
     "Outer": "BP_FARM_Fan01_C",
     "Properties": {
       "MaxDistance": 850.0,
+      "StaticAmbientEmitter": true,
       "AkAudioEvent": {
         "ObjectName": "AkAudioEvent AudioEvent_Obj_Fan_Small",
         "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Objects/AudioEvent_Obj_Fan_Small.0"
@@ -584,7 +687,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_FARM_Fan01_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.13"
       },
       "VariableGuid": "0FC04D1B-42258176-10D125B5-650E91A9",
       "InternalVariableName": "DefaultSceneRoot"
@@ -601,16 +704,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_FARM_Fan01_C:root_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.14"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.15"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.17"
         },
         {
           "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.18"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.20"
         }
       ],
       "VariableGuid": "3BA31584-4F2F3087-325F288C-8CBB57FF",
@@ -628,12 +731,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_FARM_Fan01_C:SM_SlgHouse_FanHigh_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.21"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.23"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.17"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.19"
         }
       ],
       "VariableGuid": "CC718EC0-41DBFBE9-1083C0A8-92E0399F",
@@ -651,7 +754,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DistanceBasedTickDisabler BP_FARM_Fan01_C:DistanceBasedTickDisabler_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.12"
       },
       "VariableGuid": "13ACDA6B-4EEE4B1F-7975EA9B-6A5CC55C",
       "InternalVariableName": "DistanceBasedTickDisabler"
@@ -668,7 +771,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_FARM_Fan01_C:SM_SlgHouse_FanGridFan_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.20"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.22"
       },
       "VariableGuid": "BAA6269E-4D0EA8B4-6FEC6EBF-EB3A0CED",
       "InternalVariableName": "SM_SlgHouse_FanGridFan_01"
@@ -685,7 +788,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_FARM_Fan01_C:AudioEvent_Obj_Fan_Small_Indoor_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.10"
       },
       "VariableGuid": "0A4A0D2C-4957BB91-5A12A29F-BD306622",
       "InternalVariableName": "AudioEvent_Obj_Fan_Small_Indoor"
@@ -699,38 +802,38 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.14"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.16"
         },
         {
           "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.16"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.18"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.14"
-        },
-        {
-          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.15"
-        },
-        {
-          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.17"
-        },
-        {
-          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_3",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.16"
         },
         {
-          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_6",
+          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.17"
+        },
+        {
+          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.19"
+        },
+        {
+          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_3",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.18"
+        },
+        {
+          "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.20"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_FARM_Fan01_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.15"
       }
     }
   },
@@ -780,7 +883,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat BP_FARM_Fan01_C:CurveFloat_0",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.9"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Environment/03_Farm/Structures/BP_FARM_Fan01.11"
           },
           "PropertyName": "TML_FanRotationController_FanRotation_C804F6AF4A7B9565C40D4685CC1513A0",
           "TrackName": "FanRotation",

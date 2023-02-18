@@ -67,13 +67,99 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "IntProperty",
         "Name": "CallFunc_PostAkEvent_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_Hos_TV_01_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_Hos_TV_01_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -117,7 +203,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_Hos_TV_01_C:SimpleConstructionScript_4",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.16"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_Hos_TV_01_C:ExecuteUbergraph_BP_Hos_TV_01",
@@ -131,10 +217,18 @@
     "Children": [
       {
         "ObjectName": "Function BP_Hos_TV_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.4"
       },
       {
         "ObjectName": "Function BP_Hos_TV_01_C:CustomEvent_0",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.3"
+      },
+      {
+        "ObjectName": "Function BP_Hos_TV_01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.2"
+      },
+      {
+        "ObjectName": "Function BP_Hos_TV_01_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.1"
       },
       {
@@ -204,13 +298,21 @@
         "ObjectName": "Function BP_Hos_TV_01_C:ExecuteUbergraph_BP_Hos_TV_01",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_Hos_TV_01_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_Hos_TV_01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.2"
+      },
       "CustomEvent_0": {
         "ObjectName": "Function BP_Hos_TV_01_C:CustomEvent_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_Hos_TV_01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.4"
       }
     },
     "ClassFlags": 8652820,
@@ -222,7 +324,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Hos_TV_01_C Default__BP_Hos_TV_01_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.4"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.6"
     }
   },
   {
@@ -244,6 +346,10 @@
     "Properties": {
       "OcclusionRefreshInterval": 0.3,
       "bUseReverbVolumes": false,
+      "AkAudioEvent": {
+        "ObjectName": "AkAudioEvent AudioEvent_TV_Soft_Loop",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Objects/TV/AudioEvent_TV_Soft_Loop.0"
+      },
       "RelativeLocation": {
         "X": -1.7881396E-06,
         "Y": 20.0,
@@ -307,7 +413,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_Hos_TV_01_C:Ak_Audio_TV_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.7"
       },
       "VariableGuid": "C995BB15-48637062-830647BB-8F169395",
       "InternalVariableName": "Ak_Audio_TV"
@@ -324,7 +430,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_Hos_TV_01_C:SM_HOS_TV01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.17"
       },
       "VariableGuid": "DC9914C1-43CABC67-6FD94397-CDFCFF9E",
       "InternalVariableName": "SM_HOS_TV01"
@@ -341,20 +447,20 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Hos_TV_01_C:Scene_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.9"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.12"
         },
         {
           "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.13"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.15"
         },
         {
           "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.11"
         }
       ],
       "VariableGuid": "3B9D9BBB-4FD1C56E-656487B5-DDECE528",
@@ -372,7 +478,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_Hos_TV_01_C:SceneComponent_6",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.10"
       },
       "VariableGuid": "0554C38E-436F4C6E-0ACBC5BA-6EDD7CDB",
       "InternalVariableName": "DefaultSceneRoot"
@@ -389,7 +495,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PointLightComponent BP_Hos_TV_01_C:PointLight_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.8"
       },
       "VariableGuid": "0F9D49F9-48BA36C7-A73498A3-05DCB7D0",
       "InternalVariableName": "PointLight"
@@ -403,30 +509,30 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.11"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.13"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.11"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_5",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.13"
         },
         {
+          "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.12"
+        },
+        {
+          "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.15"
+        },
+        {
           "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.11"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_Hos_TV_01_C:SimpleConstructionScript_4.SCS_Node_47",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.12"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/07-Hospital/BP_Props/BP_Hos_TV_01.14"
       }
     }
   },

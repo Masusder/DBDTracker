@@ -12,23 +12,6 @@
         "PropertyFlags": 148
       },
       {
-        "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
-        "Flags": 1,
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum EAkResult",
-          "ObjectPath": "/Script/AkAudio"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": 1,
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -67,13 +50,116 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "IntProperty",
         "Name": "CallFunc_PostAkEvent_ReturnValue",
         "Flags": 1,
         "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_NeonShockerRoom01_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_NeonShockerRoom01_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -117,7 +203,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_NeonShockerRoom01_C:SimpleConstructionScript_4",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.13"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.15"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_NeonShockerRoom01_C:ExecuteUbergraph_BP_NeonShockerRoom01",
@@ -131,10 +217,18 @@
     "Children": [
       {
         "ObjectName": "Function BP_NeonShockerRoom01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.4"
       },
       {
         "ObjectName": "Function BP_NeonShockerRoom01_C:CustomEvent_1",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.3"
+      },
+      {
+        "ObjectName": "Function BP_NeonShockerRoom01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.2"
+      },
+      {
+        "ObjectName": "Function BP_NeonShockerRoom01_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.1"
       },
       {
@@ -204,13 +298,21 @@
         "ObjectName": "Function BP_NeonShockerRoom01_C:ExecuteUbergraph_BP_NeonShockerRoom01",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_NeonShockerRoom01_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_NeonShockerRoom01_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.2"
+      },
       "CustomEvent_1": {
         "ObjectName": "Function BP_NeonShockerRoom01_C:CustomEvent_1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_NeonShockerRoom01_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.4"
       }
     },
     "ClassFlags": 8652820,
@@ -222,7 +324,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_NeonShockerRoom01_C Default__BP_NeonShockerRoom01_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.4"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.6"
     }
   },
   {
@@ -242,6 +344,12 @@
     "Name": "AkCB27AE6F447A9C59152643808D7744B0",
     "Outer": "BP_NeonShockerRoom01_C",
     "Properties": {
+      "MaxDistance": 850.0,
+      "StaticAmbientEmitter": true,
+      "AkAudioEvent": {
+        "ObjectName": "AkAudioEvent AudioEvent_Neon_Start",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Objects/AudioEvent_Neon_Start.0"
+      },
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
@@ -302,7 +410,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_NeonShockerRoom01_C:SpotLight_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.14"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.16"
       },
       "VariableGuid": "B0E60E1E-410F52D3-C46BEC9C-3252304B",
       "InternalVariableName": "SpotLight"
@@ -319,7 +427,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_NeonShockerRoom01_C:AkCB27AE6F447A9C59152643808D7744B0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.5"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.7"
       },
       "VariableGuid": "C76C3DF9-45ECB827-FCB979AB-65C00A31",
       "InternalVariableName": "Ak_Audio_Neon"
@@ -336,20 +444,20 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_NeonShockerRoom01_C:SM_Light013040D2B945ACC5B70C1F2AA8F2BC3B34",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.17"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.12"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.14"
         },
         {
           "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.11"
         },
         {
           "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.10"
         }
       ],
       "VariableGuid": "48C92481-4971E00C-B68BEAAE-BBA6B705",
@@ -367,7 +475,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_NeonShockerRoom01_C:SceneComponent_6",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.9"
       },
       "VariableGuid": "0554C38E-436F4C6E-0ACBC5BA-6EDD7CDB",
       "InternalVariableName": "DefaultSceneRoot"
@@ -384,7 +492,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PointLightComponent BP_NeonShockerRoom01_C:PointLightDD6D46E54EFA98943D64199A8252435F",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.8"
       },
       "VariableGuid": "BE7B8DF8-48060E5B-81038081-FF56D5E6",
       "InternalVariableName": "PointLight"
@@ -398,30 +506,30 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.12"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_5",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.12"
         },
         {
+          "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.14"
+        },
+        {
           "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.9"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.11"
         },
         {
           "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.8"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.10"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_NeonShockerRoom01_C:SimpleConstructionScript_4.SCS_Node_47",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.11"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/BP_NeonShockerRoom01.13"
       }
     }
   },

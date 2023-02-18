@@ -84,17 +84,6 @@
         "ElementSize": 4
       },
       {
-        "Type": "StructProperty",
-        "Name": "K2Node_Event_impulseDir",
-        "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 2,
-        "Struct": {
-          "ObjectName": "ScriptStruct Vector",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      },
-      {
         "Type": "EnumProperty",
         "Name": "K2Node_CustomEvent_Result",
         "Flags": 1,
@@ -113,6 +102,17 @@
       },
       {
         "Type": "StructProperty",
+        "Name": "K2Node_Event_impulseDir",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct Vector",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
         "Name": "CallFunc_GetRightVector_ReturnValue",
         "Flags": 1,
         "ElementSize": 12,
@@ -124,16 +124,6 @@
       {
         "Type": "StructProperty",
         "Name": "CallFunc_K2_GetComponentLocation_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 12,
-        "Struct": {
-          "ObjectName": "ScriptStruct Vector",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "CallFunc_Multiply_VectorFloat_ReturnValue",
         "Flags": 1,
         "ElementSize": 12,
         "Struct": {
@@ -173,7 +163,7 @@
       },
       {
         "Type": "StructProperty",
-        "Name": "CallFunc_Multiply_VectorFloat_ReturnValue_1",
+        "Name": "CallFunc_Multiply_VectorFloat_ReturnValue",
         "Flags": 1,
         "ElementSize": 12,
         "Struct": {
@@ -184,6 +174,16 @@
       {
         "Type": "StructProperty",
         "Name": "CallFunc_Add_VectorVector_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "ScriptStruct Vector",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Multiply_VectorFloat_ReturnValue_1",
         "Flags": 1,
         "ElementSize": 12,
         "Struct": {
@@ -420,7 +420,30 @@
   },
   {
     "Type": "Function",
-    "Name": "CustomEvent_0",
+    "Name": "ExplodeVfxSfx",
+    "Outer": "BP_BreakableBase_C",
+    "SuperStruct": {
+      "ObjectName": "Function BreakableBase:ExplodeVfxSfx",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "impulseDir",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 150,
+        "Struct": {
+          "ObjectName": "ScriptStruct Vector",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "SFXLoaded",
     "Outer": "BP_BreakableBase_C",
     "ChildProperties": [
       {
@@ -452,29 +475,6 @@
       "ObjectName": "Function Actor:ReceiveBeginPlay",
       "ObjectPath": "/Script/Engine"
     },
-    "FunctionFlags": 134744064
-  },
-  {
-    "Type": "Function",
-    "Name": "ExplodeVfxSfx",
-    "Outer": "BP_BreakableBase_C",
-    "SuperStruct": {
-      "ObjectName": "Function BreakableBase:ExplodeVfxSfx",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "impulseDir",
-        "Flags": 1,
-        "ElementSize": 12,
-        "PropertyFlags": 150,
-        "Struct": {
-          "ObjectName": "ScriptStruct Vector",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      }
-    ],
     "FunctionFlags": 134744064
   },
   {
@@ -856,15 +856,15 @@
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.4"
       },
       {
-        "ObjectName": "Function BP_BreakableBase_C:ExplodeVfxSfx",
+        "ObjectName": "Function BP_BreakableBase_C:ReceiveBeginPlay",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.3"
       },
       {
-        "ObjectName": "Function BP_BreakableBase_C:ReceiveBeginPlay",
+        "ObjectName": "Function BP_BreakableBase_C:SFXLoaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.2"
       },
       {
-        "ObjectName": "Function BP_BreakableBase_C:CustomEvent_0",
+        "ObjectName": "Function BP_BreakableBase_C:ExplodeVfxSfx",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.1"
       },
       {
@@ -1134,16 +1134,16 @@
         "ObjectName": "Function BP_BreakableBase_C:ExecuteUbergraph_BP_BreakableBase",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.0"
       },
-      "CustomEvent_0": {
-        "ObjectName": "Function BP_BreakableBase_C:CustomEvent_0",
+      "ExplodeVfxSfx": {
+        "ObjectName": "Function BP_BreakableBase_C:ExplodeVfxSfx",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.1"
+      },
+      "SFXLoaded": {
+        "ObjectName": "Function BP_BreakableBase_C:SFXLoaded",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.2"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_BreakableBase_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.2"
-      },
-      "ExplodeVfxSfx": {
-        "ObjectName": "Function BP_BreakableBase_C:ExplodeVfxSfx",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Interactable/Breakable/BP_BreakableBase.3"
       },
       "TML_FrameAnimation__UpdateFunc": {
@@ -2325,7 +2325,7 @@
       "BodyInstance": {
         "ObjectType": "ECC_WorldStatic",
         "CollisionEnabled": "ECollisionEnabled::NoCollision",
-        "CollisionProfileName": "NoCollision",
+        "CollisionProfileName": "Custom",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -2338,10 +2338,6 @@
             },
             {
               "Channel": "Pawn",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Visibility",
               "Response": "ECR_Ignore"
             },
             {

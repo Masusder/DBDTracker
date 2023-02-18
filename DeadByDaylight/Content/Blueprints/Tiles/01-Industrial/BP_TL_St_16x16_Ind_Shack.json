@@ -6,11 +6,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.212"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.211"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler BP_TL_St_16x16_Ind_Shack_C:InheritableComponentHandler",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.47"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.46"
       }
     },
     "SuperStruct": {
@@ -18,6 +18,28 @@
       "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/TileBase01.8"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Character_Blocker_011",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class StaticMeshComponent",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InstancedFoliageActor1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class DBDInstancedFoliageComponent",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "SetDressing",
@@ -86,29 +108,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "Audio_Godwall1",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class AmbienceBoxComponent",
-          "ObjectPath": "/Script/DBDAudio"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "Audio_Godwall2",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 17180393476,
-        "PropertyClass": {
-          "ObjectName": "Class AmbienceBoxComponent",
-          "ObjectPath": "/Script/DBDAudio"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "AudioAmbienceBox",
+        "Name": "AudioAmbBox_Shack",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 17180393476,
@@ -2054,238 +2054,6 @@
     }
   },
   {
-    "Type": "AmbienceBoxComponent",
-    "Name": "Audio_Godwall1_GEN_VARIABLE",
-    "Outer": "BP_TL_St_16x16_Ind_Shack_C",
-    "Properties": {
-      "BoxExtent": {
-        "X": 800.0,
-        "Y": 800.0,
-        "Z": 5.0
-      },
-      "AreaClass": null,
-      "ShapeColor": {
-        "B": 3,
-        "G": 0,
-        "R": 84,
-        "A": 255,
-        "Hex": "FF540003"
-      },
-      "bGenerateOverlapEvents": false,
-      "DetailLevelBeforeCastShadows": "DM_MAX",
-      "CanCharacterStepUpOn": "ECB_No",
-      "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel2",
-        "CollisionProfileName": "AudioOccluder",
-        "CollisionResponses": {
-          "ResponseArray": [
-            {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Interactable",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Slasher",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "InteractionDetector",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "BlinkBlocker",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Ground",
-              "Response": "ECR_Ignore"
-            }
-          ]
-        },
-        "PhysMaterialOverride": {
-          "ObjectName": "PhysicalMaterial PM_TECH_Occlusion_GodWall",
-          "ObjectPath": "DeadByDaylight/Content/Materials/PhysicalMaterials/PM_TECH_Occlusion_GodWall.0"
-        },
-        "bEnableGravity": false,
-        "bAutoWeld": false
-      },
-      "RelativeLocation": {
-        "X": 190.0,
-        "Y": -910.0,
-        "Z": -20.0
-      },
-      "RelativeScale3D": {
-        "X": 0.9,
-        "Y": 0.6,
-        "Z": 1.0
-      },
-      "Mobility": "EComponentMobility::Static",
-      "PrimaryComponentTick": {
-        "bStartWithTickEnabled": false
-      },
-      "bCanEverAffectNavigation": false
-    }
-  },
-  {
-    "Type": "AmbienceBoxComponent",
-    "Name": "Audio_Godwall2_GEN_VARIABLE",
-    "Outer": "BP_TL_St_16x16_Ind_Shack_C",
-    "Properties": {
-      "BoxExtent": {
-        "X": 800.0,
-        "Y": 800.0,
-        "Z": 5.0
-      },
-      "AreaClass": null,
-      "ShapeColor": {
-        "B": 3,
-        "G": 0,
-        "R": 84,
-        "A": 255,
-        "Hex": "FF540003"
-      },
-      "bGenerateOverlapEvents": false,
-      "DetailLevelBeforeCastShadows": "DM_MAX",
-      "CanCharacterStepUpOn": "ECB_No",
-      "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel2",
-        "CollisionProfileName": "AudioOccluder",
-        "CollisionResponses": {
-          "ResponseArray": [
-            {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Interactable",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Audio",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Slasher",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Spider",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Traps",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "InteractionDetector",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "BlinkBlocker",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Ground",
-              "Response": "ECR_Ignore"
-            }
-          ]
-        },
-        "PhysMaterialOverride": {
-          "ObjectName": "PhysicalMaterial PM_TECH_Occlusion_GodWall",
-          "ObjectPath": "DeadByDaylight/Content/Materials/PhysicalMaterials/PM_TECH_Occlusion_GodWall.0"
-        },
-        "bEnableGravity": false,
-        "bAutoWeld": false
-      },
-      "RelativeLocation": {
-        "X": -770.0,
-        "Y": -200.0,
-        "Z": -20.0
-      },
-      "RelativeScale3D": {
-        "X": 0.3,
-        "Y": 1.4,
-        "Z": 1.0
-      },
-      "Mobility": "EComponentMobility::Static",
-      "PrimaryComponentTick": {
-        "bStartWithTickEnabled": false
-      },
-      "bCanEverAffectNavigation": false
-    }
-  },
-  {
     "Type": "ArrowComponent",
     "Name": "ArrowComponent_1",
     "Outer": "BP_TL_St_16x16_Ind_Shack_C",
@@ -2689,7 +2457,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_TL_St_16x16_Ind_Shack_C:BasementWall_Blocker01_GEN_VARIABLE.DBDChildActor_Blocker18_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.29"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.27"
       },
       "RelativeLocation": {
         "X": 148.6156,
@@ -2715,7 +2483,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_TL_St_16x16_Ind_Shack_C:BasementWall_Blocker02_GEN_VARIABLE.DBDChildActor_Blocker19_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.30"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.28"
       },
       "RelativeLocation": {
         "X": 472.91187,
@@ -2741,7 +2509,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_BoardedWindow_Shack_01_C BP_TL_St_16x16_Ind_Shack_C:BP_BoardedWindow_Shack_01_GEN_VARIABLE.BP_BoardedWindow_Shack_01_GEN_VARIABLE_BP_BoardedWindow_Shack_01_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.26"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.24"
       },
       "RelativeLocation": {
         "X": -524.1915,
@@ -2762,7 +2530,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_BoardedWindow_Shack_01_C BP_TL_St_16x16_Ind_Shack_C:BP_BoardedWindow_Shack_02_GEN_VARIABLE.BP_BoardedWindow_Shack_02_GEN_VARIABLE_BP_BoardedWindow_Shack_01_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.27"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.25"
       },
       "RelativeLocation": {
         "X": 481.10297,
@@ -2788,7 +2556,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C BP_TL_St_16x16_Ind_Shack_C:BP_CollisionTool_GEN_VARIABLE.BP_CollisionTool_GEN_VARIABLE_BP_CollisionTool_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.31"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.29"
       },
       "RelativeLocation": {
         "X": -26.43971,
@@ -2819,7 +2587,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_IndLight01_C BP_TL_St_16x16_Ind_Shack_C:BP_IndLight01_GEN_VARIABLE.BP_IndLight01_GEN_VARIABLE_BP_IndLight01_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.32"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.30"
       },
       "RelativeLocation": {
         "X": 179.86176,
@@ -2839,7 +2607,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_IndLight01_C BP_TL_St_16x16_Ind_Shack_C:BP_IndLight02_GEN_VARIABLE.BP_IndLight02_GEN_VARIABLE_BP_IndLight01_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.33"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.31"
       },
       "RelativeLocation": {
         "X": -208.0166,
@@ -2864,7 +2632,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_Static_Rocks_C BP_TL_St_16x16_Ind_Shack_C:BP_Random_Rocks1E876618B46C2C48EB2B388A5530A1AD1.BP_Random_Rocks1E876618B46C2C48EB2B388A5530A1AD1_BP_Static_Rocks_C_CAT",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.34"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.32"
       },
       "RelativeLocation": {
         "X": 290.99988,
@@ -2873,6 +2641,11 @@
       },
       "Mobility": "EComponentMobility::Static"
     }
+  },
+  {
+    "Type": "DBDInstancedFoliageComponent",
+    "Name": "InstancedFoliageActor1_GEN_VARIABLE",
+    "Outer": "BP_TL_St_16x16_Ind_Shack_C"
   },
   {
     "Type": "HierarchicalInstancedStaticMeshComponent",
@@ -3015,13 +2788,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
-            "Y": 0.0,
+            "X": -0.0,
+            "Y": -0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 0.5166168,
@@ -3039,13 +2812,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
-            "Y": 0.0,
+            "X": -0.0,
+            "Y": -0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 423.5219,
@@ -3063,13 +2836,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
-            "Y": 0.0,
+            "X": -0.0,
+            "Y": -0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": -375.8965,
@@ -3457,10 +3230,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 776.8155,
@@ -3502,13 +3275,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
+            "X": -0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": -0.34143266,
+            "W": 0.938105,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 705.0717,
@@ -3529,10 +3302,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 636.95807,
@@ -3553,10 +3326,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 634.546,
@@ -3576,11 +3349,11 @@
           "Rotation": {
             "X": 0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": 0.49915355,
+            "W": 0.8645594,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.99661726
           },
           "Translation": {
             "X": 591.4914,
@@ -3601,10 +3374,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 625.2228,
@@ -3649,10 +3422,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 543.24756,
@@ -3673,10 +3446,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 451.16925,
@@ -4006,10 +3779,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": -546.93274,
@@ -4027,13 +3800,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
+            "X": -0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": -0.49915358,
+            "W": 0.8645594,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.9983072,
+            "SizeSquared": 0.9966173
           },
           "Translation": {
             "X": -358.71982,
@@ -4075,13 +3848,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
+            "X": -0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": -0.6416995,
+            "W": 0.7647477,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": -454.27234,
@@ -4174,10 +3947,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": -156.58601,
@@ -4219,13 +3992,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
+            "X": -0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": -0.49915358,
+            "W": 0.8645594,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.9983072,
+            "SizeSquared": 0.9966173
           },
           "Translation": {
             "X": -117.941414,
@@ -4246,10 +4019,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": -72.444916,
@@ -4270,10 +4043,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 19.223034,
@@ -4607,10 +4380,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 622.4697,
@@ -4676,13 +4449,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
+            "X": -0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": -0.57260555,
+            "W": 0.8177653,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 582.7575,
@@ -4703,10 +4476,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 591.9896,
@@ -4727,10 +4500,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 675.49677,
@@ -4751,10 +4524,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 832.82227,
@@ -4775,10 +4548,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 639.7918,
@@ -4822,11 +4595,11 @@
           "Rotation": {
             "X": 0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": 0.57260513,
+            "W": 0.8177656,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 680.7041,
@@ -4847,10 +4620,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 791.28204,
@@ -4871,10 +4644,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 531.1114,
@@ -4895,10 +4668,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 606.9712,
@@ -4919,10 +4692,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 704.89343,
@@ -4943,10 +4716,10 @@
             "X": 0.0,
             "Y": 0.0,
             "Z": 0.0,
-            "W": 1.0,
+            "W": 0.99830717,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 540.4904,
@@ -4964,13 +4737,13 @@
       {
         "TransformData": {
           "Rotation": {
-            "X": 0.0,
+            "X": -0.0,
             "Y": 0.0,
-            "Z": 0.0,
-            "W": 1.0,
+            "Z": -0.4798845,
+            "W": 0.8754017,
             "IsNormalized": true,
-            "Size": 1.0,
-            "SizeSquared": 1.0
+            "Size": 0.99830717,
+            "SizeSquared": 0.9966172
           },
           "Translation": {
             "X": 442.1584,
@@ -5220,7 +4993,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ArrowComponent BP_TL_St_16x16_Ind_Shack_C:ArrowComponent_1",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.22"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.20"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5242,7 +5015,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ArrowComponent BP_TL_St_16x16_Ind_Shack_C:ArrowComponent_5",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.23"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.21"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5306,7 +5079,7 @@
   },
   {
     "Type": "NatAudioAmbienceBox",
-    "Name": "AudioAmbienceBox_GEN_VARIABLE",
+    "Name": "AudioAmbBox_Shack_GEN_VARIABLE",
     "Outer": "BP_TL_St_16x16_Ind_Shack_C",
     "Properties": {
       "_onBeginOverlapAudioEvent": {
@@ -5314,13 +5087,13 @@
         "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/01-Industrial/AudioEvent_AM_T01_Shack.0"
       },
       "_onEndOverlapAudioEvent": {
-        "ObjectName": "AkAudioEvent AudioEvent_AM_T01_Forest_Med",
-        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/01-Industrial/AudioEvent_AM_T01_Forest_Med.0"
+        "ObjectName": "AkAudioEvent AudioEvent_AM_T01_Outdoor",
+        "ObjectPath": "DeadByDaylight/Content/Audio/AudioEvents/Ambience/01-Industrial/AudioEvent_AM_T01_Outdoor.0"
       },
       "BoxExtent": {
-        "X": 800.0,
-        "Y": 800.0,
-        "Z": 150.0
+        "X": 500.0,
+        "Y": 515.0,
+        "Z": 250.0
       },
       "AreaClass": null,
       "ShapeColor": {
@@ -5338,14 +5111,9 @@
         "bEnableGravity": false
       },
       "RelativeLocation": {
-        "X": -20.0,
-        "Y": 70.0,
-        "Z": 240.0
-      },
-      "RelativeScale3D": {
-        "X": 0.61,
-        "Y": 0.61,
-        "Z": 1.5
+        "X": -25.0,
+        "Y": 55.0,
+        "Z": 175.0
       }
     }
   },
@@ -6716,42 +6484,42 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:SceneComponent_49",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.70"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.69"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.90"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_13",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.89"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.88"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.73"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.72"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.130"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.129"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.131"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.130"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_80",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.204"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.203"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_77",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.200"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.199"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.171"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.170"
         }
       ],
       "VariableGuid": "080E9A31-85A1C4FF-3B9305CE-5C1DC0F5",
@@ -6863,7 +6631,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.145"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.144"
         }
       ],
       "VariableGuid": "FF2DA559-4F4F38FA-C8166195-C6004D25",
@@ -6881,7 +6649,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BP_CollisionTool_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.37"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6972,30 +6740,30 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SPLIT_SM_COM_Grass01_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.62"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.61"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_141",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.91"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.90"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_144",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.92"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.91"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_145",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.93"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.92"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_149",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.94"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.93"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_150",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.96"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.95"
         }
       ],
       "VariableGuid": "FC6F60FE-4BFAE628-808DDD85-E8659CBC",
@@ -7134,7 +6902,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ind_Shack_C:P_DustModular_Gesture_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.53"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.52"
       },
       "VariableGuid": "EAE2DD19-4C46EFA4-7EFCCF97-62A5D5B3",
       "InternalVariableName": "P_DustModular_Gesture"
@@ -7168,46 +6936,46 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SPLIT_SM_COM_PlantFern01_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.63"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.62"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_152",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.98"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.97"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_153",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.99"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.98"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_154",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.100"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.99"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_155",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.101"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.100"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_156",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.102"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.101"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_157",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.103"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.102"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_158",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.104"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.103"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_159",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.105"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.104"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_160",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.107"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.106"
         }
       ],
       "VariableGuid": "1AC53C08-41E8547B-B239889F-73F29A79",
@@ -7395,34 +7163,34 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SPLIT_SM_COM_SmallTree02_0_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.65"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.64"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_162",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.109"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.108"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_163",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.110"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.109"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_164",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.111"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.110"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_165",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.112"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.111"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_166",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.113"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.112"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_167",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.114"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.113"
         }
       ],
       "VariableGuid": "8711F20C-463FC9DE-EA5BBFAF-0BDCF815",
@@ -7542,7 +7310,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ind_Shack_C:P_Dust_Ceiling_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.52"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.51"
       },
       "VariableGuid": "06E35A40-42B7197C-917B1BB7-F779F991",
       "InternalVariableName": "P_Dust_Ceiling"
@@ -7559,30 +7327,30 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SPLIT_SM_COM_SmallTree02_1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.66"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.65"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_179",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.117"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.116"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_180",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.119"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.118"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_181",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.120"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.119"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_182",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.121"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.120"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_183",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.122"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.121"
         }
       ],
       "VariableGuid": "A3C0AF65-4C7A8BC2-21DD54AA-7DEC12A9",
@@ -7721,38 +7489,38 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SPLIT_SM_COM_SmallTree02_2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.67"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.66"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_195",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.125"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.124"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_196",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.126"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.125"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_197",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.127"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.126"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_198",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.128"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.127"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_199",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.129"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.128"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_200",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.132"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.131"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_201",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.133"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.132"
         }
       ],
       "VariableGuid": "EF1B6C71-457E0280-F26B7187-24FB739C",
@@ -7855,7 +7623,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BoxComponent BP_TL_St_16x16_Ind_Shack_C:Box_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.25"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.23"
       },
       "VariableGuid": "5E7A4632-4331E4D2-AD9EB194-E4F6BECC",
       "InternalVariableName": "Box"
@@ -7877,7 +7645,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.151"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.150"
         }
       ],
       "VariableGuid": "FC9406FD-430004F3-F3767DB9-60EDDF3B",
@@ -7948,14 +7716,14 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SPLIT_SM_COM_PlantFern01_1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.64"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.63"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_215",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.136"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.135"
         }
       ],
       "VariableGuid": "C02862B2-4AE2F2B3-D089658B-FE88F851",
@@ -8007,7 +7775,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SM_COM_Grass01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.44"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.43"
       },
       "ParentComponentOrVariableName": "HideGrass",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8026,7 +7794,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SM_COM_Grass02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.45"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.44"
       },
       "ParentComponentOrVariableName": "HideGrass",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8045,7 +7813,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SM_COM_Grass03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.46"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.45"
       },
       "ParentComponentOrVariableName": "HideGrass",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8083,7 +7851,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ind_Shack_C:P_Ind_FallingLeaves_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.54"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.53"
       },
       "VariableGuid": "47AE269D-45274A37-184DF0B6-26CBB214",
       "InternalVariableName": "P_Ind_FallingLeaves"
@@ -8143,7 +7911,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.150"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.149"
         }
       ],
       "VariableGuid": "17B616C5-4270A082-1263A5A8-260F03BC",
@@ -8180,7 +7948,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ind_Shack_C:P_Light_Drips_Height_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.58"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.57"
       },
       "VariableGuid": "65F09364-40F9A60C-9C851591-03490DB0",
       "InternalVariableName": "P_Light_Drips_Height"
@@ -8197,7 +7965,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent BP_TL_St_16x16_Ind_Shack_C:EdgeObject Blocker_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.43"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.42"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8211,17 +7979,17 @@
     "Outer": "SimpleConstructionScript_3",
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class AmbienceBoxComponent",
-        "ObjectPath": "/Script/DBDAudio"
+        "ObjectName": "Class StaticMeshComponent",
+        "ObjectPath": "/Script/Engine"
       },
       "ComponentTemplate": {
-        "ObjectName": "AmbienceBoxComponent BP_TL_St_16x16_Ind_Shack_C:Audio_Godwall2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.21"
+        "ObjectName": "StaticMeshComponent BP_TL_St_16x16_Ind_Shack_C:Character_Blocker_011_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.213"
       },
-      "ParentComponentOrVariableName": "Audio",
+      "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
-      "VariableGuid": "541DA396-4CA7FEA9-8D10EEA3-11A38711",
-      "InternalVariableName": "Audio_Godwall2"
+      "VariableGuid": "87500FA7-4A759198-0CD088AB-EEDD9B8E",
+      "InternalVariableName": "Character_Blocker_011"
     }
   },
   {
@@ -8269,7 +8037,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ind_Shack_C:P_Light_Drips_Height1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.55"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.54"
       },
       "VariableGuid": "BCF6C3E6-4B948A16-BD96148C-C599561B",
       "InternalVariableName": "P_Light_Drips_Height1"
@@ -8286,7 +8054,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ind_Shack_C:P_Light_Drips_Height2_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.56"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.55"
       },
       "VariableGuid": "3FBBA88E-47268B3E-BB73F697-D3EC4595",
       "InternalVariableName": "P_Light_Drips_Height2"
@@ -8303,7 +8071,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_TL_St_16x16_Ind_Shack_C:P_Light_Drips_Height3_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.57"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.56"
       },
       "VariableGuid": "D16E053A-48002460-66E24E9F-7B3AA46A",
       "InternalVariableName": "P_Light_Drips_Height3"
@@ -8388,7 +8156,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BoxComponent BP_TL_St_16x16_Ind_Shack_C:Box5_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.24"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.22"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8492,122 +8260,122 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:Scene7EC0229D4F4D4581FA55D6A6AA8C4FD0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.68"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.67"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.157"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.158"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.160"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.161"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.162"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.163"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.164"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.156"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.168"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.157"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.169"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.159"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.176"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.160"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.106"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.161"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.118"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.162"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.163"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.155"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.167"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.168"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.175"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.117"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.154"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.184"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.183"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.185"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.184"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.186"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.185"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.187"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.186"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.188"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.187"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.189"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.188"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.190"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.189"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_69",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.191"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.190"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_71",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.194"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.193"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_72",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.195"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.194"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_73",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.196"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.195"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_74",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.197"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.196"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_75",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.198"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.197"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_76",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.199"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.198"
         }
       ],
       "VariableGuid": "415D871D-4596EB10-41425E8A-2B5E387C",
@@ -8625,7 +8393,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BP_IndLight01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.40"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.38"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8644,7 +8412,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BP_IndLight02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.41"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.39"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8704,7 +8472,7 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.137"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.136"
         }
       ],
       "VariableGuid": "5334C6B5-492B83AC-8ED73B9D-7AE44955",
@@ -8722,7 +8490,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BP_Clipper_C BP_TL_St_16x16_Ind_Shack_C:BP_Clipper_frankyboi_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.28"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.26"
       },
       "VariableGuid": "5B52D72F-48BA1C76-961B6180-C93666EC",
       "InternalVariableName": "BP_Clipper_frankyboi"
@@ -8739,7 +8507,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpotLightComponent BP_TL_St_16x16_Ind_Shack_C:SpotLight_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.213"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.212"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8758,7 +8526,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "RectLightComponent BP_TL_St_16x16_Ind_Shack_C:RectLight_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.60"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.59"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8777,7 +8545,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BasementWall_Blocker01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.35"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.33"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -8796,22 +8564,22 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:VFX_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.72"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.71"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.177"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.176"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.178"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.177"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.179"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.178"
         }
       ],
       "VariableGuid": "331226DA-41AC0B40-0CE60DB0-DD60A793",
@@ -8846,7 +8614,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_TL_St_16x16_Ind_Shack_C:FX_Falling_Pine_Leaves_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.49"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.48"
       },
       "VariableGuid": "CEE0B178-47F7D00B-96DDA199-1A1CCC49",
       "InternalVariableName": "FX_Falling_Pine_Leaves_01"
@@ -8863,7 +8631,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_TL_St_16x16_Ind_Shack_C:FX_Falling_Pine_Leaves_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.50"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.49"
       },
       "VariableGuid": "4AE1E197-491FF635-7843D78B-40CBB147",
       "InternalVariableName": "FX_Falling_Pine_Leaves_02"
@@ -8880,7 +8648,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NiagaraComponent BP_TL_St_16x16_Ind_Shack_C:FX_Falling_Pine_Leaves_03_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.51"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.50"
       },
       "VariableGuid": "3D9EEF8C-4C83821C-3D0994A5-C6D7F3F7",
       "InternalVariableName": "FX_Falling_Pine_Leaves_03"
@@ -8916,7 +8684,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "RectLightComponent BP_TL_St_16x16_Ind_Shack_C:Mobile_Light_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.59"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.58"
       },
       "ParentComponentOrVariableName": "Lights",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -9108,13 +8876,13 @@
         "ObjectPath": "/Script/DeadByDaylight"
       },
       "ComponentTemplate": {
-        "ObjectName": "NatAudioAmbienceBox BP_TL_St_16x16_Ind_Shack_C:AudioAmbienceBox_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.48"
+        "ObjectName": "NatAudioAmbienceBox BP_TL_St_16x16_Ind_Shack_C:AudioAmbBox_Shack_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.47"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "VariableGuid": "970E3EF4-45D66E07-45A6F683-88BA7A8D",
-      "InternalVariableName": "AudioAmbienceBox"
+      "InternalVariableName": "AudioAmbBox_Shack"
     }
   },
   {
@@ -9128,7 +8896,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BP_Random_Rocks1E876618B46C2C48EB2B388A5530A1AD1",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.42"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.40"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -9249,7 +9017,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BP_BoardedWindow_Shack_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.37"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.35"
       },
       "VariableGuid": "013FC03F-4A60F913-3B37F8A0-7A7E71CC",
       "InternalVariableName": "BP_BoardedWindow_Shack_01"
@@ -9285,7 +9053,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BasementWall_Blocker02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.36"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.34"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -9304,7 +9072,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:SceneComponent_48",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.69"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.68"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -9321,29 +9089,10 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent BP_TL_St_16x16_Ind_Shack_C:BP_BoardedWindow_Shack_02_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.38"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.36"
       },
       "VariableGuid": "6FF13FBA-450605DE-A38D6AAC-E2A104FE",
       "InternalVariableName": "BP_BoardedWindow_Shack_02"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_81",
-    "Outer": "SimpleConstructionScript_3",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class AmbienceBoxComponent",
-        "ObjectPath": "/Script/DBDAudio"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "AmbienceBoxComponent BP_TL_St_16x16_Ind_Shack_C:Audio_Godwall1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.20"
-      },
-      "ParentComponentOrVariableName": "Audio",
-      "ParentComponentOwnerClassName": "TileBase01_C",
-      "VariableGuid": "F07EA440-40593854-368AB6A4-F3B42D0E",
-      "InternalVariableName": "Audio_Godwall1"
     }
   },
   {
@@ -9386,6 +9135,23 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_85",
+    "Outer": "SimpleConstructionScript_3",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class DBDInstancedFoliageComponent",
+        "ObjectPath": "/Script/DeadByDaylight"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DBDInstancedFoliageComponent BP_TL_St_16x16_Ind_Shack_C:InstancedFoliageActor1_GEN_VARIABLE",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.41"
+      },
+      "VariableGuid": "ED2F612E-42C40E03-AA5A31A6-7070D91D",
+      "InternalVariableName": "InstancedFoliageActor1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_9",
     "Outer": "SimpleConstructionScript_3",
     "Properties": {
@@ -9395,38 +9161,38 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:VFX_Environment_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.71"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.70"
       },
       "ParentComponentOrVariableName": "FX",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.95"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.94"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.115"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.114"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.142"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.141"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.147"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.146"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.152"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.151"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.153"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.152"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_35",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.154"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.153"
         }
       ],
       "VariableGuid": "76FD3AE5-4DD4BF7F-6701A8B4-D431CC2F",
@@ -9444,42 +9210,42 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_TL_St_16x16_Ind_Shack_C:HISM_SPLIT_SM_COM_Grass01_1_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.61"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.60"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_98",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.210"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.209"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_99",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.211"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.210"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_100",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.76"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.75"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_101",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.77"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.76"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_103",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.78"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.77"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_104",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.79"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.78"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_117",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.85"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.84"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_118",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.86"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.85"
         }
       ],
       "VariableGuid": "45A1C061-4BD78BC5-CCD06B84-A277D4BC",
@@ -9528,750 +9294,750 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_19",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.123"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.144"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.134"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.146"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.141"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.143"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.165"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.193"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.83"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.80"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.74"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.148"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_19",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.122"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.166"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.167"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.172"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.173"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.170"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.208"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.175"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.180"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.182"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.183"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_78",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.201"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.181"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_12",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.87"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_151",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.97"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.83"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.209"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_26",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.143"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_178",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.116"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.133"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_194",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.124"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.145"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_161",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.108"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_222",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.138"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_223",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.139"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_224",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.140"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_212",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.135"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.142"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.164"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.192"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.149"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.80"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_81",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.205"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.159"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.82"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.202"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.79"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.147"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.165"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.166"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.171"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.172"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.169"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.207"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.174"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.179"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.181"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.182"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_78",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.200"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.180"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_151",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.96"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.208"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_178",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.115"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_194",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.123"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_161",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_222",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.137"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_223",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.138"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_224",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.139"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_212",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.134"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.191"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.158"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_79",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.201"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.173"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_82",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.206"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.204"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_83",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.207"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.205"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_85",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.206"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.148"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_10",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.75"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_14",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.90"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_13",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.89"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_19",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.123"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_12",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.88"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_11",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.84"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_26",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.144"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.134"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.146"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.141"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.143"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.165"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_38",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.157"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.158"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.160"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.161"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.162"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.163"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.164"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.156"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.168"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.169"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.176"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.193"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.81"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.83"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.80"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.73"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.74"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.148"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_14",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.89"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_15",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.95"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_13",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.88"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_17",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.115"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_24",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.142"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_22",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.137"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_27",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.145"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_31",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.150"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_32",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.151"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_29",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.147"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_33",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.152"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_34",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.153"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_35",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.154"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.166"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.167"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.172"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_52",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.173"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_56",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.177"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_57",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.178"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_58",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.179"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.130"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_20",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.131"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.170"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.208"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.175"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.180"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.182"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.183"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.106"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.118"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.155"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_62",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.184"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_63",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.185"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_64",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.186"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_65",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.187"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_66",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.188"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_67",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.189"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_68",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.190"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_69",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.191"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_71",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.194"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_72",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.195"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_73",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.196"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_74",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.197"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_75",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.198"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_76",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.199"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_78",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.201"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_98",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.210"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_99",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.211"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_100",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.76"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_101",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.77"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_103",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.78"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_104",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.79"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_117",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.85"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_118",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.86"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_141",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.91"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_144",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.92"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_145",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.93"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_149",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.94"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_150",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.96"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_152",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.98"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_153",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.99"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_154",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.100"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_155",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.101"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_156",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.102"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_157",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.103"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_158",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.104"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_159",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.105"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_160",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.107"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_162",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.109"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_163",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.110"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_164",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.111"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_165",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.112"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_166",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.113"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_167",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.114"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_179",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.117"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_180",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.119"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_181",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.120"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_182",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.121"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_183",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_19",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.122"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_195",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.125"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_196",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.126"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_197",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.127"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_198",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.128"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_199",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.129"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_200",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.132"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_201",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.133"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_215",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.136"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.181"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_12",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.87"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_151",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.97"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_11",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.83"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.209"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_26",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.143"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_178",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.116"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_21",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.133"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_194",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.124"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_28",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.145"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_161",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.108"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_222",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.138"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_223",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.139"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_224",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_23",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.140"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_212",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.135"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_25",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.142"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_80",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.204"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_45",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.164"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_77",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.200"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_38",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.156"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_50",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.171"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_39",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.157"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.192"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_30",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.149"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_81",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.205"
-        },
-        {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_40",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.159"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_41",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.160"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_42",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.161"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_43",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.162"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_44",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.163"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_37",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.155"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_48",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.167"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_49",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.168"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_55",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.175"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_70",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.192"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_106",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.80"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_109",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.82"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_79",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.202"
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_105",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.79"
         },
         {
-          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_0",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.72"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_1",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.73"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.147"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_15",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.94"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_17",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.114"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_24",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.141"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_22",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.136"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_27",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.144"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_31",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.149"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_32",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.150"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_29",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.146"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_33",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.151"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_34",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.152"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_35",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.153"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_46",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.165"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_47",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.166"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_51",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.171"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_52",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.172"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_56",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.176"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_57",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.177"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_58",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.178"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_2",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.129"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_20",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.130"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_5",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.169"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_9",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.207"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_54",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.174"
         },
         {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_59",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.179"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_60",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.181"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_61",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.182"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_16",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.105"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_18",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.117"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_36",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.154"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_62",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.183"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_63",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.184"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_64",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.185"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_65",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.186"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_66",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.187"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_67",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.188"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_68",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.189"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_69",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.190"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_71",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.193"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_72",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.194"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_73",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.195"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_74",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.196"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_75",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.197"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_76",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.198"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_78",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.200"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_98",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.209"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_99",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.210"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_100",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.75"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_101",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.76"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_103",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.77"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_104",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.78"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_117",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.84"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_118",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.85"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_141",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.90"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_144",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.91"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_145",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.92"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_149",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.93"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_150",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.95"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_152",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.97"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_153",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.98"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_154",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.99"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_155",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.100"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_156",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.101"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_157",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.102"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_158",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.103"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_159",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.104"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_160",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.106"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_162",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.108"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_163",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.109"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_164",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.110"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_165",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.111"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_166",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.112"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_167",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.113"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_179",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.116"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_180",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.118"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_181",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.119"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_182",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.120"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_183",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.121"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_195",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.124"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_196",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.125"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_197",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.126"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_198",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.127"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_199",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.128"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_200",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.131"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_201",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.132"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_215",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.135"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_6",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.180"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_119",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.86"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_151",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.96"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_94",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.208"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_178",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.115"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_194",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.123"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_161",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.107"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_222",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.137"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_223",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.138"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_224",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.139"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_212",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.134"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_80",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.203"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_77",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.199"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_50",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.170"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_7",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.191"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.158"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_107",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.81"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_79",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.201"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_53",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.173"
+        },
+        {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_82",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.206"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.204"
         },
         {
           "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_83",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.207"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.205"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_85",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.206"
+        },
+        {
+          "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_30",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.148"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_TL_St_16x16_Ind_Shack_C:SimpleConstructionScript_3.SCS_Node_8",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.203"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/01-Industrial/BP_TL_St_16x16_Ind_Shack.202"
       }
     }
   },
@@ -10305,6 +10071,126 @@
         "Roll": -5.049275
       },
       "Mobility": "EComponentMobility::Stationary"
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Character_Blocker_011_GEN_VARIABLE",
+    "Outer": "BP_TL_St_16x16_Ind_Shack_C",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh Cube",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "bUseDefaultCollision": false,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material WindowYellow",
+          "ObjectPath": "DeadByDaylight/Content/Materials/WindowYellow.0"
+        }
+      ],
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Audio",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Spider",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BlinkBlocker",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -467.16586,
+        "Y": -392.81754,
+        "Z": 110.60205
+      },
+      "RelativeRotation": {
+        "Pitch": 0.000123,
+        "Yaw": 89.99714,
+        "Roll": 0.000188
+      },
+      "RelativeScale3D": {
+        "X": 0.9,
+        "Y": 1.0,
+        "Z": 1.772272
+      },
+      "bHiddenInGame": true,
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {

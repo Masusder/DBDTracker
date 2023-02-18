@@ -1,10 +1,142 @@
 [
   {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_GuardBreakPallet",
+    "Outer": "BP_GuardBreakPallet_C",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_actualSnapTime",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetInteractable_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class Interactable",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsPallet",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class Pallet",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInteractionEnterStart",
+    "Outer": "BP_GuardBreakPallet_C",
+    "SuperStruct": {
+      "ObjectName": "Function InteractionDefinition:OnInteractionEnterStart",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "player",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "actualSnapTime",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 134744064
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_GuardBreakPallet_C",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function BP_GuardBreakPallet_C:ExecuteUbergraph_BP_GuardBreakPallet",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/Guard/BP_GuardBreakPallet.0"
+      }
+    },
     "SuperStruct": {
       "ObjectName": "Class GuardBreakPallet",
       "ObjectPath": "/Script/TheK30"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function BP_GuardBreakPallet_C:OnInteractionEnterStart",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/Guard/BP_GuardBreakPallet.1"
+      },
+      {
+        "ObjectName": "Function BP_GuardBreakPallet_C:ExecuteUbergraph_BP_GuardBreakPallet",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/Guard/BP_GuardBreakPallet.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_GuardBreakPallet": {
+        "ObjectName": "Function BP_GuardBreakPallet_C:ExecuteUbergraph_BP_GuardBreakPallet",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/Guard/BP_GuardBreakPallet.0"
+      },
+      "OnInteractionEnterStart": {
+        "ObjectName": "Function BP_GuardBreakPallet_C:OnInteractionEnterStart",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/Guard/BP_GuardBreakPallet.1"
+      }
     },
     "ClassFlags": 10754068,
     "ClassWithin": {
@@ -15,18 +147,24 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_GuardBreakPallet_C Default__BP_GuardBreakPallet_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/Guard/BP_GuardBreakPallet.1"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/GameplayElements/Item/K30Power/Guard/BP_GuardBreakPallet.3"
     }
   },
   {
     "Type": "BP_GuardBreakPallet_C",
     "Name": "Default__BP_GuardBreakPallet_C",
     "Properties": {
+      "UberGraphFrame": {},
       "_shouldWaitForCurrentInteraction": true,
       "_explodeInteractableAnimNotifyID": "ExplodePallet",
+      "SlasherCanInteract": true,
+      "AutoBindToParentInteractor": true,
       "UpdateMontage": {
         "MontageID": "PlankDestroy"
-      }
+      },
+      "_tags": [
+        "Semantics.Interaction.Id.DestroyPallet"
+      ]
     }
   }
 ]

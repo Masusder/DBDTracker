@@ -12,6 +12,23 @@
         "PropertyFlags": 148
       },
       {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "ArrayProperty",
         "Name": "Temp_struct_Variable",
         "Flags": 1,
@@ -40,12 +57,6 @@
         }
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
         "Type": "DelegateProperty",
         "Name": "K2Node_CreateDelegate_OutputDelegate",
         "Flags": 1,
@@ -56,8 +67,18 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": 1,
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction OnAkBankCallback__DelegateSignature",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
         "Type": "EnumProperty",
-        "Name": "K2Node_CustomEvent_Result",
+        "Name": "K2Node_CustomEvent_Result_1",
         "Flags": 1,
         "ElementSize": 1,
         "Enum": {
@@ -71,9 +92,74 @@
           "ElementSize": 1,
           "Enum": null
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_PostAssociatedAkEvent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "Bank Unloaded",
+    "Outer": "BP_QTM_Torch_C",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "Result",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EAkResult",
+          "ObjectPath": "/Script/AkAudio"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_QTM_Torch_C",
+    "SuperStruct": {
+      "ObjectName": "Function Actor:ReceiveEndPlay",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum EEndPlayReason",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -175,7 +261,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript BP_QTM_Torch_C:SimpleConstructionScript_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.15"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.17"
       },
       "UberGraphFunction": {
         "ObjectName": "Function BP_QTM_Torch_C:ExecuteUbergraph_BP_QTM_Torch",
@@ -189,14 +275,22 @@
     "Children": [
       {
         "ObjectName": "Function BP_QTM_Torch_C:UserConstructionScript",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.5"
       },
       {
         "ObjectName": "Function BP_QTM_Torch_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.4"
       },
       {
         "ObjectName": "Function BP_QTM_Torch_C:StartSound",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.3"
+      },
+      {
+        "ObjectName": "Function BP_QTM_Torch_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.2"
+      },
+      {
+        "ObjectName": "Function BP_QTM_Torch_C:Bank Unloaded",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.1"
       },
       {
@@ -277,17 +371,25 @@
         "ObjectName": "Function BP_QTM_Torch_C:ExecuteUbergraph_BP_QTM_Torch",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.0"
       },
+      "Bank Unloaded": {
+        "ObjectName": "Function BP_QTM_Torch_C:Bank Unloaded",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.1"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function BP_QTM_Torch_C:ReceiveEndPlay",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.2"
+      },
       "StartSound": {
         "ObjectName": "Function BP_QTM_Torch_C:StartSound",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.3"
       },
       "ReceiveBeginPlay": {
         "ObjectName": "Function BP_QTM_Torch_C:ReceiveBeginPlay",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.4"
       },
       "UserConstructionScript": {
         "ObjectName": "Function BP_QTM_Torch_C:UserConstructionScript",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.5"
       }
     },
     "ClassFlags": 8652820,
@@ -299,7 +401,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_QTM_Torch_C Default__BP_QTM_Torch_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.5"
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.7"
     }
   },
   {
@@ -407,24 +509,24 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent BP_QTM_Torch_C:DefaultSceneRoot_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.9"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.11"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.11"
-        },
-        {
-          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_2",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.12"
-        },
-        {
-          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_3",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.13"
         },
         {
-          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.14"
+        },
+        {
+          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.15"
+        },
+        {
+          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.16"
         }
       ],
       "VariableGuid": "B294F970-4F92F388-72D0D0BC-12755266",
@@ -442,7 +544,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent BP_QTM_Torch_C:SM_QTM_Torch_01_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.16"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.18"
       },
       "VariableGuid": "A1E29645-4ACC6643-D54B5886-B632D3A1",
       "InternalVariableName": "SM_QTM_Torch_01"
@@ -459,7 +561,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ParticleSystemComponent BP_QTM_Torch_C:P_FireTorch_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.7"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.9"
       },
       "VariableGuid": "A3A48892-4AA4CF9E-91CF8A82-D94243B6",
       "InternalVariableName": "P_FireTorch"
@@ -476,7 +578,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PointLightComponent BP_QTM_Torch_C:PointLight_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.8"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.10"
       },
       "VariableGuid": "89B335DC-4DB6548C-C13DB797-0322F49C",
       "InternalVariableName": "PointLight"
@@ -493,7 +595,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent BP_QTM_Torch_C:AudioEvent_Torch_Fire_Start_GEN_VARIABLE",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.6"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.8"
       },
       "VariableGuid": "1ADD3724-4ACF3B9D-4232839B-22F4A341",
       "InternalVariableName": "AudioEvent_Torch_Fire_Start"
@@ -507,34 +609,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.10"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.12"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_0",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.10"
-        },
-        {
-          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_1",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.11"
-        },
-        {
-          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.12"
         },
         {
-          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_3",
+          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_1",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.13"
         },
         {
-          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_2",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.14"
+        },
+        {
+          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_3",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.15"
+        },
+        {
+          "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_4",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.16"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node BP_QTM_Torch_C:SimpleConstructionScript_0.SCS_Node_0",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.10"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Props/20-Quantum/BP_QTM_Torch.12"
       }
     }
   },

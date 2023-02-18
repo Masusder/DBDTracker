@@ -315,6 +315,28 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector2D_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "ScriptStruct Vector2D",
+          "ObjectPath": "/Script/CoreUObject"
+        }
       }
     ],
     "FunctionFlags": 205651968
@@ -533,7 +555,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree WBP_CoreInputPrompt_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.22"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -589,6 +611,17 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "LeftSpacerForRect",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class Spacer",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "PromptIcon",
         "Flags": 2097153,
         "ElementSize": 8,
@@ -600,7 +633,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "SpacerForRect",
+        "Name": "RightSpacerForRect",
         "Flags": 2097153,
         "ElementSize": 8,
         "PropertyFlags": 562952101429260,
@@ -677,6 +710,24 @@
           "ObjectName": "Class Texture2D",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "PaddingAlignment",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "Enum EHorizontalAlignment",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "PaddingValue",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
       }
     ],
     "FuncMap": {
@@ -743,10 +794,6 @@
           "ObjectName": "DataTable Switch_PromptDataTable",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Data/Inputs/Switch_PromptDataTable.0"
         },
-        "EControlMode::STADIA": {
-          "ObjectName": "DataTable Stadia_PromptDataTable",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Data/Inputs/Stadia_PromptDataTable.0"
-        },
         "EControlMode::SWITCH_PRO": {
           "ObjectName": "DataTable SwitchPro_PromptDataTable",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Data/Inputs/SwitchPro_PromptDataTable.0"
@@ -756,6 +803,7 @@
         "ObjectName": "Texture2D inputPromptPC_keyboardSquare",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/ButtonPrompts/PC_Prompts/inputPromptPC_keyboardSquare.0"
       },
+      "PaddingValue": 15.0,
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
     }
@@ -781,7 +829,7 @@
       },
       "Slot": {
         "ObjectName": "ScaleBoxSlot WBP_CoreInputPrompt_C:WidgetTree.ScaleBox_1.ScaleBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.18"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -792,6 +840,10 @@
     "Outer": "WidgetTree",
     "Properties": {
       "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot WBP_CoreInputPrompt_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.13"
+        },
         {
           "ObjectName": "HorizontalBoxSlot WBP_CoreInputPrompt_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.11"
@@ -814,7 +866,7 @@
       },
       "Content": {
         "ObjectName": "Overlay WBP_CoreInputPrompt_C:WidgetTree.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.14"
       }
     }
   },
@@ -828,8 +880,24 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.10"
       },
       "Content": {
-        "ObjectName": "Spacer WBP_CoreInputPrompt_C:WidgetTree.SpacerForRect",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.18"
+        "ObjectName": "Spacer WBP_CoreInputPrompt_C:WidgetTree.RightSpacerForRect",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.20"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_2",
+    "Outer": "HorizontalBox_0",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Left",
+      "Parent": {
+        "ObjectName": "HorizontalBox WBP_CoreInputPrompt_C:WidgetTree.HorizontalBox_0",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.10"
+      },
+      "Content": {
+        "ObjectName": "Spacer WBP_CoreInputPrompt_C:WidgetTree.LeftSpacerForRect",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.19"
       }
     }
   },
@@ -841,11 +909,11 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot WBP_CoreInputPrompt_C:WidgetTree.Overlay_0.OverlaySlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.14"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.15"
         },
         {
           "ObjectName": "OverlaySlot WBP_CoreInputPrompt_C:WidgetTree.Overlay_0.OverlaySlot_4",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.15"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.16"
         }
       ],
       "Slot": {
@@ -863,11 +931,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreInputPrompt_C:WidgetTree.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.14"
       },
       "Content": {
         "ObjectName": "ScaleBox WBP_CoreInputPrompt_C:WidgetTree.ScaleBox_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.17"
       }
     }
   },
@@ -880,11 +948,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay WBP_CoreInputPrompt_C:WidgetTree.Overlay_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.14"
       },
       "Content": {
         "ObjectName": "TextBlock WBP_CoreInputPrompt_C:WidgetTree.TextLabel",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.21"
       }
     }
   },
@@ -898,12 +966,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot WBP_CoreInputPrompt_C:WidgetTree.ScaleBox_1.ScaleBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.17"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.18"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreInputPrompt_C:WidgetTree.Overlay_0.OverlaySlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.15"
       }
     }
   },
@@ -914,7 +982,7 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox WBP_CoreInputPrompt_C:WidgetTree.ScaleBox_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.17"
       },
       "Content": {
         "ObjectName": "DBDImage WBP_CoreInputPrompt_C:WidgetTree.PromptIcon",
@@ -924,9 +992,29 @@
   },
   {
     "Type": "Spacer",
-    "Name": "SpacerForRect",
+    "Name": "LeftSpacerForRect",
     "Outer": "WidgetTree",
     "Properties": {
+      "Size": {
+        "X": 0.0,
+        "Y": 0.0
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot WBP_CoreInputPrompt_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.13"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "Spacer",
+    "Name": "RightSpacerForRect",
+    "Outer": "WidgetTree",
+    "Properties": {
+      "Size": {
+        "X": 0.0,
+        "Y": 0.0
+      },
       "Slot": {
         "ObjectName": "HorizontalBoxSlot WBP_CoreInputPrompt_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.12"
@@ -948,7 +1036,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot WBP_CoreInputPrompt_C:WidgetTree.Overlay_0.OverlaySlot_4",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.15"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputPrompts/WBP_CoreInputPrompt.16"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"

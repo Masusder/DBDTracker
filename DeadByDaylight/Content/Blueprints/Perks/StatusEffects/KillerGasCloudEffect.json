@@ -13,19 +13,13 @@
       },
       {
         "Type": "FloatProperty",
-        "Name": "K2Node_Event_effectDuration_1",
-        "Flags": 1,
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
         "Name": "K2Node_Event_durationSkipped_1",
         "Flags": 1,
         "ElementSize": 4
       },
       {
         "Type": "FloatProperty",
-        "Name": "K2Node_Event_effectDuration",
+        "Name": "K2Node_Event_effectDuration_1",
         "Flags": 1,
         "ElementSize": 4
       },
@@ -37,11 +31,32 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOriginatingPlayer_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "CallFunc_GetOwningPlayer_ReturnValue",
         "Flags": 1,
         "ElementSize": 8,
         "PropertyClass": {
           "ObjectName": "Class DBDPlayer",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class StatusEffect",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
@@ -176,14 +191,10 @@
         "ElementSize": 4
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetOriginatingPlayer_ReturnValue",
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_effectDuration",
         "Flags": 1,
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
+        "ElementSize": 4
       },
       {
         "Type": "ObjectProperty",
@@ -192,17 +203,6 @@
         "ElementSize": 8,
         "PropertyClass": {
           "ObjectName": "Class DBDPlayer",
-          "ObjectPath": "/Script/DeadByDaylight"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Authority_ImposeStatusEffect_DEPRECATED_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 8,
-        "PropertyFlags": 524288,
-        "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
@@ -225,6 +225,25 @@
       }
     ],
     "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "OnToxinEffectBegin",
+    "Outer": "KillerGasCloudEffect_C",
+    "SuperStruct": {
+      "ObjectName": "Function GassedStatusEffect:OnToxinEffectBegin",
+      "ObjectPath": "/Script/TheClown"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "effectDuration",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 134744064
   },
   {
     "Type": "Function",
@@ -313,25 +332,6 @@
     "FunctionFlags": 134744064
   },
   {
-    "Type": "Function",
-    "Name": "OnToxinEffectBegin",
-    "Outer": "KillerGasCloudEffect_C",
-    "SuperStruct": {
-      "ObjectName": "Function GassedStatusEffect:OnToxinEffectBegin",
-      "ObjectPath": "/Script/TheClown"
-    },
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "effectDuration",
-        "Flags": 1,
-        "ElementSize": 4,
-        "PropertyFlags": 148
-      }
-    ],
-    "FunctionFlags": 134744064
-  },
-  {
     "Type": "BlueprintGeneratedClass",
     "Name": "KillerGasCloudEffect_C",
     "Properties": {
@@ -346,27 +346,27 @@
     },
     "Children": [
       {
-        "ObjectName": "Function KillerGasCloudEffect_C:OnToxinEffectBegin",
+        "ObjectName": "Function KillerGasCloudEffect_C:OnToxinEffectEnd",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.6"
       },
       {
-        "ObjectName": "Function KillerGasCloudEffect_C:OnToxinEffectEnd",
+        "ObjectName": "Function KillerGasCloudEffect_C:OnAntidoteEffectBegin",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.5"
       },
       {
-        "ObjectName": "Function KillerGasCloudEffect_C:OnAntidoteEffectBegin",
+        "ObjectName": "Function KillerGasCloudEffect_C:OnAntidoteEffectEnd",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.4"
       },
       {
-        "ObjectName": "Function KillerGasCloudEffect_C:OnAntidoteEffectEnd",
+        "ObjectName": "Function KillerGasCloudEffect_C:OnInitialized",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.3"
       },
       {
-        "ObjectName": "Function KillerGasCloudEffect_C:OnInitialized",
+        "ObjectName": "Function KillerGasCloudEffect_C:UpdateAntidoteEffectVFX",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.2"
       },
       {
-        "ObjectName": "Function KillerGasCloudEffect_C:UpdateAntidoteEffectVFX",
+        "ObjectName": "Function KillerGasCloudEffect_C:OnToxinEffectBegin",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.1"
       },
       {
@@ -392,28 +392,28 @@
         "ObjectName": "Function KillerGasCloudEffect_C:ExecuteUbergraph_KillerGasCloudEffect",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.0"
       },
+      "OnToxinEffectBegin": {
+        "ObjectName": "Function KillerGasCloudEffect_C:OnToxinEffectBegin",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.1"
+      },
       "UpdateAntidoteEffectVFX": {
         "ObjectName": "Function KillerGasCloudEffect_C:UpdateAntidoteEffectVFX",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.1"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.2"
       },
       "OnInitialized": {
         "ObjectName": "Function KillerGasCloudEffect_C:OnInitialized",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.2"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.3"
       },
       "OnAntidoteEffectEnd": {
         "ObjectName": "Function KillerGasCloudEffect_C:OnAntidoteEffectEnd",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.3"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.4"
       },
       "OnAntidoteEffectBegin": {
         "ObjectName": "Function KillerGasCloudEffect_C:OnAntidoteEffectBegin",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.4"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.5"
       },
       "OnToxinEffectEnd": {
         "ObjectName": "Function KillerGasCloudEffect_C:OnToxinEffectEnd",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.5"
-      },
-      "OnToxinEffectBegin": {
-        "ObjectName": "Function KillerGasCloudEffect_C:OnToxinEffectBegin",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/KillerGasCloudEffect.6"
       }
     },
@@ -433,7 +433,8 @@
     "Type": "KillerGasCloudEffect_C",
     "Name": "Default__KillerGasCloudEffect_C",
     "Properties": {
-      "UberGraphFrame": {}
+      "UberGraphFrame": {},
+      "_id": "KillerGasCloudEffect"
     }
   }
 ]
