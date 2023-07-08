@@ -2,9 +2,10 @@
   {
     "Type": "DataTable",
     "Name": "SpecialEventsDB",
+    "Class": "UScriptClass'DataTable'",
     "Properties": {
       "RowStruct": {
-        "ObjectName": "ScriptStruct SpecialEventData",
+        "ObjectName": "ScriptStruct'SpecialEventData'",
         "ObjectPath": "/Script/DeadByDaylight"
       }
     },
@@ -34,14 +35,17 @@
         "ShopName": "Shop_Static",
         "AdditionalLobbyNames": [],
         "AudioStateSpecialEvent": "Halloween",
-        "GameplayPlayerComponent": {
-          "AssetPathName": "/Game/Blueprints/Events/Halloween2022/BPPlayerVoidEnergy.BPPlayerVoidEnergy_C",
-          "SubPathString": ""
-        },
-        "GameplayStateComponent": {
-          "AssetPathName": "None",
-          "SubPathString": ""
-        },
+        "SpawnableComponents": [
+          {
+            "Component": {
+              "AssetPathName": "/Game/Blueprints/Events/Halloween2022/BPPlayerVoidEnergy.BPPlayerVoidEnergy_C",
+              "SubPathString": ""
+            },
+            "ShouldSpawnOnSurvivor": true,
+            "ShouldSpawnOnKiller": true,
+            "ShouldSpawnOnGameState": false
+          }
+        ],
         "GameMode": "ESpecialEventGameMode::Collection",
         "UseEventEntryScreen": true,
         "EventEntryData": {
@@ -57,10 +61,8 @@
             "SourceString": "EVENT_EntryScreen_Halloween2022_DESC",
             "LocalizedString": "The <span class=\"EventEntryHighlight_Halloween\">Haunted by Daylight</span> event is here!<br><br>A great breach has appeared across the skies of The Entity's Realm. Collect <span class=\"EventEntryHighlight_Halloween\">Void Energy </span> when repairing generators and hooking Survivors. Transfer <span class=\"EventEntryHighlight_Halloween\">30 Void Energy</span> into <span class=\"EventEntryHighlight_Halloween\">Unstable Rifts</span> to unlock new cosmetic rewards.<br><br>An <span class=\"EventEntryHighlight_Halloween\">Event Tome</span> has arrived with even more rewards to be earned, only playable during the <span class=\"EventEntryHighlight_Halloween\">Haunted by Daylight</span> event! <br><br>Visit our social channels for more information on the <span class=\"EventEntryHighlight_Halloween\">Haunted by Daylight</span> event and the unlockable rewards!"
           },
-          "ImagePath": "UI/Icons/Banners/Events/eventEntry_halloween.png",
-          "ImageBannerText": {
-            "CultureInvariantString": null
-          }
+          "AdditionalStoreEventsIds": [],
+          "AdditionalStoreItemIds": []
         },
         "EventDependency": "ESpecialEventDependency::Archives",
         "UseMarketDiscount": false,
@@ -84,7 +86,15 @@
             "AssetPathName": "/Game/Effects/Blueprints/Halloween2022/BP_SplashScreen_Halloween2022.BP_SplashScreen_Halloween2022_C",
             "SubPathString": ""
           }
-        }
+        },
+        "UiTakeoverData": {
+          "UseRoleSelectionTakeover": false,
+          "UseEventEntryPopupTakeover": false,
+          "UseArchivesTakeover": false,
+          "UseStoreShrineTakeover": false,
+          "UseLobbyTakeover": false
+        },
+        "CommentatorAudioData": null
       }
     }
   }

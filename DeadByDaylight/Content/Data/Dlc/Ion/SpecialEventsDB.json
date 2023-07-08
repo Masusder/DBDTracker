@@ -2,9 +2,10 @@
   {
     "Type": "DataTable",
     "Name": "SpecialEventsDB",
+    "Class": "UScriptClass'DataTable'",
     "Properties": {
       "RowStruct": {
-        "ObjectName": "ScriptStruct SpecialEventData",
+        "ObjectName": "ScriptStruct'SpecialEventData'",
         "ObjectPath": "/Script/DeadByDaylight"
       }
     },
@@ -59,14 +60,26 @@
         "ShopName": "Shop_Static_Snow",
         "AdditionalLobbyNames": [],
         "AudioStateSpecialEvent": "Winter",
-        "GameplayPlayerComponent": {
-          "AssetPathName": "/Game/Blueprints/GameplayElements/Interactable/Snowman/BP_SnowmanWinterEventPlayerComponent.BP_SnowmanWinterEventPlayerComponent_C",
-          "SubPathString": ""
-        },
-        "GameplayStateComponent": {
-          "AssetPathName": "/Game/Blueprints/GameplayElements/Interactable/Snowman/BP_SnowmanWinterEventComponent.BP_SnowmanWinterEventComponent_C",
-          "SubPathString": ""
-        },
+        "SpawnableComponents": [
+          {
+            "Component": {
+              "AssetPathName": "/Game/Blueprints/GameplayElements/Interactable/Snowman/BP_SnowmanWinterEventPlayerComponent.BP_SnowmanWinterEventPlayerComponent_C",
+              "SubPathString": ""
+            },
+            "ShouldSpawnOnSurvivor": true,
+            "ShouldSpawnOnKiller": true,
+            "ShouldSpawnOnGameState": false
+          },
+          {
+            "Component": {
+              "AssetPathName": "/Game/Blueprints/GameplayElements/Interactable/Snowman/BP_SnowmanWinterEventComponent.BP_SnowmanWinterEventComponent_C",
+              "SubPathString": ""
+            },
+            "ShouldSpawnOnSurvivor": false,
+            "ShouldSpawnOnKiller": false,
+            "ShouldSpawnOnGameState": true
+          }
+        ],
         "GameMode": "ESpecialEventGameMode::Counter",
         "UseEventEntryScreen": true,
         "EventEntryData": {
@@ -82,10 +95,8 @@
             "SourceString": "EVENT_EntryScreen_Winter2021_DESC",
             "LocalizedString": "<span class=\"EventEntryHighlight_Winter01\">SUSPICIOUS-LOOKING SNOWMEN</span> <br>Hide inside inflatable snowmen as Survivors to evade the Killer, but be aware: <span class=\"EventEntryHighlight_Winter01\">special rewards</span> await both Killer and Survivor when weapon meets plastic or a Survivor escapes disguised... <br><br><span class=\"EventEntryHighlight_Winter01\">HO-HO-HORRIFIC REWARDS</span><br>Earn 10 new rewards: <span class=\"EventEntryHighlight_Winter01\">charms</span>, <span class=\"EventEntryHighlight_Winter01\">ugly sweaters for original Survivors</span>, and <span class=\"EventEntryHighlight_Winter01\">Killer weapons</span> available from snowmen interactions.<br><br><span class=\"EventEntryHighlight_Winter01\">FRIGHTFULLY FESTIVE</span><br>String lights twinkle, snow swirls around the campfire, and <span class=\"EventEntryHighlight_Winter01\">Winter Party Starters</span> have returned with a bang in the Bloodweb. <br><br>Visit our social channels for more information on the event and the unlockable rewards!"
           },
-          "ImagePath": "UI/Icons/Banners/Events/eventEntry_winter2021.png",
-          "ImageBannerText": {
-            "CultureInvariantString": null
-          }
+          "AdditionalStoreEventsIds": [],
+          "AdditionalStoreItemIds": []
         },
         "EventDependency": "ESpecialEventDependency::None",
         "UseMarketDiscount": false,
@@ -109,7 +120,15 @@
             "AssetPathName": "None",
             "SubPathString": ""
           }
-        }
+        },
+        "UiTakeoverData": {
+          "UseRoleSelectionTakeover": false,
+          "UseEventEntryPopupTakeover": false,
+          "UseArchivesTakeover": false,
+          "UseStoreShrineTakeover": false,
+          "UseLobbyTakeover": false
+        },
+        "CommentatorAudioData": null
       }
     }
   }
