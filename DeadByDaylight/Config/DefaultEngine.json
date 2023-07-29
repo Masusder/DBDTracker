@@ -728,7 +728,7 @@ PreIntegratedSkinBRDFTextureName=/Engine/EngineMaterials/PreintegratedSkinBRDF.P
 MiniFontTextureName=/Engine/EngineMaterials/MiniFont.MiniFont
 WeightMapPlaceholderTextureName=/Engine/EngineMaterials/WeightMapPlaceholderTexture.WeightMapPlaceholderTexture
 LightMapDensityTextureName=/Engine/EngineMaterials/DefaultWhiteGrid.DefaultWhiteGrid
-NearClipPlane=10.000000
+NearClipPlane=1.000000
 bHardwareSurveyEnabled=True
 bSubtitlesEnabled=True
 bSubtitlesForcedOff=False
@@ -771,6 +771,7 @@ ParticleEventManagerClassPath=/Script/Engine.ParticleEventManager
 -NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 +NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemUtils.IpNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver")
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
++ActiveStructRedirects=(OldStructName="DBDTextDockingProperties",NewStructName="TextBlockOverrideProperties")
 
 [DerivedDataBackendGraph]
 MinimumDaysToKeepFile=7
@@ -809,6 +810,7 @@ r.D3D11.UseAllowTearing=0
 Slate.EnableRetainedRenderingWithLocalTransform=False
 r.OffsetXOnScreenMessage=300
 r.OffsetYOnScreenMessage=-75
+BP.bEnableSkelReinstUpdate=1
 
 [SystemSettingsEditor]
 r.Streaming.Boost=1 #As part of DBDL-137116 setting this to 1 (default value) instead of 100
@@ -898,6 +900,7 @@ CustomScalingRuleClass=None
 UIScaleCurve=(EditorCurveData=(Keys=((Time=480.000000,Value=0.133300),(Time=639.000000,Value=0.200000),(Time=1080.000000,Value=0.400000),(Time=2160.000000,Value=0.900000),(Time=8640.000000,Value=7.900000)),DefaultValue=340282346638528859811704183484516925440.000000,PreInfinityExtrap=RCCE_Constant,PostInfinityExtrap=RCCE_Constant),ExternalCurve=None)
 HandCursor=/Game/UI/Cursor/BP_HandCursor.BP_HandCursor_C
 DesignScreenSize=(X=3840,Y=2160)
+bAllowHighDPIInGameMode=True
 
 [/Script/AIModule.AISystem]
 PerceptionSystemClassName=/Script/AIModule.AIPerceptionSystem
@@ -1040,7 +1043,6 @@ r.DefaultFeature.MotionBlur=True
 r.DefaultFeature.LensFlare=True
 r.DefaultFeature.AntiAliasing=2
 r.StencilForLODDither=False
-r.EarlyZPass=3
 r.EarlyZPassMovable=False
 r.DBuffer=False
 r.ClearSceneMethod=1
@@ -1145,10 +1147,7 @@ DirtyAreasUpdateFreq=60.000000
 +FunctionRedirects=(OldName="CharacterCollection.GetCharacters",NewName="CharacterCollection.GetMainDBDPlayers")
 
 +FunctionRedirects=(OldName="DBDPlayer.Authority_ImposeStatusEffect",NewName="DBDPlayer.Authority_ImposeStatusEffect_DEPRECATED")
-+FunctionRedirects=(OldName="DBDPlayer.Authority_ImposeDynamicStatusEffect",NewName="DBDPlayer.Authority_ImposeDynamicStatusEffect_DEPRECATED")
 +FunctionRedirects=(OldName="PerkManager.Authority_ImposeStatusEffect",NewName="PerkManager.Authority_ImposeStatusEffect_DEPRECATED")
-+FunctionRedirects=(OldName="PerkManager.Authority_ImposeDynamicStatusEffect",NewName="PerkManager.Authority_ImposeDynamicStatusEffect_DEPRECATED")
-+FunctionRedirects=(OldName="PerkManager.Authority_ImposeNewStatusEffectOrChangeLifeTime",NewName="PerkManager.Authority_ImposeNewStatusEffectOrChangeLifeTime_DEPRECATED")
 
 +PropertyRedirects=(OldName="Generator.NativeIsDamaged",NewName="Generator._nativeIsDamaged")
 +PropertyRedirects=(OldName="ExhaustedEffect.RunningCooldownModifier",NewName="ExhaustedEffect.CooldownModifier")
@@ -1239,6 +1238,8 @@ DirtyAreasUpdateFreq=60.000000
 +ClassRedirects=(OldName="/Script/DeadByDaylight.ClosetAnalytics", NewName="/Script/DBDAnalytics.ClosetAnalytics")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.PigAnalytics", NewName="/Script/DBDAnalytics.PigAnalytics")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.PulldownAnalytics", NewName="/Script/DBDAnalytics.PulldownAnalytics")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DBDSlasherData", NewName="/Script/DeadByDaylight.DBDPlayerData")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DBDCamperData", NewName="/Script/DeadByDaylight.DBDPlayerData")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.SurvivorInteractionAnalytics", NewName="/Script/DBDAnalytics.SurvivorInteractionAnalytics")
 +ClassRedirects=(OldName="DarkRitualTotemVisual", NewName="DarkRitualTotem")
 +ClassRedirects=(OldName="DarkRitualTotem", NewName="RekindledTotem")
@@ -1248,8 +1249,24 @@ DirtyAreasUpdateFreq=60.000000
 +ClassRedirects=(OldName="/Script/DeadByDaylight.RichTextNestedTagsDecorator", NewName="/Script/DBDUIViewsCore.RichTextNestedTagsDecorator")
 +ClassRedirects=(OldName="/Script/DBDInteraction.InClosetFlashbangItemCraftInteraction", NewName="/Script/TheK24.InClosetFlashbangItemCraftInteraction")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.FirecrackerFromEffect", NewName="/Script/TheK24.BlastMineFirecracker")
++ClassRedirects=(OldName="/Script/DeadByDaylight.StakeOutPerk", NewName="/Script/DBDCompetence.StakeOutPerk")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.PhantomTrap", NewName="/Script/TheHag.PhantomTrap")
 +ClassRedirects=(OldName="/Script/DBDAnimation.HagDynamicAccessoryAnimInstance", NewName="/Script/TheHag.HagDynamicAccessoryAnimInstance")
++ClassRedirects=(OldName="/Script/DBDGameplay.SlasherTREmitterComponent", NewName="/Script/DBDGameplay.SlasherTerrorRadiusEmitterComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.TerrorRadiusEmitterComponent", NewName="/Script/DBDGameplay.TerrorRadiusEmitterComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.TREmitterFunctionLibrary", NewName="/Script/DBDGameplay.TerrorRadiusEmitterFunctionLibrary")
++ClassRedirects=(OldName="/Script/DeadByDaylight.TerrorRadiusReceiverComponent", NewName="/Script/DBDGameplay.TerrorRadiusReceiverComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.AISense_Terror", NewName="/Script/DBDGameplay.AISense_Terror")
++ClassRedirects=(OldName="/Script/DeadByDaylight.AISenseConfig_Terror", NewName="/Script/DBDGameplay.AISenseConfig_Terror")
++ClassRedirects=(OldName="/Script/DeadByDaylight.AISenseEvent_Terror", NewName="/Script/DBDGameplay.AISenseEvent_Terror")
++ClassRedirects=(OldName="/Script/DeadByDaylight.AITerrorEvent", NewName="/Script/DBDGameplay.AITerrorEvent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.PhaseWalkingComponent", NewName="/Script/TheSpirit.PhaseWalkingComponent")
++ClassRedirects=(OldName="/Script/DBDInteraction.ActivePhaseWalkInteraction", NewName="/Script/TheSpirit.ActivePhaseWalkInteraction")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DecoySlasherComponent", NewName="/Script/DBDGameplay.DecoySlasherComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.KillerInstinctComponent", NewName="/Script/DBDGameplay.KillerInstinctComponent")
++ClassRedirects=(OldName="/Script/SignificanceUtilities.CharacterOptimizer", NewName="/Script/DBDGameplay.CharacterOptimizer")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DBDMarketingCameraController", NewName="/Script/DBDCheats.DBDMarketingCameraController")
++StructRedirects=(OldName="/Script/DeadByDaylight.PhaseWalkInfo", NewName="/Script/TheSpirit.PhaseWalkInfo")
 +StructRedirects=(OldName="/Script/DeadByDaylight.AtlantaFriendUIData", NewName="/Script/DBDUIViewsMobile.AtlantaFriendUIData")
 +StructRedirects=(OldName="/Script/DeadByDaylight.FriendStatusUIData", NewName="/Script/DBDUIViewsMobile.FriendStatusUIData")
 +StructRedirects=(OldName="/Script/DeadByDaylight.TutorialEndReward", NewName="/Script/DeadByDaylight.AtlantaTutorialEndReward")
@@ -1259,14 +1276,15 @@ DirtyAreasUpdateFreq=60.000000
 +StructRedirects=(OldName="HelpTopicData", NewName="/Script/DBDSharedTypes.HelpTopicData")
 +StructRedirects=(OldName="HelpContextMappingData", NewName="/Script/DBDSharedTypes.HelpContextMappingData")
 +StructRedirects=(OldName="HelpCategoryData", NewName="/Script/DBDSharedTypes.HelpCategoryData")
++StructRedirects=(OldName="/Script/DeadByDaylight.VideoThumbnailProperties", NewName="/Script/DBDVideoPlayer.VideoThumbnailProperties")
 +EnumRedirects=(OldName="/Script/DBDUIViewInterfaces.EKillerResult", NewName="/Script/DBDSharedTypes.EKillerMatchResult")
 +EnumRedirects=(OldName="EHudOffscreenIndicatorType", NewName="EHudScreenIndicatorType")
 +EnumRedirects=(OldName="EEmblemProgressionType",ValueChanges=(("SurvivorLightbringerHexTotemCleanse","SurvivorLightbringerTotemCleanse")))
-+EnumRedirects=(OldName="EInputInteractionType", ValueChanges=(("VE_ExternalEnterWithChainsaw","VE_ExternalRequestDestroyWithPowerAttack")))
++EnumRedirects=(OldName="EInputInteractionType", NewName="/Script/DBDSharedTypes.EInputInteractionType", ValueChanges=(("VE_ExternalEnterWithChainsaw","VE_ExternalRequestDestroyWithPowerAttack")))
++EnumRedirects=(OldName="EInteractionLayer", NewName="/Script/DBDSharedTypes.EInteractionLayer")
 +EnumRedirects=(OldName="EPlatformExclusiveFlag", NewName="EPlatformFlag")
 +EnumRedirects=(OldName="EGameState", NewName="/Script/DBDSharedTypes.EGameState")
 +EnumRedirects=(OldName="EKillerAbilities", NewName="/Script/DBDSharedTypes.EKillerAbilities")
-+EnumRedirects=(OldName="EKillerMoodInfluence", NewName="/Script/DBDSharedTypes.EKillerMoodInfluence")
 +EnumRedirects=(OldName="EAnimNotifyType", NewName="/Script/DBDSharedTypes.EAnimNotifyType")
 +EnumRedirects=(OldName="ECamperState", NewName="/Script/DBDSharedTypes.ECamperState")
 +EnumRedirects=(OldName="EInteractionAnimation", NewName="/Script/DBDSharedTypes.EInteractionAnimation")
@@ -1288,6 +1306,8 @@ DirtyAreasUpdateFreq=60.000000
 +EnumRedirects=(OldName="ELeanState", NewName="/Script/DBDSharedTypes.ELeanState")
 +EnumRedirects=(OldName="ECurrencyType", NewName="/Script/DBDSharedTypes.ECurrencyType")
 +EnumRedirects=(OldName="EInventoryItemType", NewName="/Script/DBDSharedTypes.EInventoryItemType")
++EnumRedirects=(OldName="ECamperImmobilizeState", NewName="/Script/DeadByDaylight.EImmobilizedState")
++EnumRedirects=(OldName="ECamperGuidedAction", NewName="/Script/DeadByDaylight.EGuidedState")
 +EnumRedirects=(OldName="TextureGroup",ValueChanges=(("TEXTUREGROUP_Project01","TEXTUREGROUP_SkyboxReflections")))
 +EnumRedirects=(OldName="TextureGroup",ValueChanges=(("TEXTUREGROUP_Project02","TEXTUREGROUP_LightFunctions")))
 +EnumRedirects=(OldName="TextureGroup",ValueChanges=(("TEXTUREGROUP_Project03","TEXTUREGROUP_Foliage")))
@@ -1356,6 +1376,7 @@ DirtyAreasUpdateFreq=60.000000
 +StructRedirects=(OldName="/Script/TheK28.K28CustomizationAnimationMapping",NewName="/Script/DBDAnimation.CustomizationAnimationMapping")
 +PropertyRedirects=(OldName="/Script/DeadByDaylight.ChargeableComponent._startingChargePercent",NewName="/Script/DeadByDaylight.ChargeableComponent.StartingChargePercent")
 +FunctionRedirects=(OldName="/Script/Barrel2023.Barrel.Cosmetic_OnBarrelSpawn",NewName="/Script/Barrel2023.Barrel.Cosmetic_OnBarrelRespawn")
++ClassRedirects=(OldName="/Script/DeadByDaylight.LocalControlledPlayerUtilities",NewName="/Script/DeadByDaylight.LocalPlayerUtilities")
 +FunctionRedirects=(OldName="/Script/Barrel2023.Barrel.OnBarrelDespawnComplete",NewName="/Script/Barrel2023.Barrel.OnBarrelDespawnCosmeticsComplete")
 +PropertyRedirects=(OldName="/Script/DeadByDaylight.ChargeableInteractionDefinition._interactionSpecificActionSpeedAdditiveTags",NewName="/Script/DeadByDaylight.ChargeableInteractionDefinition._interactionSpecificActionDurationAdditiveTags")
 +PropertyRedirects=(OldName="/Script/TheK31.K31DroneMovementComponent._additionnalRotatingComponents",NewName="/Script/TheK31.K31DroneMovementComponent._additionalRotatingComponents")
@@ -1378,6 +1399,33 @@ DirtyAreasUpdateFreq=60.000000
 +PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.IconFilePath",NewName="/Script/DeadByDaylight.StatusViewProperties._iconFilePath")
 +PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.IconAsset",NewName="/Script/DeadByDaylight.StatusViewProperties._iconAsset")
 +PropertyRedirects=(OldName="/Script/DeadByDaylight.StatusViewProperties.PlayIntroAnimmation",NewName="/Script/DeadByDaylight.StatusViewProperties._playIntroAnimation")
++ClassRedirects=(OldName="/Script/DeadByDaylight.DBDCheatManager",NewName="/Script/DBDCheats.DBDCheatManager")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.PlatformDlcData.DlcIdXB1",NewName="/Script/DeadByDaylight.PlatformDlcData.DlcIdXB1LegacyXDK")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.PlatformDlcData.DlcIdXSX",NewName="/Script/DeadByDaylight.PlatformDlcData.DlcId_XB1_XSX_GDK")
++ClassRedirects=(OldName="/Script/DeadByDaylight.SlasherTREmitterComponent",NewName="/Script/DeadByDaylight.SlasherTerrorRadiusEmitterComponent")
++ClassRedirects=(OldName="/Script/DBDGameplay.TREmitterFunctionLibrary",NewName="/Script/DBDGameplay.TerrorRadiusEmitterFunctionLibrary")
++PropertyRedirects=(OldName="/Script/DBDGameplay.TerrorRadiusReceiverComponent._heartbeatMasterVolumeInterpolationSpeed",NewName="/Script/DBDGameplay.TerrorRadiusReceiverComponent._heartbeatSmoothingInterpolationSpeed")
++ClassRedirects=(OldName="/Script/Archives.CustomDistanceEvaluatorCondition",NewName="/Script/Archives.CustomValueEvaluatorCondition")
++PropertyRedirects=(OldName="/Script/Archives.CustomDistanceGreaterOrEqualEvaluatorCondition.PARAMS_CONDITION_VALUE",NewName="/Script/Archives.CustomValueEvaluatorCondition._paramConditionValue")
++ClassRedirects=(OldName="/Script/Archives.CustomDistanceGreaterOrEqualEvaluatorCondition",NewName="/Script/Archives.CustomValueEvaluatorCondition")
++ClassRedirects=(OldName="/Script/Archives.ObsessionStateTagEvaluatorCondition",NewName="/Script/Archives.InChaseTargetStateTagEvaluatorCondition")
++ClassRedirects=(OldName="/Script/Archives.InChaseTargetHasStateTagEvaluatorCondition",NewName="/Script/Archives.InChaseTargetStateTagEvaluatorCondition")
++PropertyRedirects=(OldName="/Script/Archives.InstigatorTargetDistanceEvaluatorCondition._paramConditionValue",NewName="/Script/Archives.InstigatorTargetDistanceEvaluatorCondition._paramConditionKey")
++PropertyRedirects=(OldName="/Script/Archives.CustomValueEvaluatorCondition._paramConditionValue",NewName="/Script/Archives.CustomValueEvaluatorCondition._paramConditionKey")
++ClassRedirects=(OldName="/Script/DBDCompetence.AbilityStealthUndetectableEffect",NewName="/Script/DBDCompetence.UndetectableTimedEffect")
++ClassRedirects=(OldName="/Script/GFXUtilities.MaterialHelperUnaffectedStaticMeshComp",NewName="/Script/GFXUtilities.MaterialHelperUnaffectedStaticMeshComponent")
++EnumRedirects=(OldName="/Script/Archives.EventCountComparisonOperator",NewName="/Script/Archives.EEventCountComparisonOperator")
++EnumRedirects=(OldName="/Script/Archives.EventSubject",NewName="/Script/Archives.EEventSubject")
++FunctionRedirects=(OldName="/Script/DBDGameplay.TerrorRadiusEmitterComponent.SetIsActive",NewName="/Script/DBDGameplay.TerrorRadiusEmitterComponent.SetEmitterActive")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.DBDGameState._numberOfSurvivorsKilled",NewName="/Script/DeadByDaylight.DBDGameState._numberOfSurvivorsKilledOrSacrificed")
++FunctionRedirects=(OldName="/Script/DeadByDaylight.DBDGameState.OnRep_NumberOfSurvivorsKilledSacrificed",NewName="/Script/DeadByDaylight.DBDGameState.OnRep_NumberOfSurvivorsKilledOrSacrificed")
++ClassRedirects=(OldName="/Script/Anniversary2023.ReverseBamboozle",NewName="/Script/Anniversary2023.ReverseBamboozleInteractionDefinition")
++PropertyRedirects=(OldName="/Script/DeadByDaylight.PlayerFinishStats.NumberOfSurvivorsKilled",NewName="/Script/DeadByDaylight.PlayerFinishStats.NumberOfSurvivorsKilledOrSacrificed")
++FunctionRedirects=(OldName="/Script/Anniversary2023.ReverseBamboozleInteractionDefinition.Multicast_ExecuteCosmetic",NewName="/Script/Anniversary2023.ReverseBamboozleInteractionDefinition.Multicast_OnWindowBlockBegin")
++FunctionRedirects=(OldName="/Script/Anniversary2023.InvitationPlayerComponent.Multicast_CosmeticOnInvitationInteraction",NewName="/Script/Anniversary2023.InvitationPlayerComponent.Multicast_CosmeticOnInvitationInteractionActivate")
++FunctionRedirects=(OldName="/Script/Anniversary2023.InvitationPlayerComponent.Cosmetic_OnInvitationInteractionStart",NewName="/Script/Anniversary2023.InvitationPlayerComponent.Cosmetic_OnInvitationInteractionActivate")
++FunctionRedirects=(OldName="/Script/Anniversary2023.FragilePalletTracker.EnableSelectedEffectToLocalPlayer",NewName="/Script/Anniversary2023.FragilePalletTracker.SetIndicatorOutlineVisibility")
++PropertyRedirects=(OldName="/Script/Anniversary2023.KillerNegateStunInteraction._statusEffect",NewName="/Script/Anniversary2023.KillerNegateStunInteraction._negateStunStatusEffect")
 
 [/Script/IOSRuntimeSettings.IOSRuntimeSettings]
 BundleIdentifier=com.bhvr.deadbydaylight
@@ -1714,19 +1762,24 @@ EnableEnvironmentQueryEd=True
 +Stats=STAT_GPU_RenderVelocities
 +Stats=STAT_GPU_STAT_ASMRenderDepth
 +Stats=STAT_GPU_STAT_ASMProjection
-STAT_RHIDrawPrimitiveCalls=2000
-STAT_Decals=75
-STAT_ASMNumLightSources=200
-STAT_TotalSceneRenderingTime=16.666;SWI=33.333
-STAT_GPU_Prepass=1.5;XB1=1.5;PS4=1.5;SWI=3.0
-STAT_GPU_Basepass=3.0;XB1=3.0;PS4=3.0;SWI=15.0
-STAT_GPU_ShadowDepths=3.0;XB1=3.0;PS4=3.0;SWI=6.0
-STAT_GPU_Lights=4.0;XB1=4.0;PS4=4.0;SWI=8.0
-STAT_GPU_Translucency=1.5;XB1=1.5;PS4=1.5
-STAT_GPU_PostProcessing=2.0;XB1=3.0;PS4=3.0;SWI=4.5
-STAT_GPU_RenderVelocities=1.0
-STAT_GPU_STAT_ASMProjection=2.0;XB1=2.0;PS4=2.0;SWI=4.0
-STAT_GPU_STAT_ASMRenderDepth=1.5;XB1=1.5;PS4=1.5;SWI=3.0
++Stats=STAT_GPU_ReflectionEnvironment
+STAT_RHIDrawPrimitiveCalls=1000,2000
+STAT_Decals=0,75
+STAT_ASMNumLightSources=50
+STAT_TotalSceneRenderingTime=16.0,16.666;SWI=32.0,33.333
+STAT_GPU_ShadowDepths=0.75,3.0;XB1=0.3,1.5;PS4=0.75,3.0;SWI=1.5,6.0
+STAT_GPU_ShadowProjection=0.66,2.0;XSX=0.5,1.4;PS5=0.5,1.4;XB1=0.5,1.5;PS4=0.66,1.5;SWI=1.33,4.0
+STAT_GPU_STAT_ASMRenderDepth=0.66,1.5;XSX=0.5,1.4;PS5=0.5,1.4;XB1=0.33,0.66;PS4=0.33,0.66;SWI=1.33,3.0
+STAT_GPU_STAT_ASMProjection=0.66,2.0;XSX=0.5,1.4;PS5=0.5,1.4;XB1=0.5,1.5;PS4=0.66,1.5;SWI=1.33,4.0
+STAT_GPU_VolumetricFog=0.25,0.34;XSX=0.33,0.5;PS5=0.33,0.5;XB1=0.33,0.4;PS4=0.33,0.4;SWI=0.11,0.66
+STAT_GPU_Prepass=0.5,1.5;PS4=0.5,1.5;SWI=1.0,3.0
+STAT_GPU_Basepass=1.5,3.0;XSX=1.5,3.5;PS5=1.5,3.5;PS4=1.5,3.0;SWI=3.0,8.0
+STAT_GPU_RenderVelocities=1.0;PS4=1.0;SWI=0.75,2.0
+STAT_GPU_Lights=2.0,4.0;PS4=2.0,4.0;SWI=4.0,8.0
+STAT_GPU_Translucency=0.33,1.5;XB1=0.33,2.0;PS4=0.33,2.0;SWI=0.66,3.0
+STAT_GPU_ReflectionEnvironment=0.6,1.33;XSX=1.0,2.0;PS5=1.0,2.0;PS4=0.66,1.33;XB1=0.66,1.33
+STAT_GPU_PostProcessing=1.33,2.0;XSX=1.2,2.0;PS5=1.2,2.0;XB1=1.2,2.0;PS4=1.2,2.0;SWI=2.66,4.5
+
 
 [VFX]
 +Stats=STAT_ParticlesOverview_GT
@@ -1829,6 +1882,9 @@ Tangentspace=OrthonormalLeftHanded
 bForceRDOOff=False
 DefaultRDOLambda=30
 
+[AutomationTestBlacklist]
++BlacklistTest=(Test="Project.Functional Tests./Game/AutomationTests/",Map="",Reason="Avoiding duplicates with GPR",RHIs="",Warn="true")
+
 [/Script/AutomationController.AutomationControllerSettings]
 bTreatLogWarningsAsTestErrors=False
 
@@ -1861,3 +1917,4 @@ r.SkeletalMeshReductionModule=SkeletalMeshReduction
 
 [/Script/Engine.DataDrivenConsoleVariableSettings]
 +CVarsArray=(Type=CVarInt,Name="dbd.SelectCharacterMenuIdleAnimation",ToolTip="Select between all idle menu animation (0=Main, 1=interrupt01, 2=interrupt02..etc...)",DefaultValueFloat=0.000000,DefaultValueInt=0,DefaultValueBool=False)
+
