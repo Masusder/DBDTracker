@@ -1,0 +1,180 @@
+[
+  {
+    "Type": "EnvQuery",
+    "Name": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQuery'",
+    "Properties": {
+      "QueryName": "EQS_Placement_K33Turret_2",
+      "Options": [
+        {
+          "ObjectName": "EnvQueryOption'EQS_Flee_Lure:EnvQueryOption_0'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Lure.2"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryGenerator_SimpleGrid",
+    "Name": "EnvQueryGenerator_SimpleGrid_0",
+    "Outer": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQueryGenerator_SimpleGrid'",
+    "Properties": {
+      "GridSize": {
+        "DefaultValue": 1000.0
+      },
+      "SpaceBetween": {
+        "DefaultValue": 200.0
+      },
+      "GenerateAround": {
+        "ObjectName": "Class'EnvQueryContext_PinLocation'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "ProjectionData": {
+        "VersionNum": 1,
+        "NavigationFilter": {
+          "ObjectName": "BlueprintGeneratedClass'NavQuery_Camper_Terrified_C'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/NavQuery_Camper_Terrified.0"
+        },
+        "SerializedChannel": "ECC_Visibility"
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryOption",
+    "Name": "EnvQueryOption_0",
+    "Outer": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQueryOption'",
+    "Properties": {
+      "Generator": {
+        "ObjectName": "EnvQueryGenerator_SimpleGrid'EQS_Flee_Lure:EnvQueryGenerator_SimpleGrid_0'",
+        "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Lure.1"
+      },
+      "Tests": [
+        {
+          "ObjectName": "EnvQueryTest_IsValidDestination'EQS_Flee_Lure:EnvQueryTest_IsValidDestination_0'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Lure.5"
+        },
+        {
+          "ObjectName": "EnvQueryTest_LureToDangerObject'EQS_Flee_Lure:EnvQueryTest_LureToDangerObject_0'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Lure.6"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQS_Flee_Lure:EnvQueryTest_Distance_1'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Lure.3"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Dot'EQS_Flee_Lure:EnvQueryTest_Dot_1'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Lure.4"
+        },
+        {
+          "ObjectName": "EnvQueryTest_PathfindingBatch'EQS_Flee_Lure:EnvQueryTest_PathfindingBatch_1'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Flee_Lure.7"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_1",
+    "Outer": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Properties": {
+      "TestMode": "EEnvTestDistance::Distance2D",
+      "DistanceTo": {
+        "ObjectName": "Class'EnvQueryContext_TerrorRadius'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 2,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Dot",
+    "Name": "EnvQueryTest_Dot_1",
+    "Outer": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQueryTest_Dot'",
+    "Properties": {
+      "LineA": {
+        "LineFrom": {
+          "ObjectName": "Class'EnvQueryContext_Querier'",
+          "ObjectPath": "/Script/AIModule"
+        },
+        "LineTo": {
+          "ObjectName": "Class'EnvQueryContext_Item'",
+          "ObjectPath": "/Script/AIModule"
+        },
+        "DirMode": "EEnvDirection::TwoPoints"
+      },
+      "LineB": {
+        "LineTo": {
+          "ObjectName": "Class'EnvQueryContext_CenterOfMap'",
+          "ObjectPath": "/Script/DBDBots"
+        }
+      },
+      "TestMode": "EEnvTestDot::Dot2D",
+      "TestOrder": 3,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "TestComment": "Prefer path direction toward center of map",
+      "ScoreClampMin": {
+        "DefaultValue": 1.0
+      },
+      "ScoreClampMax": {
+        "DefaultValue": -1.0
+      },
+      "ScoringFactor": {
+        "DefaultValue": 0.2
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_IsValidDestination",
+    "Name": "EnvQueryTest_IsValidDestination_0",
+    "Outer": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQueryTest_IsValidDestination'",
+    "Properties": {
+      "ExcludeEscapeZoneIfReverseBearTrapIsActivated": {
+        "DefaultValue": false
+      },
+      "CheckDestinationOnDifferentNavMesh": {
+        "DefaultValue": true
+      },
+      "NavDataAgentName": "Turrets",
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_LureToDangerObject",
+    "Name": "EnvQueryTest_LureToDangerObject_0",
+    "Outer": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQueryTest_LureToDangerObject'",
+    "Properties": {
+      "TargetContext": {
+        "ObjectName": "Class'EnvQueryContext_TerrorRadius'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 1,
+      "ScoringFactor": {
+        "DefaultValue": 2.0
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_PathfindingBatch",
+    "Name": "EnvQueryTest_PathfindingBatch_1",
+    "Outer": "EQS_Flee_Lure",
+    "Class": "UScriptClass'EnvQueryTest_PathfindingBatch'",
+    "Properties": {
+      "FilterClass": {
+        "ObjectName": "Class'NavigationQueryFilter_Camper_Cheap'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 4,
+      "TestPurpose": "EEnvTestPurpose::Filter",
+      "VerNum": 1
+    }
+  }
+]

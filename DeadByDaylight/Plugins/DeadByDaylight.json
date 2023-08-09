@@ -349,13 +349,6 @@
 						"Enabled": false
 					},
 					{
-						"Name": "OnlineSubsystemStadia",
-						"Enabled": true,
-						"WhitelistPlatforms": [
-							"Stadia"
-						]
-					},
-					{
 						"Name": "PlatformsProviders",
 						"Enabled": true
 					},
@@ -1266,60 +1259,6 @@
 			}
 		},
 		{
-			"File": "../../../DeadByDaylight/Plugins/Runtime/Substance/Substance.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 66,
-				"VersionName": "4.25.0.1",
-				"FriendlyName": "Substance in UE4",
-				"Description": "Adds support for Substance (sbsar) textures",
-				"Category": "Editor",
-				"CreatedBy": "Substance by Adobe",
-				"CreatedByURL": "https://www.substance3d.com/",
-				"DocsURL": "https://docs.substance3d.com/display/integrations/Unreal+Engine",
-				"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/2f6439c2f9584f49809d9b13b16c2ba4",
-				"SupportURL": "",
-				"CanContainContent": true,
-				"Installed": true,
-				"Modules": [
-					{
-						"Name": "SubstanceEditor",
-						"Type": "Editor",
-						"LoadingPhase": "PostDefault",
-						"WhitelistPlatforms": [
-							"Win64",
-							"Win32",
-							"Mac",
-							"Linux"
-						]
-					},
-					{
-						"Name": "SubstanceSource",
-						"Type": "Editor",
-						"LoadingPhase": "PostDefault",
-						"WhitelistPlatforms": [
-							"Win64",
-							"Win32",
-							"Mac",
-							"Linux"
-						]
-					},
-					{
-						"Name": "SubstanceLiveLink",
-						"Type": "Editor",
-						"LoadingPhase": "PostDefault",
-						"WhitelistPlatforms": [
-							"Win64",
-							"Win32",
-							"Mac",
-							"Linux"
-						]
-					}
-				]
-			}
-		},
-		{
 			"File": "../../../Engine/Plugins/Enterprise/StaticMeshEditorExtension/StaticMeshEditorExtension.uplugin",
 			"Descriptor": 
 			{
@@ -2176,22 +2115,34 @@
 					{
 						"Name": "DBDUIManagers",
 						"Type": "Runtime",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"BlacklistTargets": [
+							"Server"
+						]
 					},
 					{
 						"Name": "DBDUIPresenters",
 						"Type": "Runtime",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"BlacklistTargets": [
+							"Server"
+						]
 					},
 					{
 						"Name": "DBDUIViewInterfaces",
 						"Type": "Runtime",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"BlacklistTargets": [
+							"Server"
+						]
 					},
 					{
 						"Name": "UITween",
 						"Type": "Runtime",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"BlacklistTargets": [
+							"Server"
+						]
 					}
 				],
 				"Plugins": [
@@ -2215,10 +2166,10 @@
 			"Descriptor": 
 			{
 				"FileVersion": 3,
-				"Version": 202112171,
-				"VersionName": "2021.1.5.7749.2171",
-				"FriendlyName": "Wwise Unreal Engine 4 Integration",
-				"Description": "Wwise integration for Unreal Engine 4",
+				"Version": 202112505,
+				"VersionName": "2021.1.12.7973.2505",
+				"FriendlyName": "Wwise Unreal Engine Integration",
+				"Description": "Wwise integration for Unreal Engine",
 				"Category": "Audio",
 				"CreatedBy": "Audiokinetic, Inc.",
 				"CreatedByURL": "http://audiokinetic.com",
@@ -2310,7 +2261,10 @@
 					{
 						"Name": "DBDUIViewsCore",
 						"Type": "Runtime",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"BlacklistTargets": [
+							"Server"
+						]
 					}
 				],
 				"Plugins": [
@@ -2988,6 +2942,164 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Media/BinkMedia/BinkMedia.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 2,
+				"VersionName": "2.0",
+				"FriendlyName": "Bink Media",
+				"Description": "Implements a media player using Bink.",
+				"Category": "Media Players",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "BinkMediaPlayer",
+						"Type": "RuntimeNoCommandlet",
+						"LoadingPhase": "PreLoadingScreen",
+						"BlacklistPlatforms": [
+							"HoloLens",
+							"Lumin",
+							"TVOS"
+						],
+						"BlacklistTargets": [
+							"Server"
+						]
+					},
+					{
+						"Name": "BinkMediaPlayerEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit",
+						"BlacklistTargets": [
+							"Server"
+						]
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../DeadByDaylight/Plugins/Runtime/Bhvr/SentryIo/SentryIo.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "SentryIo",
+				"Description": "Sentry Io Integration",
+				"Category": "Other",
+				"CreatedBy": "Behaviour Interactive Inc.",
+				"CreatedByURL": "",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "SentryIo",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "AndroidSentryIo",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Android"
+						]
+					},
+					{
+						"Name": "IOSSentryIo",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"IOS"
+						]
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Experimental/ControlRig/ControlRig.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Control Rig",
+				"Description": "Framework for animation driven by user controls.",
+				"Category": "Animation",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": true,
+				"IsBetaVersion": true,
+				"Modules": [
+					{
+						"Name": "ControlRig",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "ControlRigDeveloper",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "ControlRigEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "LevelSequenceEditor",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Experimental/FullBodyIK/FullBodyIK.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "FullBodyIK",
+				"Description": "",
+				"Category": "Other",
+				"CreatedBy": "",
+				"CreatedByURL": "",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"IsBetaVersion": true,
+				"Modules": [
+					{
+						"Name": "FullBodyIK",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "ControlRig",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../DeadByDaylight/Plugins/Ada/Ada.uplugin",
 			"Descriptor": 
 			{
@@ -3158,6 +3270,12 @@
 						"Type": "Editor",
 						"LoadingPhase": "Default"
 					}
+				],
+				"Plugins": [
+					{
+						"Name": "EditorScriptingUtilities",
+						"Enabled": true
+					}
 				]
 			}
 		},
@@ -3215,6 +3333,98 @@
 						"Name": "AssetManagerEditor",
 						"Type": "UncookedOnly",
 						"LoadingPhase": "PreDefault"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Editor/GameplayTagsEditor/GameplayTagsEditor.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "GameplayTagsEditor",
+				"Description": "GameplayTagsEditor provides blueprint nodes and editor UI to enable the use of GameplayTags for tagging assets and objects",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "GameplayTagsEditor",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PreDefault"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../DeadByDaylight/Plugins/Editor/BhvrDlcGenerationPlugin/BhvrDlcGenerationPlugin.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Bhvr Dlc Generation Plugin",
+				"Description": "A plugin to automate most of the steps of adding a new DLC",
+				"Category": "Bhvr DLC Generation",
+				"CreatedBy": "Behaviour Interactive",
+				"CreatedByURL": "http://www.bhvr.com/",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "BhvrDlcGenerationPlugin",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "BhvrSlateWidgets",
+						"Enabled": true
+					},
+					{
+						"Name": "EditorScriptingUtilities",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../DeadByDaylight/Plugins/Editor/BhvrSlateWidgets/BhvrSlateWidgets.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "BhvrSlateWidgets",
+				"Description": "A library of custom Slate widgets",
+				"Category": "Widgets",
+				"CreatedBy": "Behaviour Interactive",
+				"CreatedByURL": "http://www.bhvr.com/",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "BhvrSlateWidgets",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "EditorScriptingUtilities",
+						"Enabled": true
 					}
 				]
 			}
@@ -3317,6 +3527,37 @@
 			}
 		},
 		{
+			"File": "../../../DeadByDaylight/Plugins/Editor/DBDCharacterCreator/DBDCharacterCreator.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "DBDCharacterCreator",
+				"Description": "Character Creator plugin for DBD",
+				"Category": "Bhvr DLC Generation",
+				"CreatedBy": "Bhvr",
+				"CreatedByURL": "https://www.bhvr.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "DBDCharacterCreator",
+						"Type": "Editor",
+						"LoadingPhase": "PostDefault"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "EditorScriptingUtilities",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../DeadByDaylight/Plugins/Editor/DBDPlugin/DbdPlugin.uplugin",
 			"Descriptor": 
 			{
@@ -3348,6 +3589,35 @@
 					{
 						"Name": "EditorScriptingUtilities",
 						"Enabled": true
+					},
+					{
+						"Name": "BhvrSlateWidgets",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../DeadByDaylight/Plugins/Editor/DBDProceduralCamera/DBDProceduralCamera.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "DBDProceduralCamera",
+				"Description": "A plugin that contain the code of the Procedural camera system prototype.",
+				"Category": "Other",
+				"CreatedBy": "lburg",
+				"CreatedByURL": "",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "DBDProceduralCamera",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
 					}
 				]
 			}
@@ -3518,47 +3788,6 @@
 						"Name": "BHVRAnalytics",
 						"Type": "Runtime",
 						"LoadingPhase": "Default"
-					}
-				]
-			}
-		},
-		{
-			"File": "../../../DeadByDaylight/Plugins/Runtime/Bhvr/SentryIo/SentryIo.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "1.0",
-				"FriendlyName": "SentryIo",
-				"Description": "Sentry Io Integration",
-				"Category": "Other",
-				"CreatedBy": "Behaviour Interactive Inc.",
-				"CreatedByURL": "",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"CanContainContent": true,
-				"Modules": [
-					{
-						"Name": "SentryIo",
-						"Type": "Runtime",
-						"LoadingPhase": "PreDefault"
-					},
-					{
-						"Name": "AndroidSentryIo",
-						"Type": "Runtime",
-						"LoadingPhase": "PreDefault",
-						"WhitelistPlatforms": [
-							"Android"
-						]
-					},
-					{
-						"Name": "IOSSentryIo",
-						"Type": "Runtime",
-						"LoadingPhase": "PreDefault",
-						"WhitelistPlatforms": [
-							"IOS"
-						]
 					}
 				]
 			}
@@ -4356,70 +4585,6 @@
 						"Enabled": true,
 						"WhitelistTargets": [
 							"Editor"
-						]
-					}
-				]
-			}
-		},
-		{
-			"File": "../../../Engine/Plugins/Media/WmfMedia/WmfMedia.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 2,
-				"VersionName": "2.0",
-				"FriendlyName": "WMF Media Player",
-				"Description": "Implements a media player using the Windows Media Foundation framework.",
-				"Category": "Media Players",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "http://epicgames.com",
-				"DocsURL": "https://forums.unrealengine.com/showthread.php?46879-Media-Framework-Documentation-for-4-5-Preview",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"EnabledByDefault": true,
-				"CanContainContent": false,
-				"Modules": [
-					{
-						"Name": "WmfMedia",
-						"Type": "Runtime",
-						"LoadingPhase": "PostConfigInit",
-						"WhitelistPlatforms": [
-							"Win32",
-							"Win64",
-							"XboxOne"
-						],
-						"BlacklistTargets": [
-							"Server"
-						]
-					},
-					{
-						"Name": "WmfMediaEditor",
-						"Type": "Editor",
-						"LoadingPhase": "PostEngineInit",
-						"BlacklistTargets": [
-							"Server"
-						]
-					},
-					{
-						"Name": "WmfMediaFactory",
-						"Type": "Editor",
-						"LoadingPhase": "PostEngineInit",
-						"BlacklistTargets": [
-							"Server"
-						]
-					},
-					{
-						"Name": "WmfMediaFactory",
-						"Type": "RuntimeNoCommandlet",
-						"LoadingPhase": "PostEngineInit",
-						"WhitelistPlatforms": [
-							"Mac",
-							"Linux",
-							"Win32",
-							"Win64"
-						],
-						"BlacklistTargets": [
-							"Server"
 						]
 					}
 				]

@@ -1,0 +1,229 @@
+[
+  {
+    "Type": "EnvQuery",
+    "Name": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQuery'",
+    "Properties": {
+      "QueryName": "EQS_Flee_Forward_2",
+      "Options": [
+        {
+          "ObjectName": "EnvQueryOption'EQS_Placement_K33Turret:EnvQueryOption_0'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.2"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryGenerator_SimpleGrid",
+    "Name": "EnvQueryGenerator_SimpleGrid_0",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryGenerator_SimpleGrid'",
+    "Properties": {
+      "GridSize": {
+        "DefaultValue": 1500.0
+      },
+      "SpaceBetween": {
+        "DefaultValue": 400.0
+      },
+      "GenerateAround": {
+        "ObjectName": "Class'EnvQueryContext_PinLocation'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "ProjectionData": {
+        "VersionNum": 1,
+        "NavigationFilter": {
+          "ObjectName": "BlueprintGeneratedClass'NavQuery_Camper_Terrified_C'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/NavQuery_Camper_Terrified.0"
+        },
+        "SerializedChannel": "ECC_Visibility"
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryOption",
+    "Name": "EnvQueryOption_0",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryOption'",
+    "Properties": {
+      "Generator": {
+        "ObjectName": "EnvQueryGenerator_SimpleGrid'EQS_Placement_K33Turret:EnvQueryGenerator_SimpleGrid_0'",
+        "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.1"
+      },
+      "Tests": [
+        {
+          "ObjectName": "EnvQueryTest_IsValidDestination'EQS_Placement_K33Turret:EnvQueryTest_IsValidDestination_0'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.7"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQS_Placement_K33Turret:EnvQueryTest_Distance_1'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.4"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQS_Placement_K33Turret:EnvQueryTest_Distance_0'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.3"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQS_Placement_K33Turret:EnvQueryTest_Distance_2'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.5"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQS_Placement_K33Turret:EnvQueryTest_Distance_3'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.6"
+        },
+        {
+          "ObjectName": "EnvQueryTest_PathfindingBatch'EQS_Placement_K33Turret:EnvQueryTest_PathfindingBatch_1'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/EQS_Placement_K33Turret.8"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_0",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Properties": {
+      "DistanceTo": {
+        "ObjectName": "Class'EnvQueryContext_FriendlyDangerObjects'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 2,
+      "MultipleContextScoreOp": "EEnvTestScoreOperator::MinScore",
+      "FilterType": "EEnvTestFilterType::Minimum",
+      "FloatValueMin": {
+        "DefaultValue": 2000.0
+      },
+      "FloatValueMax": {
+        "DefaultValue": 1000.0
+      },
+      "ClampMaxType": "EEnvQueryTestClamping::SpecifiedValue",
+      "ScoreClampMax": {
+        "DefaultValue": 4000.0
+      },
+      "ScoringFactor": {
+        "DefaultValue": 0.7
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_1",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Properties": {
+      "DistanceTo": {
+        "ObjectName": "Class'EnvQueryContext_IncompleteGenerators'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 1,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "MultipleContextScoreOp": "EEnvTestScoreOperator::MaxScore",
+      "FilterType": "EEnvTestFilterType::Maximum",
+      "FloatValueMin": {
+        "DefaultValue": 200.0
+      },
+      "FloatValueMax": {
+        "DefaultValue": 1000.0
+      },
+      "ScoringEquation": "EEnvTestScoreEquation::InverseLinear",
+      "ClampMaxType": "EEnvQueryTestClamping::SpecifiedValue",
+      "ScoreClampMax": {
+        "DefaultValue": 4000.0
+      },
+      "ScoringFactor": {
+        "DefaultValue": 2.5
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_2",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Properties": {
+      "DistanceTo": {
+        "ObjectName": "Class'EnvQueryContext_K33ControlStations'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 3,
+      "MultipleContextScoreOp": "EEnvTestScoreOperator::MinScore",
+      "FilterType": "EEnvTestFilterType::Minimum",
+      "FloatValueMin": {
+        "DefaultValue": 1000.0
+      },
+      "FloatValueMax": {
+        "DefaultValue": 1000.0
+      },
+      "ClampMaxType": "EEnvQueryTestClamping::SpecifiedValue",
+      "ScoreClampMax": {
+        "DefaultValue": 2000.0
+      },
+      "ScoringFactor": {
+        "DefaultValue": 0.4
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_3",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Properties": {
+      "TestMode": "EEnvTestDistance::Distance2D",
+      "DistanceTo": {
+        "ObjectName": "Class'EnvQueryContext_CenterOfMap'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 4,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "MultipleContextScoreOp": "EEnvTestScoreOperator::MaxScore",
+      "FilterType": "EEnvTestFilterType::Minimum",
+      "FloatValueMin": {
+        "DefaultValue": 600.0
+      },
+      "FloatValueMax": {
+        "DefaultValue": 1000.0
+      },
+      "ScoringEquation": "EEnvTestScoreEquation::InverseLinear",
+      "ScoreClampMin": {
+        "DefaultValue": 5000.0
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_IsValidDestination",
+    "Name": "EnvQueryTest_IsValidDestination_0",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryTest_IsValidDestination'",
+    "Properties": {
+      "ExcludeEscapeZoneIfReverseBearTrapIsActivated": {
+        "DefaultValue": false
+      },
+      "CheckDestinationOnDifferentNavMesh": {
+        "DefaultValue": true
+      },
+      "NavDataAgentName": "Turrets",
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryTest_PathfindingBatch",
+    "Name": "EnvQueryTest_PathfindingBatch_1",
+    "Outer": "EQS_Placement_K33Turret",
+    "Class": "UScriptClass'EnvQueryTest_PathfindingBatch'",
+    "Properties": {
+      "FilterClass": {
+        "ObjectName": "Class'NavigationQueryFilter_Camper_Cheap'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 5,
+      "TestPurpose": "EEnvTestPurpose::Filter",
+      "VerNum": 1
+    }
+  }
+]
