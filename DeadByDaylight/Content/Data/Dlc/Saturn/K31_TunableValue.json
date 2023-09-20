@@ -39,12 +39,16 @@
         "Description": ""
       },
       "DroneCount": {
-        "Value": 4.0,
+        "Value": 6.0,
         "Description": ""
       },
       "DroneInitializationTime": {
-        "Value": 3.0,
-        "Description": ""
+        "Value": 1.5,
+        "Description": "How long after being deployed does drone initialize before going into Stealth mode?"
+      },
+      "DroneDisabledTime": {
+        "Value": 45.0,
+        "Description": "How long is a drone is disabled after being hacked?"
       },
       "DroneTimeToRemainedDestroyedDuration": {
         "Value": 10.0,
@@ -53,6 +57,10 @@
       "DroneRecallingDuration": {
         "Value": 1.0,
         "Description": ""
+      },
+      "CanRecallDisabledDrones": {
+        "Value": 1.0,
+        "Description": "Allow a drone to be recalled while in disabled state if > 0"
       },
       "Drone_MaxTimeToHack": {
         "Value": 30.0,
@@ -83,7 +91,7 @@
         "Description": "How wide is the physical laser detection cone? ~0 for a narrow beam, half angle in degrees in XZ plane"
       },
       "MaxDistanceXY": {
-        "Value": 1000.0,
+        "Value": 800.0,
         "Description": "Active and Scouting Zone Radius. How far survivors will be detected in the XY plane, in cm"
       },
       "MaxDistanceZ": {
@@ -97,6 +105,22 @@
       "SphereTraceRadius": {
         "Value": 3.0,
         "Description": "How small a hole can the detector spot survivors through, in cm"
+      },
+      "ImmuneToScanDuration": {
+        "Value": 3.0,
+        "Description": "How long is survivor immune to detection after scanner detects them?"
+      },
+      "ShowScannedSurvivorOnRadarDuration": {
+        "Value": 12.0,
+        "Description": "How long does survivor get temporarily shown on the radar after being detected by a drone?"
+      },
+      "SwitchToScoutingModeDuration": {
+        "Value": 1.0,
+        "Description": "How many seconds after failing the mini game should it switch to Scouting Mode?"
+      },
+      "SurvivorCanRemainBelowDroneDuration": {
+        "Value": 1.0,
+        "Description": "How many seconds can a survivor stand below a drone before it locks on and scans them?"
       },
       "=======Inspect": {
         "Value": 0.0,
@@ -154,13 +178,13 @@
         "Value": 60.0,
         "Description": "Once Fully Locked On and exposed, how long does the effect last?"
       },
-      "KillerUndetectable_Delay": {
-        "Value": 2.0,
-        "Description": ""
+      "LockOnChargeStackPercent": {
+        "Value": 0.335,
+        "Description": "When detected by a beam you receive this percentage of Lock On charge."
       },
-      "KillerUndetectable_LingerDuration": {
-        "Value": 2.0,
-        "Description": ""
+      "KillerStealthDuration": {
+        "Value": 8.0,
+        "Description": "The amount of time in seconds the Killer will be in stealth mode (undetectable)"
       },
       "ActiveZone_SurvivorDetectedCosmeticCooldown": {
         "Value": 5.0,
@@ -171,19 +195,19 @@
         "Description": ""
       },
       "DronePlacement_XYDistanceFromOtherDrone": {
-        "Value": 2200.0,
+        "Value": 1200.0,
         "Description": "Drones cannot be placed when within XYcm horizontally AND Zcm vertically of each other"
       },
       "DronePlacement_ZDistanceFromOtherDrone": {
-        "Value": 9999999.0,
+        "Value": 250.0,
         "Description": "Drones cannot be placed when within XYcm horizontally AND Zcm vertically of each other"
       },
       "DronePlacement_XYDistanceFromHookSurvivors": {
-        "Value": 1600.0,
+        "Value": 1200.0,
         "Description": "Drones cannot be placed when within XYcm horizontally AND Zcm vertically of hooked survivors"
       },
       "DronePlacement_ZDistanceFromHookSurvivors": {
-        "Value": 9999999.0,
+        "Value": 250.0,
         "Description": "Drones cannot be placed when within XYcm horizontally AND Zcm vertically of hooked survivors"
       },
       "DronePlacement_ClearanceRadiusAroundDrone": {
@@ -218,13 +242,37 @@
         "Value": 0.3,
         "Description": "How many seconds must a survivor remain still before being able to remove their trap?"
       },
+      "HinderedEffectPercent": {
+        "Value": -0.1,
+        "Description": "Hindered status effect percent"
+      },
+      "HinderedEffectDuration": {
+        "Value": 6.0,
+        "Description": "Hindered status effect duration in seconds"
+      },
+      "KillerInstinctDuration": {
+        "Value": 3.0,
+        "Description": "Killer Instinct status effect duration in seconds"
+      },
+      "EnableKillerInstinctRangeCheck": {
+        "Value": 0.0,
+        "Description": "If > 0 , Killer Instinct status effect will only be applied if distance between killer and claw trapped survivor is within a range"
+      },
+      "KillerInstinctEffectKillerRange": {
+        "Value": 800.0,
+        "Description": "Only apply KillerInstinct status effect if killer is within this range in cm of the claw trapped survivor"
+      },
       "=======Movement": {
         "Value": 0.0,
         "Description": ""
       },
       "DroneMovement_RotationRate": {
+        "Value": 75.0,
+        "Description": "Default rotation rate for the Drone"
+      },
+      "DroneMovement_Stealth_RotationRate": {
         "Value": 50.0,
-        "Description": ""
+        "Description": "Rotation rate for the Drone when in Stealth mode"
       },
       "DroneMovement_UpAndDownTransitionDuration": {
         "Value": 0.6,
