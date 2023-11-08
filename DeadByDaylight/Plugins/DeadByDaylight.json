@@ -1051,10 +1051,10 @@
 			"Descriptor": 
 			{
 				"FileVersion": 3,
-				"Version": 18050696,
-				"VersionName": "v2.0 - H18.5.696",
-				"FriendlyName": "Houdini Engine v2",
-				"Description": "Houdini Engine for Unreal Engine (v2).",
+				"Version": 19050640,
+				"VersionName": "2.0 - H19.5.640",
+				"FriendlyName": "Houdini Engine",
+				"Description": "Houdini Engine for Unreal Engine.",
 				"Category": "Rendering",
 				"CreatedBy": "Side Effects Software Inc.",
 				"CreatedByURL": "http://www.sidefx.com",
@@ -2147,6 +2147,10 @@
 				],
 				"Plugins": [
 					{
+						"Name": "BinkMedia",
+						"Enabled": true
+					},
+					{
 						"Name": "OnlinePresence",
 						"Enabled": true
 					},
@@ -2157,6 +2161,52 @@
 					{
 						"Name": "Wwise",
 						"Enabled": true
+					},
+					{
+						"Name": "RemoteContentCache",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Media/BinkMedia/BinkMedia.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 2,
+				"VersionName": "2.0",
+				"FriendlyName": "Bink Media",
+				"Description": "Implements a media player using Bink.",
+				"Category": "Media Players",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "BinkMediaPlayer",
+						"Type": "RuntimeNoCommandlet",
+						"LoadingPhase": "PreLoadingScreen",
+						"BlacklistPlatforms": [
+							"HoloLens",
+							"Lumin",
+							"TVOS"
+						],
+						"BlacklistTargets": [
+							"Server"
+						]
+					},
+					{
+						"Name": "BinkMediaPlayerEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit",
+						"BlacklistTargets": [
+							"Server"
+						]
 					}
 				]
 			}
@@ -2240,6 +2290,33 @@
 			}
 		},
 		{
+			"File": "../../../DeadByDaylight/Plugins/Runtime/Bhvr/RemoteContentCache/RemoteContentCache.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "BHVR Remote Content Cache",
+				"Description": "Plugin for caching remote content locally",
+				"Category": "BHVR Modules",
+				"CreatedBy": "Behaviour Interactive",
+				"CreatedByURL": "http://www.bhvr.com/",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Installed": true,
+				"Modules": [
+					{
+						"Name": "RemoteContentCache",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/DBDUICore.uplugin",
 			"Descriptor": 
 			{
@@ -2270,6 +2347,10 @@
 				"Plugins": [
 					{
 						"Name": "DBDUICommon",
+						"Enabled": true
+					},
+					{
+						"Name": "RemoteContentCache",
 						"Enabled": true
 					},
 					{
@@ -2513,8 +2594,8 @@
 			"Descriptor": 
 			{
 				"FileVersion": 3,
-				"Version": 9,
-				"VersionName": "9.2.9300.0",
+				"Version": 10,
+				"VersionName": "10.2.400.0",
 				"FriendlyName": "Simplygon Plugin",
 				"Description": "Mesh optimization plugin with support for: Static and Skeletal mesh reduction through LOD recipes, Standin actor for kitbashing, HLOD, Actor Merging and Level LOD proxy generation.",
 				"Category": "Simplygon",
@@ -2529,7 +2610,10 @@
 					{
 						"Name": "Simplygon",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "SimplygonUObjects",
@@ -2539,12 +2623,18 @@
 					{
 						"Name": "SimplygonEditor",
 						"Type": "Editor",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "SimplygonPluginMeshReduction",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "StandinActor",
@@ -2554,47 +2644,74 @@
 					{
 						"Name": "SimplygonContent",
 						"Type": "DeveloperTool",
-						"LoadingPhase": "PostConfigInit"
+						"LoadingPhase": "PostConfigInit",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "SimplygonPluginUtilities",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "StandinUtilities",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "StandinEditor",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "LODRecipeEditor",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "LODRecipe",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "SimplygonTests",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "SimplygonTelemetry",
 						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					},
 					{
 						"Name": "SimplygonBlueprint",
 						"Type": "UncookedOnly",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"WhitelistPlatforms": [
+							"Win64"
+						]
 					}
 				]
 			}
@@ -2942,48 +3059,6 @@
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Media/BinkMedia/BinkMedia.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 2,
-				"VersionName": "2.0",
-				"FriendlyName": "Bink Media",
-				"Description": "Implements a media player using Bink.",
-				"Category": "Media Players",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "https://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"EnabledByDefault": false,
-				"CanContainContent": false,
-				"Modules": [
-					{
-						"Name": "BinkMediaPlayer",
-						"Type": "RuntimeNoCommandlet",
-						"LoadingPhase": "PreLoadingScreen",
-						"BlacklistPlatforms": [
-							"HoloLens",
-							"Lumin",
-							"TVOS"
-						],
-						"BlacklistTargets": [
-							"Server"
-						]
-					},
-					{
-						"Name": "BinkMediaPlayerEditor",
-						"Type": "Editor",
-						"LoadingPhase": "PostEngineInit",
-						"BlacklistTargets": [
-							"Server"
-						]
-					}
-				]
-			}
-		},
-		{
 			"File": "../../../DeadByDaylight/Plugins/Runtime/Bhvr/SentryIo/SentryIo.uplugin",
 			"Descriptor": 
 			{
@@ -3021,80 +3096,146 @@
 							"IOS"
 						]
 					}
-				]
-			}
-		},
-		{
-			"File": "../../../Engine/Plugins/Experimental/ControlRig/ControlRig.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "1.0",
-				"FriendlyName": "Control Rig",
-				"Description": "Framework for animation driven by user controls.",
-				"Category": "Animation",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "http://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"EnabledByDefault": false,
-				"CanContainContent": true,
-				"IsBetaVersion": true,
-				"Modules": [
-					{
-						"Name": "ControlRig",
-						"Type": "Runtime",
-						"LoadingPhase": "PreDefault"
-					},
-					{
-						"Name": "ControlRigDeveloper",
-						"Type": "UncookedOnly",
-						"LoadingPhase": "PreDefault"
-					},
-					{
-						"Name": "ControlRigEditor",
-						"Type": "Editor",
-						"LoadingPhase": "PostEngineInit"
-					}
 				],
 				"Plugins": [
 					{
-						"Name": "LevelSequenceEditor",
-						"Enabled": true
+						"Name": "Sentry",
+						"Enabled": true,
+						"WhitelistPlatforms": [
+							"Linux",
+							"LinuxAArch64"
+						]
 					}
 				]
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Experimental/FullBodyIK/FullBodyIK.uplugin",
+			"File": "../../../DeadByDaylight/Plugins/Editor/BhvrCheatMenu/BhvrCheatMenu.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
 				"Version": 1,
 				"VersionName": "1.0",
-				"FriendlyName": "FullBodyIK",
-				"Description": "",
+				"FriendlyName": "BhvrCheatMenu",
+				"Description": "Platform agnostic standalone cheat menu for Behaviour Interactive games",
 				"Category": "Other",
-				"CreatedBy": "",
-				"CreatedByURL": "",
+				"CreatedBy": "Behaviour Interactive",
+				"CreatedByURL": "http://bhvr.com",
 				"DocsURL": "",
 				"MarketplaceURL": "",
 				"SupportURL": "",
 				"CanContainContent": true,
-				"IsBetaVersion": true,
+				"Installed": true,
 				"Modules": [
 					{
-						"Name": "FullBodyIK",
-						"Type": "Runtime",
+						"Name": "BhvrCheatMenu",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "BhvrCommandExecutor",
+						"Type": "Editor",
 						"LoadingPhase": "Default"
 					}
 				],
 				"Plugins": [
 					{
-						"Name": "ControlRig",
+						"Name": "BhvrSlateWidgets",
 						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../DeadByDaylight/Plugins/Editor/BhvrSlateWidgets/BhvrSlateWidgets.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "BhvrSlateWidgets",
+				"Description": "A library of custom Slate widgets",
+				"Category": "Widgets",
+				"CreatedBy": "Behaviour Interactive",
+				"CreatedByURL": "http://www.bhvr.com/",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "BhvrSlateWidgets",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "EditorScriptingUtilities",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../DeadByDaylight/Plugins/Editor/DBDAssetExclusion/BhvrAssetExclusion.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "DBDAssetExclusion",
+				"Description": "Tool for setting inclusion version",
+				"Category": "Other",
+				"CreatedBy": "Behaviour Interactive",
+				"CreatedByURL": "http://bhvr.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Installed": true,
+				"Modules": [
+					{
+						"Name": "DBDAssetExclusion",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "BhvrSlateWidgets",
+						"Enabled": true
+					},
+					{
+						"Name": "AssetTags",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Runtime/AssetTags/AssetTags.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Asset Tags",
+				"Description": "Provides high-level management and access to asset tags and collections for runtime and editor scripting.",
+				"Category": "Other",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "AssetTags",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
 					}
 				]
 			}
@@ -3399,37 +3540,6 @@
 			}
 		},
 		{
-			"File": "../../../DeadByDaylight/Plugins/Editor/BhvrSlateWidgets/BhvrSlateWidgets.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "1.0",
-				"FriendlyName": "BhvrSlateWidgets",
-				"Description": "A library of custom Slate widgets",
-				"Category": "Widgets",
-				"CreatedBy": "Behaviour Interactive",
-				"CreatedByURL": "http://www.bhvr.com/",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"CanContainContent": true,
-				"Modules": [
-					{
-						"Name": "BhvrSlateWidgets",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					}
-				],
-				"Plugins": [
-					{
-						"Name": "EditorScriptingUtilities",
-						"Enabled": true
-					}
-				]
-			}
-		},
-		{
 			"File": "../../../DeadByDaylight/Plugins/Editor/BhvrRulerTool/BhvrRulerTool.uplugin",
 			"Descriptor": 
 			{
@@ -3490,6 +3600,40 @@
 					{
 						"Name": "BhvrBlueprintManipulator",
 						"Enabled": true
+					},
+					{
+						"Name": "DataValidation",
+						"Enabled": true
+					},
+					{
+						"Name": "Niagara",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Editor/DataValidation/DataValidation.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Data Validation",
+				"Description": "Editor UI and utilities for running data validation",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "DataValidation",
+						"Type": "Editor",
+						"LoadingPhase": "PreDefault"
 					}
 				]
 			}
@@ -3666,32 +3810,6 @@
 					{
 						"Name": "TileEditor",
 						"Enabled": true
-					}
-				]
-			}
-		},
-		{
-			"File": "../../../Engine/Plugins/Editor/DataValidation/DataValidation.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "1.0",
-				"FriendlyName": "Data Validation",
-				"Description": "Editor UI and utilities for running data validation",
-				"Category": "Editor",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "http://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"EnabledByDefault": true,
-				"CanContainContent": false,
-				"Modules": [
-					{
-						"Name": "DataValidation",
-						"Type": "Editor",
-						"LoadingPhase": "PreDefault"
 					}
 				]
 			}
@@ -4820,32 +4938,6 @@
 				"Modules": [
 					{
 						"Name": "AndroidPermission",
-						"Type": "Runtime",
-						"LoadingPhase": "Default"
-					}
-				]
-			}
-		},
-		{
-			"File": "../../../Engine/Plugins/Runtime/AssetTags/AssetTags.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "1.0",
-				"FriendlyName": "Asset Tags",
-				"Description": "Provides high-level management and access to asset tags and collections for runtime and editor scripting.",
-				"Category": "Other",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "http://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"EnabledByDefault": true,
-				"CanContainContent": false,
-				"Modules": [
-					{
-						"Name": "AssetTags",
 						"Type": "Runtime",
 						"LoadingPhase": "Default"
 					}
