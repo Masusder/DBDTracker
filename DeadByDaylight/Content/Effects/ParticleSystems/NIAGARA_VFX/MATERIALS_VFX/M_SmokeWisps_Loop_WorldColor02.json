@@ -2,8 +2,10 @@
   {
     "Type": "Material",
     "Name": "M_SmokeWisps_Loop_WorldColor02",
+    "Class": "UScriptClass'Material'",
     "Properties": {
       "Normal": {
+        "Expression": null,
         "OutputIndex": 0,
         "InputName": "None",
         "Mask": 1,
@@ -11,7 +13,7 @@
         "MaskG": 1,
         "MaskB": 1,
         "MaskA": 0,
-        "ExpressionName": "None",
+        "ExpressionName": "MaterialExpressionTextureSample_0",
         "UseConstant": false,
         "Constant": {
           "X": 0.0,
@@ -20,6 +22,7 @@
         }
       },
       "EmissiveColor": {
+        "Expression": null,
         "OutputIndex": 0,
         "InputName": "None",
         "Mask": 0,
@@ -27,7 +30,7 @@
         "MaskG": 0,
         "MaskB": 0,
         "MaskA": 0,
-        "ExpressionName": "MaterialExpressionMultiply_3",
+        "ExpressionName": "MaterialExpressionLinearInterpolate_0",
         "UseConstant": false,
         "Constant": {
           "B": 0,
@@ -39,24 +42,48 @@
       },
       "BlendMode": "BLEND_Translucent",
       "TwoSided": true,
-      "TranslucencyLightingMode": "TLM_VolumetricDirectional",
+      "TranslucencyLightingMode": "TLM_Surface",
       "bUsedWithParticleSprites": true,
       "bUsedWithNiagaraSprites": true,
       "bCanMaskedBeAssumedOpaque": true,
       "bUseTranslucencyVertexFog": false,
       "bUseTranslucencyVolumetricFog": false,
-      "StateId": "C4F171ED-41E11CC9-746B7B8C-9B94D59C",
+      "StateId": "EC3AAC20-4EC76087-51D66099-28BD7AE9",
       "CachedExpressionData": {
         "Parameters": {
           "RuntimeEntries": {
             "NameHashes": [
               3297375224837026034,
+              4524772048041913685,
+              6457761429531034258,
+              9689083145087836055,
+              12521424067462255946,
               16709186752058966652,
               17513884114174678492
             ],
             "ParameterInfos": [
               {
                 "Name": "Far Camera Fade",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "OpacityBasedFade_DistanceB",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "OpacityBasedFade_DistanceA",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "Emissive Intensity",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "UseEyeAdaptation",
                 "Association": "GlobalParameter",
                 "Index": -1
               },
@@ -73,6 +100,10 @@
             ],
             "ExpressionGuids": [
               "251DEFD1-4B5DD3FB-854B819F-137A4DBF",
+              "A42EFD6B-402B2986-2703D68B-8E5D5FE1",
+              "3FBF1A3D-47664FD6-134CED9D-484BE254",
+              "3884F705-4A0D733C-563E4FBE-6E82AFFE",
+              "082A58FD-41B24907-047A3A9C-3EEA848E",
               "75751B23-4EE3A343-37FEEBB0-940BDC16",
               "E74B71B8-4A5CA4D8-491CEBBC-DD4BC3A7"
             ]
@@ -94,23 +125,27 @@
           },
           "ScalarValues": [
             2750.0,
+            10.0,
+            50.0,
+            1.0,
+            0.0,
             150.0,
             256.0
           ],
           "TextureValues": [
             {
-              "ObjectName": "Texture2D T_SmokeLoop_8x8_01",
+              "ObjectName": "Texture2D'T_SmokeLoop_8x8_01'",
               "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Smoke/T_SmokeLoop_8x8_01.0"
             }
           ]
         },
         "ReferencedTextures": [
           {
-            "ObjectName": "Texture2D T_SmokeLoop_8x8_01_N",
+            "ObjectName": "Texture2D'T_SmokeLoop_8x8_01_N'",
             "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Smoke/T_SmokeLoop_8x8_01_N.0"
           },
           {
-            "ObjectName": "Texture2D T_SmokeLoop_8x8_01",
+            "ObjectName": "Texture2D'T_SmokeLoop_8x8_01'",
             "ObjectPath": "DeadByDaylight/Content/Effects/Textures/Smoke/T_SmokeLoop_8x8_01.0"
           }
         ],
@@ -118,8 +153,15 @@
           {
             "StateId": "DB3E993F-4E2E98B3-05AD13B9-2D8C5DA5",
             "Function": {
-              "ObjectName": "MaterialFunction CameraDepthFade",
+              "ObjectName": "MaterialFunction'CameraDepthFade'",
               "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Opacity/CameraDepthFade.0"
+            }
+          },
+          {
+            "StateId": "3AC168EF-4BA7CAAF-3561E7AA-9A08ED7B",
+            "Function": {
+              "ObjectName": "MaterialFunction'MF_BetterDepthFade'",
+              "ObjectPath": "DeadByDaylight/Content/Effects/Materials/Functions/MF_BetterDepthFade.0"
             }
           }
         ],
@@ -129,7 +171,14 @@
           false,
           false
         ]
-      }
+      },
+      "TextureStreamingData": [
+        {
+          "SamplingScale": 1.0,
+          "UVChannelIndex": 0,
+          "TextureName": "T_SmokeLoop_8x8_01_N"
+        }
+      ]
     }
   }
 ]
