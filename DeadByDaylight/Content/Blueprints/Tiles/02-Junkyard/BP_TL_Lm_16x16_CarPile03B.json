@@ -10,11 +10,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.102"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.88"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler'BP_TL_Lm_16x16_CarPile03B_C:InheritableComponentHandler'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.43"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.27"
       }
     },
     "SuperStruct": {
@@ -22,6 +22,28 @@
       "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/TileBase01.8"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "GroundCollider1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GroundCollider",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "BP_CollisionTool",
@@ -888,236 +910,126 @@
   },
   {
     "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner1_GEN_VARIABLE",
+    "Name": "GroundCollider1_GEN_VARIABLE",
+    "Outer": "BP_TL_Lm_16x16_CarPile03B_C",
     "Class": "UScriptClass'BoxComponent'",
     "Properties": {
       "AreaClass": {
         "ObjectName": "Class'NavArea_Obstacle'",
         "ObjectPath": "/Script/NavigationSystem"
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "Ground",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "World",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 118.88161,
+        "Y": 279.7192,
+        "Z": -13.243426
+      },
+      "RelativeRotation": {
+        "Pitch": -2.781191,
+        "Yaw": 3.9646394,
+        "Roll": -15.700406
+      },
+      "RelativeScale3D": {
+        "X": 2.2174313,
+        "Y": 0.51757693,
+        "Z": 1.0
+      },
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
     "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner1_GEN_VARIABLE",
+    "Name": "GroundCollider_GEN_VARIABLE",
+    "Outer": "BP_TL_Lm_16x16_CarPile03B_C",
     "Class": "UScriptClass'BoxComponent'",
     "Properties": {
       "AreaClass": {
         "ObjectName": "Class'NavArea_Obstacle'",
         "ObjectPath": "/Script/NavigationSystem"
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner2_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
+      "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "Ground",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "World",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner2_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
+      "RelativeLocation": {
+        "X": 147.8909,
+        "Y": 338.10446,
+        "Z": -13.867542
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner3_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
+      "RelativeRotation": {
+        "Pitch": -5.086359,
+        "Yaw": 4.6150174,
+        "Roll": -3.6753833
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner3_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
+      "RelativeScale3D": {
+        "X": 3.4103138,
+        "Y": 1.542263,
+        "Z": 1.0
       },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner4_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner4_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner5_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner5_GEN_VARIABLE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner836F088848C74DFA83D97DA0FDF090B1",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner836F088848C74DFA83D97DA0FDF090B1",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner_0",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner_0",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "ActorSpawner_18",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "ActorSpawner_18",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MaxBoundBox",
-    "Outer": "HexSpawnerAB0214EB470864319DD5DFAECFD7ACDE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
-    }
-  },
-  {
-    "Type": "BoxComponent",
-    "Name": "MinBoundBox",
-    "Outer": "HexSpawnerAB0214EB470864319DD5DFAECFD7ACDE",
-    "Class": "UScriptClass'BoxComponent'",
-    "Properties": {
-      "AreaClass": {
-        "ObjectName": "Class'NavArea_Obstacle'",
-        "ObjectPath": "/Script/NavigationSystem"
-      },
-      "DetailLevelBeforeCastShadows": "DM_MAX"
+      "Mobility": "EComponentMobility::Static"
     }
   },
   {
@@ -1212,7 +1124,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_CollisionTool_C'BP_TL_Lm_16x16_CarPile03B_C:BP_CollisionTool_GEN_VARIABLE.BP_CollisionTool_GEN_VARIABLE_BP_CollisionTool_C_CAT'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.29"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.13"
       },
       "RelativeLocation": {
         "X": -51.17767,
@@ -1243,7 +1155,7 @@
     "Properties": {
       "ChildActorTemplate": {
         "ObjectName": "BP_Effect_Mist_C'BP_TL_Lm_16x16_CarPile03B_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0.BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0_BP_Effect_Mist_C_CAT'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.34"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.18"
       },
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -1264,7 +1176,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_COM_Random_Grass_C'BP_TL_Lm_16x16_CarPile03B_C:ChildActor39A7DDB1435583CEE61CE8A392A27796.ChildActor39A7DDB1435583CEE61CE8A392A27796_BP_COM_Random_Grass_C_CAT'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.30"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.14"
       },
       "RelativeLocation": {
         "X": -322.66016,
@@ -1291,7 +1203,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_COM_Random_Grass_C'BP_TL_Lm_16x16_CarPile03B_C:ChildActor5938AB1B4BD9345E6E6979A953369505.ChildActor5938AB1B4BD9345E6E6979A953369505_BP_COM_Random_Grass_C_CAT'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.31"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.15"
       },
       "RelativeLocation": {
         "X": 331.2203,
@@ -1318,7 +1230,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_COM_Random_Grass_C'BP_TL_Lm_16x16_CarPile03B_C:ChildActor824C899F4DF0DE15B4043A8BAD074AB5.ChildActor824C899F4DF0DE15B4043A8BAD074AB5_BP_COM_Random_Grass_C_CAT'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.32"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.16"
       },
       "RelativeLocation": {
         "X": 383.26022,
@@ -1340,7 +1252,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_COM_Random_Grass_C'BP_TL_Lm_16x16_CarPile03B_C:ChildActorCF3E3B8641587AFAF8CE4F853C9AA461.ChildActorCF3E3B8641587AFAF8CE4F853C9AA461_BP_COM_Random_Grass_C_CAT'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.33"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.17"
       },
       "RelativeLocation": {
         "X": -403.89062,
@@ -5027,7 +4939,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_7'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.150"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.136"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5049,7 +4961,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_16'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.146"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.132"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5071,7 +4983,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_10'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.144"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.130"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5093,7 +5005,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_22'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.148"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.134"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5115,7 +5027,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_4'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.149"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.135"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5137,7 +5049,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_19'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.147"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.133"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5159,7 +5071,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_0'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.143"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.129"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5203,7 +5115,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "TileSpawnPoint'BP_TL_Lm_16x16_CarPile03B_C:TileSpawnPoint_13'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.145"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.131"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5291,7 +5203,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ChildActorComponent'BP_TL_Lm_16x16_CarPile03B_C:BP_Effect_MistC0C70A5241ED67C308EE5CBBA64F9AF0'",
-            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.36"
+            "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.20"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -5373,7 +5285,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "NatAudioAmbienceBox'BP_TL_Lm_16x16_CarPile03B_C:AudioAmbienceBox1_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.44"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.28"
       },
       "ParentComponentOrVariableName": "Audio",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5393,30 +5305,30 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B4_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.130"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.116"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_11'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.49"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.33"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_12'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.50"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.34"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_13'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.51"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.35"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_14'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.52"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.36"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_45'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.85"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.70"
         }
       ],
       "VariableGuid": "D5522668-41B7507A-79F090BF-FC61643A",
@@ -5435,7 +5347,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B5_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.131"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.117"
       },
       "VariableGuid": "DB06A15F-4FE36CB2-36C8DF90-F2E45953",
       "InternalVariableName": "SM_JNK_Car_02_B5"
@@ -5453,7 +5365,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_09_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.136"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.122"
       },
       "VariableGuid": "BB122044-46D35144-970A228B-965CE861",
       "InternalVariableName": "SM_JNK_Car_09"
@@ -5471,7 +5383,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_016_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.121"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.107"
       },
       "VariableGuid": "B6724A5C-4EF795FD-AC259491-25F99278",
       "InternalVariableName": "SM_JNK_Car_016"
@@ -5489,7 +5401,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_017_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.122"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.108"
       },
       "VariableGuid": "1CA37469-4774BC34-0FF0D385-3D3E8FAC",
       "InternalVariableName": "SM_JNK_Car_017"
@@ -5507,7 +5419,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent'BP_TL_Lm_16x16_CarPile03B_C:BP_CollisionTool_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.35"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.19"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5527,26 +5439,26 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B6_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.132"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.118"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_21'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.60"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.44"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_27'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.65"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.50"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_28'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.66"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.51"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_31'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.70"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.55"
         }
       ],
       "VariableGuid": "B0BD7936-46D35076-049B6394-1A396B93",
@@ -5585,7 +5497,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:HierarchicalInstancedStaticMesh_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.42"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.26"
       },
       "ParentComponentOrVariableName": "HideGrass",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5605,7 +5517,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_TL_Lm_16x16_CarPile03B_C:SceneComponent_29'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.45"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.29"
       },
       "VariableGuid": "56BC9799-C494E6E6-321D4295-7D5EB316",
       "InternalVariableName": "DefaultSceneRoot"
@@ -5623,7 +5535,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_012_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.117"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.103"
       },
       "VariableGuid": "B1437567-4AC3FF05-7F501393-50BD094F",
       "InternalVariableName": "SM_JNK_Car_012"
@@ -5641,14 +5553,14 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_TL_Lm_16x16_CarPile03B_C:SceneComponent_30'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.46"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.30"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_24'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.63"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.47"
         }
       ],
       "VariableGuid": "AB2F3414-DE8DE1EA-4898826F-D14390BE",
@@ -5667,7 +5579,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_011_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.116"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.102"
       },
       "VariableGuid": "7F6DA0B6-4BBA5296-7CE96697-DB5C5208",
       "InternalVariableName": "SM_JNK_Car_011"
@@ -5685,7 +5597,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "HierarchicalInstancedStaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:HierarchicalInstancedStaticMesh1_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.41"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.25"
       },
       "ParentComponentOrVariableName": "HideGrass",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5725,10 +5637,30 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:Ground_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.104"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.90"
       },
       "VariableGuid": "F0DB4857-4E141BA3-AB6AA9A3-35C35D93",
       "InternalVariableName": "Ground"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_25",
+    "Outer": "SimpleConstructionScript_1",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'BP_TL_Lm_16x16_CarPile03B_C:GroundCollider_GEN_VARIABLE'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.12"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "VariableGuid": "146B5012-42295EE0-A10F73A5-8B02B4C9",
+      "InternalVariableName": "GroundCollider"
     }
   },
   {
@@ -5763,7 +5695,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_jnk_BodyPart_04_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.112"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.98"
       },
       "VariableGuid": "7759F789-456C1069-1A98C8B3-84DB28C2",
       "InternalVariableName": "SM_jnk_BodyPart_04"
@@ -5781,7 +5713,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_jnk_BodyPart_06_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.114"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.100"
       },
       "VariableGuid": "EECD756D-43DBD170-7BABA19D-545C6594",
       "InternalVariableName": "SM_jnk_BodyPart_06"
@@ -5799,7 +5731,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_COM_Trash_01_Straight_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.108"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.94"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5819,34 +5751,34 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B3_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.129"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.115"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_4'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.79"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.64"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_6'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.94"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.80"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_7'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.99"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.85"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_8'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.100"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.86"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_9'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.101"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.87"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_2'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.58"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.42"
         }
       ],
       "VariableGuid": "016F2617-4C9568CC-9AF74490-343AAE42",
@@ -5865,7 +5797,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_COM_Trash_01_LargePile_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.105"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.91"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -5885,7 +5817,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B7_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.133"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.119"
       },
       "VariableGuid": "D9AFCE9C-40B2258C-F2B7A7BD-41D42748",
       "InternalVariableName": "SM_JNK_Car_02_B7"
@@ -5903,26 +5835,26 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B10_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.124"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.110"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_33'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.72"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.57"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_34'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.73"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.58"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_35'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.74"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.59"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_36'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.75"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.60"
         }
       ],
       "VariableGuid": "359F39D1-4A1233E2-3E1F5A80-FC4D817F",
@@ -5941,7 +5873,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_jnk_BodyPart_02_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.110"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.96"
       },
       "VariableGuid": "E0FE358F-46176914-C14C8893-3DB8D7B7",
       "InternalVariableName": "SM_jnk_BodyPart_02"
@@ -5959,7 +5891,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_013_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.118"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.104"
       },
       "VariableGuid": "8959D2D0-47D4AAE2-480858B8-D942684D",
       "InternalVariableName": "SM_JNK_Car_013"
@@ -5977,7 +5909,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_014_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.119"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.105"
       },
       "VariableGuid": "F5C1EE6F-455221E5-D1E32FA2-BFAFBF39",
       "InternalVariableName": "SM_JNK_Car_014"
@@ -5995,7 +5927,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_jnk_BodyPart_01_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.109"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.95"
       },
       "VariableGuid": "463F3EB2-40A89596-431FEEB4-B8A4F4EB",
       "InternalVariableName": "SM_jnk_BodyPart_01"
@@ -6013,26 +5945,26 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B11_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.125"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.111"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_42'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.82"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.67"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_43'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.83"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.68"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_44'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.84"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.69"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_46'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.86"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.71"
         }
       ],
       "VariableGuid": "626C0F16-42A5F622-4B388297-38E9B8BA",
@@ -6051,7 +5983,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent'BP_TL_Lm_16x16_CarPile03B_C:ChildActor824C899F4DF0DE15B4043A8BAD074AB5'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.39"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.23"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6071,7 +6003,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent'BP_TL_Lm_16x16_CarPile03B_C:ChildActor5938AB1B4BD9345E6E6979A953369505'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.38"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.22"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6091,7 +6023,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_08_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.135"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.121"
       },
       "VariableGuid": "76C42D78-4920044F-38167197-4D637DD6",
       "InternalVariableName": "SM_JNK_Car_08"
@@ -6109,7 +6041,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent'BP_TL_Lm_16x16_CarPile03B_C:ChildActor39A7DDB1435583CEE61CE8A392A27796'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.37"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.21"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6129,7 +6061,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent'BP_TL_Lm_16x16_CarPile03B_C:ChildActorCF3E3B8641587AFAF8CE4F853C9AA461'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.40"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.24"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6149,7 +6081,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B12_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.126"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.112"
       },
       "VariableGuid": "F7EC8D66-4C44784A-8FD4118B-C10224D2",
       "InternalVariableName": "SM_JNK_Car_02_B12"
@@ -6167,7 +6099,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_015_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.120"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.106"
       },
       "VariableGuid": "9B7A5BC8-4FB9BCAB-CB02239B-22B58CC4",
       "InternalVariableName": "SM_JNK_Car_015"
@@ -6185,7 +6117,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B13_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.127"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.113"
       },
       "VariableGuid": "518C44E2-4BA80696-EB12F38C-375D7A66",
       "InternalVariableName": "SM_JNK_Car_02_B13"
@@ -6203,7 +6135,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_018_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.123"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.109"
       },
       "VariableGuid": "19694A0F-43B5B866-54451395-C21216EB",
       "InternalVariableName": "SM_JNK_Car_018"
@@ -6221,7 +6153,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_02_B14_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.128"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.114"
       },
       "VariableGuid": "A2299F95-4A3C1793-21F0F488-E5058C49",
       "InternalVariableName": "SM_JNK_Car_02_B14"
@@ -6239,7 +6171,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_MAzeWall_2by1_01_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.139"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.125"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6259,12 +6191,32 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_MAzeWall_2by1_02_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.140"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.126"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
       "VariableGuid": "1EF2C3D3-4E5CB94D-8A6111B5-A20C8887",
       "InternalVariableName": "SM_JNK_MAzeWall_2by1_02"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_49",
+    "Outer": "SimpleConstructionScript_1",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'BP_TL_Lm_16x16_CarPile03B_C:GroundCollider1_GEN_VARIABLE'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.11"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "ParentComponentOwnerClassName": "TileBase01_C",
+      "VariableGuid": "0F732A7B-4F7EC637-97F23FAB-8F77B0F0",
+      "InternalVariableName": "GroundCollider1"
     }
   },
   {
@@ -6279,7 +6231,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:GBox_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.103"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.89"
       },
       "ParentComponentOrVariableName": "Blockers",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6299,7 +6251,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_MAzeWall_1by1_01_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.137"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.123"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6319,7 +6271,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_MAzeWall_1by1_02_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.138"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.124"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6339,7 +6291,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_MAzeWall_2by1_03_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.141"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.127"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6359,7 +6311,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_RecycleMetal_2mCap01_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.142"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.128"
       },
       "ParentComponentOrVariableName": "Root",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6379,7 +6331,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_010_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.115"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.101"
       },
       "VariableGuid": "31B85BD9-4E243D88-89FE4794-25B7C8FA",
       "InternalVariableName": "SM_JNK_Car_010"
@@ -6397,7 +6349,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_COM_Trash_01_Straight1_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.106"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.92"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6417,7 +6369,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_COM_Trash_01_Straight2_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.107"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.93"
       },
       "ParentComponentOrVariableName": "Deco",
       "ParentComponentOwnerClassName": "TileBase01_C",
@@ -6477,7 +6429,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_jnk_BodyPart_03_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.111"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.97"
       },
       "VariableGuid": "C1AE526B-461F475C-DB3C5BB0-6C7B23F4",
       "InternalVariableName": "SM_jnk_BodyPart_03"
@@ -6495,7 +6447,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_jnk_BodyPart_05_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.113"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.99"
       },
       "VariableGuid": "56DBA155-4CF5B4CB-DECB7FAD-63460EAF",
       "InternalVariableName": "SM_jnk_BodyPart_05"
@@ -6513,7 +6465,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_TL_Lm_16x16_CarPile03B_C:SM_JNK_Car_07_GEN_VARIABLE'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.134"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.120"
       },
       "VariableGuid": "4B6A8561-4DC5F906-A9D5FBB6-8337FA34",
       "InternalVariableName": "SM_JNK_Car_07"
@@ -6528,346 +6480,362 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_20'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.59"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.43"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_39'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.78"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.63"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_40'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.80"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.65"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_41'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.81"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.66"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_38'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.77"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_5'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.89"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_17'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.55"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_22'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.61"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_18'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.56"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_23'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.62"
         },
         {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_5'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.75"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_17'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_22'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_18'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_23'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.46"
+        },
+        {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_26'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.64"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.49"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_29'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.67"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.52"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_30'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.69"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_65'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.95"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_66'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.96"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_68'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.97"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_69'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.98"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_1'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.47"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_3'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.68"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_10'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.48"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_16'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.54"
         },
         {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_65'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.81"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_66'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.82"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_68'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.83"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_69'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.84"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_1'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_3'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_10'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_16'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.38"
+        },
+        {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_32'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.71"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.56"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_37'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.76"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.61"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_47'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.87"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.72"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_48'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.88"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.73"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_52'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.92"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.78"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_53'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.93"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.79"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_50'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.90"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.76"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_51'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.91"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.77"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_15'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.53"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_25'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_49'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.74"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_20'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.59"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.43"
         },
         {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_39'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.78"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_40'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.80"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_41'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.81"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_38'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.77"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_5'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.89"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_17'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.55"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_22'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.61"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_18'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.56"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_23'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.62"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_24'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.63"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_26'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.64"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_29'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.67"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_30'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.69"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_65'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.95"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_66'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.96"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_68'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.97"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_69'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.98"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_1'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.47"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_3'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.68"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_4'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.79"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_6'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.94"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_7'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.99"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_8'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.100"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_9'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.101"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_10'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.48"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_11'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.49"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_12'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.50"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_16'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.54"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_21'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.60"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_27'",
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_40'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.65"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_28'",
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_41'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.66"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_31'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.70"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_38'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.62"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_32'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.71"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_33'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.72"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_34'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.73"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_35'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.74"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_36'",
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_5'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.75"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_37'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.76"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_17'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.39"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_42'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.82"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_22'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.45"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_43'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.83"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_18'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.40"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_47'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.87"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_23'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.46"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_48'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.88"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_24'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.47"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_52'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.92"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_26'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.49"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_53'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.93"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_2'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.58"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_13'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.51"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_14'",
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_29'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.52"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_50'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.90"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_30'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.54"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_51'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.91"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_65'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.81"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_44'",
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_66'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.82"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_68'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.83"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_69'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.84"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_46'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.86"
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_1'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.31"
         },
         {
-          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_45'",
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_3'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_4'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_6'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.80"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_7'",
           "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.85"
         },
         {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_8'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.86"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_9'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.87"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_10'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_11'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_12'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_16'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_21'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_27'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_28'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_31'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_32'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_33'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_34'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_35'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_36'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_37'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_42'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.67"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_43'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.68"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_47'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.72"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_48'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.73"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_52'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.78"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_53'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.79"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_2'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_13'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_14'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_50'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.76"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_51'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.77"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_44'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.69"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_46'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.71"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_45'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.70"
+        },
+        {
           "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_15'",
-          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.53"
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_25'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_49'",
+          "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.74"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_TL_Lm_16x16_CarPile03B_C:SimpleConstructionScript_1.SCS_Node_19'",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.57"
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Tiles/02-Junkyard/BP_TL_Lm_16x16_CarPile03B.41"
       }
     }
   },
@@ -6980,7 +6948,40 @@
         "ObjectName": "StaticMesh'SM_COM_Trash_01_LargePile'",
         "ObjectPath": "DeadByDaylight/Content/Meshes/Environment/Common/Props/SM_COM_Trash_01_LargePile.2"
       },
+      "bUseDefaultCollision": false,
       "DetailLevelBeforeCastShadows": "DM_MAX",
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel15",
+        "CollisionProfileName": "Ground",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Interactable",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Slasher",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "Blood",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "InteractionDetector",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "World",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Walkable",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
       "RelativeLocation": {
         "X": 127.468994,
         "Y": 344.9214,
