@@ -24,6 +24,17 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_button",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CoreButtonWidget'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_IsValidSoftObjectReference_ReturnValue",
         "Flags": "RF_Public",
@@ -37,6 +48,30 @@
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnItemUnhovered",
+    "Outer": "WBP_CoreStoreHeritagePackItem_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'CoreStoreHeritagePackItemWidget:OnItemUnhovered'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "button",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CoreButtonWidget'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -69,7 +104,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreStoreHeritagePackItem_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.28"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -84,6 +119,10 @@
     "Children": [
       {
         "ObjectName": "Function'WBP_CoreStoreHeritagePackItem_C:SetData'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.2"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreHeritagePackItem_C:OnItemUnhovered'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.1"
       },
       {
@@ -116,13 +155,35 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "OwnedTB",
+        "Name": "FooterBG",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
-          "ObjectName": "Class'DBDTextBlock'",
+          "ObjectName": "Class'DBDImage'",
           "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NotificationIcon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreNotifications_C'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.2"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OwnedTag",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreOwnedTag_C'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/WBP_CoreOwnedTag.0"
         }
       },
       {
@@ -144,9 +205,13 @@
         "ObjectName": "Function'WBP_CoreStoreHeritagePackItem_C:ExecuteUbergraph_WBP_CoreStoreHeritagePackItem'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.0"
       },
+      "OnItemUnhovered": {
+        "ObjectName": "Function'WBP_CoreStoreHeritagePackItem_C:OnItemUnhovered'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.1"
+      },
       "SetData": {
         "ObjectName": "Function'WBP_CoreStoreHeritagePackItem_C:SetData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.2"
       }
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
@@ -158,7 +223,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreStoreHeritagePackItem_C'Default__WBP_CoreStoreHeritagePackItem_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.3"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.4"
     }
   },
   {
@@ -178,8 +243,8 @@
     "Class": "UScriptClass'DBDButton'",
     "Properties": {
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_7'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.14"
+        "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_8'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.15"
       }
     }
   },
@@ -200,8 +265,31 @@
         }
       },
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
+        "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.11"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "FooterBG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "TintColor": {
+          "SpecifiedColor": {
+            "R": 0.029514,
+            "G": 0.029514,
+            "B": 0.029514,
+            "A": 0.481,
+            "Hex": "7B303030"
+          }
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer.OverlaySlot_3'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.20"
       }
     }
   },
@@ -222,40 +310,13 @@
           "ObjectName": "Font'DBDCoreFont'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
         },
-        "TypefaceFontName": "Black"
+        "TypefaceFontName": "Regular",
+        "Size": 18
       },
-      "AutoWrapText": true,
-      "WrapTextAt": 1000.0,
+      "WrapTextAt": 400.0,
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_8'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.15"
-      },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "OwnedTB",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDTextBlock'",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "158BB60C48CE1534A6F558B90325270E",
-        "SourceString": "Owned",
-        "LocalizedString": "Owned"
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font'DBDCoreFont'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "TypefaceFontName": "Black"
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.13"
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.23"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
@@ -269,9 +330,9 @@
     "Properties": {
       "Text": {
         "Namespace": "",
-        "Key": "A6352C404E55F15CE24EA8B6002FC56F",
-        "SourceString": "HERITAGE PACK NAME",
-        "LocalizedString": "HERITAGE PACK NAME"
+        "Key": "D7D41D0C471A6A10C0A63FAA06FA67B6",
+        "SourceString": "Special Pack Name",
+        "LocalizedString": "Special Pack Name"
       },
       "Font": {
         "FontObject": {
@@ -280,161 +341,366 @@
         },
         "TypefaceFontName": "Black"
       },
+      "AutoWrapText": true,
+      "WrapTextAt": 400.0,
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.12"
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.22"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
   {
-    "Type": "Overlay",
-    "Name": "Overlay_87",
+    "Type": "GridPanel",
+    "Name": "GridPanel_0",
     "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
+    "Class": "UScriptClass'GridPanel'",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.12"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_8'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.15"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.13"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_1'",
+          "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_0'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.11"
         },
         {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_7'",
+          "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_9'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.16"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_10'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.12"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_12'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.13"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_7'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.14"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_8'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.15"
         }
       ]
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_87",
-    "Class": "UScriptClass'OverlaySlot'",
+    "Type": "GridSlot",
+    "Name": "GridSlot_0",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.9"
+        "ObjectName": "GridPanel'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreHeritagePackItem_C:WidgetTree.BannerIMG'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.6"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_10",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Padding": {
+        "Top": 2.0,
+        "Bottom": 4.0
+      },
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreOnHoverBorder_C'WBP_CoreStoreHeritagePackItem_C:WidgetTree.OnHoverBorder'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.25"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_12",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Padding": {
+        "Top": 60.0,
+        "Right": -10.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Top",
+      "Layer": 1,
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreOwnedTag_C'WBP_CoreStoreHeritagePackItem_C:WidgetTree.OwnedTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.26"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_7",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Padding": {
+        "Top": -50.0,
+        "Right": -50.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Top",
+      "Layer": 1,
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreNotifications_C'WBP_CoreStoreHeritagePackItem_C:WidgetTree.NotificationIcon'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.24"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_8",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
+      },
+      "Content": {
+        "ObjectName": "DBDButton'WBP_CoreStoreHeritagePackItem_C:WidgetTree.HitzoneButton'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.5"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Outer": "Overlay_87",
-    "Class": "UScriptClass'OverlaySlot'",
+    "Type": "GridSlot",
+    "Name": "GridSlot_9",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
     "Properties": {
-      "Padding": {
-        "Bottom": 50.0
-      },
-      "HorizontalAlignment": "HAlign_Right",
       "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.9"
+        "ObjectName": "GridPanel'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
       },
       "Content": {
-        "ObjectName": "WBP_CorePremiumCurrencyButton_C'WBP_CoreStoreHeritagePackItem_C:WidgetTree.PremiumBuyButton'",
+        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.17"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Footer",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer.OverlaySlot_3'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.20"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer.OverlaySlot_2'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.19"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer.OverlaySlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.18"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_9'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.16"
       }
     }
   },
   {
     "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Outer": "Overlay_87",
+    "Name": "OverlaySlot_0",
+    "Outer": "Footer",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
       "Padding": {
-        "Left": 50.0,
-        "Top": 50.0
+        "Top": 30.0,
+        "Right": 30.0,
+        "Bottom": 30.0
       },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.9"
+        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.17"
       },
       "Content": {
-        "ObjectName": "DBDTextBlock'WBP_CoreStoreHeritagePackItem_C:WidgetTree.TitleTB'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.8"
+        "ObjectName": "WBP_CorePremiumCurrencyButton_C'WBP_CoreStoreHeritagePackItem_C:WidgetTree.PremiumBuyButton'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.27"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "Footer",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 30.0,
+        "Top": 30.0,
+        "Bottom": 30.0
+      },
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.17"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'WBP_CoreStoreHeritagePackItem_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.21"
       }
     }
   },
   {
     "Type": "OverlaySlot",
     "Name": "OverlaySlot_3",
-    "Outer": "Overlay_87",
+    "Outer": "Footer",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "Padding": {
-        "Left": 50.0,
-        "Bottom": 70.0
-      },
-      "HorizontalAlignment": "HAlign_Right",
-      "VerticalAlignment": "VAlign_Bottom",
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.9"
+        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.17"
       },
       "Content": {
-        "ObjectName": "DBDTextBlock'WBP_CoreStoreHeritagePackItem_C:WidgetTree.OwnedTB'",
+        "ObjectName": "DBDImage'WBP_CoreStoreHeritagePackItem_C:WidgetTree.FooterBG'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.7"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_7",
-    "Outer": "Overlay_87",
-    "Class": "UScriptClass'OverlaySlot'",
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
     "Properties": {
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.9"
-      },
-      "Content": {
-        "ObjectName": "DBDButton'WBP_CoreStoreHeritagePackItem_C:WidgetTree.HitzoneButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.4"
+      "Slots": [
+        {
+          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.22"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.23"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer.OverlaySlot_2'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.19"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_8",
-    "Outer": "Overlay_87",
-    "Class": "UScriptClass'OverlaySlot'",
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
     "Properties": {
-      "Padding": {
-        "Left": 50.0,
-        "Top": 250.0
-      },
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87'",
+        "ObjectName": "VerticalBox'WBP_CoreStoreHeritagePackItem_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.21"
+      },
+      "Content": {
+        "ObjectName": "DBDTextBlock'WBP_CoreStoreHeritagePackItem_C:WidgetTree.TitleTB'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.9"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "VerticalBox'WBP_CoreStoreHeritagePackItem_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.21"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CoreStoreHeritagePackItem_C:WidgetTree.ContentDescriptionTB'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.6"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.8"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreNotifications_C",
+    "Name": "NotificationIcon",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.WBP_CoreNotifications_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreNotifications_C'Default__WBP_CoreNotifications_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.3"
+    },
+    "Properties": {
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_7'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.14"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreOnHoverBorder_C",
+    "Name": "OnHoverBorder",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.WBP_CoreOnHoverBorder_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreOnHoverBorder_C'Default__WBP_CoreOnHoverBorder_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.20"
+    },
+    "Properties": {
+      "PreviewProgress": 0.4,
+      "PreviewThickness": 6,
+      "WidthRatio": 0.025,
+      "HeightRatio": 0.016842,
+      "WidthRatio2": 0.01875,
+      "HeightRatio2": 0.012632,
+      "ImageSize": {
+        "X": 370.0,
+        "Y": 470.0
+      },
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_10'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.12"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreOwnedTag_C",
+    "Name": "OwnedTag",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/WBP_CoreOwnedTag.WBP_CoreOwnedTag_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreOwnedTag_C'Default__WBP_CoreOwnedTag_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/WBP_CoreOwnedTag.1"
+    },
+    "Properties": {
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0.GridSlot_12'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.13"
       }
     }
   },
@@ -445,12 +711,13 @@
     "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CorePremiumCurrencyButton.WBP_CorePremiumCurrencyButton_C'",
     "Template": {
       "ObjectName": "WBP_CorePremiumCurrencyButton_C'Default__WBP_CorePremiumCurrencyButton_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CorePremiumCurrencyButton.6"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CorePremiumCurrencyButton.7"
     },
     "Properties": {
+      "_alignment": "ETextJustify::Right",
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.11"
+        "ObjectName": "OverlaySlot'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Footer.OverlaySlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.18"
       }
     }
   },
@@ -461,8 +728,8 @@
     "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "Overlay'WBP_CoreStoreHeritagePackItem_C:WidgetTree.Overlay_87'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.9"
+        "ObjectName": "GridPanel'WBP_CoreStoreHeritagePackItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreHeritagePackItem.10"
       }
     }
   }

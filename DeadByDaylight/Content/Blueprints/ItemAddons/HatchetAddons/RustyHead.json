@@ -3,104 +3,113 @@
     "Type": "Function",
     "Name": "ExecuteUbergraph_RustyHead",
     "Outer": "RustyHead_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "IntProperty",
         "Name": "EntryPoint",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 4,
-        "PropertyFlags": 148
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
         "Type": "ObjectProperty",
         "Name": "K2Node_Event_Killer",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
+          "ObjectName": "Class'DBDPlayer'",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
         "Type": "ObjectProperty",
         "Name": "K2Node_Event_Survivor",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
+          "ObjectName": "Class'DBDPlayer'",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
-        "PropertyFlags": 524288,
+        "PropertyFlags": "InstancedReference",
         "PropertyClass": {
-          "ObjectName": "Class StatusEffect",
+          "ObjectName": "Class'StatusEffect'",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       }
     ],
-    "FunctionFlags": 32769
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
   },
   {
     "Type": "Function",
     "Name": "OnHatchetHit",
     "Outer": "RustyHead_C",
-    "Super": "OnHatchetHit",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BaseHatchetAddon_C:OnHatchetHit'",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/BaseHatchetAddon.5"
+    },
     "SuperStruct": {
-      "ObjectName": "Function UnstackableHatchetAddon_C:OnHatchetHit",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/UnstackableHatchetAddon.1"
+      "ObjectName": "Function'BaseHatchetAddon_C:OnHatchetHit'",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/BaseHatchetAddon.5"
     },
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
         "Name": "Killer",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
+          "ObjectName": "Class'DBDPlayer'",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       },
       {
         "Type": "ObjectProperty",
         "Name": "Survivor",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "PropertyClass": {
-          "ObjectName": "Class DBDPlayer",
+          "ObjectName": "Class'DBDPlayer'",
           "ObjectPath": "/Script/DeadByDaylight"
         }
       }
     ],
-    "FunctionFlags": 201850880
+    "FunctionFlags": "FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "RustyHead_C",
-    "Super": "UnstackableHatchetAddon_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BaseHatchetAddon_C'",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/BaseHatchetAddon.7"
+    },
     "Properties": {
       "UberGraphFunction": {
-        "ObjectName": "Function RustyHead_C:ExecuteUbergraph_RustyHead",
+        "ObjectName": "Function'RustyHead_C:ExecuteUbergraph_RustyHead'",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/RustyHead.0"
       }
     },
     "SuperStruct": {
-      "ObjectName": "BlueprintGeneratedClass UnstackableHatchetAddon_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/UnstackableHatchetAddon.2"
+      "ObjectName": "BlueprintGeneratedClass'BaseHatchetAddon_C'",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/BaseHatchetAddon.7"
     },
     "Children": [
       {
-        "ObjectName": "Function RustyHead_C:OnHatchetHit",
+        "ObjectName": "Function'RustyHead_C:OnHatchetHit'",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/RustyHead.1"
       },
       {
-        "ObjectName": "Function RustyHead_C:ExecuteUbergraph_RustyHead",
+        "ObjectName": "Function'RustyHead_C:ExecuteUbergraph_RustyHead'",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/RustyHead.0"
       }
     ],
@@ -108,46 +117,55 @@
       {
         "Type": "StructProperty",
         "Name": "UberGraphFrame",
-        "Flags": 2097153,
+        "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
-        "PropertyFlags": 2105344,
+        "PropertyFlags": "Transient | DuplicateTransient",
         "Struct": {
-          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
         }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Mangled Effect Lifetime",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
       }
     ],
     "FuncMap": {
       "ExecuteUbergraph_RustyHead": {
-        "ObjectName": "Function RustyHead_C:ExecuteUbergraph_RustyHead",
+        "ObjectName": "Function'RustyHead_C:ExecuteUbergraph_RustyHead'",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/RustyHead.0"
       },
       "OnHatchetHit": {
-        "ObjectName": "Function RustyHead_C:OnHatchetHit",
+        "ObjectName": "Function'RustyHead_C:OnHatchetHit'",
         "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/RustyHead.1"
       }
     },
-    "ClassFlags": 10749972,
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
-      "ObjectName": "Class Object",
+      "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
     "bCooked": true,
     "ClassDefaultObject": {
-      "ObjectName": "RustyHead_C Default__RustyHead_C",
+      "ObjectName": "RustyHead_C'Default__RustyHead_C'",
       "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/RustyHead.3"
     }
   },
   {
     "Type": "RustyHead_C",
     "Name": "Default__RustyHead_C",
-    "Template": "Default__UnstackableHatchetAddon_C",
+    "Class": "BlueprintGeneratedClass'DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/RustyHead.RustyHead_C'",
+    "Template": {
+      "ObjectName": "BaseHatchetAddon_C'Default__BaseHatchetAddon_C'",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/ItemAddons/HatchetAddons/BaseHatchetAddon.8"
+    },
     "Properties": {
       "UberGraphFrame": {},
-      "StatusEffectToSpawn": [
-        "MangledOriginatingEffect"
-      ],
+      "Mangled Effect Lifetime": 70.0,
       "ModifierData": {
         "Modifiers": [
           {

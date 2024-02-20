@@ -1,11 +1,87 @@
 [
   {
     "Type": "Function",
-    "Name": "GetTabSpecialInterface",
+    "Name": "ExecuteUbergraph_WBP_CoreStoreCollections",
+    "Outer": "WBP_CoreStoreCollections_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_menuState",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EStoreCollectionsMenuState'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetMenuState",
     "Outer": "WBP_CoreStoreCollections_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'StoreCollectionsViewInterface:GetTabSpecialInterface'",
+      "ObjectName": "Function'StoreCollectionsViewInterface:SetMenuState'",
+      "ObjectPath": "/Script/DBDUIViewInterfaces"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "menuState",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Enum'EStoreCollectionsMenuState'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetCollectionsCustomizationsInterface",
+    "Outer": "WBP_CoreStoreCollections_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'StoreCollectionsViewInterface:GetCollectionsCustomizationsInterface'",
       "ObjectPath": "/Script/DBDUIViewInterfaces"
     },
     "ChildProperties": [
@@ -16,7 +92,7 @@
         "ElementSize": 16,
         "PropertyFlags": "Parm | OutParm | ReturnParm | UObjectWrapper",
         "InterfaceClass": {
-          "ObjectName": "Class'StoreCollectionsListViewInterface'",
+          "ObjectName": "Class'StoreCollectionsCustomizationsViewInterface'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
@@ -25,35 +101,11 @@
   },
   {
     "Type": "Function",
-    "Name": "GetTabFeaturedInterface",
+    "Name": "GetCollectionsListViewInterface",
     "Outer": "WBP_CoreStoreCollections_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'StoreCollectionsViewInterface:GetTabFeaturedInterface'",
-      "ObjectPath": "/Script/DBDUIViewInterfaces"
-    },
-    "ChildProperties": [
-      {
-        "Type": "InterfaceProperty",
-        "Name": "ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 16,
-        "PropertyFlags": "Parm | OutParm | ReturnParm | UObjectWrapper",
-        "InterfaceClass": {
-          "ObjectName": "Class'StoreCollectionsListViewInterface'",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
-  },
-  {
-    "Type": "Function",
-    "Name": "GetTabAllInterface",
-    "Outer": "WBP_CoreStoreCollections_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'StoreCollectionsViewInterface:GetTabAllInterface'",
+      "ObjectName": "Function'StoreCollectionsViewInterface:GetCollectionsListViewInterface'",
       "ObjectPath": "/Script/DBDUIViewInterfaces"
     },
     "ChildProperties": [
@@ -78,9 +130,13 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreStoreCollections_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.16"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.11"
       },
-      "bClassRequiresNativeTick": true
+      "bClassRequiresNativeTick": true,
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:ExecuteUbergraph_WBP_CoreStoreCollections'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.0"
+      }
     },
     "SuperStruct": {
       "ObjectName": "Class'CoreStoreCollectionsWidget'",
@@ -88,65 +144,73 @@
     },
     "Children": [
       {
-        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetTabAllInterface'",
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetCollectionsListViewInterface'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.3"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetCollectionsCustomizationsInterface'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.2"
       },
       {
-        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetTabFeaturedInterface'",
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:SetMenuState'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.1"
       },
       {
-        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetTabSpecialInterface'",
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:ExecuteUbergraph_WBP_CoreStoreCollections'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.0"
       }
     ],
     "ChildProperties": [
       {
-        "Type": "ObjectProperty",
-        "Name": "AllTab",
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCollectionsList_C'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.0"
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
         }
       },
       {
         "Type": "ObjectProperty",
-        "Name": "FeaturedTab",
+        "Name": "CollectionsCustomizations",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
-          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCollectionsList_C'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.0"
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCollectionsCustomizations_C'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsCustomizations.3"
         }
       },
       {
         "Type": "ObjectProperty",
-        "Name": "SpecialTab",
+        "Name": "CollectionsList",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCollectionsList_C'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.0"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.5"
         }
       }
     ],
     "FuncMap": {
-      "GetTabSpecialInterface": {
-        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetTabSpecialInterface'",
+      "ExecuteUbergraph_WBP_CoreStoreCollections": {
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:ExecuteUbergraph_WBP_CoreStoreCollections'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.0"
       },
-      "GetTabFeaturedInterface": {
-        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetTabFeaturedInterface'",
+      "SetMenuState": {
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:SetMenuState'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.1"
       },
-      "GetTabAllInterface": {
-        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetTabAllInterface'",
+      "GetCollectionsCustomizationsInterface": {
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetCollectionsCustomizationsInterface'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.2"
+      },
+      "GetCollectionsListViewInterface": {
+        "ObjectName": "Function'WBP_CoreStoreCollections_C:GetCollectionsListViewInterface'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.3"
       }
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
@@ -158,7 +222,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreStoreCollections_C'Default__WBP_CoreStoreCollections_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.4"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.5"
     }
   },
   {
@@ -166,220 +230,104 @@
     "Name": "Default__WBP_CoreStoreCollections_C",
     "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.WBP_CoreStoreCollections_C'",
     "Properties": {
+      "UberGraphFrame": {},
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
     }
   },
   {
-    "Type": "CanvasPanel",
-    "Name": "CanvasPanel_0",
+    "Type": "Overlay",
+    "Name": "Overlay_0",
     "Outer": "WidgetTree",
-    "Class": "UScriptClass'CanvasPanel'",
+    "Class": "UScriptClass'Overlay'",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "CanvasPanelSlot'WBP_CoreStoreCollections_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.6"
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCollections_C:WidgetTree.Overlay_0.OverlaySlot_5'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.7"
         },
         {
-          "ObjectName": "CanvasPanelSlot'WBP_CoreStoreCollections_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.7"
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCollections_C:WidgetTree.Overlay_0.OverlaySlot_6'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.8"
         }
       ]
     }
   },
   {
-    "Type": "CanvasPanelSlot",
-    "Name": "CanvasPanelSlot_2",
-    "Outer": "CanvasPanel_0",
-    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_5",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "LayoutData": {
-        "Offsets": {
-          "Right": 0.0,
-          "Bottom": -1836.0
-        },
-        "Anchors": {
-          "Maximum": {
-            "X": 1.0,
-            "Y": 0.15
-          }
-        }
+      "Padding": {
+        "Left": 200.0,
+        "Top": 125.0,
+        "Right": 200.0
       },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
       "Parent": {
-        "ObjectName": "CanvasPanel'WBP_CoreStoreCollections_C:WidgetTree.CanvasPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.5"
-      },
-      "Content": {
-        "ObjectName": "WBP_CoreTabContainer_C'WBP_CoreStoreCollections_C:WidgetTree.SubTabsContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.11"
-      }
-    }
-  },
-  {
-    "Type": "CanvasPanelSlot",
-    "Name": "CanvasPanelSlot_3",
-    "Outer": "CanvasPanel_0",
-    "Class": "UScriptClass'CanvasPanelSlot'",
-    "Properties": {
-      "LayoutData": {
-        "Offsets": {
-          "Top": 324.0,
-          "Right": 1920.0,
-          "Bottom": 0.0
-        },
-        "Anchors": {
-          "Maximum": {
-            "X": 1.0,
-            "Y": 1.0
-          }
-        }
-      },
-      "Parent": {
-        "ObjectName": "CanvasPanel'WBP_CoreStoreCollections_C:WidgetTree.CanvasPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.5"
-      },
-      "Content": {
-        "ObjectName": "WidgetSwitcher'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.12"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreStoreCollectionsList_C",
-    "Name": "AllTab",
-    "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.WBP_CoreStoreCollectionsList_C'",
-    "Template": {
-      "ObjectName": "WBP_CoreStoreCollectionsList_C'Default__WBP_CoreStoreCollectionsList_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.1"
-    },
-    "Properties": {
-      "Slot": {
-        "ObjectName": "WidgetSwitcherSlot'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher.WidgetSwitcherSlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.15"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreStoreCollectionsList_C",
-    "Name": "FeaturedTab",
-    "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.WBP_CoreStoreCollectionsList_C'",
-    "Template": {
-      "ObjectName": "WBP_CoreStoreCollectionsList_C'Default__WBP_CoreStoreCollectionsList_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.1"
-    },
-    "Properties": {
-      "Slot": {
-        "ObjectName": "WidgetSwitcherSlot'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher.WidgetSwitcherSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.14"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreStoreCollectionsList_C",
-    "Name": "SpecialTab",
-    "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.WBP_CoreStoreCollectionsList_C'",
-    "Template": {
-      "ObjectName": "WBP_CoreStoreCollectionsList_C'Default__WBP_CoreStoreCollectionsList_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.1"
-    },
-    "Properties": {
-      "Slot": {
-        "ObjectName": "WidgetSwitcherSlot'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher.WidgetSwitcherSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.13"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreTabContainer_C",
-    "Name": "SubTabsContainer",
-    "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.WBP_CoreTabContainer_C'",
-    "Template": {
-      "ObjectName": "WBP_CoreTabContainer_C'Default__WBP_CoreTabContainer_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Tabs/WBP_CoreTabContainer.8"
-    },
-    "Properties": {
-      "Slot": {
-        "ObjectName": "CanvasPanelSlot'WBP_CoreStoreCollections_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_2'",
+        "ObjectName": "Overlay'WBP_CoreStoreCollections_C:WidgetTree.Overlay_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.6"
-      }
-    }
-  },
-  {
-    "Type": "WidgetSwitcher",
-    "Name": "TabContentSwitcher",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'WidgetSwitcher'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "WidgetSwitcherSlot'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher.WidgetSwitcherSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.13"
-        },
-        {
-          "ObjectName": "WidgetSwitcherSlot'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher.WidgetSwitcherSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.14"
-        },
-        {
-          "ObjectName": "WidgetSwitcherSlot'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher.WidgetSwitcherSlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.15"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "CanvasPanelSlot'WBP_CoreStoreCollections_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.7"
-      }
-    }
-  },
-  {
-    "Type": "WidgetSwitcherSlot",
-    "Name": "WidgetSwitcherSlot_0",
-    "Outer": "TabContentSwitcher",
-    "Class": "UScriptClass'WidgetSwitcherSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetSwitcher'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.12"
       },
       "Content": {
-        "ObjectName": "WBP_CoreStoreCollectionsList_C'WBP_CoreStoreCollections_C:WidgetTree.SpecialTab'",
+        "ObjectName": "WBP_CoreStoreCollectionsList_C'WBP_CoreStoreCollections_C:WidgetTree.CollectionsList'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.10"
       }
     }
   },
   {
-    "Type": "WidgetSwitcherSlot",
-    "Name": "WidgetSwitcherSlot_1",
-    "Outer": "TabContentSwitcher",
-    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_6",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
+      "Padding": {
+        "Left": 200.0,
+        "Top": 125.0,
+        "Right": 200.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
       "Parent": {
-        "ObjectName": "WidgetSwitcher'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.12"
+        "ObjectName": "Overlay'WBP_CoreStoreCollections_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.6"
       },
       "Content": {
-        "ObjectName": "WBP_CoreStoreCollectionsList_C'WBP_CoreStoreCollections_C:WidgetTree.FeaturedTab'",
+        "ObjectName": "WBP_CoreStoreCollectionsCustomizations_C'WBP_CoreStoreCollections_C:WidgetTree.CollectionsCustomizations'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.9"
       }
     }
   },
   {
-    "Type": "WidgetSwitcherSlot",
-    "Name": "WidgetSwitcherSlot_2",
-    "Outer": "TabContentSwitcher",
-    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Type": "WBP_CoreStoreCollectionsCustomizations_C",
+    "Name": "CollectionsCustomizations",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsCustomizations.WBP_CoreStoreCollectionsCustomizations_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreStoreCollectionsCustomizations_C'Default__WBP_CoreStoreCollectionsCustomizations_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsCustomizations.4"
+    },
     "Properties": {
-      "Parent": {
-        "ObjectName": "WidgetSwitcher'WBP_CoreStoreCollections_C:WidgetTree.TabContentSwitcher'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.12"
-      },
-      "Content": {
-        "ObjectName": "WBP_CoreStoreCollectionsList_C'WBP_CoreStoreCollections_C:WidgetTree.AllTab'",
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCollections_C:WidgetTree.Overlay_0.OverlaySlot_6'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.8"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreStoreCollectionsList_C",
+    "Name": "CollectionsList",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.WBP_CoreStoreCollectionsList_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreStoreCollectionsList_C'Default__WBP_CoreStoreCollectionsList_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsList.6"
+    },
+    "Properties": {
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCollections_C:WidgetTree.Overlay_0.OverlaySlot_5'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.7"
       }
     }
   },
@@ -390,8 +338,8 @@
     "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "CanvasPanel'WBP_CoreStoreCollections_C:WidgetTree.CanvasPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.5"
+        "ObjectName": "Overlay'WBP_CoreStoreCollections_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollections.6"
       }
     }
   }

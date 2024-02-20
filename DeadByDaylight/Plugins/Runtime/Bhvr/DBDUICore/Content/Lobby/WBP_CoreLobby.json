@@ -1,0 +1,372 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_WBP_CoreLobby",
+    "Outer": "WBP_CoreLobby_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_state",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm",
+        "Enum": {
+          "ObjectName": "Enum'ELobbyMenuState'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetMenuState",
+    "Outer": "WBP_CoreLobby_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'LobbyViewInterface:SetMenuState'",
+      "ObjectPath": "/Script/DBDUIViewInterfaces"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "state",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Enum'ELobbyMenuState'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetLobbyCharactersInterface",
+    "Outer": "WBP_CoreLobby_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'LobbyViewInterface:GetLobbyCharactersInterface'",
+      "ObjectPath": "/Script/DBDUIViewInterfaces"
+    },
+    "ChildProperties": [
+      {
+        "Type": "InterfaceProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Parm | OutParm | ReturnParm | UObjectWrapper",
+        "InterfaceClass": {
+          "ObjectName": "Class'LobbyCharactersViewInterface'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_CoreLobby_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_CoreLobby_C:WidgetTree'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.14"
+      },
+      "bClassRequiresNativeTick": true,
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CoreLobby_C:ExecuteUbergraph_WBP_CoreLobby'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CoreLobbyWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_CoreLobby_C:GetLobbyCharactersInterface'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.2"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreLobby_C:SetMenuState'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.1"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreLobby_C:ExecuteUbergraph_WBP_CoreLobby'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Characters",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreLobbyCharacters_C'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/Characters/WBP_CoreLobbyCharacters.3"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WidgetSwitcher",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetSwitcher'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CoreLobby": {
+        "ObjectName": "Function'WBP_CoreLobby_C:ExecuteUbergraph_WBP_CoreLobby'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.0"
+      },
+      "SetMenuState": {
+        "ObjectName": "Function'WBP_CoreLobby_C:SetMenuState'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.1"
+      },
+      "GetLobbyCharactersInterface": {
+        "ObjectName": "Function'WBP_CoreLobby_C:GetLobbyCharactersInterface'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.2"
+      }
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CoreLobby_C'Default__WBP_CoreLobby_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.4"
+    }
+  },
+  {
+    "Type": "WBP_CoreLobby_C",
+    "Name": "Default__WBP_CoreLobby_C",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.WBP_CoreLobby_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Content",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreLobby_C:WidgetTree.Content.OverlaySlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.7"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreLobby_C:WidgetTree.Overlay_0.OverlaySlot_4'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.9"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreLobby_C:WidgetTree.Overlay_0.OverlaySlot_3'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.8"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreLobby_C:WidgetTree.Overlay_0.OverlaySlot_4'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.9"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Content",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreLobby_C:WidgetTree.Content'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.5"
+      },
+      "Content": {
+        "ObjectName": "WidgetSwitcher'WBP_CoreLobby_C:WidgetTree.WidgetSwitcher'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.12"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_3",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreLobby_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.6"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'WBP_CoreLobby_C:WidgetTree.SidePanel'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.10"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 500.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreLobby_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.6"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_CoreLobby_C:WidgetTree.Content'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.5"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "SidePanel",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreLobby_C:WidgetTree.Overlay_0.OverlaySlot_3'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.8"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreLobbyCharacters_C",
+    "Name": "Characters",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/Characters/WBP_CoreLobbyCharacters.WBP_CoreLobbyCharacters_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreLobbyCharacters_C'Default__WBP_CoreLobbyCharacters_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/Characters/WBP_CoreLobbyCharacters.4"
+    },
+    "Properties": {
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'WBP_CoreLobby_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.13"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcher",
+    "Name": "WidgetSwitcher",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'WidgetSwitcher'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "WidgetSwitcherSlot'WBP_CoreLobby_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.13"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreLobby_C:WidgetTree.Content.OverlaySlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.7"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_0",
+    "Outer": "WidgetSwitcher",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'WBP_CoreLobby_C:WidgetTree.WidgetSwitcher'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.12"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreLobbyCharacters_C'WBP_CoreLobby_C:WidgetTree.Characters'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.11"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "WBP_CoreLobby_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "Overlay'WBP_CoreLobby_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Lobby/WBP_CoreLobby.6"
+      }
+    }
+  }
+]

@@ -47,6 +47,16 @@
         }
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_data",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'StoreCustomizationItemViewData'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      },
+      {
         "Type": "BoolProperty",
         "Name": "K2Node_Event_IsDesignTime",
         "Flags": "RF_Public",
@@ -59,17 +69,36 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_data",
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetIsAvailable_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class'StoreCustomizationItemViewData'",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_Debug_MakePriceTagArray_PriceTagArray",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "CallFunc_Debug_MakePriceTagArray_PriceTagArray",
+          "Flags": "RF_Public",
+          "ElementSize": 88,
+          "Struct": {
+            "ObjectName": "ScriptStruct'PriceTagViewData'",
+            "ObjectPath": "/Script/DBDUIViewInterfaces"
+          }
         }
       }
     ],
-    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
   },
   {
     "Type": "Function",
@@ -264,7 +293,7 @@
   },
   {
     "Type": "Function",
-    "Name": "Set Unbreakable Set Tag",
+    "Name": "SetUnbreakableSetTag",
     "Outer": "WBP_CoreStoreSpecialsItem_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -508,7 +537,7 @@
         "Type": "StructProperty",
         "Name": "K2Node_MakeStruct_TimerFlagViewData",
         "Flags": "RF_Public",
-        "ElementSize": 24,
+        "ElementSize": 48,
         "Struct": {
           "ObjectName": "ScriptStruct'TimerFlagViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
@@ -518,7 +547,7 @@
         "Type": "StructProperty",
         "Name": "K2Node_MakeStruct_TimerFlagViewData_1",
         "Flags": "RF_Public",
-        "ElementSize": 24,
+        "ElementSize": 48,
         "Struct": {
           "ObjectName": "ScriptStruct'TimerFlagViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
@@ -540,7 +569,7 @@
           "Type": "StructProperty",
           "Name": "K2Node_MakeArray_Array",
           "Flags": "RF_Public",
-          "ElementSize": 24,
+          "ElementSize": 48,
           "Struct": {
             "ObjectName": "ScriptStruct'TimerFlagViewData'",
             "ObjectPath": "/Script/DBDUIViewInterfaces"
@@ -551,7 +580,7 @@
         "Type": "StructProperty",
         "Name": "CallFunc_Array_Get_Item",
         "Flags": "RF_Public",
-        "ElementSize": 24,
+        "ElementSize": 48,
         "Struct": {
           "ObjectName": "ScriptStruct'TimerFlagViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
@@ -702,7 +731,7 @@
           "Type": "StructProperty",
           "Name": "PriceTags",
           "Flags": "RF_Public",
-          "ElementSize": 32,
+          "ElementSize": 88,
           "Struct": {
             "ObjectName": "ScriptStruct'PriceTagViewData'",
             "ObjectPath": "/Script/DBDUIViewInterfaces"
@@ -725,7 +754,7 @@
         "Type": "StructProperty",
         "Name": "CallFunc_Array_Get_Item",
         "Flags": "RF_Public",
-        "ElementSize": 32,
+        "ElementSize": 88,
         "Struct": {
           "ObjectName": "ScriptStruct'PriceTagViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
@@ -836,13 +865,71 @@
     "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
+    "Type": "Function",
+    "Name": "SetUnavailableTag",
+    "Outer": "WBP_CoreStoreSpecialsItem_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsAvailable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsTagVisible_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "WidgetBlueprintGeneratedClass",
     "Name": "WBP_CoreStoreSpecialsItem_C",
     "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreStoreSpecialsItem_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.72"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.73"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -855,6 +942,10 @@
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "Children": [
+      {
+        "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:SetUnavailableTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.13"
+      },
       {
         "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:SetPriceTags'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.12"
@@ -876,7 +967,7 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.8"
       },
       {
-        "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:Set Unbreakable Set Tag'",
+        "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:SetUnbreakableSetTag'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.7"
       },
       {
@@ -918,17 +1009,6 @@
         "Struct": {
           "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "BackgroundImage",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'DBDImage'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
       {
@@ -1015,30 +1095,30 @@
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreOwnedTag_C'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/WBP_CoreOwnedTag.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RarityIMG",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "UnavailableTag",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
           "ObjectName": "Class'Overlay'",
           "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "RarityImage",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'DBDImage'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "Shadow",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'DBDImage'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
       {
@@ -1093,8 +1173,8 @@
         "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:SetKillSwitchOverlay'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.6"
       },
-      "Set Unbreakable Set Tag": {
-        "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:Set Unbreakable Set Tag'",
+      "SetUnbreakableSetTag": {
+        "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:SetUnbreakableSetTag'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.7"
       },
       "SetEventPointsTag": {
@@ -1116,6 +1196,10 @@
       "SetPriceTags": {
         "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:SetPriceTags'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.12"
+      },
+      "SetUnavailableTag": {
+        "ObjectName": "Function'WBP_CoreStoreSpecialsItem_C:SetUnavailableTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.13"
       }
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
@@ -1127,7 +1211,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreStoreSpecialsItem_C'Default__WBP_CoreStoreSpecialsItem_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.14"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.15"
     }
   },
   {
@@ -1142,7 +1226,7 @@
       },
       "_priceTagWidgetClass": {
         "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CorePriceTag_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Currency/WBP_CorePriceTag.6"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Currency/WBP_CorePriceTag.8"
       },
       "_timerFlagWidgetClass": {
         "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreTimerFlag_C'",
@@ -1160,13 +1244,13 @@
     "Properties": {
       "Slot": {
         "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_34'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.44"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.40"
       }
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "BackgroundImage",
+    "Name": "BackgroundIMG",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDImage'",
     "Properties": {
@@ -1182,8 +1266,9 @@
       },
       "Slot": {
         "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_16'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.33"
       },
+      "bIsVariable": false,
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
@@ -1205,7 +1290,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_5'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.59"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.57"
       },
       "RenderTransform": {
         "Scale": {
@@ -1234,7 +1319,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_4'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.58"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.56"
       },
       "RenderTransform": {
         "Scale": {
@@ -1278,10 +1363,6 @@
         "ImageSize": {
           "X": 60.0,
           "Y": 60.0
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D'T_UI_EventEntry_Icon_Milestone_Add'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Popups/EventEntry/T_UI_EventEntry_Icon_Milestone_Add.0"
         }
       },
       "Slot": {
@@ -1293,7 +1374,7 @@
   },
   {
     "Type": "DBDImage",
-    "Name": "ItemIcon",
+    "Name": "ItemIMG",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDImage'",
     "Properties": {
@@ -1343,37 +1424,7 @@
   },
   {
     "Type": "DBDImage",
-    "Name": "OwnedTagBg",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 250.0,
-          "Y": 63.0
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D'StoreSmallFlagBackground_Owned'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Store/Flags/StoreSmallFlagBackground_Owned.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.54"
-      },
-      "RenderTransform": {
-        "Scale": {
-          "X": 0.55,
-          "Y": 0.55
-        }
-      },
-      "bIsVariable": false,
-      "Visibility": "ESlateVisibility::HitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "RarityImage",
+    "Name": "RarityIMG",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDImage'",
     "Properties": {
@@ -1389,39 +1440,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_18'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.33"
-      },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "Shadow",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 512.0,
-          "Y": 512.0
-        },
-        "TintColor": {
-          "SpecifiedColor": {
-            "R": 1.0,
-            "G": 1.0,
-            "B": 1.0,
-            "A": 0.3,
-            "Hex": "4CFFFFFF"
-          }
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D'storeItemBtn_bg'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Store/storeItemBtn_bg.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_15'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.34"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -1444,7 +1463,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.56"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.54"
       },
       "bIsVariable": false
     }
@@ -1467,7 +1486,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.57"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.55"
       },
       "RenderTransform": {
         "Scale": {
@@ -1476,6 +1495,39 @@
         }
       },
       "bIsVariable": false
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "UnavailableTagBG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 270.0,
+          "Y": 40.0
+        },
+        "TintColor": {
+          "SpecifiedColor": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFFF0000"
+          }
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'StoreSmallFlagBackground_Owned'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Store/Flags/StoreSmallFlagBackground_Owned.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTag.OverlaySlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.58"
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::HitTestInvisible"
     }
   },
   {
@@ -1518,64 +1570,64 @@
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_15'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.31"
-        },
-        {
           "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_16'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.32"
-        },
-        {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_18'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.33"
         },
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_20'",
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_18'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.34"
         },
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_21'",
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_20'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.35"
         },
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_22'",
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_21'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.36"
         },
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_24'",
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_9'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.44"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_22'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.37"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_4'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.41"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_5'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.42"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_10'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.30"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_11'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.31"
         },
         {
           "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_25'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.38"
         },
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_26'",
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_27'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.39"
         },
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_27'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.40"
-        },
-        {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_28'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.41"
-        },
-        {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.30"
-        },
-        {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_31'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.42"
-        },
-        {
-          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_33'",
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_7'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.43"
         },
         {
+          "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_12'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.32"
+        },
+        {
           "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_34'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.44"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.40"
         }
       ],
       "Slot": {
@@ -1586,7 +1638,7 @@
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_1",
+    "Name": "GridSlot_10",
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
@@ -1596,6 +1648,7 @@
       },
       "HorizontalAlignment": "HAlign_Right",
       "VerticalAlignment": "VAlign_Top",
+      "Layer": 12,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
@@ -1608,25 +1661,47 @@
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_15",
+    "Name": "GridSlot_11",
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
-      "Padding": {
-        "Left": -100.0,
-        "Top": -75.0,
-        "Right": -100.0,
-        "Bottom": -75.0
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Top",
+      "Layer": 12,
+      "Nudge": {
+        "X": 19.0,
+        "Y": 235.0
       },
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
       },
       "Content": {
-        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.Shadow'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.25"
+        "ObjectName": "VerticalBox'WBP_CoreStoreSpecialsItem_C:WidgetTree.PriceTagsVerticalBox'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.68"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_12",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 10.0,
+        "Top": 5.0,
+        "Right": 10.0,
+        "Bottom": 10.0
+      },
+      "Layer": 20,
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
       }
     }
   },
@@ -1649,8 +1724,8 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
       },
       "Content": {
-        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.BackgroundImage'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.16"
+        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.BackgroundIMG'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.17"
       }
     }
   },
@@ -1668,12 +1743,13 @@
       },
       "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Center",
+      "Layer": 1,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
       },
       "Content": {
-        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.RarityImage'",
+        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.RarityIMG'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.24"
       }
     }
@@ -1690,6 +1766,7 @@
       },
       "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Center",
+      "Layer": 2,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
@@ -1706,6 +1783,7 @@
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
+      "Layer": 10,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
@@ -1722,6 +1800,7 @@
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
+      "Layer": 10,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
@@ -1729,28 +1808,6 @@
       "Content": {
         "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnbreakableSetTag'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.50"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_24",
-    "Outer": "GridPanel_0",
-    "Class": "UScriptClass'GridSlot'",
-    "Properties": {
-      "Padding": {
-        "Left": 10.0,
-        "Top": 4.0,
-        "Right": 12.0,
-        "Bottom": 9.0
-      },
-      "Parent": {
-        "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
-      },
-      "Content": {
-        "ObjectName": "WBP_CoreOnHoverBorder_C'WBP_CoreStoreSpecialsItem_C:WidgetTree.OnHoverBorder'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.70"
       }
     }
   },
@@ -1766,36 +1823,14 @@
         "Right": -100.0,
         "Bottom": -75.0
       },
-      "Layer": 1,
+      "Layer": 20,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
       },
       "Content": {
         "ObjectName": "WBP_LockedOverlay_C'WBP_CoreStoreSpecialsItem_C:WidgetTree.LockedOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.71"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_26",
-    "Outer": "GridPanel_0",
-    "Class": "UScriptClass'GridSlot'",
-    "Properties": {
-      "Padding": {
-        "Left": 10.0,
-        "Top": 5.0,
-        "Right": 10.0,
-        "Bottom": 10.0
-      },
-      "Parent": {
-        "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
-      },
-      "Content": {
-        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.72"
       }
     }
   },
@@ -1805,7 +1840,7 @@
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
-      "Layer": 2,
+      "Layer": 20,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
@@ -1818,70 +1853,93 @@
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_28",
+    "Name": "GridSlot_34",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Layer": 50,
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
+      },
+      "Content": {
+        "ObjectName": "DBDButton'WBP_CoreStoreSpecialsItem_C:WidgetTree.HitzoneButton'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.16"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_4",
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
       "Padding": {
-        "Top": 10.0,
-        "Right": -10.0
+        "Top": 25.0,
+        "Right": 12.5
       },
       "HorizontalAlignment": "HAlign_Right",
       "VerticalAlignment": "VAlign_Top",
-      "Layer": 3,
+      "Layer": 11,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
       },
       "Content": {
-        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
+        "ObjectName": "WBP_CoreOwnedTag_C'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.71"
       }
     }
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_31",
+    "Name": "GridSlot_5",
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
-      "Layer": 4,
-      "Parent": {
-        "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
+      "Padding": {
+        "Top": 25.0,
+        "Right": 12.5
       },
-      "Content": {
-        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.EventCheckmarkTag'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.45"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_33",
-    "Outer": "GridPanel_0",
-    "Class": "UScriptClass'GridSlot'",
-    "Properties": {
       "HorizontalAlignment": "HAlign_Right",
       "VerticalAlignment": "VAlign_Top",
-      "Layer": 5,
-      "Nudge": {
-        "X": 19.0,
-        "Y": 235.0
-      },
+      "Layer": 11,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
       },
       "Content": {
-        "ObjectName": "VerticalBox'WBP_CoreStoreSpecialsItem_C:WidgetTree.PriceTagsVerticalBox'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.68"
+        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
       }
     }
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_34",
+    "Name": "GridSlot_7",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 10.0,
+        "Top": 4.0,
+        "Right": 12.0,
+        "Bottom": 9.0
+      },
+      "Layer": 20,
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreOnHoverBorder_C'WBP_CoreStoreSpecialsItem_C:WidgetTree.OnHoverBorder'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.70"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_9",
     "Outer": "GridPanel_0",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
@@ -1891,8 +1949,8 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.29"
       },
       "Content": {
-        "ObjectName": "DBDButton'WBP_CoreStoreSpecialsItem_C:WidgetTree.HitzoneButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.15"
+        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.EventCheckmarkTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.45"
       }
     }
   },
@@ -1909,8 +1967,8 @@
         }
       ],
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_31'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.42"
+        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_9'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.44"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::HitTestInvisible"
@@ -1930,7 +1988,7 @@
       ],
       "Slot": {
         "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_21'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.36"
       },
       "bIsVariable": true
     }
@@ -1949,34 +2007,10 @@
       ],
       "Slot": {
         "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_27'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.40"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.39"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "OwnedTag",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.54"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.55"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_28'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.41"
-      },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::Hidden"
     }
   },
   {
@@ -1988,24 +2022,48 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.56"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.54"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.57"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.55"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_4'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.58"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.56"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay.OverlaySlot_5'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.57"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_12'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.32"
+      },
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::Hidden"
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "UnavailableTag",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTag.OverlaySlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.58"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTag.OverlaySlot_1'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.59"
         }
       ],
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_26'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.39"
+        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_5'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.42"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Hidden"
@@ -2025,7 +2083,7 @@
       ],
       "Slot": {
         "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_22'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.37"
       },
       "bIsVariable": true
     }
@@ -2047,7 +2105,7 @@
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.EventCheckmarkTagIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.19"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.20"
       }
     }
   },
@@ -2068,7 +2126,7 @@
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.EventPointsTagIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.21"
       }
     }
   },
@@ -2092,47 +2150,7 @@
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.KillSwitchIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.22"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "OwnedTag",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Padding": {
-        "Right": -37.0
-      },
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTagBg'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.23"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Outer": "OwnedTag",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Padding": {
-        "Right": 30.0
-      },
-      "HorizontalAlignment": "HAlign_Right",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
-      },
-      "Content": {
-        "ObjectName": "TextBlock'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTagText'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.67"
       }
     }
   },
@@ -2148,11 +2166,11 @@
       },
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.TopLeft'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.26"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.25"
       }
     }
   },
@@ -2169,11 +2187,11 @@
       "HorizontalAlignment": "HAlign_Right",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.TopRight'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.26"
       }
     }
   },
@@ -2191,11 +2209,11 @@
       "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.BottomRight'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.19"
       }
     }
   },
@@ -2212,11 +2230,50 @@
       "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.SelectedOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.48"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.BottomLeft'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.17"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.18"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "UnavailableTag",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTagBG'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.27"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "UnavailableTag",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Right": 10.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTag'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.49"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTagTB'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.67"
       }
     }
   },
@@ -2286,8 +2343,8 @@
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.61"
       },
       "Content": {
-        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.ItemIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.21"
+        "ObjectName": "DBDImage'WBP_CoreStoreSpecialsItem_C:WidgetTree.ItemIMG'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.22"
       }
     }
   },
@@ -2325,7 +2382,7 @@
       ],
       "Slot": {
         "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_20'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.35"
       }
     }
   },
@@ -2347,15 +2404,15 @@
   },
   {
     "Type": "TextBlock",
-    "Name": "OwnedTagText",
+    "Name": "UnavailableTagTB",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'TextBlock'",
     "Properties": {
       "Text": {
         "Namespace": "",
-        "Key": "114884814CDFA93DCBDE2B8D9D6426C3",
-        "SourceString": "OWNED",
-        "LocalizedString": "OWNED"
+        "Key": "08138B4A4A7F40B080967392734772FA",
+        "SourceString": "UNAVAILABLE",
+        "LocalizedString": "UNAVAILABLE"
       },
       "ColorAndOpacity": {
         "SpecifiedColor": {
@@ -2368,15 +2425,15 @@
       },
       "Font": {
         "FontObject": {
-          "ObjectName": "Font'RobotoCondensed-Bold_Font'",
-          "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Fonts/RobotoCondensed-Bold_Font.0"
+          "ObjectName": "Font'DBDCoreFont'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
         },
-        "TypefaceFontName": "Default",
-        "Size": 19
+        "TypefaceFontName": "CondensedBold",
+        "Size": 22
       },
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.OwnedTag.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.55"
+        "ObjectName": "OverlaySlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.UnavailableTag.OverlaySlot_1'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.59"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::HitTestInvisible"
@@ -2389,8 +2446,8 @@
     "Class": "UScriptClass'VerticalBox'",
     "Properties": {
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_33'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.43"
+        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_11'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.31"
       },
       "RenderTransform": {
         "Scale": {
@@ -2401,8 +2458,7 @@
       "RenderTransformPivot": {
         "X": 0.5,
         "Y": 0.0
-      },
-      "bIsVariable": true
+      }
     }
   },
   {
@@ -2412,7 +2468,7 @@
     "Class": "UScriptClass'VerticalBox'",
     "Properties": {
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_1'",
+        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_10'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.30"
       }
     }
@@ -2436,8 +2492,24 @@
       "WidthRatio": 0.027586,
       "HeightRatio": 0.022857,
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_24'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.37"
+        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_7'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.43"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreOwnedTag_C",
+    "Name": "OwnedTag",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/WBP_CoreOwnedTag.WBP_CoreOwnedTag_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreOwnedTag_C'Default__WBP_CoreOwnedTag_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/WBP_CoreOwnedTag.1"
+    },
+    "Properties": {
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreStoreSpecialsItem_C:WidgetTree.GridPanel_0.GridSlot_4'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Specials/WBP_CoreStoreSpecialsItem.41"
       }
     }
   },

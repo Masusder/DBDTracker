@@ -469,18 +469,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "BoolProperty",
-        "Name": "Temp_bool_Variable",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable",
         "Flags": "RF_Public",
@@ -513,6 +501,28 @@
           "ElementSize": 1,
           "Enum": null
         }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'UMGSequencePlayer'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "BoolProperty",
@@ -553,9 +563,15 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreFooterButton_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.55"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.68"
       },
       "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'WBP_CoreFooterButton_C:SubPanel_OnHover_INST'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.67"
+        }
+      ],
       "UberGraphFunction": {
         "ObjectName": "Function'WBP_CoreFooterButton_C:ExecuteUbergraph_WBP_CoreFooterButton'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.0"
@@ -645,6 +661,17 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "SubPanel_OnHover",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "BetaFeatureOverlay",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
@@ -662,6 +689,17 @@
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "Class'DBDTextBlock'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GiftPlusIcon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
@@ -761,7 +799,7 @@
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreNotifications_C'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.0"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.2"
         }
       },
       {
@@ -1034,7 +1072,7 @@
     "Properties": {
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_5'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.42"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.53"
       }
     }
   },
@@ -1063,7 +1101,33 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_7'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.55"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "GiftPlusIcon",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_BotNav_ICON_Gift_Plus'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/BottomNav/T_UI_BotNav_ICON_Gift_Plus.0"
+        }
+      },
+      "ColorAndOpacity": {
+        "R": 0.250158,
+        "G": 0.250158,
+        "B": 0.250158,
+        "A": 1.0,
+        "Hex": "FF898989"
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_6'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.54"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -1086,7 +1150,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureOverlay.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.35"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.46"
       }
     }
   },
@@ -1104,7 +1168,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.37"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.48"
       }
     }
   },
@@ -1126,7 +1190,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.38"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.49"
       },
       "Visibility": "ESlateVisibility::Collapsed"
     }
@@ -1138,6 +1202,10 @@
     "Class": "UScriptClass'DBDImage'",
     "Properties": {
       "Brush": {
+        "ImageSize": {
+          "X": 700.0,
+          "Y": 128.0
+        },
         "TintColor": {
           "SpecifiedColor": {
             "R": 0.0,
@@ -1146,11 +1214,15 @@
             "A": 0.4,
             "Hex": "66000000"
           }
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_BotNav_Banner'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/BottomNav/T_UI_BotNav_Banner.0"
         }
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.SubPanel.OverlaySlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.47"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.59"
       }
     }
   },
@@ -1177,7 +1249,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.MessageOverlay.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.44"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.56"
       },
       "bIsVariable": false
     }
@@ -1206,7 +1278,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.MessageOverlay.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.45"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.57"
       },
       "bIsVariable": true
     }
@@ -1223,16 +1295,25 @@
         "SourceString": "#SubPanelDescription",
         "LocalizedString": "#SubPanelDescription"
       },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.187821,
+          "G": 0.191202,
+          "B": 0.201556,
+          "A": 1.0,
+          "Hex": "FF78797C"
+        }
+      },
       "Font": {
         "FontObject": {
           "ObjectName": "Font'DBDCoreFont'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
         },
-        "TypefaceFontName": "Black"
+        "TypefaceFontName": "Regular"
       },
       "Slot": {
         "ObjectName": "VerticalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.52"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.64"
       },
       "bIsVariable": true
     }
@@ -1258,7 +1339,7 @@
       },
       "Slot": {
         "ObjectName": "VerticalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.51"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.63"
       },
       "bIsVariable": true
     }
@@ -1272,11 +1353,11 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.HorizontalBox_2.HorizontalBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.29"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.30"
         },
         {
           "ObjectName": "HorizontalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.HorizontalBox_2.HorizontalBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.30"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.31"
         }
       ]
     }
@@ -1289,11 +1370,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox'WBP_CoreFooterButton_C:WidgetTree.HorizontalBox_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.29"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       }
     }
   },
@@ -1306,12 +1387,555 @@
       "HorizontalAlignment": "HAlign_Left",
       "Parent": {
         "ObjectName": "HorizontalBox'WBP_CoreFooterButton_C:WidgetTree.HorizontalBox_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.29"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.SubPanel'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.45"
       }
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "SubPanel_OnHover",
+    "Outer": "SubPanel_OnHover_INST",
+    "Class": "UScriptClass'MovieScene'",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "ED2E5C8D-4ED3873A-401E8F98-6D91A3A7",
+          "Name": "SubPanelBG",
+          "PossessedObjectClass": {
+            "ObjectName": "Class'DBDImage'",
+            "ObjectPath": "/Script/DBDUIViewsCore"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        },
+        {
+          "Tags": [],
+          "Guid": "FAE543F4-4A8A5907-C94A419A-15221D44",
+          "Name": "VerticalBox_0",
+          "PossessedObjectClass": {
+            "ObjectName": "Class'VerticalBox'",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "ED2E5C8D-4ED3873A-401E8F98-6D91A3A7",
+          "BindingName": "SubPanelBG",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneFloatTrack'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_0'",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.40"
+            }
+          ]
+        },
+        {
+          "ObjectGuid": "FAE543F4-4A8A5907-C94A419A-15221D44",
+          "BindingName": "VerticalBox_0",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneFloatTrack'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_1'",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.41"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 18001
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 20
+      },
+      "Signature": "6E9863AF-459C1C57-A8FA2A9F-584A5CCB"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneFloatSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneFloatSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneFloatSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneFloatSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "SubPanel_OnHover_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
+    "Properties": {
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 2,
+                  "Capacity": 2
+                },
+                {
+                  "StartIndex": 2,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                },
+                {
+                  "EntityIndex": 1,
+                  "MetaDataIndex": -1
+                },
+                {
+                  "EntityIndex": 1,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 2,
+                  "Capacity": 2
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 0,
+                      "Value": {
+                        "Value": 18000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                },
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 18000
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 18000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneFloatSection'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.38"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          },
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneFloatSection'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_1.MovieSceneFloatSection_0'",
+                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.39"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 1
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "ED2E5C8D-4ED3873A-401E8F98-6D91A3A7"
+          },
+          {
+            "ObjectBindingID": "FAE543F4-4A8A5907-C94A419A-15221D44"
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 18000
+          },
+          "SubFrame": 0.0
+        }
+      ],
+      "CompiledSignature": "7C2D5742-47F41227-0D3B0699-847C30F4",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": {
+        "bEntityComponentField": true
+      },
+      "AllocatedMask": {
+        "bEntityComponentField": true
+      }
+    }
+  },
+  {
+    "Type": "MovieSceneFloatSection",
+    "Name": "MovieSceneFloatSection_0",
+    "Outer": "MovieSceneFloatTrack_0",
+    "Class": "UScriptClass'MovieSceneFloatSection'",
+    "Properties": {
+      "FloatCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 15000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.3,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.33"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.34"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 18000
+            }
+          }
+        }
+      },
+      "Signature": "E0852BE3-4DD38C75-83110898-9FA630B2"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatSection",
+    "Name": "MovieSceneFloatSection_0",
+    "Outer": "MovieSceneFloatTrack_1",
+    "Class": "UScriptClass'MovieSceneFloatSection'",
+    "Properties": {
+      "FloatCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 18000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.3,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseInFunction'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.35"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseOutFunction'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.36"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 18000
+            }
+          }
+        }
+      },
+      "Signature": "0EDEE860-424D917D-2D6379BB-300EAB7E"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatTrack",
+    "Name": "MovieSceneFloatTrack_0",
+    "Outer": "SubPanel_OnHover",
+    "Class": "UScriptClass'MovieSceneFloatTrack'",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderOpacity",
+        "PropertyPath": "RenderOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneFloatSection'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.38"
+        }
+      ],
+      "EvaluationFieldGuid": "8CF329DF-47416309-9FC6FFA7-4F64C875",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneFloatSection'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.38"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 18000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "8CF329DF-47416309-9FC6FFA7-4F64C875"
+    }
+  },
+  {
+    "Type": "MovieSceneFloatTrack",
+    "Name": "MovieSceneFloatTrack_1",
+    "Outer": "SubPanel_OnHover",
+    "Class": "UScriptClass'MovieSceneFloatTrack'",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderOpacity",
+        "PropertyPath": "RenderOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneFloatSection'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_1.MovieSceneFloatSection_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.39"
+        }
+      ],
+      "EvaluationFieldGuid": "EA2D0B4F-479B6A0C-603A05BD-14CA0B22",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneFloatSection'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover.MovieSceneFloatTrack_1.MovieSceneFloatSection_0'",
+              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.39"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 18000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "EA2D0B4F-479B6A0C-603A05BD-14CA0B22"
     }
   },
   {
@@ -1323,16 +1947,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureOverlay.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.35"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.46"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureOverlay.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.36"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.47"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.39"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.50"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
@@ -1347,36 +1971,40 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.39"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.50"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_7'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.55"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.37"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.48"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_5'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.42"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.53"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.38"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.49"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.40"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.51"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_6'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.54"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_4'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.41"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.52"
         }
       ],
       "Slot": {
         "ObjectName": "HorizontalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.HorizontalBox_2.HorizontalBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.29"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.30"
       }
     }
   },
@@ -1389,16 +2017,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.MessageOverlay.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.44"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.56"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.MessageOverlay.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.45"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.57"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureOverlay.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.36"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.47"
       }
     }
   },
@@ -1411,19 +2039,18 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.SubPanel.OverlaySlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.47"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.59"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.SubPanel.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.46"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.58"
         }
       ],
       "Slot": {
         "ObjectName": "HorizontalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.HorizontalBox_2.HorizontalBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.31"
       },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::Collapsed"
+      "bIsVariable": true
     }
   },
   {
@@ -1436,11 +2063,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.42"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreFooterButton_C:WidgetTree.HighlightIMG'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.20"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.21"
       }
     }
   },
@@ -1457,11 +2084,11 @@
       "HorizontalAlignment": "HAlign_Right",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.42"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.MessageOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.44"
       }
     }
   },
@@ -1475,11 +2102,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreFooterButton_C:WidgetTree.IconIMG'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.21"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.22"
       }
     }
   },
@@ -1497,11 +2124,11 @@
       "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreFooterButton_C:WidgetTree.LockedIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.22"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.23"
       }
     }
   },
@@ -1513,11 +2140,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.31"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.42"
       }
     }
   },
@@ -1531,11 +2158,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       },
       "Content": {
         "ObjectName": "SizeBox'WBP_CoreFooterButton_C:WidgetTree.LoadingWheelSizeBox'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.60"
       }
     }
   },
@@ -1551,11 +2178,11 @@
       },
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       },
       "Content": {
         "ObjectName": "WBP_CoreNotifications_C'WBP_CoreFooterButton_C:WidgetTree.WBP_CoreNotifications'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.53"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.65"
       }
     }
   },
@@ -1569,11 +2196,32 @@
       "VerticalAlignment": "VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       },
       "Content": {
         "ObjectName": "DBDButton'WBP_CoreFooterButton_C:WidgetTree.HitzoneButton'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.18"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_6",
+    "Outer": "Container",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Top": 15.0,
+        "Right": 15.0
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreFooterButton_C:WidgetTree.GiftPlusIcon'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.20"
       }
     }
   },
@@ -1587,7 +2235,7 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.Container'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.43"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreFooterButton_C:WidgetTree.BackgroundIMG'",
@@ -1605,11 +2253,11 @@
       "VerticalAlignment": "VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.MessageOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.44"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreFooterButton_C:WidgetTree.TextBG'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.24"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.25"
       }
     }
   },
@@ -1625,11 +2273,11 @@
       "HorizontalAlignment": "HAlign_Right",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.MessageOverlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.33"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.44"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CoreFooterButton_C:WidgetTree.BetaFeatureTB'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.25"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.26"
       }
     }
   },
@@ -1646,11 +2294,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.SubPanel'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.45"
       },
       "Content": {
         "ObjectName": "VerticalBox'WBP_CoreFooterButton_C:WidgetTree.VerticalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.50"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.62"
       }
     }
   },
@@ -1660,15 +2308,19 @@
     "Outer": "SubPanel",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
+      "Padding": {
+        "Left": -75.0,
+        "Top": -10.0
+      },
       "HorizontalAlignment": "HAlign_Fill",
       "VerticalAlignment": "VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreFooterButton_C:WidgetTree.SubPanel'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.34"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.45"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreFooterButton_C:WidgetTree.SubPanelBG'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.23"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.24"
       }
     }
   },
@@ -1685,12 +2337,12 @@
       "Slots": [
         {
           "ObjectName": "SizeBoxSlot'WBP_CoreFooterButton_C:WidgetTree.LoadingWheelSizeBox.SizeBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.49"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.61"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.40"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.51"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::Collapsed"
@@ -1704,11 +2356,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "SizeBox'WBP_CoreFooterButton_C:WidgetTree.LoadingWheelSizeBox'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.48"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.60"
       },
       "Content": {
         "ObjectName": "WBP_LoadingWheel_C'WBP_CoreFooterButton_C:WidgetTree.LoadingWheel'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.54"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.66"
       }
     }
   },
@@ -1721,16 +2373,16 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.51"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.63"
         },
         {
           "ObjectName": "VerticalBoxSlot'WBP_CoreFooterButton_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.52"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.64"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.SubPanel.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.46"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.58"
       }
     }
   },
@@ -1742,11 +2394,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CoreFooterButton_C:WidgetTree.VerticalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.50"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.62"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CoreFooterButton_C:WidgetTree.SubPanelTitleTB'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.27"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.28"
       }
     }
   },
@@ -1760,11 +2412,11 @@
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CoreFooterButton_C:WidgetTree.VerticalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.50"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.62"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CoreFooterButton_C:WidgetTree.SubPanelDescriptionTB'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.26"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.27"
       }
     }
   },
@@ -1775,12 +2427,12 @@
     "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.WBP_CoreNotifications_C'",
     "Template": {
       "ObjectName": "WBP_CoreNotifications_C'Default__WBP_CoreNotifications_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.1"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Notifications/WBP_CoreNotifications.3"
     },
     "Properties": {
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreFooterButton_C:WidgetTree.Container.OverlaySlot_4'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.41"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.52"
       },
       "RenderTransform": {
         "Translation": {
@@ -1807,8 +2459,40 @@
     "Properties": {
       "Slot": {
         "ObjectName": "SizeBoxSlot'WBP_CoreFooterButton_C:WidgetTree.LoadingWheelSizeBox.SizeBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.49"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.61"
       }
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "SubPanel_OnHover_INST",
+    "Outer": "WBP_CoreFooterButton_C",
+    "Class": "UScriptClass'WidgetAnimation'",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.SubPanel_OnHover'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.32"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "SubPanelBG",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "ED2E5C8D-4ED3873A-401E8F98-6D91A3A7",
+          "bIsRootWidget": false
+        },
+        {
+          "WidgetName": "VerticalBox_0",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "FAE543F4-4A8A5907-C94A419A-15221D44",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "SubPanel_OnHover",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData'WBP_CoreFooterButton_C:SubPanel_OnHover_INST.CompiledData'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.37"
+      },
+      "Signature": "7C2D5742-47F41227-0D3B0699-847C30F4"
     }
   },
   {
@@ -1819,7 +2503,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "HorizontalBox'WBP_CoreFooterButton_C:WidgetTree.HorizontalBox_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.28"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreFooterButton.29"
       }
     }
   }

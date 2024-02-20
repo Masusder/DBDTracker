@@ -74,6 +74,46 @@
         }
       },
       {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_collectionItemScale",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm",
+        "Enum": {
+          "ObjectName": "Enum'ECollectionItemScaleType'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction'AsyncLoadSoftPtrAsTexture2DNode:SoftPtrAsyncLoadAsTexture2DCompleted__DelegateSignature'",
+          "ObjectPath": "/Script/RemoteContentCache"
+        }
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_LoadAsTexture2D_ReturnValue",
         "Flags": "RF_Public",
@@ -100,74 +140,17 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsSpecial_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_MakeLiteralBool_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
-        "Flags": "RF_Public",
-        "ElementSize": 20,
-        "SignatureFunction": {
-          "ObjectName": "DelegateFunction'AsyncLoadSoftPtrAsTexture2DNode:SoftPtrAsyncLoadAsTexture2DCompleted__DelegateSignature'",
-          "ObjectPath": "/Script/RemoteContentCache"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsExpanded_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
   },
   {
     "Type": "Function",
-    "Name": "OnExpandedChanged",
+    "Name": "SetupVisuals",
     "Outer": "WBP_CoreStoreCollectionsItem_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CoreStoreCollectionsItemWidget:OnExpandedChanged'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "SetupView",
-    "Outer": "WBP_CoreStoreCollectionsItem_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreStoreCollectionsItemWidget:SetupView'",
+      "ObjectName": "Function'CoreStoreCollectionsItemWidget:SetupVisuals'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "ChildProperties": [
@@ -181,13 +164,31 @@
           "ObjectName": "Class'StoreCollectionViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "collectionItemScale",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Enum'ECollectionItemScaleType'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
       }
     ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
-    "Name": "Loaded_430E22844203D5D49332C7A7A277FF43",
+    "Name": "Loaded_8C7EE2C74719F98F22A530A4AB3FAA31",
     "Outer": "WBP_CoreStoreCollectionsItem_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -207,7 +208,7 @@
   },
   {
     "Type": "Function",
-    "Name": "LoadFailed_430E22844203D5D49332C7A7A277FF43",
+    "Name": "LoadFailed_8C7EE2C74719F98F22A530A4AB3FAA31",
     "Outer": "WBP_CoreStoreCollectionsItem_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -232,7 +233,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreStoreCollectionsItem_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.30"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.23"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -246,19 +247,15 @@
     },
     "Children": [
       {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:LoadFailed_430E22844203D5D49332C7A7A277FF43'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.4"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:Loaded_430E22844203D5D49332C7A7A277FF43'",
+        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:LoadFailed_8C7EE2C74719F98F22A530A4AB3FAA31'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.3"
       },
       {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:SetupView'",
+        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:Loaded_8C7EE2C74719F98F22A530A4AB3FAA31'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.2"
       },
       {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:OnExpandedChanged'",
+        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:SetupVisuals'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.1"
       },
       {
@@ -291,18 +288,29 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "TimerBox",
+        "Name": "ScaleBox",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
-          "ObjectName": "Class'HorizontalBox'",
+          "ObjectName": "Class'ScaleBox'",
           "ObjectPath": "/Script/UMG"
         }
       },
       {
         "Type": "ObjectProperty",
-        "Name": "TitleText",
+        "Name": "TitleBackground",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TitleTB",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
@@ -310,6 +318,20 @@
           "ObjectName": "Class'DBDTextBlock'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "FeaturedScale",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "AllScale",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly"
       }
     ],
     "FuncMap": {
@@ -317,21 +339,17 @@
         "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:ExecuteUbergraph_WBP_CoreStoreCollectionsItem'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.0"
       },
-      "OnExpandedChanged": {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:OnExpandedChanged'",
+      "SetupVisuals": {
+        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:SetupVisuals'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.1"
       },
-      "SetupView": {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:SetupView'",
+      "Loaded_8C7EE2C74719F98F22A530A4AB3FAA31": {
+        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:Loaded_8C7EE2C74719F98F22A530A4AB3FAA31'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.2"
       },
-      "Loaded_430E22844203D5D49332C7A7A277FF43": {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:Loaded_430E22844203D5D49332C7A7A277FF43'",
+      "LoadFailed_8C7EE2C74719F98F22A530A4AB3FAA31": {
+        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:LoadFailed_8C7EE2C74719F98F22A530A4AB3FAA31'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.3"
-      },
-      "LoadFailed_430E22844203D5D49332C7A7A277FF43": {
-        "ObjectName": "Function'WBP_CoreStoreCollectionsItem_C:LoadFailed_430E22844203D5D49332C7A7A277FF43'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.4"
       }
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
@@ -343,7 +361,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreStoreCollectionsItem_C'Default__WBP_CoreStoreCollectionsItem_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.6"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.5"
     }
   },
   {
@@ -352,11 +370,8 @@
     "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.WBP_CoreStoreCollectionsItem_C'",
     "Properties": {
       "UberGraphFrame": {},
-      "_storeCustomizationItemWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCustomizationItem_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Items/WBP_CoreStoreCustomizationItem.14"
-      },
-      "_preConstructedItemsCount": 20,
+      "FeaturedScale": 1.0,
+      "AllScale": 0.7,
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
     }
@@ -367,21 +382,13 @@
     "Outer": "BannerButton",
     "Class": "UScriptClass'ButtonSlot'",
     "Properties": {
-      "Padding": {
-        "Left": 0.0,
-        "Top": 0.0,
-        "Right": 0.0,
-        "Bottom": 0.0
-      },
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
       "Parent": {
         "ObjectName": "DBDButton'WBP_CoreStoreCollectionsItem_C:WidgetTree.BannerButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.8"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.7"
       },
       "Content": {
-        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
+        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.13"
       }
     }
   },
@@ -394,12 +401,12 @@
       "Slots": [
         {
           "ObjectName": "ButtonSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.BannerButton.ButtonSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.7"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.6"
         }
       ],
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_126.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.21"
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_2'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.14"
       }
     }
   },
@@ -411,62 +418,48 @@
     "Properties": {
       "Brush": {
         "ImageSize": {
-          "X": 1024.0,
-          "Y": 512.0
+          "X": 620.0,
+          "Y": 1000.0
         },
         "ResourceObject": {
-          "ObjectName": "Texture2D'Banner_GW1'",
-          "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Banners/Banner_GW1.0"
+          "ObjectName": "Texture2D'T_3GensBlocked'",
+          "ObjectPath": "DeadByDaylight/Content/Effects/Textures/T_3GensBlocked.0"
         }
       },
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.22"
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231.OverlaySlot_16'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.15"
       }
     }
   },
   {
     "Type": "DBDImage",
-    "Name": "DBDImage_71",
+    "Name": "TitleBackground",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDImage'",
     "Properties": {
       "Brush": {
-        "ResourceObject": {
-          "ObjectName": "Texture2D'Icons_FriendList_Status_Timer'",
-          "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Friendlist/Icons_FriendList_Status_Timer.0"
+        "ImageSize": {
+          "X": 32.0,
+          "Y": 350.0
         }
       },
-      "Slot": {
-        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerBox.HorizontalBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.17"
+      "ColorAndOpacity": {
+        "R": 0.010417,
+        "G": 0.010417,
+        "B": 0.010417,
+        "A": 0.948,
+        "Hex": "F21A1A1A"
       },
-      "bIsVariable": false,
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDScrollBox",
-    "Name": "DBDScrollBox_84",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDScrollBox'",
-    "Properties": {
-      "Orientation": "Orient_Horizontal",
-      "Slots": [
-        {
-          "ObjectName": "ScrollBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.DBDScrollBox_84.ScrollBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.26"
-        }
-      ],
       "Slot": {
-        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_62.VerticalBoxSlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.29"
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231.OverlaySlot_18'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.16"
       }
     }
   },
   {
     "Type": "DBDTextBlock",
-    "Name": "CountText",
+    "Name": "CountTB",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDTextBlock'",
     "Properties": {
@@ -476,166 +469,67 @@
         "SourceString": "0/5",
         "LocalizedString": "0/5"
       },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font'DBDCoreFont'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "TypefaceFontName": "Black"
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.24"
-      },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "TimerText",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDTextBlock'",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "1D486FD4400BFABA0BECB9AF491A75CA",
-        "SourceString": "2d 3h",
-        "LocalizedString": "2d 3h"
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 0.563143,
+          "Hex": "90FFFFFF"
+        }
       },
       "Font": {
         "FontObject": {
           "ObjectName": "Font'DBDCoreFont'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
         },
-        "TypefaceFontName": "Black"
+        "TypefaceFontName": "Black",
+        "Size": 18
       },
       "Slot": {
-        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerBox.HorizontalBoxSlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.18"
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_51.VerticalBoxSlot_1'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.22"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
   },
   {
     "Type": "DBDTextBlock",
-    "Name": "TitleText",
+    "Name": "TitleTB",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDTextBlock'",
     "Properties": {
       "Text": {
         "Namespace": "",
-        "Key": "13E4C13947C9206C96E05A92F3E8EEF6",
+        "Key": "BACA3DA9441EFE0C85380694756379F3",
         "SourceString": "Title",
         "LocalizedString": "Title"
       },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 0.8,
+          "Hex": "CCFFFFFF"
+        }
+      },
       "Font": {
         "FontObject": {
           "ObjectName": "Font'DBDCoreFont'",
           "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
         },
-        "TypefaceFontName": "Black"
+        "TypefaceFontName": "Black",
+        "Size": 30
       },
+      "AutoWrapText": true,
+      "WrapTextAt": 450.0,
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.23"
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_51.VerticalBoxSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.21"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "HorizontalBox",
-    "Name": "StoreCustomizationListBox",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'HorizontalBox'",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "ScrollBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.DBDScrollBox_84.ScrollBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.26"
-      },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::Collapsed"
-    }
-  },
-  {
-    "Type": "HorizontalBox",
-    "Name": "TimerBox",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'HorizontalBox'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerBox.HorizontalBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.17"
-        },
-        {
-          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerBox.HorizontalBoxSlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.18"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_6'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.25"
-      },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::HitTestInvisible"
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_1",
-    "Outer": "TimerBox",
-    "Class": "UScriptClass'HorizontalBoxSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerBox'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.16"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CoreStoreCollectionsItem_C:WidgetTree.DBDImage_71'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.10"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_2",
-    "Outer": "TimerBox",
-    "Class": "UScriptClass'HorizontalBoxSlot'",
-    "Properties": {
-      "Padding": {
-        "Left": 10.0,
-        "Top": 10.0
-      },
-      "HorizontalAlignment": "HAlign_Left",
-      "VerticalAlignment": "VAlign_Top",
-      "Parent": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerBox'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.16"
-      },
-      "Content": {
-        "ObjectName": "DBDTextBlock'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerText'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.13"
-      }
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_126",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_126.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.21"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_62.VerticalBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.28"
-      },
-      "Visibility": "ESlateVisibility::Visible"
     }
   },
   {
@@ -646,191 +540,221 @@
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.22"
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_2'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.14"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "ScaleBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.ScaleBox.ScaleBoxSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.19"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_231",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231.OverlaySlot_16'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.15"
         },
         {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_6'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.25"
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231.OverlaySlot_18'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.16"
         },
         {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.23"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209.OverlaySlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.24"
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231.OverlaySlot_19'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.17"
         }
       ],
       "Slot": {
         "ObjectName": "ButtonSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.BannerButton.ButtonSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.6"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "Overlay_209",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 30.0,
+        "Top": 45.0,
+        "Right": 30.0,
+        "Bottom": 45.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.12"
+      },
+      "Content": {
+        "ObjectName": "DBDButton'WBP_CoreStoreCollectionsItem_C:WidgetTree.BannerButton'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.7"
       }
     }
   },
   {
     "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_126",
+    "Name": "OverlaySlot_16",
+    "Outer": "Overlay_231",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
       "HorizontalAlignment": "HAlign_Fill",
       "VerticalAlignment": "VAlign_Fill",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_126'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.19"
+        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.13"
       },
       "Content": {
-        "ObjectName": "DBDButton'WBP_CoreStoreCollectionsItem_C:WidgetTree.BannerButton'",
+        "ObjectName": "DBDImage'WBP_CoreStoreCollectionsItem_C:WidgetTree.BannerImage'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.8"
       }
     }
   },
   {
     "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_209",
+    "Name": "OverlaySlot_18",
+    "Outer": "Overlay_231",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
       "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
+        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.13"
       },
       "Content": {
-        "ObjectName": "DBDImage'WBP_CoreStoreCollectionsItem_C:WidgetTree.BannerImage'",
+        "ObjectName": "DBDImage'WBP_CoreStoreCollectionsItem_C:WidgetTree.TitleBackground'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.9"
       }
     }
   },
   {
     "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Outer": "Overlay_209",
+    "Name": "OverlaySlot_19",
+    "Outer": "Overlay_231",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
+      "Padding": {
+        "Left": 25.0,
+        "Top": 50.0,
+        "Right": 25.0,
+        "Bottom": 50.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
+        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.13"
       },
       "Content": {
-        "ObjectName": "DBDTextBlock'WBP_CoreStoreCollectionsItem_C:WidgetTree.TitleText'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.14"
+        "ObjectName": "VerticalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_51'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_3",
-    "Outer": "Overlay_209",
-    "Class": "UScriptClass'OverlaySlot'",
+    "Type": "ScaleBox",
+    "Name": "ScaleBox",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'ScaleBox'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Right",
-      "VerticalAlignment": "VAlign_Bottom",
+      "Stretch": "EStretch::UserSpecified",
+      "Slots": [
+        {
+          "ObjectName": "ScaleBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.ScaleBox.ScaleBoxSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.19"
+        }
+      ],
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "ScaleBoxSlot",
+    "Name": "ScaleBoxSlot_0",
+    "Outer": "ScaleBox",
+    "Class": "UScriptClass'ScaleBoxSlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
       "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
+        "ObjectName": "ScaleBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.ScaleBox'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.18"
       },
       "Content": {
-        "ObjectName": "DBDTextBlock'WBP_CoreStoreCollectionsItem_C:WidgetTree.CountText'",
+        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.12"
       }
     }
   },
   {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_6",
-    "Outer": "Overlay_209",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_209'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
-      },
-      "Content": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.TimerBox'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.16"
-      }
-    }
-  },
-  {
-    "Type": "ScrollBoxSlot",
-    "Name": "ScrollBoxSlot_1",
-    "Outer": "DBDScrollBox_84",
-    "Class": "UScriptClass'ScrollBoxSlot'",
-    "Properties": {
-      "Padding": {
-        "Left": 100.0,
-        "Top": 50.0
-      },
-      "HorizontalAlignment": "HAlign_Left",
-      "VerticalAlignment": "VAlign_Top",
-      "Parent": {
-        "ObjectName": "DBDScrollBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.DBDScrollBox_84'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.11"
-      },
-      "Content": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.StoreCustomizationListBox'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.15"
-      }
-    }
-  },
-  {
     "Type": "VerticalBox",
-    "Name": "VerticalBox_62",
+    "Name": "VerticalBox_51",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'VerticalBox'",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_62.VerticalBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.28"
+          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_51.VerticalBoxSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.21"
         },
         {
-          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_62.VerticalBoxSlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.29"
+          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_51.VerticalBoxSlot_1'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.22"
         }
-      ]
-    }
-  },
-  {
-    "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_0",
-    "Outer": "VerticalBox_62",
-    "Class": "UScriptClass'VerticalBoxSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "VerticalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_62'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.27"
-      },
-      "Content": {
-        "ObjectName": "Overlay'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_126'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.19"
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCollectionsItem_C:WidgetTree.Overlay_231.OverlaySlot_19'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.17"
       }
     }
   },
   {
     "Type": "VerticalBoxSlot",
-    "Name": "VerticalBoxSlot_2",
-    "Outer": "VerticalBox_62",
+    "Name": "VerticalBoxSlot_0",
+    "Outer": "VerticalBox_51",
     "Class": "UScriptClass'VerticalBoxSlot'",
     "Properties": {
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
       "Padding": {
-        "Left": 50.0,
-        "Top": 20.0
+        "Bottom": 20.0
       },
       "HorizontalAlignment": "HAlign_Left",
-      "VerticalAlignment": "VAlign_Top",
+      "VerticalAlignment": "VAlign_Bottom",
       "Parent": {
-        "ObjectName": "VerticalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_62'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.27"
+        "ObjectName": "VerticalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_51'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
       },
       "Content": {
-        "ObjectName": "DBDScrollBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.DBDScrollBox_84'",
+        "ObjectName": "DBDTextBlock'WBP_CoreStoreCollectionsItem_C:WidgetTree.TitleTB'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.11"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_1",
+    "Outer": "VerticalBox_51",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "VerticalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_51'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.20"
+      },
+      "Content": {
+        "ObjectName": "DBDTextBlock'WBP_CoreStoreCollectionsItem_C:WidgetTree.CountTB'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.10"
       }
     }
   },
@@ -841,8 +765,8 @@
     "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "VerticalBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.VerticalBox_62'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.27"
+        "ObjectName": "ScaleBox'WBP_CoreStoreCollectionsItem_C:WidgetTree.ScaleBox'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Collections/WBP_CoreStoreCollectionsItem.18"
       }
     }
   }

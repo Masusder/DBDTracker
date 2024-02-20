@@ -32,9 +32,141 @@
           "ObjectName": "Class'CoreButtonWidget'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_InAnalogInputEvent",
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "ScriptStruct'AnalogInputEvent'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetAnalogValue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetKeyEventFromAnalogInputEvent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 64,
+        "Struct": {
+          "ObjectName": "ScriptStruct'KeyEvent'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetKey_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "Struct": {
+          "ObjectName": "ScriptStruct'Key'",
+          "ObjectPath": "/Script/InputCore"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_controlMode",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EControlMode'",
+          "ObjectPath": "/Script/DBDSharedTypes"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_KeyKey_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
-    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnControlModeChangedBP",
+    "Outer": "WBP_CoreStoreCharactersCustomizations_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'CoreBaseUserWidget:OnControlModeChangedBP'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "controlMode",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Enum'EControlMode'",
+          "ObjectPath": "/Script/DBDSharedTypes"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "HandleAnalogInputEvent",
+    "Outer": "WBP_CoreStoreCharactersCustomizations_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'InteractiveWidgetInterface:HandleAnalogInputEvent'",
+      "ObjectPath": "/Script/DBDInput"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "InAnalogInputEvent",
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Struct": {
+          "ObjectName": "ScriptStruct'AnalogInputEvent'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Destruct",
+    "Outer": "WBP_CoreStoreCharactersCustomizations_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'UserWidget:Destruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -74,7 +206,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreStoreCharactersCustomizations_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.18"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.41"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -89,10 +221,22 @@
     "Children": [
       {
         "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.5"
       },
       {
         "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:OnFiltersButtonClicked'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.4"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:Destruct'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.3"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:HandleAnalogInputEvent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.2"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:OnControlModeChangedBP'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.1"
       },
       {
@@ -120,7 +264,18 @@
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreIconButton_C'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreIconButton.9"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreIconButton.10"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "HeaderBackground",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
         }
       }
     ],
@@ -129,13 +284,25 @@
         "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:ExecuteUbergraph_WBP_CoreStoreCharactersCustomizations'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.0"
       },
+      "OnControlModeChangedBP": {
+        "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:OnControlModeChangedBP'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.1"
+      },
+      "HandleAnalogInputEvent": {
+        "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:HandleAnalogInputEvent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.2"
+      },
+      "Destruct": {
+        "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:Destruct'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.3"
+      },
       "OnFiltersButtonClicked": {
         "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:OnFiltersButtonClicked'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.1"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.4"
       },
       "Construct": {
         "ObjectName": "Function'WBP_CoreStoreCharactersCustomizations_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.2"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.5"
       }
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
@@ -147,7 +314,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreStoreCharactersCustomizations_C'Default__WBP_CoreStoreCharactersCustomizations_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.4"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.7"
     }
   },
   {
@@ -158,7 +325,7 @@
       "UberGraphFrame": {},
       "_customizationItemWidgetClass": {
         "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCustomizationItem_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Items/WBP_CoreStoreCustomizationItem.14"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Items/WBP_CoreStoreCustomizationItem.16"
       },
       "_categoryItemWidgetClass": {
         "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCategoryWidget_C'",
@@ -168,13 +335,43 @@
         "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreCharmSlotWidget_C'",
         "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharmSlotWidget.3"
       },
+      "_presetItemWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStorePresetWidget_C'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStorePresetWidget.3"
+      },
       "_numberOfColumns": 3,
-      "_layoutMask": 15,
+      "_layoutMask": 207,
       "_charmSlotsPadding": {
+        "Right": 25.0
+      },
+      "_presetsPadding": {
         "Right": 25.0
       },
       "bHasScriptImplementedTick": false,
       "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "HeaderBackground",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "TintColor": {
+          "SpecifiedColor": {
+            "R": 0.026042,
+            "G": 0.026042,
+            "B": 0.026042,
+            "A": 0.7,
+            "Hex": "B32C2C2C"
+          }
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderOverlay.OverlaySlot_2'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.26"
+      }
     }
   },
   {
@@ -183,21 +380,129 @@
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDScrollBox'",
     "Properties": {
+      "_scrollSpeed": 50.0,
+      "WidgetStyle": {
+        "TopShadowBrush": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 32.0
+          },
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "BottomShadowBrush": {
+          "Margin": {
+            "Left": 0.0,
+            "Right": 0.0,
+            "Bottom": 0.0
+          },
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "LeftShadowBrush": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "RightShadowBrush": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        }
+      },
+      "WidgetBarStyle": {
+        "VerticalBackgroundImage": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 1024.0
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_verticalBG'",
+            "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/ScrollBar/UI_scrollBar_verticalBG.0"
+          },
+          "DrawAs": "ESlateBrushDrawType::Image"
+        },
+        "VerticalTopSlotImage": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "HorizontalTopSlotImage": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "VerticalBottomSlotImage": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "NormalThumbImage": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 64.0
+          },
+          "Margin": {
+            "Left": 0.0,
+            "Top": 0.45,
+            "Right": 0.0,
+            "Bottom": 0.45
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_9Slice'",
+            "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/ScrollBar/UI_scrollBar_9Slice.0"
+          }
+        },
+        "HoveredThumbImage": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 64.0
+          },
+          "Margin": {
+            "Left": 0.0,
+            "Top": 0.45,
+            "Right": 0.0,
+            "Bottom": 0.45
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_9Slice'",
+            "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/ScrollBar/UI_scrollBar_9Slice.0"
+          }
+        },
+        "DraggedThumbImage": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 64.0
+          },
+          "Margin": {
+            "Left": 0.0,
+            "Top": 0.45,
+            "Right": 0.0,
+            "Bottom": 0.45
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_9Slice'",
+            "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/ScrollBar/UI_scrollBar_9Slice.0"
+          }
+        }
+      },
+      "ScrollbarThickness": {
+        "X": 32.0,
+        "Y": 0.0
+      },
+      "ScrollbarPadding": {
+        "Left": 0.0,
+        "Top": 0.0,
+        "Right": 0.0,
+        "Bottom": 0.0
+      },
+      "AlwaysShowScrollbarTrack": true,
+      "AllowOverscroll": false,
+      "WheelScrollMultiplier": 7.0,
       "Slots": [
         {
           "ObjectName": "ScrollBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsScroll.ScrollBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.11"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.29"
         }
       ],
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0.GridSlot_8'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.8"
-      }
+        "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.MainContent.GridSlot_1'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.12"
+      },
+      "bIsVariable": true
     }
   },
   {
     "Type": "GridPanel",
-    "Name": "GridPanel_0",
+    "Name": "MainContent",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'GridPanel'",
     "Properties": {
@@ -205,83 +510,56 @@
         1.0
       ],
       "RowFill": [
-        0.1,
+        0.0,
         1.0
       ],
       "Slots": [
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0.GridSlot_9'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.9"
+          "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.MainContent.GridSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.11"
         },
         {
-          "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0.GridSlot_8'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.8"
-        },
-        {
-          "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0.GridSlot_4'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.7"
+          "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.MainContent.GridSlot_1'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.12"
         }
-      ]
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_4",
-    "Outer": "GridPanel_0",
-    "Class": "UScriptClass'GridSlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Right",
-      "VerticalAlignment": "VAlign_Top",
-      "RowSpan": 2,
-      "Layer": 2,
-      "Nudge": {
-        "X": 1200.0,
-        "Y": 0.0
-      },
-      "Parent": {
-        "ObjectName": "GridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.6"
-      },
-      "Content": {
-        "ObjectName": "WBP_CoreStoreCharactersFilterWidget_C'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.FiltersWidget'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.17"
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.21"
       }
     }
   },
   {
     "Type": "GridSlot",
-    "Name": "GridSlot_8",
-    "Outer": "GridPanel_0",
-    "Class": "UScriptClass'GridSlot'",
-    "Properties": {
-      "Padding": {
-        "Top": 30.0
-      },
-      "Row": 1,
-      "Parent": {
-        "ObjectName": "GridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.6"
-      },
-      "Content": {
-        "ObjectName": "DBDScrollBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsScroll'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.5"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_9",
-    "Outer": "GridPanel_0",
+    "Name": "GridSlot_0",
+    "Outer": "MainContent",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
       "Layer": 1,
       "Parent": {
-        "ObjectName": "GridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.6"
+        "ObjectName": "GridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.MainContent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.10"
       },
       "Content": {
-        "ObjectName": "UniformGridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.12"
+        "ObjectName": "SizeBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderSize'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.30"
+      }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_1",
+    "Outer": "MainContent",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Row": 1,
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.MainContent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.10"
+      },
+      "Content": {
+        "ObjectName": "DBDScrollBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsScroll'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.9"
       }
     }
   },
@@ -292,14 +570,323 @@
     "Class": "UScriptClass'HorizontalBox'",
     "Properties": {
       "Slot": {
-        "ObjectName": "UniformGridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer.UniformGridSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.15"
+        "ObjectName": "UniformGridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer.UniformGridSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.35"
       },
       "RenderTransform": {
         "Translation": {
           "X": 0.0,
           "Y": 135.0
         }
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HeaderContainer",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.17"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_5'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.20"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_2'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.18"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_3'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.19"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderOverlay.OverlaySlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.25"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.21"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.22"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "PresetsContainer",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SideContent.OverlaySlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.27"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HeaderContainer",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 10.0
+      },
+      "Size": {
+        "Value": 0.45,
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.14"
+      },
+      "Content": {
+        "ObjectName": "UniformGridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.33"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_2",
+    "Outer": "HeaderContainer",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Size": {
+        "Value": 0.35,
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.14"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreSearchBarButton_C'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SearchBar'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.38"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_3",
+    "Outer": "HeaderContainer",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Size": {
+        "Value": 0.1,
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.14"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreIconButton_C'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.FiltersButton'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.37"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_5",
+    "Outer": "HeaderContainer",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Size": {
+        "Value": 0.1,
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.14"
+      },
+      "Content": {
+        "ObjectName": "Spacer'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.Spacer_40'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.32"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox_0",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.15"
+      },
+      "Content": {
+        "ObjectName": "GridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.MainContent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.10"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_1",
+    "Outer": "HorizontalBox_0",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Size": {
+        "Value": 0.0,
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.15"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SideContent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.24"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "HeaderOverlay",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderOverlay.OverlaySlot_2'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.26"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderOverlay.OverlaySlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.25"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderSize.SizeBoxSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.31"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "SideContent",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SideContent.OverlaySlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.27"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SideContent.OverlaySlot_1'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.28"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.22"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "HeaderOverlay",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderOverlay'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.23"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.14"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "HeaderOverlay",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderOverlay'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.23"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderBackground'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.8"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "SideContent",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 55.0,
+        "Top": 10.0
+      },
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SideContent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.24"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.PresetsContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.16"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "SideContent",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 30.0,
+        "Top": -15.0
+      },
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SideContent'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.24"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreStoreCharactersFilterWidget_C'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.FiltersWidget'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.39"
       }
     }
   },
@@ -311,11 +898,59 @@
     "Properties": {
       "Parent": {
         "ObjectName": "DBDScrollBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsScroll'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.5"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.9"
       },
       "Content": {
         "ObjectName": "UniformGridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.13"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.34"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "HeaderSize",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Properties": {
+      "HeightOverride": 128.0,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderSize.SizeBoxSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.31"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.MainContent.GridSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.11"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "HeaderSize",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderSize'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.30"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderOverlay'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.23"
+      }
+    }
+  },
+  {
+    "Type": "Spacer",
+    "Name": "Spacer_40",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Spacer'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_5'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.20"
       }
     }
   },
@@ -326,21 +961,17 @@
     "Class": "UScriptClass'UniformGridPanel'",
     "Properties": {
       "SlotPadding": {
-        "Right": 25.0
+        "Right": 15.0
       },
       "Slots": [
         {
           "ObjectName": "UniformGridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer.UniformGridSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.14"
-        },
-        {
-          "ObjectName": "UniformGridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer.UniformGridSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.15"
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.35"
         }
       ],
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0.GridSlot_9'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.9"
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.17"
       }
     }
   },
@@ -358,9 +989,15 @@
       },
       "MinDesiredSlotWidth": 100.0,
       "MinDesiredSlotHeight": 300.0,
+      "Slots": [
+        {
+          "ObjectName": "UniformGridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsContainer.UniformGridSlot_0'",
+          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.36"
+        }
+      ],
       "Slot": {
         "ObjectName": "ScrollBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsScroll.ScrollBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.11"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.29"
       }
     }
   },
@@ -370,32 +1007,29 @@
     "Outer": "CategoriesContainer",
     "Class": "UScriptClass'UniformGridSlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Right",
-      "VerticalAlignment": "VAlign_Center",
-      "Column": 6,
       "Parent": {
         "ObjectName": "UniformGridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.12"
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.33"
       },
       "Content": {
-        "ObjectName": "WBP_CoreIconButton_C'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.FiltersButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.16"
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CharmSlotsContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.13"
       }
     }
   },
   {
     "Type": "UniformGridSlot",
-    "Name": "UniformGridSlot_1",
-    "Outer": "CategoriesContainer",
+    "Name": "UniformGridSlot_0",
+    "Outer": "CustomizationsContainer",
     "Class": "UScriptClass'UniformGridSlot'",
     "Properties": {
       "Parent": {
-        "ObjectName": "UniformGridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.12"
+        "ObjectName": "UniformGridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsContainer'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.34"
       },
       "Content": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CharmSlotsContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.10"
+        "ObjectName": "WBP_CoreStoreEmptyItem_C'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.EmptyItem'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.40"
       }
     }
   },
@@ -406,12 +1040,28 @@
     "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreIconButton.WBP_CoreIconButton_C'",
     "Template": {
       "ObjectName": "WBP_CoreIconButton_C'Default__WBP_CoreIconButton_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreIconButton.10"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/WBP_CoreIconButton.11"
     },
     "Properties": {
       "Slot": {
-        "ObjectName": "UniformGridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CategoriesContainer.UniformGridSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.14"
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_3'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.19"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreSearchBarButton_C",
+    "Name": "SearchBar",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/SearchBar/WBP_CoreSearchBarButton.WBP_CoreSearchBarButton_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreSearchBarButton_C'Default__WBP_CoreSearchBarButton_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/SearchBar/WBP_CoreSearchBarButton.3"
+    },
+    "Properties": {
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HeaderContainer.HorizontalBoxSlot_2'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.18"
       }
     }
   },
@@ -422,16 +1072,32 @@
     "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersFilterWidget.WBP_CoreStoreCharactersFilterWidget_C'",
     "Template": {
       "ObjectName": "WBP_CoreStoreCharactersFilterWidget_C'Default__WBP_CoreStoreCharactersFilterWidget_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersFilterWidget.6"
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersFilterWidget.7"
     },
     "Properties": {
       "_sortingOptions": 31,
       "_defaultSortingOption": "ESortingOption::ByRarity",
       "Slot": {
-        "ObjectName": "GridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0.GridSlot_4'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.7"
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.SideContent.OverlaySlot_1'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.28"
       },
       "Visibility": "ESlateVisibility::Collapsed"
+    }
+  },
+  {
+    "Type": "WBP_CoreStoreEmptyItem_C",
+    "Name": "EmptyItem",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreEmptyItem.WBP_CoreStoreEmptyItem_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreStoreEmptyItem_C'Default__WBP_CoreStoreEmptyItem_C'",
+      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreEmptyItem.5"
+    },
+    "Properties": {
+      "Slot": {
+        "ObjectName": "UniformGridSlot'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.CustomizationsContainer.UniformGridSlot_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.36"
+      }
     }
   },
   {
@@ -441,8 +1107,8 @@
     "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "GridPanel'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.GridPanel_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.6"
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharactersCustomizations_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharactersCustomizations.15"
       }
     }
   }

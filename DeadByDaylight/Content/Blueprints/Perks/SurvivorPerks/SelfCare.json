@@ -1,34 +1,129 @@
 [
   {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_SelfCare",
+    "Outer": "SelfCare_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "UObjectWrapper",
+        "InterfaceClass": {
+          "ObjectName": "Class'ConditionReceiver'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'EventDrivenModifierCondition'",
+          "ObjectPath": "/Script/Competence"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "Authority_OnInstantiateModifierConditions",
+    "Outer": "SelfCare_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'BaseModifierContainer:Authority_OnInstantiateModifierConditions'",
+      "ObjectPath": "/Script/Competence"
+    },
+    "FunctionFlags": "FUNC_BlueprintAuthorityOnly | FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "SelfCare_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'SelfCare_C:ExecuteUbergraph_SelfCare'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.0"
+      }
+    },
     "SuperStruct": {
-      "ObjectName": "Class SelfCare",
+      "ObjectName": "Class'SelfCare'",
       "ObjectPath": "/Script/DBDCompetence"
     },
-    "ClassFlags": 10749972,
+    "Children": [
+      {
+        "ObjectName": "Function'SelfCare_C:Authority_OnInstantiateModifierConditions'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.1"
+      },
+      {
+        "ObjectName": "Function'SelfCare_C:ExecuteUbergraph_SelfCare'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_SelfCare": {
+        "ObjectName": "Function'SelfCare_C:ExecuteUbergraph_SelfCare'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.0"
+      },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function'SelfCare_C:Authority_OnInstantiateModifierConditions'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.1"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
-      "ObjectName": "Class Object",
+      "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
     },
     "ClassConfigName": "Engine",
     "bCooked": true,
     "ClassDefaultObject": {
-      "ObjectName": "SelfCare_C Default__SelfCare_C",
-      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.1"
+      "ObjectName": "SelfCare_C'Default__SelfCare_C'",
+      "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.3"
     }
   },
   {
     "Type": "SelfCare_C",
     "Name": "Default__SelfCare_C",
+    "Class": "BlueprintGeneratedClass'DeadByDaylight/Content/Blueprints/Perks/SurvivorPerks/SelfCare.SelfCare_C'",
     "Properties": {
+      "UberGraphFrame": {},
       "_selfHealNoMedkitSpeedPenaltyEffectClass": {
-        "ObjectName": "BlueprintGeneratedClass SelfHealNoMedkitSpeedPenaltyEffect_C",
-        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/SelfHealNoMedkitSpeedPenaltyEffect.3"
+        "ObjectName": "BlueprintGeneratedClass'SelfCareEffect_C'",
+        "ObjectPath": "DeadByDaylight/Content/Blueprints/Perks/StatusEffects/SelfCareEffect.3"
       },
       "_selfHealSpeedPenalty": -0.75,
       "_selfHealSpeedPenalty": -0.7,
       "_selfHealSpeedPenalty": -0.65,
+      "_selfCareInteraction": {
+        "ObjectName": "BlueprintGeneratedClass'HealSelfNoMedkitSelfCare_C'",
+        "ObjectPath": "DeadByDaylight/Content/Characters/Campers/Blueprints/Interactions/HealSelfNoMedkitSelfCare.2"
+      },
       "PerkLevelData": {
         "TaggedFlags": [
           {
@@ -51,7 +146,7 @@
         ]
       },
       "PerkIconStrategyClass": {
-        "ObjectName": "Class AlwaysVisiblePerkIconStrategy",
+        "ObjectName": "Class'ActiveWhenApplicablePerkIconStrategy'",
         "ObjectPath": "/Script/DeadByDaylight"
       },
       "_canOptimizeTickActivation": true
