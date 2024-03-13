@@ -7,7 +7,7 @@
       "ObjectName": "Class'PathStrategySelector_Flee'",
       "ObjectPath": "/Script/DBDBots"
     },
-    "ClassFlags": 8652816,
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -28,31 +28,37 @@
         {
           "EAIFleePathStrategy::KeepGoal": {
             "ObjectName": "PathStrategy_Flee'Default__PathStrategySelector_FleeTerror_C:PathStrategy_Flee_0'",
-            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.9"
+            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.10"
           }
         },
         {
           "EAIFleePathStrategy::Away": {
             "ObjectName": "PathStrategy_Flee'Default__PathStrategySelector_FleeTerror_C:PathStrategy_Flee_1'",
-            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.10"
+            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.11"
           }
         },
         {
           "EAIFleePathStrategy::Loop": {
             "ObjectName": "PathStrategy_FleeLoop'Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLoop_1'",
-            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.11"
+            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.12"
           }
         },
         {
           "EAIFleePathStrategy::AwayLOS": {
             "ObjectName": "PathStrategy_FleeLOS'Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLOS_0'",
-            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.12"
+            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.13"
           }
         },
         {
           "EAIFleePathStrategy::Lure": {
             "ObjectName": "PathStrategy_FleeLure'Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLure_0'",
-            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.13"
+            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.14"
+          }
+        },
+        {
+          "EAIFleePathStrategy::Reposition": {
+            "ObjectName": "PathStrategy_FleeReposition'Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeReposition_0'",
+            "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.15"
           }
         }
       ]
@@ -140,6 +146,25 @@
     "Class": "UScriptClass'PathBuilder_LastGoal'"
   },
   {
+    "Type": "PathBuilder_TowardActor",
+    "Name": "PathBuilder_TowardActor_0",
+    "Outer": "PathStrategy_FleeReposition_0",
+    "Class": "UScriptClass'PathBuilder_TowardActor'",
+    "Properties": {
+      "FindClass": {
+        "ObjectName": "Class'Generator'",
+        "ObjectPath": "/Script/DeadByDaylight"
+      },
+      "UseClosestEscapePointIfAvailable": true,
+      "MinimumDistance": 3000.0,
+      "FilterClass": {
+        "ObjectName": "BlueprintGeneratedClass'NavQuery_Camper_Reposition_C'",
+        "ObjectPath": "DeadByDaylight/Content/AI/Camper/NavQuery_Camper_Reposition.0"
+      },
+      "OverridePreviousPathStrategy": true
+    }
+  },
+  {
     "Type": "PathStrategy_Flee",
     "Name": "PathStrategy_Flee_0",
     "Outer": "Default__PathStrategySelector_FleeTerror_C",
@@ -213,10 +238,31 @@
     "Outer": "Default__PathStrategySelector_FleeTerror_C",
     "Class": "UScriptClass'PathStrategy_FleeLure'",
     "Properties": {
+      "LostFocusInteractionIds": [
+        "DamageGenerator",
+        "Destroy",
+        "SnuffTotem"
+      ],
       "DefaultPathBuilders": [
         {
           "ObjectName": "PathBuilder_EQS'Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeLure_0.PathBuilder_EQS_0'",
           "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.5"
+        }
+      ],
+      "MaxActiveTimeSeconds": 30.0,
+      "StrategyEndCooldownSeconds": 7.5
+    }
+  },
+  {
+    "Type": "PathStrategy_FleeReposition",
+    "Name": "PathStrategy_FleeReposition_0",
+    "Outer": "Default__PathStrategySelector_FleeTerror_C",
+    "Class": "UScriptClass'PathStrategy_FleeReposition'",
+    "Properties": {
+      "DefaultPathBuilders": [
+        {
+          "ObjectName": "PathBuilder_TowardActor'Default__PathStrategySelector_FleeTerror_C:PathStrategy_FleeReposition_0.PathBuilder_TowardActor_0'",
+          "ObjectPath": "DeadByDaylight/Content/AI/Camper/PathStrategySelector_FleeTerror.9"
         }
       ]
     }
