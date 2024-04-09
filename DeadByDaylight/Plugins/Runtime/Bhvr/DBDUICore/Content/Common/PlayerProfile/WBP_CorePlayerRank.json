@@ -1,5 +1,103 @@
 [
   {
+    "Type": "DBDButton",
+    "Name": "HitzoneButton",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDButton'",
+    "Properties": {
+      "_analyticsName": "HitzoneButton",
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_2'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.11"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "LevelBG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 512.0,
+          "Y": 512.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_Gold_SurvivorRank1234'",
+          "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Gold_SurvivorRank1234.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1.SizeBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.17"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "RankNumberImage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "TintColor": {
+          "SpecifiedColor": {
+            "R": 1.0,
+            "G": 0.366253,
+            "B": 0.001821,
+            "A": 1.0,
+            "Hex": "FFFFA306"
+          }
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_RankNum4'",
+          "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum4.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.16"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "AnimateRankUp",
+    "Outer": "WBP_CorePlayerRank_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CorePlayerRankWidget:AnimateRankUp'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Destruct",
+    "Outer": "WBP_CorePlayerRank_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Destruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CorePlayerRank",
     "Outer": "WBP_CorePlayerRank_C",
@@ -19,7 +117,7 @@
         "ElementSize": 40,
         "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'RankViewData'",
+          "ObjectName": "Class'RankViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
@@ -29,7 +127,7 @@
         "Flags": "RF_Public",
         "ElementSize": 240,
         "Struct": {
-          "ObjectName": "ScriptStruct'CoreRankWidgetConfiguration'",
+          "ObjectName": "Class'CoreRankWidgetConfiguration'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
@@ -78,7 +176,7 @@
         "ElementSize": 56,
         "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'Geometry'",
+          "ObjectName": "Class'Geometry'",
           "ObjectPath": "/Script/SlateCore"
         }
       },
@@ -123,14 +221,25 @@
   },
   {
     "Type": "Function",
-    "Name": "AnimateRankUp",
+    "Name": "OnHovered",
     "Outer": "WBP_CorePlayerRank_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CorePlayerRankWidget:AnimateRankUp'",
+      "ObjectName": "Class'CoreButtonWidget:OnHovered'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnUnhovered",
+    "Outer": "WBP_CorePlayerRank_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnUnhovered'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -138,7 +247,7 @@
     "Outer": "WBP_CorePlayerRank_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'UserWidget:PreConstruct'",
+      "ObjectName": "Class'UserWidget:PreConstruct'",
       "ObjectPath": "/Script/UMG"
     },
     "ChildProperties": [
@@ -160,44 +269,11 @@
   },
   {
     "Type": "Function",
-    "Name": "Destruct",
-    "Outer": "WBP_CorePlayerRank_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:Destruct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "OnUnhovered",
-    "Outer": "WBP_CorePlayerRank_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreButtonWidget:OnUnhovered'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "OnHovered",
-    "Outer": "WBP_CorePlayerRank_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreButtonWidget:OnHovered'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
     "Name": "SetData",
     "Outer": "WBP_CorePlayerRank_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CorePlayerRankWidget:SetData'",
+      "ObjectName": "Class'CorePlayerRankWidget:SetData'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "ChildProperties": [
@@ -208,12 +284,389 @@
         "ElementSize": 40,
         "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'RankViewData'",
+          "ObjectName": "Class'RankViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
     ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_3'",
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.12"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_5'",
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.13"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_2'",
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.11"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "Overlay_1",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CorePlayerRank_C:WidgetTree.Overlay_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.10"
+      },
+      "Content": {
+        "ObjectName": "DBDButton'WBP_CorePlayerRank_C:WidgetTree.HitzoneButton'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.0"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_3",
+    "Outer": "Overlay_1",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CorePlayerRank_C:WidgetTree.Overlay_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.10"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.15"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_5",
+    "Outer": "Overlay_1",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 0.5
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CorePlayerRank_C:WidgetTree.Overlay_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.10"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.14"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Properties": {
+      "WidthOverride": 85.0,
+      "HeightOverride": 85.0,
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.16"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_5'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.13"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Properties": {
+      "WidthOverride": 300.0,
+      "HeightOverride": 300.0,
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1.SizeBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.17"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_3'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.12"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "SizeBox_0",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.14"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CorePlayerRank_C:WidgetTree.RankNumberImage'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.2"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "SizeBox_1",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.15"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CorePlayerRank_C:WidgetTree.LevelBG'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.1"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CorePlayerRank_C",
+    "Name": "Default__WBP_CorePlayerRank_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.WBP_CorePlayerRank_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "_widgetConfiguration": {
+        "SurvivorRanks": [
+          {
+            "1": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Iridescent_SurvivorRank234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Iridescent_SurvivorRank234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 1.0,
+                  "G": 0.002732,
+                  "B": 0.090842,
+                  "A": 1.0,
+                  "Hex": "FFFF0955"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "2": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Gold_SurvivorRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Gold_SurvivorRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 1.0,
+                  "G": 0.366253,
+                  "B": 0.001821,
+                  "A": 1.0,
+                  "Hex": "FFFFA306"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "3": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Silver_SurvivorRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Silver_SurvivorRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 0.462077,
+                  "G": 0.428691,
+                  "B": 0.434154,
+                  "A": 1.0,
+                  "Hex": "FFB5AFB0"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "4": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Bronze_SurvivorRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Bronze_SurvivorRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 0.53948,
+                  "G": 0.099899,
+                  "B": 0.042311,
+                  "A": 1.0,
+                  "Hex": "FFC2593A"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "5": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Ash_SurvivorRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Ash_SurvivorRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 0.215861,
+                  "G": 0.215861,
+                  "B": 0.215861,
+                  "A": 1.0,
+                  "Hex": "FF808080"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          }
+        ],
+        "KillerRanks": [
+          {
+            "1": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Iridescent_KillerRank234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Iridescent_KillerRank234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 1.0,
+                  "G": 0.002732,
+                  "B": 0.090842,
+                  "A": 1.0,
+                  "Hex": "FFFF0955"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "2": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Gold_KillerRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Gold_KillerRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 1.0,
+                  "G": 0.366253,
+                  "B": 0.001821,
+                  "A": 1.0,
+                  "Hex": "FFFFA306"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "3": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Silver_KillerRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Silver_KillerRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 0.462077,
+                  "G": 0.428691,
+                  "B": 0.434154,
+                  "A": 1.0,
+                  "Hex": "FFB5AFB0"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "4": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Bronze_KillerRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Bronze_KillerRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 0.53948,
+                  "G": 0.099899,
+                  "B": 0.042311,
+                  "A": 1.0,
+                  "Hex": "FFC2593A"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          },
+          {
+            "5": {
+              "RankBackgroundImage": {
+                "ObjectName": "Texture2D'T_UI_Ash_KillerRank1234'",
+                "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Ash_KillerRank1234.0"
+              },
+              "NumberColor": {
+                "SpecifiedColor": {
+                  "R": 0.215861,
+                  "G": 0.215861,
+                  "B": 0.215861,
+                  "A": 1.0,
+                  "Hex": "FF808080"
+                },
+                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+              }
+            }
+          }
+        ],
+        "RankNumberImages": [
+          {
+            "1": {
+              "ObjectName": "Texture2D'T_UI_RankNum1'",
+              "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum1.0"
+            }
+          },
+          {
+            "2": {
+              "ObjectName": "Texture2D'T_UI_RankNum2'",
+              "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum2.0"
+            }
+          },
+          {
+            "3": {
+              "ObjectName": "Texture2D'T_UI_RankNum3'",
+              "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum3.0"
+            }
+          },
+          {
+            "4": {
+              "ObjectName": "Texture2D'T_UI_RankNum4'",
+              "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum4.0"
+            }
+          }
+        ]
+      },
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
   },
   {
     "Type": "WidgetBlueprintGeneratedClass",
@@ -222,12 +675,12 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CorePlayerRank_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.20"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.20"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:ExecuteUbergraph_WBP_CorePlayerRank'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.5"
       }
     },
     "SuperStruct": {
@@ -237,31 +690,31 @@
     "Children": [
       {
         "ObjectName": "Function'WBP_CorePlayerRank_C:SetData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.6"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.9"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerRank_C:OnHovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.5"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.6"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerRank_C:OnUnhovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.4"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.7"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerRank_C:Destruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.3"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.4"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerRank_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.2"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.8"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerRank_C:AnimateRankUp'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.1"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.3"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerRank_C:ExecuteUbergraph_WBP_CorePlayerRank'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.5"
       }
     ],
     "ChildProperties": [
@@ -272,7 +725,7 @@
         "ElementSize": 16,
         "PropertyFlags": "Transient | DuplicateTransient",
         "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectName": "Class'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -300,34 +753,34 @@
     "FuncMap": {
       "ExecuteUbergraph_WBP_CorePlayerRank": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:ExecuteUbergraph_WBP_CorePlayerRank'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.5"
       },
       "AnimateRankUp": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:AnimateRankUp'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.1"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.3"
       },
       "PreConstruct": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.2"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.8"
       },
       "Destruct": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:Destruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.3"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.4"
       },
       "OnUnhovered": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:OnUnhovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.4"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.7"
       },
       "OnHovered": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:OnHovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.5"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.6"
       },
       "SetData": {
         "ObjectName": "Function'WBP_CorePlayerRank_C:SetData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.6"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.9"
       }
     },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -336,459 +789,10 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CorePlayerRank_C'Default__WBP_CorePlayerRank_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.8"
-    }
-  },
-  {
-    "Type": "WBP_CorePlayerRank_C",
-    "Name": "Default__WBP_CorePlayerRank_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.WBP_CorePlayerRank_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "_widgetConfiguration": {
-        "SurvivorRanks": [
-          {
-            "1": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Iridescent_SurvivorRank234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Iridescent_SurvivorRank234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 1.0,
-                  "G": 0.002732,
-                  "B": 0.090842,
-                  "A": 1.0,
-                  "Hex": "FFFF0955"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "2": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Gold_SurvivorRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Gold_SurvivorRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 1.0,
-                  "G": 0.366253,
-                  "B": 0.001821,
-                  "A": 1.0,
-                  "Hex": "FFFFA306"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "3": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Silver_SurvivorRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Silver_SurvivorRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 0.462077,
-                  "G": 0.428691,
-                  "B": 0.434154,
-                  "A": 1.0,
-                  "Hex": "FFB5AFB0"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "4": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Bronze_SurvivorRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Bronze_SurvivorRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 0.53948,
-                  "G": 0.099899,
-                  "B": 0.042311,
-                  "A": 1.0,
-                  "Hex": "FFC2593A"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "5": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Ash_SurvivorRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Ash_SurvivorRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 0.215861,
-                  "G": 0.215861,
-                  "B": 0.215861,
-                  "A": 1.0,
-                  "Hex": "FF808080"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          }
-        ],
-        "KillerRanks": [
-          {
-            "1": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Iridescent_KillerRank234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Iridescent_KillerRank234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 1.0,
-                  "G": 0.002732,
-                  "B": 0.090842,
-                  "A": 1.0,
-                  "Hex": "FFFF0955"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "2": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Gold_KillerRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Gold_KillerRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 1.0,
-                  "G": 0.366253,
-                  "B": 0.001821,
-                  "A": 1.0,
-                  "Hex": "FFFFA306"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "3": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Silver_KillerRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Silver_KillerRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 0.462077,
-                  "G": 0.428691,
-                  "B": 0.434154,
-                  "A": 1.0,
-                  "Hex": "FFB5AFB0"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "4": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Bronze_KillerRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Bronze_KillerRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 0.53948,
-                  "G": 0.099899,
-                  "B": 0.042311,
-                  "A": 1.0,
-                  "Hex": "FFC2593A"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          },
-          {
-            "5": {
-              "RankBackgroundImage": {
-                "ObjectName": "Texture2D'T_UI_Ash_KillerRank1234'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Killer/T_UI_Ash_KillerRank1234.0"
-              },
-              "NumberColor": {
-                "SpecifiedColor": {
-                  "R": 0.215861,
-                  "G": 0.215861,
-                  "B": 0.215861,
-                  "A": 1.0,
-                  "Hex": "FF808080"
-                },
-                "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
-              }
-            }
-          }
-        ],
-        "RankNumberImages": [
-          {
-            "1": {
-              "ObjectName": "Texture2D'T_UI_RankNum1'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum1.0"
-            }
-          },
-          {
-            "2": {
-              "ObjectName": "Texture2D'T_UI_RankNum2'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum2.0"
-            }
-          },
-          {
-            "3": {
-              "ObjectName": "Texture2D'T_UI_RankNum3'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum3.0"
-            }
-          },
-          {
-            "4": {
-              "ObjectName": "Texture2D'T_UI_RankNum4'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum4.0"
-            }
-          }
-        ]
-      },
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "DBDButton",
-    "Name": "HitzoneButton",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDButton'",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.13"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "LevelBG",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "DefaultImage": {
-        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
-        "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
-      },
-      "Brush": {
-        "ImageSize": {
-          "X": 512.0,
-          "Y": 512.0
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D'T_UI_Gold_SurvivorRank1234'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/Survivor/T_UI_Gold_SurvivorRank1234.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1.SizeBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.19"
-      },
-      "Visibility": "ESlateVisibility::HitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "RankNumberImage",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "DefaultImage": {
-        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
-        "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
-      },
-      "Brush": {
-        "ImageSize": {
-          "X": 128.0,
-          "Y": 128.0
-        },
-        "TintColor": {
-          "SpecifiedColor": {
-            "R": 1.0,
-            "G": 0.366253,
-            "B": 0.001821,
-            "A": 1.0,
-            "Hex": "FFFFA306"
-          }
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D'T_UI_RankNum4'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/T_UI_RankNum4.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.18"
-      },
-      "Visibility": "ESlateVisibility::HitTestInvisible"
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_1",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.14"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_5'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.15"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.13"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Outer": "Overlay_1",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CorePlayerRank_C:WidgetTree.Overlay_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.12"
-      },
-      "Content": {
-        "ObjectName": "DBDButton'WBP_CorePlayerRank_C:WidgetTree.HitzoneButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.9"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_3",
-    "Outer": "Overlay_1",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CorePlayerRank_C:WidgetTree.Overlay_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.12"
-      },
-      "Content": {
-        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.17"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_5",
-    "Outer": "Overlay_1",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Padding": {
-        "Left": 0.5
-      },
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CorePlayerRank_C:WidgetTree.Overlay_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.12"
-      },
-      "Content": {
-        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.16"
-      }
-    }
-  },
-  {
-    "Type": "SizeBox",
-    "Name": "SizeBox_0",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'SizeBox'",
-    "Properties": {
-      "WidthOverride": 85.0,
-      "HeightOverride": 85.0,
-      "bOverride_WidthOverride": true,
-      "bOverride_HeightOverride": true,
-      "Slots": [
-        {
-          "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.18"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_5'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.15"
-      }
-    }
-  },
-  {
-    "Type": "SizeBox",
-    "Name": "SizeBox_1",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'SizeBox'",
-    "Properties": {
-      "WidthOverride": 300.0,
-      "HeightOverride": 300.0,
-      "bOverride_WidthOverride": true,
-      "bOverride_HeightOverride": true,
-      "Slots": [
-        {
-          "ObjectName": "SizeBoxSlot'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1.SizeBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.19"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerRank_C:WidgetTree.Overlay_1.OverlaySlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.14"
-      }
-    }
-  },
-  {
-    "Type": "SizeBoxSlot",
-    "Name": "SizeBoxSlot_0",
-    "Outer": "SizeBox_0",
-    "Class": "UScriptClass'SizeBoxSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.16"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CorePlayerRank_C:WidgetTree.RankNumberImage'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.11"
-      }
-    }
-  },
-  {
-    "Type": "SizeBoxSlot",
-    "Name": "SizeBoxSlot_0",
-    "Outer": "SizeBox_1",
-    "Class": "UScriptClass'SizeBoxSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "SizeBox'WBP_CorePlayerRank_C:WidgetTree.SizeBox_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.17"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CorePlayerRank_C:WidgetTree.LevelBG'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.10"
-      }
+      "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.18"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -799,7 +803,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "Overlay'WBP_CorePlayerRank_C:WidgetTree.Overlay_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerRank.12"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerRank.10"
       }
     }
   }

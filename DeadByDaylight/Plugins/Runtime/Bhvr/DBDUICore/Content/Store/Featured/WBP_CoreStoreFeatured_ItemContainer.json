@@ -1,5 +1,29 @@
 [
   {
+    "Type": "CanvasPanel",
+    "Name": "Root",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_2.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.13"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CoreStoreFeatured_ItemContainer",
     "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
@@ -13,35 +37,6 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Conv_IntToFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_CustomEvent_Button",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'CoreButtonWidget'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "K2Node_Event_IsDesignTime",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_Create_ReturnValue",
         "Flags": "RF_Public",
@@ -49,7 +44,7 @@
         "PropertyFlags": "InstancedReference",
         "PropertyClass": {
           "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreFeatured_CustomizationItem_C'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_CustomizationItem.7"
+          "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_CustomizationItem.92"
         }
       },
       {
@@ -81,18 +76,41 @@
         }
       },
       {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Conv_IntToFloat_ReturnValue_1",
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_Button",
         "Flags": "RF_Public",
-        "ElementSize": 4
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CoreButtonWidget'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsDesignTime",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_IntToDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
       },
       {
         "Type": "StructProperty",
         "Name": "CallFunc_MakeVector2D_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 8,
+        "ElementSize": 16,
         "Struct": {
-          "ObjectName": "ScriptStruct'Vector2D'",
+          "ObjectName": "Class'Vector2D'",
           "ObjectPath": "/Script/CoreUObject"
         }
       }
@@ -101,11 +119,95 @@
   },
   {
     "Type": "Function",
+    "Name": "InitItemContainer",
+    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreStoreFeaturedCustomizationItemContainerWidget:InitItemContainer'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "MoveTo",
+    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Button",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CoreButtonWidget'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PreConstruct",
+    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:PreConstruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsDesignTime",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetContainerMask",
+    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_MathExpression_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_IntToDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetWidthOverride_InWidthOverride_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
     "Name": "SetItems",
     "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CoreStoreFeaturedCustomizationItemContainerWidget:SetItems'",
+      "ObjectName": "Class'CoreStoreFeaturedCustomizationItemContainerWidget:SetItems'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "ChildProperties": [
@@ -130,61 +232,254 @@
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
-    "Type": "Function",
-    "Name": "InitItemContainer",
-    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreStoreFeaturedCustomizationItemContainerWidget:InitItemContainer'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "PreConstruct",
-    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:PreConstruct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "IsDesignTime",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "MoveTo",
-    "Outer": "WBP_CoreStoreFeatured_ItemContainer_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "Button",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'CoreButtonWidget'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
+    "Type": "Overlay",
+    "Name": "Overlay_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1.OverlaySlot_0'",
+          "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.10"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1.OverlaySlot_3'",
+          "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.11"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1.OverlaySlot_4'",
+          "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.12"
         }
+      ]
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_2",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_2.OverlaySlot_0'",
+          "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.13"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "PanelSlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Mask.PanelSlot_0'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.14"
       }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_1",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.MaskSizeBox'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.16"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_3",
+    "Outer": "Overlay_1",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.LeftArrow'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.18"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Outer": "Overlay_1",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Right",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
+      },
+      "Content": {
+        "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.RightArrow'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.19"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_2",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_2'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.9"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Root'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.0"
+      }
+    }
+  },
+  {
+    "Type": "PanelSlot",
+    "Name": "PanelSlot_0",
+    "Outer": "Mask",
+    "Class": "UScriptClass'PanelSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "RetainerBox'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Mask'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.15"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_2'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.9"
+      }
+    }
+  },
+  {
+    "Type": "RetainerBox",
+    "Name": "Mask",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'RetainerBox'",
+    "Properties": {
+      "EffectMaterial": {
+        "ObjectName": "MaterialInstanceConstant'MI_UI_StoreFeatured_CustomizationContainerMask'",
+        "ObjectPath": "/DBDUICore/Assets/Store/Featured/MI_UI_StoreFeatured_CustomizationContainerMask.0"
+      },
+      "Slots": [
+        {
+          "ObjectName": "PanelSlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Mask.PanelSlot_0'",
+          "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.14"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.MaskSizeBox.SizeBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.17"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "MaskSizeBox",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Properties": {
+      "WidthOverride": 100.0,
+      "HeightOverride": 1200.0,
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.MaskSizeBox.SizeBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.17"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.10"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "MaskSizeBox",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.MaskSizeBox'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.16"
+      },
+      "Content": {
+        "ObjectName": "RetainerBox'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Mask'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.15"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreSelectionArrowInputSwitcher_C",
+    "Name": "LeftArrow",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.WBP_CoreSelectionArrowInputSwitcher_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'Default__WBP_CoreSelectionArrowInputSwitcher_C'",
+      "ObjectPath": "/DBDUICore/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.8"
+    },
+    "Properties": {
+      "ButtonHoveredSfxName": "AudioEvent_UI_Highlight_Ligns",
+      "ButtonHoveredSfx": {
+        "ObjectName": "AkAudioEvent'AudioEvent_UI_Highlight_Ligns'",
+        "ObjectPath": "/Game/Audio/AudioEvents/Menu/AudioEvent_UI_Highlight_Ligns.0"
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1.OverlaySlot_3'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.11"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreSelectionArrowInputSwitcher_C",
+    "Name": "RightArrow",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.WBP_CoreSelectionArrowInputSwitcher_C'",
+    "Template": {
+      "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'Default__WBP_CoreSelectionArrowInputSwitcher_C'",
+      "ObjectPath": "/DBDUICore/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.8"
+    },
+    "Properties": {
+      "ButtonHoveredSfxName": "AudioEvent_UI_Highlight_Ligns",
+      "ButtonHoveredSfx": {
+        "ObjectName": "AkAudioEvent'AudioEvent_UI_Highlight_Ligns'",
+        "ObjectPath": "/Game/Audio/AudioEvents/Menu/AudioEvent_UI_Highlight_Ligns.0"
+      },
+      "_alignment": "ETextJustify::Right",
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1.OverlaySlot_4'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.12"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreStoreFeatured_ItemContainer_C",
+    "Name": "Default__WBP_CoreStoreFeatured_ItemContainer_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.WBP_CoreStoreFeatured_ItemContainer_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "ItemTileClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreFeatured_CustomizationItem_C'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_CustomizationItem.92"
+      },
+      "AllTileHeight": 850,
+      "SmallTileWidth": 300,
+      "BigTileWidth": 1450,
+      "TranslationDuration": 0.3,
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
   },
   {
     "Type": "WidgetBlueprintGeneratedClass",
@@ -193,12 +488,12 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.14"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.22"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
         "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:ExecuteUbergraph_WBP_CoreStoreFeatured_ItemContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.0"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.2"
       }
     },
     "SuperStruct": {
@@ -207,24 +502,32 @@
     },
     "Children": [
       {
-        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:MoveTo'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.4"
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:SetContainerMask'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.6"
       },
       {
         "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.3"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.5"
       },
       {
         "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:InitItemContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.2"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.3"
       },
       {
         "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:SetItems'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.1"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.7"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:MoveTo'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.4"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:Construct'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.1"
       },
       {
         "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:ExecuteUbergraph_WBP_CoreStoreFeatured_ItemContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.0"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.2"
       }
     ],
     "ChildProperties": [
@@ -235,34 +538,64 @@
         "ElementSize": 16,
         "PropertyFlags": "Transient | DuplicateTransient",
         "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectName": "Class'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Mask",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'RetainerBox'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "MaskSizeBox",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SizeBox'",
+          "ObjectPath": "/Script/UMG"
         }
       }
     ],
     "FuncMap": {
       "ExecuteUbergraph_WBP_CoreStoreFeatured_ItemContainer": {
         "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:ExecuteUbergraph_WBP_CoreStoreFeatured_ItemContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.0"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.2"
       },
-      "SetItems": {
-        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:SetItems'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.1"
-      },
-      "InitItemContainer": {
-        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:InitItemContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.2"
-      },
-      "PreConstruct": {
-        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.3"
+      "Construct": {
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:Construct'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.1"
       },
       "MoveTo": {
         "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:MoveTo'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.4"
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.4"
+      },
+      "SetItems": {
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:SetItems'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.7"
+      },
+      "InitItemContainer": {
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:InitItemContainer'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.3"
+      },
+      "PreConstruct": {
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.5"
+      },
+      "SetContainerMask": {
+        "ObjectName": "Function'WBP_CoreStoreFeatured_ItemContainer_C:SetContainerMask'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.6"
       }
     },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -271,145 +604,10 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreStoreFeatured_ItemContainer_C'Default__WBP_CoreStoreFeatured_ItemContainer_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.6"
-    }
-  },
-  {
-    "Type": "WBP_CoreStoreFeatured_ItemContainer_C",
-    "Name": "Default__WBP_CoreStoreFeatured_ItemContainer_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.WBP_CoreStoreFeatured_ItemContainer_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "ItemTileClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreFeatured_CustomizationItem_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_CustomizationItem.7"
-      },
-      "SmallTileWidth": 300,
-      "BigTileWidth": 1400,
-      "TranslationDuration": 0.3,
-      "TranslationEasingType": "EEasingType::QuadInOut",
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "CanvasPanel",
-    "Name": "Root",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'CanvasPanel'",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.9"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_0",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.9"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.10"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0.OverlaySlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.11"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_0",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
-      },
-      "Content": {
-        "ObjectName": "CanvasPanel'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Root'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.7"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Outer": "Overlay_0",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
-      },
-      "Content": {
-        "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.LeftArrow'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.12"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Outer": "Overlay_0",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Right",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
-      },
-      "Content": {
-        "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.RightArrow'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.13"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreSelectionArrowInputSwitcher_C",
-    "Name": "LeftArrow",
-    "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.WBP_CoreSelectionArrowInputSwitcher_C'",
-    "Template": {
-      "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'Default__WBP_CoreSelectionArrowInputSwitcher_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.4"
+      "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.20"
     },
-    "Properties": {
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.10"
-      }
-    }
-  },
-  {
-    "Type": "WBP_CoreSelectionArrowInputSwitcher_C",
-    "Name": "RightArrow",
-    "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.WBP_CoreSelectionArrowInputSwitcher_C'",
-    "Template": {
-      "ObjectName": "WBP_CoreSelectionArrowInputSwitcher_C'Default__WBP_CoreSelectionArrowInputSwitcher_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/InputSwitchers/WBP_CoreSelectionArrowInputSwitcher.4"
-    },
-    "Properties": {
-      "_alignment": "ETextJustify::Right",
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0.OverlaySlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.11"
-      }
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -419,8 +617,8 @@
     "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
+        "ObjectName": "Overlay'WBP_CoreStoreFeatured_ItemContainer_C:WidgetTree.Overlay_1'",
+        "ObjectPath": "/DBDUICore/Store/Featured/WBP_CoreStoreFeatured_ItemContainer.8"
       }
     }
   }

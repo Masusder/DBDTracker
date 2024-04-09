@@ -1,41 +1,75 @@
 [
   {
+    "Type": "DBDImage",
+    "Name": "SicknessGague",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 256.0,
+          "Y": 256.0
+        },
+        "ResourceObject": {
+          "ObjectName": "MaterialInstanceConstant'M_HUD_Sickness_Fill'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/M_HUD_Sickness_Fill.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_K15_C:WidgetTree.SicknessOverlay.OverlaySlot_1'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.19"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_K15",
     "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "IntProperty",
         "Name": "EntryPoint",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 4,
-        "PropertyFlags": 148
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
         "Type": "StructProperty",
         "Name": "K2Node_Event_data",
-        "Flags": 1,
-        "ElementSize": 64,
-        "PropertyFlags": 2,
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct PlayerStatusViewData",
+          "ObjectName": "Class'PlayerStatusViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "ObjectProperty",
         "Name": "K2Node_DynamicCast_AsPlague_Status_Data",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class PlagueStatusData",
+          "ObjectName": "Class'PlagueStatusData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "BoolProperty",
         "Name": "K2Node_DynamicCast_bSuccess",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -47,60 +81,52 @@
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_SpawnObject_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class PlagueStatusData",
+          "ObjectName": "Class'PlagueStatusData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
     ],
-    "FunctionFlags": 8421377
-  },
-  {
-    "Type": "Function",
-    "Name": "Construct",
-    "Outer": "WBP_K15_C",
-    "SuperStruct": {
-      "ObjectName": "Function UserWidget:Construct",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": 134350856
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
   },
   {
     "Type": "Function",
     "Name": "SetKillerData",
     "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function CorePlayerStatusKillerEffectWidget:SetKillerData",
+      "ObjectName": "Class'CorePlayerStatusKillerEffectWidget:SetKillerData'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "ChildProperties": [
       {
         "Type": "StructProperty",
         "Name": "data",
-        "Flags": 1,
-        "ElementSize": 64,
-        "PropertyFlags": 134218134,
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
         "Struct": {
-          "ObjectName": "ScriptStruct PlayerStatusViewData",
+          "ObjectName": "Class'PlayerStatusViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
     ],
-    "FunctionFlags": 206047232
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
     "Name": "SetPlagueData",
     "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "BoolProperty",
         "Name": "IsLocalKiller",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
@@ -111,55 +137,31 @@
       {
         "Type": "ObjectProperty",
         "Name": "KillerData",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "PropertyClass": {
-          "ObjectName": "Class PlagueStatusData",
+          "ObjectName": "Class'PlagueStatusData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "BoolProperty",
         "Name": "Status Change",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": 5,
+        "PropertyFlags": "Edit | BlueprintVisible",
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "StrProperty",
-        "Name": "CallFunc_Conv_FloatToString_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 16
-      },
-      {
-        "Type": "StrProperty",
-        "Name": "CallFunc_GetEnumeratorUserFriendlyName_ReturnValue",
-        "Flags": 1,
-        "ElementSize": 16
       },
       {
         "Type": "BoolProperty",
         "Name": "K2Node_SwitchEnum_CmpSuccess",
-        "Flags": 1,
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -171,65 +173,78 @@
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class MaterialInstanceDynamic",
+          "ObjectName": "Class'MaterialInstanceDynamic'",
           "ObjectPath": "/Script/Engine"
         }
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_PlayAnimationForward_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectName": "Class'UMGSequencePlayer'",
           "ObjectPath": "/Script/UMG"
         }
       },
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetDynamicMaterial_ReturnValue_1",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class MaterialInstanceDynamic",
+          "ObjectName": "Class'MaterialInstanceDynamic'",
           "ObjectPath": "/Script/Engine"
         }
       },
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_PlayAnimationForward_ReturnValue_1",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectName": "Class'UMGSequencePlayer'",
           "ObjectPath": "/Script/UMG"
         }
       }
     ],
-    "FunctionFlags": 201457664
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
     "Name": "SetPlagueVisibility",
     "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "EnumProperty",
         "Name": "isVisible",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "Enum": {
-          "ObjectName": "Enum ESicknessLevel",
+          "ObjectName": "Class'ESicknessLevel'",
           "ObjectPath": "/Script/DBDSharedTypes"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
@@ -237,16 +252,16 @@
       {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESicknessLevel",
+          "ObjectName": "Class'ESicknessLevel'",
           "ObjectPath": "/Script/DBDSharedTypes"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
@@ -254,16 +269,16 @@
       {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable_1",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
@@ -271,16 +286,16 @@
       {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable_2",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
@@ -288,16 +303,16 @@
       {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable_3",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
@@ -305,224 +320,40 @@
       {
         "Type": "EnumProperty",
         "Name": "K2Node_Select_Default",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
       }
     ],
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "WidgetBlueprintGeneratedClass",
-    "Name": "WBP_K15_C",
-    "Properties": {
-      "WidgetTree": {
-        "ObjectName": "WidgetTree WBP_K15_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.24"
-      },
-      "bClassRequiresNativeTick": true,
-      "Animations": [
-        {
-          "ObjectName": "WidgetAnimation WBP_K15_C:SicknessLevel01_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.22"
-        },
-        {
-          "ObjectName": "WidgetAnimation WBP_K15_C:SicknessLevel02_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.23"
-        }
-      ],
-      "UberGraphFunction": {
-        "ObjectName": "Function WBP_K15_C:ExecuteUbergraph_WBP_K15",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.0"
-      }
-    },
-    "SuperStruct": {
-      "ObjectName": "Class CorePlayerStatusKillerEffectWidget",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "Children": [
-      {
-        "ObjectName": "Function WBP_K15_C:SetPlagueVisibility",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.4"
-      },
-      {
-        "ObjectName": "Function WBP_K15_C:SetPlagueData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.3"
-      },
-      {
-        "ObjectName": "Function WBP_K15_C:SetKillerData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.2"
-      },
-      {
-        "ObjectName": "Function WBP_K15_C:Construct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.1"
-      },
-      {
-        "ObjectName": "Function WBP_K15_C:ExecuteUbergraph_WBP_K15",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.0"
-      }
-    ],
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "UberGraphFrame",
-        "Flags": 2097153,
-        "ElementSize": 16,
-        "PropertyFlags": 2105344,
-        "Struct": {
-          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "SicknessLevel02",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 2147491860,
-        "PropertyClass": {
-          "ObjectName": "Class WidgetAnimation",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "SicknessLevel01",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 2147491860,
-        "PropertyClass": {
-          "ObjectName": "Class WidgetAnimation",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "SicknessGague",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 562952101429260,
-        "PropertyClass": {
-          "ObjectName": "Class DBDImage",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "SicknessOverlay",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 562952101429260,
-        "PropertyClass": {
-          "ObjectName": "Class Overlay",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CacheData",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 65541,
-        "PropertyClass": {
-          "ObjectName": "Class PlagueStatusData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      }
-    ],
-    "FuncMap": {
-      "ExecuteUbergraph_WBP_K15": {
-        "ObjectName": "Function WBP_K15_C:ExecuteUbergraph_WBP_K15",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.0"
-      },
-      "Construct": {
-        "ObjectName": "Function WBP_K15_C:Construct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.1"
-      },
-      "SetKillerData": {
-        "ObjectName": "Function WBP_K15_C:SetKillerData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.2"
-      },
-      "SetPlagueData": {
-        "ObjectName": "Function WBP_K15_C:SetPlagueData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.3"
-      },
-      "SetPlagueVisibility": {
-        "ObjectName": "Function WBP_K15_C:SetPlagueVisibility",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.4"
-      }
-    },
-    "ClassFlags": 10754064,
-    "ClassWithin": {
-      "ObjectName": "Class Object",
-      "ObjectPath": "/Script/CoreUObject"
-    },
-    "ClassConfigName": "Engine",
-    "bCooked": true,
-    "ClassDefaultObject": {
-      "ObjectName": "WBP_K15_C Default__WBP_K15_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.6"
-    }
-  },
-  {
-    "Type": "WBP_K15_C",
-    "Name": "Default__WBP_K15_C",
-    "Properties": {
-      "UberGraphFrame": {},
-      "FocusAnimationDuration": 6.0,
-      "FocusAnimationDelay": 0.0,
-      "FocusAnimationEasing": "EEasingType::Linear",
-      "FocusAnimationMinOpacity": 0.6,
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "SicknessGague",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 256.0,
-          "Y": 256.0
-        },
-        "ResourceObject": {
-          "ObjectName": "MaterialInstanceConstant M_HUD_Sickness_Fill",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/M_HUD_Sickness_Fill.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot WBP_K15_C:WidgetTree.SicknessOverlay.OverlaySlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.21"
-      }
-    }
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "MovieScene",
     "Name": "SicknessLevel01",
     "Outer": "SicknessLevel01_INST",
+    "Class": "UScriptClass'MovieScene'",
     "Properties": {
       "Possessables": [
         {
           "Tags": [],
           "Guid": "69FDF932-45357D7A-6B685B82-E2C3A651",
           "Name": "Sickness",
-          "PossessedObjectClass": {
-            "ObjectName": "Class DBDImage",
-            "ObjectPath": "/Script/DBDUIViewsCore"
-          },
-          "ParentGuid": "00000000-00000000-00000000-00000000"
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
         }
       ],
       "ObjectBindings": [
@@ -531,8 +362,8 @@
           "BindingName": "Sickness",
           "Tracks": [
             {
-              "ObjectName": "MovieSceneFloatTrack WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.19"
+              "ObjectName": "MovieSceneFloatTrack'WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0'",
+              "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.17"
             }
           ]
         }
@@ -563,17 +394,19 @@
     "Type": "MovieScene",
     "Name": "SicknessLevel02",
     "Outer": "SicknessLevel02_INST",
+    "Class": "UScriptClass'MovieScene'",
     "Properties": {
       "Possessables": [
         {
           "Tags": [],
           "Guid": "12BD0B56-438A158B-6D989394-7A7621BC",
           "Name": "Sickness",
-          "PossessedObjectClass": {
-            "ObjectName": "Class DBDImage",
-            "ObjectPath": "/Script/DBDUIViewsCore"
-          },
-          "ParentGuid": "00000000-00000000-00000000-00000000"
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
         }
       ],
       "ObjectBindings": [
@@ -582,8 +415,8 @@
           "BindingName": "Sickness",
           "Tracks": [
             {
-              "ObjectName": "MovieScene2DTransformTrack WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.11"
+              "ObjectName": "MovieScene2DTransformTrack'WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0'",
+              "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.9"
             }
           ]
         }
@@ -614,25 +447,300 @@
     "Type": "MovieScene2DTransformSection",
     "Name": "MovieScene2DTransformSection_0",
     "Outer": "MovieScene2DTransformTrack_0",
+    "Class": "UScriptClass'MovieScene2DTransformSection'",
     "Properties": {
       "TransformMask": {
         "Mask": 24
       },
-      "Translation": null,
-      "Translation": null,
-      "Rotation": null,
-      "Scale": null,
-      "Scale": null,
-      "Shear": null,
-      "Shear": null,
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 6000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 6000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Rotation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 6000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 6000
+          },
+          {
+            "Value": 21000
+          },
+          {
+            "Value": 33000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 6000
+          },
+          {
+            "Value": 21000
+          },
+          {
+            "Value": 33000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 6000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 6000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
       "Easing": {
         "EaseIn": {
-          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.14"
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.12"
         },
         "EaseOut": {
-          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.15"
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.13"
         }
       },
       "SectionRange": {
@@ -658,6 +766,7 @@
     "Type": "MovieScene2DTransformTrack",
     "Name": "MovieScene2DTransformTrack_0",
     "Outer": "SicknessLevel02",
+    "Class": "UScriptClass'MovieScene2DTransformTrack'",
     "Properties": {
       "PropertyBinding": {
         "PropertyName": "RenderTransform",
@@ -666,8 +775,8 @@
       },
       "Sections": [
         {
-          "ObjectName": "MovieScene2DTransformSection WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.10"
+          "ObjectName": "MovieScene2DTransformSection'WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.8"
         }
       ],
       "EvaluationFieldGuid": "743DFB9D-430A8059-F95B82AE-EC43F665",
@@ -675,8 +784,8 @@
         "Entries": [
           {
             "Section": {
-              "ObjectName": "MovieScene2DTransformSection WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.10"
+              "ObjectName": "MovieScene2DTransformSection'WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+              "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.8"
             },
             "Range": {
               "LowerBound": {
@@ -706,27 +815,32 @@
   {
     "Type": "MovieSceneBuiltInEasingFunction",
     "Name": "EaseInFunction",
-    "Outer": "MovieSceneFloatSection_0"
+    "Outer": "MovieSceneFloatSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
   },
   {
     "Type": "MovieSceneBuiltInEasingFunction",
     "Name": "EaseOutFunction",
-    "Outer": "MovieSceneFloatSection_0"
+    "Outer": "MovieSceneFloatSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
   },
   {
     "Type": "MovieSceneBuiltInEasingFunction",
     "Name": "EaseInFunction",
-    "Outer": "MovieScene2DTransformSection_0"
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
   },
   {
     "Type": "MovieSceneBuiltInEasingFunction",
     "Name": "EaseOutFunction",
-    "Outer": "MovieScene2DTransformSection_0"
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
   },
   {
     "Type": "MovieSceneCompiledData",
     "Name": "CompiledData",
     "Outer": "SicknessLevel01_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
     "Properties": {
       "EntityComponentField": {
         "PersistentEntityTree": {
@@ -819,8 +933,8 @@
           {
             "Key": {
               "EntityOwner": {
-                "ObjectName": "MovieSceneFloatSection WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.18"
+                "ObjectName": "MovieSceneFloatSection'WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
+                "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.16"
               },
               "EntityID": 0
             },
@@ -855,6 +969,7 @@
     "Type": "MovieSceneCompiledData",
     "Name": "CompiledData",
     "Outer": "SicknessLevel02_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
     "Properties": {
       "EntityComponentField": {
         "PersistentEntityTree": {
@@ -947,8 +1062,8 @@
           {
             "Key": {
               "EntityOwner": {
-                "ObjectName": "MovieScene2DTransformSection WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.10"
+                "ObjectName": "MovieScene2DTransformSection'WBP_K15_C:SicknessLevel02_INST.SicknessLevel02.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+                "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.8"
               },
               "EntityID": 0
             },
@@ -983,16 +1098,63 @@
     "Type": "MovieSceneFloatSection",
     "Name": "MovieSceneFloatSection_0",
     "Outer": "MovieSceneFloatTrack_0",
+    "Class": "UScriptClass'MovieSceneFloatSection'",
     "Properties": {
-      "FloatCurve": null,
+      "FloatCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 15000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.5,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
       "Easing": {
         "EaseIn": {
-          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.12"
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.10"
         },
         "EaseOut": {
-          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.13"
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.11"
         }
       },
       "SectionRange": {
@@ -1018,6 +1180,7 @@
     "Type": "MovieSceneFloatTrack",
     "Name": "MovieSceneFloatTrack_0",
     "Outer": "SicknessLevel01",
+    "Class": "UScriptClass'MovieSceneFloatTrack'",
     "Properties": {
       "PropertyBinding": {
         "PropertyName": "RenderOpacity",
@@ -1026,8 +1189,8 @@
       },
       "Sections": [
         {
-          "ObjectName": "MovieSceneFloatSection WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.18"
+          "ObjectName": "MovieSceneFloatSection'WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.16"
         }
       ],
       "EvaluationFieldGuid": "5A450893-4F91F4E6-6EA12FBA-9B93299C",
@@ -1035,8 +1198,8 @@
         "Entries": [
           {
             "Section": {
-              "ObjectName": "MovieSceneFloatSection WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.18"
+              "ObjectName": "MovieSceneFloatSection'WBP_K15_C:SicknessLevel01_INST.SicknessLevel01.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
+              "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.16"
             },
             "Range": {
               "LowerBound": {
@@ -1067,11 +1230,12 @@
     "Type": "Overlay",
     "Name": "SicknessOverlay",
     "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "OverlaySlot WBP_K15_C:WidgetTree.SicknessOverlay.OverlaySlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.21"
+          "ObjectName": "OverlaySlot'WBP_K15_C:WidgetTree.SicknessOverlay.OverlaySlot_1'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.19"
         }
       ],
       "RenderTransform": {
@@ -1087,27 +1251,43 @@
     "Type": "OverlaySlot",
     "Name": "OverlaySlot_1",
     "Outer": "SicknessOverlay",
+    "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
       "Parent": {
-        "ObjectName": "Overlay WBP_K15_C:WidgetTree.SicknessOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.20"
+        "ObjectName": "Overlay'WBP_K15_C:WidgetTree.SicknessOverlay'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.18"
       },
       "Content": {
-        "ObjectName": "DBDImage WBP_K15_C:WidgetTree.SicknessGague",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.7"
+        "ObjectName": "DBDImage'WBP_K15_C:WidgetTree.SicknessGague'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.0"
       }
+    }
+  },
+  {
+    "Type": "WBP_K15_C",
+    "Name": "Default__WBP_K15_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/HUD/PlayerStatus/WBP_K15.WBP_K15_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "FocusAnimationDuration": 6.0,
+      "FocusAnimationDelay": 0.0,
+      "FocusAnimationEasing": "EEasingType::Linear",
+      "FocusAnimationMinOpacity": 0.6,
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
     }
   },
   {
     "Type": "WidgetAnimation",
     "Name": "SicknessLevel01_INST",
     "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'WidgetAnimation'",
     "Properties": {
       "MovieScene": {
-        "ObjectName": "MovieScene WBP_K15_C:SicknessLevel01_INST.SicknessLevel01",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.8"
+        "ObjectName": "MovieScene'WBP_K15_C:SicknessLevel01_INST.SicknessLevel01'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.6"
       },
       "AnimationBindings": [
         {
@@ -1119,8 +1299,8 @@
       ],
       "DisplayLabel": "SicknessLevel01",
       "CompiledData": {
-        "ObjectName": "MovieSceneCompiledData WBP_K15_C:SicknessLevel01_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.16"
+        "ObjectName": "MovieSceneCompiledData'WBP_K15_C:SicknessLevel01_INST.CompiledData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.14"
       },
       "Signature": "A078662F-4A0369FE-A3717DBC-E054F66E"
     }
@@ -1129,10 +1309,11 @@
     "Type": "WidgetAnimation",
     "Name": "SicknessLevel02_INST",
     "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'WidgetAnimation'",
     "Properties": {
       "MovieScene": {
-        "ObjectName": "MovieScene WBP_K15_C:SicknessLevel02_INST.SicknessLevel02",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.9"
+        "ObjectName": "MovieScene'WBP_K15_C:SicknessLevel02_INST.SicknessLevel02'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.7"
       },
       "AnimationBindings": [
         {
@@ -1144,20 +1325,177 @@
       ],
       "DisplayLabel": "SicknessLevel02",
       "CompiledData": {
-        "ObjectName": "MovieSceneCompiledData WBP_K15_C:SicknessLevel02_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.17"
+        "ObjectName": "MovieSceneCompiledData'WBP_K15_C:SicknessLevel02_INST.CompiledData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.15"
       },
       "Signature": "E5EC0BC0-49F4B88F-40C105A9-417BDC16"
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_K15_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_K15_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.24"
+      },
+      "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'WBP_K15_C:SicknessLevel01_INST'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.21"
+        },
+        {
+          "ObjectName": "WidgetAnimation'WBP_K15_C:SicknessLevel02_INST'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.22"
+        }
+      ],
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_K15_C:ExecuteUbergraph_WBP_K15'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.2"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CorePlayerStatusKillerEffectWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_K15_C:SetPlagueVisibility'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.5"
+      },
+      {
+        "ObjectName": "Function'WBP_K15_C:SetPlagueData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.4"
+      },
+      {
+        "ObjectName": "Function'WBP_K15_C:SetKillerData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.3"
+      },
+      {
+        "ObjectName": "Function'WBP_K15_C:Construct'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.1"
+      },
+      {
+        "ObjectName": "Function'WBP_K15_C:ExecuteUbergraph_WBP_K15'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.2"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SicknessLevel02",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SicknessLevel01",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SicknessGague",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SicknessOverlay",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Overlay'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CacheData",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'PlagueStatusData'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_K15": {
+        "ObjectName": "Function'WBP_K15_C:ExecuteUbergraph_WBP_K15'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.2"
+      },
+      "Construct": {
+        "ObjectName": "Function'WBP_K15_C:Construct'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.1"
+      },
+      "SetKillerData": {
+        "ObjectName": "Function'WBP_K15_C:SetKillerData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.3"
+      },
+      "SetPlagueData": {
+        "ObjectName": "Function'WBP_K15_C:SetPlagueData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.4"
+      },
+      "SetPlagueVisibility": {
+        "ObjectName": "Function'WBP_K15_C:SetPlagueVisibility'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.5"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_K15_C'Default__WBP_K15_C'",
+      "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.20"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
     "Type": "WidgetTree",
     "Name": "WidgetTree",
     "Outer": "WBP_K15_C",
+    "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "Overlay WBP_K15_C:WidgetTree.SicknessOverlay",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K15.20"
+        "ObjectName": "Overlay'WBP_K15_C:WidgetTree.SicknessOverlay'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K15.18"
       }
     }
   }

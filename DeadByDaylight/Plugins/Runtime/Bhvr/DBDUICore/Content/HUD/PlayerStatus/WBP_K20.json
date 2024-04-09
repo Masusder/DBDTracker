@@ -1,41 +1,71 @@
 [
   {
+    "Type": "DBDImage",
+    "Name": "AgonyIcon",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 256.0,
+          "Y": 256.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'statusIcon_agony'",
+          "ObjectPath": "/DBDUICore/Assets/HUD/PlayerStatus/statusIcon_agony.0"
+        }
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_K20_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_K20",
     "Outer": "WBP_K20_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "IntProperty",
         "Name": "EntryPoint",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 4,
-        "PropertyFlags": 148
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
         "Type": "StructProperty",
         "Name": "K2Node_Event_data",
-        "Flags": 1,
-        "ElementSize": 64,
-        "PropertyFlags": 2,
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct PlayerStatusViewData",
+          "ObjectName": "Class'PlayerStatusViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "ObjectProperty",
         "Name": "K2Node_DynamicCast_AsExecutioner_Status_Data",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class ExecutionerStatusData",
+          "ObjectName": "Class'ExecutionerStatusData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "BoolProperty",
         "Name": "K2Node_DynamicCast_bSuccess",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -47,71 +77,39 @@
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_SpawnObject_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class ExecutionerStatusData",
+          "ObjectName": "Class'ExecutionerStatusData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
     ],
-    "FunctionFlags": 8421377
-  },
-  {
-    "Type": "Function",
-    "Name": "Construct",
-    "Outer": "WBP_K20_C",
-    "SuperStruct": {
-      "ObjectName": "Function UserWidget:Construct",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": 134350856
-  },
-  {
-    "Type": "Function",
-    "Name": "SetKillerData",
-    "Outer": "WBP_K20_C",
-    "SuperStruct": {
-      "ObjectName": "Function CorePlayerStatusKillerEffectWidget:SetKillerData",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "data",
-        "Flags": 1,
-        "ElementSize": 64,
-        "PropertyFlags": 134218134,
-        "Struct": {
-          "ObjectName": "ScriptStruct PlayerStatusViewData",
-          "ObjectPath": "/Script/DBDUIViewInterfaces"
-        }
-      }
-    ],
-    "FunctionFlags": 206047232
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
   },
   {
     "Type": "Function",
     "Name": "SetExecutionerData",
     "Outer": "WBP_K20_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
         "Name": "KillerData",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "PropertyClass": {
-          "ObjectName": "Class ExecutionerStatusData",
+          "ObjectName": "Class'ExecutionerStatusData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
       {
         "Type": "BoolProperty",
         "Name": "StateChange",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": 5,
+        "PropertyFlags": "Edit | BlueprintVisible",
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
@@ -122,7 +120,7 @@
       {
         "Type": "BoolProperty",
         "Name": "CallFunc_Greater_FloatFloat_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -134,7 +132,7 @@
       {
         "Type": "BoolProperty",
         "Name": "CallFunc_NotEqual_FloatFloat_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -146,27 +144,28 @@
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_PlayAnimation_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class UMGSequencePlayer",
+          "ObjectName": "Class'UMGSequencePlayer'",
           "ObjectPath": "/Script/UMG"
         }
       }
     ],
-    "FunctionFlags": 201457664
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
     "Name": "SetExecutionerVisibility",
     "Outer": "WBP_K20_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "BoolProperty",
         "Name": "isVisible",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": 134218132,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
@@ -177,7 +176,7 @@
       {
         "Type": "BoolProperty",
         "Name": "Temp_bool_Variable",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -189,16 +188,16 @@
       {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
@@ -206,16 +205,16 @@
       {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable_1",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
@@ -223,194 +222,64 @@
       {
         "Type": "EnumProperty",
         "Name": "K2Node_Select_Default",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum ESlateVisibility",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
           "Name": "UnderlyingType",
-          "Flags": 1,
+          "Flags": "RF_Public",
           "ElementSize": 1,
           "Enum": null
         }
       }
     ],
-    "FunctionFlags": 205651968
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
-    "Type": "WidgetBlueprintGeneratedClass",
-    "Name": "WBP_K20_C",
-    "Properties": {
-      "WidgetTree": {
-        "ObjectName": "WidgetTree WBP_K20_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.15"
-      },
-      "bClassRequiresNativeTick": true,
-      "Animations": [
-        {
-          "ObjectName": "WidgetAnimation WBP_K20_C:AgonyAnimation_INST",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.14"
-        }
-      ],
-      "UberGraphFunction": {
-        "ObjectName": "Function WBP_K20_C:ExecuteUbergraph_WBP_K20",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.0"
-      }
-    },
+    "Type": "Function",
+    "Name": "SetKillerData",
+    "Outer": "WBP_K20_C",
+    "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Class CorePlayerStatusKillerEffectWidget",
+      "ObjectName": "Class'CorePlayerStatusKillerEffectWidget:SetKillerData'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
-    "Children": [
-      {
-        "ObjectName": "Function WBP_K20_C:SetExecutionerVisibility",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.4"
-      },
-      {
-        "ObjectName": "Function WBP_K20_C:SetExecutionerData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.3"
-      },
-      {
-        "ObjectName": "Function WBP_K20_C:SetKillerData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.2"
-      },
-      {
-        "ObjectName": "Function WBP_K20_C:Construct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.1"
-      },
-      {
-        "ObjectName": "Function WBP_K20_C:ExecuteUbergraph_WBP_K20",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.0"
-      }
-    ],
     "ChildProperties": [
       {
         "Type": "StructProperty",
-        "Name": "UberGraphFrame",
-        "Flags": 2097153,
-        "ElementSize": 16,
-        "PropertyFlags": 2105344,
+        "Name": "data",
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
         "Struct": {
-          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "AgonyAnimation",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 2147491860,
-        "PropertyClass": {
-          "ObjectName": "Class WidgetAnimation",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "AgonyIcon",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 562952101429260,
-        "PropertyClass": {
-          "ObjectName": "Class DBDImage",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CacheData",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 65541,
-        "PropertyClass": {
-          "ObjectName": "Class ExecutionerStatusData",
+          "ObjectName": "Class'PlayerStatusViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
     ],
-    "FuncMap": {
-      "ExecuteUbergraph_WBP_K20": {
-        "ObjectName": "Function WBP_K20_C:ExecuteUbergraph_WBP_K20",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.0"
-      },
-      "Construct": {
-        "ObjectName": "Function WBP_K20_C:Construct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.1"
-      },
-      "SetKillerData": {
-        "ObjectName": "Function WBP_K20_C:SetKillerData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.2"
-      },
-      "SetExecutionerData": {
-        "ObjectName": "Function WBP_K20_C:SetExecutionerData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.3"
-      },
-      "SetExecutionerVisibility": {
-        "ObjectName": "Function WBP_K20_C:SetExecutionerVisibility",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.4"
-      }
-    },
-    "ClassFlags": 10754064,
-    "ClassWithin": {
-      "ObjectName": "Class Object",
-      "ObjectPath": "/Script/CoreUObject"
-    },
-    "ClassConfigName": "Engine",
-    "bCooked": true,
-    "ClassDefaultObject": {
-      "ObjectName": "WBP_K20_C Default__WBP_K20_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.6"
-    }
-  },
-  {
-    "Type": "WBP_K20_C",
-    "Name": "Default__WBP_K20_C",
-    "Properties": {
-      "UberGraphFrame": {},
-      "FocusAnimationDuration": 6.0,
-      "FocusAnimationDelay": 0.0,
-      "FocusAnimationEasing": "EEasingType::Linear",
-      "FocusAnimationMinOpacity": 0.6,
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "AgonyIcon",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 256.0,
-          "Y": 256.0
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D statusIcon_agony",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/HUD/PlayerStatus/statusIcon_agony.0"
-        }
-      }
-    }
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "MovieScene",
     "Name": "AgonyAnimation",
     "Outer": "AgonyAnimation_INST",
+    "Class": "UScriptClass'MovieScene'",
     "Properties": {
       "Possessables": [
         {
           "Tags": [],
           "Guid": "2B25938B-4D5062BC-83D2A68C-8C22A0FE",
           "Name": "AgonyIcon",
-          "PossessedObjectClass": {
-            "ObjectName": "Class DBDImage",
-            "ObjectPath": "/Script/DBDUIViewsCore"
-          },
-          "ParentGuid": "00000000-00000000-00000000-00000000"
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
         }
       ],
       "ObjectBindings": [
@@ -419,8 +288,8 @@
           "BindingName": "AgonyIcon",
           "Tracks": [
             {
-              "ObjectName": "MovieScene2DTransformTrack WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.10"
+              "ObjectName": "MovieScene2DTransformTrack'WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0'",
+              "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.8"
             }
           ]
         }
@@ -451,22 +320,777 @@
     "Type": "MovieScene2DTransformSection",
     "Name": "MovieScene2DTransformSection_0",
     "Outer": "MovieScene2DTransformTrack_0",
+    "Class": "UScriptClass'MovieScene2DTransformSection'",
     "Properties": {
-      "Translation": null,
-      "Translation": null,
-      "Rotation": null,
-      "Scale": null,
-      "Scale": null,
-      "Shear": null,
-      "Shear": null,
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Rotation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 120000
+          },
+          {
+            "Value": 240000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0015,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 180.0,
+            "Tangent": {
+              "ArriveTangent": 0.0015,
+              "LeaveTangent": 0.0014916667,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 360.0,
+            "Tangent": {
+              "ArriveTangent": 0.0014916667,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 0,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 15000
+          },
+          {
+            "Value": 30000
+          },
+          {
+            "Value": 45000
+          },
+          {
+            "Value": 60000
+          },
+          {
+            "Value": 75000
+          },
+          {
+            "Value": 90000
+          },
+          {
+            "Value": 105000
+          },
+          {
+            "Value": 120000
+          },
+          {
+            "Value": 135000
+          },
+          {
+            "Value": 150000
+          },
+          {
+            "Value": 165000
+          },
+          {
+            "Value": 180000
+          },
+          {
+            "Value": 195000
+          },
+          {
+            "Value": 210000
+          },
+          {
+            "Value": 225000
+          },
+          {
+            "Value": 240000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 15000
+          },
+          {
+            "Value": 30000
+          },
+          {
+            "Value": 45000
+          },
+          {
+            "Value": 60000
+          },
+          {
+            "Value": 75000
+          },
+          {
+            "Value": 90000
+          },
+          {
+            "Value": 105000
+          },
+          {
+            "Value": 120000
+          },
+          {
+            "Value": 135000
+          },
+          {
+            "Value": 150000
+          },
+          {
+            "Value": 165000
+          },
+          {
+            "Value": 180000
+          },
+          {
+            "Value": 195000
+          },
+          {
+            "Value": 210000
+          },
+          {
+            "Value": 225000
+          },
+          {
+            "Value": 240000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
       "Easing": {
         "EaseIn": {
-          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.11"
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.9"
         },
         "EaseOut": {
-          "ObjectName": "MovieSceneBuiltInEasingFunction WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.12"
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.10"
         }
       },
       "SectionRange": {
@@ -492,6 +1116,7 @@
     "Type": "MovieScene2DTransformTrack",
     "Name": "MovieScene2DTransformTrack_0",
     "Outer": "AgonyAnimation",
+    "Class": "UScriptClass'MovieScene2DTransformTrack'",
     "Properties": {
       "PropertyBinding": {
         "PropertyName": "RenderTransform",
@@ -500,8 +1125,8 @@
       },
       "Sections": [
         {
-          "ObjectName": "MovieScene2DTransformSection WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.9"
+          "ObjectName": "MovieScene2DTransformSection'WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.7"
         }
       ],
       "EvaluationFieldGuid": "611CFFAA-4F52BAC0-354E70A8-F901E2D6",
@@ -509,8 +1134,8 @@
         "Entries": [
           {
             "Section": {
-              "ObjectName": "MovieScene2DTransformSection WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.9"
+              "ObjectName": "MovieScene2DTransformSection'WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+              "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.7"
             },
             "Range": {
               "LowerBound": {
@@ -540,17 +1165,20 @@
   {
     "Type": "MovieSceneBuiltInEasingFunction",
     "Name": "EaseInFunction",
-    "Outer": "MovieScene2DTransformSection_0"
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
   },
   {
     "Type": "MovieSceneBuiltInEasingFunction",
     "Name": "EaseOutFunction",
-    "Outer": "MovieScene2DTransformSection_0"
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
   },
   {
     "Type": "MovieSceneCompiledData",
     "Name": "CompiledData",
     "Outer": "AgonyAnimation_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
     "Properties": {
       "EntityComponentField": {
         "PersistentEntityTree": {
@@ -643,8 +1271,8 @@
           {
             "Key": {
               "EntityOwner": {
-                "ObjectName": "MovieScene2DTransformSection WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.9"
+                "ObjectName": "MovieScene2DTransformSection'WBP_K20_C:AgonyAnimation_INST.AgonyAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+                "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.7"
               },
               "EntityID": 0
             },
@@ -676,13 +1304,28 @@
     }
   },
   {
+    "Type": "WBP_K20_C",
+    "Name": "Default__WBP_K20_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/HUD/PlayerStatus/WBP_K20.WBP_K20_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "FocusAnimationDuration": 6.0,
+      "FocusAnimationDelay": 0.0,
+      "FocusAnimationEasing": "EEasingType::Linear",
+      "FocusAnimationMinOpacity": 0.6,
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
     "Type": "WidgetAnimation",
     "Name": "AgonyAnimation_INST",
     "Outer": "WBP_K20_C",
+    "Class": "UScriptClass'WidgetAnimation'",
     "Properties": {
       "MovieScene": {
-        "ObjectName": "MovieScene WBP_K20_C:AgonyAnimation_INST.AgonyAnimation",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.8"
+        "ObjectName": "MovieScene'WBP_K20_C:AgonyAnimation_INST.AgonyAnimation'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.6"
       },
       "AnimationBindings": [
         {
@@ -694,20 +1337,151 @@
       ],
       "DisplayLabel": "AgonyAnimation",
       "CompiledData": {
-        "ObjectName": "MovieSceneCompiledData WBP_K20_C:AgonyAnimation_INST.CompiledData",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.13"
+        "ObjectName": "MovieSceneCompiledData'WBP_K20_C:AgonyAnimation_INST.CompiledData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.11"
       },
       "Signature": "A4C0DC13-49F1D8C5-03FFFAB1-6BD9ABBD"
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_K20_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_K20_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.15"
+      },
+      "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'WBP_K20_C:AgonyAnimation_INST'",
+          "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.13"
+        }
+      ],
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_K20_C:ExecuteUbergraph_WBP_K20'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.2"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CorePlayerStatusKillerEffectWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_K20_C:SetExecutionerVisibility'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.4"
+      },
+      {
+        "ObjectName": "Function'WBP_K20_C:SetExecutionerData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.3"
+      },
+      {
+        "ObjectName": "Function'WBP_K20_C:SetKillerData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.5"
+      },
+      {
+        "ObjectName": "Function'WBP_K20_C:Construct'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.1"
+      },
+      {
+        "ObjectName": "Function'WBP_K20_C:ExecuteUbergraph_WBP_K20'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.2"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AgonyAnimation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AgonyIcon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CacheData",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'ExecutionerStatusData'",
+          "ObjectPath": "/Script/DBDUIViewInterfaces"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_K20": {
+        "ObjectName": "Function'WBP_K20_C:ExecuteUbergraph_WBP_K20'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.2"
+      },
+      "Construct": {
+        "ObjectName": "Function'WBP_K20_C:Construct'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.1"
+      },
+      "SetKillerData": {
+        "ObjectName": "Function'WBP_K20_C:SetKillerData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.5"
+      },
+      "SetExecutionerData": {
+        "ObjectName": "Function'WBP_K20_C:SetExecutionerData'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.3"
+      },
+      "SetExecutionerVisibility": {
+        "ObjectName": "Function'WBP_K20_C:SetExecutionerVisibility'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.4"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_K20_C'Default__WBP_K20_C'",
+      "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.12"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
     "Type": "WidgetTree",
     "Name": "WidgetTree",
     "Outer": "WBP_K20_C",
+    "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "DBDImage WBP_K20_C:WidgetTree.AgonyIcon",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_K20.7"
+        "ObjectName": "DBDImage'WBP_K20_C:WidgetTree.AgonyIcon'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_K20.0"
       }
     }
   }

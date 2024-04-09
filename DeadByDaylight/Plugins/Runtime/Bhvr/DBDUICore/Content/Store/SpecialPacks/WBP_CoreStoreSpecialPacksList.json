@@ -1,75 +1,446 @@
 [
   {
-    "Type": "WidgetBlueprintGeneratedClass",
-    "Name": "WBP_CoreStoreSpecialPacksList_C",
-    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
-    "Properties": {
-      "WidgetTree": {
-        "ObjectName": "WidgetTree'WBP_CoreStoreSpecialPacksList_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.5"
-      },
-      "bClassRequiresNativeTick": true
-    },
-    "SuperStruct": {
-      "ObjectName": "Class'CoreStoreSpecialPacksListWidget'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
-    "ClassWithin": {
-      "ObjectName": "Class'Object'",
-      "ObjectPath": "/Script/CoreUObject"
-    },
-    "ClassConfigName": "Engine",
-    "bCooked": true,
-    "ClassDefaultObject": {
-      "ObjectName": "WBP_CoreStoreSpecialPacksList_C'Default__WBP_CoreStoreSpecialPacksList_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.1"
-    }
-  },
-  {
-    "Type": "WBP_CoreStoreSpecialPacksList_C",
-    "Name": "Default__WBP_CoreStoreSpecialPacksList_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.WBP_CoreStoreSpecialPacksList_C'",
-    "Properties": {
-      "_itemWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreSpecialPackItem_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPackItem.7"
-      },
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
     "Type": "DBDScrollBox",
-    "Name": "Scroll",
+    "Name": "ScrollBox",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'DBDScrollBox'",
     "Properties": {
+      "_shouldScrollOnMouseOver": false,
+      "_scrollSpeed": 50.0,
+      "_displayPromptText": {
+        "Namespace": "UILocTexts",
+        "Key": "COMMON_Scroll_PROMPT",
+        "SourceString": "COMMON_Scroll_PROMPT",
+        "LocalizedString": "Scroll"
+      },
+      "_showDisplayPrompt": "EShowScrollDisplayPrompt::AlwaysShowIfScrollable",
+      "WidgetStyle": {
+        "TopShadowBrush": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType",
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 32.0
+          }
+        },
+        "BottomShadowBrush": {
+          "DrawAs": "ESlateBrushDrawType::Image",
+          "Margin": {
+            "Left": 0.0,
+            "Right": 0.0,
+            "Bottom": 0.0
+          },
+          "TintColor": {
+            "SpecifiedColor": {
+              "R": 0.0,
+              "G": 0.0,
+              "B": 0.0,
+              "A": 1.0,
+              "Hex": "FF000000"
+            }
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'T_customBots_DividerHorizontal'",
+            "ObjectPath": "/DBDUICore/Assets/CustomBots/T_customBots_DividerHorizontal.0"
+          }
+        },
+        "LeftShadowBrush": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "RightShadowBrush": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        }
+      },
+      "WidgetBarStyle": {
+        "VerticalBackgroundImage": {
+          "DrawAs": "ESlateBrushDrawType::Image",
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 1024.0
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_verticalBG'",
+            "ObjectPath": "/DBDUICore/Assets/Common/ScrollBar/UI_scrollBar_verticalBG.0"
+          }
+        },
+        "VerticalTopSlotImage": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "HorizontalTopSlotImage": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "VerticalBottomSlotImage": {
+          "DrawAs": "ESlateBrushDrawType::NoDrawType"
+        },
+        "NormalThumbImage": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 64.0
+          },
+          "Margin": {
+            "Left": 0.0,
+            "Top": 0.45,
+            "Right": 0.0,
+            "Bottom": 0.45
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_9Slice'",
+            "ObjectPath": "/DBDUICore/Assets/Common/ScrollBar/UI_scrollBar_9Slice.0"
+          }
+        },
+        "HoveredThumbImage": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 64.0
+          },
+          "Margin": {
+            "Left": 0.0,
+            "Top": 0.45,
+            "Right": 0.0,
+            "Bottom": 0.45
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_9Slice'",
+            "ObjectPath": "/DBDUICore/Assets/Common/ScrollBar/UI_scrollBar_9Slice.0"
+          }
+        },
+        "DraggedThumbImage": {
+          "ImageSize": {
+            "X": 32.0,
+            "Y": 64.0
+          },
+          "Margin": {
+            "Left": 0.0,
+            "Top": 0.45,
+            "Right": 0.0,
+            "Bottom": 0.45
+          },
+          "ResourceObject": {
+            "ObjectName": "Texture2D'UI_scrollBar_9Slice'",
+            "ObjectPath": "/DBDUICore/Assets/Common/ScrollBar/UI_scrollBar_9Slice.0"
+          }
+        }
+      },
+      "ScrollbarThickness": {
+        "X": 32.0,
+        "Y": 0.0
+      },
+      "ScrollbarPadding": {
+        "Left": 0.0,
+        "Top": 25.0,
+        "Right": -32.0,
+        "Bottom": 0.0
+      },
+      "AlwaysShowScrollbarTrack": true,
+      "AllowOverscroll": false,
+      "WheelScrollMultiplier": 7.0,
       "Slots": [
         {
-          "ObjectName": "ScrollBoxSlot'WBP_CoreStoreSpecialPacksList_C:WidgetTree.Scroll.ScrollBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.3"
+          "ObjectName": "ScrollBoxSlot'WBP_CoreStoreSpecialPacksList_C:WidgetTree.ScrollBox.ScrollBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.5"
         }
-      ]
+      ],
+      "bIsVariable": true
     }
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_CoreStoreSpecialPacksList_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Destruct",
+    "Outer": "WBP_CoreStoreSpecialPacksList_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Destruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_WBP_CoreStoreSpecialPacksList",
+    "Outer": "WBP_CoreStoreSpecialPacksList_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GreaterEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'EOrientation'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_MakeLiteralByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DivideWithRemainder_remainder",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_DivideWithRemainder_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'EOrientation'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_Select_Default_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsDesignTime",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Create_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'UserWidget'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SlotAsUniformGridSlot_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'UniformGridSlot'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetAllChildren_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetAllChildren_ReturnValue",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'Widget'",
+            "ObjectPath": "/Script/UMG"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_AddChild_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PanelSlot'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'Widget'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_RemoveChild_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_ObjectIsA_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "PreConstruct",
+    "Outer": "WBP_CoreStoreSpecialPacksList_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:PreConstruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsDesignTime",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
     "Type": "ScrollBoxSlot",
     "Name": "ScrollBoxSlot_0",
-    "Outer": "Scroll",
+    "Outer": "ScrollBox",
     "Class": "UScriptClass'ScrollBoxSlot'",
     "Properties": {
-      "Padding": {
-        "Left": 200.0,
-        "Right": 200.0
-      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Right",
       "Parent": {
-        "ObjectName": "DBDScrollBox'WBP_CoreStoreSpecialPacksList_C:WidgetTree.Scroll'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.2"
+        "ObjectName": "DBDScrollBox'WBP_CoreStoreSpecialPacksList_C:WidgetTree.ScrollBox'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.0"
       },
       "Content": {
         "ObjectName": "UniformGridPanel'WBP_CoreStoreSpecialPacksList_C:WidgetTree.ContentGrid'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.4"
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.6"
       }
     }
   },
@@ -80,15 +451,120 @@
     "Class": "UScriptClass'UniformGridPanel'",
     "Properties": {
       "SlotPadding": {
-        "Left": 100.0,
-        "Top": 100.0,
-        "Right": 100.0,
-        "Bottom": 100.0
+        "Left": 50.0,
+        "Top": 50.0,
+        "Right": 50.0,
+        "Bottom": 60.0
       },
       "Slot": {
-        "ObjectName": "ScrollBoxSlot'WBP_CoreStoreSpecialPacksList_C:WidgetTree.Scroll.ScrollBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.3"
+        "ObjectName": "ScrollBoxSlot'WBP_CoreStoreSpecialPacksList_C:WidgetTree.ScrollBox.ScrollBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.5"
       }
+    }
+  },
+  {
+    "Type": "WBP_CoreStoreSpecialPacksList_C",
+    "Name": "Default__WBP_CoreStoreSpecialPacksList_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.WBP_CoreStoreSpecialPacksList_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "PreviewNumberOfItems": 11,
+      "_itemWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStoreSpecialPackItem_C'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPackItem.63"
+      },
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_CoreStoreSpecialPacksList_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_CoreStoreSpecialPacksList_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.9"
+      },
+      "bClassRequiresNativeTick": true,
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:ExecuteUbergraph_WBP_CoreStoreSpecialPacksList'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CoreStoreSpecialPacksListWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:Construct'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.1"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:Destruct'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.2"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.4"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:ExecuteUbergraph_WBP_CoreStoreSpecialPacksList'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "PreviewNumberOfItems",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance"
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CoreStoreSpecialPacksList": {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:ExecuteUbergraph_WBP_CoreStoreSpecialPacksList'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.3"
+      },
+      "PreConstruct": {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.4"
+      },
+      "Destruct": {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:Destruct'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.2"
+      },
+      "Construct": {
+        "ObjectName": "Function'WBP_CoreStoreSpecialPacksList_C:Construct'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.1"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CoreStoreSpecialPacksList_C'Default__WBP_CoreStoreSpecialPacksList_C'",
+      "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.7"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -98,8 +574,8 @@
     "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "DBDScrollBox'WBP_CoreStoreSpecialPacksList_C:WidgetTree.Scroll'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.2"
+        "ObjectName": "DBDScrollBox'WBP_CoreStoreSpecialPacksList_C:WidgetTree.ScrollBox'",
+        "ObjectPath": "/DBDUICore/Store/SpecialPacks/WBP_CoreStoreSpecialPacksList.0"
       }
     }
   }

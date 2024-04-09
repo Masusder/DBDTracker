@@ -1,5 +1,134 @@
 [
   {
+    "Type": "DBDButton",
+    "Name": "HitzoneButton",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDButton'",
+    "Properties": {
+      "_analyticsName": "HitzoneButton",
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.19"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "LevelBG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
+      },
+      "Brush": {
+        "ImageSize": {
+          "X": 500.0,
+          "Y": 500.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_PlayerLevelBase_big'",
+          "ObjectPath": "/DBDUICore/Assets/ProfileMenu/T_UI_PlayerLevelBase_big.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.20"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
+    "Name": "LevelTB",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDTextBlock'",
+    "Properties": {
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.645833,
+          "G": 0.645833,
+          "B": 0.645833,
+          "A": 1.0,
+          "Hex": "FFD3D3D3"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'DBDCoreFont'",
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.0"
+        },
+        "Size": 100
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42.OverlaySlot_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.21"
+      },
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
+    "Name": "PrestigeTB",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDTextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "361E527B416EC05DBF7043B4C051917E",
+        "SourceString": "Devotion 1",
+        "LocalizedString": "Devotion 1"
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.198069,
+          "G": 0.246201,
+          "B": 0.283149,
+          "A": 1.0,
+          "Hex": "FF7B8891"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'DBDCoreFont'",
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.0"
+        },
+        "TypefaceFontName": "Condensed",
+        "Size": 38
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.14"
+      },
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "AnimateLevelUp",
+    "Outer": "WBP_CorePlayerLevel_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CorePlayerLevelWidget:AnimateLevelUp'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Destruct",
+    "Outer": "WBP_CorePlayerLevel_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Destruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CorePlayerLevel",
     "Outer": "WBP_CorePlayerLevel_C",
@@ -19,7 +148,7 @@
         "ElementSize": 24,
         "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'PlayerLevelViewData'",
+          "ObjectName": "Class'PlayerLevelViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
@@ -29,7 +158,7 @@
         "Flags": "RF_Public",
         "ElementSize": 24,
         "Struct": {
-          "ObjectName": "ScriptStruct'PlayerLevelViewData'",
+          "ObjectName": "Class'PlayerLevelViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
@@ -62,7 +191,7 @@
         "ElementSize": 56,
         "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'Geometry'",
+          "ObjectName": "Class'Geometry'",
           "ObjectPath": "/Script/SlateCore"
         }
       },
@@ -91,25 +220,14 @@
   },
   {
     "Type": "Function",
-    "Name": "AnimateLevelUp",
+    "Name": "OnHovered",
     "Outer": "WBP_CorePlayerLevel_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CorePlayerLevelWidget:AnimateLevelUp'",
+      "ObjectName": "Class'CoreButtonWidget:OnHovered'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "Destruct",
-    "Outer": "WBP_CorePlayerLevel_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:Destruct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -117,18 +235,7 @@
     "Outer": "WBP_CorePlayerLevel_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CoreButtonWidget:OnUnhovered'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "OnHovered",
-    "Outer": "WBP_CorePlayerLevel_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreButtonWidget:OnHovered'",
+      "ObjectName": "Class'CoreButtonWidget:OnUnhovered'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
@@ -139,7 +246,7 @@
     "Outer": "WBP_CorePlayerLevel_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'UserWidget:PreConstruct'",
+      "ObjectName": "Class'UserWidget:PreConstruct'",
       "ObjectPath": "/Script/UMG"
     },
     "ChildProperties": [
@@ -165,7 +272,7 @@
     "Outer": "WBP_CorePlayerLevel_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CorePlayerLevelWidget:SetData'",
+      "ObjectName": "Class'CorePlayerLevelWidget:SetData'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "ChildProperties": [
@@ -176,7 +283,7 @@
         "ElementSize": 24,
         "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'PlayerLevelViewData'",
+          "ObjectName": "Class'PlayerLevelViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       }
@@ -219,9 +326,9 @@
         "Type": "StructProperty",
         "Name": "K2Node_MakeStruct_FormatArgumentData",
         "Flags": "RF_Public",
-        "ElementSize": 64,
+        "ElementSize": 80,
         "Struct": {
-          "ObjectName": "ScriptStruct'FormatArgumentData'",
+          "ObjectName": "Class'FormatArgumentData'",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -235,9 +342,9 @@
           "Type": "StructProperty",
           "Name": "K2Node_MakeArray_Array",
           "Flags": "RF_Public",
-          "ElementSize": 64,
+          "ElementSize": 80,
           "Struct": {
-            "ObjectName": "ScriptStruct'FormatArgumentData'",
+            "ObjectName": "Class'FormatArgumentData'",
             "ObjectPath": "/Script/Engine"
           }
         }
@@ -264,7 +371,7 @@
         "ElementSize": 24,
         "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'PlayerLevelViewData'",
+          "ObjectName": "Class'PlayerLevelViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
       },
@@ -290,9 +397,9 @@
         "Type": "StructProperty",
         "Name": "K2Node_MakeStruct_FormatArgumentData",
         "Flags": "RF_Public",
-        "ElementSize": 64,
+        "ElementSize": 80,
         "Struct": {
-          "ObjectName": "ScriptStruct'FormatArgumentData'",
+          "ObjectName": "Class'FormatArgumentData'",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -312,9 +419,9 @@
           "Type": "StructProperty",
           "Name": "K2Node_MakeArray_Array",
           "Flags": "RF_Public",
-          "ElementSize": 64,
+          "ElementSize": 80,
           "Struct": {
-            "ObjectName": "ScriptStruct'FormatArgumentData'",
+            "ObjectName": "Class'FormatArgumentData'",
             "ObjectPath": "/Script/Engine"
           }
         }
@@ -329,275 +436,6 @@
     "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
-    "Type": "WidgetBlueprintGeneratedClass",
-    "Name": "WBP_CorePlayerLevel_C",
-    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
-    "Properties": {
-      "WidgetTree": {
-        "ObjectName": "WidgetTree'WBP_CorePlayerLevel_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.28"
-      },
-      "bClassRequiresNativeTick": true,
-      "UberGraphFunction": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:ExecuteUbergraph_WBP_CorePlayerLevel'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.0"
-      }
-    },
-    "SuperStruct": {
-      "ObjectName": "Class'CorePlayerLevelWidget'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "Children": [
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetViewData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.8"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetDataFromViewData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.7"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.6"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.5"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnHovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.4"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnUnhovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.3"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:Destruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.2"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:AnimateLevelUp'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.1"
-      },
-      {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:ExecuteUbergraph_WBP_CorePlayerLevel'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.0"
-      }
-    ],
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "UberGraphFrame",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 16,
-        "PropertyFlags": "Transient | DuplicateTransient",
-        "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "LevelBG",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'DBDImage'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "LevelTB",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'DBDTextBlock'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "PrestigeTB",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'DBDTextBlock'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      }
-    ],
-    "FuncMap": {
-      "ExecuteUbergraph_WBP_CorePlayerLevel": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:ExecuteUbergraph_WBP_CorePlayerLevel'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.0"
-      },
-      "AnimateLevelUp": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:AnimateLevelUp'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.1"
-      },
-      "Destruct": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:Destruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.2"
-      },
-      "OnUnhovered": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnUnhovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.3"
-      },
-      "OnHovered": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnHovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.4"
-      },
-      "PreConstruct": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.5"
-      },
-      "SetData": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.6"
-      },
-      "SetDataFromViewData": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetDataFromViewData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.7"
-      },
-      "SetViewData": {
-        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetViewData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.8"
-      }
-    },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
-    "ClassWithin": {
-      "ObjectName": "Class'Object'",
-      "ObjectPath": "/Script/CoreUObject"
-    },
-    "ClassConfigName": "Engine",
-    "bCooked": true,
-    "ClassDefaultObject": {
-      "ObjectName": "WBP_CorePlayerLevel_C'Default__WBP_CorePlayerLevel_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.10"
-    }
-  },
-  {
-    "Type": "WBP_CorePlayerLevel_C",
-    "Name": "Default__WBP_CorePlayerLevel_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.WBP_CorePlayerLevel_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "DBDButton",
-    "Name": "HitzoneButton",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDButton'",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.21"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "LevelBG",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "DefaultImage": {
-        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
-        "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
-      },
-      "Brush": {
-        "ImageSize": {
-          "X": 500.0,
-          "Y": 500.0
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D'T_UI_PlayerLevelBase_big'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/ProfileMenu/T_UI_PlayerLevelBase_big.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.22"
-      },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "LevelTB",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDTextBlock'",
-    "Properties": {
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 0.645833,
-          "G": 0.645833,
-          "B": 0.645833,
-          "A": 1.0,
-          "Hex": "FFD3D3D3"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font'DBDCoreFont'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "Size": 100
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.23"
-      },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "PrestigeTB",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDTextBlock'",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "361E527B416EC05DBF7043B4C051917E",
-        "SourceString": "Devotion 1",
-        "LocalizedString": "Devotion 1"
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 0.198069,
-          "G": 0.246201,
-          "B": 0.283149,
-          "A": 1.0,
-          "Hex": "FF7B8891"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font'DBDCoreFont'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "TypefaceFontName": "Condensed",
-        "Size": 38
-      },
-      "Slot": {
-        "ObjectName": "HorizontalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.16"
-      },
-      "bIsVariable": true,
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
     "Type": "HorizontalBox",
     "Name": "HorizontalBox_0",
     "Outer": "WidgetTree",
@@ -606,16 +444,16 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.17"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.15"
         },
         {
           "ObjectName": "HorizontalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.16"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.14"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.VerticalBox_95.VerticalBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.27"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.25"
       }
     }
   },
@@ -628,14 +466,14 @@
       "Padding": {
         "Top": 20.0
       },
-      "VerticalAlignment": "VAlign_Bottom",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Bottom",
       "Parent": {
         "ObjectName": "HorizontalBox'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.15"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.13"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CorePlayerLevel_C:WidgetTree.PrestigeTB'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.14"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.3"
       }
     }
   },
@@ -647,11 +485,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "HorizontalBox'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.15"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.13"
       },
       "Content": {
         "ObjectName": "Spacer'WBP_CorePlayerLevel_C:WidgetTree.Spacer_82'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.24"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.22"
       }
     }
   },
@@ -664,11 +502,11 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.20"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.18"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.21"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.19"
         }
       ]
     }
@@ -682,16 +520,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.22"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.20"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.23"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.21"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.VerticalBox_95.VerticalBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.26"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.24"
       }
     }
   },
@@ -701,15 +539,15 @@
     "Outer": "Overlay_0",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.18"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.16"
       },
       "Content": {
         "ObjectName": "VerticalBox'WBP_CorePlayerLevel_C:WidgetTree.VerticalBox_95'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.25"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.23"
       }
     }
   },
@@ -719,15 +557,15 @@
     "Outer": "Overlay_0",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.18"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.16"
       },
       "Content": {
         "ObjectName": "DBDButton'WBP_CorePlayerLevel_C:WidgetTree.HitzoneButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.11"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.0"
       }
     }
   },
@@ -737,15 +575,15 @@
     "Outer": "Overlay_42",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.19"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.17"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CorePlayerLevel_C:WidgetTree.LevelBG'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.12"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.1"
       }
     }
   },
@@ -759,15 +597,15 @@
         "Top": 5.0,
         "Right": 4.0
       },
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.19"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.17"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CorePlayerLevel_C:WidgetTree.LevelTB'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.13"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.2"
       }
     }
   },
@@ -783,7 +621,7 @@
       },
       "Slot": {
         "ObjectName": "HorizontalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.17"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.15"
       }
     }
   },
@@ -796,16 +634,16 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.VerticalBox_95.VerticalBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.26"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.24"
         },
         {
           "ObjectName": "VerticalBoxSlot'WBP_CorePlayerLevel_C:WidgetTree.VerticalBox_95.VerticalBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.27"
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.25"
         }
       ],
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.20"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.18"
       }
     }
   },
@@ -817,11 +655,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CorePlayerLevel_C:WidgetTree.VerticalBox_95'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.25"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.23"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CorePlayerLevel_C:WidgetTree.Overlay_42'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.19"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.17"
       }
     }
   },
@@ -831,16 +669,182 @@
     "Outer": "VerticalBox_95",
     "Class": "UScriptClass'VerticalBoxSlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Top",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Top",
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CorePlayerLevel_C:WidgetTree.VerticalBox_95'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.25"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.23"
       },
       "Content": {
         "ObjectName": "HorizontalBox'WBP_CorePlayerLevel_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.15"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.13"
       }
+    }
+  },
+  {
+    "Type": "WBP_CorePlayerLevel_C",
+    "Name": "Default__WBP_CorePlayerLevel_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.WBP_CorePlayerLevel_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_CorePlayerLevel_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_CorePlayerLevel_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.28"
+      },
+      "bClassRequiresNativeTick": true,
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:ExecuteUbergraph_WBP_CorePlayerLevel'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.6"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CorePlayerLevelWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetViewData'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.12"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetDataFromViewData'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.11"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetData'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.10"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.9"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnHovered'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.7"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnUnhovered'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.8"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:Destruct'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.5"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:AnimateLevelUp'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.4"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:ExecuteUbergraph_WBP_CorePlayerLevel'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.6"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LevelBG",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LevelTB",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDTextBlock'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PrestigeTB",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDTextBlock'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CorePlayerLevel": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:ExecuteUbergraph_WBP_CorePlayerLevel'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.6"
+      },
+      "AnimateLevelUp": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:AnimateLevelUp'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.4"
+      },
+      "Destruct": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:Destruct'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.5"
+      },
+      "OnUnhovered": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnUnhovered'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.8"
+      },
+      "OnHovered": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:OnHovered'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.7"
+      },
+      "PreConstruct": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.9"
+      },
+      "SetData": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetData'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.10"
+      },
+      "SetDataFromViewData": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetDataFromViewData'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.11"
+      },
+      "SetViewData": {
+        "ObjectName": "Function'WBP_CorePlayerLevel_C:SetViewData'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.12"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CorePlayerLevel_C'Default__WBP_CorePlayerLevel_C'",
+      "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.26"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -851,7 +855,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "Overlay'WBP_CorePlayerLevel_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CorePlayerLevel.18"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CorePlayerLevel.16"
       }
     }
   }

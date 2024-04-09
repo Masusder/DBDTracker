@@ -1,5 +1,124 @@
 [
   {
+    "Type": "DBDImage",
+    "Name": "Border",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "DefaultImage": {
+        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
+        "ObjectPath": "/Game/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
+      },
+      "Brush": {
+        "Tiling": "ESlateBrushTileType::Both"
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreOnHoverBorder_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.22"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "AnimationCompleted",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_K2_GetScalarParameterValue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NearlyEqual_FloatFloat_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_NearlyEqual_FloatFloat_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BindToButton",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreOnHoverBorderWidget:BindToButton'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "buttonToBindOn",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CoreButtonWidget'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Destruct",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Destruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EndOfAnimationEvent",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "tween",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'UITweenInstance'",
+          "ObjectPath": "/Script/UITween"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CoreOnHoverBorder",
     "Outer": "WBP_CoreOnHoverBorder_C",
@@ -13,16 +132,21 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsHovered_ReturnValue",
+        "Type": "IntProperty",
+        "Name": "K2Node_Event_thickness",
         "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_desiredSize",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'Vector2D'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
       },
       {
         "Type": "DelegateProperty",
@@ -30,15 +154,9 @@
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
-          "ObjectName": "DelegateFunction'CoreButtonWidget:OnReleasedDelegate__DelegateSignature'",
+          "ObjectName": "Class'CoreButtonWidget:OnReleasedDelegate__DelegateSignature'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_SelectFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
       },
       {
         "Type": "BoolProperty",
@@ -58,7 +176,7 @@
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum'ESlateBrushTileType'",
+          "ObjectName": "Class'ESlateBrushTileType'",
           "ObjectPath": "/Script/SlateCore"
         }
       },
@@ -68,7 +186,7 @@
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum'ESlateBrushTileType'",
+          "ObjectName": "Class'ESlateBrushTileType'",
           "ObjectPath": "/Script/SlateCore"
         }
       },
@@ -88,7 +206,7 @@
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
-          "ObjectName": "DelegateFunction'TweenCompleted__DelegateSignature'",
+          "ObjectName": "Class'TweenCompleted__DelegateSignature'",
           "ObjectPath": "/Script/UITween"
         }
       },
@@ -182,16 +300,10 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_SelectFloat_ReturnValue_1",
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_SelectFloat_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_SelectFloat_ReturnValue_2",
-        "Flags": "RF_Public",
-        "ElementSize": 4
+        "ElementSize": 8
       },
       {
         "Type": "ObjectProperty",
@@ -211,7 +323,7 @@
         "ElementSize": 16,
         "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectName": "Class'LinearColor'",
           "ObjectPath": "/Script/CoreUObject"
         }
       },
@@ -222,7 +334,7 @@
         "ElementSize": 16,
         "PropertyFlags": "ConstParm",
         "Struct": {
-          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectName": "Class'LinearColor'",
           "ObjectPath": "/Script/CoreUObject"
         }
       },
@@ -266,7 +378,7 @@
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum'ESlateBrushTileType'",
+          "ObjectName": "Class'ESlateBrushTileType'",
           "ObjectPath": "/Script/SlateCore"
         }
       },
@@ -276,7 +388,7 @@
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
-          "ObjectName": "DelegateFunction'CoreButtonWidget:OnClickedDelegate__DelegateSignature'",
+          "ObjectName": "Class'CoreButtonWidget:OnClickedDelegate__DelegateSignature'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
@@ -286,7 +398,7 @@
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
-          "ObjectName": "DelegateFunction'CoreButtonWidget:OnPressedDelegate__DelegateSignature'",
+          "ObjectName": "Class'CoreButtonWidget:OnPressedDelegate__DelegateSignature'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
@@ -294,9 +406,9 @@
         "Type": "StructProperty",
         "Name": "K2Node_MakeStruct_SlateBrush",
         "Flags": "RF_Public",
-        "ElementSize": 160,
+        "ElementSize": 224,
         "Struct": {
-          "ObjectName": "ScriptStruct'SlateBrush'",
+          "ObjectName": "Class'SlateBrush'",
           "ObjectPath": "/Script/SlateCore"
         }
       },
@@ -336,7 +448,7 @@
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
-          "ObjectName": "DelegateFunction'CoreButtonWidget:OnUnhoveredDelegate__DelegateSignature'",
+          "ObjectName": "Class'CoreButtonWidget:OnUnhoveredDelegate__DelegateSignature'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
@@ -346,7 +458,7 @@
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
-          "ObjectName": "DelegateFunction'CoreButtonWidget:OnHoveredDelegate__DelegateSignature'",
+          "ObjectName": "Class'CoreButtonWidget:OnHoveredDelegate__DelegateSignature'",
           "ObjectPath": "/Script/DBDUIViewsCore"
         }
       },
@@ -361,6 +473,30 @@
         }
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsHovered_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_SelectFloat_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_SelectFloat_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_ToMaterialScalarParameter_ReturnValue_1",
         "Flags": "RF_Public",
@@ -369,239 +505,170 @@
           "ObjectName": "Class'UITweenInstance'",
           "ObjectPath": "/Script/UITween"
         }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_ToMaterialScalarParameter_targetValue_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast_4",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast_5",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast_6",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_ImageSize_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Class'DeprecateSlateVector2D'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Create_duration_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Create_duration_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_ToMaterialScalarParameter_targetValue_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
   },
   {
     "Type": "Function",
-    "Name": "EndOfAnimationEvent",
+    "Name": "ForceBorderSize",
     "Outer": "WBP_CoreOnHoverBorder_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
-        "Type": "ObjectProperty",
-        "Name": "tween",
+        "Type": "IntProperty",
+        "Name": "Thickness",
         "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "PropertyClass": {
-          "ObjectName": "Class'UITweenInstance'",
-          "ObjectPath": "/Script/UITween"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "UnbindFromButton",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreOnHoverBorderWidget:UnbindFromButton'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "Construct",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:Construct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "PreConstruct",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:PreConstruct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "IsDesignTime",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "UpdateColors",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreOnHoverBorderWidget:UpdateColors'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ChildProperties": [
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
       {
         "Type": "StructProperty",
-        "Name": "progressBarColor",
+        "Name": "DesiredSize",
         "Flags": "RF_Public",
         "ElementSize": 16,
-        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "Struct": {
-          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectName": "Class'Vector2D'",
           "ObjectPath": "/Script/CoreUObject"
         }
       },
       {
-        "Type": "StructProperty",
-        "Name": "backgroundColor",
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector2D_X",
         "Flags": "RF_Public",
-        "ElementSize": 16,
-        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
-        "Struct": {
-          "ObjectName": "ScriptStruct'LinearColor'",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "Destruct",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:Destruct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "OnReleased",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
+        "ElementSize": 8
+      },
       {
-        "Type": "ObjectProperty",
-        "Name": "buttonTarget",
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector2D_Y",
         "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'CoreButtonWidget'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "PlayPressedAnimation",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreOnHoverBorderWidget:PlayPressedAnimation'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ChildProperties": [
+        "ElementSize": 8
+      },
       {
-        "Type": "BoolProperty",
-        "Name": "playForward",
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_IntToDouble_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "PlayHoveredAnimation",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreOnHoverBorderWidget:PlayHoveredAnimation'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ChildProperties": [
+        "ElementSize": 8
+      },
       {
-        "Type": "BoolProperty",
-        "Name": "playForward",
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_B_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_A_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
       }
     ],
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
     "Name": "OnClicked",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "buttonTarget",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'CoreButtonWidget'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "OnPressed",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "buttonTarget",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'CoreButtonWidget'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "OnUnhovered",
     "Outer": "WBP_CoreOnHoverBorder_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -641,17 +708,13 @@
   },
   {
     "Type": "Function",
-    "Name": "BindToButton",
+    "Name": "OnPressed",
     "Outer": "WBP_CoreOnHoverBorder_C",
     "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreOnHoverBorderWidget:BindToButton'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "buttonToBindOn",
+        "Name": "buttonTarget",
         "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
@@ -661,7 +724,310 @@
         }
       }
     ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnReleased",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "buttonTarget",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CoreButtonWidget'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnUnhovered",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "buttonTarget",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'CoreButtonWidget'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayHoveredAnimation",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreOnHoverBorderWidget:PlayHoveredAnimation'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "playForward",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayPressedAnimation",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreOnHoverBorderWidget:PlayPressedAnimation'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "playForward",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PreConstruct",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:PreConstruct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsDesignTime",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PrintPreviewRatios",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_IntToDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetPaintSpaceGeometry_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 56,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'Geometry'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetLocalSize_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Class'Vector2D'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector2D_X",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector2D_Y",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_DoubleToString_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_DoubleToString_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_A_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Divide_FloatFloat_B_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_DoubleToString_InDouble_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_DoubleToString_InDouble_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UnbindFromButton",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreOnHoverBorderWidget:UnbindFromButton'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateBorderSize",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreOnHoverBorderWidget:UpdateBorderSize'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "thickness",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "desiredSize",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "Class'Vector2D'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateColors",
+    "Outer": "WBP_CoreOnHoverBorder_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreOnHoverBorderWidget:UpdateColors'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "progressBarColor",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "backgroundColor",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -676,7 +1042,7 @@
         "ElementSize": 16,
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "Struct": {
-          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectName": "Class'LinearColor'",
           "ObjectPath": "/Script/CoreUObject"
         }
       },
@@ -687,7 +1053,7 @@
         "ElementSize": 16,
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "Struct": {
-          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectName": "Class'LinearColor'",
           "ObjectPath": "/Script/CoreUObject"
         }
       }
@@ -695,160 +1061,57 @@
     "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
-    "Type": "Function",
-    "Name": "PrintPreviewRatios",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Conv_IntToFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "CallFunc_GetPaintSpaceGeometry_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 56,
-        "PropertyFlags": "ConstParm",
-        "Struct": {
-          "ObjectName": "ScriptStruct'Geometry'",
-          "ObjectPath": "/Script/SlateCore"
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreOnHoverBorder_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+          "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.22"
         }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "CallFunc_GetLocalSize_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "Struct": {
-          "ObjectName": "ScriptStruct'Vector2D'",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_BreakVector2D_X",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_BreakVector2D_Y",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Divide_FloatFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Divide_FloatFloat_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "StrProperty",
-        "Name": "CallFunc_Conv_FloatToString_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 16
-      },
-      {
-        "Type": "StrProperty",
-        "Name": "CallFunc_Conv_FloatToString_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 16
-      }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+      ]
+    }
   },
   {
-    "Type": "Function",
-    "Name": "AnimationCompleted",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_K2_GetScalarParameterValue_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreOnHoverBorder_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.21"
       },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_LessEqual_FloatFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreOnHoverBorder_C:WidgetTree.Border'",
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.0"
       }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+    }
   },
   {
-    "Type": "Function",
-    "Name": "ForceBorderSize",
-    "Outer": "WBP_CoreOnHoverBorder_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "IntProperty",
-        "Name": "Thickness",
-        "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+    "Type": "WBP_CoreOnHoverBorder_C",
+    "Name": "Default__WBP_CoreOnHoverBorder_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.WBP_CoreOnHoverBorder_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "HoverDuration": 0.20000000298023224,
+      "PressedDuration": 0.10000000149011612,
+      "MaterialInstance": {
+        "ObjectName": "MaterialInstanceConstant'MI_UI_StandardOnHoverBorder'",
+        "ObjectPath": "/DBDUICore/Assets/Common/Borders/OnHover/MI_UI_StandardOnHoverBorder.0"
       },
-      {
-        "Type": "StructProperty",
-        "Name": "DesiredSize",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "Struct": {
-          "ObjectName": "ScriptStruct'Vector2D'",
-          "ObjectPath": "/Script/CoreUObject"
-        }
+      "UseTiling": true,
+      "ImageSize": {
+        "X": 256.0,
+        "Y": 256.0
       },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_BreakVector2D_X",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_BreakVector2D_Y",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Conv_IntToFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Divide_FloatFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Divide_FloatFloat_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
   },
   {
     "Type": "WidgetBlueprintGeneratedClass",
@@ -857,12 +1120,12 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreOnHoverBorder_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.24"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.25"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:ExecuteUbergraph_WBP_CoreOnHoverBorder'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.0"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.6"
       }
     },
     "SuperStruct": {
@@ -872,79 +1135,83 @@
     "Children": [
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:ForceBorderSize'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.18"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.7"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:AnimationCompleted'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.17"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.1"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PrintPreviewRatios'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.16"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.16"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UpdateMaterialColors'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.15"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.20"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:BindToButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.14"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.2"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnHovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.13"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.9"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnUnhovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.12"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.12"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnPressed'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.11"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.10"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnClicked'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.10"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.8"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PlayHoveredAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.9"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.13"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PlayPressedAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.8"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.14"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnReleased'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.7"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.11"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:Destruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.6"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.4"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UpdateColors'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.5"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.19"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.4"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.15"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.3"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.3"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UnbindFromButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.2"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.17"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:EndOfAnimationEvent'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.1"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.5"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UpdateBorderSize'",
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.18"
       },
       {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:ExecuteUbergraph_WBP_CoreOnHoverBorder'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.0"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.6"
       }
     ],
     "ChildProperties": [
@@ -955,7 +1222,7 @@
         "ElementSize": 16,
         "PropertyFlags": "Transient | DuplicateTransient",
         "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectName": "Class'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -964,7 +1231,7 @@
         "Name": "Border",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "Class'DBDImage'",
           "ObjectPath": "/Script/DBDUIViewsCore"
@@ -982,17 +1249,17 @@
         }
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "HoverDuration",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "PressedDuration",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
       },
       {
@@ -1018,10 +1285,10 @@
         }
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "PreviewProgress",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible"
       },
       {
@@ -1046,31 +1313,31 @@
         "PropertyFlags": "Edit | BlueprintVisible"
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "WidthRatio",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible"
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "HeightRatio",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible"
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "WidthRatio2",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible"
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "HeightRatio2",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible"
       },
       {
@@ -1103,107 +1370,111 @@
         "Type": "StructProperty",
         "Name": "ImageSize",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
+        "ElementSize": 16,
         "PropertyFlags": "Edit | BlueprintVisible",
         "Struct": {
-          "ObjectName": "ScriptStruct'Vector2D'",
+          "ObjectName": "Class'Vector2D'",
           "ObjectPath": "/Script/CoreUObject"
         }
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "EffectOffsetX",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible"
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "EffectOffsetY",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 4,
+        "ElementSize": 8,
         "PropertyFlags": "Edit | BlueprintVisible"
       }
     ],
     "FuncMap": {
       "ExecuteUbergraph_WBP_CoreOnHoverBorder": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:ExecuteUbergraph_WBP_CoreOnHoverBorder'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.0"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.6"
+      },
+      "UpdateBorderSize": {
+        "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UpdateBorderSize'",
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.18"
       },
       "EndOfAnimationEvent": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:EndOfAnimationEvent'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.1"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.5"
       },
       "UnbindFromButton": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UnbindFromButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.2"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.17"
       },
       "Construct": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.3"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.3"
       },
       "PreConstruct": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.4"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.15"
       },
       "UpdateColors": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UpdateColors'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.5"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.19"
       },
       "Destruct": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:Destruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.6"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.4"
       },
       "OnReleased": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnReleased'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.7"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.11"
       },
       "PlayPressedAnimation": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PlayPressedAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.8"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.14"
       },
       "PlayHoveredAnimation": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PlayHoveredAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.9"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.13"
       },
       "OnClicked": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnClicked'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.10"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.8"
       },
       "OnPressed": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnPressed'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.11"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.10"
       },
       "OnUnhovered": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnUnhovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.12"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.12"
       },
       "OnHovered": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:OnHovered'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.13"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.9"
       },
       "BindToButton": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:BindToButton'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.14"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.2"
       },
       "UpdateMaterialColors": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:UpdateMaterialColors'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.15"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.20"
       },
       "PrintPreviewRatios": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:PrintPreviewRatios'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.16"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.16"
       },
       "AnimationCompleted": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:AnimationCompleted'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.17"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.1"
       },
       "ForceBorderSize": {
         "ObjectName": "Function'WBP_CoreOnHoverBorder_C:ForceBorderSize'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.18"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.7"
       }
     },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -1212,80 +1483,10 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreOnHoverBorder_C'Default__WBP_CoreOnHoverBorder_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.20"
-    }
-  },
-  {
-    "Type": "WBP_CoreOnHoverBorder_C",
-    "Name": "Default__WBP_CoreOnHoverBorder_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.WBP_CoreOnHoverBorder_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "HoverDuration": 0.2,
-      "PressedDuration": 0.1,
-      "MaterialInstance": {
-        "ObjectName": "MaterialInstanceConstant'MI_UI_StandardOnHoverBorder'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Borders/OnHover/MI_UI_StandardOnHoverBorder.0"
-      },
-      "UseTiling": true,
-      "ImageSize": {
-        "X": 256.0,
-        "Y": 256.0
-      },
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "Border",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "DefaultImage": {
-        "ObjectName": "Texture2D'iconHelp_loadingMissing'",
-        "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Help/iconHelp_loadingMissing.0"
-      },
-      "Brush": {
-        "Tiling": "ESlateBrushTileType::Both"
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreOnHoverBorder_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.23"
-      },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_0",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreOnHoverBorder_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.23"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_0",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreOnHoverBorder_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.22"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CoreOnHoverBorder_C:WidgetTree.Border'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.21"
-      }
+      "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.23"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -1296,7 +1497,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "Overlay'WBP_CoreOnHoverBorder_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Borders/WBP_CoreOnHoverBorder.22"
+        "ObjectPath": "/DBDUICore/Common/Borders/WBP_CoreOnHoverBorder.21"
       }
     }
   }

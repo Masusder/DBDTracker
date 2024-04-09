@@ -5,7 +5,7 @@
     "Class": "UScriptClass'DataTable'",
     "Properties": {
       "RowStruct": {
-        "ObjectName": "ScriptStruct'TunableValue'",
+        "ObjectName": "Class'TunableValue'",
         "ObjectPath": "/Script/DeadByDaylight"
       }
     },
@@ -37,6 +37,22 @@
       "AlmostCurrentSpeedBufferTime": {
         "Value": 0.1,
         "Description": ""
+      },
+      "AntiCampSelfUnhookEnduranceEffectDuration": {
+        "Value": 15.0,
+        "Description": "Duration of the Endurance effect awarded to players when unhooked"
+      },
+      "AntiCampSelfUnhookMovementSpeedBonusEffectDuration": {
+        "Value": 15.0,
+        "Description": "Duration of the movement speed bonus awarded to players when unhooked"
+      },
+      "AntiCampSelfUnhookMovementSpeedBonusEffectPercentage": {
+        "Value": 0.1,
+        "Description": "Movement speed bonus (in percent) awarded to players when unhooked"
+      },
+      "AntiCampSelfUnhook_SecondsToCharge": {
+        "Value": 100.0,
+        "Description": "Max charge, rate depends on distance from killer/survivors"
       },
       "AudioHeartbeatRadius": {
         "Value": 3200.0,
@@ -442,13 +458,29 @@
         "Value": 0.025,
         "Description": "Percent of Generator Repair Progress that will be lost immediately after the Damage Generator interaction"
       },
+      "DamageGenerator_ImmediateRegressionPercentage_LimitRegressionEvents": {
+        "Value": 0.05,
+        "Description": "Percent of Generator Repair Progress that will be lost immediately after the Damage Generator interaction, adjusted for the limit regression events feature"
+      },
+      "DamageGenerator_MaximumRegressionEventsAllowed": {
+        "Value": 8.0,
+        "Description": "Maximum amount of times a generator can suffer regression events"
+      },
+      "DamageGenerator_NumberLastRegressionEventsToShow": {
+        "Value": 5.0,
+        "Description": "Amount of the last regression events to show. Example: if set to 3, will show the 3 last regression events, skipping the first ones"
+      },
       "DamageGenerator_SecondsToCharge": {
-        "Value": 1.8,
+        "Value": 1.2,
         "Description": ""
       },
       "DamageGenerator_Speed": {
         "Value": 0.25,
         "Description": ""
+      },
+      "DamageGenerator_ThresholdImmediateDamageIsRegressionEvent": {
+        "Value": 0.025,
+        "Description": "Minimum percentage an immediate damage needs to apply to count as a regression event"
       },
       "DeepWoundsBaseDuration": {
         "Value": 20.0,
@@ -565,6 +597,10 @@
       "ExitStalkMode_SecondsToCharge": {
         "Value": 0.1,
         "Description": ""
+      },
+      "FadeHudWidgetsDuration": {
+        "Value": 1.0,
+        "Description": "Duration of the HUD widgets fade animation. Used as a delay when HUD does not need to fade."
       },
       "FastInteractInputPersistenceTime": {
         "Value": 0.3,
@@ -1087,7 +1123,7 @@
         "Description": ""
       },
       "PlacePhantomTrap_SecondsToCharge": {
-        "Value": 1.0,
+        "Value": 0.9,
         "Description": ""
       },
       "PostChaseCamperCooldown": {
@@ -1141,6 +1177,10 @@
       "Repair_4PlayerPenalty": {
         "Value": -0.45,
         "Description": "Percentage subtracted from the charge rate of a chargeable interaction when three players are performing it"
+      },
+      "Repair_MinimumPercentageRemoveRegression": {
+        "Value": 0.05,
+        "Description": "Percentage that the survivor has to repair to stop the generator regression"
       },
       "Repair_SecondsToCharge": {
         "Value": 90.0,
@@ -1621,46 +1661,6 @@
       "WraithBellSoundDelay": {
         "Value": 0.9,
         "Description": "How long between bell sounds for the wraith's power"
-      },
-      "FadeHudWidgetsDuration": {
-        "Value": 1.0,
-        "Description": "Duration of the HUD widgets fade animation. Used as a delay when HUD does not need to fade."
-      },
-      "AntiCampSelfUnhook_SecondsToCharge": {
-        "Value": 100.0,
-        "Description": "Max charge, rate depends on distance from killer/survivors"
-      },
-      "AntiCampSelfUnhookEnduranceEffectDuration": {
-        "Value": 15.0,
-        "Description": "Duration of the Endurance effect awarded to players when unhooked"
-      },
-      "AntiCampSelfUnhookMovementSpeedBonusEffectDuration": {
-        "Value": 15.0,
-        "Description": "Duration of the movement speed bonus awarded to players when unhooked"
-      },
-      "AntiCampSelfUnhookMovementSpeedBonusEffectPercentage": {
-        "Value": 0.1,
-        "Description": "Movement speed bonus (in percent) awarded to players when unhooked"
-      },
-      "DamageGenerator_ThresholdImmediateDamageIsRegressionEvent": {
-        "Value": 0.025,
-        "Description": "Minimum percentage an immediate damage needs to apply to count as a regression event"
-      },
-      "DamageGenerator_MaximumRegressionEventsAllowed": {
-        "Value": 8.0,
-        "Description": "Maximum amount of times a generator can suffer regression events"
-      },
-      "Repair_MinimumPercentageRemoveRegression": {
-        "Value": 0.05,
-        "Description": "Percentage that the survivor has to repair to stop the generator regression"
-      },
-      "DamageGenerator_ImmediateRegressionPercentage_LimitRegressionEvents": {
-        "Value": 0.05,
-        "Description": "Percent of Generator Repair Progress that will be lost immediately after the Damage Generator interaction, adjusted for the limit regression events feature"
-      },
-      "DamageGenerator_NumberLastRegressionEventsToShow": {
-        "Value": 5.0,
-        "Description": "Amount of the last regression events to show. Example: if set to 3, will show the 3 last regression events, skipping the first ones"
       }
     }
   }

@@ -1,5 +1,119 @@
 [
   {
+    "Type": "Border",
+    "Name": "Border_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Border'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Left",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Top",
+      "Padding": {
+        "Left": 0.0,
+        "Top": 0.0,
+        "Right": 0.0,
+        "Bottom": 0.0
+      },
+      "BrushColor": {
+        "R": 1.0,
+        "G": 1.0,
+        "B": 1.0,
+        "A": 0.0,
+        "Hex": "FFFFFF"
+      },
+      "Slots": [
+        {
+          "ObjectName": "BorderSlot'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0.BorderSlot_1'",
+          "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.1"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.17"
+      }
+    }
+  },
+  {
+    "Type": "BorderSlot",
+    "Name": "BorderSlot_1",
+    "Outer": "Border_0",
+    "Class": "UScriptClass'BorderSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 0.0,
+        "Top": 0.0,
+        "Right": 0.0,
+        "Bottom": 0.0
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Left",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Top",
+      "Parent": {
+        "ObjectName": "Border'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.0"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.16"
+      }
+    }
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "WBP_CorePlayerCardContainer_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "OnHoverZone",
+          "DelegatePropertyName": "OnHovered",
+          "FunctionNameToBind": "BndEvt__WBP_CorePlayerCardContainer_HitzoneButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "DBDButton",
+    "Name": "OnHoverZone",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDButton'",
+    "Properties": {
+      "_analyticsName": "OnHoverZone",
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.18"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "Icon",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 512.0,
+          "Y": 512.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'Missing'",
+          "ObjectPath": "/Game/UI/UMGAssets/Icons/Customization/Missing.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_2'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.20"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__WBP_CorePlayerCardContainer_HitzoneButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature",
+    "Outer": "WBP_CorePlayerCardContainer_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CorePlayerCardContainer",
     "Outer": "WBP_CorePlayerCardContainer_C",
@@ -119,7 +233,7 @@
         "Type": "SoftObjectProperty",
         "Name": "K2Node_CustomEvent_Icon",
         "Flags": "RF_Public",
-        "ElementSize": 48,
+        "ElementSize": 56,
         "PropertyClass": {
           "ObjectName": "Class'Texture2D'",
           "ObjectPath": "/Script/Engine"
@@ -173,10 +287,10 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "FloatProperty",
+        "Type": "DoubleProperty",
         "Name": "K2Node_CustomEvent_Opacity",
         "Flags": "RF_Public",
-        "ElementSize": 4
+        "ElementSize": 8
       },
       {
         "Type": "ObjectProperty",
@@ -222,47 +336,22 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetRenderOpacity_InOpacity_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetRetainerBoxOpacity_opacity_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "ConstParm"
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
-  },
-  {
-    "Type": "Function",
-    "Name": "SetAnimationPlay",
-    "Outer": "WBP_CorePlayerCardContainer_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "isPlaying",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "SetOpacity",
-    "Outer": "WBP_CorePlayerCardContainer_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "FloatProperty",
-        "Name": "Opacity",
-        "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -298,7 +387,7 @@
         "Type": "SoftObjectProperty",
         "Name": "Icon",
         "Flags": "RF_Public",
-        "ElementSize": 48,
+        "ElementSize": 56,
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "PropertyClass": {
           "ObjectName": "Class'Texture2D'",
@@ -310,18 +399,11 @@
   },
   {
     "Type": "Function",
-    "Name": "BndEvt__WBP_CorePlayerCardContainer_HitzoneButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature",
-    "Outer": "WBP_CorePlayerCardContainer_C",
-    "Class": "UScriptClass'Function'",
-    "FunctionFlags": "FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
     "Name": "PreConstruct",
     "Outer": "WBP_CorePlayerCardContainer_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'UserWidget:PreConstruct'",
+      "ObjectName": "Class'UserWidget:PreConstruct'",
       "ObjectPath": "/Script/UMG"
     },
     "ChildProperties": [
@@ -340,26 +422,6 @@
       }
     ],
     "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "SetIcon",
-    "Outer": "WBP_CorePlayerCardContainer_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "SoftObjectProperty",
-        "Name": "Texture2D",
-        "Flags": "RF_Public",
-        "ElementSize": 48,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "PropertyClass": {
-          "ObjectName": "Class'Texture2D'",
-          "ObjectPath": "/Script/Engine"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -419,24 +481,215 @@
     "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
+    "Type": "Function",
+    "Name": "SetAnimationPlay",
+    "Outer": "WBP_CorePlayerCardContainer_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "isPlaying",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetIcon",
+    "Outer": "WBP_CorePlayerCardContainer_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "Texture2D",
+        "Flags": "RF_Public",
+        "ElementSize": 56,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Texture2D'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetOpacity",
+    "Outer": "WBP_CorePlayerCardContainer_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Opacity",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Overlay",
+    "Name": "AnimationContainer",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.19"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_34",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_0'",
+          "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.17"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_1'",
+          "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.18"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_406",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_2'",
+          "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.20"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_1'",
+          "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.19"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "BorderSlot'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0.BorderSlot_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.1"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_34",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.15"
+      },
+      "Content": {
+        "ObjectName": "Border'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.0"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "Overlay_34",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.15"
+      },
+      "Content": {
+        "ObjectName": "DBDButton'WBP_CorePlayerCardContainer_C:WidgetTree.OnHoverZone'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.3"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "Overlay_406",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.16"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.AnimationContainer'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.14"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "Overlay_406",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.16"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CorePlayerCardContainer_C:WidgetTree.Icon'",
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.4"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CorePlayerCardContainer_C",
+    "Name": "Default__WBP_CorePlayerCardContainer_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.WBP_CorePlayerCardContainer_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
     "Type": "WidgetBlueprintGeneratedClass",
     "Name": "WBP_CorePlayerCardContainer_C",
     "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CorePlayerCardContainer_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.23"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.23"
       },
       "bClassRequiresNativeTick": true,
       "DynamicBindingObjects": [
         {
           "ObjectName": "ComponentDelegateBinding'WBP_CorePlayerCardContainer_C:ComponentDelegateBinding_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.13"
+          "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.2"
         }
       ],
       "UberGraphFunction": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:ExecuteUbergraph_WBP_CorePlayerCardContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.6"
       }
     },
     "SuperStruct": {
@@ -446,39 +699,39 @@
     "Children": [
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.8"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.10"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.7"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.12"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.6"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.9"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:BndEvt__WBP_CorePlayerCardContainer_HitzoneButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.5"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.5"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:InitIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.4"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.8"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:InitAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.3"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.7"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetOpacity'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.2"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.13"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetAnimationPlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.1"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.11"
       },
       {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:ExecuteUbergraph_WBP_CorePlayerCardContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.6"
       }
     ],
     "ChildProperties": [
@@ -489,7 +742,7 @@
         "ElementSize": 16,
         "PropertyFlags": "Transient | DuplicateTransient",
         "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectName": "Class'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -498,7 +751,7 @@
         "Name": "OnHoverZone",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "Class'DBDButton'",
           "ObjectPath": "/Script/DBDUIViewsCore"
@@ -530,7 +783,7 @@
         "Type": "SoftObjectProperty",
         "Name": "BadgeTexture",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 48,
+        "ElementSize": 56,
         "PropertyFlags": "Edit | BlueprintVisible",
         "PropertyClass": {
           "ObjectName": "Class'Texture2D'",
@@ -544,7 +797,7 @@
         "ElementSize": 1,
         "PropertyFlags": "Edit | BlueprintVisible",
         "Enum": {
-          "ObjectName": "Enum'ECustomizationCategory'",
+          "ObjectName": "Class'ECustomizationCategory'",
           "ObjectPath": "/Script/DBDSharedTypes"
         },
         "UnderlyingProp": {
@@ -559,7 +812,7 @@
         "Type": "SoftObjectProperty",
         "Name": "BannerTexture",
         "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 48,
+        "ElementSize": 56,
         "PropertyFlags": "Edit | BlueprintVisible",
         "PropertyClass": {
           "ObjectName": "Class'Texture2D'",
@@ -570,42 +823,42 @@
     "FuncMap": {
       "ExecuteUbergraph_WBP_CorePlayerCardContainer": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:ExecuteUbergraph_WBP_CorePlayerCardContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.6"
       },
       "SetAnimationPlay": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetAnimationPlay'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.1"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.11"
       },
       "SetOpacity": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetOpacity'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.2"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.13"
       },
       "InitAnimation": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:InitAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.3"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.7"
       },
       "InitIcon": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:InitIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.4"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.8"
       },
       "BndEvt__WBP_CorePlayerCardContainer_HitzoneButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:BndEvt__WBP_CorePlayerCardContainer_HitzoneButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.5"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.5"
       },
       "PreConstruct": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.6"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.9"
       },
       "SetIcon": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetIcon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.7"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.12"
       },
       "SetAnimation": {
         "ObjectName": "Function'WBP_CorePlayerCardContainer_C:SetAnimation'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.8"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.10"
       }
     },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -614,246 +867,10 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CorePlayerCardContainer_C'Default__WBP_CorePlayerCardContainer_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.10"
-    }
-  },
-  {
-    "Type": "WBP_CorePlayerCardContainer_C",
-    "Name": "Default__WBP_CorePlayerCardContainer_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.WBP_CorePlayerCardContainer_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "Border",
-    "Name": "Border_0",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Border'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Left",
-      "VerticalAlignment": "VAlign_Top",
-      "Padding": {
-        "Left": 0.0,
-        "Top": 0.0,
-        "Right": 0.0,
-        "Bottom": 0.0
-      },
-      "BrushColor": {
-        "R": 1.0,
-        "G": 1.0,
-        "B": 1.0,
-        "A": 0.0,
-        "Hex": "FFFFFF"
-      },
-      "Slots": [
-        {
-          "ObjectName": "BorderSlot'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0.BorderSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.12"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.19"
-      }
-    }
-  },
-  {
-    "Type": "BorderSlot",
-    "Name": "BorderSlot_1",
-    "Outer": "Border_0",
-    "Class": "UScriptClass'BorderSlot'",
-    "Properties": {
-      "Padding": {
-        "Left": 0.0,
-        "Top": 0.0,
-        "Right": 0.0,
-        "Bottom": 0.0
-      },
-      "HorizontalAlignment": "HAlign_Left",
-      "VerticalAlignment": "VAlign_Top",
-      "Parent": {
-        "ObjectName": "Border'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.11"
-      },
-      "Content": {
-        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.18"
-      }
-    }
-  },
-  {
-    "Type": "ComponentDelegateBinding",
-    "Name": "ComponentDelegateBinding_0",
-    "Outer": "WBP_CorePlayerCardContainer_C",
-    "Class": "UScriptClass'ComponentDelegateBinding'",
-    "Properties": {
-      "ComponentDelegateBindings": [
-        {
-          "ComponentPropertyName": "OnHoverZone",
-          "DelegatePropertyName": "OnHovered",
-          "FunctionNameToBind": "BndEvt__WBP_CorePlayerCardContainer_HitzoneButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "DBDButton",
-    "Name": "OnHoverZone",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDButton'",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.20"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "Icon",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 512.0,
-          "Y": 512.0
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D'Missing'",
-          "ObjectPath": "DeadByDaylight/Content/UI/UMGAssets/Icons/Customization/Missing.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.22"
-      }
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "AnimationContainer",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.21"
-      },
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_34",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.19"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.20"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_406",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.22"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.21"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "BorderSlot'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0.BorderSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.12"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_34",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.17"
-      },
-      "Content": {
-        "ObjectName": "Border'WBP_CorePlayerCardContainer_C:WidgetTree.Border_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.11"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Outer": "Overlay_34",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.17"
-      },
-      "Content": {
-        "ObjectName": "DBDButton'WBP_CorePlayerCardContainer_C:WidgetTree.OnHoverZone'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.14"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Outer": "Overlay_406",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Center",
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.18"
-      },
-      "Content": {
-        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.AnimationContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.16"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Outer": "Overlay_406",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_406'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.18"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CorePlayerCardContainer_C:WidgetTree.Icon'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.15"
-      }
+      "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.21"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -864,7 +881,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "Overlay'WBP_CorePlayerCardContainer_C:WidgetTree.Overlay_34'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerCard/WBP_CorePlayerCardContainer.17"
+        "ObjectPath": "/DBDUICore/Common/PlayerCard/WBP_CorePlayerCardContainer.15"
       }
     }
   }

@@ -1,5 +1,60 @@
 [
   {
+    "Type": "DBDImage",
+    "Name": "OpenBackground",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "DrawAs": "ESlateBrushDrawType::Box",
+        "ImageSize": {
+          "X": 858.0,
+          "Y": 32.0
+        },
+        "Margin": {
+          "Top": 0.12,
+          "Bottom": 0.15
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_Store_ToasterBg2'",
+          "ObjectPath": "/DBDUICore/Assets/Store/Toaster/T_UI_Store_ToasterBg2.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer.OverlaySlot_5'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.11"
+      }
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
+    "Name": "Title",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDTextBlock'",
+    "Properties": {
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.250158,
+          "G": 0.250158,
+          "B": 0.250158,
+          "A": 1.0,
+          "Hex": "FF898989"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'DBDCoreFont'",
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.0"
+        },
+        "Size": 36
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_3'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.18"
+      }
+    }
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast",
     "Outer": "WBP_CoreStoreCharacterPerksToast_C",
@@ -13,8 +68,25 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_role",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'EPlayerRole'",
+          "ObjectPath": "/Script/DBDSharedTypes"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "Temp_bool_Variable",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -23,6 +95,68 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetCharacterRole",
+    "Outer": "WBP_CoreStoreCharacterPerksToast_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreStoreCharacterPerksToastWidget:SetCharacterRole'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "role",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Class'EPlayerRole'",
+          "ObjectPath": "/Script/DBDSharedTypes"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ToggleWidgetVisibility",
+    "Outer": "WBP_CoreStoreCharacterPerksToast_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreStoreCharacterPerksToastWidget:ToggleWidgetVisibility'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "NewVisibility",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Enum": {
+          "ObjectName": "Class'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
       },
       {
         "Type": "EnumProperty",
@@ -30,7 +164,7 @@
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
@@ -47,7 +181,7 @@
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
@@ -60,12 +194,12 @@
       },
       {
         "Type": "EnumProperty",
-        "Name": "K2Node_Event_role",
+        "Name": "Temp_byte_Variable_2",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum'EPlayerRole'",
-          "ObjectPath": "/Script/DBDSharedTypes"
+          "ObjectName": "Class'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
           "Type": "ByteProperty",
@@ -76,28 +210,89 @@
         }
       },
       {
-        "Type": "BoolProperty",
-        "Name": "K2Node_Event_isOpen",
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_3",
         "Flags": "RF_Public",
         "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "Enum": {
+          "ObjectName": "Class'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_4",
         "Flags": "RF_Public",
         "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "Enum": {
+          "ObjectName": "Class'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_5",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetVisibility_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetVisibility_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Class'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
       },
       {
         "Type": "EnumProperty",
@@ -105,7 +300,7 @@
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         },
         "UnderlyingProp": {
@@ -115,242 +310,9 @@
           "ElementSize": 1,
           "Enum": null
         }
-      }
-    ],
-    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
-  },
-  {
-    "Type": "Function",
-    "Name": "Construct",
-    "Outer": "WBP_CoreStoreCharacterPerksToast_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:Construct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "OpenToast",
-    "Outer": "WBP_CoreStoreCharacterPerksToast_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreStoreCharacterPerksToastWidget:OpenToast'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "isOpen",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "SetCharacterRole",
-    "Outer": "WBP_CoreStoreCharacterPerksToast_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreStoreCharacterPerksToastWidget:SetCharacterRole'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "ChildProperties": [
-      {
-        "Type": "EnumProperty",
-        "Name": "role",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "Enum": {
-          "ObjectName": "Enum'EPlayerRole'",
-          "ObjectPath": "/Script/DBDSharedTypes"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "WidgetBlueprintGeneratedClass",
-    "Name": "WBP_CoreStoreCharacterPerksToast_C",
-    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
-    "Properties": {
-      "WidgetTree": {
-        "ObjectName": "WidgetTree'WBP_CoreStoreCharacterPerksToast_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.31"
-      },
-      "bClassRequiresNativeTick": true,
-      "UberGraphFunction": {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.0"
-      }
-    },
-    "SuperStruct": {
-      "ObjectName": "Class'CoreStoreCharacterPerksToastWidget'",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "Children": [
-      {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:SetCharacterRole'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.3"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:OpenToast'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.2"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.1"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.0"
-      }
-    ],
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "UberGraphFrame",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 16,
-        "PropertyFlags": "Transient | DuplicateTransient",
-        "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "ContentContainer",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'Overlay'",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "OpenBackground",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'DBDImage'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      }
-    ],
-    "FuncMap": {
-      "ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast": {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.0"
-      },
-      "Construct": {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.1"
-      },
-      "OpenToast": {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:OpenToast'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.2"
-      },
-      "SetCharacterRole": {
-        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:SetCharacterRole'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.3"
-      }
-    },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
-    "ClassWithin": {
-      "ObjectName": "Class'Object'",
-      "ObjectPath": "/Script/CoreUObject"
-    },
-    "ClassConfigName": "Engine",
-    "bCooked": true,
-    "ClassDefaultObject": {
-      "ObjectName": "WBP_CoreStoreCharacterPerksToast_C'Default__WBP_CoreStoreCharacterPerksToast_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.5"
-    }
-  },
-  {
-    "Type": "WBP_CoreStoreCharacterPerksToast_C",
-    "Name": "Default__WBP_CoreStoreCharacterPerksToast_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.WBP_CoreStoreCharacterPerksToast_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "OpenBackground",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 720.0,
-          "Y": 540.0
-        }
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer.OverlaySlot_5'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.17"
-      }
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "Title",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDTextBlock'",
-    "Properties": {
-      "Text": {
-        "Namespace": "UMG",
-        "Key": "TextBlockDefaultValue",
-        "SourceString": "Text Block",
-        "LocalizedString": "Text Block"
-      },
-      "ColorAndOpacity": {
-        "SpecifiedColor": {
-          "R": 0.116971,
-          "G": 0.132868,
-          "B": 0.141263,
-          "A": 1.0,
-          "Hex": "FF606669"
-        }
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font'DBDCoreFont'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "TypefaceFontName": "Black",
-        "Size": 36
-      },
-      "Slot": {
-        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.26"
-      }
-    }
   },
   {
     "Type": "HorizontalBox",
@@ -361,28 +323,20 @@
       "Slots": [
         {
           "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.9"
-        },
-        {
-          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.12"
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.6"
         },
         {
           "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.10"
-        },
-        {
-          "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_5'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.13"
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.7"
         },
         {
           "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.11"
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
         }
       ],
       "Slot": {
-        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.25"
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.15"
       }
     }
   },
@@ -392,13 +346,17 @@
     "Outer": "HorizontalBox_0",
     "Class": "UScriptClass'HorizontalBoxSlot'",
     "Properties": {
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Left",
       "Parent": {
         "ObjectName": "HorizontalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.5"
       },
       "Content": {
         "ObjectName": "WBP_CoreMenuPerk_C'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.CorePerk_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.27"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.20"
       }
     }
   },
@@ -408,13 +366,16 @@
     "Outer": "HorizontalBox_0",
     "Class": "UScriptClass'HorizontalBoxSlot'",
     "Properties": {
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
       "Parent": {
         "ObjectName": "HorizontalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.5"
       },
       "Content": {
         "ObjectName": "WBP_CoreMenuPerk_C'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.CorePerk_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.28"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.21"
       }
     }
   },
@@ -424,45 +385,17 @@
     "Outer": "HorizontalBox_0",
     "Class": "UScriptClass'HorizontalBoxSlot'",
     "Properties": {
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Right",
       "Parent": {
         "ObjectName": "HorizontalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.5"
       },
       "Content": {
         "ObjectName": "WBP_CoreMenuPerk_C'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.CorePerk_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.29"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_3",
-    "Outer": "HorizontalBox_0",
-    "Class": "UScriptClass'HorizontalBoxSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
-      },
-      "Content": {
-        "ObjectName": "Spacer'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.Spacer_147'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.22"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_5",
-    "Outer": "HorizontalBox_0",
-    "Class": "UScriptClass'HorizontalBoxSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
-      },
-      "Content": {
-        "ObjectName": "Spacer'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.Spacer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.21"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.22"
       }
     }
   },
@@ -475,55 +408,35 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer.OverlaySlot_5'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.17"
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.11"
         },
         {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer.OverlaySlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.16"
+          "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer.OverlaySlot_0'",
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.10"
         }
       ],
-      "Slot": {
-        "ObjectName": "ScaleBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ScaleBox_91.ScaleBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.20"
-      },
       "bIsVariable": true
     }
   },
   {
-    "Type": "Overlay",
-    "Name": "Root",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.Root.OverlaySlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.18"
-        }
-      ]
-    }
-  },
-  {
     "Type": "OverlaySlot",
-    "Name": "OverlaySlot_3",
+    "Name": "OverlaySlot_0",
     "Outer": "ContentContainer",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
       "Padding": {
-        "Left": 40.0,
-        "Top": 40.0,
-        "Right": 40.0,
-        "Bottom": 40.0
+        "Left": 50.0,
+        "Top": 35.0,
+        "Right": 50.0
       },
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.9"
       },
       "Content": {
         "ObjectName": "VerticalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.23"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
       }
     }
   },
@@ -533,104 +446,47 @@
     "Outer": "ContentContainer",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "Padding": {
-        "Bottom": -160.0
-      },
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.9"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.OpenBackground'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.6"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_2",
-    "Outer": "Root",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.Root'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.15"
-      },
-      "Content": {
-        "ObjectName": "ScaleBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ScaleBox_91'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.19"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBox",
-    "Name": "ScaleBox_91",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'ScaleBox'",
-    "Properties": {
-      "Stretch": "EStretch::UserSpecified",
-      "UserSpecifiedScale": 0.8,
-      "Slots": [
-        {
-          "ObjectName": "ScaleBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ScaleBox_91.ScaleBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.20"
-        }
-      ],
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.Root.OverlaySlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.18"
-      }
-    }
-  },
-  {
-    "Type": "ScaleBoxSlot",
-    "Name": "ScaleBoxSlot_0",
-    "Outer": "ScaleBox_91",
-    "Class": "UScriptClass'ScaleBoxSlot'",
-    "Properties": {
-      "HorizontalAlignment": "HAlign_Left",
-      "VerticalAlignment": "VAlign_Top",
-      "Parent": {
-        "ObjectName": "ScaleBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ScaleBox_91'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.19"
-      },
-      "Content": {
-        "ObjectName": "Overlay'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.0"
       }
     }
   },
   {
     "Type": "Spacer",
-    "Name": "Spacer",
+    "Name": "BOTTOM_SPACER",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'Spacer'",
     "Properties": {
       "Size": {
-        "X": 15.0,
-        "Y": 1.0
+        "X": 1.0,
+        "Y": 160.0
       },
       "Slot": {
-        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_5'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.13"
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_4'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.19"
       }
     }
   },
   {
     "Type": "Spacer",
-    "Name": "Spacer_147",
+    "Name": "TITLE_SPACER",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'Spacer'",
     "Properties": {
       "Size": {
-        "X": 15.0,
-        "Y": 1.0
+        "X": 1.0,
+        "Y": 50.0
       },
       "Slot": {
-        "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.12"
+        "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.17"
       }
     }
   },
@@ -643,20 +499,44 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_3'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.26"
-        },
-        {
-          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.24"
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.18"
         },
         {
           "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.25"
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.17"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_1'",
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.16"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.15"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_4'",
+          "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.19"
         }
       ],
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer.OverlaySlot_3'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.16"
+        "ObjectName": "OverlaySlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.10"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.5"
       }
     }
   },
@@ -667,17 +547,17 @@
     "Class": "UScriptClass'VerticalBoxSlot'",
     "Properties": {
       "Padding": {
-        "Top": 40.0,
-        "Bottom": 30.0
+        "Left": 15.0,
+        "Bottom": 40.0
       },
-      "HorizontalAlignment": "HAlign_Left",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Left",
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.23"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
       },
       "Content": {
         "ObjectName": "WBP_CoreMenuPower_C'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.CoreKillerPower'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.30"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.23"
       }
     }
   },
@@ -689,11 +569,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.23"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
       },
       "Content": {
-        "ObjectName": "HorizontalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
+        "ObjectName": "Spacer'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.TITLE_SPACER'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.13"
       }
     }
   },
@@ -704,16 +584,32 @@
     "Class": "UScriptClass'VerticalBoxSlot'",
     "Properties": {
       "Padding": {
-        "Top": 15.0,
-        "Bottom": 20.0
+        "Left": 15.0,
+        "Top": 3.0
       },
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.23"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.Title'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.7"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.1"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_4",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.14"
+      },
+      "Content": {
+        "ObjectName": "Spacer'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.BOTTOM_SPACER'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.12"
       }
     }
   },
@@ -721,16 +617,16 @@
     "Type": "WBP_CoreMenuPerk_C",
     "Name": "CorePerk_1",
     "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPerk.WBP_CoreMenuPerk_C'",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPerk.WBP_CoreMenuPerk_C'",
     "Template": {
       "ObjectName": "WBP_CoreMenuPerk_C'Default__WBP_CoreMenuPerk_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPerk.8"
+      "ObjectPath": "/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPerk.35"
     },
     "Properties": {
       "ScaleType": "EScaleType::Menu",
       "Slot": {
         "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.9"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.6"
       }
     }
   },
@@ -738,16 +634,16 @@
     "Type": "WBP_CoreMenuPerk_C",
     "Name": "CorePerk_2",
     "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPerk.WBP_CoreMenuPerk_C'",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPerk.WBP_CoreMenuPerk_C'",
     "Template": {
       "ObjectName": "WBP_CoreMenuPerk_C'Default__WBP_CoreMenuPerk_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPerk.8"
+      "ObjectPath": "/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPerk.35"
     },
     "Properties": {
       "ScaleType": "EScaleType::Menu",
       "Slot": {
         "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.10"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.7"
       }
     }
   },
@@ -755,16 +651,16 @@
     "Type": "WBP_CoreMenuPerk_C",
     "Name": "CorePerk_3",
     "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPerk.WBP_CoreMenuPerk_C'",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPerk.WBP_CoreMenuPerk_C'",
     "Template": {
       "ObjectName": "WBP_CoreMenuPerk_C'Default__WBP_CoreMenuPerk_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPerk.8"
+      "ObjectPath": "/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPerk.35"
     },
     "Properties": {
       "ScaleType": "EScaleType::Menu",
       "Slot": {
         "ObjectName": "HorizontalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.11"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.8"
       }
     }
   },
@@ -772,17 +668,124 @@
     "Type": "WBP_CoreMenuPower_C",
     "Name": "CoreKillerPower",
     "Outer": "WidgetTree",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPower.WBP_CoreMenuPower_C'",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPower.WBP_CoreMenuPower_C'",
     "Template": {
       "ObjectName": "WBP_CoreMenuPower_C'Default__WBP_CoreMenuPower_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/LoadoutParts/WBP_CoreMenuPower.4"
+      "ObjectPath": "/DBDUICore/Common/LoadoutParts/WBP_CoreMenuPower.23"
     },
     "Properties": {
       "ScaleType": "EScaleType::Menu",
       "Slot": {
         "ObjectName": "VerticalBoxSlot'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.24"
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.16"
       }
+    }
+  },
+  {
+    "Type": "WBP_CoreStoreCharacterPerksToast_C",
+    "Name": "Default__WBP_CoreStoreCharacterPerksToast_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.WBP_CoreStoreCharacterPerksToast_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_CoreStoreCharacterPerksToast_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_CoreStoreCharacterPerksToast_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.26"
+      },
+      "bClassRequiresNativeTick": true,
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.2"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CoreStoreCharacterPerksToastWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ToggleWidgetVisibility'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.4"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:SetCharacterRole'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.3"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.2"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ContentContainer",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Overlay'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OpenBackground",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast": {
+        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ExecuteUbergraph_WBP_CoreStoreCharacterPerksToast'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.2"
+      },
+      "SetCharacterRole": {
+        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:SetCharacterRole'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.3"
+      },
+      "ToggleWidgetVisibility": {
+        "ObjectName": "Function'WBP_CoreStoreCharacterPerksToast_C:ToggleWidgetVisibility'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.4"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CoreStoreCharacterPerksToast_C'Default__WBP_CoreStoreCharacterPerksToast_C'",
+      "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.24"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -792,8 +795,8 @@
     "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "Overlay'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.Root'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Store/Characters/WBP_CoreStoreCharacterPerksToast.15"
+        "ObjectName": "Overlay'WBP_CoreStoreCharacterPerksToast_C:WidgetTree.ContentContainer'",
+        "ObjectPath": "/DBDUICore/Store/Characters/WBP_CoreStoreCharacterPerksToast.9"
       }
     }
   }

@@ -1,0 +1,734 @@
+[
+  {
+    "Type": "DBDButton",
+    "Name": "HitzoneButton",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDButton'",
+    "Properties": {
+      "_analyticsName": "Hitbox",
+      "ColorAndOpacity": {
+        "R": 1.0,
+        "G": 1.0,
+        "B": 1.0,
+        "A": 0.1,
+        "Hex": "19FFFFFF"
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel.OverlaySlot_1'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.18"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "BackgroundIMG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "TintColor": {
+          "SpecifiedColor": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 0.8,
+            "Hex": "CCFFFFFF"
+          }
+        },
+        "ResourceObject": {
+          "ObjectName": "MaterialInstanceConstant'MI_UI_SortingOptionButton_Bg'",
+          "ObjectPath": "/DBDUICore/Assets/Common/Buttons/MI_UI_SortingOptionButton_Bg.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel.OverlaySlot_2'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.19"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "IconIMG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 52.0,
+          "Y": 52.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_icon_SortBy'",
+          "ObjectPath": "/DBDUICore/Assets/Common/Icons/T_UI_icon_SortBy.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreSortButton_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_2'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.15"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": -1.0,
+          "Y": 1.0
+        }
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
+    "Name": "LabelTB",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDTextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 0.8,
+          "Hex": "CCFFFFFF"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'DBDCoreFont'",
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.0"
+        },
+        "TypefaceFontName": "Regular",
+        "Size": 28
+      },
+      "Justification": "ETextJustify::Center",
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreSortButton_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_1'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.14"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_WBP_CoreSortButton",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_isEnabled",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnEnabledChanged",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnEnabledChanged'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "isEnabled",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnHovered",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnHovered'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnPressed",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnPressed'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnReleased",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnReleased'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnUnhovered",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnUnhovered'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetColors",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "BackgroundColor",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "IconColor",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateVisuals",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsPressed_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsHovered_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsEnabled_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreSortButton_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_1'",
+          "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.14"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreSortButton_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_2'",
+          "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.15"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_CoreSortButton_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.21"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_1",
+    "Outer": "HorizontalBox",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "Padding": {
+        "Left": 34.0,
+        "Top": 1.0
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Left",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreSortButton_C:WidgetTree.HorizontalBox'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.13"
+      },
+      "Content": {
+        "ObjectName": "DBDTextBlock'WBP_CoreSortButton_C:WidgetTree.LabelTB'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.3"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_2",
+    "Outer": "HorizontalBox",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Right": 24.0
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Right",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreSortButton_C:WidgetTree.HorizontalBox'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.13"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreSortButton_C:WidgetTree.IconIMG'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.2"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "SortingOptionPanel",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel.OverlaySlot_2'",
+          "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.19"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel.OverlaySlot_0'",
+          "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.17"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel.OverlaySlot_1'",
+          "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.18"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "SortingOptionPanel",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.16"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_CoreSortButton_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.20"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "SortingOptionPanel",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.16"
+      },
+      "Content": {
+        "ObjectName": "DBDButton'WBP_CoreSortButton_C:WidgetTree.HitzoneButton'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.0"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "SortingOptionPanel",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.16"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreSortButton_C:WidgetTree.BackgroundIMG'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.1"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Properties": {
+      "WidthOverride": 430.0,
+      "HeightOverride": 95.0,
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_CoreSortButton_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.21"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.17"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "SizeBox_0",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_CoreSortButton_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.20"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'WBP_CoreSortButton_C:WidgetTree.HorizontalBox'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.13"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreSortButton_C",
+    "Name": "Default__WBP_CoreSortButton_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/Sort/WBP_CoreSortButton.WBP_CoreSortButton_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "DefaultColor": {
+        "R": 0.313989,
+        "G": 0.313989,
+        "B": 0.313989,
+        "A": 1.0,
+        "Hex": "FF989898"
+      },
+      "PressedColor": {
+        "R": 1.0,
+        "G": 1.0,
+        "B": 1.0,
+        "A": 0.7,
+        "Hex": "B3FFFFFF"
+      },
+      "HoveredColor": {
+        "R": 1.0,
+        "G": 1.0,
+        "B": 1.0,
+        "A": 1.0,
+        "Hex": "FFFFFFFF"
+      },
+      "DisabledColor": {
+        "R": 0.313989,
+        "G": 0.313989,
+        "B": 0.313989,
+        "A": 0.5,
+        "Hex": "7F989898"
+      },
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_CoreSortButton_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.24"
+      },
+      "bClassRequiresNativeTick": true,
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:ExecuteUbergraph_WBP_CoreSortButton'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.5"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:UpdateVisuals'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.12"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:SetColors'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.11"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:Construct'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.4"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnHovered'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.7"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnUnhovered'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.10"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnPressed'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.8"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnReleased'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.9"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnEnabledChanged'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.6"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreSortButton_C:ExecuteUbergraph_WBP_CoreSortButton'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.5"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "IconIMG",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "DefaultColor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "PressedColor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "HoveredColor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "DisabledColor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Background IMG Dynamic Material",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CoreSortButton": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:ExecuteUbergraph_WBP_CoreSortButton'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.5"
+      },
+      "OnEnabledChanged": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnEnabledChanged'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.6"
+      },
+      "OnReleased": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnReleased'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.9"
+      },
+      "OnPressed": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnPressed'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.8"
+      },
+      "OnUnhovered": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnUnhovered'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.10"
+      },
+      "OnHovered": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:OnHovered'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.7"
+      },
+      "Construct": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:Construct'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.4"
+      },
+      "SetColors": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:SetColors'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.11"
+      },
+      "UpdateVisuals": {
+        "ObjectName": "Function'WBP_CoreSortButton_C:UpdateVisuals'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.12"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CoreSortButton_C'Default__WBP_CoreSortButton_C'",
+      "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.22"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "WBP_CoreSortButton_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "Overlay'WBP_CoreSortButton_C:WidgetTree.SortingOptionPanel'",
+        "ObjectPath": "/DBDUICore/Common/Sort/WBP_CoreSortButton.16"
+      }
+    }
+  }
+]

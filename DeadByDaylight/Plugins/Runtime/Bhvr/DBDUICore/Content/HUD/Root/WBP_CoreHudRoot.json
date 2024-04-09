@@ -1,5 +1,69 @@
 [
   {
+    "Type": "AspectRatioBox",
+    "Name": "AspectRatioBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'AspectRatioBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "AspectRatioBoxSlot'WBP_CoreHudRoot_C:WidgetTree.AspectRatioBox_0.AspectRatioBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.1"
+        }
+      ],
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "AspectRatioBoxSlot",
+    "Name": "AspectRatioBoxSlot_0",
+    "Outer": "AspectRatioBox_0",
+    "Class": "UScriptClass'AspectRatioBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "AspectRatioBox'WBP_CoreHudRoot_C:WidgetTree.AspectRatioBox_0'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.0"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.36"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ApplyConstrainedAspectRatio",
+    "Outer": "WBP_CoreHudRoot_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreHudRootWidget:ApplyConstrainedAspectRatio'",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "isConstrained",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "aspectRatio",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CoreHudRoot",
     "Outer": "WBP_CoreHudRoot_C",
@@ -18,7 +82,7 @@
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
-          "ObjectName": "DelegateFunction'WidgetAnimationDynamicEvent__DelegateSignature'",
+          "ObjectName": "Class'WidgetAnimationDynamicEvent__DelegateSignature'",
           "ObjectPath": "/Script/UMG"
         }
       },
@@ -89,36 +153,32 @@
   },
   {
     "Type": "Function",
-    "Name": "ApplyConstrainedAspectRatio",
+    "Name": "FadeInWidgets",
     "Outer": "WBP_CoreHudRoot_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CoreHudRootWidget:ApplyConstrainedAspectRatio'",
+      "ObjectName": "Class'CoreHudRootWidget:FadeInWidgets'",
       "ObjectPath": "/Script/DeadByDaylight"
     },
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "isConstrained",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "aspectRatio",
-        "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
-      }
-    ],
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "FadeOutWidgets",
+    "Outer": "WBP_CoreHudRoot_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreHudRootWidget:FadeOutWidgets'",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnFadeOutCompleted",
+    "Outer": "WBP_CoreHudRoot_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -126,7 +186,7 @@
     "Outer": "WBP_CoreHudRoot_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'UserWidget:PreConstruct'",
+      "ObjectName": "Class'UserWidget:PreConstruct'",
       "ObjectPath": "/Script/UMG"
     },
     "ChildProperties": [
@@ -148,32 +208,75 @@
   },
   {
     "Type": "Function",
-    "Name": "OnFadeOutCompleted",
+    "Name": "ScalePadding",
     "Outer": "WBP_CoreHudRoot_C",
     "Class": "UScriptClass'Function'",
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "FadeOutWidgets",
-    "Outer": "WBP_CoreHudRoot_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreHudRootWidget:FadeOutWidgets'",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "FadeInWidgets",
-    "Outer": "WBP_CoreHudRoot_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'CoreHudRootWidget:FadeInWidgets'",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SlotAsVerticalBoxSlot_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'VerticalBoxSlot'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_FClamp_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MapRangeClamped_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MapRangeClamped_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_Margin",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Class'Margin'",
+          "ObjectPath": "/Script/SlateCore"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_FClamp_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_MakeStruct_Top_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_MakeStruct_Left_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_MakeStruct_Bottom_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -181,7 +284,7 @@
     "Outer": "WBP_CoreHudRoot_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'CoreHudRootWidget:SetWidgetsVisibility'",
+      "ObjectName": "Class'CoreHudRootWidget:SetWidgetsVisibility'",
       "ObjectPath": "/Script/DeadByDaylight"
     },
     "ChildProperties": [
@@ -202,319 +305,6 @@
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
-    "Type": "Function",
-    "Name": "ScalePadding",
-    "Outer": "WBP_CoreHudRoot_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_SlotAsVerticalBoxSlot_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'VerticalBoxSlot'",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_FClamp_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_MapRangeClamped_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_MapRangeClamped_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "K2Node_MakeStruct_Margin",
-        "Flags": "RF_Public",
-        "ElementSize": 16,
-        "Struct": {
-          "ObjectName": "ScriptStruct'Margin'",
-          "ObjectPath": "/Script/SlateCore"
-        }
-      }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "WidgetBlueprintGeneratedClass",
-    "Name": "WBP_CoreHudRoot_C",
-    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
-    "Properties": {
-      "WidgetTree": {
-        "ObjectName": "WidgetTree'WBP_CoreHudRoot_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.43"
-      },
-      "bClassRequiresNativeTick": true,
-      "Animations": [
-        {
-          "ObjectName": "WidgetAnimation'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.41"
-        },
-        {
-          "ObjectName": "WidgetAnimation'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.42"
-        }
-      ],
-      "UberGraphFunction": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:ExecuteUbergraph_WBP_CoreHudRoot'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.0"
-      }
-    },
-    "SuperStruct": {
-      "ObjectName": "Class'CoreHudRootWidget'",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "Children": [
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:ScalePadding'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.7"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:SetWidgetsVisibility'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.6"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeInWidgets'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.5"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeOutWidgets'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.4"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:OnFadeOutCompleted'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.3"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.2"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:ApplyConstrainedAspectRatio'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.1"
-      },
-      {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:ExecuteUbergraph_WBP_CoreHudRoot'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.0"
-      }
-    ],
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "UberGraphFrame",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 16,
-        "PropertyFlags": "Transient | DuplicateTransient",
-        "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "fadeOutWidgetContainer",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
-        "PropertyClass": {
-          "ObjectName": "Class'WidgetAnimation'",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "fadeInWidgetContainer",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
-        "PropertyClass": {
-          "ObjectName": "Class'WidgetAnimation'",
-          "ObjectPath": "/Script/UMG"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "AspectRatioBox_0",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "Class'AspectRatioBox'",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "isPlayingFadeoutAnimation",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 1,
-        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FuncMap": {
-      "ExecuteUbergraph_WBP_CoreHudRoot": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:ExecuteUbergraph_WBP_CoreHudRoot'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.0"
-      },
-      "ApplyConstrainedAspectRatio": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:ApplyConstrainedAspectRatio'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.1"
-      },
-      "PreConstruct": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.2"
-      },
-      "OnFadeOutCompleted": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:OnFadeOutCompleted'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.3"
-      },
-      "FadeOutWidgets": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeOutWidgets'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.4"
-      },
-      "FadeInWidgets": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeInWidgets'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.5"
-      },
-      "SetWidgetsVisibility": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:SetWidgetsVisibility'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.6"
-      },
-      "ScalePadding": {
-        "ObjectName": "Function'WBP_CoreHudRoot_C:ScalePadding'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.7"
-      }
-    },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
-    "ClassWithin": {
-      "ObjectName": "Class'Object'",
-      "ObjectPath": "/Script/CoreUObject"
-    },
-    "ClassConfigName": "Engine",
-    "bCooked": true,
-    "ClassDefaultObject": {
-      "ObjectName": "WBP_CoreHudRoot_C'Default__WBP_CoreHudRoot_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.9"
-    }
-  },
-  {
-    "Type": "WBP_CoreHudRoot_C",
-    "Name": "Default__WBP_CoreHudRoot_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.WBP_CoreHudRoot_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "EquippedItemWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreEquippedItem_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedItem/WBP_CoreEquippedItem.9"
-      },
-      "EquippedPowerWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreEquippedPower_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/EquippedPower/WBP_CoreEquippedPower.9"
-      },
-      "ExternalEffectsWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreExternalEffects_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Perks/WBP_CoreExternalEffects.0"
-      },
-      "HudAlertWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreHudAlertsWidget_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Alerts/WBP_CoreHudAlertsWidget.3"
-      },
-      "InteractionProgressWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreInteractionProgressWidget_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/InteractionProgress/WBP_CoreInteractionProgressWidget.15"
-      },
-      "InteractionPromptsContainerWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreInteractionPromptsContainer_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/InteractionPrompts/WBP_CoreInteractionPromptsContainer.2"
-      },
-      "ItemInteractionWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreItemInteraction_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Interactions/WBP_CoreItemInteraction.4"
-      },
-      "OfferingInteractionWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreOfferingInteraction_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Interactions/WBP_CoreOfferingInteraction.3"
-      },
-      "PerksContainerWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CorePerksContainer_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Perks/WBP_CorePerksContainer.2"
-      },
-      "PingStatusWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CorePingStatus_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PingStatus/WBP_CorePingStatus.9"
-      },
-      "PlayerStatusesWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CorePlayerStatusesContainer_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/PlayerStatus/WBP_CorePlayerStatusesContainer.3"
-      },
-      "ScreenIndicatorWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreScreenIndicatorsContainer_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/ScreenIndicators/WBP_CoreScreenIndicatorsContainer.3"
-      },
-      "StartSequenceWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStartSequence_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StartSequence/WBP_CoreStartSequence.4"
-      },
-      "StatusEffectWidgetClass": {
-        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStatusEffects_C'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/StatusEffect/WBP_CoreStatusEffects.3"
-      },
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "AspectRatioBox",
-    "Name": "AspectRatioBox_0",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'AspectRatioBox'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "AspectRatioBoxSlot'WBP_CoreHudRoot_C:WidgetTree.AspectRatioBox_0.AspectRatioBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.11"
-        }
-      ],
-      "bIsVariable": true
-    }
-  },
-  {
-    "Type": "AspectRatioBoxSlot",
-    "Name": "AspectRatioBoxSlot_0",
-    "Outer": "AspectRatioBox_0",
-    "Class": "UScriptClass'AspectRatioBoxSlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "AspectRatioBox'WBP_CoreHudRoot_C:WidgetTree.AspectRatioBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.10"
-      },
-      "Content": {
-        "ObjectName": "VerticalBox'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.38"
-      }
-    }
-  },
-  {
     "Type": "MovieScene",
     "Name": "fadeInWidgetContainer",
     "Outer": "fadeInWidgetContainer_INST",
@@ -525,11 +315,12 @@
           "Tags": [],
           "Guid": "F80E2B52-476C1E74-8CC369A3-517171E5",
           "Name": "WidgetContainer",
-          "PossessedObjectClass": {
-            "ObjectName": "Class'Overlay'",
-            "ObjectPath": "/Script/UMG"
-          },
-          "ParentGuid": "00000000-00000000-00000000-00000000"
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
         }
       ],
       "ObjectBindings": [
@@ -539,11 +330,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneFloatTrack'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneFloatTrack_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.30"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.28"
             },
             {
               "ObjectName": "MovieSceneByteTrack'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneByteTrack_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.24"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.22"
             }
           ]
         }
@@ -581,11 +372,12 @@
           "Tags": [],
           "Guid": "7EBB5B7E-45220FA9-C2FAFD89-5B1D8BCD",
           "Name": "WidgetContainer",
-          "PossessedObjectClass": {
-            "ObjectName": "Class'Overlay'",
-            "ObjectPath": "/Script/UMG"
-          },
-          "ParentGuid": "00000000-00000000-00000000-00000000"
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
         }
       ],
       "ObjectBindings": [
@@ -595,11 +387,11 @@
           "Tracks": [
             {
               "ObjectName": "MovieSceneByteTrack'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneByteTrack_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.25"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.23"
             },
             {
               "ObjectName": "MovieSceneFloatTrack'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneFloatTrack_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.31"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.29"
             }
           ]
         }
@@ -690,18 +482,18 @@
           4
         ],
         "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         }
       },
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0.EaseInFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.14"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.12"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0.EaseOutFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.15"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.13"
         }
       },
       "Signature": "B94F4AC2-4DCA3B94-43962DB7-0C05F0AF"
@@ -727,18 +519,18 @@
           2
         ],
         "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectName": "Class'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
         }
       },
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0.EaseInFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.18"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.16"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0.EaseOutFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.19"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.17"
         }
       },
       "SectionRange": {
@@ -767,7 +559,7 @@
     "Class": "UScriptClass'MovieSceneByteTrack'",
     "Properties": {
       "Enum": {
-        "ObjectName": "Enum'ESlateVisibility'",
+        "ObjectName": "Class'ESlateVisibility'",
         "ObjectPath": "/Script/UMG"
       },
       "PropertyBinding": {
@@ -778,7 +570,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneByteSection'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.22"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.20"
         }
       ],
       "EvaluationFieldGuid": "6BC81C28-4935B045-0150D9AA-87B65F36",
@@ -787,7 +579,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneByteSection'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.22"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.20"
             },
             "Range": {
               "LowerBound": {
@@ -821,7 +613,7 @@
     "Class": "UScriptClass'MovieSceneByteTrack'",
     "Properties": {
       "Enum": {
-        "ObjectName": "Enum'ESlateVisibility'",
+        "ObjectName": "Class'ESlateVisibility'",
         "ObjectPath": "/Script/UMG"
       },
       "PropertyBinding": {
@@ -832,7 +624,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneByteSection'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.23"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.21"
         }
       ],
       "EvaluationFieldGuid": "A4ECC43A-4921F938-025E5790-8F044504",
@@ -841,7 +633,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneByteSection'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.23"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.21"
             },
             "Range": {
               "LowerBound": {
@@ -1008,7 +800,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.28"
+                "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.26"
               },
               "EntityID": 0
             },
@@ -1018,7 +810,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneByteSection'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.22"
+                "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.20"
               },
               "EntityID": 0
             },
@@ -1160,7 +952,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneByteSection'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneByteTrack_0.MovieSceneByteSection_0'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.23"
+                "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.21"
               },
               "EntityID": 0
             },
@@ -1170,7 +962,7 @@
             "Key": {
               "EntityOwner": {
                 "ObjectName": "MovieSceneFloatSection'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
-                "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.29"
+                "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.27"
               },
               "EntityID": 0
             },
@@ -1260,11 +1052,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.16"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.14"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.17"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.15"
         }
       },
       "SectionRange": {
@@ -1342,11 +1134,11 @@
       "Easing": {
         "EaseIn": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseInFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.20"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.18"
         },
         "EaseOut": {
           "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0.EaseOutFunction'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.21"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.19"
         }
       },
       "SectionRange": {
@@ -1382,7 +1174,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.28"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.26"
         }
       ],
       "EvaluationFieldGuid": "1F29B2E1-4A31E4C5-F17537B0-3A6EEC7D",
@@ -1391,7 +1183,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.28"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.26"
             },
             "Range": {
               "LowerBound": {
@@ -1432,7 +1224,7 @@
       "Sections": [
         {
           "ObjectName": "MovieSceneFloatSection'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.29"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.27"
         }
       ],
       "EvaluationFieldGuid": "4CA90A0C-46F83BDD-5F7A6591-3F8F68D1",
@@ -1441,7 +1233,7 @@
           {
             "Section": {
               "ObjectName": "MovieSceneFloatSection'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer.MovieSceneFloatTrack_0.MovieSceneFloatSection_0'",
-              "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.29"
+              "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.27"
             },
             "Range": {
               "LowerBound": {
@@ -1477,12 +1269,12 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CoreHudRoot_C:WidgetTree.OuterContainer.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.35"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.33"
         }
       ],
       "Slot": {
         "ObjectName": "ScaleBoxSlot'WBP_CoreHudRoot_C:WidgetTree.ScaleHud.ScaleBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.37"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.35"
       },
       "bIsVariable": true
     }
@@ -1495,7 +1287,7 @@
     "Properties": {
       "Slot": {
         "ObjectName": "VerticalBoxSlot'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27.VerticalBoxSlot_2'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.40"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.38"
       },
       "bIsVariable": true
     }
@@ -1508,7 +1300,7 @@
     "Properties": {
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CoreHudRoot_C:WidgetTree.OuterContainer.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.35"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.33"
       },
       "bIsVariable": true
     }
@@ -1519,15 +1311,15 @@
     "Outer": "OuterContainer",
     "Class": "UScriptClass'OverlaySlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
       "Parent": {
         "ObjectName": "Overlay'WBP_CoreHudRoot_C:WidgetTree.OuterContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.32"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.30"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CoreHudRoot_C:WidgetTree.WidgetContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.34"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.32"
       }
     }
   },
@@ -1541,12 +1333,12 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot'WBP_CoreHudRoot_C:WidgetTree.ScaleHud.ScaleBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.37"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.35"
         }
       ],
       "Slot": {
         "ObjectName": "VerticalBoxSlot'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27.VerticalBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.39"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.37"
       },
       "bIsVariable": true
     }
@@ -1557,15 +1349,15 @@
     "Outer": "ScaleHud",
     "Class": "UScriptClass'ScaleBoxSlot'",
     "Properties": {
-      "HorizontalAlignment": "HAlign_Fill",
-      "VerticalAlignment": "VAlign_Fill",
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
       "Parent": {
         "ObjectName": "ScaleBox'WBP_CoreHudRoot_C:WidgetTree.ScaleHud'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.36"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.34"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CoreHudRoot_C:WidgetTree.OuterContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.32"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.30"
       }
     }
   },
@@ -1578,16 +1370,16 @@
       "Slots": [
         {
           "ObjectName": "VerticalBoxSlot'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27.VerticalBoxSlot_2'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.40"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.38"
         },
         {
           "ObjectName": "VerticalBoxSlot'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27.VerticalBoxSlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.39"
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.37"
         }
       ],
       "Slot": {
         "ObjectName": "AspectRatioBoxSlot'WBP_CoreHudRoot_C:WidgetTree.AspectRatioBox_0.AspectRatioBoxSlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.11"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.1"
       }
     }
   },
@@ -1602,11 +1394,11 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.38"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.36"
       },
       "Content": {
         "ObjectName": "ScaleBox'WBP_CoreHudRoot_C:WidgetTree.ScaleHud'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.36"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.34"
       }
     }
   },
@@ -1621,12 +1413,78 @@
       },
       "Parent": {
         "ObjectName": "VerticalBox'WBP_CoreHudRoot_C:WidgetTree.VerticalBox_27'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.38"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.36"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CoreHudRoot_C:WidgetTree.SpectateContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.33"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.31"
       }
+    }
+  },
+  {
+    "Type": "WBP_CoreHudRoot_C",
+    "Name": "Default__WBP_CoreHudRoot_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/HUD/Root/WBP_CoreHudRoot.WBP_CoreHudRoot_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "EquippedItemWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreEquippedItem_C'",
+        "ObjectPath": "/DBDUICore/HUD/EquippedItem/WBP_CoreEquippedItem.60"
+      },
+      "EquippedPowerWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreEquippedPower_C'",
+        "ObjectPath": "/DBDUICore/HUD/EquippedPower/WBP_CoreEquippedPower.50"
+      },
+      "ExternalEffectsWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreExternalEffects_C'",
+        "ObjectPath": "/DBDUICore/HUD/Perks/WBP_CoreExternalEffects.6"
+      },
+      "HudAlertWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreHudAlertsWidget_C'",
+        "ObjectPath": "/DBDUICore/HUD/Alerts/WBP_CoreHudAlertsWidget.29"
+      },
+      "InteractionProgressWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreInteractionProgressWidget_C'",
+        "ObjectPath": "/DBDUICore/HUD/InteractionProgress/WBP_CoreInteractionProgressWidget.152"
+      },
+      "InteractionPromptsContainerWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreInteractionPromptsContainer_C'",
+        "ObjectPath": "/DBDUICore/HUD/InteractionPrompts/WBP_CoreInteractionPromptsContainer.10"
+      },
+      "ItemInteractionWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreItemInteraction_C'",
+        "ObjectPath": "/DBDUICore/HUD/Interactions/WBP_CoreItemInteraction.8"
+      },
+      "OfferingInteractionWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreOfferingInteraction_C'",
+        "ObjectPath": "/DBDUICore/HUD/Interactions/WBP_CoreOfferingInteraction.7"
+      },
+      "PerksContainerWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CorePerksContainer_C'",
+        "ObjectPath": "/DBDUICore/HUD/Perks/WBP_CorePerksContainer.14"
+      },
+      "PingStatusWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CorePingStatus_C'",
+        "ObjectPath": "/DBDUICore/HUD/PingStatus/WBP_CorePingStatus.23"
+      },
+      "PlayerStatusesWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CorePlayerStatusesContainer_C'",
+        "ObjectPath": "/DBDUICore/HUD/PlayerStatus/WBP_CorePlayerStatusesContainer.15"
+      },
+      "ScreenIndicatorWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreScreenIndicatorsContainer_C'",
+        "ObjectPath": "/DBDUICore/HUD/ScreenIndicators/WBP_CoreScreenIndicatorsContainer.5"
+      },
+      "StartSequenceWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStartSequence_C'",
+        "ObjectPath": "/DBDUICore/HUD/StartSequence/WBP_CoreStartSequence.34"
+      },
+      "StatusEffectWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_CoreStatusEffects_C'",
+        "ObjectPath": "/DBDUICore/HUD/StatusEffect/WBP_CoreStatusEffects.7"
+      },
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
     }
   },
   {
@@ -1637,7 +1495,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "MovieScene'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.fadeInWidgetContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.12"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.10"
       },
       "AnimationBindings": [
         {
@@ -1650,7 +1508,7 @@
       "DisplayLabel": "fadeInWidgetContainer",
       "CompiledData": {
         "ObjectName": "MovieSceneCompiledData'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST.CompiledData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.26"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.24"
       },
       "Signature": "07F8F042-43E8320F-A17866B6-99F75EAE"
     }
@@ -1663,7 +1521,7 @@
     "Properties": {
       "MovieScene": {
         "ObjectName": "MovieScene'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.fadeOutWidgetContainer'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.13"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.11"
       },
       "AnimationBindings": [
         {
@@ -1676,9 +1534,180 @@
       "DisplayLabel": "fadeOutWidgetContainer",
       "CompiledData": {
         "ObjectName": "MovieSceneCompiledData'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST.CompiledData'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.27"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.25"
       },
       "Signature": "509C7CBB-4EDAA4F9-418CE4A8-6BB12139"
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_CoreHudRoot_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_CoreHudRoot_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.43"
+      },
+      "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'WBP_CoreHudRoot_C:fadeInWidgetContainer_INST'",
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.40"
+        },
+        {
+          "ObjectName": "WidgetAnimation'WBP_CoreHudRoot_C:fadeOutWidgetContainer_INST'",
+          "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.41"
+        }
+      ],
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:ExecuteUbergraph_WBP_CoreHudRoot'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CoreHudRootWidget'",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:ScalePadding'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.8"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:SetWidgetsVisibility'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.9"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeInWidgets'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.4"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeOutWidgets'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.5"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:OnFadeOutCompleted'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.6"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.7"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:ApplyConstrainedAspectRatio'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.2"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:ExecuteUbergraph_WBP_CoreHudRoot'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "fadeOutWidgetContainer",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "fadeInWidgetContainer",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AspectRatioBox_0",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'AspectRatioBox'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "isPlayingFadeoutAnimation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CoreHudRoot": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:ExecuteUbergraph_WBP_CoreHudRoot'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.3"
+      },
+      "ApplyConstrainedAspectRatio": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:ApplyConstrainedAspectRatio'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.2"
+      },
+      "PreConstruct": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.7"
+      },
+      "OnFadeOutCompleted": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:OnFadeOutCompleted'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.6"
+      },
+      "FadeOutWidgets": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeOutWidgets'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.5"
+      },
+      "FadeInWidgets": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:FadeInWidgets'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.4"
+      },
+      "SetWidgetsVisibility": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:SetWidgetsVisibility'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.9"
+      },
+      "ScalePadding": {
+        "ObjectName": "Function'WBP_CoreHudRoot_C:ScalePadding'",
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.8"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CoreHudRoot_C'Default__WBP_CoreHudRoot_C'",
+      "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.39"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -1689,7 +1718,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "AspectRatioBox'WBP_CoreHudRoot_C:WidgetTree.AspectRatioBox_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/HUD/Root/WBP_CoreHudRoot.10"
+        "ObjectPath": "/DBDUICore/HUD/Root/WBP_CoreHudRoot.0"
       }
     }
   }

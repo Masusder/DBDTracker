@@ -1,20 +1,134 @@
 [
   {
+    "Type": "ButtonSlot",
+    "Name": "ButtonSlot_0",
+    "Outer": "HitzoneButton",
+    "Class": "UScriptClass'ButtonSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "DBDButton'WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.1"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.14"
+      }
+    }
+  },
+  {
+    "Type": "DBDButton",
+    "Name": "HitzoneButton",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDButton'",
+    "Properties": {
+      "_analyticsName": "HitzoneButton",
+      "Slots": [
+        {
+          "ObjectName": "ButtonSlot'WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton.ButtonSlot_0'",
+          "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "BackgroundIMG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "MaterialInstanceConstant'MI_UI_AutoPlayButtonBG'",
+          "ObjectPath": "/DBDUICore/Assets/Common/Buttons/MI_UI_AutoPlayButtonBG.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.12"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "IconIMG",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 128.0,
+          "Y": 128.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_UI_Icon_Checkmark'",
+          "ObjectPath": "/DBDUICore/Assets/Common/Buttons/T_UI_Icon_Checkmark.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "GridSlot'WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_1'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.13"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "DBDTextBlock",
+    "Name": "LabelTB",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDTextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "E75C3676475E479ED4F6E2B9EF853A70",
+        "SourceString": "AUTO PLAY",
+        "LocalizedString": "AUTO PLAY"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'DBDCoreFont'",
+          "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.0"
+        },
+        "OutlineSettings": {
+          "OutlineSize": 2,
+          "outlineColor": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 0.4,
+            "Hex": "66000000"
+          }
+        },
+        "Size": 36
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_2'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.16"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CoreAutoPlayButton",
     "Outer": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
         "Type": "IntProperty",
         "Name": "EntryPoint",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 4,
-        "PropertyFlags": 148
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
         "Type": "BoolProperty",
         "Name": "K2Node_Event_isActive",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -26,7 +140,7 @@
       {
         "Type": "BoolProperty",
         "Name": "K2Node_Event_IsDesignTime",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
         "ByteOffset": 0,
@@ -38,31 +152,76 @@
       {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
-          "ObjectName": "Class MaterialInstanceDynamic",
+          "ObjectName": "Class'MaterialInstanceDynamic'",
           "ObjectPath": "/Script/Engine"
         }
       }
     ],
-    "FunctionFlags": 32769
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "HoverVisuals",
+    "Outer": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsHovered",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnHovered",
+    "Outer": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnHovered'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnUnhovered",
+    "Outer": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CoreButtonWidget:OnUnhovered'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
     "Name": "PreConstruct",
     "Outer": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function UserWidget:PreConstruct",
+      "ObjectName": "Class'UserWidget:PreConstruct'",
       "ObjectPath": "/Script/UMG"
     },
     "ChildProperties": [
       {
         "Type": "BoolProperty",
         "Name": "IsDesignTime",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
@@ -71,43 +230,24 @@
         "bIsNativeBool": true
       }
     ],
-    "FunctionFlags": 134350856
-  },
-  {
-    "Type": "Function",
-    "Name": "OnUnhovered",
-    "Outer": "WBP_CoreAutoPlayButton_C",
-    "SuperStruct": {
-      "ObjectName": "Function CoreButtonWidget:OnUnhovered",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": 134744064
-  },
-  {
-    "Type": "Function",
-    "Name": "OnHovered",
-    "Outer": "WBP_CoreAutoPlayButton_C",
-    "SuperStruct": {
-      "ObjectName": "Function CoreButtonWidget:OnHovered",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "FunctionFlags": 134744064
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
     "Name": "SetActiveVisualState",
     "Outer": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function CoreToggleButtonWidget:SetActiveVisualState",
+      "ObjectName": "Class'CoreToggleButtonWidget:SetActiveVisualState'",
       "ObjectPath": "/Script/DBDUIViewsCore"
     },
     "ChildProperties": [
       {
         "Type": "BoolProperty",
         "Name": "isActive",
-        "Flags": 1,
+        "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": 148,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "FieldSize": 1,
         "ByteOffset": 0,
         "ByteMask": 1,
@@ -116,178 +256,128 @@
         "bIsNativeBool": true
       }
     ],
-    "FunctionFlags": 201459712
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
-    "Type": "Function",
-    "Name": "HoverVisuals",
-    "Outer": "WBP_CoreAutoPlayButton_C",
-    "ChildProperties": [
-      {
-        "Type": "BoolProperty",
-        "Name": "IsHovered",
-        "Flags": 1,
-        "ElementSize": 1,
-        "PropertyFlags": 148,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": 201457664
-  },
-  {
-    "Type": "WidgetBlueprintGeneratedClass",
-    "Name": "WBP_CoreAutoPlayButton_C",
+    "Type": "GridPanel",
+    "Name": "GridPanel_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'GridPanel'",
     "Properties": {
-      "WidgetTree": {
-        "ObjectName": "WidgetTree WBP_CoreAutoPlayButton_C:WidgetTree",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.19"
-      },
-      "bClassRequiresNativeTick": true,
-      "UberGraphFunction": {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:ExecuteUbergraph_WBP_CoreAutoPlayButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.0"
+      "Slots": [
+        {
+          "ObjectName": "GridSlot'WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_0'",
+          "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.12"
+        },
+        {
+          "ObjectName": "GridSlot'WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_1'",
+          "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.13"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.15"
       }
-    },
-    "SuperStruct": {
-      "ObjectName": "Class CoreToggleButtonWidget",
-      "ObjectPath": "/Script/DBDUIViewsCore"
-    },
-    "Children": [
-      {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:HoverVisuals",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.5"
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_0",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.11"
       },
-      {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:SetActiveVisualState",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.4"
-      },
-      {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:OnHovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.3"
-      },
-      {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:OnUnhovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.2"
-      },
-      {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:PreConstruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.1"
-      },
-      {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:ExecuteUbergraph_WBP_CoreAutoPlayButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.0"
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreAutoPlayButton_C:WidgetTree.BackgroundIMG'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.2"
       }
-    ],
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "UberGraphFrame",
-        "Flags": 2097153,
-        "ElementSize": 16,
-        "PropertyFlags": 2105344,
-        "Struct": {
-          "ObjectName": "ScriptStruct PointerToUberGraphFrame",
-          "ObjectPath": "/Script/Engine"
-        }
+    }
+  },
+  {
+    "Type": "GridSlot",
+    "Name": "GridSlot_1",
+    "Outer": "GridPanel_0",
+    "Class": "UScriptClass'GridSlot'",
+    "Properties": {
+      "Nudge": {
+        "X": 30.0,
+        "Y": -15.0
       },
-      {
-        "Type": "ObjectProperty",
-        "Name": "IconIMG",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 562952101429260,
-        "PropertyClass": {
-          "ObjectName": "Class DBDImage",
-          "ObjectPath": "/Script/DBDUIViewsCore"
-        }
+      "Parent": {
+        "ObjectName": "GridPanel'WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.11"
       },
-      {
-        "Type": "StructProperty",
-        "Name": "ActiveBackgroundColor",
-        "Flags": 2097153,
-        "ElementSize": 16,
-        "PropertyFlags": 65541,
-        "Struct": {
-          "ObjectName": "ScriptStruct LinearColor",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "InactiveBackgroundColor",
-        "Flags": 2097153,
-        "ElementSize": 16,
-        "PropertyFlags": 65541,
-        "Struct": {
-          "ObjectName": "ScriptStruct LinearColor",
-          "ObjectPath": "/Script/CoreUObject"
-        }
-      },
-      {
-        "Type": "NameProperty",
-        "Name": "ParameterValue",
-        "Flags": 2097153,
-        "ElementSize": 12,
-        "PropertyFlags": 65541
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "DynamicMaterial",
-        "Flags": 2097153,
-        "ElementSize": 8,
-        "PropertyFlags": 65541,
-        "PropertyClass": {
-          "ObjectName": "Class MaterialInstanceDynamic",
-          "ObjectPath": "/Script/Engine"
-        }
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreAutoPlayButton_C:WidgetTree.IconIMG'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.3"
       }
-    ],
-    "FuncMap": {
-      "ExecuteUbergraph_WBP_CoreAutoPlayButton": {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:ExecuteUbergraph_WBP_CoreAutoPlayButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.0"
-      },
-      "PreConstruct": {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:PreConstruct",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.1"
-      },
-      "OnUnhovered": {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:OnUnhovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.2"
-      },
-      "OnHovered": {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:OnHovered",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.3"
-      },
-      "SetActiveVisualState": {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:SetActiveVisualState",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.4"
-      },
-      "HoverVisuals": {
-        "ObjectName": "Function WBP_CoreAutoPlayButton_C:HoverVisuals",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.5"
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_79",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.15"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_2'",
+          "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.16"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "ButtonSlot'WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton.ButtonSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.0"
       }
-    },
-    "ClassFlags": 10754064,
-    "ClassWithin": {
-      "ObjectName": "Class Object",
-      "ObjectPath": "/Script/CoreUObject"
-    },
-    "ClassConfigName": "Engine",
-    "bCooked": true,
-    "ClassDefaultObject": {
-      "ObjectName": "WBP_CoreAutoPlayButton_C Default__WBP_CoreAutoPlayButton_C",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.7"
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox_79",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.14"
+      },
+      "Content": {
+        "ObjectName": "GridPanel'WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.11"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_2",
+    "Outer": "HorizontalBox_79",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 6.0
+      },
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.14"
+      },
+      "Content": {
+        "ObjectName": "DBDTextBlock'WBP_CoreAutoPlayButton_C:WidgetTree.LabelTB'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.4"
+      }
     }
   },
   {
     "Type": "WBP_CoreAutoPlayButton_C",
     "Name": "Default__WBP_CoreAutoPlayButton_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.WBP_CoreAutoPlayButton_C'",
     "Properties": {
       "UberGraphFrame": {},
       "ActiveBackgroundColor": {
@@ -310,220 +400,164 @@
     }
   },
   {
-    "Type": "ButtonSlot",
-    "Name": "ButtonSlot_0",
-    "Outer": "HitzoneButton",
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
     "Properties": {
-      "Parent": {
-        "ObjectName": "DBDButton WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.9"
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_CoreAutoPlayButton_C:WidgetTree'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.19"
       },
-      "Content": {
-        "ObjectName": "HorizontalBox WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.16"
+      "bClassRequiresNativeTick": true,
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:ExecuteUbergraph_WBP_CoreAutoPlayButton'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.5"
       }
-    }
-  },
-  {
-    "Type": "DBDButton",
-    "Name": "HitzoneButton",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "ButtonSlot WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton.ButtonSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.8"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "BackgroundIMG",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 128.0,
-          "Y": 128.0
-        },
-        "ResourceObject": {
-          "ObjectName": "MaterialInstanceConstant MI_UI_AutoPlayButtonBG",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Buttons/MI_UI_AutoPlayButtonBG.0"
-        }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CoreToggleButtonWidget'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:HoverVisuals'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.6"
       },
-      "Slot": {
-        "ObjectName": "GridSlot WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.14"
+      {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:SetActiveVisualState'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.10"
       },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "IconIMG",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 128.0,
-          "Y": 128.0
-        },
-        "ResourceObject": {
-          "ObjectName": "Texture2D T_Icon_Checkmark",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/Buttons/T_Icon_Checkmark.0"
+      {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:OnHovered'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.7"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:OnUnhovered'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.8"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.9"
+      },
+      {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:ExecuteUbergraph_WBP_CoreAutoPlayButton'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.5"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
         }
       },
-      "Slot": {
-        "ObjectName": "GridSlot WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_1",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.15"
-      },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "DBDTextBlock",
-    "Name": "LabelTB",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "E75C3676475E479ED4F6E2B9EF853A70",
-        "SourceString": "AUTO PLAY",
-        "LocalizedString": "AUTO PLAY"
-      },
-      "Font": {
-        "FontObject": {
-          "ObjectName": "Font DBDCoreFont",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Fonts/DBDCoreFont.0"
-        },
-        "Size": 36
-      },
-      "Slot": {
-        "ObjectName": "HorizontalBoxSlot WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_2",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.18"
-      },
-      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
-    }
-  },
-  {
-    "Type": "GridPanel",
-    "Name": "GridPanel_0",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "GridSlot WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.14"
-        },
-        {
-          "ObjectName": "GridSlot WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0.GridSlot_1",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.15"
+      {
+        "Type": "ObjectProperty",
+        "Name": "IconIMG",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DBDImage'",
+          "ObjectPath": "/Script/DBDUIViewsCore"
         }
-      ],
-      "Slot": {
-        "ObjectName": "HorizontalBoxSlot WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.17"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_0",
-    "Outer": "GridPanel_0",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "GridPanel WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.13"
       },
-      "Content": {
-        "ObjectName": "DBDImage WBP_CoreAutoPlayButton_C:WidgetTree.BackgroundIMG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.10"
-      }
-    }
-  },
-  {
-    "Type": "GridSlot",
-    "Name": "GridSlot_1",
-    "Outer": "GridPanel_0",
-    "Properties": {
-      "Nudge": {
-        "X": 30.0,
-        "Y": -15.0
-      },
-      "Parent": {
-        "ObjectName": "GridPanel WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.13"
-      },
-      "Content": {
-        "ObjectName": "DBDImage WBP_CoreAutoPlayButton_C:WidgetTree.IconIMG",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.11"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBox",
-    "Name": "HorizontalBox_79",
-    "Outer": "WidgetTree",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "HorizontalBoxSlot WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_0",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.17"
-        },
-        {
-          "ObjectName": "HorizontalBoxSlot WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79.HorizontalBoxSlot_2",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.18"
+      {
+        "Type": "StructProperty",
+        "Name": "ActiveBackgroundColor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
         }
-      ],
-      "Slot": {
-        "ObjectName": "ButtonSlot WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton.ButtonSlot_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.8"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_0",
-    "Outer": "HorizontalBox_79",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "HorizontalBox WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.16"
       },
-      "Content": {
-        "ObjectName": "GridPanel WBP_CoreAutoPlayButton_C:WidgetTree.GridPanel_0",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.13"
-      }
-    }
-  },
-  {
-    "Type": "HorizontalBoxSlot",
-    "Name": "HorizontalBoxSlot_2",
-    "Outer": "HorizontalBox_79",
-    "Properties": {
-      "Padding": {
-        "Left": 6.0
+      {
+        "Type": "StructProperty",
+        "Name": "InactiveBackgroundColor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
       },
-      "VerticalAlignment": "VAlign_Center",
-      "Parent": {
-        "ObjectName": "HorizontalBox WBP_CoreAutoPlayButton_C:WidgetTree.HorizontalBox_79",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.16"
+      {
+        "Type": "NameProperty",
+        "Name": "ParameterValue",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 12,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
       },
-      "Content": {
-        "ObjectName": "DBDTextBlock WBP_CoreAutoPlayButton_C:WidgetTree.LabelTB",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.12"
+      {
+        "Type": "ObjectProperty",
+        "Name": "DynamicMaterial",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
       }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_CoreAutoPlayButton": {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:ExecuteUbergraph_WBP_CoreAutoPlayButton'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.5"
+      },
+      "PreConstruct": {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:PreConstruct'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.9"
+      },
+      "OnUnhovered": {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:OnUnhovered'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.8"
+      },
+      "OnHovered": {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:OnHovered'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.7"
+      },
+      "SetActiveVisualState": {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:SetActiveVisualState'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.10"
+      },
+      "HoverVisuals": {
+        "ObjectName": "Function'WBP_CoreAutoPlayButton_C:HoverVisuals'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.6"
+      }
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_CoreAutoPlayButton_C'Default__WBP_CoreAutoPlayButton_C'",
+      "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.17"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
     "Type": "WidgetTree",
     "Name": "WidgetTree",
     "Outer": "WBP_CoreAutoPlayButton_C",
+    "Class": "UScriptClass'WidgetTree'",
     "Properties": {
       "RootWidget": {
-        "ObjectName": "DBDButton WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.9"
+        "ObjectName": "DBDButton'WBP_CoreAutoPlayButton_C:WidgetTree.HitzoneButton'",
+        "ObjectPath": "/DBDUICore/Common/Inputs/Buttons/Toggle/WBP_CoreAutoPlayButton.1"
       }
     }
   }

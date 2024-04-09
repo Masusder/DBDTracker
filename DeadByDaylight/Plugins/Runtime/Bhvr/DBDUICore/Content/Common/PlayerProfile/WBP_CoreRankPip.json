@@ -1,5 +1,60 @@
 [
   {
+    "Type": "DBDImage",
+    "Name": "Background",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 51.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "MaterialInstanceConstant'MI_UI_RankPips'",
+          "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/MI_UI_RankPips.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.8"
+      }
+    }
+  },
+  {
+    "Type": "DBDImage",
+    "Name": "Foreground",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DBDImage'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 51.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "MaterialInstanceConstant'MI_UI_RankPips'",
+          "ObjectPath": "/DBDUICore/Assets/Common/PlayerProfile/PlayerRank/MI_UI_RankPips.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.9"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_CoreRankPip_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "Function",
     "Name": "ExecuteUbergraph_WBP_CoreRankPip",
     "Outer": "WBP_CoreRankPip_C",
@@ -73,22 +128,11 @@
   },
   {
     "Type": "Function",
-    "Name": "Construct",
-    "Outer": "WBP_CoreRankPip_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'UserWidget:Construct'",
-      "ObjectPath": "/Script/UMG"
-    },
-    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
     "Name": "PreConstruct",
     "Outer": "WBP_CoreRankPip_C",
     "Class": "UScriptClass'Function'",
     "SuperStruct": {
-      "ObjectName": "Function'UserWidget:PreConstruct'",
+      "ObjectName": "Class'UserWidget:PreConstruct'",
       "ObjectPath": "/Script/UMG"
     },
     "ChildProperties": [
@@ -163,19 +207,93 @@
         "ElementSize": 4
       },
       {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_IntToDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_IntToDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
         "Type": "FloatProperty",
-        "Name": "CallFunc_Conv_IntToFloat_ReturnValue",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
       {
         "Type": "FloatProperty",
-        "Name": "CallFunc_Conv_IntToFloat_ReturnValue_1",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast_1",
         "Flags": "RF_Public",
         "ElementSize": 4
       }
     ],
     "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.8"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+          "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.9"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreRankPip_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.7"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreRankPip_C:WidgetTree.Background'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.0"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "Overlay'WBP_CoreRankPip_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.7"
+      },
+      "Content": {
+        "ObjectName": "DBDImage'WBP_CoreRankPip_C:WidgetTree.Foreground'",
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.1"
+      }
+    }
+  },
+  {
+    "Type": "WBP_CoreRankPip_C",
+    "Name": "Default__WBP_CoreRankPip_C",
+    "Class": "WidgetBlueprintGeneratedClass'/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.WBP_CoreRankPip_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "PipSeed": 4,
+      "PipActivated": true,
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
   },
   {
     "Type": "WidgetBlueprintGeneratedClass",
@@ -184,11 +302,11 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CoreRankPip_C:WidgetTree'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.12"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.12"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'WBP_CoreRankPip_C:ExecuteUbergraph_WBP_CoreRankPip'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.3"
       }
     },
     "SuperStruct": {
@@ -198,23 +316,23 @@
     "Children": [
       {
         "ObjectName": "Function'WBP_CoreRankPip_C:UpdatePipVisual'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.4"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.6"
       },
       {
         "ObjectName": "Function'WBP_CoreRankPip_C:SetState'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.3"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.5"
       },
       {
         "ObjectName": "Function'WBP_CoreRankPip_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.2"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.4"
       },
       {
         "ObjectName": "Function'WBP_CoreRankPip_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.1"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.2"
       },
       {
         "ObjectName": "Function'WBP_CoreRankPip_C:ExecuteUbergraph_WBP_CoreRankPip'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.3"
       }
     ],
     "ChildProperties": [
@@ -225,7 +343,7 @@
         "ElementSize": 16,
         "PropertyFlags": "Transient | DuplicateTransient",
         "Struct": {
-          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectName": "Class'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
         }
       },
@@ -234,7 +352,7 @@
         "Name": "Background",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "Class'DBDImage'",
           "ObjectPath": "/Script/DBDUIViewsCore"
@@ -245,7 +363,7 @@
         "Name": "Foreground",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
         "PropertyClass": {
           "ObjectName": "Class'DBDImage'",
           "ObjectPath": "/Script/DBDUIViewsCore"
@@ -297,26 +415,26 @@
     "FuncMap": {
       "ExecuteUbergraph_WBP_CoreRankPip": {
         "ObjectName": "Function'WBP_CoreRankPip_C:ExecuteUbergraph_WBP_CoreRankPip'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.0"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.3"
       },
       "Construct": {
         "ObjectName": "Function'WBP_CoreRankPip_C:Construct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.1"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.2"
       },
       "PreConstruct": {
         "ObjectName": "Function'WBP_CoreRankPip_C:PreConstruct'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.2"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.4"
       },
       "SetState": {
         "ObjectName": "Function'WBP_CoreRankPip_C:SetState'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.3"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.5"
       },
       "UpdatePipVisual": {
         "ObjectName": "Function'WBP_CoreRankPip_C:UpdatePipVisual'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.4"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.6"
       }
     },
-    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -325,113 +443,10 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CoreRankPip_C'Default__WBP_CoreRankPip_C'",
-      "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.6"
-    }
-  },
-  {
-    "Type": "WBP_CoreRankPip_C",
-    "Name": "Default__WBP_CoreRankPip_C",
-    "Class": "WidgetBlueprintGeneratedClass'DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.WBP_CoreRankPip_C'",
-    "Properties": {
-      "UberGraphFrame": {},
-      "PipSeed": 4,
-      "PipActivated": true,
-      "bHasScriptImplementedTick": false,
-      "bHasScriptImplementedPaint": false
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "Background",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 51.0,
-          "Y": 64.0
-        },
-        "ResourceObject": {
-          "ObjectName": "MaterialInstanceConstant'MI_UI_RankPips'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/MI_UI_RankPips.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.10"
-      }
-    }
-  },
-  {
-    "Type": "DBDImage",
-    "Name": "Foreground",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'DBDImage'",
-    "Properties": {
-      "Brush": {
-        "ImageSize": {
-          "X": 51.0,
-          "Y": 64.0
-        },
-        "ResourceObject": {
-          "ObjectName": "MaterialInstanceConstant'MI_UI_RankPips'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Assets/Common/PlayerProfile/PlayerRank/MI_UI_RankPips.0"
-        }
-      },
-      "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_1'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.11"
-      }
-    }
-  },
-  {
-    "Type": "Overlay",
-    "Name": "Overlay_0",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'Overlay'",
-    "Properties": {
-      "Slots": [
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_0'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.10"
-        },
-        {
-          "ObjectName": "OverlaySlot'WBP_CoreRankPip_C:WidgetTree.Overlay_0.OverlaySlot_1'",
-          "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.11"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_0",
-    "Outer": "Overlay_0",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreRankPip_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.9"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CoreRankPip_C:WidgetTree.Background'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.7"
-      }
-    }
-  },
-  {
-    "Type": "OverlaySlot",
-    "Name": "OverlaySlot_1",
-    "Outer": "Overlay_0",
-    "Class": "UScriptClass'OverlaySlot'",
-    "Properties": {
-      "Parent": {
-        "ObjectName": "Overlay'WBP_CoreRankPip_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.9"
-      },
-      "Content": {
-        "ObjectName": "DBDImage'WBP_CoreRankPip_C:WidgetTree.Foreground'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.8"
-      }
+      "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.10"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
     }
   },
   {
@@ -442,7 +457,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "Overlay'WBP_CoreRankPip_C:WidgetTree.Overlay_0'",
-        "ObjectPath": "DeadByDaylight/Plugins/Runtime/Bhvr/DBDUICore/Content/Common/PlayerProfile/WBP_CoreRankPip.9"
+        "ObjectPath": "/DBDUICore/Common/PlayerProfile/WBP_CoreRankPip.7"
       }
     }
   }
