@@ -1,0 +1,184 @@
+[
+  {
+    "Type": "EnvQuery",
+    "Name": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQuery'",
+    "Properties": {
+      "QueryName": "EQS_Flee_DodgeDangerObject",
+      "Options": [
+        {
+          "ObjectName": "EnvQueryOption'EQS_Flee_DodgeDangerObject:EnvQueryOption_1'",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.2"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryGenerator_SimpleGrid",
+    "Name": "EnvQueryGenerator_SimpleGrid_1",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryGenerator_SimpleGrid'",
+    "Properties": {
+      "SpaceBetween": {
+        "DefaultValue": 50.0
+      },
+      "ProjectionData": {
+        "VersionNum": 1,
+        "NavigationFilter": {
+          "ObjectName": "Class'NavigationQueryFilter_CamperStealth'",
+          "ObjectPath": "/Script/DBDBots"
+        },
+        "SerializedChannel": "ECollisionChannel::ECC_Visibility"
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryOption",
+    "Name": "EnvQueryOption_1",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryOption'",
+    "Properties": {
+      "Generator": {
+        "ObjectName": "EnvQueryGenerator_SimpleGrid'EQS_Flee_DodgeDangerObject:EnvQueryGenerator_SimpleGrid_1'",
+        "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.1"
+      },
+      "Tests": [
+        {
+          "ObjectName": "EnvQueryTest_IsValidDestination'EQS_Flee_DodgeDangerObject:EnvQueryTest_IsValidDestination_1'",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.7"
+        },
+        {
+          "ObjectName": "EnvQueryTest_IsInDangerObjectRange'EQS_Flee_DodgeDangerObject:EnvQueryTest_IsInDangerObjectRange_1'",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.6"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQS_Flee_DodgeDangerObject:EnvQueryTest_Distance_2'",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.4"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQS_Flee_DodgeDangerObject:EnvQueryTest_Distance_3'",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.5"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Basement'EQS_Flee_DodgeDangerObject:EnvQueryTest_Basement_1'",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.3"
+        },
+        {
+          "ObjectName": "EnvQueryTest_PathfindingBatchExt'EQS_Flee_DodgeDangerObject:EnvQueryTest_PathfindingBatchExt_0'",
+          "ObjectPath": "/Game/AI/Camper/EQS_Flee_DodgeDangerObject.8"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Basement",
+    "Name": "EnvQueryTest_Basement_1",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryTest_Basement'",
+    "Properties": {
+      "TestOrder": 4,
+      "VerNum": 2
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_2",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Properties": {
+      "TestMode": "EEnvTestDistance::Distance2D",
+      "TestOrder": 2,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "FilterType": "EEnvTestFilterType::Maximum",
+      "FloatValueMin": {
+        "DefaultValue": 1800.0
+      },
+      "FloatValueMax": {
+        "DefaultValue": 1000.0
+      },
+      "ScoringEquation": "EEnvTestScoreEquation::InverseLinear",
+      "VerNum": 2
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_3",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Properties": {
+      "TestMode": "EEnvTestDistance::Distance2D",
+      "DistanceTo": {
+        "ObjectName": "Class'EnvQueryContext_TerrorRadius'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 3,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "FilterType": "EEnvTestFilterType::Minimum",
+      "FloatValueMin": {
+        "DefaultValue": 1800.0
+      },
+      "ScoringFactor": {
+        "DefaultValue": 1.5
+      },
+      "VerNum": 2
+    }
+  },
+  {
+    "Type": "EnvQueryTest_IsInDangerObjectRange",
+    "Name": "EnvQueryTest_IsInDangerObjectRange_1",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryTest_IsInDangerObjectRange'",
+    "Properties": {
+      "UseCrouchHeight": {
+        "DefaultValue": false
+      },
+      "TestOrder": 1,
+      "VerNum": 2
+    }
+  },
+  {
+    "Type": "EnvQueryTest_IsValidDestination",
+    "Name": "EnvQueryTest_IsValidDestination_1",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryTest_IsValidDestination'",
+    "Properties": {
+      "VerNum": 2
+    }
+  },
+  {
+    "Type": "EnvQueryTest_PathfindingBatchExt",
+    "Name": "EnvQueryTest_PathfindingBatchExt_0",
+    "Outer": "EQS_Flee_DodgeDangerObject",
+    "Class": "UScriptClass'EnvQueryTest_PathfindingBatchExt'",
+    "Properties": {
+      "BadPathingPenaltyMultiplier": {
+        "DefaultValue": 0.3
+      },
+      "MaxPenaltyAngle": {
+        "DefaultValue": 20.0
+      },
+      "MinPenaltyAngle": {
+        "DefaultValue": 50.0
+      },
+      "TargetContext": {
+        "ObjectName": "Class'EnvQueryContext_TerrorRadius'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "FilterClass": {
+        "ObjectName": "Class'NavigationQueryFilter_Camper_Cheap'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "TestOrder": 5,
+      "FilterType": "EEnvTestFilterType::Minimum",
+      "BoolValue": {
+        "DefaultValue": false
+      },
+      "FloatValueMin": {
+        "DefaultValue": 200.0
+      },
+      "ScoringEquation": "EEnvTestScoreEquation::Linear",
+      "VerNum": 2
+    }
+  }
+]

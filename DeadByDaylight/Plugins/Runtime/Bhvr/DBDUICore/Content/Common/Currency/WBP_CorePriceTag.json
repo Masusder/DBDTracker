@@ -10,6 +10,15 @@
           "X": 270.0,
           "Y": 115.0
         },
+        "TintColor": {
+          "SpecifiedColor": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 0.1,
+            "Hex": "19FFFFFF"
+          }
+        },
         "ResourceObject": {
           "ObjectName": "Texture2D'storePriceBgMed'",
           "ObjectPath": "/DBDUICore/Assets/Common/Store/storePriceBgMed.0"
@@ -17,7 +26,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.Overlay_61.OverlaySlot_0'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.22"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.23"
       }
     }
   },
@@ -43,7 +52,7 @@
       },
       "Slot": {
         "ObjectName": "GridSlot'WBP_CorePriceTag_C:WidgetTree.GridPanel_3.GridSlot_2'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.15"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.16"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -65,7 +74,7 @@
             "G": 0.982251,
             "B": 0.982251,
             "A": 1.0,
-            "Hex": "FFFDFDFD"
+            "Hex": "FDFDFD"
           }
         },
         "ResourceObject": {
@@ -75,7 +84,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.DiscountLabel.OverlaySlot_3'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.21"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.22"
       },
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
     }
@@ -109,7 +118,7 @@
           "G": 0.23074,
           "B": 0.23074,
           "A": 1.0,
-          "Hex": "FF848484"
+          "Hex": "848484"
         }
       },
       "Font": {
@@ -133,7 +142,7 @@
       },
       "Slot": {
         "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.DiscountLabel.OverlaySlot_1'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.20"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.21"
       },
       "bIsVariable": true,
       "Visibility": "ESlateVisibility::SelfHitTestInvisible"
@@ -168,7 +177,7 @@
           "G": 0.982251,
           "B": 0.982251,
           "A": 1.0,
-          "Hex": "FFFDFDFD"
+          "Hex": "FDFDFD"
         }
       },
       "Font": {
@@ -176,13 +185,23 @@
           "ObjectName": "Font'DBDCoreFont'",
           "ObjectPath": "/DBDUICore/Assets/Fonts/DBDCoreFont.0"
         },
+        "OutlineSettings": {
+          "OutlineSize": 2,
+          "outlineColor": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 0.5,
+            "Hex": "7F000000"
+          }
+        },
         "TypefaceFontName": "Condensed",
         "Size": 34
       },
       "Justification": "ETextJustify::Right",
       "Slot": {
         "ObjectName": "GridSlot'WBP_CorePriceTag_C:WidgetTree.GridPanel_3.GridSlot_5'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.17"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.18"
       },
       "bIsVariable": true
     }
@@ -210,12 +229,6 @@
           "ObjectName": "Class'PriceTagViewData'",
           "ObjectPath": "/Script/DBDUIViewInterfaces"
         }
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
       },
       {
         "Type": "BoolProperty",
@@ -308,6 +321,19 @@
         "Name": "CallFunc_BreakVector2D_Y",
         "Flags": "RF_Public",
         "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_priceTagScale",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
       },
       {
         "Type": "StructProperty",
@@ -448,7 +474,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetGameInstanceSubsystem_ReturnValue",
+        "Name": "CallFunc_GetEngineSubsystem_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyClass": {
@@ -586,6 +612,26 @@
     "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
+    "Type": "Function",
+    "Name": "UpdatePriceTagScale",
+    "Outer": "WBP_CorePriceTag_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'CorePriceTagWidget:UpdatePriceTagScale'",
+      "ObjectPath": "/Script/DBDUIViewsCore"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "priceTagScale",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "GridPanel",
     "Name": "GridPanel_3",
     "Outer": "WidgetTree",
@@ -594,20 +640,20 @@
       "Slots": [
         {
           "ObjectName": "GridSlot'WBP_CorePriceTag_C:WidgetTree.GridPanel_3.GridSlot_2'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.15"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.16"
         },
         {
           "ObjectName": "GridSlot'WBP_CorePriceTag_C:WidgetTree.GridPanel_3.GridSlot_5'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.17"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.18"
         },
         {
           "ObjectName": "GridSlot'WBP_CorePriceTag_C:WidgetTree.GridPanel_3.GridSlot_4'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.16"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.17"
         }
       ],
       "Slot": {
-        "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.Overlay_61.OverlaySlot_2'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.23"
+        "ObjectName": "ScaleBoxSlot'WBP_CorePriceTag_C:WidgetTree.PriceContainer.ScaleBoxSlot_0'",
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.27"
       }
     }
   },
@@ -625,7 +671,7 @@
       "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "Parent": {
         "ObjectName": "GridPanel'WBP_CorePriceTag_C:WidgetTree.GridPanel_3'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.14"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.15"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CorePriceTag_C:WidgetTree.CurrencyIcon'",
@@ -639,6 +685,9 @@
     "Outer": "GridPanel_3",
     "Class": "UScriptClass'GridSlot'",
     "Properties": {
+      "Padding": {
+        "Right": 2.0
+      },
       "HorizontalAlignment": "EHorizontalAlignment::HAlign_Right",
       "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "ColumnSpan": 2,
@@ -648,11 +697,11 @@
       },
       "Parent": {
         "ObjectName": "GridPanel'WBP_CorePriceTag_C:WidgetTree.GridPanel_3'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.14"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.15"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CorePriceTag_C:WidgetTree.DiscountLabel'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.18"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.19"
       }
     }
   },
@@ -670,7 +719,7 @@
       "Column": 1,
       "Parent": {
         "ObjectName": "GridPanel'WBP_CorePriceTag_C:WidgetTree.GridPanel_3'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.14"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.15"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CorePriceTag_C:WidgetTree.PriceTB'",
@@ -687,16 +736,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.DiscountLabel.OverlaySlot_1'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.20"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.21"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.DiscountLabel.OverlaySlot_3'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.21"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.22"
         }
       ],
       "Slot": {
         "ObjectName": "GridSlot'WBP_CorePriceTag_C:WidgetTree.GridPanel_3.GridSlot_4'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.16"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.17"
       },
       "bIsVariable": true
     }
@@ -710,16 +759,16 @@
       "Slots": [
         {
           "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.Overlay_61.OverlaySlot_0'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.22"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.23"
         },
         {
           "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.Overlay_61.OverlaySlot_2'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.23"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.24"
         }
       ],
       "Slot": {
         "ObjectName": "ScaleBoxSlot'WBP_CorePriceTag_C:WidgetTree.ScaleContainer.ScaleBoxSlot_0'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.25"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.28"
       }
     }
   },
@@ -736,7 +785,7 @@
       "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePriceTag_C:WidgetTree.DiscountLabel'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.18"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.19"
       },
       "Content": {
         "ObjectName": "DBDTextBlock'WBP_CorePriceTag_C:WidgetTree.DiscountTB'",
@@ -759,7 +808,7 @@
       "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePriceTag_C:WidgetTree.DiscountLabel'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.18"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.19"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CorePriceTag_C:WidgetTree.DiscountStrikeIMG'",
@@ -780,7 +829,7 @@
       "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePriceTag_C:WidgetTree.Overlay_61'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.19"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.20"
       },
       "Content": {
         "ObjectName": "DBDImage'WBP_CorePriceTag_C:WidgetTree.Background'",
@@ -798,12 +847,32 @@
       "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
       "Parent": {
         "ObjectName": "Overlay'WBP_CorePriceTag_C:WidgetTree.Overlay_61'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.19"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.20"
       },
       "Content": {
-        "ObjectName": "GridPanel'WBP_CorePriceTag_C:WidgetTree.GridPanel_3'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.14"
+        "ObjectName": "ScaleBox'WBP_CorePriceTag_C:WidgetTree.PriceContainer'",
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.25"
       }
+    }
+  },
+  {
+    "Type": "ScaleBox",
+    "Name": "PriceContainer",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'ScaleBox'",
+    "Properties": {
+      "Stretch": "EStretch::UserSpecified",
+      "Slots": [
+        {
+          "ObjectName": "ScaleBoxSlot'WBP_CorePriceTag_C:WidgetTree.PriceContainer.ScaleBoxSlot_0'",
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.27"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_CorePriceTag_C:WidgetTree.Overlay_61.OverlaySlot_2'",
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.24"
+      },
+      "bIsVariable": true
     }
   },
   {
@@ -816,9 +885,25 @@
       "Slots": [
         {
           "ObjectName": "ScaleBoxSlot'WBP_CorePriceTag_C:WidgetTree.ScaleContainer.ScaleBoxSlot_0'",
-          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.25"
+          "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.28"
         }
       ]
+    }
+  },
+  {
+    "Type": "ScaleBoxSlot",
+    "Name": "ScaleBoxSlot_0",
+    "Outer": "PriceContainer",
+    "Class": "UScriptClass'ScaleBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "ScaleBox'WBP_CorePriceTag_C:WidgetTree.PriceContainer'",
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.25"
+      },
+      "Content": {
+        "ObjectName": "GridPanel'WBP_CorePriceTag_C:WidgetTree.GridPanel_3'",
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.15"
+      }
     }
   },
   {
@@ -829,11 +914,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "ScaleBox'WBP_CorePriceTag_C:WidgetTree.ScaleContainer'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.24"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.26"
       },
       "Content": {
         "ObjectName": "Overlay'WBP_CorePriceTag_C:WidgetTree.Overlay_61'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.19"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.20"
       }
     }
   },
@@ -850,7 +935,7 @@
           "G": 0.514918,
           "B": 0.027321,
           "A": 1.0,
-          "Hex": "FFEFBE2E"
+          "Hex": "EFBE2E"
         },
         "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
       },
@@ -860,17 +945,17 @@
           "G": 0.982251,
           "B": 0.982251,
           "A": 1.0,
-          "Hex": "FFFDFDFD"
+          "Hex": "FDFDFD"
         },
         "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
       },
       "PriceNotAffordableColor": {
         "SpecifiedColor": {
-          "R": 0.982251,
-          "G": 0.013702,
-          "B": 0.013702,
+          "R": 0.879623,
+          "G": 0.024158,
+          "B": 0.024158,
           "A": 1.0,
-          "Hex": "FFFD1F1F"
+          "Hex": "F12B2B"
         },
         "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
       },
@@ -880,7 +965,7 @@
           "G": 0.23074,
           "B": 0.23074,
           "A": 1.0,
-          "Hex": "FF848484"
+          "Hex": "848484"
         },
         "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
       },
@@ -890,7 +975,7 @@
           "G": 0.23074,
           "B": 0.23074,
           "A": 1.0,
-          "Hex": "FF848484"
+          "Hex": "848484"
         },
         "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
       },
@@ -899,14 +984,14 @@
         "G": 0.982251,
         "B": 0.982251,
         "A": 1.0,
-        "Hex": "FFFDFDFD"
+        "Hex": "FDFDFD"
       },
       "StrikeNotAffordableColor": {
         "R": 0.982251,
         "G": 0.982251,
         "B": 0.982251,
         "A": 1.0,
-        "Hex": "FFFDFDFD"
+        "Hex": "FDFDFD"
       },
       "_discountTagSpacing": 35.0,
       "bHasScriptImplementedTick": false,
@@ -920,7 +1005,7 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'WBP_CorePriceTag_C:WidgetTree'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.28"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.31"
       },
       "bClassRequiresNativeTick": true,
       "UberGraphFunction": {
@@ -964,6 +1049,10 @@
       {
         "ObjectName": "Function'WBP_CorePriceTag_C:SetDiscountTagSpacing'",
         "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.11"
+      },
+      {
+        "ObjectName": "Function'WBP_CorePriceTag_C:UpdatePriceTagScale'",
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.14"
       },
       {
         "ObjectName": "Function'WBP_CorePriceTag_C:ExecuteUbergraph_WBP_CorePriceTag'",
@@ -1028,6 +1117,17 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "PriceContainer",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'ScaleBox'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "PriceTB",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
@@ -1086,7 +1186,7 @@
         "Name": "PriceAuricCellsColor",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 20,
-        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | Transient | DisableEditOnInstance",
         "Struct": {
           "ObjectName": "Class'SlateColor'",
           "ObjectPath": "/Script/SlateCore"
@@ -1097,7 +1197,7 @@
         "Name": "PriceDefaultColor",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 20,
-        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | Transient | DisableEditOnInstance",
         "Struct": {
           "ObjectName": "Class'SlateColor'",
           "ObjectPath": "/Script/SlateCore"
@@ -1108,7 +1208,7 @@
         "Name": "PriceNotAffordableColor",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 20,
-        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | Transient | DisableEditOnInstance",
         "Struct": {
           "ObjectName": "Class'SlateColor'",
           "ObjectPath": "/Script/SlateCore"
@@ -1119,7 +1219,7 @@
         "Name": "DiscountDefaultColor",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 20,
-        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | Transient | DisableEditOnInstance",
         "Struct": {
           "ObjectName": "Class'SlateColor'",
           "ObjectPath": "/Script/SlateCore"
@@ -1130,7 +1230,7 @@
         "Name": "DiscountNotAffordableColor",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 20,
-        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | Transient | DisableEditOnInstance",
         "Struct": {
           "ObjectName": "Class'SlateColor'",
           "ObjectPath": "/Script/SlateCore"
@@ -1141,7 +1241,7 @@
         "Name": "StrikeDefaultColor",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
-        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | Transient | DisableEditOnInstance",
         "Struct": {
           "ObjectName": "Class'LinearColor'",
           "ObjectPath": "/Script/CoreUObject"
@@ -1152,7 +1252,7 @@
         "Name": "StrikeNotAffordableColor",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
-        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | Transient | DisableEditOnInstance",
         "Struct": {
           "ObjectName": "Class'LinearColor'",
           "ObjectPath": "/Script/CoreUObject"
@@ -1163,6 +1263,10 @@
       "ExecuteUbergraph_WBP_CorePriceTag": {
         "ObjectName": "Function'WBP_CorePriceTag_C:ExecuteUbergraph_WBP_CorePriceTag'",
         "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.5"
+      },
+      "UpdatePriceTagScale": {
+        "ObjectName": "Function'WBP_CorePriceTag_C:UpdatePriceTagScale'",
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.14"
       },
       "SetDiscountTagSpacing": {
         "ObjectName": "Function'WBP_CorePriceTag_C:SetDiscountTagSpacing'",
@@ -1206,7 +1310,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "WBP_CorePriceTag_C'Default__WBP_CorePriceTag_C'",
-      "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.26"
+      "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.29"
     },
     "EditorTags": {
       "BlueprintType": "BPTYPE_Normal"
@@ -1220,7 +1324,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "ScaleBox'WBP_CorePriceTag_C:WidgetTree.ScaleContainer'",
-        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.24"
+        "ObjectPath": "/DBDUICore/Common/Currency/WBP_CorePriceTag.26"
       }
     }
   }

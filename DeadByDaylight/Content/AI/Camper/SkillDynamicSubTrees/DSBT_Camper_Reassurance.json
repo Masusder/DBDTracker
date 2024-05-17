@@ -1,0 +1,344 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.2"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BB_Camper'",
+        "ObjectPath": "/Game/AI/Camper/BB_Camper.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_3",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_ExtMoveTo'DSBT_Camper_Reassurance:BTTask_ExtMoveTo_3'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.10"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_CanUnsafeAction'DSBT_Camper_Reassurance:BTDecorator_CanUnsafeAction_0'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.5"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_StealthMoveTo'DSBT_Camper_Reassurance:BTTask_StealthMoveTo_14'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.11"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'DSBT_Camper_Reassurance:BTDecorator_Blackboard_0'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.3"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "BTService_PushObjectFocus'DSBT_Camper_Reassurance:BTService_PushObjectFocus_14'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.9"
+        },
+        {
+          "ObjectName": "BTService_CopyBBEntry'DSBT_Camper_Reassurance:BTService_CopyBBEntry_25'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.8"
+        },
+        {
+          "ObjectName": "BTService_CopyBBEntry'DSBT_Camper_Reassurance:BTService_CopyBBEntry_20'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.7"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_4",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'DSBT_Camper_Reassurance:BTDecorator_Blackboard_45'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.4"
+            },
+            {
+              "ObjectName": "BTDecorator_ContainsInteraction'DSBT_Camper_Reassurance:BTDecorator_ContainsInteraction_1'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.6"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_0",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Properties": {
+      "CachedDescription": "IsChased is Is Not Set",
+      "OperationType": 1,
+      "BlackboardKey": {
+        "SelectedKeyName": "IsChased"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Is Not In Chase",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_45",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Properties": {
+      "CachedDescription": "WishedInteractor is Is Set",
+      "NotifyObserver": "EBTBlackboardRestart::ValueChange",
+      "BlackboardKey": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Found Wished Interactor",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.2"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_CanUnsafeAction",
+    "Name": "BTDecorator_CanUnsafeAction_0",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTDecorator_CanUnsafeAction'",
+    "Properties": {
+      "BBUnsafeActionID": {
+        "SelectedKeyName": "UnsafeActionID"
+      },
+      "BBUnsafeActionUsesItemAddons": {
+        "SelectedKeyName": "UnsafeActionUsesItemAddon"
+      },
+      "BBUnsafeActionIsSelfInteraction": {
+        "SelectedKeyName": "UnsafeActionIsSelfInteraction"
+      },
+      "BBUnsafeActionRange": {
+        "SelectedKeyName": "UnsafeActionRange"
+      },
+      "BBGoalInteractor": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_ContainsInteraction",
+    "Name": "BTDecorator_ContainsInteraction_1",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTDecorator_ContainsInteraction'",
+    "Properties": {
+      "BBInteractorObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "InteractionIds": [
+        "Unhook"
+      ],
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Wished Interactor is Hook",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.2"
+      }
+    }
+  },
+  {
+    "Type": "BTService_CopyBBEntry",
+    "Name": "BTService_CopyBBEntry_20",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTService_CopyBBEntry'",
+    "Properties": {
+      "BBFrom": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "BBTo": {
+        "SelectedKeyName": "MoveToGoalObj"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Copy Goal Object Entry",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+      }
+    }
+  },
+  {
+    "Type": "BTService_CopyBBEntry",
+    "Name": "BTService_CopyBBEntry_25",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTService_CopyBBEntry'",
+    "Properties": {
+      "BBFrom": {
+        "SelectedKeyName": "WishedInteractorLocation"
+      },
+      "BBTo": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Copy Goal Location Entry",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+      }
+    }
+  },
+  {
+    "Type": "BTService_PushObjectFocus",
+    "Name": "BTService_PushObjectFocus_14",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTService_PushObjectFocus'",
+    "Properties": {
+      "BBFocusObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_ExtMoveTo",
+    "Name": "BTTask_ExtMoveTo_3",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTTask_ExtMoveTo'",
+    "Properties": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "HostileStimulusOriginLocation"
+      },
+      "BBIgnoreGroupAvoidance": {
+        "SelectedKeyName": "MoveToGoalObj"
+      },
+      "MinimumDangerTraversePriority": "EDangerTraversePriority::High",
+      "AcceptableRadius": 500.0,
+      "FilterClass": {
+        "ObjectName": "Class'NavigationQueryFilter_CamperStealth'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "bReachTestIncludesAgentRadius": false,
+      "bReachTestIncludesGoalRadius": false,
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "NodeName": "Move To Hooked Ally",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_StealthMoveTo",
+    "Name": "BTTask_StealthMoveTo_14",
+    "Outer": "DSBT_Camper_Reassurance",
+    "Class": "UScriptClass'BTTask_StealthMoveTo'",
+    "Properties": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "HostileStimulusOriginLocation"
+      },
+      "NearGoalMovementMode": "ECharacterMovementTypes::Run",
+      "BBIgnoreGroupAvoidance": {
+        "SelectedKeyName": "MoveToGoalObj"
+      },
+      "AcceptableRadius": 500.0,
+      "bReachTestIncludesAgentRadius": false,
+      "bReachTestIncludesGoalRadius": false,
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "NodeName": "Stealth Move To Hooked Ally",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_Reassurance'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_Reassurance:BTComposite_Selector_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_Reassurance.1"
+      }
+    }
+  }
+]

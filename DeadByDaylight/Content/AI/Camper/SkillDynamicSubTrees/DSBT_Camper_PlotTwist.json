@@ -1,0 +1,205 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_PlotTwist:BTComposite_Selector_1'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.1"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BB_Camper'",
+        "ObjectPath": "/Game/AI/Camper/BB_Camper.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_1",
+    "Outer": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'DSBT_Camper_PlotTwist:BTComposite_Sequence_3'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.2"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'DSBT_Camper_PlotTwist:BTDecorator_Blackboard_1'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.3"
+            },
+            {
+              "ObjectName": "BTDecorator_Loop'DSBT_Camper_PlotTwist:BTDecorator_Loop_12'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.4"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "BTService_AroundEQS'DSBT_Camper_PlotTwist:BTService_AroundEQS_4'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.5"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_PlotTwist'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_3",
+    "Outer": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_StealthMoveTo'DSBT_Camper_PlotTwist:BTTask_StealthMoveTo_0'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.7"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_InputPress'DSBT_Camper_PlotTwist:BTTask_InputPress_0'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.6"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_PlotTwist'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_PlotTwist:BTComposite_Selector_1'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_1",
+    "Outer": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Properties": {
+      "CachedDescription": "ToLocation is Is Set",
+      "BlackboardKey": {
+        "SelectedKeyName": "ToLocation"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Has Hide Location",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_PlotTwist'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_PlotTwist:BTComposite_Selector_1'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Loop",
+    "Name": "BTDecorator_Loop_12",
+    "Outer": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BTDecorator_Loop'",
+    "Properties": {
+      "bInfiniteLoop": true,
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_PlotTwist'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_PlotTwist:BTComposite_Selector_1'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.1"
+      }
+    }
+  },
+  {
+    "Type": "BTService_AroundEQS",
+    "Name": "BTService_AroundEQS_4",
+    "Outer": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BTService_AroundEQS'",
+    "Properties": {
+      "BBAroundObj": {
+        "SelectedKeyName": "SelfActor"
+      },
+      "BBAroundLocation": {},
+      "EQSRequest": {
+        "QueryTemplate": {
+          "ObjectName": "EnvQuery'EQS_StealthFromTerror'",
+          "ObjectPath": "/Game/AI/Camper/EQS_StealthFromTerror.0"
+        }
+      },
+      "BlackboardKey": {
+        "SelectedKeyName": "ToLocation"
+      },
+      "NodeName": "Find Stealth Location Around Self By EQS",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_PlotTwist'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_PlotTwist:BTComposite_Selector_1'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.1"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_InputPress",
+    "Name": "BTTask_InputPress_0",
+    "Outer": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BTTask_InputPress'",
+    "Properties": {
+      "Input": "EPawnInputPressTypes::AbilityTwoCrouch",
+      "NodeName": "Activate Plot Twist",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_PlotTwist'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'DSBT_Camper_PlotTwist:BTComposite_Sequence_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.2"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_StealthMoveTo",
+    "Name": "BTTask_StealthMoveTo_0",
+    "Outer": "DSBT_Camper_PlotTwist",
+    "Class": "UScriptClass'BTTask_StealthMoveTo'",
+    "Properties": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "HostileStimulusOriginLocation"
+      },
+      "NearGoalMovementMode": "ECharacterMovementTypes::Crouch",
+      "NearGoalModeUnderDistance": 100.0,
+      "BBIgnoreGroupAvoidance": {},
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "ToLocation"
+      },
+      "NodeName": "Stealth Move To Location And Crouch",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_PlotTwist'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'DSBT_Camper_PlotTwist:BTComposite_Sequence_3'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_PlotTwist.2"
+      }
+    }
+  }
+]

@@ -1,0 +1,243 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_K36LockerTeleport:BTComposite_Selector_13'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.1"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BB_Camper'",
+        "ObjectPath": "/Game/AI/Camper/BB_Camper.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_13",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_K36LockerTeleport:BTComposite_SimpleParallel_0'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.2"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_ContainsInteraction'DSBT_Camper_K36LockerTeleport:BTDecorator_ContainsInteraction_1'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.3"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_SimpleParallel",
+    "Name": "BTComposite_SimpleParallel_0",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTComposite_SimpleParallel'",
+    "Properties": {
+      "FinishMode": "EBTParallelMode::WaitForBackground",
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_ExtMoveTo'DSBT_Camper_K36LockerTeleport:BTTask_ExtMoveTo_10'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.7"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_Interact'DSBT_Camper_K36LockerTeleport:BTTask_Interact_2'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.8"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_IsAtLocation'DSBT_Camper_K36LockerTeleport:BTDecorator_IsAtLocation_6'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.4"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "BTService_CopyBBEntry'DSBT_Camper_K36LockerTeleport:BTService_CopyBBEntry_6'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.5"
+        },
+        {
+          "ObjectName": "BTService_CopyBBEntry'DSBT_Camper_K36LockerTeleport:BTService_CopyBBEntry_7'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.6"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_K36LockerTeleport:BTComposite_Selector_13'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_ContainsInteraction",
+    "Name": "BTDecorator_ContainsInteraction_1",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTDecorator_ContainsInteraction'",
+    "Properties": {
+      "BBInteractorObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "InteractionIds": [
+        "HideEnter"
+      ],
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Wished Interactor is Locker",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_K36LockerTeleport:BTComposite_Selector_13'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_IsAtLocation",
+    "Name": "BTDecorator_IsAtLocation_6",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTDecorator_IsAtLocation'",
+    "Properties": {
+      "BlackboardKey": {
+        "SelectedKeyName": "WishedInteractorLocation"
+      },
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_K36LockerTeleport:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.2"
+      }
+    }
+  },
+  {
+    "Type": "BTService_CopyBBEntry",
+    "Name": "BTService_CopyBBEntry_6",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTService_CopyBBEntry'",
+    "Properties": {
+      "BBFrom": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "BBTo": {
+        "SelectedKeyName": "MoveToGoalObj"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Copy Goal Object Entry",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_K36LockerTeleport:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.2"
+      }
+    }
+  },
+  {
+    "Type": "BTService_CopyBBEntry",
+    "Name": "BTService_CopyBBEntry_7",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTService_CopyBBEntry'",
+    "Properties": {
+      "BBFrom": {
+        "SelectedKeyName": "WishedInteractorLocation"
+      },
+      "BBTo": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Copy Goal Location Entry",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_K36LockerTeleport:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.2"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_ExtMoveTo",
+    "Name": "BTTask_ExtMoveTo_10",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTTask_ExtMoveTo'",
+    "Properties": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "HostileStimulusOriginLocation"
+      },
+      "StrafeFocus": "EExtMoveToStrafeFocusOptions::Always",
+      "BBIgnoreGroupAvoidance": {},
+      "MovementModesNearActors": [],
+      "MinimumDangerTraversePriority": "EDangerTraversePriority::High",
+      "AcceptableRadius": 10.0,
+      "FilterClass": {
+        "ObjectName": "BlueprintGeneratedClass'NavQuery_Camper_Terrified_C'",
+        "ObjectPath": "/Game/AI/Camper/NavQuery_Camper_Terrified.0"
+      },
+      "bReachTestIncludesAgentRadius": false,
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "NodeName": "Run To Locker Location",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_K36LockerTeleport:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.2"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_Interact",
+    "Name": "BTTask_Interact_2",
+    "Outer": "DSBT_Camper_K36LockerTeleport",
+    "Class": "UScriptClass'BTTask_Interact'",
+    "Properties": {
+      "BBInteractorObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "Input": "EPawnInputPressTypes::FastInteract",
+      "NodeName": "Enter Locker",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_K36LockerTeleport'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_K36LockerTeleport:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_K36LockerTeleport.2"
+      }
+    }
+  }
+]

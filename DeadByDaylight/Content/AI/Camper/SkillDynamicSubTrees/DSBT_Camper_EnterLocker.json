@@ -1,0 +1,209 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_EnterLocker:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.1"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BB_Camper'",
+        "ObjectPath": "/Game/AI/Camper/BB_Camper.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_4",
+    "Outer": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_EnterLocker:BTComposite_SimpleParallel_0'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.2"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'DSBT_Camper_EnterLocker:BTDecorator_Blackboard_45'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.3"
+            },
+            {
+              "ObjectName": "BTDecorator_ContainsInteraction'DSBT_Camper_EnterLocker:BTDecorator_ContainsInteraction_0'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.4"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_EnterLocker'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_SimpleParallel",
+    "Name": "BTComposite_SimpleParallel_0",
+    "Outer": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BTComposite_SimpleParallel'",
+    "Properties": {
+      "FinishMode": "EBTParallelMode::WaitForBackground",
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_StealthMoveTo'DSBT_Camper_EnterLocker:BTTask_StealthMoveTo_18'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.7"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_Interact'DSBT_Camper_EnterLocker:BTTask_Interact_18'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.6"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_IsAtLocation'DSBT_Camper_EnterLocker:BTDecorator_IsAtLocation_6'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.5"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "NodeName": "Move And Enter Locker",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_EnterLocker'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_EnterLocker:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_45",
+    "Outer": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Properties": {
+      "CachedDescription": "WishedInteractor is Is Set",
+      "NotifyObserver": "EBTBlackboardRestart::ValueChange",
+      "BlackboardKey": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Found Wished Actor",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_EnterLocker'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_EnterLocker:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_ContainsInteraction",
+    "Name": "BTDecorator_ContainsInteraction_0",
+    "Outer": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BTDecorator_ContainsInteraction'",
+    "Properties": {
+      "BBInteractorObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "InteractionIds": [
+        "HideEnter"
+      ],
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Wished Actor is Locker",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_EnterLocker'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_EnterLocker:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_IsAtLocation",
+    "Name": "BTDecorator_IsAtLocation_6",
+    "Outer": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BTDecorator_IsAtLocation'",
+    "Properties": {
+      "BlackboardKey": {
+        "SelectedKeyName": "WishedInteractorLocation"
+      },
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_EnterLocker'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_EnterLocker:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.2"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_Interact",
+    "Name": "BTTask_Interact_18",
+    "Outer": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BTTask_Interact'",
+    "Properties": {
+      "BBInteractorObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "Input": "EPawnInputPressTypes::FastInteract",
+      "NodeName": "Enter Locker",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_EnterLocker'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_EnterLocker:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.2"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_StealthMoveTo",
+    "Name": "BTTask_StealthMoveTo_18",
+    "Outer": "DSBT_Camper_EnterLocker",
+    "Class": "UScriptClass'BTTask_StealthMoveTo'",
+    "Properties": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "HostileStimulusOriginLocation"
+      },
+      "NearGoalMovementMode": "ECharacterMovementTypes::Run",
+      "BBIgnoreGroupAvoidance": {
+        "SelectedKeyName": "MoveToGoalObj"
+      },
+      "AcceptableRadius": 20.0,
+      "bReachTestIncludesAgentRadius": false,
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "NodeName": "Stealth Move To Locker",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_EnterLocker'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_EnterLocker:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_EnterLocker.2"
+      }
+    }
+  }
+]

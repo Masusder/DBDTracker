@@ -1,0 +1,244 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_TeleportInteractable:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.1"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BB_Camper'",
+        "ObjectPath": "/Game/AI/Camper/BB_Camper.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_4",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_TeleportInteractable:BTComposite_SimpleParallel_0'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.2"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_ContainsInteraction'DSBT_Camper_TeleportInteractable:BTDecorator_ContainsInteraction_1'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.3"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_SimpleParallel",
+    "Name": "BTComposite_SimpleParallel_0",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTComposite_SimpleParallel'",
+    "Properties": {
+      "FinishMode": "EBTParallelMode::WaitForBackground",
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_ExtMoveTo'DSBT_Camper_TeleportInteractable:BTTask_ExtMoveTo_3'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.7"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_Interact'DSBT_Camper_TeleportInteractable:BTTask_Interact_12'",
+            "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.8"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_IsAtLocation'DSBT_Camper_TeleportInteractable:BTDecorator_IsAtLocation_6'",
+              "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.4"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "BTService_CopyBBEntry'DSBT_Camper_TeleportInteractable:BTService_CopyBBEntry_25'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.6"
+        },
+        {
+          "ObjectName": "BTService_CopyBBEntry'DSBT_Camper_TeleportInteractable:BTService_CopyBBEntry_20'",
+          "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.5"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_TeleportInteractable:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_ContainsInteraction",
+    "Name": "BTDecorator_ContainsInteraction_1",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTDecorator_ContainsInteraction'",
+    "Properties": {
+      "BBInteractorObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "InteractionIds": [
+        "EnterPassage"
+      ],
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "If Wished Interactor is Teleport Interactable",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'DSBT_Camper_TeleportInteractable:BTComposite_Selector_4'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_IsAtLocation",
+    "Name": "BTDecorator_IsAtLocation_6",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTDecorator_IsAtLocation'",
+    "Properties": {
+      "BlackboardKey": {
+        "SelectedKeyName": "WishedInteractorLocation"
+      },
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_TeleportInteractable:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.2"
+      }
+    }
+  },
+  {
+    "Type": "BTService_CopyBBEntry",
+    "Name": "BTService_CopyBBEntry_20",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTService_CopyBBEntry'",
+    "Properties": {
+      "BBFrom": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "BBTo": {
+        "SelectedKeyName": "MoveToGoalObj"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Copy Goal Object Entry",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_TeleportInteractable:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.2"
+      }
+    }
+  },
+  {
+    "Type": "BTService_CopyBBEntry",
+    "Name": "BTService_CopyBBEntry_25",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTService_CopyBBEntry'",
+    "Properties": {
+      "BBFrom": {
+        "SelectedKeyName": "WishedInteractorLocation"
+      },
+      "BBTo": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "When": "EAINodeRelevancyOptions::OnTick",
+      "NodeName": "Copy Goal Location Entry",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_TeleportInteractable:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.2"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_ExtMoveTo",
+    "Name": "BTTask_ExtMoveTo_3",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTTask_ExtMoveTo'",
+    "Properties": {
+      "BBStrafeFocus": {
+        "SelectedKeyName": "HostileStimulusOriginLocation"
+      },
+      "BBIgnoreGroupAvoidance": {
+        "SelectedKeyName": "MoveToGoalObj"
+      },
+      "MinimumDangerTraversePriority": "EDangerTraversePriority::High",
+      "AcceptableRadius": 40.0,
+      "FilterClass": {
+        "ObjectName": "Class'NavigationQueryFilter_CamperStealth'",
+        "ObjectPath": "/Script/DBDBots"
+      },
+      "bReachTestIncludesAgentRadius": false,
+      "bReachTestIncludesGoalRadius": false,
+      "bStopOnOverlapNeedsUpdate": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "MoveToGoalLocation"
+      },
+      "NodeName": "Move To Teleport Interactable",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_TeleportInteractable:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.2"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_Interact",
+    "Name": "BTTask_Interact_12",
+    "Outer": "DSBT_Camper_TeleportInteractable",
+    "Class": "UScriptClass'BTTask_Interact'",
+    "Properties": {
+      "BBInteractorObj": {
+        "SelectedKeyName": "WishedInteractor"
+      },
+      "Input": "EPawnInputPressTypes::FastInteract",
+      "NodeName": "Teleport",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'DSBT_Camper_TeleportInteractable'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_SimpleParallel'DSBT_Camper_TeleportInteractable:BTComposite_SimpleParallel_0'",
+        "ObjectPath": "/Game/AI/Camper/SkillDynamicSubTrees/DSBT_Camper_TeleportInteractable.2"
+      }
+    }
+  }
+]
