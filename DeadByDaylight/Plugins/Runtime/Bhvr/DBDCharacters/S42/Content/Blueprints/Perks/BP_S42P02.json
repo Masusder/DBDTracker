@@ -79,17 +79,14 @@
         "ObjectName": "BlueprintGeneratedClass'BP_S42P02Interaction_C'",
         "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02Interaction.0"
       },
+      "_cooldownDuration": 110.0,
+      "_cooldownDuration": 100.0,
       "_cooldownDuration": 90.0,
-      "_cooldownDuration": 75.0,
-      "_cooldownDuration": 60.0,
-      "_diceAnimationDuration": 15.0,
+      "_skillCheckDelay": 5.0,
       "_s42p02StatusEffectClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_S42P02_StatusEffect_C'",
         "ObjectPath": "/S42/Blueprints/StatusEffects/BP_S42P02_StatusEffect.0"
       },
-      "_basicSuccessProgress": 0.01,
-      "_mediumSuccessProgress": 0.02,
-      "_criticalSuccessProgress": 0.03,
       "_criticalFailThreshold": {
         "_dataTableRowHandle": {
           "DataTable": {
@@ -152,7 +149,7 @@
         ]
       },
       "PerkIconStrategyClass": {
-        "ObjectName": "Class'CooldownTimerPerkIconStrategy'",
+        "ObjectName": "Class'ActivationTimerElapsedCooldownElapsedIconStrategy'",
         "ObjectPath": "/Script/DeadByDaylight"
       }
     }
@@ -166,6 +163,34 @@
       "ObjectName": "Class'BaseModifierContainer:Authority_OnInstantiateModifierConditions'",
       "ObjectPath": "/Script/Competence"
     },
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+          "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 1227
+          }
+        ],
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[1227]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
     "FunctionFlags": "FUNC_BlueprintAuthorityOnly | FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
   },
   {
@@ -194,6 +219,87 @@
             "ObjectPath": "/Script/DeadByDaylight"
           }
         }
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LetValueOnPersistentFrame",
+        "StatementIndex": 0,
+        "DestinationProperty": {
+          "Owner": {
+            "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+            "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+          },
+          "Property": {
+            "Type": "ArrayProperty",
+            "Name": "K2Node_Event_order",
+            "Flags": "RF_Public",
+            "ElementSize": 16,
+            "PropertyFlags": "ConstParm | ReferenceParm",
+            "Inner": {
+              "Type": "ObjectProperty",
+              "Name": "K2Node_Event_order",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'DBDPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        },
+        "AssignmentExpression": {
+          "Inst": "EX_LocalOutVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:Cosmetic_S42P02PerkLoadedInGame'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.3"
+            },
+            "Property": {
+              "Type": "ArrayProperty",
+              "Name": "order",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+              "Inner": {
+                "Type": "ObjectProperty",
+                "Name": "order",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 18,
+        "Function": {
+          "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+          "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 1359
+          }
+        ],
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[1359]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 33,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 35
       }
     ],
     "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintEvent"
@@ -476,6 +582,2036 @@
         "Name": "CallFunc_PostAkEvent_ReturnValue_3",
         "Flags": "RF_Public",
         "ElementSize": 4
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_PushExecutionFlow",
+        "StatementIndex": 0,
+        "PushingAddress": 1364,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[1364]"
+      },
+      {
+        "Inst": "EX_ComputedJump",
+        "StatementIndex": 5,
+        "OffsetExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 15,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "Temp_int_Loop_Counter_Variable",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_IntConst",
+          "Value": 0
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 38,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "Temp_int_Array_Index_Variable",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_IntConst",
+          "Value": 0
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 61,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_Array_Length_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_ObjectConst",
+            "Value": {
+              "ObjectName": "Class'Default__KismetArrayLibrary'",
+              "ObjectPath": "/Script/Engine"
+            }
+          },
+          "Offset": 19,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_Array_Length_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'KismetArrayLibrary:Array_Length'",
+              "ObjectPath": "/Script/Engine"
+            },
+            "Parameters": [
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "ArrayProperty",
+                    "Name": "K2Node_Event_order",
+                    "Flags": "RF_Public",
+                    "ElementSize": 16,
+                    "PropertyFlags": "ConstParm | ReferenceParm",
+                    "Inner": {
+                      "Type": "ObjectProperty",
+                      "Name": "K2Node_Event_order",
+                      "Flags": "RF_Public",
+                      "ElementSize": 8,
+                      "PropertyClass": {
+                        "ObjectName": "Class'DBDPlayer'",
+                        "ObjectPath": "/Script/DeadByDaylight"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 120,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_Less_IntInt_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:Less_IntInt'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Loop_Counter_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "CallFunc_Array_Length_ReturnValue",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 158,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_Less_IntInt_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 168,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "Temp_int_Array_Index_Variable",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "Temp_int_Loop_Counter_Variable",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_PushExecutionFlow",
+        "StatementIndex": 195,
+        "PushingAddress": 393,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[393]"
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 200,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:NotEqual_IntInt'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_IntConst",
+              "Value": 0
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 234,
+        "CodeOffset": 467,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[467]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 248,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:NotEqual_IntInt'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_IntConst",
+              "Value": 1
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 282,
+        "CodeOffset": 657,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[657]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 296,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:NotEqual_IntInt'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_IntConst",
+              "Value": 2
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 330,
+        "CodeOffset": 847,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[847]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 344,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:NotEqual_IntInt'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_IntConst",
+              "Value": 3
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 378,
+        "CodeOffset": 1037,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[1037]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_SwitchInteger_CmpSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 392
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 393,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_Add_IntInt_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:Add_IntInt'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Loop_Counter_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_IntConst",
+              "Value": 1
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 435,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "Temp_int_Loop_Counter_Variable",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_Add_IntInt_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 462,
+        "CodeOffset": 61,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[61]"
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 467,
+        "ObjectExpression": {
+          "Inst": "EX_ObjectConst",
+          "Value": {
+            "ObjectName": "Class'Default__KismetArrayLibrary'",
+            "ObjectPath": "/Script/Engine"
+          }
+        },
+        "Offset": 37,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'KismetArrayLibrary:Array_Get'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ArrayProperty",
+                  "Name": "K2Node_Event_order",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "ConstParm | ReferenceParm",
+                  "Inner": {
+                    "Type": "ObjectProperty",
+                    "Name": "K2Node_Event_order",
+                    "Flags": "RF_Public",
+                    "ElementSize": 8,
+                    "PropertyClass": {
+                      "ObjectName": "Class'DBDPlayer'",
+                      "ObjectPath": "/Script/DeadByDaylight"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_Array_Get_Item",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'DBDPlayer'",
+                    "ObjectPath": "/Script/DeadByDaylight"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 526,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_Array_Get_Item",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'DBDBasePlayer:GetAudioComponent'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 568,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue_3",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetAudioComponent_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'AkComponent'",
+                  "ObjectPath": "/Script/AkAudio"
+                }
+              }
+            }
+          },
+          "Offset": 48,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue_3",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_VirtualFunction",
+            "Function": "PostAkEvent",
+            "Parameters": [
+              {
+                "Inst": "EX_ObjectConst",
+                "Value": {
+                  "ObjectName": "AkAudioEvent'AudioEvent_MUS_Perk_S42_Performer_A'",
+                  "ObjectPath": "/S42/ArtAssets/Audio/AudioEvents/S42_P02/AudioEvent_MUS_Perk_S42_Performer_A.0"
+                }
+              },
+              {
+                "Inst": "EX_IntConst",
+                "Value": 0
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "DelegateProperty",
+                    "Name": "Temp_delegate_Variable",
+                    "Flags": "RF_Public",
+                    "ElementSize": 20,
+                    "PropertyFlags": "ConstParm",
+                    "SignatureFunction": {
+                      "ObjectName": "Class'OnAkPostEventCallback__DelegateSignature'",
+                      "ObjectPath": "/Script/AkAudio"
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "ArrayProperty",
+                    "Name": "Temp_struct_Variable_3",
+                    "Flags": "RF_Public",
+                    "ElementSize": 16,
+                    "PropertyFlags": "ConstParm | ReferenceParm",
+                    "Inner": {
+                      "Type": "StructProperty",
+                      "Name": "Temp_struct_Variable_3",
+                      "Flags": "RF_Public",
+                      "ElementSize": 56,
+                      "Struct": {
+                        "ObjectName": "Class'AkExternalSourceInfo'",
+                        "ObjectPath": "/Script/AkAudio"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_StringConst",
+                "Value": ""
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 656
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 657,
+        "ObjectExpression": {
+          "Inst": "EX_ObjectConst",
+          "Value": {
+            "ObjectName": "Class'Default__KismetArrayLibrary'",
+            "ObjectPath": "/Script/Engine"
+          }
+        },
+        "Offset": 37,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'KismetArrayLibrary:Array_Get'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ArrayProperty",
+                  "Name": "K2Node_Event_order",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "ConstParm | ReferenceParm",
+                  "Inner": {
+                    "Type": "ObjectProperty",
+                    "Name": "K2Node_Event_order",
+                    "Flags": "RF_Public",
+                    "ElementSize": 8,
+                    "PropertyClass": {
+                      "ObjectName": "Class'DBDPlayer'",
+                      "ObjectPath": "/Script/DeadByDaylight"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_Array_Get_Item",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'DBDPlayer'",
+                    "ObjectPath": "/Script/DeadByDaylight"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 716,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_Array_Get_Item",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'DBDBasePlayer:GetAudioComponent'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 758,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetAudioComponent_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'AkComponent'",
+                  "ObjectPath": "/Script/AkAudio"
+                }
+              }
+            }
+          },
+          "Offset": 48,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_VirtualFunction",
+            "Function": "PostAkEvent",
+            "Parameters": [
+              {
+                "Inst": "EX_ObjectConst",
+                "Value": {
+                  "ObjectName": "AkAudioEvent'AudioEvent_MUS_Perk_S42_Performer_B'",
+                  "ObjectPath": "/S42/ArtAssets/Audio/AudioEvents/S42_P02/AudioEvent_MUS_Perk_S42_Performer_B.0"
+                }
+              },
+              {
+                "Inst": "EX_IntConst",
+                "Value": 0
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "DelegateProperty",
+                    "Name": "Temp_delegate_Variable_1",
+                    "Flags": "RF_Public",
+                    "ElementSize": 20,
+                    "PropertyFlags": "ConstParm",
+                    "SignatureFunction": {
+                      "ObjectName": "Class'OnAkPostEventCallback__DelegateSignature'",
+                      "ObjectPath": "/Script/AkAudio"
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "ArrayProperty",
+                    "Name": "Temp_struct_Variable",
+                    "Flags": "RF_Public",
+                    "ElementSize": 16,
+                    "PropertyFlags": "ConstParm | ReferenceParm",
+                    "Inner": {
+                      "Type": "StructProperty",
+                      "Name": "Temp_struct_Variable",
+                      "Flags": "RF_Public",
+                      "ElementSize": 56,
+                      "Struct": {
+                        "ObjectName": "Class'AkExternalSourceInfo'",
+                        "ObjectPath": "/Script/AkAudio"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_StringConst",
+                "Value": ""
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 846
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 847,
+        "ObjectExpression": {
+          "Inst": "EX_ObjectConst",
+          "Value": {
+            "ObjectName": "Class'Default__KismetArrayLibrary'",
+            "ObjectPath": "/Script/Engine"
+          }
+        },
+        "Offset": 37,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'KismetArrayLibrary:Array_Get'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ArrayProperty",
+                  "Name": "K2Node_Event_order",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "ConstParm | ReferenceParm",
+                  "Inner": {
+                    "Type": "ObjectProperty",
+                    "Name": "K2Node_Event_order",
+                    "Flags": "RF_Public",
+                    "ElementSize": 8,
+                    "PropertyClass": {
+                      "ObjectName": "Class'DBDPlayer'",
+                      "ObjectPath": "/Script/DeadByDaylight"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_Array_Get_Item",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'DBDPlayer'",
+                    "ObjectPath": "/Script/DeadByDaylight"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 906,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_Array_Get_Item",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'DBDBasePlayer:GetAudioComponent'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 948,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetAudioComponent_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'AkComponent'",
+                  "ObjectPath": "/Script/AkAudio"
+                }
+              }
+            }
+          },
+          "Offset": 48,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_VirtualFunction",
+            "Function": "PostAkEvent",
+            "Parameters": [
+              {
+                "Inst": "EX_ObjectConst",
+                "Value": {
+                  "ObjectName": "AkAudioEvent'AudioEvent_MUS_Perk_S42_Performer_C'",
+                  "ObjectPath": "/S42/ArtAssets/Audio/AudioEvents/S42_P02/AudioEvent_MUS_Perk_S42_Performer_C.0"
+                }
+              },
+              {
+                "Inst": "EX_IntConst",
+                "Value": 0
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "DelegateProperty",
+                    "Name": "Temp_delegate_Variable_2",
+                    "Flags": "RF_Public",
+                    "ElementSize": 20,
+                    "PropertyFlags": "ConstParm",
+                    "SignatureFunction": {
+                      "ObjectName": "Class'OnAkPostEventCallback__DelegateSignature'",
+                      "ObjectPath": "/Script/AkAudio"
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "ArrayProperty",
+                    "Name": "Temp_struct_Variable_1",
+                    "Flags": "RF_Public",
+                    "ElementSize": 16,
+                    "PropertyFlags": "ConstParm | ReferenceParm",
+                    "Inner": {
+                      "Type": "StructProperty",
+                      "Name": "Temp_struct_Variable_1",
+                      "Flags": "RF_Public",
+                      "ElementSize": 56,
+                      "Struct": {
+                        "ObjectName": "Class'AkExternalSourceInfo'",
+                        "ObjectPath": "/Script/AkAudio"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_StringConst",
+                "Value": ""
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 1036
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 1037,
+        "ObjectExpression": {
+          "Inst": "EX_ObjectConst",
+          "Value": {
+            "ObjectName": "Class'Default__KismetArrayLibrary'",
+            "ObjectPath": "/Script/Engine"
+          }
+        },
+        "Offset": 37,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'KismetArrayLibrary:Array_Get'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ArrayProperty",
+                  "Name": "K2Node_Event_order",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "ConstParm | ReferenceParm",
+                  "Inner": {
+                    "Type": "ObjectProperty",
+                    "Name": "K2Node_Event_order",
+                    "Flags": "RF_Public",
+                    "ElementSize": 8,
+                    "PropertyClass": {
+                      "ObjectName": "Class'DBDPlayer'",
+                      "ObjectPath": "/Script/DeadByDaylight"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "IntProperty",
+                  "Name": "Temp_int_Array_Index_Variable",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            },
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_Array_Get_Item",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'DBDPlayer'",
+                    "ObjectPath": "/Script/DeadByDaylight"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 1096,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_Array_Get_Item",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetAudioComponent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AkComponent'",
+                "ObjectPath": "/Script/AkAudio"
+              }
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'DBDBasePlayer:GetAudioComponent'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1138,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetAudioComponent_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'AkComponent'",
+                  "ObjectPath": "/Script/AkAudio"
+                }
+              }
+            }
+          },
+          "Offset": 48,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "CallFunc_PostAkEvent_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_VirtualFunction",
+            "Function": "PostAkEvent",
+            "Parameters": [
+              {
+                "Inst": "EX_ObjectConst",
+                "Value": {
+                  "ObjectName": "AkAudioEvent'AudioEvent_MUS_Perk_S42_Performer_D'",
+                  "ObjectPath": "/S42/ArtAssets/Audio/AudioEvents/S42_P02/AudioEvent_MUS_Perk_S42_Performer_D.0"
+                }
+              },
+              {
+                "Inst": "EX_IntConst",
+                "Value": 0
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "DelegateProperty",
+                    "Name": "Temp_delegate_Variable_3",
+                    "Flags": "RF_Public",
+                    "ElementSize": 20,
+                    "PropertyFlags": "ConstParm",
+                    "SignatureFunction": {
+                      "ObjectName": "Class'OnAkPostEventCallback__DelegateSignature'",
+                      "ObjectPath": "/Script/AkAudio"
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                    "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                  },
+                  "Property": {
+                    "Type": "ArrayProperty",
+                    "Name": "Temp_struct_Variable_2",
+                    "Flags": "RF_Public",
+                    "ElementSize": 16,
+                    "PropertyFlags": "ConstParm | ReferenceParm",
+                    "Inner": {
+                      "Type": "StructProperty",
+                      "Name": "Temp_struct_Variable_2",
+                      "Flags": "RF_Public",
+                      "ElementSize": 56,
+                      "Struct": {
+                        "ObjectName": "Class'AkExternalSourceInfo'",
+                        "ObjectPath": "/Script/AkAudio"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_StringConst",
+                "Value": ""
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 1226
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1227,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_Not_conditionReceiver_CastInput",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_Self"
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 1255,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_Not_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'NotModifierCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:Not'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_Not_conditionReceiver_CastInput",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1284,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_Not_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'NotModifierCondition'",
+                  "ObjectPath": "/Script/Competence"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 1320,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+              "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'EventDrivenModifierCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:CreateAndReceiveConditionForBP'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_S42P02_C:ExecuteUbergraph_BP_S42P02'",
+                  "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.4"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_ObjectConst",
+              "Value": {
+                "ObjectName": "Class'IsCooldownTimerActive'",
+                "ObjectPath": "/Script/DBDCompetence"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 1358
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 1359,
+        "CodeOffset": 15,
+        "ObjectPath": "/S42/Blueprints/Perks/BP_S42P02.ExecuteUbergraph_BP_S42P02[15]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 1364,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 1366
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"

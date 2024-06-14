@@ -120,6 +120,8 @@
           "__CustomProperty_RightHandDynamicAlpha_3E672FCD43C4002C2ADD10BAC9F38C51",
           "__CustomProperty_IsCarrying_3E672FCD43C4002C2ADD10BAC9F38C51",
           "__CustomProperty_isAttacking_3E672FCD43C4002C2ADD10BAC9F38C51",
+          "__CustomProperty_lowerBodyTurnOnly_3E672FCD43C4002C2ADD10BAC9F38C51",
+          "__CustomProperty__enableDynamics_3E672FCD43C4002C2ADD10BAC9F38C51",
           "__CustomProperty__enableTurnInPlace_3E672FCD43C4002C2ADD10BAC9F38C51",
           "__CustomProperty__shouldResetLookAtOnAnyMontagePlay_3E672FCD43C4002C2ADD10BAC9F38C51"
         ],
@@ -130,6 +132,8 @@
           "RightHandDynamicAlpha",
           "IsCarrying",
           "isAttacking",
+          "lowerBodyTurnOnly",
+          "_enableDynamics",
           "_enableTurnInPlace",
           "_shouldResetLookAtOnAnyMontagePlay"
         ],
@@ -267,6 +271,8 @@
       "__CustomProperty_RightHandDynamicAlpha_5A40117D4431418047F2F1AF7C2EFA1B": 0.1,
       "__CustomProperty_LeftHandDynamicAlpha_5A40117D4431418047F2F1AF7C2EFA1B": 0.1,
       "__CustomProperty__enableTurnInPlace_3E672FCD43C4002C2ADD10BAC9F38C51": true,
+      "__CustomProperty__enableDynamics_3E672FCD43C4002C2ADD10BAC9F38C51": true,
+      "__CustomProperty_lowerBodyTurnOnly_3E672FCD43C4002C2ADD10BAC9F38C51": true,
       "__CustomProperty_RightHandDynamicAlpha_3E672FCD43C4002C2ADD10BAC9F38C51": 0.1,
       "__CustomProperty_LeftHandDynamicAlpha_3E672FCD43C4002C2ADD10BAC9F38C51": 0.1,
       "ASetLocomotion": {
@@ -304,7 +310,7 @@
         },
         "Search_Locker_20_17C21A1D41ED7FD778EF8F80B13DDD22": {
           "ObjectName": "AnimSequence'K36_Search_Locker'",
-          "ObjectPath": "/TheK36/K36/ArtAssets/AnimSequences/Interactions/K36_Search_Locker.6"
+          "ObjectPath": "/TheK36/K36/ArtAssets/AnimSequences/Interactions/K36_Search_Locker.7"
         },
         "Land_Light_22_AB1CEA0D44A24466524BD2AF64864915": {
           "ObjectName": "AnimSequence'K36_LandLight'",
@@ -479,7 +485,7 @@
             {
               "Sequence": {
                 "ObjectName": "AnimSequence'K36_Attack_Wipe_FPV'",
-                "ObjectPath": "/TheK36/K36/ArtAssets/AnimSequences/Attack/K36_Attack_Wipe_FPV.3"
+                "ObjectPath": "/TheK36/K36/ArtAssets/AnimSequences/Attack/K36_Attack_Wipe_FPV.6"
               },
               "Tags": [
                 "AnimTag.FPV"
@@ -689,7 +695,7 @@
       ],
       "TargetSkeleton": {
         "ObjectName": "Skeleton'SlasherMale_REF_Skeleton'",
-        "ObjectPath": "/Game/Characters/Slashers/Models/SlasherMale_REF_Skeleton.575"
+        "ObjectPath": "/Game/Characters/Slashers/Models/SlasherMale_REF_Skeleton.576"
       },
       "AnimNotifies": [
         {
@@ -2294,6 +2300,30 @@
       },
       {
         "Type": "BoolProperty",
+        "Name": "__CustomProperty__enableDynamics_3E672FCD43C4002C2ADD10BAC9F38C51",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "__CustomProperty_lowerBodyTurnOnly_3E672FCD43C4002C2ADD10BAC9F38C51",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
         "Name": "__CustomProperty_isAttacking_3E672FCD43C4002C2ADD10BAC9F38C51",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 1,
@@ -2446,6 +2476,56 @@
         }
       }
     ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 0,
+        "Variable": {
+          "Inst": "EX_LocalOutVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:AnimGraph'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.2"
+            },
+            "Property": {
+              "Type": "StructProperty",
+              "Name": "AnimGraph",
+              "Flags": "RF_Public",
+              "ElementSize": 24,
+              "PropertyFlags": "Parm | OutParm",
+              "Struct": {
+                "ObjectName": "Class'PoseLink'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_StructConst",
+          "Struct": {
+            "ObjectName": "Class'PoseLink'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Properties": [
+            {
+              "Inst": "EX_IntConst",
+              "Value": -1
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 37,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 39
+      }
+    ],
     "FunctionFlags": "FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
@@ -2457,6 +2537,34 @@
       "ObjectName": "Class'AnimInstance:BlueprintLinkedAnimationLayersInitialized'",
       "ObjectPath": "/Script/Engine"
     },
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+          "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 1245
+          }
+        ],
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[1245]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
@@ -2464,6 +2572,34 @@
     "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_36_AnimGraphNode_BlendListByBool_D80C1C9B4BE4F295CA273D8538E331DC",
     "Outer": "AB_Slasher_36_C",
     "Class": "UScriptClass'Function'",
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+          "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 119
+          }
+        ],
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[119]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
     "FunctionFlags": "FUNC_BlueprintEvent"
   },
   {
@@ -2471,6 +2607,34 @@
     "Name": "EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_36_AnimGraphNode_TransitionResult_830A65E14D621EBE32D1A187E6FC4655",
     "Outer": "AB_Slasher_36_C",
     "Class": "UScriptClass'Function'",
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+          "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 10
+          }
+        ],
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[10]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
     "FunctionFlags": "FUNC_BlueprintEvent"
   },
   {
@@ -2781,6 +2945,1951 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_ComputedJump",
+        "StatementIndex": 0,
+        "OffsetExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 10,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanAND_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanAND'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isIntroCompleted"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'PlayerAnimInstance'",
+                  "ObjectPath": "/Script/DBDAnimation"
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isLevelReadyToPlay"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'PlayerAnimInstance'",
+                  "ObjectPath": "/Script/DBDAnimation"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 48,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_12",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanAND_ReturnValue",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isInParadise"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'PlayerAnimInstance'",
+                  "ObjectPath": "/Script/DBDAnimation"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 86,
+        "Variable": {
+          "Inst": "EX_StructMemberContext",
+          "Property": {
+            "Path": [
+              "bCanEnterTransition"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "Class'AnimNode_TransitionResult'",
+              "ObjectPath": "/Script/Engine"
+            }
+          },
+          "StructExpression": {
+            "Inst": "EX_InstanceVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "AnimBlueprintGeneratedClass'AB_Slasher_36_C'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.1"
+              },
+              "Property": {
+                "Type": "StructProperty",
+                "Name": "AnimGraphNode_TransitionResult",
+                "Flags": "RF_Public | RF_LoadCompleted",
+                "ElementSize": 160,
+                "Struct": {
+                  "ObjectName": "Class'AnimNode_TransitionResult'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_12",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 114,
+        "CodeOffset": 1250,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[1250]"
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 119,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isChargingFlySpell"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isEndingFly"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 157,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isFlySpellCharged"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 195,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_1",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isFlying"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 233,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_3",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_2",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isActivatingFOTDSpell"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 271,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_4",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_3",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isChargingFOTDSpell"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 309,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_5",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_4",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isFOTDSpellCharged"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 347,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_6",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_5",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isChargingMageHand"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 385,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_7",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_6",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isActivatingMageHandSpell"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 423,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_8",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_7",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isMageHandCharged"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 461,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_9",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_8",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isActivatingDetectionSpell"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 499,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_10",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_9",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isChargingDetectionSpell"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 537,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_11",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetMathLibrary:BooleanOR'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+                },
+                "Property": {
+                  "Type": "BoolProperty",
+                  "Name": "CallFunc_BooleanOR_ReturnValue_10",
+                  "Flags": "RF_Public",
+                  "ElementSize": 1,
+                  "FieldSize": 1,
+                  "ByteOffset": 0,
+                  "ByteMask": 1,
+                  "FieldMask": 255,
+                  "BoolSize": 1,
+                  "bIsNativeBool": true
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_isDetectionSpellCharged"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'K36AnimInstance'",
+                  "ObjectPath": "/Script/TheK36"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 575,
+        "Variable": {
+          "Inst": "EX_StructMemberContext",
+          "Property": {
+            "Path": [
+              "__BoolProperty_0"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "ScriptStruct'AB_Slasher_36_C:AnimBlueprintGeneratedMutableData'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.8"
+            }
+          },
+          "StructExpression": {
+            "Inst": "EX_InstanceVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "AnimBlueprintGeneratedClass'AB_Slasher_36_C'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.1"
+              },
+              "Property": {
+                "Type": "StructProperty",
+                "Name": "__AnimBlueprintMutables",
+                "Flags": "RF_Public | RF_LoadCompleted",
+                "ElementSize": 3,
+                "Struct": {
+                  "ObjectName": "ScriptStruct'AB_Slasher_36_C:AnimBlueprintGeneratedMutableData'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.8"
+                }
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_BooleanOR_ReturnValue_11",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 603,
+        "CodeOffset": 1250,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[1250]"
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 608,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'AnimInstance'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'AnimInstance:GetLinkedAnimGraphInstanceByTag'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_NameConst",
+              "Value": "K36_Attack"
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 641,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Attack",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "InterfaceClass": {
+                "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Attack_C'",
+                "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Attack.0"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Attack_C'",
+            "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Attack.0"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'AnimInstance'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 677,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Cast",
+          "ConversionType": "CST_InterfaceToBool",
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Attack",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Attack_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Attack.0"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 706,
+        "CodeOffset": 766,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[766]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 720,
+        "ObjectExpression": {
+          "Inst": "EX_InterfaceContext",
+          "InterfaceValue": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Attack",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Attack_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Attack.0"
+                }
+              }
+            }
+          }
+        },
+        "Offset": 23,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_LocalVirtualFunction",
+          "Function": "SetAttackAnimationFromMainAB",
+          "Parameters": [
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "AnimBlueprintGeneratedClass'AB_Slasher_36_C'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.1"
+                },
+                "Property": {
+                  "Type": "StructProperty",
+                  "Name": "ASetBaseAttack",
+                  "Flags": "RF_Public | RF_LoadCompleted",
+                  "ElementSize": 120,
+                  "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+                  "Struct": {
+                    "ObjectName": "UserDefinedStruct'Aset_Slasher_BaseAttack'",
+                    "ObjectPath": "/Game/Characters/Slashers/Animations/AnimSets/Aset_Slasher_BaseAttack.0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 766,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'AnimInstance'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'AnimInstance:GetLinkedAnimGraphInstanceByTag'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_NameConst",
+              "Value": "K36_Locomotion"
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 799,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Locomotion",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "InterfaceClass": {
+                "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Locomotion_C'",
+                "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Locomotion.0"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Locomotion_C'",
+            "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Locomotion.0"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue_1",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'AnimInstance'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 835,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Cast",
+          "ConversionType": "CST_InterfaceToBool",
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Locomotion",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Locomotion_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Locomotion.0"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 864,
+        "CodeOffset": 924,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[924]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 878,
+        "ObjectExpression": {
+          "Inst": "EX_InterfaceContext",
+          "InterfaceValue": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Locomotion",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_Locomotion_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_Locomotion.0"
+                }
+              }
+            }
+          }
+        },
+        "Offset": 23,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_LocalVirtualFunction",
+          "Function": "SetLocoAnimationFromMainAB",
+          "Parameters": [
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "AnimBlueprintGeneratedClass'AB_Slasher_36_C'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.1"
+                },
+                "Property": {
+                  "Type": "StructProperty",
+                  "Name": "ASetLocomotion",
+                  "Flags": "RF_Public | RF_LoadCompleted",
+                  "ElementSize": 160,
+                  "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+                  "Struct": {
+                    "ObjectName": "UserDefinedStruct'ASet_Slasher_BaseLocomotion'",
+                    "ObjectPath": "/Game/Characters/Slashers/Animations/AnimSets/ASet_Slasher_BaseLocomotion.0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 924,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'AnimInstance'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'AnimInstance:GetLinkedAnimGraphInstanceByTag'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_NameConst",
+              "Value": "K36_LookAt"
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 957,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Look_At",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "InterfaceClass": {
+                "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+                "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+            "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue_2",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'AnimInstance'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 993,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_2",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Cast",
+          "ConversionType": "CST_InterfaceToBool",
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Look_At",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 1022,
+        "CodeOffset": 1082,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[1082]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_2",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 1036,
+        "ObjectExpression": {
+          "Inst": "EX_InterfaceContext",
+          "InterfaceValue": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Look_At",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+                }
+              }
+            }
+          }
+        },
+        "Offset": 23,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_LocalVirtualFunction",
+          "Function": "SetLookAtAnimationFromMainAB",
+          "Parameters": [
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "AnimBlueprintGeneratedClass'AB_Slasher_36_C'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.1"
+                },
+                "Property": {
+                  "Type": "StructProperty",
+                  "Name": "ASetLookAt",
+                  "Flags": "RF_Public | RF_LoadCompleted",
+                  "ElementSize": 56,
+                  "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+                  "Struct": {
+                    "ObjectName": "UserDefinedStruct'Aset_Slasher_LookAT'",
+                    "ObjectPath": "/Game/Characters/Slashers/Animations/AnimSets/Aset_Slasher_LookAT.0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 1082,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue_3",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'AnimInstance'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'AnimInstance:GetLinkedAnimGraphInstanceByTag'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_NameConst",
+              "Value": "K36_LookAt_Power"
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1115,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Look_At_1",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "InterfaceClass": {
+                "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+                "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+            "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetLinkedAnimGraphInstanceByTag_ReturnValue_3",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'AnimInstance'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1151,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_3",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Cast",
+          "ConversionType": "CST_InterfaceToBool",
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Look_At_1",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 1180,
+        "CodeOffset": 1250,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[1250]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+              "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_3",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 1194,
+        "ObjectExpression": {
+          "Inst": "EX_InterfaceContext",
+          "InterfaceValue": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'AB_Slasher_36_C:ExecuteUbergraph_AB_Slasher_36'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.6"
+              },
+              "Property": {
+                "Type": "InterfaceProperty",
+                "Name": "K2Node_DynamicCast_AsBPI_AB_Slasher_Sub_Graph_Look_At_1",
+                "Flags": "RF_Public",
+                "ElementSize": 16,
+                "InterfaceClass": {
+                  "ObjectName": "BlueprintGeneratedClass'BPI_AB_Slasher_SubGraph_LookAt_C'",
+                  "ObjectPath": "/Game/Characters/Slashers/Blueprints/Anim_SubGraph/BPI_AB_Slasher_SubGraph_LookAt.0"
+                }
+              }
+            }
+          }
+        },
+        "Offset": 23,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_LocalVirtualFunction",
+          "Function": "SetLookAtAnimationFromMainAB",
+          "Parameters": [
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "AnimBlueprintGeneratedClass'AB_Slasher_36_C'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.1"
+                },
+                "Property": {
+                  "Type": "StructProperty",
+                  "Name": "ASetLookAt_Power",
+                  "Flags": "RF_Public | RF_LoadCompleted",
+                  "ElementSize": 56,
+                  "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+                  "Struct": {
+                    "ObjectName": "UserDefinedStruct'Aset_Slasher_LookAT'",
+                    "ObjectPath": "/Game/Characters/Slashers/Animations/AnimSets/Aset_Slasher_LookAT.0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 1240,
+        "CodeOffset": 1250,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[1250]"
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 1245,
+        "CodeOffset": 608,
+        "ObjectPath": "/TheK36/K36/Blueprints/Animation/AB_Slasher_36.ExecuteUbergraph_AB_Slasher_36[608]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 1250,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 1252
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"

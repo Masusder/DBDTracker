@@ -74,6 +74,9 @@
           }
         ]
       },
+      "ShouldDisplay": true,
+      "_removeOnRemainingLifetimeEnded": false,
+      "BroadcastAsStatusEffectWhenApplicable": true,
       "_id": "K36P01_RevealAuraStatusEffect"
     }
   },
@@ -86,6 +89,34 @@
       "ObjectName": "Class'BaseModifierContainer:Authority_OnInstantiateModifierConditions'",
       "ObjectPath": "/Script/Competence"
     },
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'BP_K36P01_RevealAuraStatusEffect_C:ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect'",
+          "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.3"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 81
+          }
+        ],
+        "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect[81]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
     "FunctionFlags": "FUNC_BlueprintAuthorityOnly | FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
   },
   {
@@ -122,6 +153,145 @@
           "ObjectName": "Class'EventDrivenModifierCondition'",
           "ObjectPath": "/Script/Competence"
         }
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_ComputedJump",
+        "StatementIndex": 0,
+        "OffsetExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_K36P01_RevealAuraStatusEffect_C:ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect'",
+              "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.3"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 10,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_K36P01_RevealAuraStatusEffect_C:ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect'",
+              "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.3"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_Self"
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 38,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'BP_K36P01_RevealAuraStatusEffect_C:ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect'",
+              "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'EventDrivenModifierCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:CreateAndReceiveConditionForBP'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'BP_K36P01_RevealAuraStatusEffect_C:ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect'",
+                  "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.3"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_ObjectConst",
+              "Value": {
+                "ObjectName": "BlueprintGeneratedClass'BP_OwningPlayerInDroppedNotSpecialSurvivorCollectableRange_C'",
+                "ObjectPath": "/TheK36/K36/Blueprints/Conditions/BP_OwningPlayerInDroppedNotSpecialSurvivorCollectableRange.0"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 76,
+        "CodeOffset": 86,
+        "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect[86]"
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 81,
+        "CodeOffset": 10,
+        "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/BP_K36P01_RevealAuraStatusEffect.ExecuteUbergraph_BP_K36P01_RevealAuraStatusEffect[10]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 86,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 88
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
