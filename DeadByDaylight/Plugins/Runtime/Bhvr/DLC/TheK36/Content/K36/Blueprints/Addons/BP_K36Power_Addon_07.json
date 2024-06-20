@@ -3,59 +3,9 @@
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_K36Power_Addon_07_C",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
-    "Properties": {
-      "UberGraphFunction": {
-        "ObjectName": "Function'BP_K36Power_Addon_07_C:ExecuteUbergraph_BP_K36Power_Addon_07'",
-        "ObjectPath": "/TheK36/K36/Blueprints/Addons/BP_K36Power_Addon_07.2"
-      }
-    },
     "SuperStruct": {
-      "ObjectName": "Class'ItemAddon'",
-      "ObjectPath": "/Script/DeadByDaylight"
-    },
-    "Children": [
-      {
-        "ObjectName": "Function'BP_K36Power_Addon_07_C:ReceiveBeginPlay'",
-        "ObjectPath": "/TheK36/K36/Blueprints/Addons/BP_K36Power_Addon_07.3"
-      },
-      {
-        "ObjectName": "Function'BP_K36Power_Addon_07_C:ExecuteUbergraph_BP_K36Power_Addon_07'",
-        "ObjectPath": "/TheK36/K36/Blueprints/Addons/BP_K36Power_Addon_07.2"
-      }
-    ],
-    "ChildProperties": [
-      {
-        "Type": "StructProperty",
-        "Name": "UberGraphFrame",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 16,
-        "PropertyFlags": "Transient | DuplicateTransient",
-        "Struct": {
-          "ObjectName": "Class'PointerToUberGraphFrame'",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "ModifierValue",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 40,
-        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
-        "Struct": {
-          "ObjectName": "Class'DBDTunableRowHandle'",
-          "ObjectPath": "/Script/DataTableUtilities"
-        }
-      }
-    ],
-    "FuncMap": {
-      "ExecuteUbergraph_BP_K36Power_Addon_07": {
-        "ObjectName": "Function'BP_K36Power_Addon_07_C:ExecuteUbergraph_BP_K36Power_Addon_07'",
-        "ObjectPath": "/TheK36/K36/Blueprints/Addons/BP_K36Power_Addon_07.2"
-      },
-      "ReceiveBeginPlay": {
-        "ObjectName": "Function'BP_K36Power_Addon_07_C:ReceiveBeginPlay'",
-        "ObjectPath": "/TheK36/K36/Blueprints/Addons/BP_K36Power_Addon_07.3"
-      }
+      "ObjectName": "Class'ImposeStatusEffectOnEventAddon'",
+      "ObjectPath": "/Script/DBDCompetence"
     },
     "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
     "ClassWithin": {
@@ -77,17 +27,36 @@
     "Name": "Default__BP_K36Power_Addon_07_C",
     "Class": "BlueprintGeneratedClass'/TheK36/K36/Blueprints/Addons/BP_K36Power_Addon_07.BP_K36Power_Addon_07_C'",
     "Properties": {
-      "UberGraphFrame": {},
-      "ModifierValue": {
-        "_dataTableRowHandle": {
-          "DataTable": {
-            "ObjectName": "DataTable'DB_K36_MageHandSpell'",
-            "ObjectPath": "/TheK36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+      "_statusEffectsToImposeOnEvent": [
+        {
+          "StatusEffectLifetime": {
+            "_dataTableRowHandle": {
+              "DataTable": {
+                "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+                "ObjectPath": "/TheK36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+              },
+              "RowName": "Addon_07_VaultSpeedIncreaseDuration"
+            },
+            "_defaultValue": 0.0,
+            "_isOptional": true
           },
-          "RowName": "Addon_07_PalletLiftTimeMultiplivativeModifier"
-        },
-        "_defaultValue": 0.0,
-        "_isOptional": false
+          "CustomParamValue": {
+            "_dataTableRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "_defaultValue": 0.0,
+            "_isOptional": true
+          },
+          "ImposeEffectTo": "EImposeEffectTo::AddonOwner",
+          "StatusEffect": {
+            "ObjectName": "BlueprintGeneratedClass'BP_K36_PowerAddon07_VaultSpeedIncrease_StatusEffect_C'",
+            "ObjectPath": "/TheK36/K36/Blueprints/StatusEffects/Addons/BP_K36_PowerAddon07_VaultSpeedIncrease_StatusEffect.0"
+          }
+        }
+      ],
+      "_eventToListenTo": {
+        "TagName": "GameEvent.K36.Killer.Spell.MageHand.BlockingUpPallet"
       },
       "BaseItemType": {
         "ObjectName": "BlueprintGeneratedClass'BP_K36Power_C'",
@@ -104,38 +73,5 @@
         ]
       }
     }
-  },
-  {
-    "Type": "Function",
-    "Name": "ExecuteUbergraph_BP_K36Power_Addon_07",
-    "Outer": "BP_K36Power_Addon_07_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "IntProperty",
-        "Name": "EntryPoint",
-        "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
-      },
-      {
-        "Type": "FloatProperty",
-        "Name": "CallFunc_GetTunableRowHandleValue_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      }
-    ],
-    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
-  },
-  {
-    "Type": "Function",
-    "Name": "ReceiveBeginPlay",
-    "Outer": "BP_K36Power_Addon_07_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Class'ActorComponent:ReceiveBeginPlay'",
-      "ObjectPath": "/Script/Engine"
-    },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   }
 ]
