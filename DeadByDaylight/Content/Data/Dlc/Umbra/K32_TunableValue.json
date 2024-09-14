@@ -34,9 +34,9 @@
         "Value": 2000.0,
         "Description": "Range in CM, within this distance from a pod, you can lock on to the survivor"
       },
-      "LockOnLingerTime": {
-        "Value": 0.3,
-        "Description": "Time in seconds which a lockon lingers before the lock on progress resets"
+      "LockOnRetainProgressTime": {
+        "Value": 0.25,
+        "Description": "Time in seconds during which a lockon progress should retain before it starts to decrease"
       },
       "LockOnTeleportTime": {
         "Value": 0.8,
@@ -47,7 +47,7 @@
         "Description": "Time in seconds which it takes to lock-on and assimilate"
       },
       "LockOnCooldownTime": {
-        "Value": 3.5,
+        "Value": 3.0,
         "Description": "Time in seconds after teleporting to or assimilating a survivor before we can do one of these again"
       },
       "LockOnAntiCampLockOnRateMultiplier": {
@@ -55,35 +55,51 @@
         "Description": "Multiplier of the rate at which the killer locks on while the target is within an anticamp zone"
       },
       "LockOnWakeupTime": {
-        "Value": 1.0,
+        "Value": 0.5,
         "Description": "Time in seconds it takes for the killer to get back from the killer pod to the killer itself"
       },
       "LockOnWakeupTimeAntiCampMultiplier": {
-        "Value": 5.0,
+        "Value": 3.0,
         "Description": "Multiplier for the time in seconds it takes for the killer to get back from the killer pod to the killer itself within the anti camp zone"
       },
       "LockOnAutoDetectRange": {
         "Value": 100.0,
         "Description": "A survivor within this range of a killer pod will be locked onto with priority"
       },
+      "TotalTimeToRemoveRequiredLockOn": {
+        "Value": 0.5,
+        "Description": "Total time in seconds after which the required lockon progress will be decreased to 0"
+      },
+      "AutoAimLastLockedOnSurvivorExpiryTime": {
+        "Value": 12.0,
+        "Description": "If a survivor has recently been locked on within this time in seconds, auto aim pod towards this survivor."
+      },
       "============================ItemBox": {
         "Value": 0.0,
         "Description": ""
       },
       "ItemBoxInProgressDuration": {
-        "Value": 100.0,
+        "Value": 95.0,
         "Description": "Base time an ItemBox will remain in the 'InProgress' state"
+      },
+      "ItemBoxMaxAutoChargeRatio": {
+        "Value": 0.87368,
+        "Description": "The max progress ratio that an item box will auto-charge up to"
       },
       "ItemBoxSpeedUpInteractionProgressMultiplier": {
         "Value": 4.0,
         "Description": "How much faster a chest progresses when InProgress and being interacted with"
+      },
+      "AutoCollectOnItemBoxSpeedUpInteractionFinished": {
+        "Value": 0.0,
+        "Description": "Whether to auto collect EMP after survivor finishes charging an item box (0: will not auto collect, > 0: will auto collect)"
       },
       "InitialNumberOfInProgressItemBoxes": {
         "Value": 4.0,
         "Description": "How many item boxes will begin as InProgess in a match"
       },
       "ItemBoxDistanceToShowOutline": {
-        "Value": 3200.0,
+        "Value": 2800.0,
         "Description": "How near a survivor must be to see the outline of an Available or InProgress ItemBox"
       },
       "IsItemBoxOutlineVisibleToSurvivorsWithEmp": {
@@ -115,8 +131,16 @@
         "Description": ""
       },
       "AssimilationCooldownTime": {
-        "Value": 2.0,
+        "Value": 1.0,
         "Description": "Time in seconds that a survivor cannot be assimilated after having their assimilation removed by an Emp"
+      },
+      "PodAssimilationKillerInstinctDuration": {
+        "Value": 3.0,
+        "Description": "Time in seconds for how long killer instinct should be applied to an assimilated survivor by pod assimilation (set to 0 to turn off)"
+      },
+      "CrossAssimilationKillerInstinctDuration": {
+        "Value": 3.0,
+        "Description": "Time in seconds for how long killer instinct should be applied to an assimilated survivor by cross assimilation (set to 0 to turn off)"
       },
       "===========================KillerPod": {
         "Value": 0.0,
@@ -127,7 +151,7 @@
         "Description": "Time in seconds a killer pod will be disabled for after being hit with an EMP while being controlled by the killer"
       },
       "LastControlledPodLingerTime": {
-        "Value": 5.0,
+        "Value": 10.0,
         "Description": "Time in seconds that the aura of the pod will by displayed yellow when being exit"
       },
       "MaxKillerPodAmmo": {
@@ -195,8 +219,44 @@
         "Description": "Do not tweak - Squared for grid"
       },
       "PodSpawningInvalidShowDelay": {
-        "Value": 0.1,
+        "Value": 0.2,
         "Description": "Time in seconds when the pod spawning becomes invalid that we stick to the previous valid option"
+      },
+      "PodSpawningInvalidTeleportToSurvivorShowDelay": {
+        "Value": 0.2,
+        "Description": "Time in seconds when we stick to a previously valid target survivor who we were aiming the pod at"
+      },
+      "KillerToPodChargeTime": {
+        "Value": 0.0,
+        "Description": "Time in seconds to fully charge the interaction to possess a pod from killer"
+      },
+      "PodToPodChargeTime": {
+        "Value": 0.0,
+        "Description": "Time in seconds to fully charge the interaction to switch from a pod to another pod"
+      },
+      "PodToKillerChargeTime": {
+        "Value": 0.0,
+        "Description": "Time in seconds to fully charge the interaction to unpossess a pod"
+      },
+      "PodToKillerVisionAndDestroyPodChargeTime": {
+        "Value": 1.25,
+        "Description": "Time in seconds to fully charge the interaction to unpossess a pod and destroy the pod"
+      },
+      "PodToKillerVisionAndDestroyPodDechargeTime": {
+        "Value": 0.3,
+        "Description": "Time in seconds to fully decharge the interaction"
+      },
+      "PodToKillerVisionAndDestroyPodInitialChargeRatio": {
+        "Value": 0.2,
+        "Description": "The initial charge percent added at start of the interaction"
+      },
+      "KillerHearSoundsInPodActivationDelay": {
+        "Value": 0.2,
+        "Description": "Time in seconds after which killer stays in a pod and is able to hear sounds"
+      },
+      "PodDisabledPreEndingEffectTime": {
+        "Value": 2.0,
+        "Description": "Disabled pod will display warning VFX this time in seconds before it becomes enabled again."
       },
       "===========================KillerPodVision": {
         "Value": 0.0,
@@ -214,13 +274,17 @@
         "Value": 0.0,
         "Description": ""
       },
-      "TeleportDuration": {
-        "Value": 0.3,
-        "Description": "Time in seconds for the duration of the teleport"
+      "TeleportInDuration": {
+        "Value": 0.2,
+        "Description": "Time in seconds for the duration of the submerge"
+      },
+      "TeleportSnappingDuration": {
+        "Value": 0.1,
+        "Description": "Time in seconds for the duration of the snapping underground"
       },
       "TeleportWakeupTime": {
         "Value": 1.7,
-        "Description": ""
+        "Description": "Time in seconds for the duration of the emerge"
       },
       "RecentTeleportLocationDistanceDelta": {
         "Value": 80.0,
@@ -229,6 +293,14 @@
       "PostTeleportIgnoreKillerCollisionLingerTime": {
         "Value": 1.5,
         "Description": ""
+      },
+      "RecentlyTeleportedTime": {
+        "Value": 10.0,
+        "Description": ""
+      },
+      "TeleportKillerInstinctDuration": {
+        "Value": 0.0,
+        "Description": "Time in seconds for how long killer instinct should be applied on a teleported survivor (set to 0 to turn off)"
       },
       "===========================KillerPodSpawning": {
         "Value": 0.0,
@@ -294,6 +366,10 @@
         "Value": 4.0,
         "Description": ""
       },
+      "Addon11HemorrhageDuration": {
+        "Value": 60.0,
+        "Description": "How long in seconds of hemorrhage effect an assimilated survivor will suffer after being hit by killer's basic attack"
+      },
       "Addon12FirstActivatedBoxesChargeTimeExtension": {
         "Value": 30.0,
         "Description": ""
@@ -303,16 +379,28 @@
         "Description": ""
       },
       "Addon13ActivationFromSpawnedKillerPodRange": {
-        "Value": 600.0,
+        "Value": 1000.0,
         "Description": ""
       },
-      "Addon14ActivationDelay": {
-        "Value": 0.5,
-        "Description": ""
+      "Addon14RecentAssimilationWithinTime": {
+        "Value": 2.0,
+        "Description": "If killer returns from a pod within this time in second after they assimilated a survivor, their terror radius will be reduced."
       },
-      "Addon16RecentlyTeleportedTime": {
-        "Value": 10.0,
-        "Description": ""
+      "Addon14TerrorRadiusAdditive": {
+        "Value": -1200.0,
+        "Description": "The value to be added to killer's terror radius when addon 14 is activated"
+      },
+      "Addon14TerrorRadiusAdditiveDuration": {
+        "Value": 12.0,
+        "Description": "Time in seconds for how long killer's terror will be reduced"
+      },
+      "Addon19HinderedDuration": {
+        "Value": 3.0,
+        "Description": "How long in seconds of hindered effect a survivor will suffer after being assimilated by a pod"
+      },
+      "Addon20RevealSurvivorAuraDuration": {
+        "Value": 8.0,
+        "Description": "Time in seconds for how long survivor's aura will be revealed"
       },
       "AddonPodZoneRange": {
         "Value": 1200.0,
@@ -327,7 +415,7 @@
         "Description": ""
       },
       "OverclockDuration": {
-        "Value": 4.7,
+        "Value": 5.7,
         "Description": "Time in seconds for the overclock status effect to last after teleporting"
       },
       "===========================AntiCampHookRestrictions": {
@@ -373,6 +461,18 @@
       "CollisionDisableWhileInPodsDelay": {
         "Value": 1.5,
         "Description": ""
+      },
+      "=========================AimAssist": {
+        "Value": 0.0,
+        "Description": ""
+      },
+      "UseAimAssistV2": {
+        "Value": 1.0,
+        "Description": "Whether to use Aim Assist V2 (yaw scale, extended survivor capsule). 0: off, > 0: on."
+      },
+      "TeleportToSurvivorAimAssistRotationScaleMultiplier": {
+        "Value": 0.4,
+        "Description": "When killer is aiming at an assimilated survivor, this multiplier will be applied on its rotation scale."
       }
     }
   }
