@@ -1,0 +1,1216 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Madgrit_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Madgrit'",
+      "ObjectPath": "/Script/TheLegion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+      },
+      {
+        "ObjectName": "Function'Madgrit_C:OnInitialized'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.4"
+      },
+      {
+        "ObjectName": "Function'Madgrit_C:OnGameEventDispatched'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.3"
+      },
+      {
+        "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_Madgrit": {
+        "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+      },
+      "OnGameEventDispatched": {
+        "ObjectName": "Function'Madgrit_C:OnGameEventDispatched'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.3"
+      },
+      "OnInitialized": {
+        "ObjectName": "Function'Madgrit_C:OnInitialized'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.4"
+      },
+      "Apply No Wiggle status effect": {
+        "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Madgrit_C'Default__Madgrit_C'",
+      "ObjectPath": "/K14/Blueprints/Perks/Madgrit.5"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Apply No Wiggle status effect",
+    "Outer": "Madgrit_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Survivor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'CamperPlayer'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetModifierValue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DBDPlayer'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'StatusEffect'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 0,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ActorComponentExt:HasAuthority'",
+            "ObjectPath": "/Script/DeadByDaylight"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_Self"
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 21,
+        "CodeOffset": 212,
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.Apply No Wiggle status effect[212]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 35,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+            },
+            "Property": {
+              "Type": "FloatProperty",
+              "Name": "CallFunc_GetModifierValue_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'GameplayModifierContainer:GetModifierValue'",
+            "ObjectPath": "/Script/DeadByDaylight"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_StructConst",
+              "Struct": {
+                "ObjectName": "Class'GameplayTag'",
+                "ObjectPath": "/Script/GameplayTags"
+              },
+              "Properties": [
+                {
+                  "Inst": "EX_NameConst",
+                  "Value": "GameplayModifierType.PerkEffectDuration"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 90,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'DBDPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_VirtualFunction",
+          "Function": "GetOwningPlayer",
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 114,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'StatusEffect'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_Context",
+            "ObjectExpression": {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+                  "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "Survivor",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+                  "PropertyClass": {
+                    "ObjectName": "Class'CamperPlayer'",
+                    "ObjectPath": "/Script/DeadByDaylight"
+                  }
+                }
+              }
+            },
+            "Offset": 9,
+            "RValuePointer": {
+              "Path": [
+                "_perkManager"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'DBDPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            },
+            "ContextExpression": {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Path": [
+                  "_perkManager"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 44,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_Authority_ImposeStatusEffectOfClass_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'StatusEffect'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'PerkManager:Authority_ImposeStatusEffectOfClass'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            },
+            "Parameters": [
+              {
+                "Inst": "EX_ObjectConst",
+                "Value": {
+                  "ObjectName": "BlueprintGeneratedClass'BlockWiggleCharges_Effect_C'",
+                  "ObjectPath": "/K14/Blueprints/StatusEffects/BlockWiggleCharges_Effect.1"
+                }
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+                    "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+                  },
+                  "Property": {
+                    "Type": "ObjectProperty",
+                    "Name": "CallFunc_GetOwningPlayer_ReturnValue",
+                    "Flags": "RF_Public",
+                    "ElementSize": 8,
+                    "PropertyClass": {
+                      "ObjectName": "Class'DBDPlayer'",
+                      "ObjectPath": "/Script/DeadByDaylight"
+                    }
+                  }
+                }
+              },
+              {
+                "Inst": "EX_FloatConst",
+                "Value": 0.0
+              },
+              {
+                "Inst": "EX_Self"
+              },
+              {
+                "Inst": "EX_True"
+              },
+              {
+                "Inst": "EX_LocalVariable",
+                "Variable": {
+                  "Owner": {
+                    "ObjectName": "Function'Madgrit_C:Apply No Wiggle status effect'",
+                    "ObjectPath": "/K14/Blueprints/Perks/Madgrit.1"
+                  },
+                  "Property": {
+                    "Type": "FloatProperty",
+                    "Name": "CallFunc_GetModifierValue_ReturnValue",
+                    "Flags": "RF_Public",
+                    "ElementSize": 4
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 212,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 214
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_Madgrit",
+    "Outer": "Madgrit_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_gameEventType",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GameplayTag'",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_gameEventData",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Class'GameEventData'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSlasher_Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SlasherPlayer'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCarriedCamper_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CamperPlayer'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsCarrying_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_ComputedJump",
+        "StatementIndex": 0,
+        "OffsetExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 10,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 30,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "K2Node_DynamicCast_AsSlasher_Player",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'SlasherPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_DynamicCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'SlasherPlayer'",
+            "ObjectPath": "/Script/DeadByDaylight"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+                "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetOwner_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'Actor'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 66,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Cast",
+          "ConversionType": "CST_ObjectToBool",
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+                "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "K2Node_DynamicCast_AsSlasher_Player",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'SlasherPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 95,
+        "CodeOffset": 282,
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.ExecuteUbergraph_Madgrit[282]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 109,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsCarrying_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+                "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "K2Node_DynamicCast_AsSlasher_Player",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'SlasherPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsCarrying_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'SlasherPlayer:IsCarrying'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 151,
+        "CodeOffset": 282,
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.ExecuteUbergraph_Madgrit[282]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsCarrying_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 165,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetCarriedCamper_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'CamperPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+                "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "K2Node_DynamicCast_AsSlasher_Player",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'SlasherPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetCarriedCamper_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'CamperPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'SlasherPlayer:GetCarriedCamper'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_LocalVirtualFunction",
+        "StatementIndex": 207,
+        "Function": "Apply No Wiggle status effect",
+        "Parameters": [
+          {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+                "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetCarriedCamper_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'CamperPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "Inst": "EX_Jump",
+        "StatementIndex": 230,
+        "CodeOffset": 282,
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.ExecuteUbergraph_Madgrit[282]"
+      },
+      {
+        "Inst": "EX_FinalFunction",
+        "StatementIndex": 235,
+        "Function": {
+          "ObjectName": "Class'GameplayModifierContainer:OnInitialized'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        },
+        "Parameters": []
+      },
+      {
+        "Inst": "EX_FinalFunction",
+        "StatementIndex": 245,
+        "Function": {
+          "ObjectName": "Class'GameplayModifierContainer:ListenToDispatcherGameEvent'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_StructConst",
+            "Struct": {
+              "ObjectName": "Class'GameplayTag'",
+              "ObjectPath": "/Script/GameplayTags"
+            },
+            "Properties": [
+              {
+                "Inst": "EX_NameConst",
+                "Value": "GameEvent.SlasherBasicAttackSuccess"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 282,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 284
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnGameEventDispatched",
+    "Outer": "Madgrit_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'GameplayModifierContainer:OnGameEventDispatched'",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "gameEventType",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "Class'GameplayTag'",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "gameEventData",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Struct": {
+          "ObjectName": "Class'GameEventData'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LetValueOnPersistentFrame",
+        "StatementIndex": 0,
+        "DestinationProperty": {
+          "Owner": {
+            "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+            "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+          },
+          "Property": {
+            "Type": "StructProperty",
+            "Name": "K2Node_Event_gameEventType",
+            "Flags": "RF_Public",
+            "ElementSize": 12,
+            "PropertyFlags": "ConstParm",
+            "Struct": {
+              "ObjectName": "Class'GameplayTag'",
+              "ObjectPath": "/Script/GameplayTags"
+            }
+          }
+        },
+        "AssignmentExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:OnGameEventDispatched'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.3"
+            },
+            "Property": {
+              "Type": "StructProperty",
+              "Name": "gameEventType",
+              "Flags": "RF_Public",
+              "ElementSize": 12,
+              "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+              "Struct": {
+                "ObjectName": "Class'GameplayTag'",
+                "ObjectPath": "/Script/GameplayTags"
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetValueOnPersistentFrame",
+        "StatementIndex": 18,
+        "DestinationProperty": {
+          "Owner": {
+            "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+            "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+          },
+          "Property": {
+            "Type": "StructProperty",
+            "Name": "K2Node_Event_gameEventData",
+            "Flags": "RF_Public",
+            "ElementSize": 48,
+            "PropertyFlags": "ConstParm",
+            "Struct": {
+              "ObjectName": "Class'GameEventData'",
+              "ObjectPath": "/Script/DeadByDaylight"
+            }
+          }
+        },
+        "AssignmentExpression": {
+          "Inst": "EX_LocalOutVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Madgrit_C:OnGameEventDispatched'",
+              "ObjectPath": "/K14/Blueprints/Perks/Madgrit.3"
+            },
+            "Property": {
+              "Type": "StructProperty",
+              "Name": "gameEventData",
+              "Flags": "RF_Public",
+              "ElementSize": 48,
+              "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+              "Struct": {
+                "ObjectName": "Class'GameEventData'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 36,
+        "Function": {
+          "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+          "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 10
+          }
+        ],
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.ExecuteUbergraph_Madgrit[10]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 51,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 53
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_HasOutParms | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInitialized",
+    "Outer": "Madgrit_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'GameplayModifierContainer:OnInitialized'",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'Madgrit_C:ExecuteUbergraph_Madgrit'",
+          "ObjectPath": "/K14/Blueprints/Perks/Madgrit.2"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 235
+          }
+        ],
+        "ObjectPath": "/K14/Blueprints/Perks/Madgrit.ExecuteUbergraph_Madgrit[235]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Madgrit_C",
+    "Name": "Default__Madgrit_C",
+    "Class": "BlueprintGeneratedClass'/K14/Blueprints/Perks/Madgrit.Madgrit_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "_slashHittingSpeedCurve": {
+        "ObjectName": "CurveFloat'MadGritAttackSpeedCurve'",
+        "ObjectPath": "/K14/Blueprints/Curves/MadGritAttackSpeedCurve.0"
+      },
+      "PerkLevelData": {
+        "Conditions": [
+          {
+            "ObjectName": "BlueprintGeneratedClass'KillerIsCarryingSurvivor_C'",
+            "ObjectPath": "/Game/Blueprints/Perks/PerkConditions/KillerIsCarryingSurvivor.0"
+          }
+        ],
+        "Modifiers": [
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.ModifyBasicAttackMissCooldown"
+            },
+            "ModifierValue": -1.0
+          },
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.PerkEffectDuration"
+            },
+            "ModifierValue": 2.0
+          }
+        ]
+      },
+      "PerkLevelData[1]": {
+        "Conditions": [
+          {
+            "ObjectName": "BlueprintGeneratedClass'KillerIsCarryingSurvivor_C'",
+            "ObjectPath": "/Game/Blueprints/Perks/PerkConditions/KillerIsCarryingSurvivor.0"
+          }
+        ],
+        "Modifiers": [
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.ModifyBasicAttackMissCooldown"
+            },
+            "ModifierValue": -1.0
+          },
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.PerkEffectDuration"
+            },
+            "ModifierValue": 3.0
+          }
+        ]
+      },
+      "PerkLevelData[2]": {
+        "Conditions": [
+          {
+            "ObjectName": "BlueprintGeneratedClass'KillerIsCarryingSurvivor_C'",
+            "ObjectPath": "/Game/Blueprints/Perks/PerkConditions/KillerIsCarryingSurvivor.0"
+          }
+        ],
+        "Modifiers": [
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.ModifyBasicAttackMissCooldown"
+            },
+            "ModifierValue": -1.0
+          },
+          {
+            "Type": {
+              "TagName": "GameplayModifierType.PerkEffectDuration"
+            },
+            "ModifierValue": 4.0
+          }
+        ]
+      },
+      "PerkIconStrategyClass": {
+        "ObjectName": "Class'AlwaysVisiblePerkIconStrategy'",
+        "ObjectPath": "/Script/DeadByDaylight"
+      }
+    }
+  }
+]

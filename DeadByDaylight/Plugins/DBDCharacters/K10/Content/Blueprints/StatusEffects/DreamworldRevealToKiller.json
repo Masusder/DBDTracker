@@ -1,0 +1,2602 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "DreamworldRevealToKiller_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BaseStatusEffect_C'",
+      "ObjectPath": "/Game/Blueprints/Perks/StatusEffects/BaseStatusEffect.1"
+    },
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+      }
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:OnInitialized'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.4"
+      },
+      {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:OnIsInTerrorRadiusChanged_Event_0'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.5"
+      },
+      {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:Authority_OnInstantiateModifierConditions'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.2"
+      },
+      {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Class'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CooldownTimer",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimerObject'",
+          "ObjectPath": "/Script/NetworkUtilities"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SecondsBeforeRevealSurvivorAfterLeavingTerrorRadius",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 40,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Class'DBDTunableRowHandle'",
+          "ObjectPath": "/Script/DataTableUtilities"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_DreamworldRevealToKiller": {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+      },
+      "Authority_OnInstantiateModifierConditions": {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:Authority_OnInstantiateModifierConditions'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.2"
+      },
+      "OnIsInTerrorRadiusChanged_Event_0": {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:OnIsInTerrorRadiusChanged_Event_0'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.5"
+      },
+      "OnInitialized": {
+        "ObjectName": "Function'DreamworldRevealToKiller_C:OnInitialized'",
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.4"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "DreamworldRevealToKiller_C'Default__DreamworldRevealToKiller_C'",
+      "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "DreamworldRevealToKiller_C",
+    "Name": "Default__DreamworldRevealToKiller_C",
+    "Class": "BlueprintGeneratedClass'/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.DreamworldRevealToKiller_C'",
+    "Template": {
+      "ObjectName": "BaseStatusEffect_C'Default__BaseStatusEffect_C'",
+      "ObjectPath": "/Game/Blueprints/Perks/StatusEffects/BaseStatusEffect.0"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "SecondsBeforeRevealSurvivorAfterLeavingTerrorRadius[2]": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'SandmanTunableDB'",
+            "ObjectPath": "/K10/Data/Game/SandmanTunableDB.0"
+          },
+          "RowName": "SecondsBeforeRevealSurvivorAfterLeavingTerrorRadius"
+        },
+        "_defaultValue": 0.0,
+        "_isOptional": false
+      },
+      "ModifierData": {
+        "TaggedFlags": [
+          {
+            "TagName": "GameplayModifierFlag.RevealToKiller"
+          }
+        ]
+      },
+      "_id": "DreamworldRevealToKiller"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Authority_OnInstantiateModifierConditions",
+    "Outer": "DreamworldRevealToKiller_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'BaseModifierContainer:Authority_OnInstantiateModifierConditions'",
+      "ObjectPath": "/Script/Competence"
+    },
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+          "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 693
+          }
+        ],
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.ExecuteUbergraph_DreamworldRevealToKiller[693]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintAuthorityOnly | FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_DreamworldRevealToKiller",
+    "Outer": "DreamworldRevealToKiller_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetTunableRowHandleValue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsCamper_Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'CamperPlayer'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetComponentByClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TerrorRadiusReceiverComponent'",
+          "ObjectPath": "/Script/DBDGameplay"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDBDPlayer",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DBDPlayer'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsInTerrorRadius_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateTimer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimerObject'",
+          "ObjectPath": "/Script/NetworkUtilities"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "Class'TerrorRadiusReceiverComponent:OnIsInTerrorRadiusChanged__DelegateSignature'",
+          "ObjectPath": "/Script/DBDGameplay"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_And_conditionReceiver_CastInput",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "UObjectWrapper",
+        "InterfaceClass": {
+          "ObjectName": "Class'ConditionReceiver'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_And_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AndModifierCondition'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "UObjectWrapper",
+        "InterfaceClass": {
+          "ObjectName": "Class'ConditionReceiver'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'EventDrivenModifierCondition'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_Not_conditionReceiver_CastInput",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "UObjectWrapper",
+        "InterfaceClass": {
+          "ObjectName": "Class'ConditionReceiver'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Not_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NotModifierCondition'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "UObjectWrapper",
+        "InterfaceClass": {
+          "ObjectName": "Class'ConditionReceiver'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'EventDrivenModifierCondition'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_IsTimerDone_conditionReceiver_CastInput",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "UObjectWrapper",
+        "InterfaceClass": {
+          "ObjectName": "Class'ConditionReceiver'",
+          "ObjectPath": "/Script/Competence"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_IsTimerDone_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'IsTimerDoneCondition'",
+          "ObjectPath": "/Script/Competence"
+        }
+      }
+    ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_PushExecutionFlow",
+        "StatementIndex": 0,
+        "PushingAddress": 1249,
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.ExecuteUbergraph_DreamworldRevealToKiller[1249]"
+      },
+      {
+        "Inst": "EX_ComputedJump",
+        "StatementIndex": 5,
+        "OffsetExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_FinalFunction",
+        "StatementIndex": 15,
+        "Function": {
+          "ObjectName": "Class'GameplayModifierContainer:OnInitialized'",
+          "ObjectPath": "/Script/DeadByDaylight"
+        },
+        "Parameters": []
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 25,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 45,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsValid_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetSystemLibrary:IsValid'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_GetOwner_ReturnValue",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'Actor'",
+                    "ObjectPath": "/Script/Engine"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 74,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsValid_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 84,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 104,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetOwner_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'Actor'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'Actor:HasAuthority'",
+              "ObjectPath": "/Script/Engine"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 146,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 156,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 176,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "K2Node_DynamicCast_AsCamper_Player",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'CamperPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_DynamicCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'CamperPlayer'",
+            "ObjectPath": "/Script/DeadByDaylight"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetOwner_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'Actor'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 212,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Cast",
+          "ConversionType": "CST_ObjectToBool",
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "K2Node_DynamicCast_AsCamper_Player",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'CamperPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 241,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 251,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetComponentByClass_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'TerrorRadiusReceiverComponent'",
+                "ObjectPath": "/Script/DBDGameplay"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "K2Node_DynamicCast_AsCamper_Player",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'CamperPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 19,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetComponentByClass_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'TerrorRadiusReceiverComponent'",
+                "ObjectPath": "/Script/DBDGameplay"
+              }
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'Actor:GetComponentByClass'",
+              "ObjectPath": "/Script/Engine"
+            },
+            "Parameters": [
+              {
+                "Inst": "EX_ObjectConst",
+                "Value": {
+                  "ObjectName": "Class'TerrorRadiusReceiverComponent'",
+                  "ObjectPath": "/Script/DBDGameplay"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Inst": "EX_BindDelegate",
+        "StatementIndex": 302,
+        "FunctionName": "OnIsInTerrorRadiusChanged_Event_0",
+        "Delegate": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "DelegateProperty",
+              "Name": "K2Node_CreateDelegate_OutputDelegate",
+              "Flags": "RF_Public",
+              "ElementSize": 20,
+              "SignatureFunction": {
+                "ObjectName": "Class'TerrorRadiusReceiverComponent:OnIsInTerrorRadiusChanged__DelegateSignature'",
+                "ObjectPath": "/Script/DBDGameplay"
+              }
+            }
+          }
+        },
+        "ObjectTerm": {
+          "Inst": "EX_Self"
+        }
+      },
+      {
+        "Inst": "EX_AddMulticastDelegate",
+        "StatementIndex": 325,
+        "MulticastDelegate": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetComponentByClass_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'TerrorRadiusReceiverComponent'",
+                  "ObjectPath": "/Script/DBDGameplay"
+                }
+              }
+            }
+          },
+          "Offset": 9,
+          "RValuePointer": {
+            "Path": [
+              "OnIsInTerrorRadiusChanged"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "Class'TerrorRadiusReceiverComponent'",
+              "ObjectPath": "/Script/DBDGameplay"
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_InstanceVariable",
+            "Variable": {
+              "Path": [
+                "OnIsInTerrorRadiusChanged"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'TerrorRadiusReceiverComponent'",
+                "ObjectPath": "/Script/DBDGameplay"
+              }
+            }
+          }
+        },
+        "Delegate": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "DelegateProperty",
+              "Name": "K2Node_CreateDelegate_OutputDelegate",
+              "Flags": "RF_Public",
+              "ElementSize": 20,
+              "SignatureFunction": {
+                "ObjectName": "Class'TerrorRadiusReceiverComponent:OnIsInTerrorRadiusChanged__DelegateSignature'",
+                "ObjectPath": "/Script/DBDGameplay"
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 366
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 367,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 387,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsValid_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetSystemLibrary:IsValid'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_GetOwner_ReturnValue_1",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'Actor'",
+                    "ObjectPath": "/Script/Engine"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 416,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsValid_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 426,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 446,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "K2Node_DynamicCast_AsDBDPlayer",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'DBDPlayer'",
+                "ObjectPath": "/Script/DeadByDaylight"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_DynamicCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'DBDPlayer'",
+            "ObjectPath": "/Script/DeadByDaylight"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetOwner_ReturnValue_1",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'Actor'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 482,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Cast",
+          "ConversionType": "CST_ObjectToBool",
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "K2Node_DynamicCast_AsDBDPlayer",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 511,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "K2Node_DynamicCast_bSuccess_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 521,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsInTerrorRadius_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "K2Node_DynamicCast_AsDBDPlayer",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'DBDPlayer'",
+                  "ObjectPath": "/Script/DeadByDaylight"
+                }
+              }
+            }
+          },
+          "Offset": 14,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsInTerrorRadius_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_VirtualFunction",
+            "Function": "IsInTerrorRadius",
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_JumpIfNot",
+        "StatementIndex": 567,
+        "CodeOffset": 614,
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.ExecuteUbergraph_DreamworldRevealToKiller[614]",
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsInTerrorRadius_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 581,
+        "ObjectExpression": {
+          "Inst": "EX_InstanceVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "BlueprintGeneratedClass'DreamworldRevealToKiller_C'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.0"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CooldownTimer",
+              "Flags": "RF_Public | RF_LoadCompleted",
+              "ElementSize": 8,
+              "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'TimerObject'",
+                "ObjectPath": "/Script/NetworkUtilities"
+              }
+            }
+          }
+        },
+        "Offset": 10,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'TimerObject:Authority_Clear'",
+            "ObjectPath": "/Script/NetworkUtilities"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 613
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 614,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "FloatProperty",
+              "Name": "CallFunc_GetTunableRowHandleValue_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 4
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'DBDTunableUtilities:GetTunableRowHandleValue'",
+            "ObjectPath": "/Script/DeadByDaylight"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "BlueprintGeneratedClass'DreamworldRevealToKiller_C'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.0"
+                },
+                "Property": {
+                  "Type": "StructProperty",
+                  "Name": "SecondsBeforeRevealSurvivorAfterLeavingTerrorRadius",
+                  "Flags": "RF_Public | RF_LoadCompleted",
+                  "ElementSize": 40,
+                  "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+                  "Struct": {
+                    "ObjectName": "Class'DBDTunableRowHandle'",
+                    "ObjectPath": "/Script/DataTableUtilities"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Context",
+        "StatementIndex": 651,
+        "ObjectExpression": {
+          "Inst": "EX_InstanceVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "BlueprintGeneratedClass'DreamworldRevealToKiller_C'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.0"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CooldownTimer",
+              "Flags": "RF_Public | RF_LoadCompleted",
+              "ElementSize": 8,
+              "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'TimerObject'",
+                "ObjectPath": "/Script/NetworkUtilities"
+              }
+            }
+          }
+        },
+        "Offset": 19,
+        "RValuePointer": null,
+        "ContextExpression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'TimerObject:Authority_Start'",
+            "ObjectPath": "/Script/NetworkUtilities"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "FloatProperty",
+                  "Name": "CallFunc_GetTunableRowHandleValue_ReturnValue",
+                  "Flags": "RF_Public",
+                  "ElementSize": 4
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 692
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 693,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 713,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsValid_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'KismetSystemLibrary:IsValid'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_GetOwner_ReturnValue_2",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'Actor'",
+                    "ObjectPath": "/Script/Engine"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 742,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_IsValid_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 752,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_LetBool",
+        "StatementIndex": 772,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_Context",
+          "ObjectExpression": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_GetOwner_ReturnValue_2",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyClass": {
+                  "ObjectName": "Class'Actor'",
+                  "ObjectPath": "/Script/Engine"
+                }
+              }
+            }
+          },
+          "Offset": 10,
+          "RValuePointer": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          },
+          "ContextExpression": {
+            "Inst": "EX_FinalFunction",
+            "Function": {
+              "ObjectName": "Class'Actor:HasAuthority'",
+              "ObjectPath": "/Script/Engine"
+            },
+            "Parameters": []
+          }
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlowIfNot",
+        "StatementIndex": 814,
+        "BooleanExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "BoolProperty",
+              "Name": "CallFunc_HasAuthority_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 1,
+              "FieldSize": 1,
+              "ByteOffset": 0,
+              "ByteMask": 1,
+              "FieldMask": 255,
+              "BoolSize": 1,
+              "bIsNativeBool": true
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 824,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_GetOwner_ReturnValue_2",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyClass": {
+                "ObjectName": "Class'Actor'",
+                "ObjectPath": "/Script/Engine"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_FinalFunction",
+          "Function": {
+            "ObjectName": "Class'ActorComponent:GetOwner'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "Parameters": []
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 844,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_CreateTimer_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'TimerObject'",
+                "ObjectPath": "/Script/NetworkUtilities"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'TimerObject:CreateTimer'",
+            "ObjectPath": "/Script/NetworkUtilities"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CallFunc_GetOwner_ReturnValue_2",
+                  "Flags": "RF_Public",
+                  "ElementSize": 8,
+                  "PropertyClass": {
+                    "ObjectName": "Class'Actor'",
+                    "ObjectPath": "/Script/Engine"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 873,
+        "Variable": {
+          "Inst": "EX_InstanceVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "BlueprintGeneratedClass'DreamworldRevealToKiller_C'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.0"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CooldownTimer",
+              "Flags": "RF_Public | RF_LoadCompleted",
+              "ElementSize": 8,
+              "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'TimerObject'",
+                "ObjectPath": "/Script/NetworkUtilities"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_CreateTimer_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'TimerObject'",
+                "ObjectPath": "/Script/NetworkUtilities"
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 892,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_And_conditionReceiver_CastInput",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_Self"
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 920,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_And_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'AndModifierCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:And'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_And_conditionReceiver_CastInput",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PushExecutionFlow",
+        "StatementIndex": 949,
+        "PushingAddress": 1109,
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.ExecuteUbergraph_DreamworldRevealToKiller[1109]"
+      },
+      {
+        "Inst": "EX_PushExecutionFlow",
+        "StatementIndex": 954,
+        "PushingAddress": 1034,
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.ExecuteUbergraph_DreamworldRevealToKiller[1034]"
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 959,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_And_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'AndModifierCondition'",
+                  "ObjectPath": "/Script/Competence"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 995,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'EventDrivenModifierCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:CreateAndReceiveConditionForBP'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_ObjectConst",
+              "Value": {
+                "ObjectName": "BlueprintGeneratedClass'PlayerIsInDreamworld_C'",
+                "ObjectPath": "/K10/Blueprints/Conditions/PlayerIsInDreamworld.0"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 1033
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1034,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_IsTimerDone_conditionReceiver_CastInput",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_And_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'AndModifierCondition'",
+                  "ObjectPath": "/Script/Competence"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 1070,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_IsTimerDone_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'IsTimerDoneCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:IsTimerDone'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_IsTimerDone_conditionReceiver_CastInput",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_InstanceVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "BlueprintGeneratedClass'DreamworldRevealToKiller_C'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.0"
+                },
+                "Property": {
+                  "Type": "ObjectProperty",
+                  "Name": "CooldownTimer",
+                  "Flags": "RF_Public | RF_LoadCompleted",
+                  "ElementSize": 8,
+                  "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+                  "PropertyClass": {
+                    "ObjectName": "Class'TimerObject'",
+                    "ObjectPath": "/Script/NetworkUtilities"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 1108
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1109,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_Not_conditionReceiver_CastInput",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_And_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'AndModifierCondition'",
+                  "ObjectPath": "/Script/Competence"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 1145,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_Not_ReturnValue",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'NotModifierCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:Not'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_Not_conditionReceiver_CastInput",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_Let",
+        "StatementIndex": 1174,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "InterfaceProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput_1",
+              "Flags": "RF_Public",
+              "ElementSize": 16,
+              "PropertyFlags": "UObjectWrapper",
+              "InterfaceClass": {
+                "ObjectName": "Class'ConditionReceiver'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_ObjToInterfaceCast",
+          "InterfaceClass": {
+            "ObjectName": "Class'ConditionReceiver'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Target": {
+            "Inst": "EX_LocalVariable",
+            "Variable": {
+              "Owner": {
+                "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+              },
+              "Property": {
+                "Type": "ObjectProperty",
+                "Name": "CallFunc_Not_ReturnValue",
+                "Flags": "RF_Public",
+                "ElementSize": 8,
+                "PropertyFlags": "InstancedReference",
+                "PropertyClass": {
+                  "ObjectName": "Class'NotModifierCondition'",
+                  "ObjectPath": "/Script/Competence"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LetObj",
+        "StatementIndex": 1210,
+        "Variable": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+              "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+            },
+            "Property": {
+              "Type": "ObjectProperty",
+              "Name": "CallFunc_CreateAndReceiveConditionForBP_ReturnValue_1",
+              "Flags": "RF_Public",
+              "ElementSize": 8,
+              "PropertyFlags": "InstancedReference",
+              "PropertyClass": {
+                "ObjectName": "Class'EventDrivenModifierCondition'",
+                "ObjectPath": "/Script/Competence"
+              }
+            }
+          }
+        },
+        "Expression": {
+          "Inst": "EX_CallMath",
+          "Function": {
+            "ObjectName": "Class'ConditionFactory:CreateAndReceiveConditionForBP'",
+            "ObjectPath": "/Script/Competence"
+          },
+          "Parameters": [
+            {
+              "Inst": "EX_LocalVariable",
+              "Variable": {
+                "Owner": {
+                  "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+                  "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+                },
+                "Property": {
+                  "Type": "InterfaceProperty",
+                  "Name": "CallFunc_CreateAndReceiveConditionForBP_conditionReceiver_CastInput_1",
+                  "Flags": "RF_Public",
+                  "ElementSize": 16,
+                  "PropertyFlags": "UObjectWrapper",
+                  "InterfaceClass": {
+                    "ObjectName": "Class'ConditionReceiver'",
+                    "ObjectPath": "/Script/Competence"
+                  }
+                }
+              }
+            },
+            {
+              "Inst": "EX_ObjectConst",
+              "Value": {
+                "ObjectName": "BlueprintGeneratedClass'IsInTerrorRadius_C'",
+                "ObjectPath": "/Game/Blueprints/Perks/PerkConditions/IsInTerrorRadius.0"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Inst": "EX_PopExecutionFlow",
+        "StatementIndex": 1248
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 1249,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 1251
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInitialized",
+    "Outer": "DreamworldRevealToKiller_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Class'GameplayModifierContainer:OnInitialized'",
+      "ObjectPath": "/Script/DeadByDaylight"
+    },
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+          "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 15
+          }
+        ],
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.ExecuteUbergraph_DreamworldRevealToKiller[15]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnIsInTerrorRadiusChanged_Event_0",
+    "Outer": "DreamworldRevealToKiller_C",
+    "Class": "UScriptClass'Function'",
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 0,
+        "Function": {
+          "ObjectName": "Function'DreamworldRevealToKiller_C:ExecuteUbergraph_DreamworldRevealToKiller'",
+          "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.3"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 367
+          }
+        ],
+        "ObjectPath": "/K10/Blueprints/StatusEffects/DreamworldRevealToKiller.ExecuteUbergraph_DreamworldRevealToKiller[367]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 15,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 17
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  }
+]

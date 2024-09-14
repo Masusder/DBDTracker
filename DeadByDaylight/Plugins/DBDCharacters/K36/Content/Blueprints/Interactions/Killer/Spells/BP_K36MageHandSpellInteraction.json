@@ -1,0 +1,183 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_K36MageHandSpellInteraction_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'K36MageHandSpellInteraction'",
+      "ObjectPath": "/Script/TheK36"
+    },
+    "ClassFlags": "CLASS_Config | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_K36MageHandSpellInteraction_C'Default__BP_K36MageHandSpellInteraction_C'",
+      "ObjectPath": "/K36/Blueprints/Interactions/Killer/Spells/BP_K36MageHandSpellInteraction.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_K36MageHandSpellInteraction_C",
+    "Name": "Default__BP_K36MageHandSpellInteraction_C",
+    "Class": "BlueprintGeneratedClass'/K36/Blueprints/Interactions/Killer/Spells/BP_K36MageHandSpellInteraction.BP_K36MageHandSpellInteraction_C'",
+    "Properties": {
+      "_mageHandClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_K36MageHand_C'",
+        "ObjectPath": "/K36/Blueprints/Actors/Power/BP_K36MageHand.2"
+      },
+      "_palletSelectionComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_K36MageHandPalletSelectionComponent_C'",
+        "ObjectPath": "/K36/Blueprints/Components/Killer/BP_K36MageHandPalletSelectionComponent.0"
+      },
+      "_chargeSpellTime": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+            "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+          },
+          "RowName": "SpellChargeTime"
+        }
+      },
+      "_activatedExitDuration": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+            "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+          },
+          "RowName": "ExitInteractionTime_AcivatedSpell"
+        }
+      },
+      "_cancelExitDuration": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+            "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+          },
+          "RowName": "ExitInteractionTime_CancelledSpell"
+        }
+      },
+      "_initialSpellCooldown": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+              "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+            },
+            "RowName": "Cooldown_IntroCooldown"
+          }
+        }
+      },
+      "_activatedSpellCooldownTime": {
+        "_baseValue": {
+          "_dataTableRowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+              "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+            },
+            "RowName": "Cooldown_ActivatedSpell"
+          }
+        }
+      },
+      "_cancelledSpellCooldownTime": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+            "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+          },
+          "RowName": "Cooldown_CancelledSpell"
+        }
+      },
+      "_cooldownPreventionThresholdInSeconds": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+            "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+          },
+          "RowName": "Cooldown_ChargeThresholdInSeconds"
+        }
+      },
+      "_cooldownReductionAfterSuccessfullBasicAttack": {
+        "_dataTableRowHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'K36_TunableValue'",
+            "ObjectPath": "/K36/Data/Game/K36_TunableValue.0"
+          },
+          "RowName": "Addon_14_CooldownReductionOnBasicAttackSuccess"
+        }
+      },
+      "_speedCurvesData": [
+        {
+          "SpeedCurveType": "EK36SpellSpeedCurveType::ChargeSpeedCurve",
+          "SpeedCurveData": {
+            "SpeedCurve": {
+              "ObjectName": "CurveFloat'BP_K36_Curve_Interaction_MageHand_Charge'",
+              "ObjectPath": "/K36/Blueprints/Curves/Interactions/Spells/MageHand/BP_K36_Curve_Interaction_MageHand_Charge.0"
+            },
+            "Duration": {
+              "_dataTableRowHandle": {
+                "DataTable": {
+                  "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+                  "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+                },
+                "RowName": "SpellChargeTime"
+              },
+              "_defaultValue": 1.0,
+              "_isOptional": false
+            },
+            "AutoRemove": false
+          }
+        },
+        {
+          "SpeedCurveType": "EK36SpellSpeedCurveType::ActiveSpellCooldownCurve",
+          "SpeedCurveData": {
+            "SpeedCurve": {
+              "ObjectName": "CurveFloat'BP_K36_Curve_Interaction_MageHand_Exit_Activated'",
+              "ObjectPath": "/K36/Blueprints/Curves/Interactions/Spells/MageHand/BP_K36_Curve_Interaction_MageHand_Exit_Activated.0"
+            },
+            "Duration": {
+              "_dataTableRowHandle": {
+                "DataTable": {
+                  "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+                  "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+                },
+                "RowName": "ExitInteractionTime_AcivatedSpell"
+              },
+              "_defaultValue": 1.0,
+              "_isOptional": false
+            },
+            "AutoRemove": true
+          }
+        },
+        {
+          "SpeedCurveType": "EK36SpellSpeedCurveType::CancelSpellCooldownCurve",
+          "SpeedCurveData": {
+            "SpeedCurve": {
+              "ObjectName": "CurveFloat'BP_K36_Curve_Interaction_MageHand_Exit_Cancelled'",
+              "ObjectPath": "/K36/Blueprints/Curves/Interactions/Spells/MageHand/BP_K36_Curve_Interaction_MageHand_Exit_Cancelled.0"
+            },
+            "Duration": {
+              "_dataTableRowHandle": {
+                "DataTable": {
+                  "ObjectName": "DataTable'DB_K36_MageHandSpell'",
+                  "ObjectPath": "/K36/Data/Game/K36Power/Spells/DB_K36_MageHandSpell.0"
+                },
+                "RowName": "ExitInteractionTime_CancelledSpell"
+              },
+              "_defaultValue": 1.0,
+              "_isOptional": false
+            },
+            "AutoRemove": true
+          }
+        }
+      ],
+      "UseAuthoritativeMovement": false,
+      "CanAuthoritativePush": false
+    }
+  }
+]
