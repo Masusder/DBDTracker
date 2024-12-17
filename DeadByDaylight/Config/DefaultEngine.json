@@ -687,6 +687,9 @@ DefaultPhysMaterialName=/Game/Materials/PhysicalMaterials/PM_Default.PM_Default
 -ActiveClassRedirects=(OldClassName="SlateWidgetStyleContainerBase", NewClassName="/Script/SlateCore.SlateWidgetStyleContainerBase")
 -ActiveClassRedirects=(OldClassName="EmitterSpawnable", NewClassName="/Script/Engine.Emitter")
 -ActiveClassRedirects=(OldClassName="EBoneSpaces",NewClassName="/Script/Engine.SkinnedMeshComponent:EBoneSpaces")
++ActiveClassRedirects=(OldClassName="CalamariCage",NewClassName="/Script/Calamari.CalamariCage")
++ActiveClassRedirects=(OldClassName="CalamariCageRescueInteraction",NewClassName="/Script/Calamari.CalamariCageRescueInteraction")
++ActiveClassRedirects=(OldClassName="SendToCalamariCageInteraction",NewClassName="/Script/Calamari.SendToCalamariCageInteraction")
 +ActiveStructRedirects=(OldStructName="ImpactInfo",NewStructName="/Script/Projectile.ImpactInfo")
 +ActiveStructRedirects=(OldStructName="LaunchInfo",NewStructName="/Script/Projectile.LaunchInfo")
 +ActiveStructRedirects=(OldStructName="VimDebugData",NewStructName="AnimBlueprintDebugData")
@@ -784,6 +787,18 @@ Root=(Type=Hierarchical, Inner=Local, Inner=Shared)
 Local=(Type=FileSystem, PurgeTransient=true, UnusedFileAge=34, PromptIfMissing=true, Path=C:\production\DeadByDaylight_UE5_DDC, EnvPathOverride=UE-LocalDataCachePath, EditorOverrideSetting=LocalDerivedDataCache, CommandLineOverride=LocalDataCachePath)
 Shared=(Type=FileSystem, UnusedFileAge=7, FoldersToClean=10, ConsiderSlowAt=70, Path=\\dbd-ddc.ad.bhvr.com\ddc\UE_DDC, EnvPathOverride=UE-SharedDataCachePath, EditorOverrideSetting=SharedDerivedDataCache, CommandLineOverride=SharedDataCachePath)
 
+[Core.ContentVirtualization]
+SystemName=Default
+
+[Core.VirtualizationModule]
+BackendGraph=VABackendGraph_Perforce
+
+[VABackendGraph_Perforce]
+PersistentStorageHierarchy=(Entry=SourceControlCache)
+CacheStorageHierarchy=(Entry=DDCCache)
+SourceControlCache=(Type=p4SourceControl, DepotRoot="//DeadByDaylight/VirtualAssets", ClientStream="//DeadByDaylight/VirtualAssets")
+DDCCache=(Type=DDCBackend)
+
 [/Script/Paper2D.PaperRuntimeSettings]
 DefaultPixelsPerUnrealUnit=2.560000
 DefaultTranslucentSpriteMaterialName=/Paper2D/MaskedUnlitSpriteMaterial.MaskedUnlitSpriteMaterial
@@ -837,6 +852,9 @@ EncryptionComponent=AESHandlerComponent
 
 [NetworkEncryption]
 UseEncryption=false
+
+[/Script/Engine.NetworkSettings]
+n.VerifyPeer=true
 
 [HTTP]
 HttpTimeout=30
@@ -934,11 +952,11 @@ NavMeshResolutionParams[1]=(CellSize=10.000000,CellHeight=18.000000)
 NavMeshResolutionParams[2]=(CellSize=5.000000,CellHeight=18.000000)
 AgentRadius=45.000000
 AgentHeight=180.000000
-AgentMaxSlope=45.000000
+AgentMaxSlope=44.765083
 AgentMaxStepHeight=45.000000
 MinRegionArea=1.000000
 MergeRegionSize=140.000000
-MaxSimplificationError=4.000000
+MaxSimplificationError=1.000000
 MaxSimultaneousTileGenerationJobsCount=1024
 TileNumberHardLimit=1048576
 DefaultDrawDistance=5000.000000
@@ -982,7 +1000,7 @@ CellHeight=10.000000
 AgentRadius=164.000000
 AgentHeight=180.000000
 AgentMaxHeight=160.000000
-AgentMaxSlope=45.000000
+AgentMaxSlope=44.765083
 AgentMaxStepHeight=45.000000
 MinRegionArea=1.0000
 MergeRegionSize=140.000000
@@ -1021,7 +1039,7 @@ PartyFacade=Verbose
 LogRealTimeMessaging=Log
 LogWebSocket=Verbose
 LogDBDPlayerMovement=Log
-LogDBDEasyAntiCheat=Verbose
+LogDBDEasyAntiCheat=Log
 LogAnalytics=Verbose
 LogHttp=Log
 LogFlashlight=Log
@@ -1030,7 +1048,7 @@ LogFlashlight=Log
 bTickAnimationOnSkeletalMeshInit=false
 
 [/Script/EngineSettings.GameMapsSettings]
-EditorStartupMap=/Game/Maps/Zoo/GameplayZoo.GameplayZoo
+EditorStartupMap=/Game/Maps/Zoo/GameplayZoo_K38.GameplayZoo_K38
 LocalMapOptions=
 TransitionMap=
 bUseSplitscreen=True
@@ -1145,6 +1163,18 @@ SupportedAgentsMask=(bSupportsAgent0=True,bSupportsAgent1=True,bSupportsAgent2=T
 DirtyAreasUpdateFreq=60.000000
 
 [CoreRedirects]
++ClassRedirects=(OldName="SlasherPlayer",NewName="Killer")
++ClassRedirects=(OldName="CamperPlayer",NewName="Survivor")
++ClassRedirects=(OldName="EnterLockerInteraction",NewName="LockerEnterInteraction")
++FunctionRedirects=(OldName="SetCollisionWithCloset",NewName="SetCollisionWithLocker")
++FunctionRedirects=(OldName="GetPlayerInCloset",NewName="GetPlayerInLocker")
++FunctionRedirects=(OldName="IsInteractingPlayerInsideCloset",NewName="IsInteractingPlayerInsideLocker")
++FunctionRedirects=(OldName="GetPlayerInClosetLocation",NewName="GetPlayerInLockerLocation")
++StructRedirects=(OldName="KillerClosetActorsTypes",NewName="KillerLockerActorsTypes")
++FunctionRedirects=(OldName="RevealClosetsAmmoActorInRange",NewName="RevealLockersAmmoActorInRange")
++ClassRedirects=(OldName="ClosetHideInteraction",NewName="LockerAccessInteraction")
++ClassRedirects=(OldName="ClosetHideEnterInteraction",NewName="EnterLockerInteraction")
++ClassRedirects=(OldName="QuesitaClosetHideEnterInteraction",NewName="QuesitaEnterLockerInteraction")
 -FunctionRedirects=(OldName="KismetMathLibrary.Multiply_FloatFloat", NewName="Multiply_DoubleDouble")
 -FunctionRedirects=(OldName="KismetMathLibrary.Divide_FloatFloat", NewName="Divide_DoubleDouble")
 -FunctionRedirects=(OldName="KismetMathLibrary.Add_FloatFloat", NewName="Add_DoubleDouble")
@@ -1188,10 +1218,6 @@ DirtyAreasUpdateFreq=60.000000
 +FunctionRedirects=(OldName="SlasherPlayer.UpdateWalkSurfaceNameSimplified", NewName="DBDBasePlayer.UpdateWalkSurfaceNameSimplified")
 +FunctionRedirects=(OldName="DBDPlayer.GetAudioComponent", NewName="DBDBasePlayer.GetAudioComponent")
 +FunctionRedirects=(OldName="DBDPlayer.GetCustomizedAudio", NewName="DBDBasePlayer.GetCustomizedAudio")
-+FunctionRedirects=(OldName="DBDPlayer.SetLeftFootAudioSurfaceName", NewName="DBDBasePlayer.SetLeftFootAudioSurfaceName")
-+FunctionRedirects=(OldName="DBDPlayer.SetRightFootAudioSurfaceName", NewName="DBDBasePlayer.SetRightFootAudioSurfaceName")
-+FunctionRedirects=(OldName="DBDPlayer.GetLeftFootAudioSurfaceName", NewName="DBDBasePlayer.GetLeftFootAudioSurfaceName")
-+FunctionRedirects=(OldName="DBDPlayer.GetRightFootAudioSurfaceName", NewName="DBDBasePlayer.GetRightFootAudioSurfaceName")
 +FunctionRedirects=(OldName="Searchable.GetHasBeenSearched", NewName="Searchable.HasBeenSearched")
 +FunctionRedirects=(OldName="BaseModifierContainer.OnInstantiateModifierConditions", NewName="BaseModifierContainer.Authority_OnInstantiateModifierConditions")
 +FunctionRedirects=(OldName="VersioningUtilities.ShouldUseGestureContent", NewName="VersioningUtilities.IsVisualRework")
@@ -1234,6 +1260,10 @@ DirtyAreasUpdateFreq=60.000000
 +PropertyRedirects=(OldName="InteractionDefinition.SecondaryInteractionProperties",NewName="BaseModifierContainer.DEPRECATED_SecondaryInteractionProperties")
 +PropertyRedirects=(OldName="Material.bIsFoliageBHVR",NewName="Material.bIsDenseGeometryBHVR")
 +PropertyRedirects=(OldName="ObjectPlacerComponent._trapMesh",NewName="ObjectPlacerComponent._objectMesh")
+
++ClassRedirects=(OldName="/Script/Validators.ValidatorCustomData",NewName="/Script/DBDDataValidation.ValidatorCustomData")
++ClassRedirects=(OldName="/Script/Validators.ValidatorIgnoredAssets",NewName="/Script/DBDDataValidation.ValidatorIgnoredAssets")
+
 +ClassRedirects=(OldName="/Script/TheExecutioner.CageInteractable",NewName="/Script/TheExecutioner.DeathBedInteractable")
 +ClassRedirects=(OldName="/Script/TheOnryo.Addon_TheOnryo_17",NewName="/Script/TheOnryo.Addon_K27Power_17")
 +ClassRedirects=(OldName="/Script/GameplayUtilities.GameplayTagContainerComponent",NewName="/Script/GameplayTagUtilities.GameplayTagContainerComponent")
@@ -1337,6 +1367,8 @@ DirtyAreasUpdateFreq=60.000000
 +ClassRedirects=(OldName="/Script/DeadByDaylight.DBDMarketingCameraController", NewName="/Script/DBDCheats.DBDMarketingCameraController")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.CosmeticGameplayMutator", NewName="/Script/Mutators.CosmeticGameplayMutator")
 +ClassRedirects=(OldName="/Script/DeadByDaylight.AddPlayerStatusEffectGameplayMutator", NewName="/Script/Mutators.PlayerSpawningEffectGameplayMutator")
++ClassRedirects=(OldName="/Script/Archives.ActorPathFollowingComponent", NewName="/Script/DBDGameplay.ActorPathFollowingComponent")
++ClassRedirects=(OldName="/Script/DeadByDaylight.ActorNavMovementComponent", NewName="/Script/DBDGameplay.ActorNavMovementComponent")
 +StructRedirects=(OldName="/Script/DeadByDaylight.PhaseWalkInfo", NewName="/Script/TheSpirit.PhaseWalkInfo")
 +StructRedirects=(OldName="/Script/DeadByDaylight.AtlantaFriendUIData", NewName="/Script/DBDUIViewsMobile.AtlantaFriendUIData")
 +StructRedirects=(OldName="/Script/DeadByDaylight.FriendStatusUIData", NewName="/Script/DBDUIViewsMobile.FriendStatusUIData")
@@ -1546,6 +1578,14 @@ DirtyAreasUpdateFreq=60.000000
 +PropertyRedirects=(OldName="/Script/DBDGameplay.Portal._survivorCameraSocketPositionWhenExiting",NewName="/Script/DBDGameplay.Portal._survivorCameraSocketWhenExiting")
 +ClassRedirects=(OldName="/Script/DBDAnimation.PlayerCollisionTriggeredAnimInstance",NewName="/Script/DBDAnimation.OnPlayerOverlapAnimInstance")
 +ClassRedirects=(OldName="/Script/DBDCompetence.DidGameEventOccurred",NewName="/Script/DBDCompetence.OnGameEventTriggered")
++FunctionRedirects=(OldName="/Script/DBDCompetence.BloodEcho.GetCooldownDurationAtLevel",NewName="/Script/DBDCompetence.BloodEcho.GetStatusEffectDurationAtLevel")
+
++FunctionRedirects=(OldName="LoadBankAsync", NewName="/Script/DBDAudio.AudioUtilities.DBD_LoadAudioBankWithCallback")
++FunctionRedirects=(OldName="UnloadBankAsync", NewName="/Script/DBDAudio.AudioUtilities.DBD_UnloadAudioBankWithCallback")
++PropertyRedirects=(OldName="/Script/DBDSharedTypes.ColorTripleDataAsset.MainColor",NewName="/Script/DBDSharedTypes.ColorTripleDataAsset.PrimaryColor")
++PropertyRedirects=(OldName="/Script/DBDSharedTypes.MenuSkinDataAsset.ScrollBarColorData",NewName="/Script/DBDSharedTypes.MenuSkinDataAsset.MainColor")
++PropertyRedirects=(OldName="/Script/DBDSharedTypes.MenuSkinDataAsset.PreviewBGTintColorData",NewName="/Script/DBDSharedTypes.MenuSkinDataAsset.ContrastColor")
++StructRedirects=(OldName="/Script/DeadByDaylight.EventSubstitionData",NewName="/Script/DeadByDaylight.EventSubstitutionData")
 
 [/Script/Engine.ProxyLODMeshSimplificationSettings]
 r.ProxyLODMeshReductionModule=SimplygonPluginMeshReduction
@@ -1632,10 +1672,11 @@ DefaultGenerationMode=SGM_Baked
 +Profiles=(Name="AudioOverrideMesh",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Audio",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore),(Channel="Walkable")),HelpMessage="Used on invisible audio mesh to trigger different footsteps.")
 +Profiles=(Name="AuthoritativeMovementCollision",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="PawnDetector",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="PawnDetector",Response=ECR_Overlap),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
 +Profiles=(Name="BasementDetection",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Collision Preset to be used for basement detection zones only. Used to check if a pawn has entered the basement.")
-+Profiles=(Name="BlinkBlocker",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="BlinkBlocker",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher"),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="Blink"),(Channel="Unused")),HelpMessage="Needs description")
++Profiles=(Name="BlinkBlocker",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="Blink"),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="To prevent TheNurse from blinking there. She won\'t be able to go through either.")
 +Profiles=(Name="BlockAll",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore),(Channel="Walkable")),HelpMessage="WorldStatic object that blocks all actors by default. All new custom channels will use its own default response. ")
 +Profiles=(Name="BlockAllDynamic",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore),(Channel="Walkable")),HelpMessage="WorldDynamic object that blocks all actors by default. All new custom channels will use its own default response. ")
 +Profiles=(Name="BlockAllDynamicFoliage",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that blocks all actors by default. All new custom channels will use its own default response.")
++Profiles=(Name="CageHooks",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="Interactable"),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore),(Channel="Walkable")),HelpMessage="Used for cage hooks collision")
 +Profiles=(Name="CameraBlocker",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
 +Profiles=(Name="CameraCharacterBlocker",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher"),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Blocks characters and their cameras")
 +Profiles=(Name="Character_Dy",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Character Dy settings")
@@ -1644,17 +1685,22 @@ DefaultGenerationMode=SGM_Baked
 +Profiles=(Name="Debris",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Camera"),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore)),HelpMessage="For environmental debris. This won’t block navigation in any way but will still be considered as ground for items and projectiles.")
 +Profiles=(Name="Destructible",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="Destructible",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Destructible actors")
 +Profiles=(Name="DetectPawn",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
++Profiles=(Name="DogGrab",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
++Profiles=(Name="FlamePillar",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
 +Profiles=(Name="Flashlight",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="PawnDetector",Response=ECR_Overlap),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
++Profiles=(Name="FOTDProjectile",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Slasher",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Flight of the damned projectile")
 +Profiles=(Name="FX",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="FX",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="For all your visual FX needs")
 +Profiles=(Name="Ground",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="Ground",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="World",Response=ECR_Overlap),(Channel="Walkable")),HelpMessage="Ground object that blocks all actors by default. All new custom channels will use its own default response. ")
 +Profiles=(Name="GroundNonBlocking",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="World",Response=ECR_Overlap),(Channel="Blink",Response=ECR_Overlap),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
 +Profiles=(Name="Hooks",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore),(Channel="Walkable")),HelpMessage="Collison for hooks")
++Profiles=(Name="Husk",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Pawn",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Slasher"),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore)),HelpMessage="Husk collision")
 +Profiles=(Name="IgnoreOnlyPawn",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Interactable"),(Channel="Audio"),(Channel="Slasher",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that ignores Pawn and Vehicle. All other channels will be set to default.")
 +Profiles=(Name="Interactable",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Interactable",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Used by interactable zones so they can overlap with players but not interact with anything else")
 +Profiles=(Name="InteractionDetector",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="InteractionDetector",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Needs description")
 +Profiles=(Name="InvisibleWall",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Interactable"),(Channel="Audio"),(Channel="Slasher"),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="WorldStatic object that is invisible.")
 +Profiles=(Name="InvisibleWallDynamic",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Interactable"),(Channel="Audio"),(Channel="Slasher"),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that is invisible.")
 +Profiles=(Name="KillerDetector",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Unused1",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="WorldStatic object that overlaps with killers to detect them. Doesn\'t have any collision and doesn\'t react to anything other than killers")
++Profiles=(Name="KillerDetectorDynamic",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="")
 +Profiles=(Name="KillerPawn",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="Slasher",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher"),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker")),HelpMessage="Killer Pawn Collision")
 +Profiles=(Name="LineOfSightBlocker",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="To block line of sight only.")
 +Profiles=(Name="MapActor",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="MapActor",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="MapActor",Response=ECR_Overlap),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="MapActor should use this preset.")
@@ -1663,6 +1709,7 @@ DefaultGenerationMode=SGM_Baked
 +Profiles=(Name="OverlapAll",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel1",Response=ECR_Overlap),(Channel="EngineTraceChannel2",Response=ECR_Overlap),(Channel="EngineTraceChannel3",Response=ECR_Overlap),(Channel="EngineTraceChannel4",Response=ECR_Overlap),(Channel="EngineTraceChannel5",Response=ECR_Overlap),(Channel="EngineTraceChannel6",Response=ECR_Overlap),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="Blood",Response=ECR_Overlap),(Channel="MapActor",Response=ECR_Overlap),(Channel="FX",Response=ECR_Overlap),(Channel="PawnDetector",Response=ECR_Overlap),(Channel="World",Response=ECR_Overlap),(Channel="Blink",Response=ECR_Overlap),(Channel="Unused",Response=ECR_Overlap),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Overlap),(Channel="GroundNonBlocking",Response=ECR_Overlap),(Channel="Walkable",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ")
 +Profiles=(Name="OverlapAllDynamic",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that overlaps all actors by default. All new custom channels will use its own default response. ")
 +Profiles=(Name="OverlapOnlyPawn",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Interactable"),(Channel="Audio"),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that overlaps Pawn, Camera, and Vehicle. All other channels will be set to default. ")
++Profiles=(Name="OverlapWithWorld",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="MapActor",Response=ECR_Overlap),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Overlap)),HelpMessage="Collision for only overlapping with any objects in world, including ground and map actors")
 +Profiles=(Name="Pawn",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="Pawn",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Slasher"),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="Pawn object. Can be used for capsule of any playerable character or AI. ")
 +Profiles=(Name="PhysicsActor",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="Interactable"),(Channel="Audio"),(Channel="Slasher"),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="Simulating actors")
 +Profiles=(Name="PlayerOverlapDynamicDetector",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="World dynamic object that overlaps players (pawns and slashers)")
@@ -1676,13 +1723,12 @@ DefaultGenerationMode=SGM_Baked
 +Profiles=(Name="Structure",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore)),HelpMessage="For any kind of non walkable structure (Walls, decorations, actually anything that is a non walkable obstacle)")
 +Profiles=(Name="SurvivorPawn",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="Pawn",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher"),(Channel="Traps",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="Survivor Pawn Collision")
 +Profiles=(Name="TrapBlocker",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore)),HelpMessage="Needs description")
-+Profiles=(Name="TrapGround",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="Ground",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="World",Response=ECR_Overlap),(Channel="Walkable")),HelpMessage="Needs description")
 +Profiles=(Name="TrapPlacement",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Interactable",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher",Response=ECR_Ignore),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Ground",Response=ECR_Ignore)),HelpMessage="Used to place Trap interactables")
 +Profiles=(Name="Trigger",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that is used for trigger. All other channels will be set to default.")
 +Profiles=(Name="UI",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ")
 +Profiles=(Name="Vehicle",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="Vehicle",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="InteractionDetector",Response=ECR_Ignore)),HelpMessage="Vehicle object that blocks Vehicle, WorldStatic, and WorldDynamic. All other channels will be set to default.")
 +Profiles=(Name="WalkableStructure",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Interactable",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Walkable")),HelpMessage="For structures that aren’t ground, but placed in such a way that players can walk on them (Ex : Hay Stacks in corn field map).")
-+Profiles=(Name="CageHooks",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="Audio",Response=ECR_Ignore),(Channel="Blood",Response=ECR_Ignore),(Channel="Interactable",Response=ECR_Ignore),(Channel="Slasher"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Walkable",Response=ECR_Ignore)),HelpMessage="Used for cage hooks collision")
++Profiles=(Name="Snowman",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="Interactable"),(Channel="Slasher"),(Channel="Blood"),(Channel="InteractionDetector",Response=ECR_Ignore),(Channel="BlinkBlocker",Response=ECR_Ignore),(Channel="Walkable")),HelpMessage="Needs description")
 +DefaultChannelResponses=(Channel=ECC_GameTraceChannel1,DefaultResponse=ECR_Overlap,bTraceType=False,bStaticObject=False,Name="Interactable")
 +DefaultChannelResponses=(Channel=ECC_GameTraceChannel2,DefaultResponse=ECR_Overlap,bTraceType=False,bStaticObject=False,Name="Audio")
 +DefaultChannelResponses=(Channel=ECC_GameTraceChannel3,DefaultResponse=ECR_Overlap,bTraceType=False,bStaticObject=False,Name="Slasher")
@@ -1763,12 +1809,14 @@ bDisableActiveActors=False
 bDisableKinematicStaticPairs=False
 bDisableKinematicKinematicPairs=False
 bDisableCCD=False
-bEnableEnhancedDeterminism=False
 AnimPhysicsMinDeltaTime=0.000000
 bSimulateAnimPhysicsAfterReset=False
+MinPhysicsDeltaTime=0.000000
 MaxPhysicsDeltaTime=0.033333
 bSubstepping=False
 bSubsteppingAsync=False
+bTickPhysicsAsync=False
+AsyncFixedTimeStepSize=0.033333
 MaxSubstepDeltaTime=0.016667
 MaxSubsteps=6
 SyncSceneSmoothingFactor=0.000000
@@ -1816,7 +1864,8 @@ PhysXTreeRebuildRate=10
 +PhysicalSurfaces=(Type=SurfaceType40,Name="HardWood")
 +PhysicalSurfaces=(Type=SurfaceType41,Name="Mannequin")
 +PhysicalSurfaces=(Type=SurfaceType42,Name="TECH_Debris_Popcorn")
-DefaultBroadphaseSettings=(bUseMBPOnClient=False,bUseMBPOnServer=False,bUseMBPOuterBounds=False,MBPBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=0),MBPOuterBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=0),MBPNumSubdivs=2)
++PhysicalSurfaces=(Type=SurfaceType43,Name="Ice")
+DefaultBroadphaseSettings=(bUseMBPOnClient=False,bUseMBPOnServer=False,bUseMBPOuterBounds=False,MBPBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=False),MBPOuterBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=False),MBPNumSubdivs=2)
 MinDeltaVelocityForHitEvents=0.000000
 ChaosSettings=(DefaultThreadingModel=TaskGraph,DedicatedThreadTickMode=VariableCappedWithTarget,DedicatedThreadBufferMode=Double)
 
@@ -2009,13 +2058,26 @@ bForceRDOOff=False
 DefaultRDOLambda=30
 
 [Engine.BufferVisualizationMaterials]
-DBDScreenshotToolA=(Material="/Game/Tools/CustomizationTool/Screenshot/Buffer/DBDScreenshotToolA.DBDScreenshotToolA", Name=LOCTEXT("DBDScreenshotToolAMat", "DBD Screenshot Tool Alpha"))
+DBDScreenshotTool=(Material="/Game/Tools/CustomizationTool/Screenshot/Buffer/DBDScreenshotTool.DBDScreenshotTool", Name=LOCTEXT("DBDScreenshotToolMat", "DBD Screenshot Tool"))
 
 [AutomationTestExcludelist]
 +ExcludeTest=(Map="",Test="Project.Functional Tests.AutomationTests",Reason="Avoiding duplicates with GPR",RHIs=(),Warn=False)
 
 [/Script/AutomationController.AutomationControllerSettings]
 bElevateLogWarningsToErrors=False
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.AntiCamp.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.ExitGate.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Generator.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Hatch.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Hook.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Interactions.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Locker.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Mori.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Pallet.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.StatusEffects.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Totem.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.UnitTest-Damage.", MatchFromStart=true)))
++Groups=(Name="CriticalGameplayRoomTests", Filters=((Contains="DeadByDaylight.GameplayRoomTest.Gameplay.Window.", MatchFromStart=true)))
 
 
 [=/Script/Engine.CollisionProfile]
@@ -2055,4 +2117,33 @@ MulticastEndpoint=230.0.0.1:32666
 
 [/Script/SmartCollisionProfiles.SmartCollisionSettings]
 bAllowCustomCollisionProfiles=False
+
+
+[/Script/OnlineSubsystemEOS.EOSSettings]
+CacheDir=CacheDir
+TickBudgetInMilliseconds=0
+bEnableOverlay=False
+bEnableSocialOverlay=False
+bShouldEnforceBeingLaunchedByEGS=False
+TitleStorageReadChunkLength=0
++Artifacts=(ArtifactName="DBDClient",ClientId="xyza7891sHd847UxB4pnxZ30OhQEqMet",ClientSecret="IwX4H8ndCna4GTiD8LTY2OxjH2gpnnbKzq4Bhqd/ntE",ProductId="2b2299be8ae84d679d4dc57c55af1510",SandboxId="611482b8586142cda48a0786eb8a127c",DeploymentId="e5c7f466abde4f7ba13c2ffc71a1efc1",EncryptionKey="7bd252465452550d47f5767370f103617ecaed11b31843a9d32ec8d8e56e3dcf")
+bUseEAS=False
+bUseEOSConnect=True
+bMirrorStatsToEOS=False
+bMirrorAchievementsToEOS=False
+bUseEOSSessions=False
+bMirrorPresenceToEAS=False
+
+
+[EOSShared]
+bEnableApiVersionWarnings=false
+
+[/Script/Qos.QosRegionManager]
+NumTestsPerRegion=3
+PingTimeout=2.000000
+bEnableSubspaceBiasOrder=False
+SubspaceDelimiter=_
+
+[Linux.Automation]
+SentryCLILocation=DeadByDaylight\Extras\Sentry\Bin\sentry-cli-Windows-x86_64.exe
 
